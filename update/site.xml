@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+	<feature id="org.openclover.eclipse.feature"
+			 url="features/org.openclover.eclipse.feature_4.5.0.v20231004000000.jar"
+			 version="4.5.0.v20231004000000"
+			 label="OpenClover (4.5.0.v20231004000000)">
+        <category name="clover4.5.0.v20231004000000"/>
+	</feature>
+
+	<feature id="org.openclover.eclipse.ant.feature"
+			 url="features/org.openclover.eclipse.ant.feature_4.5.0.v20231004000000.jar"
+			 version="4.5.0.v20231004000000"
+			 label="OpenClover Ant Support (4.5.0.v20231004000000)">
+        <category name="clover4.5.0.v20231004000000"/>
+	</feature>
+
+    <category-def name="clover4.5.0.v20231004000000" label="OpenClover 4.5.0.v20231004000000"/>
+</site>
