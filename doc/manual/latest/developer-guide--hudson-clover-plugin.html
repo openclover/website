@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : Hudson Clover Plugin Developer Guide</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="developer-guide.html">Clover Development Hub</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Hudson Clover Plugin Developer Guide
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+
+                    <div class="alert alert-warning">
+                        Please note that both Hudson 2 and 3 are no longer developed, so we recommend to focus
+                        your efforts on maintaining a similar Jenkins Clover Plugin.
+                    </div>
+
+                    <div class="confluence-information-macro-body"><p>Hudson was migrated to the Eclipse Foundation.
+                        It's being hosted on the <a  href="http://eclipse.org/hudson/"
+                                                    rel="nofollow">http://eclipse.org/hudson/</a> site (mailing list <a
+                                 href="mailto:hudson-dev@eclipse.org" rel="nofollow">hudson-dev@eclipse.org</a>).
+                        The old site <a  href="http://hudson-ci.org/" rel="nofollow">http://hudson-ci.org/</a>
+                        is still available and hosts plugins not under by EPL license (including Clover-for-Hudson).
+                        Sources were forked into two streams:</p>
+                        <ul>
+                            <li>Hudson 2 - <a  href="https://github.com/hudson2-plugins"
+                                              rel="nofollow">https://github.com/hudson2-plugins</a></li>
+                            <li>Hudson 3 - <a  href="https://github.com/hudson3-plugins"
+                                              rel="nofollow">https://github.com/hudson3-plugins</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <h1 id="HudsonCloverPluginDeveloperGuide-Hudson2">Hudson 2</h1>
+                <ul>
+                    <li>source repository is here: <strong>git@github.com/hudson2-plugins/clover-plugin.git</strong> 
+                    </li>
+                    <li>you can run Hudson with the Clover plug-in installed via:<br/><span
+                            style="color: rgb(0,0,0);"><strong>mvn clean hpi:run</strong></span><br/>
+                        <ul>
+                            <li>it starts Hudson on localhost:8080 by default, open it in a web browser</li>
+                            <li>open &quot;Manage Hudson&quot; &gt; &quot;Manage plugins&quot; &gt; &quot;Installed&quot;
+                                and check if new &quot;Hudson Clover Plugin&quot; is listed
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h1 id="HudsonCloverPluginDeveloperGuide-Hudson3">Hudson 3</h1>
+                <h2 style="margin-left: 0.0px;" id="HudsonCloverPluginDeveloperGuide-Preconditions">Preconditions</h2>
+                <ul style="margin-left: 0.0px;">
+                    <li style="margin-left: 0.0px;">You are a member of the Hudson Plug-in Development team,
+                        including:<br/>
+                        <ul>
+                            <li style="margin-left: 0.0px;">permissions to publish release artifacts on <a
+
+                                    href="https://oss.sonatype.org/content/repositories/releases/org/hudsonci/plugins/clover"
+                                    rel="nofollow"><span class="nolink">https://oss.sonatype.org/content/repositories/releases/org/hudsonci/plugins/clover</span></a>
+                            </li>
+                            <li style="margin-left: 0.0px;">write permissions in master git repository on <a
+                                     href="https://github.com/hudson3-plugins/clover-plugin"
+                                    rel="nofollow">https://github.com/hudson3-plugins/clover-plugin</a></li>
+                            <li style="margin-left: 0.0px;"><span>account on Hudson Wiki in order to edit the <span
+                                    class="nolink"><a
+                                                      href="http://wiki.hudson-ci.org/display/HUDSON/Clover+Plugin"
+                                                      rel="nofollow">http://wiki.hudson-ci.org/display/HUDSON/Clover+Plugin</a></span> page</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li>You have proper credentials in ~/.m2/settings.xml</li>
+                </ul>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;server&gt;
+    &lt;id&gt;sonatype-nexus-snapshots&lt;/id&gt;
+    &lt;username&gt;xxxxxx&lt;/username&gt;
+    &lt;password&gt;xxxxxx&lt;/password&gt;
+&lt;/server&gt;
+&lt;server&gt;
+    &lt;id&gt;sonatype-nexus-staging&lt;/id&gt;
+    &lt;username&gt;xxxxxx&lt;/username&gt;
+    &lt;password&gt;xxxxxx&lt;/password&gt;
+&lt;/server&gt;</pre>
+                    </div>
+                </div>
+                <ul>
+                    <li>JAVA_HOME points to <strong>JDK1.6+</strong></li>
+                    <li>M2_HOME points to <strong>Maven 3.0.4+</strong> (otherwise checksum validation will fail on OSS)
+                    </li>
+                    <li>You have GPG signature configured to sign artifacts</li>
+                </ul>
+                <h2 id="HudsonCloverPluginDeveloperGuide-Buildandtest">Build and test</h2>
+                <ol>
+                    <li>Clone the <strong>git@github.com/hudson3-plugins/clover-plugin.git</strong></li>
+                    <li><span style="color: rgb(0,0,0);">Create a bug on <a
+                                                                            href="https://bugs.eclipse.org"
+                                                                            rel="nofollow"><span class="nolink">https://bugs.eclipse.org</span></a> (Hudson project, Plugins component) for the issue you are fixing.</span>
+                    </li>
+                    <li>Make the necessary changes</li>
+                    <li>Bump the plug-in version number (in pom.xml).<br/>Bump the <em>org.openclover:clover</em>
+                        version number if necessary (in pom.xml). <br/>Try to avoid bumping <em>org.eclipse.hudson.plugins:hudson-plugin-parent</em>
+                        version to ensure compatibility with version 3.0.0 upwards.
+                    </li>
+                    <li>Test by running Hudson with the Clover plugin installed and setting up a &quot;Clovered&quot;
+                        project for CI. This can be achieved via:<br/><span style="color: rgb(0,0,0);"><strong>mvn clean hpi:run</strong></span><br/>
+                        <ol>
+                            <li>it starts Hudson on localhost:8080 by default, open it in web browser</li>
+                            <li>open &quot;Manage Hudson&quot; &gt; &quot;Manage plugins&quot; &gt; &quot;Installed&quot;
+                                and check if new &quot;Hudson Clover Plugin&quot; is listed
+                            </li>
+                            <li>configure new project (you can use MoneyBags as a test case) and a build job (e.g.
+                                &quot;freestyle project&quot; with &quot;ant task&quot;)
+                            </li>
+                            <li>configure &quot;Post-build actions&quot; &gt; &quot;Publish Clover Coverage Report&quot;
+                                in the build job
+                            </li>
+                            <li>run &quot;Build now&quot; and check if Clover summary report is available</li>
+                        </ol>
+                    </li>
+                    <li>Commit changes and push to GitHub. Include your Bugzilla bug ID from above in the commit
+                        line.<span> </span></li>
+                </ol>
+                <h2 id="HudsonCloverPluginDeveloperGuide-Releaseandpublish">Release and publish</h2>
+                <p>Detailed instruction <a
+                                           href="http://wiki.hudson-ci.org/display/HUDSON/Releasing+Hudson+Plugin"
+                                           rel="nofollow">here</a>. If this is your first time publishing a Hudson
+                    release, allow at least a day or two for Sonatype to process your JIRA requests, set you up and
+                    eventually enable Central Sync.</p>
+                <p><strong>Steps in short:</strong></p>
+                <ol>
+                    <li>Go to your local clover-plugin workspace and type<br/><span style="color: rgb(51,51,153);">    mvn release:clean</span><br/><span
+                            style="color: rgb(51,51,153);">    mvn release:prepare -DpushChanges=false</span><br/><span
+                            style="color: rgb(51,51,153);">    mvn release:perform -DlocalCheckout=true</span></li>
+                    <li>Login to <a  href="https://oss.sonatype.org/" rel="nofollow">OSS Nexus</a>,
+                        open Staging Repositories, click &quot;Close&quot; button.
+                    </li>
+                    <li>Download clover-X.X.X.hpi from OSS Nexus staging area and install and test it in your standalone
+                        Hudson instance.
+                    </li>
+                    <li>If works OK, <em>git push</em> changes from your local workspace to <em>hudson3-plugins/clover-plugin</em>
+                        and click &quot;Release&quot; button on Nexus OSS.
+                    </li>
+                    <li>Update the content of <a
+                                                 href="http://wiki.hudson-ci.org/display/HUDSON/Clover+Plugin"
+                                                 rel="nofollow">HUDSON/Clover+Plugin</a> wiki page.
+                    </li>
+                </ol>
+                <h1 id="HudsonCloverPluginDeveloperGuide-Tips">Tips</h1>
+                <p><strong>How to see the latest version in Hudson Plugin Manager? Where's the magic?</strong></p>
+                <p>Once your plugin appears in the Maven Central repository, send an email to Hudson admins (e.g. on
+                    Hudson-dev mailing list) and ask them to upload new version to Hudson Update Centre (note that for
+                    there are several update centres, each for different version of Hudson core), e.g.: </p>
+                <ul>
+                    <li><a  href="http://hudson-ci.org/update-center3/update-center.json"
+                           rel="nofollow">http://hudson-ci.org/update-center3/update-center.json</a> (Hudson 3)
+                    </li>
+                </ul>
+                <p>After this, the latest plugin version will be seen in the Plugin Manager in the Hudson administration
+                    panel.</p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+com.atlassian.clover.ant
+com.atlassian.clover.ant.groovy
+com.atlassian.clover.ant.taskdefs
+com.atlassian.clover.ant.tasks
+com.atlassian.clover.ant.tasks.testng
+com.atlassian.clover.ant.types
+com.atlassian.clover.api.ci
+org.openclover.ci

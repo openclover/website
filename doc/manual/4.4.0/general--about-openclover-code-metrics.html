@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : About Clover code metrics</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="general--about-openclover.html">About Clover</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            About Clover code metrics
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h1 id="AboutClovercodemetrics-Codecoveragemetrics">Code coverage metrics</h1><h4
+                    id="AboutClovercodemetrics-Branchcoverage">Branch coverage</h4>
+                <p>Branch coverage (or 'decision coverage') is a <a
+                        href="glossary--code-coverage.html">code coverage</a> metric
+                    that measures which possible branches in flow control structures are followed. Clover does this by
+                    recording if the boolean expression in the control structure evaluated to both true and false during
+                    execution.</p><h4 id="AboutClovercodemetrics-Statementcoverage">Statement coverage</h4>
+                <p>Statement coverage is a <a href="glossary--code-coverage.html">code
+                    coverage</a> metric that measures which statements in a body of code have been executed through a
+                    test run, and which statements have not. </p><h4 id="AboutClovercodemetrics-Methodcoverage">Method
+                coverage</h4>
+                <p>Method coverage is a <a href="glossary--code-coverage.html">code
+                    coverage</a> metric that measures whether a method was entered at all during execution.</p><h4
+                    id="AboutClovercodemetrics-TotalCoveragePercentage(Coverage%,TPC)">Total Coverage Percentage
+                (Coverage %, TPC)</h4>
+                <p>The Total Coverage Percentage is calculated as follows:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>TPC = (BT + BF + SC + MC)/(2*B + S + M) * 100%
+ 
+where
+ 
+BT - branches that evaluated to &quot;true&quot; at least once
+BF - branches that evaluated to &quot;false&quot; at least once
+SC - statements covered
+MC - methods entered
+ 
+B - total number of branches
+S - total number of statements
+M - total number of methods</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h1 id="AboutClovercodemetrics-Codecomplexitymetrics">Code complexity metrics</h1><h4
+                    id="AboutClovercodemetrics-AverageMethodComplexity(AvgMethodCmp)">Average Method Complexity (Avg
+                Method Cmp)</h4>
+                <p>The average method complexity of code in the given context. In case of:</p>
+                <ul>
+                    <li>classes: Average Method Complexity = sum of Method Complexity of all class' methods / number of
+                        methods in a class
+                    </li>
+                    <li>packages: Average Method Complexity = sum of Method Complexity of all package's methods / number
+                        of methods in a package
+                    </li>
+                    <li>project: Average Method Complexity = sum of Method Complexity of all project's methods / number
+                        of methods in a project
+                    </li>
+                </ul>
+                <h4 id="AboutClovercodemetrics-Complexity(Cmp,TotalCmp)">Complexity (Cmp, Total Cmp)</h4>
+                <p>Cyclomatic complexity of code in the given context.</p><h4
+                    id="AboutClovercodemetrics-MethodComplexity">Method Complexity</h4>
+                <p>Cyclomatic complexity of a single method. It's calculated as follows:</p>
+                <ul>
+                    <li>empty method complexity == 1</li>
+                    <li>simple statement complexity == 0</li>
+                    <li>switch block complexity == number of case statements</li>
+                    <li>try catch block complexity == number of catch statements</li>
+                    <li>ternary expression complexity == 1</li>
+                    <li>boolean expression complexity == number of &amp;&amp; or || in expression</li>
+                </ul>
+                <h4 id="AboutClovercodemetrics-ComplexityDensity(CmpDensity)">Complexity Density (Cmp Density)</h4>
+                <p>Complexity Density is the average number of paths in your code per statement in given context
+                    (method, class, package). It's calculated as follows:</p>
+                <p style="margin-left: 30.0px;">Cmp Density = Complexity / number of statements</p><h4
+                    id="AboutClovercodemetrics-LOC">LOC</h4>
+                <p>Lines Of Code (including comment lines).</p><h4 id="AboutClovercodemetrics-NCLOC">NCLOC</h4>
+                <p>Non-Commented Lines Of Code. Lines of code that contain comments are not counted in this metric,
+                    leaving only the actual functioning code itself.</p>
+                <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
+                        data-emoticon-name="warning" alt="(warning)"/> Clover currently does not calculate NCLOC for
+                    Groovy code (<a  href="https://jira.atlassian.com/browse/CLOV-1805"
+                                    rel="nofollow">CLOV-1805</a>). </p>
+                <h1 id="AboutClovercodemetrics-Examples">Examples</h1>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">// # of statements, # of branches, Method Cyclomatic Complexity
+
+// 0, 0, 1
+void A() {}
+
+// 1, 0, 1
+void A() { a(); }
+
+// 1 ,0 ,1
+void A() { a = (6 &lt; 7); }
+
+// 3, 0, 1
+void A() { a(); b(); c(); }
+
+// 3, 2, 2
+void A() { if (a()) b(); else c(); }
+
+// 2, 2, 3
+void A() { if (a() || b()) c(); }
+
+// 2, 0, 1
+void A() { if (1 + 2 == 4) c(); }
+
+// 2, 2, 2
+void A() { for (; a(); ) b(); }
+
+// 2, 2, 3
+void A() { for (; a() || b(); ) c(); }
+
+// 2, 0, 1
+void A() { for (; 1 + 2 == 4; ) c(); }
+
+// 2, 2, 2
+void A() { while (a()) b(); }
+
+// 2, 2, 3
+void A() { while (a() || b()) c(); }
+
+// 2, 0, 1
+void A() { while (1 + 2 == 4) c(); }
+
+// 3, 0, 2
+void A() { switch (a()) { case 1: b();} }
+
+// 5, 0, 3
+void A() { switch (a()) { case 1: b(); case 2: c();} }
+        
+// 1, 2, 2
+void A() { a() ? 1 : 2; }
+
+// 1, 2, 3
+void A() { a() || b()? 1 : 2; }
+
+// 1, 6, 4
+void A() { a() ? b() ? c()? 1 : 2 : 3 : 4; }</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h1 id="AboutClovercodemetrics-References">References</h1>
+                <ul>
+                    <li><a href="general--about-code-coverage.html">About Code Coverage</a></li>
+                    <li><a href="glossary--index.html">Glossary</a></li>
+                    <li><a href="ant--clover-report.html">clover-report#columns</a></li>
+                </ul>
+                <p> </p>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

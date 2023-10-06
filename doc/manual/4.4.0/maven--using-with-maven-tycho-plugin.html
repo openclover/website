@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Using Clover with Maven Tycho Plugin</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Using Clover with Maven Tycho Plugin
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h1 id="UsingCloverwithMavenTychoPlugin-Introduction">Introduction</h1>
+                <p>You cannot use direct integration of Tycho plugin with Clover using standard 'clover:setup' or
+                    'clover:instrument' goals. The reason is Maven Tycho Plugin ignores Maven's source folders
+                    definitions. Instead of this, Tycho Plugin reads source folders locations from Eclipse configuration
+                    files (like build.properties). As a consequence it does not see files instrumented by Clover, which
+                    are stored in the <em>target/src-instrumented</em> directory.</p>
+                <h1 id="UsingCloverwithMavenTychoPlugin-Workaround">Workaround</h1>
+                <p>However, you can use a following trick, which is very similar to the one described in <a
+                        href="eclipse--instrumenting-rcp-application.html"
+                        rel="nofollow">Instrumenting RCP Application / Approach#1 : Instrument source code manually</a>:
+                </p>
+                <p> </p>
+                <p><strong>1) Instrument all source files manually</strong></p>
+                <p class="emoticon emoticon-light-on" title="Lightbulb On (on)">The idea is to replace original sources
+                    with the instrumented version, still preserving the original project structure.</p>
+                <p class="emoticon emoticon-light-on" title="Lightbulb On (on)">Use <a
+                        href="commandline--cloverinstr.html"
+                        rel="nofollow">CloverInstr </a>command line tool or <a
+                        href="ant--clover-instr.html"
+                        rel="nofollow">clover-instr</a> Ant task or <a
+                                                                       href="../../maven/4.4.0/instrument-mojo.html"
+                                                                       rel="nofollow">clover:instrument</a> to
+                    instrument sources manually - see script in <strong>Appendix 1.</strong></p>
+                <p class="emoticon emoticon-light-on" style="margin-left: 30.0px;" title="Lightbulb On (on)"><img
+                        class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
+                        data-emoticon-name="light-on" alt="(lightbulb)"/> Remember to put instrumented sources in
+                    another location, i.e. not in your original workspace.  <img class="emoticon emoticon-smile"
+                                                                                 src="images/icons/emoticons/smile.png"
+                                                                                 data-emoticon-name="smile"
+                                                                                 alt="(smile)"/></p>
+                <p class="emoticon emoticon-light-on" title="Lightbulb On (on)">Clover Database (clover.db) will be
+                    created during this process.</p>
+                <p class="emoticon emoticon-light-on" title="Lightbulb On (on)"> </p>
+                <p class="emoticon emoticon-light-on" title="Lightbulb On (on)"><strong>2) Build instrumented
+                    project</strong></p>
+                <p class="emoticon emoticon-light-on" title="Lightbulb On (on)">Build will use Maven Tycho Plugin to
+                    package everything. Because of fact that instrumented sources contain calls of Clover classes, you
+                    must have the Clover JAR available on classpath during compilation. The easiest way is to add
+                    <strong>org.openclover:clover </strong>dependency in the <em>extraClasspathElements</em>
+                    parameter of the <em>tycho-compiler-plugin</em> in a top-level module (see Appendix).</p>
+                <p> </p>
+                <p><strong>3) Run tests</strong></p>
+                <p class="emoticon emoticon-light-on" title="Lightbulb On (on)">Run any kind of tests - JUnit, manual
+                    ... - just to get coverage data. Coverage recordings will be stored in the same directory where
+                    Clover Database is located. </p>
+                <p class="emoticon emoticon-light-on" title="Lightbulb On (on)">Note that you <u>must</u> have the
+                    Clover runtime available during execution. The best is to add it to Java Xbootclasspath in order to
+                    ensure that Clover JAR is loaded before any OSGI bundle. If you are running:</p>
+                <ul>
+                    <li class="emoticon emoticon-light-on" title="Lightbulb On (on)">unit tests via
+                        tycho-surefire-plugin then add <strong>&lt;argLine&gt;-Xbootclasspath/a:/path/to/clover-X.Y.Z.jar&lt;/argLine&gt;</strong>
+                        in the Tycho Surefire Plugin configuration section (see Appendix)
+                    </li>
+                    <li class="emoticon emoticon-light-on" title="Lightbulb On (on)">manual tests in standalone product
+                        then add <strong>-Xbootclasspath/a:/your/path/to/clover.jar</strong> as JVM argument in Eclipse
+                        configuration file (eclipse.ini / config.ini)
+                    </li>
+                </ul>
+                <p class="emoticon emoticon-light-on" title="Lightbulb On (on)"> </p>
+                <p class="emoticon emoticon-light-on" title="Lightbulb On (on)"><strong>4) Generate report</strong></p>
+                <p class="emoticon emoticon-light-on" title="Lightbulb On (on)">Run <a
+                        href="commandline--htmlreporter.html">HtmlReporter</a> command line tool or <a
+                        href="ant--clover-report.html">clover-report</a> Ant task or the <a
+                                                                                            href="../../maven/4.4.0/clover-mojo.html"
+                                                                                            rel="nofollow">clover:clover</a>
+                    Maven goal in order to generate report.</p>
+                <p class="emoticon emoticon-light-on" title="Lightbulb On (on)"> </p>
+                <h1 class="emoticon emoticon-light-on" title="Lightbulb On (on)"
+                    id="UsingCloverwithMavenTychoPlugin-Appendix1">Appendix 1</h1><h4
+                    id="UsingCloverwithMavenTychoPlugin-Workbenchconfiguration">Workbench configuration</h4>
+                <p>The diagram below shows how work with manually instrumented sources (Approach #1) can be organized. A
+                    location of Clover database is configured in Ant script.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/302809603/302941219.png"
+                                                                       data-image-src="attachments/302809603/302941219.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="302941219"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="maven-tycho-plugin-instrumentation.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="302809603"
+                                                                       data-linked-resource-container-version="10"></span>
+                </p>
+                <p> </p><h4 id="UsingCloverwithMavenTychoPlugin-Codesample">Code sample</h4>
+                <p>You can clone examples provided by Tycho team: <span>git clone <a
+                                                                                     href="http://git.eclipse.org/c/tycho/org.eclipse.tycho-demo.git"
+                                                                                     rel="nofollow">http://git.eclipse.org/c/tycho/org.eclipse.tycho-demo.git</a></span>
+                </p>
+                <p><span>Go to <em>&quot;itp01&quot;</em> sample, </span>rename it to
+                    <em>&quot;original_project&quot;</em>, use Ant script from below and save it in directory above<em>
+                        &quot;original_project&quot;</em>. Follow instructions below.</p>
+                <p> </p><h4 id="UsingCloverwithMavenTychoPlugin-Antscript">Ant script</h4>
+                <p>Sample Ant script which instruments all *.java files from <em>project.original.dir</em> and puts them
+                    into <em>project.instrumented.dir</em>, preserving original directory structure. It copies all
+                    non-java files as well.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;project default=&quot;instrument&quot;&gt;
+    &lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/clover.jar&quot;/&gt;
+    &lt;property name=&quot;ant-contrib.jar&quot; location=&quot;${user.home}/ant-contrib-1.0b3.jar&quot;/&gt;
+    &lt;property name=&quot;project.original.dir&quot; location=&quot;original_project&quot;/&gt;
+    &lt;property name=&quot;project.instrumented.dir&quot; location=&quot;instr_project&quot;/&gt;
+    &lt;property name=&quot;project.clover.db&quot; location=&quot;${project.instrumented.dir}/.clover/clover.db&quot;/&gt;
+
+    &lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
+    &lt;taskdef resource=&quot;net/sf/antcontrib/antlib.xml&quot; classpath=&quot;${ant-contrib.jar}&quot;/&gt;
+
+    &lt;target name=&quot;_instrument-dir&quot;&gt;
+        &lt;!-- Use double-slash for windows paths --&gt;
+        &lt;propertyregex property=&quot;original.dir.quoted&quot; input=&quot;${project.original.dir}&quot; regexp=&quot;\\&quot; replace=&quot;\\\\\\\\&quot; global=&quot;true&quot;/&gt;
+        &lt;propertyregex property=&quot;relative.dir&quot; input=&quot;${source.dir}&quot; regexp=&quot;${original.dir.quoted}(.*)&quot; select=&quot;\1&quot;/&gt;
+        &lt;echo message=&quot;Instrumenting ${source.dir} into ${project.instrumented.dir}${relative.dir}&quot;/&gt;
+        &lt;echo message=&quot;Clover database is ${project.clover.db}&quot;/&gt;
+        &lt;clover-instr destdir=&quot;${project.instrumented.dir}${relative.dir}&quot; initstring=&quot;${project.clover.db}&quot;&gt;
+            &lt;fileset dir=&quot;${project.original.dir}${relative.dir}&quot;&gt;
+                &lt;include name=&quot;**/*.java&quot;/&gt;
+            &lt;/fileset&gt;
+        &lt;/clover-instr&gt;
+    &lt;/target&gt;
+
+    &lt;target name=&quot;instrument&quot;&gt;
+        &lt;!-- Cleanup from previous run --&gt;
+        &lt;delete dir=&quot;${project.instrumented.dir}&quot;/&gt;
+        &lt;!-- Find all source directories, for each of them call clover-instr. Please note that we cannot use sth like:
+             &lt;clover-instr srcdir=&quot;${project.original.dir}&quot; destdir=&quot;${project.instrumented.dir}&quot; initstring=&quot;${project.clover.db}&quot;&gt;
+             directly, because clover-instr does not recreate original directory structure, but puts everything
+             under one destdir root.
+         --&gt;
+        &lt;foreach target=&quot;_instrument-dir&quot; param=&quot;source.dir&quot; inheritall=&quot;true&quot; inheritrefs=&quot;true&quot;&gt;
+            &lt;path&gt;
+                &lt;!-- Define all package roots here --&gt;
+                &lt;dirset dir=&quot;${project.original.dir}&quot;&gt;
+                    &lt;include name=&quot;**/src&quot;/&gt;
+                    &lt;include name=&quot;**/test&quot;/&gt;
+                &lt;/dirset&gt;
+            &lt;/path&gt;
+        &lt;/foreach&gt;
+
+        &lt;!-- Copy all other non-java files as well --&gt;
+        &lt;echo message=&quot;Copying other files from ${project.original.dir} to ${project.instrumented.dir}&quot;/&gt;
+        &lt;copy todir=&quot;${project.instrumented.dir}&quot;&gt;
+            &lt;fileset dir=&quot;${project.original.dir}&quot;&gt;
+                &lt;exclude name=&quot;**/*.java&quot;/&gt;
+            &lt;/fileset&gt;
+        &lt;/copy&gt;
+
+        &lt;!-- Now we can build it under Tycho. Don&#39;t even try to read instrumented sources ;-) --&gt;
+        &lt;echo message=&quot;INSTRUMENTATION DONE. Run Maven build in ${project.instrumented.dir}&quot;/&gt;
+    &lt;/target&gt;
+
+    &lt;target name=&quot;report&quot;&gt;
+        &lt;clover-report initstring=&quot;${project.clover.db}&quot;&gt;
+           &lt;current outfile=&quot;current.html&quot;&gt;
+              &lt;format type=&quot;html&quot;/&gt;
+           &lt;/current&gt;
+           &lt;current outfile=&quot;current.xml&quot;&gt;
+              &lt;format type=&quot;xml&quot;/&gt;
+           &lt;/current&gt;
+        &lt;/clover-report&gt;
+    &lt;/target&gt;
+&lt;/project&gt;</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="UsingCloverwithMavenTychoPlugin-Modifiedtop-levelpom.xml">Modified top-level
+                pom.xml</h4>
+                <p>You must have the Clover artefact available during compilation by Tycho. Modify the <em>tycho-compiler-plugin</em>
+                    configuration and add <em>org.openclover:clover</em> to
+                    <em>&lt;extraClasspathElements&gt;</em> option.</p>
+                <p>If necessary, add also Clover dependency to <em>tycho-surefire-plugin</em> as JVM argument.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;build&gt;
+  &lt;plugins&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.eclipse.tycho&lt;/groupId&gt;
+      &lt;artifactId&gt;tycho-compiler-plugin&lt;/artifactId&gt;
+      &lt;version&gt;0.15.0&lt;/version&gt;
+      &lt;configuration&gt;
+        &lt;extraClasspathElements&gt;
+          &lt;!-- Use the same Clover version as for source instrumentation --&gt;
+          &lt;dependency&gt;
+            &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+            &lt;artifactId&gt;clover&lt;/artifactId&gt;
+            &lt;version&gt;4.4.0&lt;/version&gt;
+          &lt;/dependency&gt;
+        &lt;/extraClasspathElements&gt;
+      &lt;/configuration&gt;          
+    &lt;/plugin&gt;
+    &lt;plugin&gt;
+      &lt;groupId&gt;org.eclipse.tycho&lt;/groupId&gt;
+      &lt;artifactId&gt;tycho-surefire-plugin&lt;/artifactId&gt;
+      &lt;version&gt;0.15.0&lt;/version&gt;
+      &lt;configuration&gt;
+        &lt;!-- Use the same Clover version as for source instrumentation --&gt;
+        &lt;argLine&gt;-Xbootclasspath/a:${user.home}/.m2/repository/com/atlassian/clover/clover/4.0.0/clover-4.0.0.jar&lt;/argLine&gt;
+      &lt;/configuration&gt;          
+    &lt;/plugin&gt;
+    ...
+  &lt;/plugins&gt;
+&lt;/build&gt;
+</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="UsingCloverwithMavenTychoPlugin-Usage">Usage</h4>
+                <p>Directory layout:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>/original_project - Tycho project
+    /pom.xml      - must contain &#39;org.openclover:clover&#39; dependency for build and runtime/test
+    /module1
+       /src       - typical location of source folders in eclipse plug-ins
+       /test
+    /module2
+/instr_project    - copy of &#39;original_project&#39; with instrumented files created by build script
+    /pom.xml      
+    /module1
+       /src
+       /test
+    /module2
+/build.xml        - Ant build script from above</pre>
+                    </div>
+                </div>
+                <p>Commands:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>ant instrument
+cd instr_project
+mvn install
+cd ..
+ant report</pre>
+                    </div>
+                </div>
+                <p><span><br/></span></p>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

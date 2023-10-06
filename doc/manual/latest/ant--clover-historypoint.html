@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : clover-historypoint</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            clover-historypoint
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+            <div id="main-content" class="wiki-content group">
+                <h3 id="clover-historypoint-Description">Description</h3>
+                <p>The <code>&lt;clover-historypoint&gt;</code> task records a coverage history point for use in <a
+                        href="general--understanding-reports-historical.html">historical coverage reports</a>. The basic nesting of elements within the
+                    <code>&lt;clover-historypoint&gt;</code> task is as follows:</p>
+                <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
+                    <div class="panelContent" style="background-color: white;">
+                        <p>&lt;clover-historypoint&gt;<br/>     &lt;<a href="#clover-historypoint-Fileset">fileset</a>/&gt;<br/>
+                                &lt;<a href="#clover-historypoint-Testsources">testsources</a>/&gt;<br/>     &lt;<a
+                                    href="#clover-historypoint-Testresults">testresults</a>/&gt;<br/> &lt;/clover-historypoint&gt;
+                        </p>
+                    </div>
+                </div>
+                <h3 id="clover-historypoint-Parameters">Parameters</h3>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>date</p></td>
+                            <td class="confluenceTd"><p>Specifies an override date for this history point. This allows
+                                for generation of past historical data for a project.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to the timestamp of the current coverage data.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>dateFormat</p></td>
+                            <td class="confluenceTd"><p>Specifies a date format string for parsing the
+                                &quot;<code>date</code>&quot; attribute. The string must contain a valid java.text.SimpleDateFormat pattern.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to java.text.SimpleDateFormat
+                                using the default pattern and date format symbols for the default locale.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>filter</p></td>
+                            <td class="confluenceTd"><p>A comma or space separated list of contexts to exclude when
+                                generating the historypoint. See <a href="ant--using-coverage-contexts.html">Using
+                                    Coverage Contexts</a>.</p></td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>historyDir</p></td>
+                            <td class="confluenceTd"><p>The directory where historical data is stored.</p></td>
+                            <td class="confluenceTd"><p>Yes.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>includeFailedTestCoverage</p></td>
+                            <td class="confluenceTd"><p>If true, all coverage attributed to a test that failed will be
+                                included.  <img class="emoticon emoticon-information"
+                                                src="images/icons/emoticons/information.png"
+                                                data-emoticon-name="information" alt="(info)"/> If history-point
+                                generation is taking a long time, you can speed up the performance of your tests by
+                                setting this value to '<code>true</code>'.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>initstring</p></td>
+                            <td class="confluenceTd"><p>The <code>initstring</code> of the coverage database.</p></td>
+                            <td class="confluenceTd"><p>No; if not specified here, Clover will look in the default
+                                location (<code>${basedir}/.clover</code>). If you have specified an
+                                <code>initstring</code> on the <code>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;</code>
+                                task, you must ensure that <code>&lt;<a
+                                        href="ant--clover-setup.html">clover-setup</a>&gt;</code> is called prior to
+                                the execution of this task.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>overwrite</p></td>
+                            <td class="confluenceTd"><p>If true, existing history point for the same date will be
+                                automatically overwritten.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>property</p></td>
+                            <td class="confluenceTd"><p>If set, the name of the property to hold the absolute path name
+                                of the history point file that was created by this task.</p></td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>span</p></td>
+                            <td class="confluenceTd"><p>Specifies how far back in time to include coverage recordings
+                                from since the last Clover build. See <a href="ant--using-spans.html">Using
+                                    Spans</a>.</p></td>
+                            <td class="confluenceTd"><p>No; default includes &quot;all coverage data found&quot;.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>srcLevel</p></td>
+                            <td class="confluenceTd"><p>Prevents excessive Clover data from being loaded when generating
+                                a history point. This should be used for large projects, where saving a full source
+                                level history point is taking a long time. <img class="emoticon emoticon-information"
+                                                                                src="images/icons/emoticons/information.png"
+                                                                                data-emoticon-name="information"
+                                                                                alt="(info)"/> Clover's history reports
+                                currently do not use line level information. This means there is no loss of
+                                functionality when srcLevel=&quot;false&quot;. In the future however, line level
+                                information may be used.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3 id="clover-historypoint-Nestedelementsof&lt;clover-historypoint&gt;">Nested elements of <code>&lt;clover-historypoint&gt;</code>
+                </h3>
+                <p><span class="confluence-anchor-link" id="clover-historypoint-Fileset"></span> </p><h4
+                    id="clover-historypoint-&lt;fileset&gt;">&lt;fileset&gt;</h4>
+                <p><code>&lt;clover-historypoint&gt;</code> supports nested filesets which control which source files
+                    are to be included in a historypoint. Only classes which are from the source files in the fileset
+                    are included in the history point. This allows history points to focus on certain packages or
+                    particular classes. By using Ant's fileset selectors, more complicated selections are possible, such
+                    as the files which have recently changed, or files written by a particular author.</p>
+                <p><span class="confluence-anchor-link" id="clover-historypoint-Testsources"></span> </p><h4
+                    id="clover-historypoint-&lt;testsources&gt;">&lt;testsources&gt;</h4>
+                <p><code>&lt;testsources&gt;</code> is an <a
+                                                             href="https://ant.apache.org/manual/Types/fileset.html"
+                                                             rel="nofollow">Ant fileset</a> that can be used to
+                    distinguish test source code from application source code. All files included in the fileset will be
+                    displayed in the separate 'Test' node of the coverage tree. If omitted, Clover's default test
+                    detection algorithm will be used to distinguish test sources.</p>
+                <p><span class="confluence-anchor-link" id="clover-historypoint-Testresults"></span></p><h4
+                    id="clover-historypoint-&lt;testresults&gt;">&lt;testresults&gt;</h4>
+                <p><code>&lt;testresults&gt;</code> is an optional <a
+                                                                      href="https://ant.apache.org/manual/Types/fileset.html"
+                                                                      rel="nofollow">Ant fileset</a> that defines the
+                    location of all test result XML files for your project. Currently, these will be used by <code>&lt;clover-historypoint&gt;</code>
+                    to determine coverage data if the <code>includeFailedTestCoverage</code> flag is set to false.</p>
+                <p><code>&lt;testresults&gt;</code> is generally not required by most users, as the built-in test
+                    results will provide all required information in the majority of cases. For more details please see
+                    '<a href="ant--test-results-and-per-test-coverage.html">Advanced Usage</a>'.</p>
+                <h3 id="clover-historypoint-Examples">Examples</h3>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-historypoint historyDir=&quot;clover-historical&quot;/&gt;
+</pre>
+                    </div>
+                </div>
+                <p>Records a history point into the directory <code>PROJECT_DIR/clover-historical</code>.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-historypoint historyDir=&quot;clover-historical&quot;
+                      date=&quot;010724120856&quot;
+		    dateFormat=&quot;yyMMddHHmmss&quot;/&gt;
+</pre>
+                    </div>
+                </div>
+                <p>Records a history point, with the effective date of 24/07/01 12:08:56.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-historypoint historydir=&quot;history&quot;
+                     filter=&quot;toString&quot;
+                     includeFailedTestCoverage=&quot;false&quot;
+                     property=&quot;clover.historypoint.path&quot;&gt;
+&lt;/clover-historypoint&gt;
+</pre>
+                    </div>
+                </div>
+                <p>Records a history point that excludes all test coverage that is attributed to a failed test; <code>clover.historypoint.path</code>
+                    will contain the absolute file path of the history point that was created.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-historypoint historyDir=&quot;clover-historical&quot;&gt;
+	&lt;testsources dir=&quot;src&quot; include name=&quot;**/*Test.java&quot;/&gt;
+&lt;/clover-historypoint&gt;
+</pre>
+                    </div>
+                </div>
+                <p>Records a history point that recognizes classes in the &quot;src&quot; directory as tests.</p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

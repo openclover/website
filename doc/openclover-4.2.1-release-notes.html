@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="OpenClover is a free and open-source code coverage tool for Java, Groovy and AspectJ.
+            It's based on the open-sourced version of Atlassian Clover&reg;, the world's most sophisticated code coverage tool.">
+    <meta name="author" content="">
+    <link rel="icon" href="../resources/img/clover.ico">
+
+    <title>OpenClover - Java, Groovy and AspectJ code coverage tool</title>
+
+    <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../resources/css/style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index"><img src="../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../index">Overview</a></li>
+                <li><a href="../features">Features</a></li>
+                <li><a href="../downloads">Downloads</a></li>
+                <li class="active"><a href="../documentation">Documentation</a></li>
+                <li><a href="../support">Support</a></li>
+                <li><a href="../blog">Blog</a></li>
+                <!--<li><a href="../faq">FAQ</a></li>-->
+                <li><a href="../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h1>OpenClover 4.2.1 Release Notes</h1>
+
+    <p><i>22 Nov 2017</i></p>
+
+    <p>We're happy to share with you a bug fix release of OpenClover. The major fix is compatibility
+    with Maven 2 restored. Please keep in mind however that the last Maven 2.2.1 release
+        was published in 2009 and is no longer
+    maintained by the Apache Foundation. Therefore it's likely that we will drop support for Maven 2 till
+    end of year 2018. We encourage you to migrate to Maven 3.</p>
+    
+    <p>
+        Bug fixes and improvements:
+        <ul>
+            <li>#32: Put links to OpenClover documentation</li>
+            <li>#25: Test compatibility with Maven 3.5.0+</li>
+            <li>#24: Restore compatibility with Maven 2.1.0+</li>
+            <li>#26: AntIntegrator and MavenIntegrator shall integrate with OpenClover, not Atlassian Clover</li>
+        </ul>
+
+        More details in <a href="https://github.com/openclover/clover/issues">OpenClover issue tracker</a>.
+    </p>
+</div>
+
+
+<script src="../resources/js/jquery-1.12.4.min.js"></script>
+<script src="../resources/js/bootstrap.min.js"></script>
+</body>
+</html>

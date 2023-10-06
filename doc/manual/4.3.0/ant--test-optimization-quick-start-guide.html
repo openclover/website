@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : Test Optimization Quick Start Guide for Ant</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--quick-start-guide.html">1. QuickStart Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Test Optimization Quick Start Guide for Ant
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="TestOptimizationQuickStartGuideforAnt-ThispagecontainsthebasicstepsforaddingClover&#39;sTestOptimizationtoanexistingAntconfiguration.">
+                    This page contains the basic steps for adding Clover's Test Optimization to an existing Ant
+                    configuration.</h4>
+                <p>Follow the steps in this document to set up Clover's Test Optimization, which allows targeted testing
+                    of only the code which has changed since the last build.</p>
+                <p>These steps assume your build is Clover-enabled already (in particular it has a
+                    <code>with.clover</code> task already set up and has a taskdef established for the Clover Ant
+                    tasks). You will have to complement this quick start guide with <a
+                            href="ant--quick-start-guide.html">basic Clover configuration information</a>.</p>
+                <p>These steps also assume that your build file is currently used for a CI (Continuous Integration)
+                    build and possibly for general builds (e.g. On a developer's own machine). Below, we describe how
+                    you can take that build file and add sections to bake in Test Optimization. Adding optional support
+                    for Test Optimization (switching it on/off), specifying whether test minimization is performed and
+                    test reordering other than the default '<strong>failfast</strong>' are advanced options which are
+                    covered elsewhere.</p>
+                <p> </p>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Clover's Test Optimization feature currently do
+                        not support optimization for test cases written in Groovy <a
+                                                                                     href="https://jira.atlassian.com/browse/CLOV-1152"
+                                                                                     rel="nofollow">(CLOV-1152)</a>:</p>
+                        <ul>
+                            <li>test cases written in Groovy will be executed in each test run</li>
+                            <li>test cases written in Java will be optimized</li>
+                            <li>application code can be written in Java or Groovy in order to be optimized</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Clover's Test Optimization does not optimize
+                        execution of JUnit TestSuites (<a
+                                                          href="https://jira.atlassian.com/browse/CLOV-616"
+                                                          rel="nofollow">CLOV-616</a>) and TestNG (<a
+                                 href="https://jira.atlassian.com/browse/CLOV-373" rel="nofollow">CLOV-373</a>).
+                    </p>
+                        <ul>
+                            <li>&lt;batchtest&gt; resource collection shall contain JUnit TestCases</li>
+                        </ul>
+                    </div>
+                </div>
+                <p> </p><h4 id="TestOptimizationQuickStartGuideforAnt-BEFOREYOUSTART">BEFORE YOU START</h4>
+                <p>Try to ensure your unit tests do not have dependencies between them as this may cause optimized
+                    builds to fail more frequently than usual.</p><h4
+                    id="TestOptimizationQuickStartGuideforAnt-BASICSTEPS">BASIC STEPS</h4>
+                <ol>
+                    <li><p>You will need to use this:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
+</pre>
+                            </div>
+                        </div>
+                    </li>
+                    <li><p>Choose a location for the test snapshot file that can survive clean builds. This
+                        location:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;PROJECT_DIR&gt;/.clover/coverage.db.snapshot
+</pre>
+                            </div>
+                        </div>
+                        <p>The default is not as good as manually deleting this directory each build, but it is workable
+                            if you only use <code>&lt;clover-clean/&gt;</code>as, by default, it won't delete snapshots.
+                            Add a property for this, as in the following example:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;property name=&quot;clover.snapshot.file&quot; value=&quot;/path/to/clover.snapshot&quot;/&gt;
+</pre>
+                            </div>
+                        </div>
+                    </li>
+                    <li><p>Add a target to generate the test <a href="ant--clover-snapshot.html">snapshot</a>:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;clover.snapshot&quot; depends=&quot;with.clover&quot;&gt;
+     &lt;clover-snapshot file=&quot;${clover.snapshot.file}&quot;/&gt;
+ &lt;/target&gt;
+</pre>
+                            </div>
+                        </div>
+                    </li>
+                    <li><p>Modify the <code>&lt;batchtest</code>&gt; element of the <code>&lt;junit/&gt;</code> task
+                        used to test your application, so that the filesets are wrapped in the <code><a
+                                href="ant--clover-optimized-testset.html">clover-optimized-testset</a></code>
+                        element. See the following example:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;junit ...&gt;
+&lt;batchtest fork=&quot;true&quot; todir=&quot;${test.results.dir}/results&quot;&gt;
+    &lt;fileset dir=&quot;src/tests&quot; includes=&quot;${test.includes}&quot; excludes=&quot;${test.excludes}&quot;/&gt;
+&lt;/batchtest&gt;
+&lt;/junit&gt;
+</pre>
+                            </div>
+                        </div>
+                        <p>This becomes the following:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;junit ...&gt;
+&lt;batchtest fork=&quot;true&quot; todir=&quot;${test.results.dir}/results&quot;&gt;
+    &lt;clover-optimized-testset snapshotfile=&quot;${clover.snapshot.file}&quot;&gt;
+        &lt;fileset dir=&quot;src/tests&quot; includes=&quot;${test.includes}&quot; excludes=&quot;${test.excludes}&quot;/&gt;
+    &lt;/clover-optimized-testset&gt;
+&lt;/batchtest&gt;
+&lt;/junit&gt;
+</pre>
+                            </div>
+                        </div>
+                    </li>
+                    <li><p>Run the optimized build (this will typically be run by their CI plan). Assuming a &quot;test&quot;
+                        target (with appropriate dependencies so that the code is instrumented/compiled):</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">ant with.clover clean test clover.snapshot
+</pre>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+                <h4 id="TestOptimizationQuickStartGuideforAnt-RunningJavaandGroovytestcases">Running Java and Groovy
+                    test cases</h4>
+                <p>Please note that Ant's &lt;junit&gt;/&lt;batchtest&gt; collects the included resources from any
+                    number of nested resource collections and then generates a test class name for each resource that
+                    ends in <em><strong>.java</strong></em> or <em><strong>.class</strong></em>. It means that you
+                    cannot use <em><strong>&lt;include name=&quot;**/*Test.groovy&quot;/&gt;</strong></em> because such
+                    files will be ignored. However, you can point to <em><strong>*.class</strong></em> files, for
+                    example:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;junit ...&gt;
+    &lt;classpath refid=&quot;build.classpath&quot;/&gt;
+    &lt;batchtest fork=&quot;yes&quot; todir=&quot;${test.result}&quot;&gt;
+        &lt;clover-optimized-testset snapshotfile=&quot;${clover.snapshot.file}&quot;&gt;
+            &lt;fileset dir=&quot;${build.dir}&quot;&gt;
+                 &lt;include name=&quot;**/*Test.class&quot;/&gt;
+            &lt;/fileset&gt;
+        &lt;/clover-optimized-testset&gt;
+    &lt;/batchtest&gt;
+&lt;/junit&gt;
+</pre>
+                    </div>
+                </div>
+                <p>Using the configuration above, Clover will optimize tests according to:</p>
+                <ul>
+                    <li>changes in application code written in Java or Groovy</li>
+                    <li>changes in test code written in Java</li>
+                </ul>
+                <p> </p><h4 id="TestOptimizationQuickStartGuideforAnt-RelatedLinks">Related Links</h4>
+                <ul>
+                    <li><a href="general--what-is-test-optimization.html">Test Optimization Technical Details</a></li>
+                </ul>
+                <ul>
+                    <li><a href="maven--using-test-optimization.html">Test Optimization Quick Start for
+                        Maven 2</a></li>
+                </ul>
+                <ul>
+                    <li><a href="maven--best-practices.html">Clover for Maven 2 - Test Optimization Best
+                        Practices</a></li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

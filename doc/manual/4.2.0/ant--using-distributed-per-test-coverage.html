@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : Using Distributed Per-test Coverage with Clover-for-Ant</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a
+                                href="8.-Controlling-Clover-at-Runtime_71599101.html">8. Controlling Clover at Runtime</a></span>
+                    </li>
+                    <li>
+                        <span><a href="guideline--working-with-distributed-applications.html">Working with Distributed Applications</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Using Distributed Per-test Coverage with Clover-for-Ant
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>This page contains instructions on how to collect per-test coverage from a set of functional tests,
+                    which run in multiple JVMs (Java Virtual Machines). This may be necessary when starting a web server
+                    with the <a  href="http://blogs.webtide.com/janb/entry/jetty_runner"
+                                rel="nofollow">Jetty Runner</a> or Tomcat Tasks, for example.</p>
+                <p><em>On this page</em>:</p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813710285 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813710285 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813710285 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813710285'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#UsingDistributedPer-testCoveragewithClover-for-Ant-GeneralOverview'>General
+                            Overview</a>
+                            <ul class='toc-indentation'>
+                                <li>
+                                    <a href='#UsingDistributedPer-testCoveragewithClover-for-Ant-Option1.EnablingDistributedCoverageatRuntime'>Option
+                                        1. Enabling Distributed Coverage at Runtime</a>
+                                    <ul class='toc-indentation'>
+                                        <li>
+                                            <a href='#UsingDistributedPer-testCoveragewithClover-for-Ant-SettingtheSystemPropertiesintheAntJUnitTask'>Setting
+                                                the System Properties in the Ant JUnit Task</a></li>
+                                        <li>
+                                            <a href='#UsingDistributedPer-testCoveragewithClover-for-Ant-SettingaSystemPropertyintheJavataskthatstartstheWebServer'>Setting
+                                                a System Property in the Java task that starts the WebServer</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href='#UsingDistributedPer-testCoveragewithClover-for-Ant-Option2.ConfiguringDistributedCoverageatInstrumentationTime'>Option
+                                        2. Configuring Distributed Coverage at Instrumentation Time</a>
+                                    <ul class='toc-indentation'>
+                                        <li>
+                                            <a href='#UsingDistributedPer-testCoveragewithClover-for-Ant-Step1:ActivatetheDistributedPer-TestCoverageFeature'>Step
+                                                1: Activate the Distributed Per-Test Coverage Feature</a></li>
+                                        <li>
+                                            <a href='#UsingDistributedPer-testCoveragewithClover-for-Ant-Step2:Specifythe&#39;clover.server&#39;propertyonJVMrunningtheTests'>Step
+                                                2: Specify the &#39;clover.server&#39; property on JVM running the
+                                                Tests</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href='#UsingDistributedPer-testCoveragewithClover-for-Ant-RelatedLinks'>Related
+                                    Links</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                </p><h2 id="UsingDistributedPer-testCoveragewithClover-for-Ant-GeneralOverview">General Overview</h2>
+                <p>Clover collects per-test coverage for tests running in a separate JVM by sending messages using the
+                    tcp protocol. The JVM hosting the tests is the 'Clover Server' and the JVM(s) hosting the
+                    application are the 'Clover Clients'. The 'Clover Server' ( ie. the JVM running your tests) needs to
+                    be marked as such via a System Property: 'clover.server=true'. If this property is not set, or is
+                    set to 'false', the JVM will be in 'Clover Client' mode.</p>
+                <p>If you are testing multiple projects on the same machine at the same time (such as in a Continuos
+                    Integration environment), you will need to ensure a unique port for each build is reserved and
+                    configured. By default, Clover starts a socket server on port 1198.</p>
+                <p>Distributed per-test coverage will give you insight as to what functional tests covered what
+                    application code. It also allows you to drastically reduce test execution time by using <a
+                            href="ant--test-optimization-quick-start-guide.html">Clover's Test
+                        Optimization</a> to only run the tests for code that was modified since the previous build.</p>
+                <p>To configure Clover for collection of per-test coverage from distributed builds, you have two
+                    options:</p>
+                <ol>
+                    <li><em>Recommended</em>: By setting a System Property on the JVM running your tests and the JVM
+                        hosting your application (e.g. the webserver)
+                    </li>
+                    <li>By configuring Clover before instrumenting (clover-setup, clover-instr) your source files - and
+                        setting a System property on the test JVM (Only Recommended if setting a System Property on your
+                        webserver poses a problem.)
+                    </li>
+                </ol>
+                <h3 id="UsingDistributedPer-testCoveragewithClover-for-Ant-Option1.EnablingDistributedCoverageatRuntime">
+                    Option 1. Enabling Distributed Coverage at Runtime</h3>
+                <p>Once your Clover-instrumented application has been deployed, and your tests have been instrumented
+                    and compiled with Clover, distributed per-test coverage can be enabled and configured at runtime
+                    using just two System Properties.</p>
+                <p>Both JVMs require the <code>'clover.distributed.coverage'</code> property set to <code>ON</code>, and
+                    the JVM running the tests require the <code>'clover.server'</code> property set to
+                    <code>'true'</code>.</p>
+                <p> </p>
+                <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
+                        data-emoticon-name="light-on" alt="(lightbulb)"/> TIP: the
+                    <em>clover.distributed.coverage=ON</em> takes default settings (host=localhost, port=1198,
+                    timeout=5000ms, numClients=0, retryPeriod=1000ms, name=clover.tcp.server). In case when you cannot
+                    use default settings, you can pass specific value for any of attributes using the &quot;key=value&quot;
+                    syntax passed as <em>clover.distributed.coverage</em> value:</p>
+                <ul>
+                    <li>host - host name of the &quot;Clover Server&quot;</li>
+                    <li>port - port on which the Clover will listen</li>
+                    <li>numClients - number of &quot;Clover Clients&quot; to connect until server starts test
+                        execution
+                    </li>
+                    <li>timeout - connection timeout in milliseconds</li>
+                    <li>retryPeriod - interval between connection retries in milliseconds</li>
+                    <li>name - name of the Clover server service (URL is <em>host:port/name</em>)</li>
+                </ul>
+                <p>Example:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                             data-theme="Confluence">-Dclover.distributed.coverage=host=myhost;port=7777;numclients=2</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>For the following examples, we are using the <a
+                                                                   href="http://blogs.webtide.com/janb/entry/jetty_runner"
+                                                                   rel="nofollow">Jetty Runner</a> to start the Jetty
+                    Webserver, and the Ant JUnit Task to run the tests.</p><h4
+                    id="UsingDistributedPer-testCoveragewithClover-for-Ant-SettingtheSystemPropertiesintheAntJUnitTask">
+                Setting the System Properties in the Ant JUnit Task</h4>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot; showoutput=&quot;true&quot; printsummary=&quot;true&quot;&gt;
+        &lt;sysproperty key=&quot;clover.server&quot; value=&quot;true&quot;/&gt;
+        &lt;sysproperty key=&quot;clover.distributed.coverage&quot; value=&quot;ON&quot;/&gt;
+        ...
+&lt;/junit&gt;
+</pre>
+                    </div>
+                </div>
+                <h4 id="UsingDistributedPer-testCoveragewithClover-for-Ant-SettingaSystemPropertyintheJavataskthatstartstheWebServer">
+                    Setting a System Property in the Java task that starts the WebServer</h4>
+                <p>The JVM running your webserver also requires the <code>clover.distributed.coverage</code> property
+                    set to <code>ON</code>.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence"> &lt;java jar=&quot;${jetty.jar}&quot; fork=&quot;true&quot;&gt;
+	...
+        &lt;jvmarg value=&quot;-Dclover.distributed.coverage=ON&quot;/&gt;
+&lt;/java&gt;
+</pre>
+                    </div>
+                </div>
+                <p>If you are unable to set a System Property on the JVM running your webserver, use the second approach
+                    described below.</p>
+                <h3 id="UsingDistributedPer-testCoveragewithClover-for-Ant-Option2.ConfiguringDistributedCoverageatInstrumentationTime">
+                    Option 2. Configuring Distributed Coverage at Instrumentation Time</h3>
+                <p>It is sometimes more convenient to enable distributed Coverage when you enable Clover - before
+                    instrumentation of your source code.<br/> The following approach removes the need to set any system
+                    properties at all on the JVM running the WebServer.</p><h4
+                    id="UsingDistributedPer-testCoveragewithClover-for-Ant-Step1:ActivatetheDistributedPer-TestCoverageFeature">
+                Step 1: Activate the Distributed Per-Test Coverage Feature</h4>
+                <p>Both the <a href="ant--clover-setup.html">&lt;clover-setup&gt;</a> and <a
+                        href="ant--clover-instr.html">&lt;clover-instr&gt;</a> tasks can be configured with this
+                    nested element:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;distributedCoverage/&gt;
+</pre>
+                    </div>
+                </div>
+                <p>If this element is present, then Clover will run in 'distributed mode' at test time. If you wish to
+                    modify any configuration options such as the port to listen on, or the number of clients expected to
+                    attach to the testing session, you can specify these as attributes on the
+                    <a href="ant--clover-setup.html"><code>&lt;distributedCoverage&gt;</code></a>
+                    element like so:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-setup&gt;
+  &lt;distributedCoverage port=&quot;1234&quot; numClients=&quot;1&quot;/&gt;
+&lt;/clover-setup&gt;
+</pre>
+                    </div>
+                </div>
+                <p>This will enable distributed per-test coverage to be collected. Please see the
+                    <a href="ant--clover-setup.html">documentation</a> for the &lt;distributedCoverage/&gt; element for more options.
+                </p><h4
+                    id="UsingDistributedPer-testCoveragewithClover-for-Ant-Step2:Specifythe&#39;clover.server&#39;propertyonJVMrunningtheTests">
+                Step 2: Specify the 'clover.server' property on JVM running the Tests</h4>
+                <p>Add the <code>clover.server</code> system property to the JUnit or TestNG Ant task configuration, and
+                    ensure the forkMode parameter is set to 'once':</p>
+                <p>e.g.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot; showoutput=&quot;true&quot; printsummary=&quot;true&quot;&gt;
+        &lt;sysproperty key=&quot;clover.server&quot; value=&quot;true&quot;/&gt;
+        ...
+&lt;/junit&gt;
+</pre>
+                    </div>
+                </div>
+                <p>If you have specified the <code>numClients</code> option to something greater than 0, your tests can
+                    be started prior to starting the webserver. Clover will wait until <code>numClients</code> have
+                    connected to the testing session before allowing the tests to start running.</p>
+                <h3 id="UsingDistributedPer-testCoveragewithClover-for-Ant-RelatedLinks">Related Links</h3>
+                <p><a href="general--what-is-distributed-per-test-coverage.html">About Distributed Per-Test Coverage</a>
+                </p>
+                <p><a href="general--what-is-test-optimization.html">About Test Optimization</a></p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

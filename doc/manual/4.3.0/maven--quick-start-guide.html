@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : Clover-for-Maven Quick Start Guide</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Clover-for-Maven Quick Start Guide
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>To get started with Clover-for-Maven, carry out the following steps.</p><h4>Add
+                org.openclover in .m2/settings.xml</h4>
+                <p>Before you get started, add this to your <code>.m2/settings.xml</code> file so you can reference
+                    Clover by its short name <code>clover</code>.</p>
+                <div class="container" title="Hint: double-click to select code"><p> </p>
+                    <div class="code panel pdl" style="border-width: 1px;">
+                        <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;pluginGroups&gt;
+    &lt;pluginGroup&gt;org.openclover&lt;/pluginGroup&gt;
+&lt;/pluginGroups&gt;</pre>
+                        </div>
+                    </div>
+                    <h4 id="Clover-for-Maven2and3QuickStartGuide-RunClovergoalsfromacommandline">Run Clover goals from a
+                        command line</h4>
+                    <p class="line number1 index0 alt2">The quickest and easiest way to try Clover is from the command
+                        line:</p>
+                    <div class="preformatted panel" style="border-width: 1px;">
+                        <div class="preformattedContent panelContent">
+                            <pre>mvn clean clover:setup test clover:aggregate clover:clover</pre>
+                        </div>
+                    </div>
+                    <p class="line number1 index0 alt2">Goals:</p>
+                    <div class="container" title="Hint: double-click to select code">
+                        <div class="line number1 index0 alt2">
+                            <ul>
+                                <li><em>clean</em> - to ensure that all sources will be recompiled (Clover uses <a
+                                        href="faq--why-does-openclover-use-source-instrumentation.html">source-code instrumentation</a>)
+                                </li>
+                                <li><em>clover:setup</em> - to initialize Clover and instrument sources</li>
+                                <li><em>test</em> - to compile code, run tests and record code coverage</li>
+                                <li><em>clover:aggregate</em> - to merge coverage data from a multi-module project</li>
+                                <li><em>clover:clover</em> - to generate HTML report for a project</li>
+                            </ul>
+                            <p>You can find a report in <code class="java plain">target/site/clover</code> directory.
+                            </p><h4 id="Clover-for-Maven2and3QuickStartGuide-Furtherreading">Further reading</h4>
+                            <p>For more instructions, see the <a href="maven--user-guide.html">Clover-for-Maven User's
+                                Guide</a>.</p>
+                            <p>For documentation presented in the standard Maven format, see the <a
+                                     href="../../maven/4.3.0/index.html"
+                                    rel="nofollow">Maven Site Docs</a>.</p><h4
+                                id="Clover-for-Maven2and3QuickStartGuide-Troubleshooting">Troubleshooting</h4>
+                            <div class="confluence-information-macro confluence-information-macro-information"><p
+                                    class="title">No coverage data?</p><span
+                                    class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                                <div class="confluence-information-macro-body"><p>Clover uses source code
+                                    instrumentation, which means that source files must be recompiled with the
+                                    'clover:setup' goal. Ensure that you're building your project from scratch (call
+                                    'mvn clean' or do the fresh checkout). Otherwise Maven may find your old,
+                                    non-instrumented classes from a previous build and do not compile sources.</p></div>
+                            </div>
+                            <div class="confluence-information-macro confluence-information-macro-information"><p
+                                    class="title">No coverage data?</p><span
+                                    class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                                <div class="confluence-information-macro-body"><p>In case you run in-container tests
+                                    (e.g. using maven-cargo-plugin) or spawn new JVM processes or run tests of an
+                                    application running on a remote server, you may need to add Clover's runtime JAR
+                                    (com.atlassian.clover:clover) to a class path. See <a
+                                            href="https://confluence.atlassian.com/x/lwjoEg" rel="nofollow">NoClassDefFoundError</a>
+                                    and <a href="guideline--using-openclover-for-web-applications.html">Using Clover for web
+                                        applications</a>.</p></div>
+                            </div>
+                            <div class="confluence-information-macro confluence-information-macro-information"><p
+                                    class="title">Out of memory?</p><span
+                                    class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                                <div class="confluence-information-macro-body"><p>Please keep in mind that Clover adds
+                                    extra instructions to your classes measuring code coverage. Thus, increasing PermGen
+                                    size may be necessary. See <a
+                                            href="kb--outofmemoryerror-permgen-space.html">OutOfMemoryError:
+                                        PermGen space</a>.</p></div>
+                            </div>
+                            <div class="confluence-information-macro confluence-information-macro-information"><p
+                                    class="title">Need more help?</p><span
+                                    class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                                <div class="confluence-information-macro-body"><p>See <a
+                                        href="kb--openclover-knowledge-base-home.html">Clover
+                                    Knowledge Base Home</a> and <a
+                                                                   href="https://community.atlassian.com/t5/Clover/ct-p/clover"
+                                                                   rel="nofollow">Atlassian Community</a>.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

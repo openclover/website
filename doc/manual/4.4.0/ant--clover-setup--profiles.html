@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : profiles</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--clover-setup.html">clover-setup</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            profiles
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h2 id="profiles-&lt;profiles&gt;">&lt;profiles&gt;</h2>
+                <p><strong>Since 3.1.11.</strong> Optional element. Defines a list of Clover profiles, which can be
+                    selected at runtime by providing a <strong>clover.profile=&lt;name&gt;</strong> system property.
+                    Thanks to this you can change some of Clover's behavior without code recompilation.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;profiles&gt;
+  &lt;profile name=&quot;default&quot; coverageRecorder=&quot;FIXED|GROWABLE|SHARED&quot;&gt;
+    &lt;distributedCoverage/&gt; &lt;!-- optional --&gt;
+  &lt;/profile&gt;
+  &lt;profile .../&gt;
+  &lt;!-- more profiles --&gt;
+&lt;/profile&gt;
+
+</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="profiles-&lt;profile&gt;">&lt;profile&gt;</h4>
+                <p><strong>Since 3.1.11.</strong> Contains a definition of a single runtime profile.</p><h5
+                    id="profiles-Parameters">Parameters</h5>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>name</p></td>
+                            <td class="confluenceTd"><p>The name for this profile; name must be unique among profiles.
+                                There must be one profile named &quot;default&quot;.</p></td>
+                            <td class="confluenceTd"><p>No. Defaults to &quot;default&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>coverageRecorder</p></td>
+                            <td class="confluenceTd"><p>Type of coverage recorder which will be used for gathering
+                                coverage data at runtime. Possible values: FIXED, GROWABLE, SHARED (case
+                                insensitive).</p>
+                                <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
+                                        data-emoticon-name="warning" alt="(warning)"/> Warning: we strongly recommend
+                                    using the default setting. Do not change until you deeply understand <a
+                                            href="ant--coverage-recorders.html">how it works</a>.</p></td>
+                            <td class="confluenceTd"><p>No. Defaults to &quot;FIXED&quot;.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h5 id="profiles-Nestedelements">Nested elements</h5>
+                <p><strong>&lt;distributedCoverage/&gt;</strong></p>
+                <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
+                        data-emoticon-name="light-on" alt="(lightbulb)"/>Note: a definition in <em><strong>&lt;profile&gt;/&lt;distributedCoverage&gt;</strong></em>
+                    element has priority over the <em><strong>&lt;clover-setup|clover-instr&gt;/&lt;distributedCoverage&gt;</strong></em>
+                    element.</p><h5 id="profiles-Selectingclover.profileatruntime">Selecting clover.profile at
+                runtime</h5>
+                <p>Clover profile is being selected at runtime using the following algorithm:</p>
+                <ul>
+                    <li>Are there any profiles defined in compiled code?
+                        <ul>
+                            <li><strong>yes</strong> - <br/>
+                                <ul>
+                                    <li>1. read the <strong>clover.profile</strong> system property. is it defined?
+                                        <ul>
+                                            <li><strong>yes</strong> - use the value as profile name</li>
+                                            <li><strong>no</strong> - use the &quot;default&quot; profile name</li>
+                                        </ul>
+                                    </li>
+                                    <li>2. is the profile name found on list of defined profiles?
+                                        <ul>
+                                            <li><strong>yes</strong> - <span style="color: rgb(0,128,0);">use settings from this profile</span>
+                                            </li>
+                                            <li><strong>no</strong> - <span style="color: rgb(128,0,0);">use system settings</span>
+                                                (default coverage recorder etc...)
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong>no</strong> - <span style="color: rgb(128,0,0);">use system settings</span>
+                                (default coverage recorder etc...)
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>So it fall-backs to default system settings in case of missing profile.</p>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

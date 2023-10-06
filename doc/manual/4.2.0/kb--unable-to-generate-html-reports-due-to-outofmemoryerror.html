@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unable to generate HTML reports due to java.lang.OutOfMemoryError</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a
+                                href="kb--troubleshooting-performance.html">Troubleshooting Performance</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Unable to generate HTML reports due to java.lang.OutOfMemoryError
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="UnabletogenerateHTMLreportsduetojava.lang.OutOfMemoryError-Symptoms">Symptoms</h4>
+
+                <p>Able to instrument code correctly, run tests, and generate clover DB files and clover XML. When
+                    running HTML report generation, however, you get the following error:</p>
+
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">
+BUILD FAILED
+java.lang.OutOfMemoryError: Java heap space
+</pre>
+                    </div>
+                </div>
+
+                <h4 id="UnabletogenerateHTMLreportsduetojava.lang.OutOfMemoryError-Cause">Cause</h4>
+
+                <p>Clover requires more memory in order to create the html reports.</p>
+
+                <h4 id="UnabletogenerateHTMLreportsduetojava.lang.OutOfMemoryError-Resolution">Resolution</h4>
+
+                <p>Try increasing the memory available to clover. For example up to -Xmx1024m.</p>
+
+                <p>To increase for Ant, you need to set it in your ANT_OPTS environment variable. E.g.</p>
+
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">
+export ANT_OPTS=&quot;-Xmx1024m -Xms256m&quot;
+</pre>
+                    </div>
+                </div>
+
+                <p>Similarly for Maven, you need to set it in your MAVEN_OPTS environment variable. E.g.</p>
+
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">
+export MAVEN_OPTS=&quot;-Xmx1024m -Xms256m&quot;
+</pre>
+                    </div>
+                </div>
+
+                <p>If that still gives you out of memory, increase to -Xmx2048m and set your Clover report to
+                    single-threaded mode please (set numThreads=&quot;0&quot;). See
+                    <a href="ant--clover-html-report.html">clover-html-report</a>.
+                </p>
+
+                <p>This is normally one way to limit memory usage for large projects but at the slight cost of report
+                    generation time. If numThreads=&quot;0&quot; works you could then try numThreads=&quot;1&quot;
+                    (default is 2).</p>
+
+                <p><span style="color: rgb(0,0,0);">If that still gives you out of memory, decrease the coverage cache size (set coverageCacheSize=&quot;128m&quot; or &quot;64m&quot; or even &quot;32m&quot;). See <a
+                         href="ant--clover-html-report.html"
+                        rel="nofollow">clover-html-report</a>.<br/>
+<br/>
+If that fails, or if report generation succeeds but takes a long time your project's size may be pushing Clover's current abilities to generate a report with the confines of a 32bit JVM's maximum heap size (2048m on *nix &amp; OSX, 1546m on Windows). Please consider using a 64bit JVM with a higher heap size.</span>
+                </p>
+
+                <p>If it still fails, then please <a href="../../../support">create a support case</a>
+                    and:</p>
+
+                <p>1) Let us know how big is your project (num files, num non-comment lines of code etc).<br/>
+                    2) Rerun with the &quot;-XX:+HeapDumpOnOutOfMemoryError&quot; java parameter so that a *.hprof is
+                    created when you hit a out of memory error. (The *.hprof file should be approximately equal to the
+                    memory you allocated, i.e. for -Xmx2048m it should be around 2G big).<br/>
+                    3) Attach the heap dump as well as the output of trying to create the report to the support case.
+                    (If the zip of the hprof file is to big to attach to the case, then let us know in the support case
+                    and we will setup a location for you to upload to).</p>
+
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p><!--$body--></p>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+                <p/>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

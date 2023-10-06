@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Unit Test Results and Per-Test Coverage</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--configuring-reports.html">5. Configuring Reports</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Unit Test Results and Per-Test Coverage
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h3 id="UnitTestResultsandPer-TestCoverage-Per-TestCoverage">Per-Test Coverage</h3>Clover has the
+                ability to integrate Unit Test results and per-test coverage information into Coverage reports. This
+                unique feature gives you a powerful insight into how well tested your covered code actually is, by
+                showing you exactly which statements each of your tests cover.<p>To take advantage of this feature all
+                you need to do is:</p>
+                <ul>
+                    <li><strong>Allow Clover to instrument your test classes.</strong> <br class="atl-forced-newline"/>
+                        <br class="atl-forced-newline"/> You must ensure that all your test classes are included for
+                        Clover instrumentation. To enable Clover instrumentation of your source code, use the
+                        <code>&lt;</code><code><a
+                                href="ant--clover-setup.html">clover-setup</a></code><code>&gt;</code> task.<br/>
+                        This allows Clover to specially mark test methods to enable per-test coverage reporting. The
+                        Clover instrumenter <a href="ant--clover-test-detection.html">automatically detects test
+                            methods</a> for Junit 3.x, Junit 4.x and TestNG. If you are using another testing framework,
+                        see &quot;Advanced Test Case Detection&quot; below.
+                    </li>
+                </ul>
+                <h3 id="UnitTestResultsandPer-TestCoverage-AdvancedTestCaseDetection">Advanced Test Case Detection</h3>
+                <p>If you are using a testing framework which does not use Junit or TestNG conventions for determining
+                    test methods, the nested <code>&lt;testsources/&gt;</code> element of <code>&lt;</code><code><a
+                            href="ant--clover-setup.html">clover-setup</a></code><code>&gt;</code> and
+                    <code>&lt;</code><code><a href="ant--clover-instr.html">clover-instr</a></code><code>&gt;</code>
+                    will allow you to specify the convention used by your framework.</p>
+                <p>The <a  href="http://code.google.com/p/instinct/" rel="nofollow">Instinct</a>
+                    framework for example uses the following:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-setup&gt;
+  &lt;testsources dir=&quot;tests&quot;&gt;
+    &lt;testclass&gt;
+      &lt;testmethod annotation=&quot;Specification&quot;/&gt;
+      &lt;testmethod name=&quot;^should.*&quot;/&gt;
+      &lt;testmethod name=&quot;^must.*&quot;/&gt;
+    &lt;/testclass&gt;
+  &lt;/testsources&gt;
+&lt;/clover-setup&gt;
+</pre>
+                    </div>
+                </div>
+                <p>You can optionally group <code>&lt;testclass/&gt;</code> definitions in <code>&lt;or/&gt;</code> or
+                    <code>&lt;and/&gt;</code> elements. Each <code>&lt;testmethod/&gt;</code> element is automatically
+                    grouped by an OR.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-setup&gt;
+  &lt;testsources dir=&quot;tests&quot;&gt;
+    &lt;or&gt;
+      &lt;testclass name=&quot;.*Context&quot;&gt;
+        &lt;testmethod annotation=&quot;Specification&quot;/&gt;
+      &lt;/testclass&gt;
+      &lt;testclass name=&quot;.*Test&quot;&gt;
+        &lt;testmethod name=&quot;test.*&quot;/&gt;
+      &lt;/testclass&gt;
+    &lt;/or&gt;
+  &lt;/testsources&gt;
+&lt;/clover-setup&gt;
+</pre>
+                    </div>
+                </div>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p><strong>Differences between Groovy and Java with
+                        respect to <a href="ant--clover-setup.html">&lt;clover-setup&gt;</a> tasks.</strong></p>
+                        <ul>
+                            <li>In Java, the names of annotations and classes that you use to define your test code
+                                could be either fully-qualified or not fully-qualified, and depend on how you declared
+                                these annotations and classes in your actual Java source code.
+                            </li>
+                            <li>In Groovy, fully qualified annotation and class names are required in your test code,
+                                regardless of how you have declared these annotations and classes in your actual Groovy
+                                source code.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 id="UnitTestResultsandPer-TestCoverage-AdvancedTestResultConfiguration">Advanced Test Result
+                    Configuration</h3>
+                <p>Clover does its best to record your test results in the Clover database. In some instances however,
+                    Clover can not always do so. Although unit tests using <code>@Test(expected=Exception.class)</code>
+                    annotations will be marked as passed, more novel JUnit constructs such as <a
+                                                                                                 href="http://blog.mycila.com/2009/11/writing-your-own-junit-extensions-using.html"
+                                                                                                 rel="nofollow">rules</a>
+                    may not be recognized and Clover will flag those tests as failed when in fact they passed. To
+                    integrate these test results into your Clover reports follow these steps:</p>
+                <ul>
+                    <li><p><strong>Enable XML reports from your Unit Test execution.</strong><br/> In an Ant build, if
+                        using the <code>&lt;junit&gt;</code>task, you need to add an XML result formatter:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;property name=&quot;testreport.dir&quot; value=&quot;build/test-reports&quot;&gt;
+
+ &lt;junit ...&gt;
+     ...
+    &lt;formatter type=&quot;xml&quot;/&gt;
+    &lt;batchtest todir=&quot;${testreport.dir}&quot;&gt;
+        ...
+    &lt;/batchtest&gt;
+ &lt;/junit&gt;
+</pre>
+                            </div>
+                        </div>
+                        <p>Such results can be similarly produced by the Ant TestNG tasks.</p></li>
+                </ul>
+                <ul>
+                    <li><strong>Supply the</strong> <code><strong>&lt;testresults&gt;</strong></code> <strong>element at
+                        report time.</strong><br/> If the <code>&lt;testresults&gt;</code> element is specified, <code>&lt;</code><code><a
+                            href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> and similar
+                        tasks will use these results instead of those collected by Clover. Clover's test result
+                        collection may also be switched off via the <code>dontRecordTestResults</code> attribute on
+                        <code>&lt;</code><code><a
+                                href="ant--clover-setup.html">clover-setup</a></code><code>&gt;</code> or
+                        <code>&lt;</code><code><a
+                                href="ant--clover-instr.html">clover-instr</a></code><code>&gt;</code>.
+                    </li>
+                </ul>
+                <p>e.g.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">      &lt;testresults dir=&quot;test-results&quot; include=&quot;TEST-*.xml&quot;/&gt;
+</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h3 id="UnitTestResultsandPer-TestCoverage-Limitations">Limitations</h3>
+                <p>Clover's per-test coverage collection does not support parallel test execution.</p>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

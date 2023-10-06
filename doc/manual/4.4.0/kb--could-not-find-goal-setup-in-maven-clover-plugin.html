@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Could not find goal &#39;setup&#39; in plugin
+        org.apache.maven.plugins:maven-clover-plugin:2.4</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--troubleshooting-maven.html">Troubleshooting Maven</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Could not find goal &#39;setup&#39; in plugin org.apache.maven.plugins:maven-clover-plugin:2.4
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h3 id="Couldnotfindgoal&#39;setup&#39;inpluginorg.apache.maven.plugins:maven-clover-plugin:2.4-Symptoms">
+                    Symptoms</h3>
+                <p>When integrating Clover into a build, for example:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>mvn clean clover:setup test clover:aggregate clover:clover</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>the build fails with an error like this:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">[ERROR] Could not find goal &#39;setup&#39; in plugin org.apache.maven.plugins:maven-clover-plugin:2.4 among available goals aggregate, check, instrumentInternal, instrument, log, clover, save-history -&gt; [Help 1]
+org.apache.maven.plugin.MojoNotFoundException: Could not find goal &#39;setup&#39; in plugin org.apache.maven.plugins:maven-clover-plugin:2.4 among available goals aggregate, check, instrumentInternal, instrument, log, clover, save-history</pre>
+                    </div>
+                </div>
+                <h3 id="Couldnotfindgoal&#39;setup&#39;inpluginorg.apache.maven.plugins:maven-clover-plugin:2.4-Cause">
+                    Cause</h3>
+                <p>1) The maven-clover2-plugin is declared in pom, but goals called from a command line have the
+                    'clover' prefix.</p>
+                <p>or</p>
+                <p>2) Neither the clover-maven-plugin is declared in pom.xml nor the <em>&lt;pluginGroup&gt;com.atlassian.maven.plugins&lt;/pluginGroup&gt;</em> in
+                    .m2/settings.xml and you use goals prefixed with 'clover' from a command line.</p>
+                <p> </p>
+                <h3 id="Couldnotfindgoal&#39;setup&#39;inpluginorg.apache.maven.plugins:maven-clover-plugin:2.4-Resolution">
+                    Resolution</h3>
+                <p>Clover plugin for Maven has been renamed
+                    in Clover 4.1 and next renamed in OpenClover 4.4. Therefore: </p>
+                <ul>
+                    <li>for Clover 3.x.x and Clover 4.0.x the plugin is named <strong>com.atlassian.maven.plugins:maven-clover2-plugin</strong> and
+                        thus goals have the <strong>clover2</strong> prefix
+                    </li>
+                    <li>since Clover 4.1.1 the plugin is
+                        named <strong>com.atlassian.maven.plugins:clover-maven-plugin</strong> and thus goals have
+                        the <strong>clover</strong> prefix
+                    </li>
+                    <li>OpenClover since version 4.2.0 is named <strong>org.openclover:clover-maven-plugin</strong> and goals
+                        have the <strong>clover</strong> prefix</li>
+                </ul>
+                <p> </p>
+                <p>1) Declare the <em>org.openclover</em> pluginGroup in .m2/settings.xml to ensure that
+                    Maven will not try to resolve 'clover' goals to a very old Clover 2.4<em> (</em><em
+                            style="line-height: 1.42857;">org.apache.maven.plugins:maven-clover-plugin)</em>.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>.m2/settings.xml</b>
+                    </div>
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;
+          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+          xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0
+          http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;
+    &lt;pluginGroups&gt;
+        &lt;pluginGroup&gt;org.openclover&lt;/pluginGroup&gt;
+    &lt;/pluginGroups&gt;
+    ...
+&lt;/settings&gt;</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>2) Upgrade to OpenClover 4.4.0 or newer and use goals with the 'clover' prefix (e.g. 'mvn clean
+                    clover:setup test clover:clover').</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;plugin&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;4.2.0&lt;/version&gt;
+&lt;/plugin&gt;</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>3) In case you must stay with Clover older than 4.1.1, use goals with the 'clover2' prefix (e.g. 'mvn
+                    clean clover2:setup test clover2:clover').</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;plugin&gt;
+    &lt;groupId&gt;com.atlassian.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-clover2-plugin&lt;/artifactId&gt;
+    &lt;version&gt;4.0.6&lt;/version&gt;
+&lt;/plugin&gt;</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

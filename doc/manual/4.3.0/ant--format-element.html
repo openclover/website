@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : &lt;format&gt; element</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--clover-report.html">clover-report</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            &lt;format&gt; element
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>Specifies the output format and various options controlling the rendering of a report.</p>
+                <p><strong>Parameters for &lt;format&gt;</strong></p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>type</p></td>
+                            <td class="confluenceTd"><p>The output format in which to render the report. Valid values
+                                are <code>pdf</code>, <code>xml</code>, <code>html</code> and <code>json</code>. Note
+                                that not all report formats support all other attributes.</p></td>
+                            <td class="confluenceTd"><p>Yes, unless <code>refid</code> is set.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>refid</p></td>
+                            <td class="confluenceTd"><p>The id of another format element that will be used for this
+                                report. See <a href="ant--sharing-report-formats.html">Sharing Report Formats</a>.
+                            </p></td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>id</p></td>
+                            <td class="confluenceTd"><p>The id of this format element.</p></td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>bw</p></td>
+                            <td class="confluenceTd"><p>Specify that the report should be black-and-white. Supported by
+                                PDF reports only.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>orderBy</p></td>
+                            <td class="confluenceTd"><p>Specify how to order coverage tables. This attribute has no
+                                effect on XML format. Valid values are: <br class="atl-forced-newline"/> <br
+                                        class="atl-forced-newline"/> <code>Alpha</code> — Alpabetical. <br
+                                        class="atl-forced-newline"/> <code>PcCoveredAsc</code> — Percent total coverage,
+                                ascending. <br class="atl-forced-newline"/> <code>PcCoveredDesc</code> — Percent total
+                                coverage, descending. <br class="atl-forced-newline"/> <code>ElementsCoveredAsc</code> —
+                                Total elements covered, ascending. <br class="atl-forced-newline"/> <code>ElementsCoveredDesc</code>
+                                — Total elements covered, descending. <br class="atl-forced-newline"/> <code>ElementsUncoveredAsc</code>
+                                — Total elements uncovered, ascending. <br class="atl-forced-newline"/> <code>ElementsUncoveredDesc</code>
+                                — Total elements uncovered, descending.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to <code>PcCoveredAsc.</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>noCache</p></td>
+                            <td class="confluenceTd"><p><em>(HTML only)</em> If true, insert nocache directives in HTML
+                                output.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>srcLevel</p></td>
+                            <td class="confluenceTd"><p>If true, include source-level coverage information in the
+                                report.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>filter</p></td>
+                            <td class="confluenceTd"><p>comma or space separated list of contexts to exclude when
+                                generating coverage reports. See <a href="ant--using-coverage-contexts.html">Using
+                                    Coverage Contexts</a>.</p></td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>pageSize</p></td>
+                            <td class="confluenceTd"><p><em>(PDF only)</em> Specify the page size to use. Valid values
+                                are <code>A4</code>, <code>LETTER.</code></p></td>
+                            <td class="confluenceTd"><p>No; defaults to &quot;<code>A4</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>showEmpty</p></td>
+                            <td class="confluenceTd"><p>If true, classes, files and packages that do not contain any
+                                executable code (i.e. methods, statements, or branches) are included in reports. These
+                                are normally not shown.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>tabWidth</p></td>
+                            <td class="confluenceTd"><p><em>(Source level reports only)</em> The number of space chars
+                                to replace TAB characters with.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to <code>4.</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>maxNameLength</p></td>
+                            <td class="confluenceTd"><p>The maximum length in chars of package or classnames in the
+                                report. Longer names will be truncated. A value &lt; 0 indicates no limit.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to no limit.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>callback</p></td>
+                            <td class="confluenceTd"><p>The name of the callback function to wrap the JSON. If set to an
+                                empty string, &quot; &quot;, then the JSON will not be wrapped.</p></td>
+                            <td class="confluenceTd"><p>No; default is 'processClover'.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong><br/></strong></p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

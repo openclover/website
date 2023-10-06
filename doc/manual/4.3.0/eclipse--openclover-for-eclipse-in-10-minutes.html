@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : 1. Clover for Eclipse in 10 minutes</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="eclipse--overview.html">Clover-for-Eclipse</a></span>
+                    </li>
+                    <li>
+                        <span><a href="eclipse--user-guide.html">Clover-for-Eclipse User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            1. Clover for Eclipse in 10 minutes
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p> </p>
+                <p>This short guide will learn you how to install and use Clover in 10 minutes.</p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813719102 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813719102 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813719102 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813719102'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#id-1.CloverforEclipsein10minutes-Installingtheplugin'>Installing the plugin</a>
+                        </li>
+                        <li><a href='#id-1.CloverforEclipsein10minutes-EnablingCloverforJavaproject'>Enabling Clover for
+                            Java project</a></li>
+                        <li><a href='#id-1.CloverforEclipsein10minutes-Buildingandrunningapplication'>Building and
+                            running application</a></li>
+                        <li><a href='#id-1.CloverforEclipsein10minutes-Reviewingcoverageresults'>Reviewing coverage
+                            results</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#id-1.CloverforEclipsein10minutes-CoverageExplorer'>Coverage Explorer</a>
+                                </li>
+                                <li><a href='#id-1.CloverforEclipsein10minutes-CloverDashboard'>Clover Dashboard</a>
+                                </li>
+                                <li><a href='#id-1.CloverforEclipsein10minutes-JavaEditor'>Java Editor</a></li>
+                                <li><a href='#id-1.CloverforEclipsein10minutes-TestRunExplorer'>Test Run Explorer</a>
+                                </li>
+                                <li><a href='#id-1.CloverforEclipsein10minutes-TestContributions'>Test Contributions</a>
+                                </li>
+                                <li><a href='#id-1.CloverforEclipsein10minutes-CoverageCloudReport'>Coverage Cloud
+                                    Report</a></li>
+                                <li><a href='#id-1.CloverforEclipsein10minutes-CoverageTreemapReport'>Coverage Treemap
+                                    Report</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                </p><h2 id="id-1.CloverforEclipsein10minutes-Installingtheplugin">Installing the plugin</h2>
+                <ol>
+                    <li>Select from the menu &quot;Help | Install new software&quot;.</li>
+                    <li>Click &quot;Add&quot; button and enter <a
+                                                                  href="http://openclover.org/update"
+                                                                  rel="nofollow">http://openclover.org/update</a>
+                        then click OK.
+                    </li>
+                    <li>Select &quot;Clover 4&quot; and &quot;Clover 4 Ant Support&quot; features. Disable the <em>&quot;Contact
+                        all update sites...&quot;</em> checkbox (for faster installation). Click &quot;Next&quot; button
+                        twice.
+                    </li>
+                    <li>Accept license agreement, click &quot;Finish&quot;, click &quot;OK&quot; for warning about
+                        unsigned content, click &quot;Restart now&quot;.
+                    </li>
+                </ol>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297666888/297600019.png"
+                                                                       data-image-src="attachments/297666888/297600019.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600019"
+                                                                       data-linked-resource-version="2"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="eclipse_install_new_software.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297666888"
+                                                                       data-linked-resource-container-version="11"></span>
+                </p>
+                <p> </p>
+                <h2 id="id-1.CloverforEclipsein10minutes-EnablingCloverforJavaproject">Enabling Clover for Java
+                    project</h2>
+                <p>Right click on a project in<em> &quot;Package Explorer&quot;</em> view, select &quot;<em>Clover &gt;
+                    Enable on this Project</em>&quot;. If you wish to enable Clover for multiple projects at once,
+                    choose <em>&quot;Enable/Disable on...</em>&quot;.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297666888/297600020.png"
+                                                                       data-image-src="attachments/297666888/297600020.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600020"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="eclipse_enable_clover_on_project.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297666888"
+                                                                       data-linked-resource-container-version="11"></span>
+                </p>
+                <p>Four Clover views will be opened automatically:</p>
+                <ul>
+                    <li>Coverage Explorer</li>
+                    <li>Test Run Explorer</li>
+                    <li>Clover Dashboard</li>
+                    <li>Test Contributions</li>
+                </ul>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297666888/297600021.png"
+                                                                       data-image-src="attachments/297666888/297600021.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600021"
+                                                                       data-linked-resource-version="2"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="eclipse_clover_views1.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297666888"
+                                                                       data-linked-resource-container-version="11"></span>
+                </p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297666888/297600022.png"
+                                                                       data-image-src="attachments/297666888/297600022.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600022"
+                                                                       data-linked-resource-version="2"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="eclipse_clover_views2.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297666888"
+                                                                       data-linked-resource-container-version="11"></span>
+                </p>
+                <p> </p>
+                <p>You can always open them from <em>&quot;Window &gt; Show View &gt; Other ... &gt; Clover&quot;</em>:
+                </p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297666888/297600024.png"
+                                                                       data-image-src="attachments/297666888/297600024.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600024"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="eclipse_clover_views3.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297666888"
+                                                                       data-linked-resource-container-version="11"></span>
+                </p>
+                <p> </p>
+                <h2 id="id-1.CloverforEclipsein10minutes-Buildingandrunningapplication">Building and running
+                    application</h2>
+                <p>Build your project as usual. In order to run it, choose &quot;Run with Clover&quot; button from tool
+                    bar:</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297666888/297600133.png"
+                                                                       data-image-src="attachments/297666888/297600133.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600133"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="run_with_clover_as.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297666888"
+                                                                       data-linked-resource-container-version="11"></span>
+                </p>
+                <h2 id="id-1.CloverforEclipsein10minutes-Reviewingcoverageresults">Reviewing coverage results</h2><h4
+                    id="id-1.CloverforEclipsein10minutes-CoverageExplorer">Coverage Explorer</h4>
+                <p>It's the best place to start. You will see coverage and metrics for all instrumented projects.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297666888/297600126.png"
+                                                                       data-image-src="attachments/297666888/297600126.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600126"
+                                                                       data-linked-resource-version="2"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="coverage_explorer_view.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297666888"
+                                                                       data-linked-resource-container-version="11"></span>
+                </p><h4 id="id-1.CloverforEclipsein10minutes-CloverDashboard">Clover Dashboard</h4>
+                <div class="sectionColumnWrapper">
+                    <div class="sectionMacro">
+                        <div class="sectionMacroRow">
+                            <div class="columnMacro"><p>It's a place where you can have a quick overview of your project
+                                and find hints about code areas you should focus on:</p>
+                                <ul>
+                                    <li><strong>Coverage</strong> - shows percentage coverage of the project</li>
+                                    <li><strong>Test Results</strong> - shows percentage of passed tests as well as
+                                        duration
+                                    </li>
+                                    <li><strong>Most Complex Packages</strong> - lists several packages with the highest
+                                        complexity -&gt; refactor
+                                    </li>
+                                    <li><strong>Most Complex Classes</strong> - as above, but on a class level -&gt;
+                                        refactor
+                                    </li>
+                                    <li><strong>Top Project Risks</strong> - the most complex and the least tested
+                                        classes -&gt; refactor and/or write more tests
+                                    </li>
+                                    <li><strong>Least Tested Methods</strong> - methods with the lowest test coverage -&gt;
+                                        write more tests
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="columnMacro"><p><span
+                                    class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                    class="confluence-embedded-image" width="300"
+                                    src="attachments/297666888/297600127.png"
+                                    data-image-src="attachments/297666888/297600127.png"
+                                    data-unresolved-comment-count="0" data-linked-resource-id="297600127"
+                                    data-linked-resource-version="2" data-linked-resource-type="attachment"
+                                    data-linked-resource-default-alias="clover_dashboard.png"
+                                    data-base-url="https://confluence.atlassian.com"
+                                    data-linked-resource-content-type="image/png"
+                                    data-linked-resource-container-id="297666888"
+                                    data-linked-resource-container-version="11"></span></p></div>
+                        </div>
+                    </div>
+                </div>
+                <p> </p><h4 id="id-1.CloverforEclipsein10minutes-JavaEditor">Java Editor</h4>
+                <p>To view coverage information on a line-by-line basis, Clover adds colored annotations to your
+                    project's Java source code editors.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297666888/301007757.png"
+                                                                       data-image-src="attachments/297666888/301007757.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301007757"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="eclipse_java_editor_annotations.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297666888"
+                                                                       data-linked-resource-container-version="11"></span>
+                </p>
+                <p>Colors used for background highlighting are as follows:</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <thead>
+                        <tr>
+                            <th class="confluenceTh">
+                                <div class="tablesorter-header-inner"><p>Color</p></div>
+                            </th>
+                            <th class="confluenceTh">
+                                <div class="tablesorter-header-inner"><p>Meaning</p></div>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="confluenceTd"><p>Green</p></td>
+                            <td class="confluenceTd"><p>Coverage from passing tests or due to execution outside tests
+                                (e.g. main() method).</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Squiggly Red Lines</p></td>
+                            <td class="confluenceTd"><p>Partial branch coverage (caused when only one part of a branch
+                                has been covered).</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Yellow</p></td>
+                            <td class="confluenceTd"><p>Failed test coverage (where coverage has only been caused by one
+                                or more failing tests and no passing tests).</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Grey</p></td>
+                            <td class="confluenceTd"><p>Filtered out code.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Red</p></td>
+                            <td class="confluenceTd"><p>Code with no coverage.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p> </p>
+                <p>A left margin ruler shows three color markers:</p>
+                <ul>
+                    <li>left half - green if at least part of line is covered, yellow if at least part of line is
+                        covered but test has failed, red for line not covered at all (it's an &quot;optimistic marker&quot;)
+                    </li>
+                    <li>right half - red if at least part of line is not covered, yellow if at least part of line is
+                        covered but test has failed, green for fully covered line (it's a &quot;pessimistic marker&quot;)
+                    </li>
+                    <li>right strip - dark green for coverage related with passed tests, dark yellow for coverage
+                        related with failed tests
+                    </li>
+                </ul>
+                <p> </p><h4 id="id-1.CloverforEclipsein10minutes-TestRunExplorer">Test Run Explorer</h4>
+                <p>The Test Run Explorer view, lets you explore your recently run tests - showing whether they passed or
+                    failed, their duration and any error messages that they generated. Furthermore, it allows you to
+                    explore the code coverage caused by an individual test, a test class, a package or even your entire
+                    project.</p>
+                <p>After running tests in a Clover-enabled project, on the left-hand side of this view you will see a
+                    tree of tests that were run. On selecting an element on the left-hand side, the right-hand side
+                    displays all the application (i.e. non-test) classes that had coverage caused by the selection.</p>
+                <p>The right-hand table displays not only the names of the classes that were partially or fully covered
+                    by the test methods, but also the percentage of class' total coverage that is attributable to the
+                    test method (the test method's coverage contribution) as well as the percentage of the class'
+                    coverage that was attributable only to the selected test method (the test method's unique
+                    coverage).</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297666888/297600129.png"
+                                                                       data-image-src="attachments/297666888/297600129.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600129"
+                                                                       data-linked-resource-version="2"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="test_run_explorer_view.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297666888"
+                                                                       data-linked-resource-container-version="11"></span>
+                </p><h4 id="id-1.CloverforEclipsein10minutes-TestContributions">Test Contributions</h4>
+                <div class="sectionColumnWrapper">
+                    <div class="sectionMacro">
+                        <div class="sectionMacroRow">
+                            <div class="columnMacro"><p>The Test Contributions view shows unit tests and methods that
+                                generated coverage for the currently opened and selected Java source file. As you switch
+                                between Java source file editors, the top most tree is updated with the test methods
+                                that contributed to coverage of this file. The bottom tree tracks the test methods that
+                                contributed to coverage of the file at the current cursor position.</p>
+                                <p>The Test Contributions view allows you to better understand the relationship between
+                                    your test code and your application code.</p></div>
+                            <div class="columnMacro"><p><span class="confluence-embedded-file-wrapper"><img
+                                    class="confluence-embedded-image" src="attachments/297666888/297600130.png"
+                                    data-image-src="attachments/297666888/297600130.png"
+                                    data-unresolved-comment-count="0" data-linked-resource-id="297600130"
+                                    data-linked-resource-version="1" data-linked-resource-type="attachment"
+                                    data-linked-resource-default-alias="test_contributions.png"
+                                    data-base-url="https://confluence.atlassian.com"
+                                    data-linked-resource-content-type="image/png"
+                                    data-linked-resource-container-id="297666888"
+                                    data-linked-resource-container-version="11"></span></p></div>
+                        </div>
+                    </div>
+                </div>
+                <p> </p><h4 id="id-1.CloverforEclipsein10minutes-CoverageCloudReport">Coverage Cloud Report</h4>
+                <p>Coverage cloud report are a great way to work out the classes that form major risks (low coverage but
+                    high complexity) to your project and its packages, and also to highlight potential quick wins for
+                    increasing the overall project or per-package coverage. The coverage cloud report can be generated
+                    by right clicking on your Clover-enabled project in the Coverage Explorer view or Test Run Explorer
+                    view and selecting Generate Coverage Cloud.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297666888/301007759.png"
+                                                                       data-image-src="attachments/297666888/301007759.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301007759"
+                                                                       data-linked-resource-version="2"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="eclipse_cloud_button.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297666888"
+                                                                       data-linked-resource-container-version="11"></span>
+                </p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297666888/297600131.png"
+                                                                       data-image-src="attachments/297666888/297600131.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600131"
+                                                                       data-linked-resource-version="2"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="coverage_cloud_report.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297666888"
+                                                                       data-linked-resource-container-version="11"></span>
+                </p><h4 id="id-1.CloverforEclipsein10minutes-CoverageTreemapReport">Coverage Treemap Report</h4>
+                <p>The coverage treemap report allows simultaneous comparison of classes and package by complexity and
+                    by code coverage. The treemap is divided by package (labeled) and then further divided by class
+                    (unlabeled). The size of the package or class indicates its complexity (larger squares indicate
+                    great complexity). Colors indicate the level of coverage (bright green - most covered, bright red -
+                    uncovered).</p>
+                <p>The treemap cloud report can be generated by right clicking on your Clover-enabled project in the
+                    Coverage Explorer and selecting Generate Coverage Treemap.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297666888/301007762.png"
+                                                                       data-image-src="attachments/297666888/301007762.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301007762"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="eclipse_treemap_button.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297666888"
+                                                                       data-linked-resource-container-version="11"></span>
+                </p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297666888/301007763.png"
+                                                                       data-image-src="attachments/297666888/301007763.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301007763"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="eclipse_treemap_view.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297666888"
+                                                                       data-linked-resource-container-version="11"></span>
+                </p>
+                <p> </p>
+                <p> </p>
+                <hr/>
+                <p>Congratulations! You now know basics of <em>Clover for Eclipse</em> plugin - enough to start your
+                    daily work with it.</p>
+                <p>If you like to learn more, read the <a href="eclipse--exploration-of-coverage.html">2.
+                    Exploration of coverage in Eclipse</a> chapter.</p>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

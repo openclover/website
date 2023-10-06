@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Clover-for-Maven User&#39;s Guide</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Clover-for-Maven User&#39;s Guide
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>The Maven Clover plugin produces Clover reports from Maven projects.</p>
+                <div class="confluence-information-macro confluence-information-macro-information"><p class="title">
+                    Maven Site Documentation</p><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>For documentation presented in the standard Maven
+                        format, see the <a
+                                           href="../../maven/4.4.1/index.html" rel="nofollow">Maven
+                            Site Docs</a>.</p></div>
+                </div>
+                <p> </p>
+                <p><strong>On this page</strong>:</p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813714039 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813714039 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813714039 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813714039'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#Clover-for-Maven2and3User&#39;sGuide-BasicUsage'>Basic Usage</a></li>
+                        <li><a href='#Clover-for-Maven2and3User&#39;sGuide-Configuringinstrumentation'>Configuring
+                            instrumentation</a></li>
+                        <li><a href='#Clover-for-Maven2and3User&#39;sGuide-Configuringreports'>Configuring reports</a>
+                        </li>
+                        <li><a href='#Clover-for-Maven2and3User&#39;sGuide-Configuringacoveragegoal'>Configuring a
+                            coverage goal</a></li>
+                        <li><a href='#Clover-for-Maven2and3User&#39;sGuide-UsingTestOptimization'>Using Test
+                            Optimization</a></li>
+                        <li><a href='#Clover-for-Maven2and3User&#39;sGuide-Workingwithdistributedsystems'>Working with
+                            distributed systems</a></li>
+                        <li><a href='#Clover-for-Maven2and3User&#39;sGuide-Workingwithmulti-moduleprojects'>Working with
+                            multi-module projects</a></li>
+                        <li><a href='#Clover-for-Maven2and3User&#39;sGuide-Bestpractices'>Best practices</a></li>
+                        <li><a href='#Clover-for-Maven2and3User&#39;sGuide-UsingCloverwithotherMavenplug-ins'>Using
+                            Clover with other Maven plug-ins</a></li>
+                    </ul>
+                </div>
+                </p><h1 id="Clover-for-Maven2and3User&#39;sGuide-BasicUsage"><a href="maven--basic-usage.html">Basic
+                Usage</a></h1>
+                <p><em>How to quickly set up basic Clover configuration in settings.xml and pom.xml and run Clover's
+                    goals from a command line.</em></p>
+                <h1 id="Clover-for-Maven2and3User&#39;sGuide-ConfiguringinstrumentationConfiguring-instrumentation_588579923.html">
+                    <a href="maven--configuring-instrumentation.html">Configuring instrumentation</a></h1>
+                <p><em>How to set which source files shall be instrumented, control level of instrumentation, set JDK
+                    level and location of coverage data.</em></p>
+                <h1 id="Clover-for-Maven2and3User&#39;sGuide-ConfiguringreportsConfiguring-reports_588579928.html"><a
+                        href="maven--configuring-reports.html">Configuring reports</a></h1>
+                <p><em>How to choose report formats, generate historical reports and customize report content.</em></p>
+                <h1 id="Clover-for-Maven2and3User&#39;sGuide-ConfiguringacoveragegoalConfiguring-a-coverage-goal_588579907.html">
+                    <a href="maven--configuring-a-coverage-goal.html">Configuring a coverage goal</a></h1>
+                <p><em>How to set a coverage level as a quality gate and fail a build if it drops below certain
+                    threshold or drops compared to a previous build.</em></p>
+                <h1 id="Clover-for-Maven2and3User&#39;sGuide-UsingTestOptimization"><a
+                        href="maven--using-test-optimization.html">Using Test Optimization</a></h1>
+                <p class="confluence-link"><em>Test Optimization saves valuable time in the build and test cycle, by
+                    only running tests that cover code which has changed since the last build.</em></p>
+                <h1 class="confluence-link" id="Clover-for-Maven2and3User&#39;sGuide-Workingwithdistributedsystems">
+                    Working with distributed systems</h1>
+                <ul>
+                    <li><a href="maven--using-distributed-per-test-coverage.html">Using Distributed Per-test
+                        Coverage</a></li>
+                    <li><a href="guideline--using-openclover-in-various-environment-configurations.html">Using Clover in
+                        various environment configurations</a></li>
+                    <li><a href="guideline--using-openclover-for-web-applications.html">Using Clover for web applications</a>
+                    </li>
+                </ul>
+                <h1 id="Clover-for-Maven2and3User&#39;sGuide-Workingwithmulti-moduleprojects">Working with multi-module
+                    projects</h1>
+                <p>You can use the <a
+                                      href="../../maven/4.4.0/aggregate-mojo.html"
+                                      rel="nofollow">clover:aggregate</a> goal to combine the Clover databases of child
+                    projects into a single database at the parent project level.</p>
+                <p>You can also create a single database for all modules with <a
+                                                                                 href="../../maven/4.4.0/setup-mojo.html#singleCloverDatabase"
+                                                                                 rel="nofollow"><em>singleCloverDatabase</em>
+                </a>parameter set to <em>true</em> in <em><a
+                                                             href="../../maven/4.4.0/setup-mojo.html"
+                                                             rel="nofollow">clover:setup</a></em> goal.</p>
+                <p>Because of this <a  href="https://issues.apache.org/jira/browse/MNG-2184"
+                                      rel="nofollow">Maven bug</a>, aggregation of databases occurs before the child
+                    databases have been generated, when you use the <code>site</code> target.</p>
+                <p>You can create Clover reports for a multi-module project with the command line <code>mvn clover:setup
+                    test clover:aggregate clover:clover</code>.</p>
+                <h1 id="Clover-for-Maven2and3User&#39;sGuide-Bestpractices">Best practices</h1>
+                <ul>
+                    <li><a href="maven--best-practices.html">Best Practices for Maven</a></li>
+                    <li><a href="ant--runtime-performance-tuning.html">Clover Performance Tuning</a></li>
+                </ul>
+                <h1 id="Clover-for-Maven2and3User&#39;sGuide-UsingCloverwithotherMavenplug-ins">Using Clover with other
+                    Maven plug-ins</h1>
+                <ul>
+                    <li><a href="maven--compiling-with-gmaven-plugin.html">Compiling Groovy with GMaven
+                        plugin</a></li>
+                    <li><a href="maven--compiling-with-groovy-eclipse-plugin.html">Compiling Groovy with
+                        Groovy Eclipse Plugin</a><br/><br/></li>
+                    <li><a href="maven--using-with-the-maven-antrun-plugin.html">Using Clover via the
+                        maven-antrun-plugin</a></li>
+                    <li><a href="maven--using-with-surefire-and-failsafe-plugins.html">Using with Surefire and
+                        Failsafe Plugins</a>
+                        <ul>
+                            <li><a href="maven--using-with-surefire-and-inner-test-classes.html">Using Clover with Maven + surefire-test + inner test
+                                classes</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="maven--using-with-the-gwt-maven-plugin.html">Using Clover with the GWT-maven
+                        plugin</a></li>
+                    <li><a href="maven--using-with-the-maven-jaxb2-plugin.html">Using Clover with JAXB plugin</a></li>
+                    <li><a href="maven--using-with-the-maven-bundle-plugin.html">Using Clover with the
+                        maven-bundle-plugin</a></li>
+                    <li><a href="maven--using-with-maven-tycho-plugin.html">Using Clover with Maven Tycho
+                        Plugin</a></li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

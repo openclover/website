@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Clover-for-Grails Quick Start Guide</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="grails--overview.html">Clover-for-Grails</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Clover-for-Grails Quick Start Guide
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+
+                <div class="alert alert-warning">
+                    This plugin integrates with Grails 2.x and is no longer maintained.
+                    Consider using a Gradle Clover Plugin for Grails 3.0 and newer.
+                </div>
+
+                <h2
+                    id="Clover-for-GrailsQuickStartGuide-InstalltheClover-for-Grailsplugin">Install the plugin</h2>
+                <p>In case you use Grails <b>older than 2.3.5</b> then you can install the Clover-for-Grails plugin by running the following Grails command in the root of your
+                    Grails project directory.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">grails install-plugin clover
+</pre>
+                    </div>
+                </div>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>The 'grails install-plugin' command has been
+                        removed in Grails 2.3.5 upwards. So in case you use <b>Grails 2.3.5 or higher</b>, we recommend adding the Clover plugin to your
+                        project's BuildConfig.groovy or pom.xml. For more installation options, please see <a
+                                href="grails--installation-guide.html">Clover-for-Grails
+                            Installation Guide</a>.</p></div>
+                </div>
+                <h2 id="Clover-for-GrailsQuickStartGuide-GeneratingabasicClovercoveragereport">Generate a 
+                    coverage report</h2>
+                <p>To generate a basic Clover code coverage report, you need to add the Clover option
+                    <code>-clover.on</code> to the <code>grails test-app</code> command line target for running unit
+                    tests against your Grails project.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">grails test-app -clover.on -clover.view
+</pre>
+                    </div>
+                </div>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Adding the Clover option <code>-clover.view</code>
+                        to this Grails command makes the report open in a browser window immediately after generation.
+                        If you omit this command line option, Clover will generate a report that you can then open
+                        manually.</p></div>
+                </div>
+
+                <h2 id="Clover-for-GrailsQuickStartGuide-Troubleshooting">Troubleshooting</h2>
+                <p>If you find that Clover-for-Grails runs out of memory, try increasing the Grails PermGen allocation
+                    by either setting the JAVA_OPTS environment variable:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Linux/UNIX/Mac OS
+                        X:</b></div>
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">export JAVA_OPTS=&quot;-XX:MaxPermSize=192m&quot;
+</pre>
+                    </div>
+                </div>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Windows:</b></div>
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">set JAVA_OPTS=&quot;-XX:MaxPermSize=192m&quot;
+</pre>
+                    </div>
+                </div>
+                <p>Alternatively, you can define this variable in the <code>startGrails</code> (Linux/UNIX/Mac OS X) or
+                    <code>startGrails.bat</code> (Windows) script in the <code>&lt;Grails Home Directory&gt;/bin</code>
+                    directory.</p>
+                <h2 id="Clover-for-GrailsQuickStartGuide-Furtherreading">Further reading</h2>
+                <ul>
+                    <li><a href="grails--configuration-options.html">Configuration options</a></li>
+                    <li><a href="grails--user-guide.html">Clover-for-Grails User's Guide</a></li>
+                </ul>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

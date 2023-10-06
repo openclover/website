@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : clover-log</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            clover-log
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h3 id="clover-log-Description">Description</h3>
+                <p>The <code>&lt;clover-log&gt;</code> task reports coverage information to the console at different
+                    levels.</p>
+                <h3 id="clover-log-Parameters">Parameters</h3>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>initstring</p></td>
+                            <td class="confluenceTd"><p>The <code>initstring</code> of the coverage database.</p></td>
+                            <td class="confluenceTd"><p>No; if not specified here, Clover will use the default location
+                                (<code>${basedir}/.clover</code>). If you have specified an <code>initstring</code> on
+                                the &lt;<a href="ant--clover-setup.html">clover-setup</a>&gt; task, you must ensure
+                                that &lt;<a href="ant--clover-setup.html">clover-setup</a>&gt; is called prior the
+                                execution of this task.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>level</p></td>
+                            <td class="confluenceTd"><p>Controls the level of detail included in the report. Valid
+                                values are <code>summary</code>, <code>class</code>, <code>method</code>, <code>statement</code>
+                            </p></td>
+                            <td class="confluenceTd"><p>No; defaults to &quot;<code>summary</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>filter</p></td>
+                            <td class="confluenceTd"><p>comma or space separated list of contexts to ignore when
+                                calculating coverage. See <a href="ant--using-coverage-contexts.html">Using Coverage
+                                    Contexts</a>.</p></td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>span</p></td>
+                            <td class="confluenceTd"><p>Specifies how far back in time to include coverage recordings
+                                from since the last Clover build. See <a href="ant--using-spans.html">Using
+                                    Spans</a>.</p></td>
+                            <td class="confluenceTd"><p>No; defaults includes &quot;all coverage data found&quot;.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">codeType</td>
+                            <td colspan="1" class="confluenceTd"><p><em><strong>Since 3.1.6:</strong> </em>Specifies
+                                which sources shall be taken for calculation. This attribute should be used together
+                                with &lt;testSources&gt; nested element.</p>
+                                <p>Valid values are: APPLICATION (business code), TEST (test code), ALL (business + test
+                                    code).</p></td>
+                            <td colspan="1" class="confluenceTd">No; Default value: APPLICATION.</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">showUnitTests</td>
+                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.1.6:</strong> </em>Show unit tests
+                                summary in the report. Must be used with codeType=ALL or codeType=TEST.
+                            </td>
+                            <td colspan="1" class="confluenceTd">No; Default value: false</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">outputProperty</td>
+                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.1.6:</strong> </em>Name of the Ant
+                                property in which a clover-log report will be stored, instead of printing it to console.
+                            </td>
+                            <td colspan="1" class="confluenceTd">No;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p> </p>
+                <h3 id="clover-log-Nestedelements">Nested elements</h3><h4 id="clover-log-&lt;fileset&gt;">&lt;fileset&gt;</h4>
+                <p>Specifies an Ant <a  href="https://ant.apache.org/manual/Types/fileset.html"
+                                       rel="nofollow">fileset</a>. Only these files will be used when generating the
+                    clover-log messages and coverage data.</p>
+                <p> </p><h4 id="clover-log-&lt;package&gt;">&lt;package&gt;</h4>
+                <p>Specifies a named package to restrict the report to. Multiple <code>&lt;package&gt;</code> elements
+                    can be specified.</p><h5 id="clover-log-Parameters.1">Parameters</h5>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>name</p></td>
+                            <td class="confluenceTd"><p>The name of the package to include.</p></td>
+                            <td class="confluenceTd"><p>Yes.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p> </p><h4 id="clover-log-&lt;sourcepath&gt;">&lt;sourcepath&gt;</h4>
+                <p>Specifies an Ant path that Clover should use when looking for source files.</p>
+                <p> </p><h4 id="clover-log-&lt;testSources&gt;">&lt;testSources&gt;</h4>
+                <p><em><strong>Since 3.1.6:</strong> </em>Specifies an Ant <a
+                                                                              href="https://ant.apache.org/manual/Types/fileset.html"
+                                                                              rel="nofollow">fileset</a>. These files
+                    will be treated as test code (codeType=TEST), all others will be treated as business code
+                    (codeType=APPLICATION).</p>
+                <p> </p>
+                <h3 id="clover-log-Examples">Examples</h3>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-log/&gt;
+</pre>
+                    </div>
+                </div>
+                <p>Prints a summary of code coverage to the console.</p>
+                <p> </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-log&gt;
+         &lt;package name=&quot;com.acme.killerapp.core&quot;/&gt;
+ &lt;/clover-log&gt;
+</pre>
+                    </div>
+                </div>
+                <p>Prints a summary of code coverage for the package com.acme.killerapp.core to the console.</p>
+                <p> </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-log level=&quot;statement&quot;&gt;
+         &lt;package name=&quot;com.acme.killerapp.core&quot;/&gt;
+ &lt;/clover-log&gt;
+</pre>
+                    </div>
+                </div>
+                <p>Prints detailed (source-level) code coverage information for the package <code>com.acme.killerapp.core</code>
+                    to the console.</p>
+                <p> </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-log level=&quot;statement&quot;
+	     filter=&quot;catch&quot;&gt;
+         &lt;package name=&quot;com.acme.killerapp.core&quot;/&gt;
+ &lt;/clover-log&gt;
+</pre>
+                    </div>
+                </div>
+                <p>As above, but catch blocks will not be considered in coverage reporting.</p>
+                <p> </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-log level=&quot;statement&quot;&gt;
+    &lt;sourcepath&gt;
+       &lt;pathelement path=&quot;/some/other/location&quot;/&gt;
+    &lt;/sourcepath&gt;
+ &lt;/clover-log&gt;
+</pre>
+                    </div>
+                </div>
+                <p>Prints source-level coverage report to the console. Clover will look for source files in the
+                    directory <code>/some/other/location</code>.</p>
+                <p> </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-log codeType=&quot;APPLICATION&quot;&gt;
+    &lt;fileset dir=&quot;src/main/java&quot;/&gt;
+    &lt;fileset dir=&quot;src/main/groovy&quot;/&gt;
+    &lt;fileset dir=&quot;src/test/java&quot;/&gt;
+    &lt;testSources dir=&quot;src/test/java&quot;/&gt;
+&lt;/clover-log&gt;
+
+</pre>
+                    </div>
+                </div>
+                <p>Collect coverage data from three directories: src/main/java, src/main/groovy and src/test/java. Test
+                    sources are located in: src/test/java. Report coverage for business code only (codeType =
+                    APPLICATION), i.e. skip files from src/test/java.</p>
+                <p> </p>
+                <h3 id="clover-log-Sampleoutput">Sample output</h3>
+                <p>Example for <em>&lt;clover-log showUnitTests=&quot;true&quot; code=&quot;ALL&quot;.../&gt;</em></p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>Clover Coverage Report
+Coverage Timestamp: Tue May 22 13:21:44 CEST 2012
+Report for code   : ALL
+
+Coverage Overview -
+Coverage:-
+      Methods: 4/7 (57,1%)
+   Statements: 8/14 (57,1%)
+     Branches: 0/0 ( - )
+        Total: 57,1%
+Complexity:-
+   Avg Method: 1.0
+      Density: 0.5
+        Total: 7
+Tests:-
+ Tests number: 2
+    Tests run: 2
+ Tests passed: 2
+ Tests failed: 0
+ Tests errors: 0</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>By default, log output is written in plain text, for instance:</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/71600236/317165319.png"
+                                                                       data-image-src="attachments/71600236/317165319.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="317165319"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="clover_log_plain.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="71600236"
+                                                                       data-linked-resource-container-version="16"></span>
+                </p>
+                <p>but if you have a terminal supporting ANSI colors (Linux, for example) you can use <strong>-Dansi.color=true</strong>
+                    property to get a report like this:</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/71600236/317165320.png"
+                                                                       data-image-src="attachments/71600236/317165320.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="317165320"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="clover_log_coloured.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="71600236"
+                                                                       data-linked-resource-container-version="16"></span>
+                </p>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

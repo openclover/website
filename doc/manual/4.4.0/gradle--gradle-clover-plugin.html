@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Gradle Clover Plugin</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Gradle Clover Plugin
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p><a  href="http://www.gradle.org/" rel="nofollow">Gradle</a> framework can
+                    automate the building, testing, publishing, deployment and more of software packages or other types
+                    of projects such as generated static websites or generated documentation.</p>
+                <h2 id="GradleCloverPlugin-GradleCloverPluginbyAtlassian">Gradle Clover Plugin by Atlassian</h2>
+                <p>An alpha version of plugin written by Atlassian developers, it offers basic functionality:</p>
+                <p><a  href="https://github.com/openclover/gradle-clover-plugin" rel="nofollow">gradle-clover-plugin</a>
+                </p>
+                <h2 id="GradleCloverPlugin-GradleCloverPluginbyBenjaminMuschko">Gradle Clover Plugin by Benjamin
+                    Muschko</h2>
+                <p>A quite functional Clover plugin written by Benjamin Muschko:</p>
+                <p><a  href="https://github.com/bmuschko/gradle-clover-plugin" rel="nofollow">https://github.com/bmuschko/gradle-clover-plugin</a>
+                </p>
+                <p>Known issues:</p>
+                <ul>
+                    <li><a  href="https://github.com/bmuschko/gradle-clover-plugin/issues"
+                           rel="nofollow">https://github.com/bmuschko/gradle-clover-plugin/issues</a></li>
+                    <li>plug-in requires presence of &quot;main&quot; source directory (e.g. src/main/groovy)</li>
+                    <li>a default test inclusion pattern is &quot;**/*Test.java&quot; and &quot;**/*Test.groovy&quot;,
+                        so in case you have other test naming convention (for instance, Spock framework has &quot;*Spec.groovy&quot;)
+                        you have to declare <em>clover.testIncludes</em> property in build.gradle
+                    </li>
+                </ul>
+                <p> </p>
+                <h2 id="GradleCloverPlugin-IntegratingClovermanually">Integrating Clover manually</h2>
+                <p>In case you would like to integrate Clover manually in your <em>build.gradle</em> script, then you
+                    need to handle at least three tasks:</p>
+                <ul>
+                    <li>code instrumentation - pass sources to <a href="commandline--cloverinstr.html">CloverInstr</a> (Java
+                        only), next pass instrumented sources to the 'compile' task
+                    </li>
+                    <li>test execution - add clover.jar to the test classpath</li>
+                    <li>report generation - call <a href="commandline--htmlreporter.html">HtmlReporter</a> or <a
+                            href="commandline--xmlreporter.html">XMLReporter</a></li>
+                </ul>
+                <p>Example:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>build.gradle</b></div>
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
+     data-theme="Confluence">apply plugin: &#39;java&#39;
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    testCompile &#39;junit:junit:4.12&#39;
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
+    dependencies {
+        classpath &#39;org.openclover:clover:4.4.0&#39;
+    }
+}
+
+sourceSets {
+    clover {
+        java {
+            srcDir &quot;$buildDir/sources-instr&quot;
+        }
+    }
+}
+
+dependencies {
+    cloverCompile &#39;org.openclover:clover:4.4.0&#39;
+}
+
+configurations {
+    cloverRuntime
+    cloverRuntime.extendsFrom cloverCompile
+}
+ 
+task cloverInstr() {
+    inputs.files sourceSets.main.allJava
+    outputs.dir &quot;$buildDir/sources-instr&quot;
+
+    doFirst {
+        def argsList = [&quot;--initstring&quot;, &quot;${buildDir}/clover/clover.db&quot;,
+                        &quot;-d&quot;, &quot;${buildDir}/sources-instr&quot;]
+        argsList.addAll(inputs.files.files.collect({ file -&gt;
+            file.absolutePath
+        }))
+        String[] args = argsList.toArray()
+
+        com.atlassian.clover.CloverInstr.mainImpl(args)
+    }
+}
+
+cloverClasses.dependsOn cloverInstr
+ 
+test {
+    def cloverClasspath = configurations.testRuntime + configurations.cloverRuntime + sourceSets.test.output + sourceSets.clover.output
+    classpath = cloverClasspath
+}
+
+task cloverReport {
+    inputs.dir &quot;${buildDir}/clover&quot;
+    outputs.dir &quot;${reportsDir}/clover&quot;
+    onlyIf {
+        file(&quot;${buildDir}/clover/clover.db&quot;).exists()
+    }
+    doFirst {
+        def argsList = [&quot;--initstring&quot;, &quot;${buildDir}/clover/clover.db&quot;,
+                        &quot;-o&quot;, &quot;${reportsDir}/clover&quot;]
+        String[] args = argsList.toArray()
+        com.atlassian.clover.reporters.html.HtmlReporter.runReport(args)
+    }
+}</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h2 id="GradleCloverPlugin-References">References</h2>
+                <p>
+    <span class="jira-issue" data-issue-key="CLOV-1009">
+                <a href="https://jira.atlassian.com/browse/CLOV-1009?src=confmacro" class="jira-issue-key"><img
+                        class="icon"
+                        src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51497&amp;avatarType=issuetype"/>CLOV-1009</a>
+                    -
+            <span class="summary">Clover integration with Gradle</span>
+                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-complete jira-macro-single-issue-export-pdf">Open</span>
+            </span>
+                     - feature request for Clover</p>
+                <p>
+    <span class="jira-issue resolved" data-issue-key="BAM-9368">
+                <a href="https://jira.atlassian.com/browse/BAM-9368?src=confmacro" class="jira-issue-key"><img
+                        class="icon"
+                        src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51501&amp;avatarType=issuetype"/>BAM-9368</a>
+                    -
+            <span class="summary">Support Gradle builder</span>
+                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-success jira-macro-single-issue-export-pdf">Resolved</span>
+            </span>
+                     - Gradle plugin for Bamboo - a Gradle Task is available in the free <a
+                                                                                            href="https://marketplace.atlassian.com/plugins/org.jfrog.bamboo.bamboo-artifactory-plugin"
+                                                                                            rel="nofollow">bamboo-artifactory-plugin</a>.
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

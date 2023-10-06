@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : Using Clover with the GWT-maven plugin</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Using Clover with the GWT-maven plugin
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>For developers working with the Google Web Toolkit (GWT) software development kit and Clover for
+                    Maven 2, the <code>clover-maven-plugin</code> works best with the <a
+                                                                                         href="https://gwt-maven-plugin.github.io/gwt-maven-plugin/"
+                                                                                         rel="nofollow">gwt-maven-plugin</a>.
+                </p>
+                <p>The maven-googlewebtoolkit2-plugin has known issues that can cause the build to fail if you are
+                    building with Clover. As such, the gwt-maven-plugin is recommended.</p>
+                <p>For further background reading on the gwt-maven-plugin and interoperability with the <code>clover-maven-plugin</code>,
+                    please also read this <a
+                                             href="http://www.mail-archive.com/gwt-maven@googlegroups.com/msg00663.html"
+                                             rel="nofollow">Google Groups discussion</a>.</p>
+                <p> </p>
+                <h2 id="UsingCloverwiththeGWT-mavenplugin-Instrumentationofsourcecode">Instrumentation of source
+                    code</h2>
+                <p>Because of the nature of Google Web Toolkit, which translates Java source code (client and shared
+                    parts) into a JavaScript, which is later being executed in a web browser, instrumentation of Java
+                    sources by Clover requires few technical tricks.</p>
+                <p> </p>
+                <h3 id="UsingCloverwiththeGWT-mavenplugin-Instrumentationofserver-sidecodeonly">Instrumentation of
+                    server-side code only</h3>
+                <p>This is a simpler case, as server-side Java sources are being complied to classes and executed
+                    directly in JVM. Therefore the only thing which has to be set up is to enable Clover and limit
+                    instrumentation to server-side code packages.</p><h4
+                    id="UsingCloverwiththeGWT-mavenplugin-Testframeworks">Test frameworks</h4>
+                <p>The gwt-maven-plugin provides a JUnit-compatible GWTTestCase which allows to run unit tests using a
+                    web browser or htmlunit.</p><h4 id="UsingCloverwiththeGWT-mavenplugin-HowtoconfigureMavenproject">
+                How to configure Maven project</h4>
+                <ol>
+                    <li><p>Add GWT Maven Plugin to <strong>pom.xml</strong> and set desired test mode in &lt;configuration&gt;
+                        tag - for example htmlunit allows headless run. Example:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;plugin&gt;
+    &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+    &lt;artifactId&gt;gwt-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;2.4.0&lt;/version&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;goals&gt;
+              &lt;goal&gt;compile&lt;/goal&gt;
+              &lt;goal&gt;test&lt;/goal&gt;
+              &lt;goal&gt;i18n&lt;/goal&gt;
+              &lt;goal&gt;generateAsync&lt;/goal&gt;
+            &lt;/goals&gt;
+         &lt;/execution&gt;
+    &lt;/executions&gt;
+    &lt;configuration&gt;
+         &lt;runTarget&gt;GwtExample.html&lt;/runTarget&gt;
+         &lt;hostedWebapp&gt;${webappDirectory}&lt;/hostedWebapp&gt;
+         &lt;i18nMessagesBundle&gt;com.atlassian.client.Messages&lt;/i18nMessagesBundle&gt;
+         &lt;mode&gt;htmlunit&lt;/mode&gt;
+         &lt;htmlunit&gt;IE7&lt;/htmlunit&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;</pre>
+                            </div>
+                        </div>
+                        <p><br/><br/></p></li>
+                    <li><p>Add Clover Plugin definition to <strong>pom.xml</strong> and configure which sources should
+                        be instrumented with Clover - instrument only server-side code. Example:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;plugin&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;${clover.version}&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;!-- Instrument only server part --&gt;
+        &lt;includes&gt;
+            &lt;include&gt;com/atlassian/server/**&lt;/include&gt;
+        &lt;/includes&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;</pre>
+                            </div>
+                        </div>
+                        <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
+                                data-emoticon-name="warning" alt="(warning)"/> Please note that includes/excludes are
+                            supported by the <em>clover:setup</em> goal (i.e. <em>clover:instrument</em> will instrument
+                            all sources).<br/><br/><br/></p></li>
+                    <li><p>By default, the <em>gwt:test</em> goal is bound to integration-test phase (and not test), so
+                        run maven with <em>integration-test</em> or <em>install</em> goal. Example:</p>
+                        <div class="preformatted panel" style="border-width: 1px;">
+                            <div class="preformattedContent panelContent">
+                                <pre>mvn clean clover:setup install clover:aggregate clover:clover</pre>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+                <p> </p>
+                <h3 id="UsingCloverwiththeGWT-mavenplugin-Instrumentationofserver,clientandsharedcode">Instrumentation
+                    of server, client and shared code</h3>
+                <p>In this case we cannot use <em><strong>gwt:compile</strong></em> and <em><strong>gwt:test</strong>
+                </em>goals. The reason is that it would start translation of Java client-side and shared source code to
+                    JavaScript, searching for sources of all referenced classes, including the Clover instrumentation,
+                    which would cause a build failure.</p><h4 id="UsingCloverwiththeGWT-mavenplugin-Testframeworks.1">
+                Test frameworks</h4>
+                <p>The gwt-test-utils framework provides means to simulate GWT inside JVM, it can intercept all
+                    GWT.xyz() method calls, prepare mocks using Mockito or EasyMock etc. The JUnit-compatible GwtTest
+                    allows to run unit tests without a web browser.</p><h4
+                    id="UsingCloverwiththeGWT-mavenplugin-HowtoconfigureMavenproject.1">How to configure Maven
+                project</h4>
+                <ol>
+                    <li><p>Add gwt-test-utils dependency to <strong>pom.xml</strong>. Disable
+                        <em><strong>compile</strong> </em>and <em><strong>test</strong> </em>goals in gwt-maven-plugin.
+                        Increase memory for maven-surefire-plugin, if necessary. Example:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;dependency&gt;
+    &lt;groupId&gt;com.googlecode.gwt-test-utils&lt;/groupId&gt;
+    &lt;artifactId&gt;gwt-test-utils&lt;/artifactId&gt;
+    &lt;version&gt;0.38&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+
+&lt;plugin&gt;
+    &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+    &lt;artifactId&gt;gwt-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;2.4.0&lt;/version&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;goals&gt;
+              &lt;!-- &lt;goal&gt;compile&lt;/goal&gt; DISABLED --&gt;
+              &lt;!-- &lt;goal&gt;test&lt;/goal&gt; DISABLED --&gt;
+              &lt;goal&gt;i18n&lt;/goal&gt;
+              &lt;goal&gt;generateAsync&lt;/goal&gt;
+            &lt;/goals&gt;
+         &lt;/execution&gt;
+    &lt;/executions&gt;
+    &lt;configuration&gt;
+         &lt;runTarget&gt;GwtExample.html&lt;/runTarget&gt;
+         &lt;hostedWebapp&gt;${webappDirectory}&lt;/hostedWebapp&gt;
+         &lt;i18nMessagesBundle&gt;com.atlassian.client.Messages&lt;/i18nMessagesBundle&gt;
+         &lt;mode&gt;htmlunit&lt;/mode&gt;
+         &lt;htmlunit&gt;IE7&lt;/htmlunit&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+
+&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;argLine&gt;-Xmx512M -XX:MaxPermSize=128M&lt;/argLine&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;</pre>
+                            </div>
+                        </div>
+                        <p><br/><br/></p></li>
+                    <li><p>Add Clover Plugin definition to <strong>pom.xml</strong>. Use <strong><em>setup</em>
+                    </strong>goal in the initialize phase in order to make sure that source files generated by GWT will
+                        be instrumented as well. Example:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;plugin&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;id&gt;clover-initialization&lt;/id&gt;
+            &lt;phase&gt;initialize&lt;/phase&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;setup&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+        &lt;execution&gt;
+            &lt;id&gt;clover-reporting&lt;/id&gt;
+            &lt;phase&gt;install&lt;/phase&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;aggregate&lt;/goal&gt;
+                &lt;goal&gt;clover&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;</pre>
+                            </div>
+                        </div>
+                        <p><br/><br/></p></li>
+                    <li><p>Run build, for example:</p>
+                        <div class="preformatted panel" style="border-width: 1px;">
+                            <div class="preformattedContent panelContent">
+                                <pre>mvn clean install</pre>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+                <h2 id="UsingCloverwiththeGWT-mavenplugin-Exampleproject">Example project</h2>
+                <ol>
+                    <li>Checkout GwtCloverExample sources: <a
+                                                                             href="https://github.com/openclover/clover-maven-plugin"
+                                                                             rel="nofollow">https://github.com/openclover/clover-maven-plugin</a>
+                    </li>
+                    <li>Go to <em>src/it/gwt</em> directory</li>
+                    <li>Use at least Java6 and Maven 2.x.<br/><br/></li>
+                    <li>The project demonstrates build using three profiles:<br/><em><strong>default</strong> </em>- no
+                        Clover instrumentation<br/><em><strong>with.clover.serveronly</strong></em> - only server-side
+                        code is being instrumented by Clover, integration tests are performed with
+                        gwt-maven-plugin+htmlunit framework<br/><em><strong>with.clover.everything</strong></em> - all
+                        code is being instrumented by Clover, unit tests are performed with gwt-test-utils and mocking
+                        of server services, no integration tests<br/><br/></li>
+                    <li>Usage (see also gwt/build.bat file):<br/>
+                        <p>mvn clean install</p>
+                        <p>mvn -Pwith.clover.serveronly clean install</p>mvn -Pwith.clover.everything clean install<br/><br/>
+                    </li>
+                    <li>See output reports in &lt;project_dir&gt;/target/site/clover<br/><br/></li>
+                </ol>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : ConsoleReporter</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="commandline--command-line-tools.html">Clover Command Line Tools</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            ConsoleReporter
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>Reports Code Coverage for the given coverage database to the console.</p>
+                <h2 id="ConsoleReporter-Usage">Usage</h2>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">java com.atlassian.clover.reporters.console.ConsoleReporter [OPTIONS] PARAMS
+</pre>
+                    </div>
+                </div>
+                <h3 id="ConsoleReporter-Params">Params</h3>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <td class="confluenceTd"><p>-i, --initstring &lt;file&gt;</p></td>
+                            <td class="confluenceTd"><p>The initstring of the coverage database.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3 id="ConsoleReporter-Options">Options</h3>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <td class="confluenceTd"><p>-t, --title &lt;string&gt;</p></td>
+                            <td class="confluenceTd"><p>Report title</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-l, --level &lt;string&gt;</p></td>
+                            <td class="confluenceTd"><p>The level of detail to report. Valid values are &quot;summary&quot;,
+                                &quot;class&quot;, &quot;method&quot;, &quot;statement&quot;. Default value is &quot;summary&quot;.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-p, --sourcepath &lt;path&gt;</p></td>
+                            <td class="confluenceTd"><p>The source path to search when looking for source files.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">-si, --showinner</td>
+                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.2.0: </strong></em>Show inner
+                                functions in the report (like a lambda function inside a method).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">-sl, --showlambda</td>
+                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.2.0: </strong></em>Show lambda
+                                functions in the report.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-s, --span &lt;interval&gt;</p></td>
+                            <td class="confluenceTd"><p>Specifies how far back in time to include coverage recordings
+                                from since the last Clover build. See <a href="ant--using-spans.html">Using
+                                    Spans</a>. Default includes &quot;all coverage data found&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">-u, --unittests</td>
+                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.1.6:</strong> </em>Show unit tests
+                                results summary. By default summary is not listed.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">-c, --codetype</td>
+                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.1.6:</strong> </em>The type of code
+                                to report on. Valid values are: APPLICATION, TEST, ALL. Default value: APPLICATION
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3 id="ConsoleReporter-Returncode">Return code</h3>
+                <p>The ConsoleReporter.main() calls System.exit() and returns a non-zero value in case of error during
+                    report generation.</p>
+                <h2 id="ConsoleReporter-APIUsage">API Usage</h2>
+                <p>ConsoleReporter provides a simple API that accepts an array of strings representing the command line
+                    arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">import com.atlassian.clover.reporters.console.ConsoleReporter;
+
+    ...
+
+    String [] cliArgs = { &quot;-l&quot;, &quot;method&quot;, &quot;-t&quot;, &quot;Method Coverage&quot;, &quot;-i&quot;, &quot;clover.db&quot; };
+    int result = ConsoleReporter.mainImpl(cliArgs);
+    if (result != 0) {
+           // problem during report generation
+    }
+</pre>
+                    </div>
+                </div>
+                <h3 id="ConsoleReporter-Examples">Examples</h3>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">java com.atlassian.clover.reporters.console.ConsoleReporter -i clover.db
+</pre>
+                    </div>
+                </div>
+                <p>Reads coverage for the Clover database &quot;clover.db&quot;, and produces a summary report to the
+                    console.</p>
+                <p> </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">java com.atlassian.clover.reporters.console.ConsoleReporter -l &quot;method&quot; -t &quot;Method Coverage&quot; -i clover.db
+</pre>
+                    </div>
+                </div>
+                <p>Produces the same report as above, but includes method-level coverage information, and a report
+                    title.</p>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

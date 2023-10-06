@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : JVM properties</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a
+                                href="8.-Controlling-Clover-at-Runtime_71599101.html">8. Controlling Clover at Runtime</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            JVM properties
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p><em>This page contains list of JVM properties, which can be passed during compilation, runtime or
+                    reporting in order to modify Clover's behavior. <br/></em></p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th colspan="1" class="confluenceTh">Scope</th>
+                            <th class="confluenceTh">Name</th>
+                            <th class="confluenceTh">Description</th>
+                            <th class="confluenceTh">Examples</th>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">compilation</td>
+                            <td colspan="1" class="confluenceTd"><p>clover.includes</p></td>
+                            <td colspan="1" class="confluenceTd">Ant PatternSet of files to be instrumented by Clover.
+                                This property is for <strong>compilation</strong>. Using &lt;files&gt; or &lt;fileset&gt;
+                                in &lt;clover-setup&gt; overrides this property.
+                            </td>
+                            <td colspan="1" class="confluenceTd"><p>-Dclover.includes=**/*.java</p>
+                                <p>(for compilation)</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">compilation</td>
+                            <td colspan="1" class="confluenceTd">clover.excludes</td>
+                            <td colspan="1" class="confluenceTd">Ant PatternSet of files to be not instrumented by
+                                Clover. This property is for <strong>compilation</strong>. Using &lt;files&gt; or &lt;fileset&gt;
+                                in &lt;clover-setup&gt; overrides this property.
+                            </td>
+                            <td colspan="1" class="confluenceTd"><p>-Dclover.excludes=**/internal/*.java</p>
+                                <p>(for compilation)</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">compilation</td>
+                            <td colspan="1" class="confluenceTd">clover.grover.ast.dump</td>
+                            <td colspan="1" class="confluenceTd">For debugging only. Whether to dump an abstract syntax
+                                tree (AST) for Groovy code instrumented by Clover. Default is false.
+                            </td>
+                            <td colspan="1" class="confluenceTd"> </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd"><p>compilation</p>
+                                <p>reporting</p></td>
+                            <td colspan="1" class="confluenceTd">clover.license.cert</td>
+                            <td colspan="1" class="confluenceTd">Clover's license key. Deprecated.
+                            </td>
+                            <td colspan="1" class="confluenceTd">-Dclover.license.cert=&quot;license key<br/>remember to
+                                preserve<br/>newline characters&quot;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd"><p>compilation</p>
+                                <p>reporting</p></td>
+                            <td colspan="1" class="confluenceTd">clover.license.path</td>
+                            <td colspan="1" class="confluenceTd">Path to a file containing Clover's license key.
+                               Deprecated.
+                            </td>
+                            <td colspan="1" class="confluenceTd">-Dclover.license.path=clover.license</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">reporting</td>
+                            <td colspan="1" class="confluenceTd">clover.skipTreeMap</td>
+                            <td colspan="1" class="confluenceTd">Whether to skip generation of the Tree Map diagram in
+                                HTML report. Disabling tree map generation may speed up report generation for large
+                                projects. Default is false.
+                            </td>
+                            <td colspan="1" class="confluenceTd"> -Dclover.skipTreeMap=true</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">runtime</td>
+                            <td class="confluenceTd">clover.enable</td>
+                            <td class="confluenceTd">Whether Clover coverage recording shall be enabled at runtime.
+                                Possible values: true/false. Default is true. It's useful in case when you have deployed
+                                an instrumented code, but you don't want to measure code coverage.
+                            </td>
+                            <td class="confluenceTd">-Dclover.enable=false</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">runtime</td>
+                            <td class="confluenceTd">clover.initstring</td>
+                            <td class="confluenceTd">Path to Clover database, overrides the path set during compilation.
+                                It's useful when you run your tests on a different machine. You can use
+                                <em>&quot;${abc}</em>&quot; variables in the path, which will be resolved against
+                                runtime properties.
+                            </td>
+                            <td class="confluenceTd">-Dclover.initstring=/tmp/${app.name}/clover.db</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">runtime</td>
+                            <td colspan="1" class="confluenceTd">clover.initstring.basedir</td>
+                            <td colspan="1" class="confluenceTd">Base directory for relative paths to Clover databases;
+                                it overrides paths which were set during compilation. It's useful when you have many
+                                clover.db files for your application and you run tests on a different machine. You can
+                                use <em>&quot;${abc}</em>&quot; variables in the path, which will be resolved against
+                                runtime properties.
+                            </td>
+                            <td colspan="1" class="confluenceTd">-Dclover.initstring.basedir=/path/to/clover/base/dir
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">runtime</td>
+                            <td colspan="1" class="confluenceTd">clover.initstring.prefix</td>
+                            <td colspan="1" class="confluenceTd">Prefix which has to be added to a file name of every
+                                Clover database. Should be used only with relative paths in initstring. You can use <em>&quot;${abc}</em>&quot;
+                                variables in the prefix, which will be resolved against runtime properties.
+                            </td>
+                            <td colspan="1" class="confluenceTd"><p>-Dclover.initstring.prefix=abc</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">runtime</td>
+                            <td colspan="1" class="confluenceTd">clover.logging.level</td>
+                            <td colspan="1" class="confluenceTd">Logging level to be used at runtime. Possible values:
+                                debug, verbose, info, warn, error. Setting <em>debug</em> or <em>verbose</em> may be
+                                helpful to investigate why coverage recording files are not produced.
+                            </td>
+                            <td colspan="1" class="confluenceTd">-Dclover.logging.level=debug</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">runtime</td>
+                            <td colspan="1" class="confluenceTd">clover.logging.adapter</td>
+                            <td colspan="1" class="confluenceTd">Name of the Log4J logging adapter which shall be used.
+                                Possible values: log4j, jdk, stderr or a fully qualified class name of the logger. If
+                                not set, then Clover's logger is used.
+                            </td>
+                            <td colspan="1" class="confluenceTd">-Dclover.logging.adapter=log4j</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">runtime</td>
+                            <td colspan="1" class="confluenceTd">clover.profile</td>
+                            <td colspan="1" class="confluenceTd">Name of the instrumentation profile which has to be
+                                selected at runtime. Can be undefined. See <a href="ant--clover-setup.html">&lt;clover-setup&gt;</a>
+                                for more details about profiles.
+                            </td>
+                            <td colspan="1" class="confluenceTd">-Dclover.profile=default</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">runtime</td>
+                            <td colspan="1" class="confluenceTd">clover.flush.everytest</td>
+                            <td colspan="1" class="confluenceTd">Whether every test end should trigger flushing of
+                                global coverage data to disk (in addition to per-test coverage data). Possible values:
+                                true/false. Default is false.
+                            </td>
+                            <td colspan="1" class="confluenceTd">-Dclover.flush.everytest=true</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">runtime</td>
+                            <td colspan="1" class="confluenceTd">clover.synchronous.io</td>
+                            <td colspan="1" class="confluenceTd">Whether to use synchronous I/O when writing coverage
+                                recording files. Possible values: true/false. Default is false. When set to true, the 
+                                <p><em>FileDescriptor.sync()</em> will be called after call <em>FileOutputStream.flush().</em>
+                                </p></td>
+                            <td colspan="1" class="confluenceTd">-Dclover.synchronous.io=true</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">runtime</td>
+                            <td colspan="1" class="confluenceTd">clover.rle.coverage</td>
+                            <td colspan="1" class="confluenceTd">Whether to use RLE compression for coverage recording
+                                files. Possible values: true/false. Default is true.
+                            </td>
+                            <td colspan="1" class="confluenceTd">-Dclover.rle.coverage=false</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">runtime</td>
+                            <td colspan="1" class="confluenceTd">clover.pertest.coverage</td>
+                            <td colspan="1" class="confluenceTd">Which kind of per-test recorder shall be used. Possible
+                                values: off, diff or (undefined). Default is undefined. If value is undefined,
+                                then value of the <em>clover.pertest.coverage.threading </em>is used. May be useful for
+                                very large projects (millions of LOC, thousands of tests). <span
+                                        class="confluence-link"><a href="ant--runtime-performance-tuning.html">More details here</a>.</span>
+                            </td>
+                            <td colspan="1" class="confluenceTd"><p>-Dclover.pertest.coverage=off</p>
+                                <p>disables per-test coverage</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">runtime</td>
+                            <td colspan="1" class="confluenceTd">clover.pertest.coverage.threading</td>
+                            <td colspan="1" class="confluenceTd">Which kind of per-test recorder shall be used for tests
+                                running in parallel. Possible values: volatile, synchronized or (undefined). Default is
+                                undefined. If undefined, then it's assumed that tests are ran sequentially. <span
+                                        class="confluence-link"><a href="ant--runtime-performance-tuning.html">More details here</a>.</span>
+                            </td>
+                            <td colspan="1" class="confluenceTd">-Dclover.pertest.coverage.threading=volatile</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">runtime</td>
+                            <td colspan="1" class="confluenceTd">clover.optimization.enabled</td>
+                            <td colspan="1" class="confluenceTd">Whether to run test optimization in Ant's &lt;junit&gt;
+                                task. Possible values: true/false.
+                            </td>
+                            <td colspan="1" class="confluenceTd">-Dclover.optimization.enabled=false</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">runtime</td>
+                            <td colspan="1" class="confluenceTd">clover.server</td>
+                            <td colspan="1" class="confluenceTd">Whether to start Clover Server thread (shall be set for
+                                a JVM which runs tests). Default is false. See <a
+                                        href="maven--using-distributed-per-test-coverage.html">Using Distributed
+                                    Per-test Coverage</a>.
+                            </td>
+                            <td colspan="1" class="confluenceTd">-Dclover.server=true</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">runtime</td>
+                            <td colspan="1" class="confluenceTd">clover.distributed.coverage</td>
+                            <td colspan="1" class="confluenceTd">Whether to enable or disable distributed coverage
+                                feature. Also can be used to fine-tune options. Format: &quot;on|off|key=value;key=value...&quot;.
+                                Default is off. See <a href="maven--using-distributed-per-test-coverage.html">Using
+                                    Distributed Per-test Coverage</a>.
+                            </td>
+                            <td colspan="1" class="confluenceTd"><p>-Dclover.distributed.coverage=on</p>
+                                <p>-Dclover.distributed.coverage=host=my.host.com;numclients=2;timeout=10000</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

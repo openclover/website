@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : Compiling Groovy with Groovy Eclipse Plugin</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Compiling Groovy with Groovy Eclipse Plugin
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h1 id="CompilingGroovywithGroovyEclipsePlugin-CompilingGroovywithGroovyEclipsePlugin">Compiling Groovy
+                    with Groovy Eclipse Plugin</h1>
+                <p>There are several possible ways to configure Groovy Eclipse Plugin - see official <a
+
+                        href="https://github.com/groovy/groovy-eclipse/wiki/Groovy-Eclipse-Maven-plugin" rel="nofollow">https://github.com/groovy/groovy-eclipse/wiki/Groovy-Eclipse-Maven-plugin</a> page.
+                </p>
+                <p>Our recommendation is to use configuration similar to the following:</p><h4
+                    id="CompilingGroovywithGroovyEclipsePlugin-Sourcelayout">Source layout</h4>
+                <ul>
+                    <li>keep Java in src/main/java and src/test/java</li>
+                    <li>keep Groovy in src/main/groovy and src/test/groovy</li>
+                    <li>do <strong>not</strong> define Groovy source locations for maven-compiler-plugin directly, e.g.:<br/>
+                        <pre>&lt;sourceDirectory&gt;src/main/groovy&lt;/sourceDirectory&gt;
+&lt;testSourceDirectory&gt;src/test/groovy&lt;/testSourceDirectory&gt;</pre>
+                    </li>
+                    <li><p>instead of this use:</p>
+                        <ul>
+                            <li><p><em>extensions=true</em> for groovy-eclipse-compiler (Maven 3) or</p></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h4 id="CompilingGroovywithGroovyEclipsePlugin-Maven3POM">Maven 3 POM</h4>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Maven 3 pom.xml</b>
+                    </div>
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;com.atlassian.samples&lt;/groupId&gt;
+    &lt;artifactId&gt;groovy-eclipse-plugin-maven3-sample&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+    &lt;name&gt;Groovy Eclipse Plug-in Sample for Maven 3&lt;/name&gt;
+
+    &lt;!-- Dependencies for test execution and runtime --&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.10&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.codehaus.groovy&lt;/groupId&gt;
+            &lt;artifactId&gt;groovy-all&lt;/artifactId&gt;
+            &lt;version&gt;1.8.6&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+                &lt;version&gt;2.5.1&lt;/version&gt;
+                &lt;configuration&gt;
+                    &lt;!-- Bind Groovy Eclipse Compiler --&gt;
+                    &lt;compilerId&gt;groovy-eclipse-compiler&lt;/compilerId&gt;
+                    &lt;source&gt;1.8&lt;/source&gt;
+                    &lt;target&gt;1.8&lt;/target&gt;
+                &lt;/configuration&gt;
+                &lt;dependencies&gt;
+                    &lt;!-- Define which Groovy version will be used for build (default is 2.0) --&gt;
+                    &lt;dependency&gt;
+                        &lt;groupId&gt;org.codehaus.groovy&lt;/groupId&gt;
+                        &lt;artifactId&gt;groovy-eclipse-batch&lt;/artifactId&gt;
+                        &lt;version&gt;1.8.6-01&lt;/version&gt;
+                    &lt;/dependency&gt;
+                    &lt;!-- Define dependency to Groovy Eclipse Compiler (as it&#39;s referred in compilerId) --&gt;
+                    &lt;dependency&gt;
+                        &lt;groupId&gt;org.codehaus.groovy&lt;/groupId&gt;
+                        &lt;artifactId&gt;groovy-eclipse-compiler&lt;/artifactId&gt;
+                        &lt;version&gt;2.7.0-01&lt;/version&gt;
+                    &lt;/dependency&gt;
+                &lt;/dependencies&gt;
+            &lt;/plugin&gt;
+            &lt;!-- Define Groovy Eclipse Compiler again and set extensions=true. Thanks to this, plugin will --&gt;
+            &lt;!-- enhance default build life cycle with an extra phase which adds additional Groovy source folders --&gt;
+            &lt;!-- Thanks to this, Clover will be able to find your Groovy files. It works with Maven 3.x --&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.codehaus.groovy&lt;/groupId&gt;
+                &lt;artifactId&gt;groovy-eclipse-compiler&lt;/artifactId&gt;
+                &lt;version&gt;2.7.0-01&lt;/version&gt;
+                &lt;extensions&gt;true&lt;/extensions&gt;
+            &lt;/plugin&gt;
+            &lt;!-- Configure Clover for Maven plug-in. Please note that it&#39;s not bound to any execution phase, --&gt;
+            &lt;!-- so you&#39;ll have to call Clover goals from command line. --&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+                &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+                &lt;version&gt;4.5.0&lt;/version&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+
+&lt;/project&gt;</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>In the build log you'll find messages like:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>[INFO] --- groovy-eclipse-compiler:2.7.0-01:add-groovy-build-paths (default-add-groovy-build-paths)
+@ groovy-eclipse-plugin-maven3-sample ---
+[INFO] Adding /src/main/groovy to the list of source folders
+[INFO] Adding /src/test/groovy to the list of test source folders</pre>
+                    </div>
+                </div>
+
+                <h2 id="CompilingGroovywithGroovyEclipsePlugin-Tips">Tips</h2>
+                <ul>
+                    <li>Note that it's possible to bind Clover goals to build phases using the &lt;executions&gt; tag in
+                        pom.xml. See <a href="maven--user-guide.html">Clover-for-Maven User's Guide</a>, <em>&quot;Running
+                            goals via pom.xml&quot;</em> chapter. Just ensure that clover:setup goal is called in the
+                        process-sources phase the latest.
+                    </li>
+                </ul>
+                <p> </p>
+
+                <h2 id="CompilingGroovywithGroovyEclipsePlugin-References">References</h2>
+                <ul>
+                    <li><a
+                           href="https://community.atlassian.com/t5/Clover-questions/Does-clover-work-with-the-groovy-eclipse-plugin/qaq-p/253011"
+                           rel="nofollow">Atlassian Community: Does Clover work with the groovy-eclipse-plugin</a></li>
+                    <li><a href="maven--compiling-with-gmaven-plugin.html">Compiling Groovy with GMaven
+                        plugin</a></li>
+                </ul>
+                <h2 id="CompilingGroovywithGroovyEclipsePlugin-Codesamples">Code samples</h2>
+                <p>Checkout sources of the clover-maven-plugin:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>git clone https://github.com/openclover/clover-maven-plugin.git</pre>
+                    </div>
+                </div>
+                <p>Open the <strong>src/it</strong> directory. It contains a number of sample projects, including:</p>
+                <ul>
+                    <li><p><strong>groovy-eclipse-plugin</strong> - shows an approach in which Groovy sources are stored
+                        in 'src/main/groovy' and 'src/test/groovy', while Java sources in 'src/main/java' and
+                        'src/test/java'</p></li>
+                    <li><strong>groovy-eclipse-plugin-src-main-groovy</strong> - shows an approach where Groovy sources
+                        are placed in 'src/main/groovy' and 'src/test/groovy' folders, there are <strong>no</strong>
+                        Java sources, and &lt;sourceDirectory&gt; / &lt;testSourceDirectory&gt; options are used to
+                        redefine source roots
+                    </li>
+                    <li><strong>groovy-eclipse-plugin-src-main-java</strong> - shows an approach where Groovy source
+                        files are placed in 'src/main/java' and 'src/test/java' folders (these folders can contain Java
+                        sources as well), so that there is no need to define extra source folders via
+                        build-helper-maven-plugin
+                    </li>
+                </ul>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

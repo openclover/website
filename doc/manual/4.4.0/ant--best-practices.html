@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Clover for Ant Best Practices</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--quick-start-guide.html">1. QuickStart Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Clover for Ant Best Practices
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+            <div id="main-content" class="wiki-content group">
+                <p>This section describes some recommended practices when integrating Clover into your Ant build. For a
+                    great list of general Ant best practices, see <a
+                                                                     href="http://www.onjava.com/pub/a/onjava/2003/12/17/ant_bestpractices.html"
+                                                                     rel="nofollow">http://www.onjava.com/pub/a/onjava/2003/12/17/ant_bestpractices.html</a>.
+                </p>
+                <p> </p>
+                <ol>
+                    <li><p><strong>Let Clover automatically choose the database location</strong><br/>The <code>initstring</code>
+                        attribute is optional. If not supplied, Clover will automatically create a special directory for
+                        the <a href="ant--managing-the-coverage-database.html">Clover coverage database</a>. There
+                        are several advantages in letting Clover use the default location. Clover tasks can find the
+                        database more easily, and build files become more portable. If left to the default setting,
+                        there is no need to have Clover reporting targets depend on the the Clover setup target.</p>
+                        <div class="confluence-information-macro confluence-information-macro-note"><p class="title">
+                            Note</p><span
+                                class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
+                            <div class="confluence-information-macro-body"><p>If you want to specify the <code>initstring</code>
+                                explicity, it is strongly recommended that you give Clover its own direct directory,
+                                because a Coverage run can result in many files being written to the database.</p></div>
+                        </div>
+                    </li>
+                    <li><strong>Use the</strong> <code><strong>&lt;</strong><strong><a
+                            href="ant--clover-clean.html">clover-clean</a></strong><strong>&gt;</strong></code>
+                        <strong>task</strong><br/> Once you have generated the reports or history points you require
+                        from a Coverage run, use <code>&lt;<a
+                                href="ant--clover-clean.html">clover-clean</a>&gt;</code> to delete the database so
+                        that it will be freshly created for the next build. This is easily achieved by adding the <code>&lt;<a
+                                href="ant--clover-clean.html">clover-clean</a>&gt;</code> task to any existing clean
+                        target.<br/><br/></li>
+                    <li><strong>Avoid setting the</strong> <strong>compiler</strong> <strong>or</strong> <strong>executable</strong>
+                        <strong>attributes on the</strong> <code><strong>&lt;javac&gt;</strong></code>
+                        <strong>task</strong><br/> Setting either of these attributes makes your build less portable. It
+                        may also prevent Clover from installing correctly in your build.<br/><br/></li>
+                    <li><strong>Set the</strong> <strong>source</strong> <strong>attribute on</strong>
+                        <strong>the</strong> <code><strong>&lt;javac&gt;</strong></code> <strong>task</strong><br/>
+                        Setting the source attribute increases the portability of your build by explicitly defining the
+                        language level of the project. If you don't set it, the language level is determined by whatever
+                        underlying compiler is found by Ant.<br/><br/></li>
+                    <li><p><strong>Use Target dependencies in preference to</strong> <code><strong>&lt;ant&gt;</strong></code>
+                        <strong>and</strong> <code><strong>&lt;antcall&gt;</strong></code><br/> Ant's target
+                        dependencies are an efficient way to manage build dependencies. You should always strive to use
+                        this mechanism over the more 'procedural' style of explicitly calling targets. By explicitly
+                        calling Ant tasks, you miss out on Ant's powerful dependency management where up-to-date targets
+                        are skipped. You also introduce significant memory overhead (particularly if <code>fork=&quot;true&quot;</code>
+                        is set). Excessive use of <code>&lt;antcall&gt;</code> can also make a build file less readable,
+                        because it can be difficult to trace which properties and references are valid for a given
+                        target. <br class="atl-forced-newline"/> <br class="atl-forced-newline"/> <img
+                                class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
+                                data-emoticon-name="information" alt="(info)"/> If you must use <code><strong>&lt;ant&gt;</strong></code>
+                        and <code><strong>&lt;antcall&gt;</strong></code>, be aware that you must set
+                        <code>inheritrefs</code> to &quot;true&quot; if you are calling
+                        <code>&lt;clover-setup&gt;</code> in an upper-level project. <br class="atl-forced-newline"/>
+                        <br class="atl-forced-newline"/> Below, we demonstrate an alternative. Instead of this:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;!-- BAD. References wont be passed (References from &lt;clover-setup/&gt; would be lost). --&gt;
+&lt;target name=&quot;all&quot;&gt;
+&lt;antcall target=&quot;clean&quot;&gt;
+&lt;antcall target=&quot;compile&quot;&gt;
+&lt;antcall target=&quot;dist&quot;&gt;
+&lt;antcall target=&quot;test&quot;&gt;
+&lt;/target&gt;
+</pre>
+                            </div>
+                        </div>
+                        <p>it is much better to use something like this:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;!-- GOOD --&gt;
+&lt;target name=&quot;all&quot; depends=&quot;clean, compile, dist, test&quot;/&gt;
+</pre>
+                            </div>
+                        </div>
+                    </li>
+                    <li><strong>If using the</strong> <code><strong>&lt;junit&gt;</strong></code> <strong>task, consider
+                        using</strong> <code><strong>fork=&quot;true&quot;
+                        forkmode=&quot;once&quot;</strong></code><br/> Setting these attributes means that your JUnit
+                        tests will run in a single, separate JVM. This isolates the unit tests from the Ant JVM, and
+                        means that no special flushing is required to have Clover coverage data written to disk when the
+                        tests end.<br/><br/></li>
+                </ol>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

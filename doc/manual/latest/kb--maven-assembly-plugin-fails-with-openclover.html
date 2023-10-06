@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Maven Assembly Plugin fails with Clover</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--troubleshooting-bamboo.html">Troubleshooting Bamboo</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Maven Assembly Plugin fails with Clover
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h3 id="MavenAssemblyPluginfailswithClover-Symptoms">Symptoms</h3>
+                <ul>
+                    <li>project is using the maven-assembly-plugin</li>
+                    <li>project is a multi-module Maven project and is built by Bamboo</li>
+                    <li>build fails when the automatic Clover integration in Bamboo is enabled</li>
+                </ul>
+                <p> </p>
+                <p>Build log contains errors like the following:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>[ERROR] Failed to execute goal org.apache.maven.plugins:maven-assembly-plugin:2.3:single (make-assembly) on project xyz: Execution make-assembly of goal org.apache.maven.plugins:maven-assembly-plugin:2.3:single failed. NullPointerException -&gt; [Help 1]
+org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal org.apache.maven.plugins:maven-assembly-plugin:2.3:single (make-assembly) on project xyz: Execution make-assembly of goal org.apache.maven.plugins:maven-assembly-plugin:2.3:single failed.
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:225)
+    ...
+
+Caused by: org.apache.maven.plugin.PluginExecutionException: Execution make-assembly of goal org.apache.maven.plugins:maven-assembly-plugin:2.3:single failed.
+    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:110)
+    ... 
+
+Caused by: java.lang.NullPointerException
+    at org.codehaus.plexus.components.io.resources.PlexusIoURLResource.getContents(PlexusIoURLResource.java:38)
+    ... 
+
+</pre>
+                    </div>
+                </div>
+                <p>or</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>[ERROR] Failed to execute goal org.apache.maven.plugins:maven-assembly-plugin:2.4:single (make-assembly) on project xyz: Failed to create assembly: Error creating assembly archive withdep: Problem creating jar: jar:file:/opt/bamboo-agent-home/xml-data/build-dir/PROJ-PLAN-JOB/target/xyz-1.0.0-SNAPSHOT.jar!/instrumentation.ser -&gt; [Help 1]
+org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal org.apache.maven.plugins:maven-assembly-plugin:2.4:single (make-assembly) on project xyz: Failed to create assembly: Error creating assembly archive withdep: Problem creating jar: jar:file:/opt/bamboo-agent-home/xml-data/build-dir/PROJ-PLAN-JOB/target/xyz-1.0.0-SNAPSHOT.jar!/instrumentation.ser
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:217)
+    ...
+
+Caused by: org.apache.maven.plugin.MojoExecutionException: Failed to create assembly: Error creating assembly archive withdep: Problem creating jar: jar:file:/opt/bamboo-agent-home/xml-data/build-dir/PROJ-PLAN-JOB/target/xyz-1.0.0-SNAPSHOT.jar!/instrumentation.ser
+    at org.apache.maven.plugin.assembly.mojos.AbstractAssemblyMojo.execute(AbstractAssemblyMojo.java:495)
+    ... 
+
+Caused by: org.apache.maven.plugin.assembly.archive.ArchiveCreationException: Error creating assembly archive withdep: Problem creating jar: jar:file:/opt/bamboo-agent-home/xml-data/build-dir/PROJ-PLAN-JOB/target/xyz-1.0.0-SNAPSHOT.jar!/instrumentation.ser
+    at org.apache.maven.plugin.assembly.archive.DefaultAssemblyArchiver.createArchive(DefaultAssemblyArchiver.java:190)
+    ... 
+
+Caused by: org.codehaus.plexus.archiver.ArchiverException: Problem creating jar: jar:file:/opt/bamboo-agent-home/xml-data/build-dir/PROJ-PLAN-JOB/target/xyz-1.0.0-SNAPSHOT.jar!/instrumentation.ser
+    at org.codehaus.plexus.archiver.AbstractArchiver.createArchive(AbstractArchiver.java:927)
+    ... 
+
+Caused by: java.io.IOException: jar:file:/opt/bamboo-agent-home/xml-data/build-dir/PROJ-PLAN-JOB/target/xyz-1.0.0-SNAPSHOT.jar!/instrumentation.ser
+    at org.codehaus.plexus.components.io.resources.PlexusIoURLResource.getContents(PlexusIoURLResource.java:38)
+    ... </pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h3 id="MavenAssemblyPluginfailswithClover-Cause">Cause</h3>
+                <p>A problem is related with
+                    <span class="jira-issue resolved" data-issue-key="BAM-13208">
+                <a href="https://jira.atlassian.com/browse/BAM-13208?src=confmacro" class="jira-issue-key"><img
+                        class="icon"
+                        src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51500&amp;avatarType=issuetype"/>BAM-13208</a>
+                    -
+            <span class="summary">Improve Automatic Clover integration for multi-module maven builds</span>
+                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-success jira-macro-single-issue-export-pdf">Resolved</span>
+            </span>
+                    .</p>
+                <p>When automatic Clover integration is selected, all Maven tasks defined in a Job are enhanced by new
+                    set of goals/phases (like<em> &quot;clean clover:setup verify clover:aggregate
+                        clover:clover&quot;</em>) which are being appended at the end of the original Maven command
+                    defined in the task(s). Due to a fact that:</p>
+                <ul>
+                    <li>Maven performs build module-by-module and not phase-by-phase (for example: if a project has
+                        module A and module B and you run <em>'mvn clean package'</em> then Maven runs first <em>'clean
+                            package'</em> for module A, and next<em> 'clean package'</em> for module B) and that
+                    </li>
+                    <li>Clover's automatic integration in Bamboo calls the &quot;verify&quot; phase</li>
+                </ul>
+                <p>it causes that the same build phases are called twice - once without Clover and once with Clover. In
+                    our example, goals <em>&quot;mvn clean <strong>package</strong>&quot;</em> are changed to <em>&quot;mvn
+                        clean <strong>package </strong><em>clean clover:setup <strong>verify</strong> clover:aggregate
+                            clover:clover</em>&quot;</em>.</p>
+                <p> </p>
+                <p>In this case, a maven-assembly-plugin running in a build phase without Clover (i.e. before the <em>clover:setup</em>)
+                    is trying to access resources from dependent modules, which have been already instrumented by Clover
+                    (i.e. created in the phase after <em>clover:setup</em>). As a consequence, Maven Assembly Plugin
+                    fails accessing files like:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>**/instrumentation.ser
+**/groverconfig*/*
+**/classes/**/*$__CLR*.class</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h3 id="MavenAssemblyPluginfailswithClover-Solution">Solution</h3>
+                <p>In order to avoid such problems, Maven shall not run the same build phase twice.</p>
+                <p>You have to configure <strong>manual</strong> Clover integration and modify the &quot;Goals&quot;
+                    field in a Maven Task(s). In case when your original goals are:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>mvn clean &lt;other goals or phases&gt;</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>they should be changed to:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>mvn clean clover:setup &lt;other goals or phases&gt; clover:aggregate clover:clover</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h3 id="MavenAssemblyPluginfailswithClover-Notes">Notes</h3>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>The NullPointerException thrown by
+                        maven-assembly-plugin may have also a different cause. There is an NPE bug affecting version
+                        2.3.0, which has been fixed in version 2.4.0. See the <a
+                                                                                 href="http://jira.codehaus.org/browse/MASSEMBLY-626"
+                                                                                 rel="nofollow">http://jira.codehaus.org/browse/MASSEMBLY-626</a>
+                        for more details.</p></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

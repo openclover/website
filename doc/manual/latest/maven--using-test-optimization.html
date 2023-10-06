@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : Using Test Optimization in Maven</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Using Test Optimization in Maven
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>Follow the steps in this document to set up Clover's Test Optimization, which allows targeted testing
+                    of only the code which has changed since the last build.</p>
+                <p>This page contains the basic steps for adding Clover's Test Optimization to an existing Maven
+                    configuration.</p>
+                <div class="confluence-information-macro confluence-information-macro-note"><span
+                        class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>WARNING: Clover's build optimization in Maven runs
+                        in the default build lifecycle - not the forked Clover lifecycle. Please pay attention not to
+                        deploy clovered artifacts to your repository. Test Optimization is only recommended for saving
+                        time during development - not production deployment.</p></div>
+                </div>
+                <h2 id="UsingTestOptimizationinMaven-Command-lineQuickStart">Command-line Quick Start</h2>
+                <p>The quickest possible way to start using Test Optimization in Clover-for-Maven is to run the
+                    following command:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">mvn clover:setup clover:optimize test clover:snapshot
+</pre>
+                    </div>
+                </div>
+                <p>By default, the snapshot file gets saved to ${basedir}/.<code>clover/clover.snapshot</code>. It can
+                    be deleted by running the <a
+                                                 href="../../maven/4.5.0/clean-mojo.html"
+                                                 rel="nofollow">clover:clean</a> goal. You can also specify an
+                    alternative location using <code>-Dmaven.clover.snaphost=/path/to/clover.snapshot.</code> This file
+                    is needed to optimize subsequent builds, so please ensure that it won't be removed between builds
+                    (don't keep it in a /target directory, for instance).</p>
+                <p>For further documentation on these goals, see the Maven site docs:</p>
+                <ul>
+                    <li><a
+                           href="../../maven/4.5.0/clean-mojo.html" rel="nofollow">clover:clean</a>
+                    </li>
+                    <li><a
+                           href="../../maven/4.5.0/setup-mojo.html" rel="nofollow">clover:setup</a>
+                    </li>
+                    <li><a
+                           href="../../maven/4.5.0/optimize-mojo.html"
+                           rel="nofollow">clover:optimize</a></li>
+                    <li><a
+                           href="../../maven/4.5.0/snapshot-mojo.html"
+                           rel="nofollow">clover:snapshot</a></li>
+                </ul>
+                <p>Alternatively, add the following profile to the profiles element in your <strong>pom.xml</strong>.
+                </p>
+                <h2 id="UsingTestOptimizationinMaven-Editingpom.xmlforTestOptimization">Editing pom.xml for Test
+                    Optimization</h2>
+                <p>To enable Clover's test optimization functionality, add the following profile to the profiles element
+                    in your <strong>pom.xml</strong>:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;profiles&gt;
+    &lt;profile&gt;
+        &lt;id&gt;clover.optimize&lt;/id&gt;
+        &lt;build&gt;
+            &lt;plugins&gt;
+                &lt;plugin&gt;
+                    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+                    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+                    &lt;version&gt;4.5.0&lt;/version&gt;
+                    &lt;executions&gt;
+                        &lt;execution&gt;
+                            &lt;goals&gt;
+                                &lt;goal&gt;setup&lt;/goal&gt;
+                                &lt;goal&gt;optimize&lt;/goal&gt;
+                                &lt;goal&gt;snapshot&lt;/goal&gt;
+                            &lt;/goals&gt;
+                        &lt;/execution&gt;
+                    &lt;/executions&gt;
+                &lt;/plugin&gt;
+            &lt;/plugins&gt;
+        &lt;/build&gt;
+    &lt;/profile&gt;
+&lt;/profiles&gt;
+</pre>
+                    </div>
+                </div>
+                <p>This will then make it possible to run the following command:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">mvn integration-test -Pclover.optimize
+</pre>
+                    </div>
+                </div>
+                <h2 id="UsingTestOptimizationinMaven-TestOptimizationIn-Action">Test Optimization In-Action</h2>
+                <p>The first time Clover Test Optimization is used a full test run will be done. You should see the
+                    following log message appear in the maven stdout:</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/170492714/317165315.png"
+                                                                       data-image-src="attachments/170492714/317165315.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="317165315"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="maven_test_optimization_1st_run_full.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="170492714"
+                                                                       data-linked-resource-container-version="37"></span>
+                </p>
+                <p> </p>
+                <p>If you then rerun the build, without modifying any source files (and ensuring the snapshot file is
+                    not deleted) you should see the following:</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/170492714/317165316.png"
+                                                                       data-image-src="attachments/170492714/317165316.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="317165316"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="maven_test_optimization_2nd_run_nothing.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="170492714"
+                                                                       data-linked-resource-container-version="37"></span>
+                </p>
+                <p> </p>
+                <p>If a source file is modified in any way (including whitespace changes), and you re-run the build,
+                    only TestCases that cover the modified file will be run, for instance:</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/170492714/317165317.png"
+                                                                       data-image-src="attachments/170492714/317165317.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="317165317"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="maven_test_optimization_3rd_run_subset.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="170492714"
+                                                                       data-linked-resource-container-version="37"></span>
+                </p>
+                <p> </p>
+                <p>By default, the same snapshot file is updated for 10 consecutive builds. On the 10th build, the
+                    snapshot file is deleted and recreated. You can adjust this setting via the <a
+                                                                                                   href="../../maven/4.5.0/optimize-mojo.html#fullRunEvery"
+                                                                                                   rel="nofollow">fullRunEvery</a>
+                    option on the clover:optimize goal.</p>
+                <p>TIP: If your terminal supports ANSI escape sequences (OS X, Linux by default), supply the
+                    <code><strong>-Dansi.color=true</strong></code> property on the command line to have your build
+                    optimization in full color.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/170492714/317165318.png"
+                                                                       data-image-src="attachments/170492714/317165318.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="317165318"
+                                                                       data-linked-resource-version="2"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="maven_test_optimization_colors.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="170492714"
+                                                                       data-linked-resource-container-version="37"></span>
+                </p>
+                <p> </p><h5 id="UsingTestOptimizationinMaven-RelatedLinks">Related Links</h5>
+                <ul>
+                    <li><a href="general--what-is-test-optimization.html">Test Optimization Technical Details</a></li>
+                </ul>
+                <ul>
+                    <li><a href="ant--test-optimization-quick-start-guide.html">Test Optimization Quick
+                        Start for Ant</a></li>
+                </ul>
+                <ul>
+                    <li><a href="maven--best-practices.html">Clover for Maven - Test Optimization
+                        Best Practices</a></li>
+                </ul>
+                <ul>
+                    <li><a href="maven--using-distributed-per-test-coverage.html">Using Distributed Per-test
+                        Coverage</a></li>
+                </ul>
+                <p> </p>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

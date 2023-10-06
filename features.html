@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="OpenClover is a free and open-source code coverage tool for Java, Groovy and AspectJ.
+            It's based on the open-sourced version of Atlassian Clover&reg;, the world's most sophisticated code coverage tool.">
+    <meta name="author" content="">
+    <link rel="icon" href="resources/img/clover.ico">
+
+    <title>OpenClover - Java, Groovy and AspectJ code coverage tool</title>
+
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="resources/css/style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><img src="resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Overview</a></li>
+                <li class="active"><a href="features">Features</a></li>
+                <li><a href="downloads">Downloads</a></li>
+                <li><a href="documentation">Documentation</a></li>
+                <li><a href="support">Support</a></li>
+                <li><a href="blog">Blog</a></li>
+                <!--<li><a href="faq">FAQ</a></li>-->
+                <li><a href="about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+<h1>Features</h1>
+
+<div class="alert alert-warning">A non-exhaustive list of OpenClover features.</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Measuring code coverage</h2>
+
+        <p>OpenClover supports the following languages:</p>
+        <ul>
+            <li>Java</li>
+            <li>Groovy</li>
+            <li>AspectJ</li>
+        </ul>
+
+        <p>It can track two kinds of code coverage:</p>
+        <ul>
+            <li>Global coverage</li>
+            <li>Per-test coverage
+                <ul>
+                    <li><a href="doc/manual/4.2.0/general--what-is-distributed-per-test-coverage.html">
+                        Distributed per-test coverage</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        for three kinds of metrics:
+
+        <ul>
+            <li><a href="doc/manual/4.2.0/glossary--method-coverage.html">method coverage</a></li>
+            <li><a href="doc/manual/4.2.0/glossary--statement-coverage.html">statement coverage</a></li>
+            <li><a href="doc/manual/4.2.0/glossary--branch-coverage.html">branch coverage</a></li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h2>Measuring code metrics</h2>
+
+        <p>OpenClover comes with</p>
+        <ul>
+            <li><a href="doc/manual/4.2.0/ant--columns-element.html">over 20 built-in
+                code metrics</a></li>
+            <li>and an ability to define custom ones</li>
+        </ul>
+
+        It uses code metrics and coverage data to provide:
+        <ul>
+            <li>"tree maps" (heat maps) for code packages</li>
+            <li><a href="doc/manual/4.2.0/ant--tag-clouds.html">&quot;top risks&quot;</a> tag
+                clouds for classes
+            </li>
+            <li><a href="doc/manual/4.2.0/ant--tag-clouds.html">&quot;quick wins&quot;</a> tag
+                clouds for classes
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Tool integrations</h2>
+
+        Build systems and frameworks:
+        <ul>
+            <li>Ant</li>
+            <li>Maven</li>
+            <li>Gradle</li>
+            <li>Grails</li>
+            <li>Griffon</li>
+        </ul>
+
+        Continuous integration servers:
+        <ul>
+            <li>Jenkins</li>
+            <li>Hudson</li>
+            <li>Bamboo</li>
+        </ul>
+
+        Developer IDEs:
+        <ul>
+            <li>Eclipse (also IBM RAD)</li>
+            <li>IntelliJ IDEA</li>
+        </ul>
+
+        Other tools:
+        <ul>
+            <li>Sonar</li>
+            <li>JIRA</li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h2>Test framework integrations</h2>
+
+        OpenClover has a dedicated support for:
+        <ul>
+            <li>JUnit 3 &amp; 4</li>
+            <li>TestNG</li>
+            <li>Spock</li>
+        </ul>
+
+        It can support other test frameworks by defining custom test patterns based on:
+        <ul>
+            <li>source files</li>
+            <li>classes (names, modifiers and annotations)</li>
+            <li>methods (names, arguments, return types, throws, modifiers, annotations, javadoc tags)</li>
+        </ul>
+
+        It also handles test iterations (parameterized tests) for:
+        <ul>
+            <li>JUnit 4</li>
+            <li>Spock</li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Reporting</h2>
+
+        OpenClover can generate reports in the following formats:
+        <ul>
+            <li>HTML (current and historical)</li>
+            <li>XML</li>
+            <li>PDF</li>
+            <li>JSON</li>
+            <li>TEXT</li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h2></h2>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>HTML <a href="doc/manual/4.2.0/general--understanding-reports-current.html">'current report'</a> features</h2>
+
+        This report displays data relating to the most recent coverage data collected:
+        <ul>
+            <li>global code coverage</li>
+            <li>per-test code coverage
+                <ul>
+                    <li>classes covered by test</li>
+                    <li>tests covering given class / method / source line</li>
+                    <li>unique per-test coverage</li>
+                </ul>
+            </li>
+        </ul>
+
+        The coverage data is shown together with the source code, so you can easily browse:
+        <ul>
+            <li>packages</li>
+            <li>application classes</li>
+            <li>test classes</li>
+            <li>test results, including:
+                <ul>
+                    <li>test duration</li>
+                    <li><a href="doc/manual/4.2.0/ant--integrating-with-junit4-parameterized-tests.html">parameterized tests</a></li>
+                    <li><a href="doc/manual/4.2.0/general--stack-trace-navigation.html">navigable stack traces</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        Report shows coverage data and code metrics on all levels:
+        <ul>
+            <li>for project, package (also with sub-package aggregation), file, class and method</li>
+            <li>you can customize columns shown</li>
+            <li>you can introduce custom metrics</li>
+        </ul>
+
+        The report dashboard shows also charts:
+        <ul>
+            <li><a href="doc/manual/4.2.0/general--understanding-reports-dashboard-widgets.html">Class coverage
+                distribution</a></li>
+            <li><a href="doc/manual/4.2.0/general--understanding-reports-dashboard-widgets.html">Class complexity</a></li>
+            <li>Coverage tree map</li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h2>HTML <a href="doc/manual/4.2.0/general--understanding-reports-historical.html">'historical report'</a> features</h2>
+
+        This report displays data relating to sets of coverage data collected over time:
+        <ul>
+            <li>Coverage overview - coverage from the last history point</li>
+            <li>Added classes - classes which have been added</li>
+            <li>Changed classes - classes for which metrics changed above specified thresholds</li>
+            <li>Charts - set of customizable charts</li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Test optimization</h2>
+
+        OpenClover can determine which tests needs to be re-run for modified application classes. It can drastically
+        reduce time required to run tests. This feature is available for:
+        <ul>
+            <li>Ant</li>
+            <li>Maven</li>
+            <li>Grails</li>
+            <li>Eclipse</li>
+            <li>IDEA</li>
+        </ul>
+
+        It can also change order of test execution:
+        <ul>
+            <li>failing first - to fail a build as fast as possible, for faster feedback</li>
+            <li>random - to reveal bugs hidden by specific test order</li>
+        </ul>
+    </div>
+
+    <div class="col-md-6">
+        <h2>Data management and filtering</h2>
+
+        OpenClover is very flexible in managing coverage data. It can:
+        <ul>
+            <li>merge coverage data from different projects</li>
+            <li>collect historical data for given project</li>
+            <li>provide cross-report linking</li>
+        </ul>
+
+        It also outruns other coverage tools its flexibility to define scope of code coverage measurement. Filters can
+        be based on:
+        <ul>
+            <li>path/file patterns</li>
+            <li>classes</li>
+            <li>methods (allows matching by entire method signature)</li>
+            <li>code blocks by type (e.g. static initializers)</li>
+            <li>single statements (by regular expression)</li>
+            <li>method's cyclomatic code complexity</li>
+            <li>arbitrary sections (by putting inline code comments)</li>
+        </ul>
+    </div>
+</div>
+
+
+<h3>Further reading</h3>
+<ul>
+    <li><a href="doc/manual/4.2.0/general--comparison-of-code-coverage-tools.html">
+        Comparison of Clover, Cobertura, JaCoCo, JCov and Code Cover</a></li>
+    <li><a href="doc/manual/4.2.0/general--supported-platforms.html">Supported Platforms (Clover
+        4.1)</a></li>
+    <li><a href="doc/manual/4.2.0/general--understanding-reports-current.html">Current report</a></li>
+    <li><a href="doc/manual/4.2.0/general--understanding-reports-historical.html">Historical report</a></li>
+    <li><a href="doc/manual/4.2.0/general--what-is-test-optimization.html">Test Optimization</a></li>
+</ul>
+
+</div>
+
+<div class="container">
+    <footer>
+        <p class="small text-muted">&copy; 2017-2020 Marek Parfianowicz. Atlassian&reg; and Atlassian Clover&reg; are registered trademarks of Atlassian (Australia). All other
+            product
+            and company names are trademarks or registered trademarks of their respective holders. They have been used
+            for information purposes only and use of them does not imply any affiliation with or endorsement by
+            them. </p>
+    </footer>
+</div>
+
+<script src="resources/js/jquery-1.12.4.min.js"></script>
+<script src="resources/js/bootstrap.min.js"></script>
+<script src="resources/js/js.cookie.js"></script>
+<script src="resources/js/cookie.js"></script>
+</body>
+</html>

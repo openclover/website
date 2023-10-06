@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="OpenClover is a free and open-source code coverage tool for Java, Groovy and AspectJ.
+            It's based on the open-sourced version of Atlassian Clover&reg;, the world's most sophisticated code coverage tool.">
+    <meta name="author" content="">
+    <link rel="icon" href="../resources/img/clover.ico">
+
+    <title>OpenClover - Java, Groovy and AspectJ code coverage tool</title>
+
+    <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../resources/css/style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index"><img
+                    src="../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../index">Overview</a></li>
+                <li><a href="../features">Features</a></li>
+                <li><a href="../downloads">Downloads</a></li>
+                <li class="active"><a href="../documentation">Documentation</a></li>
+                <li><a href="../support">Support</a></li>
+                <li><a href="../blog">Blog</a></li>
+                <!--<li><a href="../faq">FAQ</a></li>-->
+                <li><a href="../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h1>OpenClover 4.4.0 Release Notes</h1>
+
+    <div>
+        Welcome! A lot of time has passed since the previous release, but we're thrilled to announce our new
+        <b>OpenClover 4.4</b>! In this release we focused on improving Maven integration, delivering a number of
+        useful and highly requested features. But you will find a lot of other goodies too!
+    </div>
+
+    <h2>Features</h2>
+
+    <h3>Maven plugin</h3>
+
+    <h4>Method contexts with code metrics</h4>
+
+    <div>
+        The clover:setup and clover:instr goals now allows you to fine-tune scope of code coverage with a new
+        <b>methodWithMetricsContext</b> option. In the methodContext option it was possible to define a name
+        pattern for methods, which shall be excluded from code coverage measurement. With this new option you
+        can define not ony regular expression for entire method signature but also code metrics.
+    </div>
+
+    <div>&nbsp;</div>
+
+    <div>
+        For example:
+        <pre>&lt;methodWithMetricsContexts&gt;
+    &lt;methodWithMetricsContext&gt;
+        &lt;name&gt;simpleGetter&lt;/name&gt;
+        &lt;regexp&gt;public .* get.*\(\)&lt;/regexp&gt;
+        &lt;maxComplexity&gt;1&lt;/maxComplexity&gt; &lt;!-- at most 1 cycle (optional) -->
+        &lt;maxStatements&gt;1&lt;/maxStatements&gt; &lt;!-- at most 1 statement (optional) -->
+        &lt;maxAggregatedComplexity&gt;2&lt;/maxAggregatedComplexity&gt; &lt;!-- no more than 2 cycles including inline classes (optional) -->
+        &lt;maxAggregatedStatements&gt;10&lt;/maxAggregatedStatements&gt; &lt;!-- no more than 10 statements including inline classes (optional) -->
+    &lt;/methodWithMetricsContext&gt;
+    &lt;!-- can add more methodWithMetricsContext --&gt;
+&lt;/methodWithMetricsContexts&gt;</pre>
+
+        will define a context called 'simpleGetter' which matches all public get*() methods containing at most one
+        statement; this statement may contain more complex logic (an anonymous inline class) but not more than 10
+        statements in total; in addition to this aggregated cyclomatic cannot exceed 2 cycles.
+    </div>
+
+    <h4>Custom test detector patterns</h4>
+
+    <div>
+        In Ant plugin it is possible to configure in &lt;clover-setup&gt; or &lt;clover-instr&gt; which files,
+        classes and methods are test ones. This allows to handle custom test frameworks or even
+        external test tools. Now this is possible in Maven too, although the configuration is slightly different due
+        differences between Ant and Maven build systems (Ant - file sets with sources, Maven - main/test source roots).
+    </div>
+
+    <div>&nbsp;</div>
+
+    <div>
+        In clover:setup and clover:instr goals you can define the <b>testSources</b> configuration option, which is
+        really very robust and flexible. You can define your tests not only on a file level (includes and excludes),
+        but also on a class level (matching all elements from a class signature) and even fine-tune it on a
+        method level (again, entire method signature).
+    </div>
+
+    <div>&nbsp;</div>
+
+    <div>
+        Example:
+
+<pre>&lt;testSources&gt;
+    &lt;includes&gt;
+        &lt;include&gt;**&#47;*&lt;/include&gt;
+        &lt;include&gt;*WebTest.java&lt;/include&gt;
+        &lt;include&gt;**&#47;*IT.java&lt;/include&gt;
+    &lt;/includes&gt;
+    &lt;excludes&gt;
+        &lt;exclude&gt;deprecated/**&lt;/exclude&gt;
+    &lt;/excludes&gt;
+    &lt;testClasses&gt;
+        &lt;testClass&gt; &lt;!-- 0..N occurrences --&gt;
+        &lt;name&gt;.*Test&lt;/name&gt;
+        &lt;super&gt;WebTest&lt;/super&gt;
+        &lt;annotation&gt;@Repeat&lt;/annotation&gt;
+        &lt;package&gt;org\.openclover\..*&lt;/package&gt;
+        &lt;tag&gt;@chrome&lt;/tag&gt;
+        &lt;testMethods&gt; &lt;!-- 0..N occurrences --&gt;
+            &lt;testMethod&gt;
+            &lt;name&gt;check.*&lt;/name&gt;
+            &lt;annotation&gt;@Test&lt;/annotation&gt;
+            &lt;tag&gt;@web&lt;/tag&gt;
+            &lt;returnType&gt;void&lt;/returnType&gt;
+            &lt;/testMethod&gt;
+        &lt;/testMethods&gt;
+        &lt;/testClass&gt;
+    &lt;/testClasses&gt;
+&lt;/testSources&gt;</pre>
+    </div>
+
+
+    <h4>Include failed test coverage</h4>
+
+    <div>
+        In the clover:check and clover:clover goals you can use <b>includeFailedTestCoverage</b>. When enabled,
+        code coverage related with failed tests will be included when calculating the total coverage percentage.
+        This can you help to get more stable test coverage results in case of failing or flaky tests.
+    </div>
+
+    <h4>Show unique per-test coverage</h4>
+
+    <div>
+        With this option OpenClover will calculate and show unique per-test coverage in reports. Unique means
+        that given piece of business logic is covered by only one test. It can help you to better plan writing
+        new tests.
+    </div>
+
+    <h4>Maven 2.x is unsupported</h4>
+
+    <div>
+        OpenClover 4.4 no longer supports Maven 2.x. Minimum Maven version required is <b>3.0.4</b>.
+    </div>
+
+    <h3>JUnit5 support</h3>
+
+    <div>
+        Although OpenClover is flexible enough to handle
+        <a href="manual/latest/ant--clover-test-detection.html">any test framework</a> it's always
+        better to have support out-of-the box. So here you are! OpenClover now:
+        <ul>
+            <li>supports test methods with public, package and protected visibility as JUnit5 allows to</li>
+            <li>recognizes @org.junit.jupiter.api.Test and @org.junit.jupiter.api.Disable annotations</li>
+            <li>handles JUnit 5 parameterized tests</li>
+        </ul>
+
+        We'd like to say huge <b>Thank you!</b> for James Spagnola who implemented this feature.
+    </div>
+
+    <h3>Bamboo 6.9 with OpenClover</h3>
+
+    <div>
+        Bamboo 6.9 has built-in support for not only Atlassian Clover but also OpenClover. It means that you
+        no longer have to use manual integration (by adding clover targets or goals in your pom.xml or build.xml files),
+        but you can not enable OpenClover with a single click thanks to the automatic integration feature, which works
+        for Ant, Maven and Grails tasks.
+    </div>
+
+    <div>&nbsp;</div>
+
+    <div>Read the <a href="https://confluence.atlassian.com/bamboo/bamboo-6-9-release-notes-969521942.html">Bamboo 6.9
+        Release Notes</a> to learn more.</div>
+
+    <h3>New options for CloverInstr</h3>
+
+    <div>
+        In the course of implementation of enhancements for Maven, the CloverInstr commandline tool got a lot of new
+        options as well:
+
+        <ul>
+            <li><code>-mmc --methodWithMetricsContext 'name;regexp;maxstmt;maxcplx;maxaggrstmt;maxaggrcplx'</code> Defines a single custom method context with code metrics.</li>
+            <li><code>-tsr --testSourceRoot path</code> Root folder for test sources against which includes/excludes are checked.</li>
+            <li><code>-tsi --testSourceIncludes ant_pattern</code> Which files shall be treated as test sources. </li>
+            <li><code>-tse --testSourceExcludes ant_pattern</code> Which files shall not be treated as test sources.</li>
+            <li><code>-tsc --testSourceClass 'name;package;annotation;superclass;javadoc tag'</code> Which classes shall be treated as test code.</li>
+            <li><code>-tsm --testSourceMethod 'name;annotation;return_type;javadoc_tag'</code> Which methods shall be treated as test ones.</li>
+        </ul>
+
+        Examples:
+
+        <pre>-mce 'trivialGetter;public.*get.*\(\);;;1;1'
+-tsr 'src/test/java'
+-tsi '**/*Test.java,**/*IT.java'
+-tse '**/TestBase*.java,**/*TestUtil.java'
+-tsc '.*Test;com\.acme\..*'         - match by a package and a class name
+-tsc ';;@RunWith'                   - match by a class annotation
+-tsc ';;;;@test'                    - match by a javadoc tag
+-tsm 'test.*'  - match all methods prefixed with 'test'
+-tsm ';@Test;void'  - match all void methods annotated with '@Test'
+-tsm ';;;@test' - match all methods having a '@test' javadoc tag
+        </pre>
+    </div>
+
+    <h2>Upgrading from OpenClover 4.3.x</h2>
+
+    <h4>Clover for Ant</h4>
+
+    <p>Simply download new Clover-for-Ant zip file and use the clover.jar from it.</p>
+
+    <h4>Clover for Eclipse</h4>
+
+    <div>Download new update site ZIP and install in your Eclipse.</div>
+
+    <h4>Clover for IDEA</h4>
+
+    <div>Download new plugin JAR and install in your IDEA.</div>
+
+    <h4>Clover Maven Plugin</h4>
+
+    <div>Bump version number to 4.4.0 for 'org.openclover:clover-maven-plugin' and 'org.openclover:clover' in
+        your pom.xml files.
+    </div>
+
+    <h4>Grails Clover Plugin</h4>
+
+    <div>Upgrade to version 4.4.0.</div>
+
+    <h4>Bamboo Clover Plugin</h4>
+
+    <div>Upgrade to Bamboo 6.9. You will get automatic integration feature for OpenClover. In case of Maven and Grails
+        tasks it automatically integrates with the latest OpenClover version. In case of Ant tasks it integrates with
+        OpenClover 4.3.1 (you can switch to manual integration to use the latest version).
+    </div>
+
+    <h4>Jenkins Clover Plugin</h4>
+
+    <p>Upgrade to the latest 4.11.0 plugin version.</p>
+
+    <h4>Hudson Clover Plugin</h4>
+
+    <div>Upgrade to the latest 4.9.0 plugin version.</div>
+
+    <h4>Gradle Clover Plugin</h4>
+
+    <div>We have not released the OpenClover version of the Gradle plugin yet. You can find its source code here:
+        <a href="https://github.com/openclover/gradle-clover-plugin">https://github.com/openclover/gradle-clover-plugin</a>
+    </div>
+
+
+    <h2>Changelog</h2>
+
+    <h4>2019.09.26 OpenClover 4.4.0</h4>
+
+    <ul>
+        <li><a href="https://github.com/openclover/clover/issues/18/440-upgrade-clover-maven-plugin-to-maven-3">#18: Upgrade clover-maven-plugin to Maven 3. Drop support for Maven 2.</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/19/440-add-maxcomplexity-maxstatements-for">#19: Add maxComplexity / maxStatements for Clover-for-Maven</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/71/440-package-private-junit-5-tests-are-not">#71: Package Private JUnit 5 Tests are not detected by Clover</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/82/440-add-includefailedtestcoverage-for">#82: Add includeFailedTestCoverage for clover:check and clover:clover goals</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/84/440-add-custom-test-detector-pattern-for">#84: Add custom test detector pattern for clover:setup</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/85/440-integrate-openclover-with-atlassian">#85: Integrate OpenClover with Atlassian Bamboo</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/86/440-add-showuniquecoverage-for-clover">#86: Add showUniqueCoverage for clover:clover goal</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/90/440-do-not-read-a-license-file-in-maven">#90: Do not read a license file in Maven plugin</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/92/440-integrating-clover-with-junit-5">#92: Integrating Clover with JUnit 5 Parameterized Tests</a></li>
+    </ul>
+
+    <h4>2019.10.11 OpenClover 4.4.1</h4>
+
+    <ul>
+        <li><a href="https://github.com/openclover/clover/issues/103/441-upgrade-from-431-to-440-failure">#103: Resolution of artifacts with 'clover' classifier looks up in external repositories</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/104/441-code-generated-by-openclover-440-has">#104: Code generated by OpenClover 4.4.0 has dependency on JUnit4 when running with JUnit5</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/107/441-the-clover-instrument-test-goal-is">#107: The clover:instrument-test goal is missing in 4.4.0</a></li>
+    </ul>
+
+</div>
+
+
+<script src="../resources/js/jquery-1.12.4.min.js"></script>
+<script src="../resources/js/bootstrap.min.js"></script>
+</body>
+</html>

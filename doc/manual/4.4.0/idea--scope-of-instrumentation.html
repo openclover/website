@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : 4. Scope of instrumentation in IDEA</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="idea--overview.html">Clover-for-IDEA</a></span>
+                    </li>
+                    <li>
+                        <span><a href="idea--user-guide.html">Clover-for-IDEA User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            4. Scope of instrumentation in IDEA
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p> </p>
+                <p>Clover provides many ways to fine-tune instrumentation scope, which gives you an ability to
+                    concentrate your work on the most important code.</p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813727018 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813727018 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813727018 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813727018'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#id-4.ScopeofinstrumentationinIDEA-EnablinganddisablingCloverforaproject'>Enabling
+                            and disabling Clover for a project</a></li>
+                        <li><a href='#id-4.ScopeofinstrumentationinIDEA-EnablinganddisablingbuildwithClover'>Enabling
+                            and disabling build with Clover</a></li>
+                        <li><a href='#id-4.ScopeofinstrumentationinIDEA-Excludingandincludingmodules'>Excluding and
+                            including modules</a></li>
+                        <li><a href='#id-4.ScopeofinstrumentationinIDEA-Excludingandincludingpackages'>Excluding and
+                            including packages</a></li>
+                        <li><a href='#id-4.ScopeofinstrumentationinIDEA-Excludingandincludingfiles'>Excluding and
+                            including files</a></li>
+                        <li><a href='#id-4.ScopeofinstrumentationinIDEA-Excludingcertainblocksofcode'>Excluding certain
+                            blocks of code</a></li>
+                        <li>
+                            <a href='#id-4.ScopeofinstrumentationinIDEA-Excludingmethodsandstatementsmatchingregularexpression'>Excluding
+                                methods and statements matching regular expression</a></li>
+                        <li><a href='#id-4.ScopeofinstrumentationinIDEA-Excludingarbitrarylinesofcode'>Excluding
+                            arbitrary lines of code</a></li>
+                        <li>
+                            <a href='#id-4.ScopeofinstrumentationinIDEA-ShowingClovercoverageannotationsinJavasourceeditors'>Showing
+                                Clover coverage annotations in Java source editors</a></li>
+                    </ul>
+                </div>
+                </p><p> </p><h4 id="id-4.ScopeofinstrumentationinIDEA-EnablinganddisablingCloverforaproject">Enabling
+                and disabling Clover for a project</h4>
+                <p>If you want to completely disable Clover support for a project (and remove all Clover data etc), then
+                    open the <em>&quot;File &gt; Settings&quot; </em>(Linux, Windows)<em> or &quot;IDEA &gt; Preferences&quot;</em>
+                    (OS X) dialog. Next open the &quot;<em>Clover (project settings)&quot;</em> page - you can find it
+                    in:</p>
+                <ul>
+                    <li><strong>Build, Execution, Deployment</strong> group (IDEA 14 and later) or</li>
+                    <li><strong>Project Settings</strong> group (IDEA 13 and older)</li>
+                </ul>
+                <p>Uncheck the <em>&quot;Enable Clover&quot; </em>checkbox<em>. </em></p>
+                <p><em><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                           src="attachments/300814880/857059004.png" width="1024" height="115"
+                                                                           data-image-src="attachments/300814880/857059004.png"
+                                                                           data-unresolved-comment-count="0"
+                                                                           data-linked-resource-id="857059004"
+                                                                           data-linked-resource-version="1"
+                                                                           data-linked-resource-type="attachment"
+                                                                           data-linked-resource-default-alias="clover_4.1.2_project_settings_enable_clover.png"
+                                                                           data-base-url="https://confluence.atlassian.com"
+                                                                           data-linked-resource-content-type="image/png"
+                                                                           data-linked-resource-container-id="300814880"
+                                                                           data-linked-resource-container-version="6"></span><br/></em>
+                </p><h4 id="id-4.ScopeofinstrumentationinIDEA-EnablinganddisablingbuildwithClover">Enabling and
+                disabling build with Clover</h4>
+                <p>In order to track the code coverage of your projects, Clover must insert special code into your
+                    program at compilation time - called instrumentation - to record this coverage. When Clover is
+                    enabled on your project, Clover will automatically perform this task for every file you compile in
+                    the project. You can tell Clover not to instrument your project by clicking &quot;Toggle build with
+                    Clover&quot; button (on a main bar).</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/300814880/301008102.png"
+                                                                       data-image-src="attachments/300814880/301008102.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301008102"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="toggle_build_with_clover.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="300814880"
+                                                                       data-linked-resource-container-version="6"></span>
+                </p><h4 id="id-4.ScopeofinstrumentationinIDEA-Excludingandincludingmodules">Excluding and including
+                modules</h4>
+                <p>Right click on a module in Project view and select <em>&quot;Exclude module from Clover
+                    instrumentation&quot;</em> from context menu.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/300814880/301008103.png"
+                                                                       data-image-src="attachments/300814880/301008103.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301008103"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="module_exclude.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="300814880"
+                                                                       data-linked-resource-container-version="6"></span>
+                </p><h4 id="id-4.ScopeofinstrumentationinIDEA-Excludingandincludingpackages">Excluding and including
+                packages</h4>
+                <p>Right click on a package in Project view, select <em>&quot;Change exclusion&quot;</em> and next one
+                    of <em>&quot;Include ...&quot; / &quot;Exclude ...&quot; / &quot;Edit settings ...&quot;</em> from
+                    context menu.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/300814880/301008104.png"
+                                                                       data-image-src="attachments/300814880/301008104.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301008104"
+                                                                       data-linked-resource-version="2"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="package_exclude.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="300814880"
+                                                                       data-linked-resource-container-version="6"></span>
+                </p>
+                <p> </p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/300814880/301008105.png"
+                                                                       data-image-src="attachments/300814880/301008105.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301008105"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="edit_settings_include_exclude.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="300814880"
+                                                                       data-linked-resource-container-version="6"></span>
+                </p>
+                <p> </p><h4 id="id-4.ScopeofinstrumentationinIDEA-Excludingandincludingfiles">Excluding and including
+                files</h4>
+                <p>Right click on a file in Project view, select <em>&quot;Change exclusion&quot;</em> and next one of
+                    <em>&quot;Include ...&quot; / &quot;Exclude ...&quot; / &quot;Edit settings ...&quot;</em> from
+                    context menu.</p>
+                <p> </p><h4 id="id-4.ScopeofinstrumentationinIDEA-Excludingcertainblocksofcode">Excluding certain blocks
+                of code</h4>
+                <p>Open <em>&quot;File &gt; Settings &gt; Project Settings &gt; Clover&quot;</em> page. Open <em>&quot;Contexts&quot;</em>
+                    tab. </p>
+                <p>In the <em>&quot;Built-in context filters&quot; </em>box<em> </em>you can choose Java language
+                    constructs or coding patterns to be excluded. The most interesting are:</p>
+                <ul>
+                    <li>assert statements</li>
+                    <li>catch body</li>
+                    <li>finally body</li>
+                    <li>private methods (all methods having private keyword)</li>
+                    <li>property methods (all methods having name like getXyz() / setXyz() / isXyz(), being public and
+                        having no arguments for isXyz()/getXyz())
+                    </li>
+                </ul>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/300814880/301008106.png"
+                                                                       data-image-src="attachments/300814880/301008106.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301008106"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="edit_context_filters.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="300814880"
+                                                                       data-linked-resource-container-version="6"></span>
+                </p>
+                <p> </p><h4
+                    id="id-4.ScopeofinstrumentationinIDEA-Excludingmethodsandstatementsmatchingregularexpression">
+                Excluding methods and statements matching regular expression</h4>
+                <p>Open <em>&quot;File &gt; Settings &gt; Project Settings &gt; Clover&quot;</em> page. Open <em>&quot;Contexts&quot;</em>
+                    tab.</p>
+                <p>In the <em>&quot;Custom Contexts&quot; box </em>you can define regular expressions for method
+                    signatures and statements.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/300814880/301008107.png"
+                                                                       data-image-src="attachments/300814880/301008107.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301008107"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="edit_statement_context.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="300814880"
+                                                                       data-linked-resource-container-version="6"></span>
+                </p><h4 id="id-4.ScopeofinstrumentationinIDEA-Excludingarbitrarylinesofcode">Excluding arbitrary lines
+                of code</h4>
+                <p>Put &quot;///CLOVER:OFF&quot; and &quot;///CLOVER:ON&quot; in source code (note that three slashes
+                    are used) to exclude given sections.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667015/297600109.png"
+                                                                       data-image-src="attachments/297667015/297600109.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600109"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="scope_clover_on_off.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667015"
+                                                                       data-linked-resource-container-version="14"></span>
+                </p><h4 id="id-4.ScopeofinstrumentationinIDEA-ShowingClovercoverageannotationsinJavasourceeditors">
+                Showing Clover coverage annotations in Java source editors</h4>
+                <p>If you wish to temporarily disable the red/green code coverage annotations in your Java source
+                    editors (but wish to continue using Clover on your projects), you can simple toggle one of three
+                    toggles:</p>
+                <ul>
+                    <li>&quot;Turn on coverage highlight&quot;</li>
+                    <li>&quot;Turn on coverage highlight for uncovered code only&quot;</li>
+                    <li>&quot;Turn off coverage highlight&quot;</li>
+                </ul>
+                <p>These buttons are available on main menu bar.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/300814880/301008108.png"
+                                                                       data-image-src="attachments/300814880/301008108.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301008108"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="toggle_coverage_highlight.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="300814880"
+                                                                       data-linked-resource-container-version="6"></span>
+                </p>
+                <p> </p>
+                <hr/>
+                <p>Now you have your project instrumentation tuned to your needs. Are you looking for more tweaks? Read
+                    the <a href="idea--configuration-options.html">5. IDEA configuration options</a>
+                    chapter.</p>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

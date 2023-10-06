@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : &#39;Current&#39; Report</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="general--understanding-reports.html">4. Understanding Reports</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            &#39;Current&#39; Report
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                'Current' Clover reports display graphical and numerical data relating to the most recent coverage data
+                collected for the project.<p> </p>
+                <p>Clover 4 brings new HTML report developed according to the <a
+                                                                                 href="https://developer.atlassian.com/design/latest"
+                                                                                 rel="nofollow">Atlassian Design
+                    Guidelines</a>; it's shortly named &quot;ADG&quot;. Clover 3 offers an old-style JavaDoc-like
+                    format, named &quot;Classic&quot;. </p>
+                <p> </p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813707029 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813707029 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813707029 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813707029'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#id-&#39;Current&#39;Report-ADGreportstyle(Clover4only)'>ADG report style (Clover 4
+                            only)</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#id-&#39;Current&#39;Report-Projectoverviewpage'>Project overview page</a>
+                                </li>
+                                <li>
+                                    <a href='#id-&#39;Current&#39;Report-Package-levelandproject-leveloverviewofapplicationandtestcode'>Package-level
+                                        and project-level overview of application and test code</a></li>
+                                <li><a href='#id-&#39;Current&#39;Report-Sourcefileview'>Source file view</a></li>
+                                <li><a href='#id-&#39;Current&#39;Report-Testresults'>Test results</a></li>
+                                <li>
+                                    <a href='#id-&#39;Current&#39;Report-&#39;Toprisks&#39;and&#39;Quickwins&#39;tagclouds'>&#39;Top
+                                        risks&#39; and &#39;Quick wins&#39; tag clouds</a></li>
+                                <li><a href='#id-&#39;Current&#39;Report-Coveragetreemap'>Coverage tree map</a></li>
+                                <li><a href='#id-&#39;Current&#39;Report-Seealso:.'>See also: &#39;Historical&#39;
+                                    Report.</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#id-&#39;Current&#39;Report-Classicreportstyle(Clover3andClover4)'>Classic report
+                            style (Clover 3 and Clover 4)</a></li>
+                        <li><a href='#id-&#39;Current&#39;Report-Appendix:namingconventionoflambdafunctions'>Appendix:
+                            naming convention of lambda functions</a></li>
+                    </ul>
+                </div>
+                </p><h1 id="id-&#39;Current&#39;Report-ADGreportstyle(Clover4only)">ADG report style (Clover 4
+                only)</h1>
+                <h2 id="id-&#39;Current&#39;Report-Projectoverviewpage">Project overview page</h2>
+                <div class="sectionColumnWrapper">
+                    <div class="sectionMacro">
+                        <div class="sectionMacroRow">
+                            <div class="columnMacro"><p><strong>General</strong></p>
+                                <p>On the project overview page you will find several tabs, thanks to which you can
+                                    quickly learn about your project:</p>
+                                <ul>
+                                    <li>Dashboard - contains several widgets with statistics and most critical issues
+                                    </li>
+                                    <li>Application code - browse through application classes</li>
+                                    <li>Test code - browse through test classes</li>
+                                    <li>Test results - contains results from your unit tests</li>
+                                    <li>Top risks - the most complex and the least covered classes</li>
+                                    <li>Quick wins - &quot;low hanging fruits&quot;</li>
+                                    <li>Coverage tree map</li>
+                                </ul>
+                                <p> </p>
+                                <p><strong>Blue application header</strong></p>
+                                <ul>
+                                    <li>Clover logo - opens the Atlassian Clover home page</li>
+                                    <li>Linked reports - shows reports linked with the current one (optional, see the
+                                        &lt;clover-report&gt; task for more details)
+                                    </li>
+                                    <li>Help icon - opens the Clover documentation home page</li>
+                                </ul>
+                                <p> </p>
+                                <p><strong>Dashboard tab</strong></p>
+                                <p>It contains several useful widgets:</p>
+                                <ul>
+                                    <li>Code coverage - shows Total Coverage Percentage metric of your application code
+                                        (i.e. excluding test code)
+                                    </li>
+                                    <li>Test results - shows number of tests executed and their success ratio</li>
+                                    <li>Code metrics - shows code metrics of your application code of the entire project
+                                        (i.e. excluding test code)
+                                    </li>
+                                    <li><a href="general--understanding-reports-dashboard-widgets.html">Class coverage distribution</a> -
+                                        histogram showing number of classes vs coverage
+                                    </li>
+                                    <li><a href="general--understanding-reports-dashboard-widgets.html">Class complexity</a> - dot chart
+                                        showing class complexity vs coverage
+                                    </li>
+                                    <li>Coverage tree map - size of the rectangle represents package complexity, while
+                                        color shows its coverage
+                                    </li>
+                                    <li>Top project risks - the most complex and the least covered classes</li>
+                                    <li>Most complex packages - packages with the highest cyclomatic complexity</li>
+                                    <li>Most complex classes - classes with the highest cyclomatic complexity</li>
+                                    <li>Least tested methods - methods having the lowest code coverage</li>
+                                </ul>
+                                <p><strong>Package tree view</strong></p>
+                                <p>You can use it to navigate through the project structure. You can also search for
+                                    packages matching given sub-string.</p></div>
+                            <div class="columnMacro"><p><span
+                                    class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                    class="confluence-embedded-image" width="500"
+                                    src="attachments/71600287/767066511.png"
+                                    data-image-src="attachments/71600287/767066511.png"
+                                    data-unresolved-comment-count="0" data-linked-resource-id="767066511"
+                                    data-linked-resource-version="3" data-linked-resource-type="attachment"
+                                    data-linked-resource-default-alias="screenshot-localhost 2015-05-20 10-04-52.png"
+                                    data-base-url="https://confluence.atlassian.com"
+                                    data-linked-resource-content-type="image/png"
+                                    data-linked-resource-container-id="71600287"
+                                    data-linked-resource-container-version="37"></span></p>
+                                <p> </p></div>
+                        </div>
+                    </div>
+                </div>
+                <p> </p>
+                <h2 id="id-&#39;Current&#39;Report-Package-levelandproject-leveloverviewofapplicationandtestcode">
+                    Package-level and project-level overview of application and test code</h2>
+                <div class="sectionColumnWrapper">
+                    <div class="sectionMacro">
+                        <div class="sectionMacroRow">
+                            <div class="columnMacro"><p>The &quot;Application code&quot; and the &quot;Test code&quot;
+                                tabs show list of packages along with their metrics and their code coverage.</p>
+                                <p>In case of a project-level overview, there is an additional toggle &quot;Metrics from
+                                    sub-packages: Separated / Aggregated&quot;, which allows to calculate an aggregated
+                                    code coverage and code metrics, i.e. given package will include also metrics from
+                                    its sub-packages.</p>
+                                <p>Table columns are sortable and <a
+                                        href="ant--clover-columns.html">customizable</a>.</p></div>
+                            <div class="columnMacro"><p><span
+                                    class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                    class="confluence-embedded-image" width="500"
+                                    src="attachments/71600287/639270933.png"
+                                    data-image-src="attachments/71600287/639270933.png"
+                                    data-unresolved-comment-count="0" data-linked-resource-id="639270933"
+                                    data-linked-resource-version="3" data-linked-resource-type="attachment"
+                                    data-linked-resource-default-alias="clover_html_report_app_code.png"
+                                    data-base-url="https://confluence.atlassian.com"
+                                    data-linked-resource-content-type="image/png"
+                                    data-linked-resource-container-id="71600287"
+                                    data-linked-resource-container-version="37"></span></p></div>
+                        </div>
+                    </div>
+                </div>
+                <h2 id="id-&#39;Current&#39;Report-Sourcefileview">Source file view</h2>
+                <div class="sectionColumnWrapper">
+                    <div class="sectionMacro">
+                        <div class="sectionMacroRow">
+                            <div class="columnMacro"><p>This page contains few sections:</p>
+                                <ul>
+                                    <li>code metrics for current source file</li>
+                                    <li>list of classes in the source file, the &quot;Show methods&quot; opens a dialog
+                                        showing detailed data for a class
+                                    </li>
+                                    <li>number of tests &quot;hitting&quot; the source file, the &quot;Select tests to
+                                        highlight the test coverage&quot; opens list of tests; it's possible to select
+                                        them to see per-test coverage
+                                    </li>
+                                    <li>source code view page with highlighted code coverage</li>
+                                </ul>
+                                <p> </p>
+                                <p>In the source view, the left-most column shows line numbers. The second column shows
+                                    the number of times a particular line has been executed during the test run.</p>
+                                <p>If a line is never executed or has only been partially executed, the entire line of
+                                    code will be highlighted in red. You can hover the mouse over a line to get a pop-up
+                                    describing in detail the coverage information for that line.</p>
+                                <p>You can click on the '<a href="general--understanding-reports-coverage-legend.html">Show legend</a>'
+                                    button to see more details about highlighting.</p>
+                                <p> </p>
+                                <p>Rendered code provides also <a
+                                        href="general--source-cross-referencing-in-reports.html">source cross
+                                    referencing</a> and <a href="general--stack-trace-navigation.html">stack trace
+                                    navigation</a>.</p></div>
+                            <div class="columnMacro"><p><span
+                                    class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                    class="confluence-embedded-image" width="500"
+                                    src="attachments/71600287/639270936.png"
+                                    data-image-src="attachments/71600287/639270936.png"
+                                    data-unresolved-comment-count="0" data-linked-resource-id="639270936"
+                                    data-linked-resource-version="4" data-linked-resource-type="attachment"
+                                    data-linked-resource-default-alias="clover_html_report_source_view.png"
+                                    data-base-url="https://confluence.atlassian.com"
+                                    data-linked-resource-content-type="image/png"
+                                    data-linked-resource-container-id="71600287"
+                                    data-linked-resource-container-version="37"></span></p></div>
+                        </div>
+                    </div>
+                </div>
+                <p> </p>
+                <h2 id="id-&#39;Current&#39;Report-Testresults">Test results</h2>
+                <div class="sectionColumnWrapper">
+                    <div class="sectionMacro">
+                        <div class="sectionMacroRow">
+                            <div class="columnMacro"><p>The &quot;Test results&quot; tab shows information about
+                                executed tests - for an entire project, a package, a class as well as for a single test
+                                case.</p>
+                                <p> </p>
+                                <p>What is worth to note is that a class-level summary may contain multiple tests having
+                                    the same name - it may happen in case you have executed test several times or you
+                                    have used a test framework allowing test iterations (for instance, the JUnit4 with
+                                    @Parameterized annotation or the Spock framework).</p>
+                                <p> </p>
+                                <p>A test case page shows detailed information like test result, duration, stack traces
+                                    (if any) as well as a list of classes which were covered by the test.</p></div>
+                            <div class="columnMacro"><p><span
+                                    class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                    class="confluence-embedded-image" width="500"
+                                    src="attachments/71600287/639270940.png"
+                                    data-image-src="attachments/71600287/639270940.png"
+                                    data-unresolved-comment-count="0" data-linked-resource-id="639270940"
+                                    data-linked-resource-version="4" data-linked-resource-type="attachment"
+                                    data-linked-resource-default-alias="clover_html_report_tests_package.png"
+                                    data-base-url="https://confluence.atlassian.com"
+                                    data-linked-resource-content-type="image/png"
+                                    data-linked-resource-container-id="71600287"
+                                    data-linked-resource-container-version="37"></span></p>
+                                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image" width="500"
+                                        src="attachments/71600287/639270942.png"
+                                        data-image-src="attachments/71600287/639270942.png"
+                                        data-unresolved-comment-count="0" data-linked-resource-id="639270942"
+                                        data-linked-resource-version="3" data-linked-resource-type="attachment"
+                                        data-linked-resource-default-alias="clover_html_report_tests_class.png"
+                                        data-base-url="https://confluence.atlassian.com"
+                                        data-linked-resource-content-type="image/png"
+                                        data-linked-resource-container-id="71600287"
+                                        data-linked-resource-container-version="37"></span></p>
+                                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image" width="500"
+                                        src="attachments/71600287/639270943.png"
+                                        data-image-src="attachments/71600287/639270943.png"
+                                        data-unresolved-comment-count="0" data-linked-resource-id="639270943"
+                                        data-linked-resource-version="3" data-linked-resource-type="attachment"
+                                        data-linked-resource-default-alias="clover_html_report_tests_testcase.png"
+                                        data-base-url="https://confluence.atlassian.com"
+                                        data-linked-resource-content-type="image/png"
+                                        data-linked-resource-container-id="71600287"
+                                        data-linked-resource-container-version="37"></span></p></div>
+                        </div>
+                    </div>
+                </div>
+                <p> </p>
+                <h2 id="id-&#39;Current&#39;Report-&#39;Toprisks&#39;and&#39;Quickwins&#39;tagclouds">'Top risks' and
+                    'Quick wins' tag clouds</h2>
+                <div class="sectionColumnWrapper">
+                    <div class="sectionMacro">
+                        <div class="sectionMacroRow">
+                            <div class="columnMacro"><p>The Top Risks tag cloud highlights those classes that are the
+                                most complex, yet are the least covered by your tests. The larger and redder the class,
+                                the greater the risk that class poses for your project or package. Font size represents
+                                the Average Method Complexity metric, while the color represents the Total Coverage
+                                metric (red for 0%, green for 100%).</p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
+                                <p> </p>
+                                <p>The Quick Wins tag cloud highlights the &quot;low hanging coverage fruit&quot; of
+                                    your project or package. You will achieve the greatest increase in overall code
+                                    coverage by covering the largest, reddest classes first. Big red classes contain the
+                                    highest number of untested elements. Font size represents the Number of Elements
+                                    metric, while the color represents the Number of Tested Elements from red - minimum
+                                    tested elements to green - maximum).</p>
+                                <p> </p>
+                                <p>Note: For Clover 4.0.4 and lower those metrics had different color scheme.</p></div>
+                            <div class="columnMacro"><p><span
+                                    class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                    class="confluence-embedded-image" width="500"
+                                    src="attachments/71600287/767066513.png"
+                                    data-image-src="attachments/71600287/767066513.png"
+                                    data-unresolved-comment-count="0" data-linked-resource-id="767066513"
+                                    data-linked-resource-version="2" data-linked-resource-type="attachment"
+                                    data-linked-resource-default-alias="image2015-5-20 10:8:58.png"
+                                    data-base-url="https://confluence.atlassian.com"
+                                    data-linked-resource-content-type="image/png"
+                                    data-linked-resource-container-id="71600287"
+                                    data-linked-resource-container-version="37"></span></p>
+                                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image" width="500"
+                                        src="attachments/71600287/767066509.png"
+                                        data-image-src="attachments/71600287/767066509.png"
+                                        data-unresolved-comment-count="0" data-linked-resource-id="767066509"
+                                        data-linked-resource-version="2" data-linked-resource-type="attachment"
+                                        data-linked-resource-default-alias="image2015-5-20 9:50:37.png"
+                                        data-base-url="https://confluence.atlassian.com"
+                                        data-linked-resource-content-type="image/png"
+                                        data-linked-resource-container-id="71600287"
+                                        data-linked-resource-container-version="37"></span></p>
+                                <p> </p></div>
+                        </div>
+                    </div>
+                </div>
+                <p> </p>
+                <h2 id="id-&#39;Current&#39;Report-Coveragetreemap">Coverage tree map</h2>
+                <div class="sectionColumnWrapper">
+                    <div class="sectionMacro">
+                        <div class="sectionMacroRow">
+                            <div class="columnMacro"><p>The coverage tree map report allows simultaneous comparison of
+                                classes and packages by complexity and by code coverage. This is useful for spotting
+                                untested clusters of code. The tree map is divided by a package (labeled) and then
+                                further divided by a class (unlabeled). The size of the package or class indicates its
+                                complexity (larger squares indicate greater complexity, while smaller squares indicate
+                                less complexity). Colors indicate the level of coverage, as follows:</p>
+                                <ul>
+                                    <li>green for most covered</li>
+                                    <li>red for least covered</li>
+                                </ul>
+                                <p>Clicking on a class will navigate you to the corresponding source file view.</p>
+                                <p> </p>
+                                <p>Note: For Clover 4.0.4 and lower this metric had different color scheme.</p></div>
+                            <div class="columnMacro"><p><span
+                                    class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                    class="confluence-embedded-image" width="500"
+                                    src="attachments/71600287/767066510.png"
+                                    data-image-src="attachments/71600287/767066510.png"
+                                    data-unresolved-comment-count="0" data-linked-resource-id="767066510"
+                                    data-linked-resource-version="2" data-linked-resource-type="attachment"
+                                    data-linked-resource-default-alias="image2015-5-20 9:56:24.png"
+                                    data-base-url="https://confluence.atlassian.com"
+                                    data-linked-resource-content-type="image/png"
+                                    data-linked-resource-container-id="71600287"
+                                    data-linked-resource-container-version="37"></span></p></div>
+                        </div>
+                    </div>
+                </div>
+                <h2 id="id-&#39;Current&#39;Report-Seealso:.">See also: <a href="general--understanding-reports-historical.html">'Historical' Report</a>.
+                </h2>
+                
+                <h1 id="id-&#39;Current&#39;Report-Appendix:namingconventionoflambdafunctions">Appendix: naming
+                    convention of lambda functions</h1>
+                <p>Naming convention for Java 8 lambda functions is as follows: &lt;lambda_prefix&gt;&lt;parameter_list&gt;&lt;sequence_number&gt;
+                    where:</p>
+                <ul>
+                    <li>&lt;lambda_prefix&gt; is <strong>$lam</strong></li>
+                    <li>&lt;parameter_list&gt; is a list of argument names separated by underscore, like <em><strong>x_y_z</strong></em>;
+                        list can be empty
+                    </li>
+                    <li>&lt;sequence_number&gt; is <strong>#N</strong> where N counts definitions of a lambda function
+                        in given source file (starting from 0)
+                    </li>
+                </ul>
+                <p>For example: <strong> $lam_x_y_z#6</strong> means a sixth lambda in the source file having the
+                    <em><strong>(x, y, z) =&gt;</strong></em> signature.</p>
+                <p><strong><br/></strong></p>
+                <p>Why such naming convention?</p>
+                <ul>
+                    <li>if you use meaningful names of lambda arguments, you'll be able to easily find such lambda
+                        function on a list
+                    </li>
+                    <li>sequence number helps to distinguish zero-argument lambda functions</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

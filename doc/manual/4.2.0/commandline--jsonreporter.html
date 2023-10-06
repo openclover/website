@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : JSONReporter</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="commandline--command-line-tools.html">Clover Command Line Tools</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            JSONReporter
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>Produces a JSON report of Code Coverage for the given coverage database.</p>
+                <h2 id="JSONReporter-Usage">Usage</h2>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence"> java com.atlassian.clover.reporters.json.JSONReporter [OPTIONS] PARAMS
+</pre>
+                    </div>
+                </div>
+                <h3 id="JSONReporter-Parameters">Parameters</h3>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <td class="confluenceTd"><p>-i, --initstring &lt;file&gt;</p></td>
+                            <td class="confluenceTd"><p>The initstring of the coverage database.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-o, --outputdir &lt;dir&gt;</p></td>
+                            <td class="confluenceTd"><p>The output directory for generated JSON.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3 id="JSONReporter-Options">Options</h3>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <td class="confluenceTd"><p>-a, --alwaysreport</p></td>
+                            <td class="confluenceTd"><p>Forces a report to be generated, even if there is no coverage
+                                data. Defaults to '<code>false</code>', i.e. a report with no coverage will abort
+                                generation.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-d, --debug</p></td>
+                            <td class="confluenceTd"><p>Switch logging level to debug.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-if --includefailcoverage</p></td>
+                            <td class="confluenceTd"><p>Specifies whether or not to include coverage attributed to a
+                                test that has failed. If omitted, failed test coverage is not included. Default setting
+                                is 'false'.</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">-si, --showinner</td>
+                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.2.0: </strong></em>Show inner
+                                functions in the report (like a lambda function inside a method).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">-sl, --showlambda</td>
+                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.2.0: </strong></em>Show lambda
+                                functions in the report.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">-tc, --threadcount &lt;int&gt;</td>
+                            <td colspan="1" class="confluenceTd">Number of <u>additional</u> threads to be allocated to
+                                report generation. Default is 0.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-v, --verbose</p></td>
+                            <td class="confluenceTd"><p>Switch logging level to verbose.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3 id="JSONReporter-Returncode">Return code<em><br/></em></h3>
+                <p>The JSONReporter.main() calls System.exit() and returns non-zero return code in case of error during
+                    JSON report generation.</p>
+                <h2 id="JSONReporter-APIUsage">API Usage</h2>
+                <p>JSONReporter provides a simple API that accepts an array of strings representing the command line
+                    arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">import com.atlassian.clover.CloverStartup;
+import com.atlassian.clover.Logger;
+import com.atlassian.clover.reporters.json.JSONReporter;
+
+public class JsonReportRunner {
+    public void runReport() {
+        // CloverStartup.loadLicense(Logger.getInstance()); - required for Atlassian Clover 4.1.2 or older
+        String [] cliArgs = { &quot;-i&quot;, &quot;clover.db&quot;, &quot;-o&quot;, &quot;clover_json&quot; };
+        int result = JSONReporter.runReport(cliArgs);
+        if (result != 0) {
+            // problem during report generation
+        }
+    }
+}</pre>
+                    </div>
+                </div>
+                <h3 id="JSONReporter-Examples">Examples</h3>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                             data-theme="Confluence"> java com.atlassian.clover.reporters.json.JSONReporter -i clover.db -o clover_json</pre>
+                    </div>
+                </div>
+                <p>Read coverage for the Clover database &quot;clover.db&quot; and produce a report in the directory
+                    &quot;clover_json&quot;.</p>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

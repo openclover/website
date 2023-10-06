@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Lambda rewriting heuristics</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--clover-setup.html">clover-setup</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Lambda rewriting heuristics
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Following document applies for version 4.0.5 or
+                        above</p></div>
+                </div>
+                <p> </p>
+                <p>Clover applies some heuristic methods in order to reduce compilation errors connected with lambda
+                    expression instrumentation which are described with more details <a
+                            href="kb--java-8-code-instrumented-by-clover-fails-to-compile.html">in
+                        here</a>. During instrumentation Clover looks for invocation of some of <code>java.util.stream.Stream</code>
+                    and <code>Guava</code> classes' methods which are called with a lambda expression as an argument.
+                    With such conditions Clover rewrites lambda expressions into a block form.</p>
+                <p>With implemented heuristic, such code:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">public static Stream&lt;String&gt; test(List&lt;String&gt; input) {
+    return input.stream()
+            .map(e -&gt; e.toUpperCase())
+            .filter(e -&gt; !e.isEmpty());
+}</pre>
+                    </div>
+                </div>
+                <p>will be instrumented with the following manner:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">public static Stream&lt;String&gt; test(List&lt;String&gt; input) {
+    return input.stream()
+            .map(e -&gt;  {return e.toUpperCase();})
+            .filter(e -&gt; {return !e.isEmpty();});
+}</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>This method has its own limitations, however. It does not apply to method references (refer to <a
+                        href="kb--compilation-error-variable-of-type-object.html">this
+                    article</a>), so we advice to use lambda expressions instead of method references or lower lambda
+                    instrumentation level to from <em>&quot;all&quot;</em> to <em>&quot;all_but_references&quot;</em>
+                    (see <a href="ant--clover-setup.html">clover-setup</a>).</p>
+                <p>The other issue you may encounter is compilation error about <code>unexpected return value</code>
+                    (look <a
+                            href="kb--compilation-error-unexpected-return-value.html">here</a>).
+                    It happens when there's a method with name matching one of the listed below, but taking as an
+                    argument a lambda returning void. </p>
+                <h2 id="Lambdarewritingheuristics-Methodlistforstreamheuristics">Method list for stream heuristics </h2>
+                <p><span class="confluence-anchor-link" id="Lambdarewritingheuristics-methods"></span></p>
+                <p>The following methods trigger lambda expression to block form rewriting by Clover:</p>
+                <ul>
+                    <li class="_mce_tagged_br">collect</li>
+                    <li class="_mce_tagged_br">compose</li>
+                    <li class="_mce_tagged_br">concat</li>
+                    <li>filter</li>
+                    <li>flatMap</li>
+                    <li class="_mce_tagged_br">from</li>
+                    <li class="_mce_tagged_br">generate</li>
+                    <li class="_mce_tagged_br">iterate</li>
+                    <li class="_mce_tagged_br">min</li>
+                    <li class="_mce_tagged_br">map</li>
+                    <li class="_mce_tagged_br">max</li>
+                    <li class="_mce_tagged_br">peek</li>
+                    <li class="_mce_tagged_br">reduce</li>
+                    <li class="_mce_tagged_br">transform</li>
+                    <li class="_mce_tagged_br">transformValues</li>
+                    <li class="_mce_tagged_br">thenApply</li>
+                    <li class="_mce_tagged_br">thenCompose</li>
+                </ul>
+                <p> </p>
+                <p><span class="confluence-anchor-link" id="Lambdarewritingheuristics-methods"></span></p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

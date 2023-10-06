@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : Clover AspectJ Compiler</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Clover AspectJ Compiler
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>This plugin is not supported by Atlassian.</p>
+                    </div>
+                </div>
+                <h1 id="CloverAspectJCompiler-Installation">Installation</h1>
+                <p>Download the following binaries:</p>
+                <ul>
+                    <li>Clover JAR (the <a
+                                           href="http://search.maven.org/#search%7Cga%7C1%7Cg%3Aorg.openclover%20a%3Aclover"
+                                           rel="nofollow">org.openclover:clover</a> Maven artifact)
+                    </li>
+                    <li>Clover AspectJ Compiler JAR (the <a
+                            href="http://search.maven.org/#search%7Cga%7C1%7Cg%3Aorg.openclover%20a%3Aclover-aspectj-compiler"
+                                                            rel="nofollow">org.openclover:clover-aspectj-compiler</a>
+                        Maven artifact)
+                    </li>
+                    <li>AspectJ Runtime JAR (the <a
+                                                    href="http://search.maven.org/#search%7Cga%7C1%7Cg%3Aorg.aspectj%20a%3Aaspectjrt"
+                                                    rel="nofollow">org.aspectj:aspectjrt</a> Maven artifact)
+                    </li>
+                    <li>AspectJ Tools JAR (the <a
+                                                  href="http://search.maven.org/#search%7Cga%7C1%7Cg%3Aorg.aspectj%20a%3Aaspectjtools"
+                                                  rel="nofollow">org.aspectj:aspectjrtools</a> Maven artifact)
+                    </li>
+                </ul>
+                <p><em>This integration was tested against AspectJ 1.8.9. </em></p>
+                
+                <h1 id="CloverAspectJCompiler-Usage">Usage</h1>
+                <h2 id="CloverAspectJCompiler-CompilethecodewithClover">Compile the code with Clover</h2>
+                <p>Clover AspectJ Compiler (CloverAJC) is a wrapper over the AspectJ Compiler (AJC) command line tool.
+                    You can pass any <a
+                                        href="https://eclipse.org/aspectj/doc/next/devguide/ajc-ref.html"
+                                        rel="nofollow">standard ajc parameters</a> as well as additional options
+                    exclusive for Clover, such as:</p>
+                <ul>
+                    <li><strong>--initstring &lt;path/to/clover.db&gt;</strong>  - location of the Clover database
+                        (default is <em>&quot;.clover/clover.db&quot;</em>)
+                    </li>
+                    <li><strong>--instrlevel (method/statement)</strong> - detail level of instrumentation (default is
+                        <em>&quot;statement&quot;</em>)
+                    </li>
+                    <li><strong>--encoding &lt;charset&gt;</strong> - character encoding used (uses a system encoding by
+                        default)
+                    </li>
+                </ul>
+                <p>To run the CloverAJC:</p>
+                <ul>
+                    <li>declare Clover, Clover AspectJ Compiler and AspectJ on the class path</li>
+                    <li>run <em>com.atlassian.clover.instr.aspectj.CloverAjc</em> class</li>
+                    <li>pass any options required by ajc - typically a list of files to be compiled and output
+                        directory
+                    </li>
+                    <li>optionally pass Clover-related options</li>
+                </ul>
+                <p>Example:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>java -cp &quot;clover.jar:clover-aspectj-compiler.jar:aspectjrt.jar:aspectjtools.jar&quot; com.atlassian.clover.instr.aspectj.CloverAjc -d &lt;output directory&gt; &lt;list of files&gt;</pre>
+                    </div>
+                </div>
+                <h2 id="CloverAspectJCompiler-Runthecode">Run the code</h2>
+                <p>Run the code as usual. Just ensure that Clover JAR is present in the class path.</p>
+                <p>While running the code, Clover will write coverage recording files to the folder where Clover
+                    database was created during compilation.</p>
+                <h2 id="CloverAspectJCompiler-Generatecoveragereports">Generate coverage reports</h2>
+                <p>You can use any Clover integration to generate reports (Ant, Maven etc). One of the easiest ways is
+                    to use the <a href="commandline--htmlreporter.html">HtmlReporter</a> command line tool, for example:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>java -cp &quot;clover.jar&quot; com.atlassian.clover.reporters.html.HtmlReporter -i .clover/clover.db -o target/report -a -e</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h1 id="CloverAspectJCompiler-Sourcecode">Source code</h1>
+                <h2 id="CloverAspectJCompiler-Repository">Repository</h2>
+                <p>This plugin is open source. You can clone the repository from <a
+                                                                                              href="https://github.com/openclover/clover-aspectj-compiler"
+                                                                                              rel="nofollow">GitHub</a>,
+                    e.g:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>git clone https://github.com/openclover/clover-aspectj-compiler.git</pre>
+                    </div>
+                </div>
+                <p><strong>Feel free to contribute! </strong></p>
+                <h2 id="CloverAspectJCompiler-Examples">Examples</h2>
+                <p>In the <em>src/test/resources</em> folder you will find a sample project with an Ant build.xml
+                    script.</p>
+                <h1 id="CloverAspectJCompiler-Troubleshooting">Troubleshooting</h1>
+                <p>You can ask questions on <a
+                        href="https://community.atlassian.com/t5/Clover/ct-p/clover" rel="nofollow">Atlassian Community</a>.
+                </p>
+                <p>You can report bugs and feature requests in the <a
+                         href="https://github.com/openclover/clover/issues"
+                        rel="nofollow">issue tracker</a>.</p>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

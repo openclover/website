@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Working with Restricted Security Environments</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a
+                                href="8.-Controlling-Clover-at-Runtime_71599101.html">8. Controlling Clover at Runtime</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Working with Restricted Security Environments
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>In some Java environments, such as J2EE containers, applet environments, or applications deployed via
+                    Java <a
+                            href="http://www.oracle.com/technetwork/java/javase/javawebstart/index.html" rel="nofollow">Webstart</a>,
+                    security restrictions are applied to hosted Java code that restrict access to various system
+                    resources.</p>
+                <p>To use Clover in these environments, Clover needs to be granted various security permissions for it
+                    to function. This requires the addition of a <code>grant</code> entry to the security policy file
+                    for the Clover jar. For background on the syntax of the policy file, see <a
+                                                                                                href="http://docs.oracle.com/javase/8/docs/technotes/guides/security/PolicyFiles.html"
+                                                                                                rel="nofollow">Default
+                        Policy Implementation and Policy File Syntax</a>. For background on setting Java security
+                    policies in general, see <a
+                                                href="http://docs.oracle.com/javase/8/docs/technotes/guides/security/permissions.html"
+                                                rel="nofollow">Permissions in the Java SDK</a>.</p><h4
+                    id="WorkingwithRestrictedSecurityEnvironments-RecommendedPermissions">Recommended Permissions</h4>
+                <p>Clover requires access to the Java system properties for runtime configurations, as well as read
+                    write access to areas of the file system to read the Clover coverage database and to write coverage
+                    information. Clover also uses a shutdown hook to ensure that it flushes any as yet unflushed
+                    coverage information to disk when Java exits. To support these requirements, the following security
+                    permissions are recommended:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">grant codeBase &quot;file:/path/to/clover.jar&quot; {
+    permission java.util.PropertyPermission &quot;*&quot;, &quot;read&quot;;
+    permission java.io.FilePermission &quot;&lt;&lt;ALL FILES&gt;&gt;&quot;, &quot;read, write&quot;;
+    permission java.lang.RuntimePermission &quot;shutdownHooks&quot;;
+}
+</pre>
+                    </div>
+                </div>
+                <p><br class="atl-forced-newline"/> <br class="atl-forced-newline"/> <br class="atl-forced-newline"/>
+                    <br class="atl-forced-newline"/></p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

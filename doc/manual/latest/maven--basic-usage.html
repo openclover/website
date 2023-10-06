@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : Basic usage</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Basic usage
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h2 id="Basicusage-ConfiguringClover&#39;sshortnamein.m2/settings.xml">Configuring Clover's short name
+                    in .m2/settings.xml</h2>
+                <p>Before you get started, add this to your <code>.m2/settings.xml</code> file so you can reference
+                    Clover by its short name <code>clover</code>.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;pluginGroups&gt;
+    &lt;pluginGroup&gt;org.openclover&lt;/pluginGroup&gt;
+&lt;/pluginGroups&gt;</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h2 id="Basicusage-RunningClovergoalsfromthecommandline">Running Clover goals from the command line</h2>
+                <p>The quickest and easiest way to try Clover is from the command line, for example:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                             data-theme="Confluence">mvn clean clover:setup test clover:aggregate clover:clover</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h2 id="Basicusage-InstallingCloverinpom.xml">Installing Clover in pom.xml</h2>
+                <p>Install Clover-for-Maven by adding it to your Maven build file (<strong>pom.xml</strong>):
+                </p>
+                <ol>
+                    <li><p>Set up your <strong>pom.xml</strong> by adding:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>pom.xml</b>
+                            </div>
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+            &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+            &lt;version&gt;${clover.version}&lt;/version&gt;     
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;
+</pre>
+                            </div>
+                        </div>
+                        <p><img class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
+                                data-emoticon-name="information" alt="(info)"/> Either change
+                            <code>${clover.version}</code> to the current Clover version, or define a property in your
+                            pom.xml that sets this value. <br class="atl-forced-newline"/> <br
+                                    class="atl-forced-newline"/> </p></li>
+                    <li><p>Now, simply <strong>invoke Clover with Maven</strong> on the command line.</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+                                <pre class="syntaxhighlighter-pre"
+                                     data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                                     data-theme="Confluence">mvn clean clover:setup test clover:aggregate clover:clover</pre>
+                            </div>
+                        </div>
+                        <p>This will instrument your sources, build your project, run your tests and create a Clover
+                            coverage report in the <strong>target/site/clover</strong> directory.<br/><br/>You can also
+                            have Clover run as part of your build by <a href="#Basicusage-run_via_pom">adding Clover's
+                                goals in pom.xml.</a></p></li>
+                </ol>
+                <p> </p>
+                <p>There are four basic parts executed when recording code coverage with Clover.</p>
+                <ol>
+                    <li>The <strong>clover:setup</strong> goal will instrument your Java source files.</li>
+                    <li>The <strong>test</strong> phase is Maven's standard command for running a unit test
+                        phase.
+                    </li>
+                    <li>The <strong>clover:aggregate</strong> goal is used for merging coverage data generated by
+                        multi-module projects.
+                    </li>
+                    <li>The <strong>clover:clover</strong> goal generates an HTML, XML, PDF or JSON report.</li>
+                </ol>
+                <p><span class="confluence-anchor-link" id="Basicusage-run_via_pom"></span></p>
+                <h2 id="Basicusage-RunningGoalsviapom.xml">Running Goals via pom.xml</h2>
+                <p>The goals described above can be executed by specifying them in your <code>pom.xml</code>.</p>
+                <p>To generate a Clover report when you run the <code>site</code> goal:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;project&gt;
+  &lt;reporting&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+        &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/reporting&gt;
+&lt;/project&gt;
+</pre>
+                    </div>
+                </div>
+                <p>To instrument your sources whenever you build:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;project&gt;
+  &lt;build&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+        &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+        &lt;executions&gt;
+          &lt;execution&gt;
+            &lt;phase&gt;generate-sources&lt;/phase&gt;
+            &lt;goals&gt;
+              &lt;goal&gt;instrument&lt;/goal&gt;
+            &lt;/goals&gt;
+          &lt;/execution&gt;
+        &lt;/executions&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/build&gt;
+&lt;/project&gt;
+</pre>
+                    </div>
+                </div>
+                <p>To include aggregation of child modules:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;project&gt;
+...
+  &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                ...
+                &lt;executions&gt;
+                    &lt;execution&gt;
+                        &lt;id&gt;main&lt;/id&gt;
+                        &lt;phase&gt;verify&lt;/phase&gt;
+                        &lt;goals&gt;
+                            &lt;goal&gt;instrument&lt;/goal&gt;
+                            &lt;goal&gt;aggregate&lt;/goal&gt;
+                        &lt;/goals&gt;
+                    &lt;/execution&gt;
+                    &lt;execution&gt;
+                        &lt;id&gt;site&lt;/id&gt;
+                        &lt;phase&gt;pre-site&lt;/phase&gt;
+                        &lt;goals&gt;
+                            &lt;goal&gt;instrument&lt;/goal&gt;
+                            &lt;goal&gt;aggregate&lt;/goal&gt;
+                        &lt;/goals&gt;
+                    &lt;/execution&gt;
+                &lt;/executions&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+...
+</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h2 id="Basicusage-Usingclover:setupvsclover:instrumentvsclover:instrument-test">Using clover:setup vs
+                    clover:instrument vs clover:instrument-test</h2>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>The <strong>clover:setup</strong> goal performs
+                        instrumentation in the main build life cycle, therefore it's not recommended to use it together
+                        with 'install' or 'deploy' goals (unless this is your intention). The benefit of this approach
+                        is that build is made only once. Furthermore, clover:setup supports instrumentation of Groovy
+                        code (while clover:instrument does not).</p>
+                        <p> </p>
+                        <p>The <strong>clover:instrument</strong> goal can be used if you need to actually install or
+                            deploy non-instrumented project's artifact and have Clover run at the same time. This will
+                            fork a custom build life cycle and run it till the <em>&quot;verify&quot;</em> phase and
+                            cause each Clover artifact to contain the <code>-clover</code> classifier. A drawback of
+                            this approach is that the build and tests are performed twice.</p>
+                        <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
+                                data-emoticon-name="warning" alt="(warning)"/> This goal has one limitation - due to a
+                            fact that Maven allows to have only one classifier for an artifact, the 'clover' suffix may
+                            not be added if you use own classifiers. It means that it can happen that instrumented code
+                            (e.g. myapp-1.0-tests-clover.jar) will be installed using its original name (e.g.
+                            myapp-1.0-tests.jar). Using maven-install-plugin with <em>&lt;installAtEnd&gt;true&lt;/installAtEnd&gt;</em>
+                            may help as it re-installs non-instrumented JARs at the end of the build.</p>
+                        <p> </p>
+                        <p>The <strong>clover:instrument-test</strong> goal also forks a custom build cycle, but runs it
+                            till the &quot;test&quot; phase. Thanks to this, instrumented artifacts are not installed.
+                        </p></div>
+                </div>
+                <h2 id="Basicusage-Howtomanageinstrumentedcode">How to manage instrumented code</h2>
+                <div class="confluence-information-macro confluence-information-macro-warning"><span
+                        class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>As Clover integration produces instrumented
+                        classes, we recommend to ensure that you do not install them to production (for instance: <em>'mvn
+                            deploy'</em> to public repository, <em>'scp'</em> to an application server running on
+                        production, etc). Having instrumented code in such location(s) is usually not desired.</p>
+                        <p>Common practices to ensure proper separation of instrumented and non-instrumented classes and
+                            JARs are:</p>
+                        <ul>
+                            <li>configure Clover in a profile in your pom.xml</li>
+                            <li>create a dedicated build plan in which Clover is enabled</li>
+                            <li>use <em>clover:setup</em> to run tests only (e.g. <em>&quot;mvn test&quot; or &quot;mvn
+                                verify&quot;</em>)<br/>
+                                <ul>
+                                    <li>in case you must run <em>&quot;mvn install&quot;</em>, use different location of
+                                        local artifact cache (e.g. ~/.m2/repository-clover)
+                                    </li>
+                                    <li>in case you must run <em>&quot;mvn deploy&quot;,</em> use different URL for
+                                        uploading artifacts (i.e. a separate binary repository)
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>use <em>clover:instrument</em> or <em>clover:instrument-test</em> if you need to produce
+                                both instrumented and non-instrumented code
+                                <ul>
+                                    <li>keep in mind that Maven does not support multiple classifiers for an artifact
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

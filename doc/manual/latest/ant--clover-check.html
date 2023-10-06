@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : clover-check</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            clover-check
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h3 id="clover-check-Description">Description</h3>
+                <p>The <code>&lt;clover-check&gt;</code> task tests project/package code coverage against criteria,
+                    optionally failing the build if the criteria are not met. This task needs to be run after coverage
+                    has been recorded.</p>
+                <h3 id="clover-check-Parameters">Parameters</h3>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <td class="confluenceTd"><p><strong>ocumentationAttribute</strong></p></td>
+                            <td class="confluenceTd"><p><strong>Description</strong></p></td>
+                            <td class="confluenceTd"><p><strong>Required</strong></p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">codeType</td>
+                            <td colspan="1" class="confluenceTd"><p><em><strong>Since 3.1.6:</strong> </em>Specifies
+                                which sources shall be taken for calculation.</p>
+                                <p>Valid values are: APPLICATION (business code), TEST (test code), ALL (business + test
+                                    code).</p></td>
+                            <td colspan="1" class="confluenceTd">No; Default value: APPLICATION.</td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>conditionalTarget</p></td>
+                            <td class="confluenceTd"><p>The target percentage conditional coverage for the project.</p>
+                            </td>
+                            <td class="confluenceTd"><p>At least one of <code>target</code>, <code>methodTarget</code>,
+                                <code>statementTarget</code> or <code>conditionalTarget</code> is required, unless
+                                nested <a href="ant--clover-check.html">clover-check</a> elements are specified.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>failureProperty</p></td>
+                            <td class="confluenceTd"><p>Specifies the name of a property to be set if the target is not
+                                met. If the target is not met, the property will contain a text description of the
+                                failure(s).</p></td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>filter</p></td>
+                            <td class="confluenceTd"><p>comma or space separated list of contexts to exclude when
+                                calculating coverage. See <a href="ant--using-coverage-contexts.html">Using Coverage
+                                    Contexts</a>.</p></td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>haltOnFailure</p></td>
+                            <td class="confluenceTd"><p>Specifies if the build should be halted if the target is not
+                                met.</p></td>
+                            <td class="confluenceTd"><p>No; default is &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>historydir</p></td>
+                            <td class="confluenceTd"><p>Allows you to specify a location for historical build data,
+                                along with a configurable threshold expressed as a percentage – used to cause the build
+                                to fail if coverage has dropped. This attribute is passed down to specified packages,
+                                then the same test is done for these at the package level.</p></td>
+                            <td class="confluenceTd"><p>No. Example:<br class="atl-forced-newline"/> <code>historyDir=&quot;/history&quot;
+                                threshold=&quot;1%&quot;</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>includeFailedTestCoverage</p></td>
+                            <td class="confluenceTd"><p>Specifies whether to include failed test coverage when
+                                calculating the total coverage percentage.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>initstring</p></td>
+                            <td class="confluenceTd"><p>The <code>initstring</code> of the coverage database.</p></td>
+                            <td class="confluenceTd"><p>No; If not specified here, Clover will look in the default
+                                location (<code>${basedir}/.clover</code>). If you have specified an
+                                <code>initstring</code> on the <code>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;</code>
+                                task, you must ensure that <code>&lt;<a
+                                        href="ant--clover-setup.html">clover-setup</a>&gt;</code> is called prior to
+                                the execution of this task.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>methodTarget</p></td>
+                            <td class="confluenceTd"><p>The target percentage method coverage for the project.</p></td>
+                            <td class="confluenceTd"><p>At least one of <code>target</code>, <code>methodTarget</code>,
+                                <code>statementTarget</code> or <code>conditionalTarget</code> is required, unless
+                                nested <code><a href="ant--clover-check.html">clover-check</a></code> elements are
+                                specified.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>span</p></td>
+                            <td class="confluenceTd"><p>Specifies how far back in time to include coverage recordings
+                                from since the last Clover build. See <a href="ant--using-spans.html">Using
+                                    Spans</a>.</p></td>
+                            <td class="confluenceTd"><p>No; default includes &quot;all coverage data found&quot;.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>statementTarget</p></td>
+                            <td class="confluenceTd"><p>The target percentage statement coverage for the project.</p>
+                            </td>
+                            <td class="confluenceTd"><p>At least one of <code>target</code>, <code>methodTarget</code>,
+                                <code>statementTarget</code> or <code>conditionalTarget</code> is required, unless
+                                nested <code><a href="ant--clover-check.html">clover-check</a></code> elements are
+                                specified.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>target</p></td>
+                            <td class="confluenceTd"><p>The target percentage total coverage for the project. e.g.
+                                &quot;<code>10%</code>&quot;</p></td>
+                            <td class="confluenceTd"><p>At least one of <code>target</code>, <code>methodTarget</code>,
+                                <code>statementTarget</code> or <code>conditionalTarget</code> is required, unless
+                                nested <code><a href="ant--clover-check.html">clover-check</a></code> elements are
+                                specified.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="confluence-information-macro confluence-information-macro-information"><p class="title">
+                    Important note on target, methodTarget, statementTarget, conditionalTarget</p><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Comparison of actual value with a target
+                        percentage is performed with such numerical precision as number of fractional digits set for a
+                        target percentage. A standard rounding is used (BigDecimal.ROUND_HALF_EVEN).</p>
+                        <p>For example, if actual coverage value is 99.9% then for the target=&quot;100%&quot; a build
+                            will pass, whereas for the target=&quot;100.000000%&quot; a build will fail.</p></div>
+                </div>
+                <p> </p>
+                <h3 id="clover-check-Nestedelementsof&lt;clover-check&gt;">Nested elements of &lt;clover-check&gt;</h3>
+                <h4 id="clover-check-&lt;package&gt;">&lt;package&gt;</h4>
+                <p>Specifies a target for a named package.</p><h5 id="clover-check-Parameters.1">Parameters</h5>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>conditionalTarget</p></td>
+                            <td class="confluenceTd"><p>The target percentage conditional coverage for the package.</p>
+                            </td>
+                            <td class="confluenceTd"><p>At least one of <code>target</code>, <code>methodTarget</code>,
+                                <code>statementTarget</code> or <code>conditionalTarget</code> is required.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>methodTarget</p></td>
+                            <td class="confluenceTd"><p>The target percentage method coverage for the package.</p></td>
+                            <td class="confluenceTd"><p>At least one of <code>target</code>, <code>methodTarget</code>,
+                                <code>statementTarget</code> or <code>conditionalTarget</code> is required.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>name</p></td>
+                            <td class="confluenceTd"><p>The name of the package.</p></td>
+                            <td class="confluenceTd"><p>Either (but not both) of <code>name</code> or <code>regex</code>
+                                is required.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>regex</p></td>
+                            <td class="confluenceTd"><p>Regular expression to match package names.</p></td>
+                            <td class="confluenceTd"><p>Either (but not both) of <code>name</code> or <code>regex</code>
+                                is required.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>statementTarget</p></td>
+                            <td class="confluenceTd"><p>The target percentage statement coverage for the package.</p>
+                            </td>
+                            <td class="confluenceTd"><p>At least one of <code>target</code>, <code>methodTarget</code>,
+                                <code>statementTarget</code> or <code>conditionalTarget</code> is required.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>target</p></td>
+                            <td class="confluenceTd"><p>The target percentage total coverage for the package. e.g.
+                                &quot;10%&quot;</p></td>
+                            <td class="confluenceTd"><p>At least one of <code>target</code>, <code>methodTarget</code>,
+                                <code>statementTarget</code> or <code>conditionalTarget</code> is required.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h4 id="clover-check-&lt;testsources&gt;">&lt;testsources&gt;</h4>
+                <p><code>&lt;testsources&gt;</code> is an <a
+                                                             href="https://ant.apache.org/manual/Types/fileset.html"
+                                                             rel="nofollow">Ant fileset</a> that can be used to
+                    distinguish test source code from application source code. All files included in the fileset will be
+                    displayed in the separate 'Test' node of the coverage tree. If omitted, Clover's default test
+                    detection algorithm will be used to distinguish test sources.</p><h4
+                    id="clover-check-&lt;testResults&gt;">&lt;testResults&gt;</h4>
+                <p>An optional Ant fileset <a
+                                              href="http://ant.apache.org/manual/CoreTypes/fileset.html" rel="nofollow">
+                    containing a list of test result XML files.</a></p>
+                <p><code>&lt;testresults&gt;</code> is generally not required by most users, as the built-in test
+                    results will provide all required information in the majority of cases. For more details please see
+                    '<a href="ant--test-results-and-per-test-coverage.html">Advanced Usage</a>'.</p>
+                <h3 id="clover-check-Examples">Examples</h3>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-check target=&quot;80%&quot;/&gt;
+</pre>
+                    </div>
+                </div>
+                <p>Tests if total percentage coverage is at least 80%. If not, a message is logged and the build
+                    continues.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-check target=&quot;80%&quot;
+              haltOnFailure=&quot;true&quot;/&gt;
+</pre>
+                    </div>
+                </div>
+                <p>Tests if total percentage coverage is at least 80%. If not, a message is logged and the build
+                    fails.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-check target=&quot;80%&quot;
+              failureProperty=&quot;coverageFailed&quot;/&gt;
+</pre>
+                    </div>
+                </div>
+                <p>Tests if total percentage coverage is at least 80%. If not, a message is logged and the project
+                    property <code>coverageFailed</code> is set.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-check target=&quot;80%&quot;
+   &lt;package name=&quot;com.acme.killerapp.core&quot; target=&quot;70%&quot;/&gt;
+   &lt;package name=&quot;com.acme.killerapp.ai&quot; target=&quot;40%&quot;/&gt;
+&lt;/clover-check&gt;
+</pre>
+                    </div>
+                </div>
+                <p>Tests if:</p>
+                <ul>
+                    <li>total percentage coverage for project is at least 80%.</li>
+                    <li>total percentage coverage for package <code>com.acme.killerapp.core</code> is at least 70%.</li>
+                    <li>total percentage coverage for package <code>com.acme.killerapp.ai</code> is at least 40%.</li>
+                </ul>
+                <p>If any of these criteria are not met, a message is logged and the build continues.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-check target=&quot;80%&quot;
+             filter=&quot;catch&quot;&gt;
+   &lt;package name=&quot;com.acme.killerapp.core&quot; target=&quot;70%&quot;/&gt;
+   &lt;package name=&quot;com.acme.killerapp.ai&quot; target=&quot;40%&quot;/&gt;
+&lt;/clover-check&gt;
+</pre>
+                    </div>
+                </div>
+                <p>As above, but doesn't include coverage of catch blocks when measuring criteria.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-check target=&quot;80%&quot; conditionalTarget=&quot;90%&quot;
+             filter=&quot;catch&quot;&gt;
+   &lt;package name=&quot;com.acme.killerapp.core&quot; target=&quot;70%&quot;/&gt;
+   &lt;package name=&quot;com.acme.killerapp.ai&quot; target=&quot;40%&quot;/&gt;
+&lt;/clover-check&gt;
+</pre>
+                    </div>
+                </div>
+                <p>As previous example, but also ensures that the project conditional coverage is at least 90%.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-check&gt;
+   &lt;package regex=&quot;com.acme.killerapp.core.*&quot; target=&quot;70%&quot;/&gt;
+&lt;/clover-check&gt;
+</pre>
+                    </div>
+                </div>
+                <p>Tests if coverage for <code>com.acme.killerapp.core</code> and all subpackages is at least 70%.</p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

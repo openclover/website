@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="OpenClover is a free and open-source code coverage tool for Java, Groovy and AspectJ.
+            It's based on the open-sourced version of Atlassian Clover&reg;, the world's most sophisticated code coverage tool.">
+    <meta name="author" content="">
+    <link rel="icon" href="resources/img/clover.ico">
+
+    <title>OpenClover - Java, Groovy and AspectJ code coverage tool</title>
+
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="resources/css/style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><img src="resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Overview</a></li>
+                <li><a href="features">Features</a></li>
+                <li><a href="downloads">Downloads</a></li>
+                <li><a href="documentation">Documentation</a></li>
+                <li><a href="support">Support</a></li>
+                <li class="active"><a href="blog">Blog</a></li>
+                <!--<li><a href="faq">FAQ</a></li>-->
+                <li><a href="about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="alert alert-warning">
+        Subscribe to our RSS channel to get notifications about new releases and other announcements.
+        <a href="blog-rss.xml"><b>Click here</b></a>
+    </div>
+
+    <a name="2023-10-open-clover-4-5-0"></a>
+    <h2 class="blog-post-title">OpenClover 4.5.0 feature release</h2>
+    <div class="row">
+        <div class="col-md-8">
+            After long three years, we are thrilled announce <b>experimental support for Java 17!</b>
+            Long-awaited support for annotations on data types is here too!
+            We are also dropping support for Java 1.6, Groovy 2.x, old Grails 2.x plugin and Hudson plugin.
+            <br/>
+            <br/>
+            On top of this, OpenClover source code went through huge amount of technical changes, the
+            biggest one was migration from Ant to Java. We hope this will make it much easier for you to
+            contribute to the project.
+            <br/>
+            <br/>
+            <p>See <a href="doc/openclover-4.5.0-release-notes.html">the release notes</a> for details.</p>
+            <p>
+            What's next on the roadmap?
+            <ul>
+                <li><b>4.6.0 "languages"</b> - full support for Java 17 (maybe also 21); support for Groovy 3.x and 4.x (maybe also 5.x)</li>
+                <li><b>4.7.0 "eclidea"</b> - compatibility with the latest Eclipse and IDEA versions; upgrades for Gradle plugin</li>
+                <li><b>4.8.0 "polyglot"</b> - we will explore support for Kotlin, Scala and other JVM languages</li>
+            </ul>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="blog-post-meta">
+                <a href="about-us"><img src="resources/img/about/marek_parfianowicz.jpg" class="photo-round-mini"></a>
+            </p>
+            <p class="blog-post-meta">October 4, 2023</p>
+        </div>
+    </div>
+
+    <a name="2019-10-open-clover-roadmap"></a>
+    <h2 class="blog-post-title">OpenClover road map - look into the future</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <p>
+                I quite often get questions like "When are you going to deliver feature X or fix bug Y".
+                For this reason I'd like to share my thoughts on how I see development of OpenClover in
+                near future and give you insight what to expect.
+            </p>
+
+            <p>
+                We try to group features and bug-fixes from similar areas of functionality into themes and
+                produce theme-focused releases. Let me share what are the themes of next releases and why:
+            </p>
+
+            <ul>
+                <li><b>4.5.0 "Dev speed"</b> <br/>Because of the fact that
+                    <a href="https://bitbucket.org/blog/sunsetting-mercurial-support-in-bitbucket">Bitbucket terminates
+                    support for Mercurial</a> and OpenClover uses it, we will migrate to Git (issue #98). We think it's quite
+                    beneficial as Git is an industry standard. Repositories
+                    will be migrated to GitHub, as this is more popular platform for open-source. We will also replace
+                    Ant with Maven (Gradle is quickly gaining in popularity, so this is also an option) and drop
+                    support for old plugins (Grails 2.x and Hudson) and Java versions (1.6 and older).
+                    We are convinced that all these actions will lower the entry barrier for contributors and will make development
+                    faster.</li>
+
+                <li><b>4.6.0 "Languages"</b> <br/>There is a number of open bugs for both Groovy and Java, such as
+                    adding support for @CompileStatic for Groovy (issue #31), type annotations for Java 8
+                    (issue #20) or instrumentation of specific method references, like array constructors
+                    (issue #59 and #95). Without fixing these it's pretty painful to exclude source files
+                    one-by-one because of failing OpenClover.
+                </li>
+
+                <li><b>4.7.0 "Eclipse and IDEA"</b> <br/>We want to add support for the latest versions of Eclipse and
+                    IntelliJ IDEA, as due to API evolution in these IDEs, OpenClover plugins are no longer fully
+                    compatible. By the latest we mean versions from 2020.</li>
+
+                <li><b>4.8.0 "Java 11"</b> <br/>Java 11 popularity is growing fast, so we no longer can ignore it. In
+                    this release we add support for both Java 10 and Java 11 in one shot.</li>
+            </ul>
+
+            <p>
+                You may ask why this order? We cannot postpone migration (4.5.0) as repositories will be deleted.
+                Having an instrument-able and compile-able code (4.6.0) is more urgent than having smooth work
+                in IDEs (4.7.0), because in the latter case you can always fallback to building from a command line
+                (Ant / Maven / ...). And Java 11 (4.8.0) has to wait a bit, unfortunately, but it shall benefit
+                from grammar fixes planned (4.6.0).
+            </p>
+
+            <p>
+                What do you think about our road map? Feel free to share your thoughts via email!
+            </p>
+
+            <p>See <a href="https://github.com/openclover/clover/issues">our issue tracker</a> for details.
+                Hint: an issue scheduled for given release have <code>[X.Y.Z]</code> prefix in their title.
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="blog-post-meta">
+                <a href="about-us"><img src="resources/img/about/marek_parfianowicz.jpg" class="photo-round-mini"></a>
+            </p>
+            <p class="blog-post-meta">October 19, 2019</p>
+        </div>
+    </div>
+
+
+
+
+    <a name="2019-10-open-clover-4-4-1"></a>
+    <h2 class="blog-post-title">OpenClover 4.4.1 bug-fix release</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <p>No matter how much time you spend on testing, there's always something you can overlook.
+                I would like to say huge "Thank you!" to our amazing user community who quickly
+                reported problems found after an upgrade. This release fixes three major bugs.
+            </p>
+
+            <p>See <a href="doc/openclover-4.4.1-release-notes.html">the release notes</a> for details.</p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="blog-post-meta">
+                <a href="about-us"><img src="resources/img/about/marek_parfianowicz.jpg" class="photo-round-mini"></a>
+            </p>
+            <p class="blog-post-meta">October 11, 2019</p>
+        </div>
+    </div>
+
+    <a name="2019-09-open-clover-4-4"></a>
+    <h2 class="blog-post-title">We're thrilled to announce OpenClover 4.4.0!</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <p>It took us long time but OpenClover 4.4 is finally born! We're thrilled to share with you this new release,
+                packed with new features:</p>
+
+            <ul>
+                <li>Atlassian Bamboo 6.9 with built-in automatic integration with OpenClover</li>
+                <li>Maven plugin with custom test patterns and enhanced method context filtering</li>
+                <li>support for JUnit5, including parameterised tests</li>
+                <li>and much more!</li>
+            </ul>
+
+            <p>Just <a href="doc/openclover-4.4.0-release-notes.html">read the release notes</a> and do not hesitate upgrade. :)</p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="blog-post-meta">
+                <a href="about-us"><img src="resources/img/about/marek_parfianowicz.jpg" class="photo-round-mini"></a>
+            </p>
+            <p class="blog-post-meta">September 26, 2019</p>
+        </div>
+    </div>
+
+
+    <a name="2018-09-open-clover-4-3-1"></a>
+    <h2 class="blog-post-title">OpenClover 4.3.1 has been released!</h2>
+    <div class="row">
+        <div class="col-md-8">
+
+            <p>In this release we fixed a <a href="https://github.com/openclover/clover/issues/72">blocker bug</a>
+                introduced in version 4.3.0. Feel free to upgrade to 4.3.1 to have your Java 9 projects with OpenClover</p>
+
+            <p>What went wrong? Well, I extended the ANTLR grammar to handle module-info.java files, but the semantic
+                rules created by me caused that tokens like "requires", "uses", "to" etc became keywords,
+                causing that it was impossible to use them as normal identifiers (variable name, method name etc).
+                I tested regular java files and module-info files separately, thus it slipped through my testing process.
+                Few tricks with syntactic predicates and lookahead into the token stream fixed the problem :).</p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="blog-post-meta">
+                <a href="about-us"><img src="resources/img/about/marek_parfianowicz.jpg" class="photo-round-mini"></a>
+            </p>
+            <p class="blog-post-meta">September 21, 2018</p>
+        </div>
+    </div>
+
+
+    <a name="2018-08-meet-in-barcelona"></a>
+    <h2 class="blog-post-title">Let's meet in Barcelona!</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+
+            <p>Atlassian hosts a great conference called 'Atlassian Summit'. It will happen 3-5 September in
+                Barcelona, Spain. You can find more <a href="https://www.atlassian.com/company/events/summit-europe">details here</a>.
+            </p>
+
+            <p>In case you didn't know, I have the opportunity to work on Atlassian products for over 6 years already - I've been
+            developing Atlassian Clover, Bamboo, Fisheye and Crucible. Currently, I'm a team leader of the Fisheye /
+            Crucible development team. In case you would like to meet me and talk about these great products, come
+            to the Bamboo/Fisheye/Crucible booth.</p>
+
+            <p>Tip: in case you did not purchase a ticket yet, use the <b>TEAM15SAVE</b> code to get 15% discount!</p>
+
+            <p>What about 4.3.1 release? I'm working on a fix for the second blocker, I expect to release it
+            after the Atlassian Summit conference.</p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="blog-post-meta">
+                <a href="about-us"><img src="resources/img/about/marek_parfianowicz.jpg" class="photo-round-mini"></a>
+            </p>
+            <p class="blog-post-meta">August 21, 2018</p>
+        </div>
+    </div>
+
+
+    <a name="2018-08-open-clover-4-3-0"></a>
+    <h2 class="blog-post-title">OpenClover 4.3.0 has been released!</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+
+            <div class="alert alert-warning">
+                <b>2018.08.20 update</b>: Due to blockers <a href="https://github.com/openclover/clover/issues/72">#72</a>
+                and <a href="https://github.com/openclover/clover/issues/75">#75</a> please hold on with upgrading to 4.3.0.
+                I'm sorry for the trouble :-(. A first blocker is solved (on 'master' branch), I'm working on the second one.
+                Both fixes will be delivered in 4.3.1.
+            </div>
+
+            <p>We are proud to share with you new feature release of OpenClover. Version 4.3.0 brings support for Java 9.</p>
+
+            <p><b>Java 9 support</b></p>
+
+            <p>With OpenClover 4.3.0 you can compile and run your projects using Java 9.</p>
+
+            <p>You can use the "Java 9" source level setting in OpenClover command line tools,
+                Ant or Maven as well as in your Eclipse and IntelliJ IDEA projects. OpenClover core can also detect use of JDK9
+                and apply this language level automatically, if not set. The Java grammar parser has been extended
+                and can parse <i>module-info.java</i> files - there is no need to exclude these files from instrumentation.
+            </p>
+
+            <p><b>IntelliJ IDEA 13 is no longer supported</b></p>
+
+            <p>As announced few months ago, we had to use APIs from IDEA 14 in order to implement JDK9 support,
+                so OpenClover will no longer run in IDEA 13. As compensation, we added to the road map a
+                support for IDEA 2017 and 2018.</p>
+
+            <p><b>Ant &lt;clover-env&gt; task has been removed</b></p>
+
+            <p>This Ant task was modifying configuration of the system classloader, so it was not the best design
+                for the Java 9+ modular world. Taking into account that it was only injecting high-level Ant targets,
+                which were useful for tiny projects or tutorials rather than production projects, we decided to
+                drop this task. Instead of using the predefined high-level Ant targets (e.g. "with.clover"
+                or "clover.report") we strongly recommend to configure appropriate Ant tasks (e.g. &lt;clover-setup&gt;
+                or &lt;clover-report&gt;) in build files.</p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="blog-post-meta">
+                <a href="about-us"><img src="resources/img/about/marek_parfianowicz.jpg" class="photo-round-mini"></a>
+            </p>
+            <p class="blog-post-meta">August 3, 2018</p>
+        </div>
+    </div>
+
+    <div>&nbsp;</div>
+
+    <a name="2018-04-deprecation-announcements"></a>
+    <h2 class="blog-post-title">OpenClover platform deprecation announcements</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+
+            <p><b>Java 9 and 10 are coming \o/</b></p>
+            <p>We are moving forward with development of support for Java 9 and Java 10 by OpenClover. They will be
+                supported in next major OpenClover release, which is 4.3.0 scheduled for June 2018.</p>
+
+            <p><b>End of support for old platforms is coming</b></p>
+            <p>As we want to modernize and simplify code base as well as simplify testing, we would like to drop
+                support for some of the old tools. We will do it gradually till end of the 2018 calendar year,
+                together with next major OpenClover releases. We want to give you heads-up so that you won't be
+                surprised and explain the reasons.</p>
+
+            <p><b>Java 1.3-1.5 source level</b></p>
+
+            <p>OpenClover requires JDK6 or higher for compilation and runtime. However, it was possible to set 1.3-1.5
+                source level for instrumentation. We will remove support for these values, so the minimum level required
+                will be 1.6. As Java language is backward-compatible you shall notice no impact. The only thing which
+                breaks is using 'assert' keyword as variable name (which was possible in 1.3).</p>
+
+            <p><b>Eclipse 4.2 and 4.3</b></p>
+
+            <p>Eclipse 4.2 was released in 2012 and 4.3 in 2013, so long time ago. We believe that being able to run
+                OpenClover with Eclipse 4.4 (Luna), which was released in 2014 is more than enough, especially that
+                this version has integrated Java 8 support.</p>
+
+            <p><b>IntelliJ IDEA 13</b></p>
+
+            <p>Similarly, we're dropping support for IDEA 13, released in 2013. Another reason is that we need
+            IDEA 14 APIs to support Java 9.</p>
+
+            <p><b>Groovy 1.6-1.9</b></p>
+
+            <p>The oldest Groovy version supported will be 2.0.0, released in 2012. We are doing this, because we want
+                to get rid of an old ASM library - we must currently handle both ASM3 and ASM4 with various hacks
+                (as they're binary incompatible).</p>
+
+            <p><b>Grails 2.0-2.1</b></p>
+
+            <p>As Grails uses Groovy, the oldest Grails version supported will be 2.2.x (<a
+                    href="https://objectpartners.com/2015/05/14/list-of-groovy-versions-for-each-version-of-grails/">which
+                is based on Groovy 2.0.x</a>). So, you will be able to continue using OpenClover with Grails 2.2-2.5.
+                Note that we don't have dedicated support for Grails 3.x yet - it depends on the Gradle plugin.
+
+            <p><b>Maven 2</b></p>
+
+            <p>In OpenClover 4.2.1 we restored support for Maven 2.x (which was broken by a bug). However, the last
+                Maven 2.2.1 release was published in November 2009 and it's
+                <a href="https://maven.apache.org/maven-2.x-eol.html">end of life for long time</a>.
+                Therefore, we believe it's the high time to drop support for it in OpenClover, especially that this will
+                help us refresh clover-maven-plugin code.</p>
+
+            <p><b>Java 6 (under consideration)</b></p>
+
+            <p>We are not dropping support for Java 6 yet. However, Java 10 is already available, which is 4 major
+                releases ahead and Java 6 is no longer supported by Oracle. Furthermore, the "1.6" source/target level
+                has been marked as deprecated in Java 9, so it may be removed from javac at any time.
+                According to various reports, e.g. from <a href="https://plumbr.io/blog/java/java-version-and-vendor-data-analyzed-2017-edition">Plumbr</a>,
+                Java 6 usage dropped below 5% in 2017 and the trend continues. It's even impossible to install
+                Java 6 SDK on the latest MacOS. Therefore, as soon as we will be forced to (removal of 1.6 from javac),
+                we will drop Java 6 from OpenClover - probably together with introduction of Java 11 support.</p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="blog-post-meta">
+                <a href="about-us"><img src="resources/img/about/marek_parfianowicz.jpg" class="photo-round-mini"></a>
+            </p>
+            <p class="blog-post-meta">April 18, 2018</p>
+        </div>
+    </div>
+
+    <div>&nbsp;</div>
+
+    <a name="2018-03-jenkins-4-9"></a>
+    <h2 class="blog-post-title">Jenkins Clover Plugin 4.9.0 has been released</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+            <p>In this release we focused on solving bugs related with Pipeline builds and remote agents.</p>
+
+            <p>We fixed <a href="https://issues.jenkins-ci.org/browse/JENKINS-45981">JENKINS-45981</a>,
+                <a href="https://issues.jenkins-ci.org/browse/JENKINS-33610">JENKINS-33610</a> and
+                <a href="https://issues.jenkins-ci.org/browse/JENKINS-34439">JENKINS-34439</a> bugs.</p>
+
+            <p>We also solved the problem of automatic Clover integration not running on Windows and later Jenkins
+            versions. Integration is now also smarter and does not attempt to integrate with non-Ant tasks.</p>
+
+            <p>In addition to this we bumped minimum Jenkins version required to run the plugin.
+                You have to use Jenkins <b>1.642.3</b> or higher. Note that this is the minimum version required
+                by the Workflow Plugin 2.0 (aka the Pipelines Plugin).</p>
+
+            <p>But we also did not forget to give something to please your eyes :) The 'OpenClover coverage summary'
+            page has better look-and-feel of tables now.</p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="blog-post-meta">
+                <img src="resources/img/about/marek_parfianowicz.jpg" class="photo-round-mini">
+                <a href="about-us">Marek Parfianowicz</a>
+            </p>
+            <p class="blog-post-meta">March 6, 2018</p>
+        </div>
+    </div>
+
+
+    <a name="2017-q4-update"></a>
+    <h2 class="blog-post-title">Autumn update</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+            <p><b>We have documentation!</b></p>
+
+            <p>We are happy to announce that we have prepared end-user and developer documentation on
+                our website. You can enjoy quick start guides, tutorials, plugin-specific guides,
+                knowledge base articles and many many more. <u>It's over 300 pages in total!</u>
+                And this is not a simple copy-and-paste - all code snippets, URLs, Maven artifact IDs
+                etc have been updated to OpenClover. You will no longer have to jump back and forth
+                between openclover.org and confluence.atlassian.com sites and wonder what is different
+                between Clover and OpenClover.</p>
+
+            <p><b>We have new plugin for SBT</b></p>
+
+            <p>Thanks to one volunteer, OpenClover has a second plugin for SBT:
+                <a href="https://github.com/barkhorn/sbt-clover">https://github.com/barkhorn/sbt-clover</a>.
+                This plugin supports newer SBT versions, links with OpenClover and SBT's internal tasks
+                (test in Test, compile in Compile) are used for the build, rather than a custom scope.
+            </p>
+
+            <p><b>OpenClover goes to the Hackengarten</b></p>
+
+            <p>On 18th of October, our project team member, Grzegorz Lewandowski, went to Hackengarten
+            organized by Tricity Java User Group and presented OpenClover. The feedback was very positive
+            and we found 5 volunteers willing to hack and code for us! Unfortunately they did not
+            deliver any feature yet, as most of the time was spent on setting up development environment
+            (it's a lesson for us to be better prepared and to simplify our build processes) and explaining
+            OpenClover details. Nevertheless, the Hackengarten is a cyclic event, so stay tuned! In case
+            you happen to be in Gdańsk, Poland and would like to join our forces, please watch the
+            <a href="https://www.meetup.com/Trojmiasto-Java-User-Group">https://www.meetup.com/Trojmiasto-Java-User-Group</a>
+            for new meetings.</p>
+
+            <p><b>New 4.2.1 release is coming soon</b></p>
+
+            <p>This will be a bug-fix release in which we solve compatibility issues with Maven 2.x.
+                It has also fixes for automatic Ant and Maven integrators, required for CI systems,
+                such as Jenkins or Bamboo. More details on
+                <a href="https://github.com/openclover/clover/issues">https://github.com/openclover/clover/issues</a> </p>
+
+            <p><b>What's next?</b></p>
+
+            <p>As I wrote in my previous blog post, we want to focus on Gradle and Jenkins plugins. I am also
+            working on better support for OpenClover in Bamboo - so that it will be possible to use automatic
+                integration feature.</p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="blog-post-meta">
+                <a href="about-us"><img src="resources/img/about/marek_parfianowicz.jpg" class="photo-round-mini"></a>
+            </p>
+            <p class="blog-post-meta">November 7, 2017</p>
+        </div>
+    </div>
+
+    <a name="openclover-4-2"></a>
+    <h2 class="blog-post-title">OpenClover 4.2.0 has been released. What's next?</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+            <p><i>This is a cross-post of OpenClover's newsletter.</i></p>
+            <p><b>OpenClover 4.2.0 is available</b><br/>
+                We are happy to announce that our first release of OpenClover is out. It is based on the
+                open-sourced code of Atlassian Clover 4.1.2. Kudos for Atlassian for open-sourcing it!
+                You can download OpenClover Core as well as integrations for Ant, Maven, Grails, Eclipse,
+                IntelliJ IDEA, Jenkins, Hudson and AspectJ and enjoy the powerful HTML reports.</p>
+
+            <p><b>We're looking for contributors for Gradle Plugin</b><br/>
+            Unfortunately the Gradle Plugin for OpenClover is not ready yet. We decided to postpone it because does not handle multi-module projects, which we believe is a very common setup.
+            In case you feel confident with writing plugins for Gradle and would like to help us, your contribution will be more than welcome!
+            </p>
+
+            <p><b>What's next?</b><br/>
+            In the incoming months we're going to:
+            <ul>
+                <li>release the Gradle Plugin</li>
+                <li>attack the Jenkins Plugin, which has several critical bugs</li>
+                <li>prepare end-user and developer documentation on our website</li>
+            </ul>
+
+            Your feedback is valuable, feel free to report issues in our tracker or email us directly.</p>
+        </div>
+        
+        <div class="col-md-4">
+            <p class="blog-post-meta">
+                <a href="about-us"><img src="resources/img/about/marek_parfianowicz.jpg" class="photo-round-mini"></a>
+            </p>
+            <p class="blog-post-meta">June 8, 2017</p>
+        </div>
+    </div>
+
+    <a name="welcome"></a>
+
+    <h2 class="blog-post-title">Welcome to OpenClover</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+            <p>
+                In April 2017 Atlassian&reg; decided to publish sources of Clover - the most sophisticated code coverage
+                tool for Java and Groovy. Clover has been commercially developed for nearly fifteen years (first by
+                Cenqua, next by Atlassian), so literally <b>thousands of man hours</b> were spent on making it so <a href="features">rich in
+                features</a>. Clover's source base is about 10 times larger than second best coverage tool - JaCoCo.
+                I must admit that I had a pleasure to be one of its developers for five years.
+                Thus, as you can notice, making Clover completely free and open source is an amazing gift from Atlassian
+                to the open source community. Great kudos for Atlassian!
+            </p>
+
+            <p>
+                Clover is not only rich in features, but also unique compared to other code coverage tools (such as
+                JaCoCo or
+                Cobertura), because it's based on the source code instrumentation (and not the bytecode
+                instrumentation).
+                While this approach has some limitations (you need to recompile the code, for instance) it gives huge benefits,
+                for instance:
+            <ul>
+                <li>as Clover "knows" the code structure it can measure 20+ code metrics</li>
+                <li>it can recognize language- or framework-specific code constructs</li>
+                <li>it is more "transparent" to other bytecode manipulating tools</li>
+            </ul>
+            </p>
+
+            <p>
+                I've been working on Clover since 2012 and I dare to say that several recent major releases of Clover
+                (such as version 3.2 with Java 8, version 3.3 with parameterised JUnit4 and Spock tests or version 4.0
+                with
+                overhauled HTML report) came out of my hands. I had the opportunity to do everything - from technical
+                support
+                to being developer lead and planning a road map. I know the product inside out and I really love it -
+                from both
+                end-user and a programmer perspective (the code is really solid piece of work). So at the moment
+                I heard about the idea of
+                open-sourcing it,
+                I immediately knew that I want to participate in this "new life" of Clover.
+            </p>
+
+            <p>
+                So here we are: a new home page you're reading right now is set up, all sources are available for
+                download from Bitbucket, I am working on a binary release of OpenClover 4.2,
+                which should be ready quite soon. I am eager to share my expertize and to coordinate the entire open
+                source
+                project.
+            </p>
+
+            <p>You may ask: <b>What can I do?</b></p>
+
+            <p>My answer is: <b>Just start using it!</b> I am certain that you'll love it! Spread the word, ask
+                questions,
+                provide answers on Q&amp;A forums like Atlassian Answers or Stackoverflow. Migrate your builds from
+                Clover 4.1
+                (or older) to OpenClover 4.2 as soon as it becomes available.</p>
+
+            <p>The bigger user base, the bigger active Clover community, the bigger chance to find new volunteers to
+                contribute to
+                Clover. And last but not least the bigger motivation for me :-) to drive the whole project.</p>
+
+            <p>Or maybe you would like to contribute? If yes, then jump to the
+                <a href="doc/manual/4.2.0/developer-guide.html">Clover Development
+                    Hub</a>
+                for build instructions, clone the repository and grab
+                <a href="https://jira.atlassian.com/projects/CLOV">some bug or feature request</a> for implementation.</p>
+
+            <p>I am looking forward to hear from you. You can catch me via email
+                <a href="mailto:marek.parfianowicz@gmail.com">marek.parfianowicz@gmail.com</a>.</p>
+        </div>
+        <div class="col-md-4">
+            <p class="blog-post-meta">
+                <a href="about-us"><img src="resources/img/about/marek_parfianowicz.jpg" class="photo-round-mini"></a>
+            </p>
+            <p class="blog-post-meta">April 11, 2017</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <!-- mailchimp newsletter -->
+            <div class="alert alert-warning">
+                <h4>Subscribe to our newsletter</h4>
+                <div><small>Get notified about new releases and other announcements.</small></div>
+
+                <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+                <div id="mc_embed_signup">
+                    <form action="//openclover.us15.list-manage.com/subscribe/post?u=41736fe82a3c48c22fe40d337&amp;id=839b3b0920" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <div id="mc_embed_signup_scroll">
+                            <input type="email" value="" name="EMAIL" id="mce-EMAIL" placeholder="email address" required>
+                            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_41736fe82a3c48c22fe40d337_839b3b0920" tabindex="-1" value=""></div>
+                            <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <footer>
+        <p class="small text-muted">&copy; 2017-2020 Marek Parfianowicz. Atlassian&reg; and Atlassian Clover&reg; are registered trademarks of Atlassian (Australia). All other
+            product
+            and company names are trademarks or registered trademarks of their respective holders. They have been used
+            for information purposes only and use of them does not imply any affiliation with or endorsement by
+            them. </p>
+    </footer>
+</div>
+
+<script src="resources/js/jquery-1.12.4.min.js"></script>
+<script src="resources/js/bootstrap.min.js"></script>
+<script src="resources/js/js.cookie.js"></script>
+<script src="resources/js/cookie.js"></script>
+</body>
+</html>

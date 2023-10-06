@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Clover Command Line Tools</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Clover Command Line Tools
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>Clover provides a set of Command line tools for integration with legacy build systems such as Make,
+                    or custom build scripts. <strong>If you use Jakarta Ant to build your project, a set of</strong> <a
+                            href="ant--task-reference.html">Clover Ant Tasks</a> <strong>provides easier Ant
+                        integration.</strong></p>
+                <p>To use the tools in your build system, the synopsis is:</p>
+                <ol>
+                    <li>Copy and instrument your source files using <a href="commandline--cloverinstr.html">CloverInstr</a>.
+                    </li>
+                    <li>Compile the instrumented source files using a standard java compiler.</li>
+                    <li>Execute your tests using whatever framework.</li>
+                    <li>(Optional) If you have multiple separate coverage databases, merge them using <a
+                            href="commandline--clovermerge.html">CloverMerge</a>.
+                    </li>
+                    <li>Use either the <a href="commandline--xmlreporter.html">XMLReporter</a>, <a
+                            href="commandline--htmlreporter.html">HtmlReporter</a>, <a href="commandline--pdfreporter.html">PDFReporter</a>,
+                        <a href="commandline--jsonreporter.html">JSONReporter</a> or <a
+                                href="commandline--consolereporter.html">ConsoleReporter</a> to view the measured coverage
+                        results.
+                    </li>
+                </ol>
+                <h2 id="CloverCommandLineTools-Commandlinetools:">Command line tools:</h2>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <td class="confluenceTd"><p><a href="commandline--cloverinstr.html">CloverInstr</a></p></td>
+                            <td class="confluenceTd"><p>Copies and instruments individual Java source files, or a
+                                directory of source files.</p>
+                                <p>Please note that this tool does not instrument Groovy.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p><a href="commandline--clovermerge.html">CloverMerge</a></p></td>
+                            <td class="confluenceTd"><p>Merges existing Clover databases to allow for combined reports
+                                to be generated.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p><a href="commandline--xmlreporter.html">XMLReporter</a></p></td>
+                            <td class="confluenceTd"><p>Produces coverage reports in XML.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p><a href="commandline--htmlreporter.html">HtmlReporter</a></p></td>
+                            <td class="confluenceTd"><p>Produces coverage reports in HTML.</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd"><a href="commandline--jsonreporter.html">JSONReporter</a>
+                            </td>
+                            <td colspan="1" class="confluenceTd">Produces coverage reports in JSON format.</td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p><a href="commandline--pdfreporter.html">PDFReporter</a></p></td>
+                            <td class="confluenceTd"><p>Produces coverage reports in PDF format.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p><a href="commandline--consolereporter.html">ConsoleReporter</a></p>
+                            </td>
+                            <td class="confluenceTd"><p>Reports coverage results to the console.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

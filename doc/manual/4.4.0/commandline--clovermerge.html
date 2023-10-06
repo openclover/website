@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : CloverMerge</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="commandline--command-line-tools.html">Clover Command Line Tools</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CloverMerge
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>This tool merges existing Clover databases to allow for combined reports to be generated.</p>
+                <h3 id="CloverMerge-Usage">Usage</h3>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">java com.atlassian.clover.CloverMerge [OPTIONS] PARAMS [DBFILES...]
+</pre>
+                    </div>
+                </div>
+                <h3 id="CloverMerge-Parameters">Parameters</h3>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p>Parameter</p></th>
+                            <th class="confluenceTh"><p>Description</p></th>
+                            <th class="confluenceTh"><p>Required</p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-i, --initstring &lt;file&gt;</p></td>
+                            <td class="confluenceTd"><p>Clover initstring. Clover initstring. This is the path where the
+                                new merged database will be written.</p></td>
+                            <td class="confluenceTd"><p>Yes.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3 id="CloverMerge-Options">Options</h3>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p>Option</p></th>
+                            <th class="confluenceTh"><p>Description</p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-d, --debug</p></td>
+                            <td class="confluenceTd"><p>Enable debug logging.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-s, --span <a href="glossary--interval.html">interval</a></p>
+                            </td>
+                            <td class="confluenceTd"><p>Specifies the span to use when reading subsequent databases to
+                                be merged. This option can be specified more than once and applies to all databases
+                                specified after the option, or until another span in specified</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-u, --update <a href="glossary--interval.html">interval</a></p>
+                            </td>
+                            <td class="confluenceTd"><p>If specified, any existing database specified by -i will be
+                                included in the merge. If interval is specified, it is used as the span when reading the
+                                existing database.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-v, --verbose</p></td>
+                            <td class="confluenceTd"><p>Enable verbose logging.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3 id="CloverMerge-APIUsage">API Usage</h3>
+                <p><code>CloverMerge</code> provides a simple API that accepts an array of strings representing the
+                    command line arguments and returns an integer result code. The following fragment illustrates use of
+                    the API:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">import com.atlassian.clover.CloverMerge;
+
+...
+
+String [] cliArgs = { &quot;-i&quot;, &quot;new.db&quot;,  &quot;proj1.db&quot;, &quot;proj2.db&quot;, &quot;-s&quot;, &quot;10s&quot;, &quot;proj3.db&quot; };
+int result = CloverMerge.mainImpl(cliArgs);
+if (result != 0) {
+    // problem during instrumentation
+}
+</pre>
+                    </div>
+                </div>
+                <h3 id="CloverMerge-Examples">Examples</h3>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">java com.atlassian.clover.CloverMerge -i new.db proj1.db proj2.db
+</pre>
+                    </div>
+                </div>
+                <p>Merges proj1.db and proj2.db into the new database new.db. A span of zero seconds is used.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">java com.atlassian.clover.CloverMerge -i new.db proj1.db -s 30s proj2.db proj3.db
+</pre>
+                    </div>
+                </div>
+                <p>Merges proj1.db, proj2.db and proj3.db into the new database new.db. A span of zero seconds is used
+                    for proj1.db, and a span of 30 seconds is used for proj2.db and proj3.db.</p>
+                <div class="confluence-information-macro confluence-information-macro-note"><span
+                        class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>The files named coverage.dbxxxx_xxx_xxx are not db
+                        files. Please see the clover <a
+                                                        href="faq--what-is-coverage-db-file.html"
+                                                        rel="nofollow">FAQ question</a>. <br/> You only need to merge
+                        files called coverage.db (there should be one per a directory) and not the recording files
+                        coverage.dbxxxx_xxx_xxx (there could be hundreds of these)</p></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

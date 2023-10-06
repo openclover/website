@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Why does Clover use source code instrumentation?</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="faq--openclover.html">Clover FAQ</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Why does Clover use source code instrumentation?
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p><strong>Q: Why does Clover use source code instrumentation?</strong>Source code instrumentation is
+                    the most powerful, flexible and accurate way to provide code coverage analysis.The following table
+                    compares different methods of obtaining code coverage and their relative benefits:</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p>Possible feature</p></th>
+                            <th class="confluenceTh"><p>JVMDI/PI</p></th>
+                            <th class="confluenceTh"><p>Bytecode instrumentation</p></th>
+                            <th class="confluenceTh"><p>Source code instrumentation</p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Gathers method coverage</p></td>
+                            <td class="highlight-green confluenceTd"><p>yes</p></td>
+                            <td class="highlight-green confluenceTd"><p>yes</p></td>
+                            <td class="highlight-green confluenceTd"><p>yes</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Gathers statement coverage</p></td>
+                            <td class="highlight-yellow confluenceTd"><p>line only</p></td>
+                            <td class="highlight-yellow confluenceTd"><p>indirectly</p></td>
+                            <td class="highlight-green confluenceTd"><p>yes</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Gathers branch coverage</p></td>
+                            <td class="highlight-yellow confluenceTd"><p>indirectly</p></td>
+                            <td class="highlight-yellow confluenceTd"><p>indirectly</p></td>
+                            <td class="highlight-green confluenceTd"><p>yes</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Can work without source</p></td>
+                            <td class="highlight-green confluenceTd"><p>yes</p></td>
+                            <td class="highlight-green confluenceTd"><p>yes</p></td>
+                            <td class="highlight-red confluenceTd"><p>no</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Requires separate build</p></td>
+                            <td class="highlight-green confluenceTd"><p>no</p></td>
+                            <td class="highlight-green confluenceTd"><p>no</p></td>
+                            <td class="highlight-red confluenceTd"><p>yes</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Requires specialized runtime</p></td>
+                            <td class="highlight-red confluenceTd"><p>yes</p></td>
+                            <td class="highlight-red confluenceTd"><p>yes</p></td>
+                            <td class="highlight-green confluenceTd"><p>no</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Gathers source metrics</p></td>
+                            <td class="highlight-red confluenceTd"><p>no</p></td>
+                            <td class="highlight-red confluenceTd"><p>no</p></td>
+                            <td class="highlight-green confluenceTd"><p>yes</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>View coverage data inline with source</p></td>
+                            <td class="highlight-yellow confluenceTd"><p>not accurate</p></td>
+                            <td class="highlight-yellow confluenceTd"><p>not accurate</p></td>
+                            <td class="highlight-green confluenceTd"><p>yes</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Source level directives to control coverage gathering</p></td>
+                            <td class="highlight-red confluenceTd"><p>no</p></td>
+                            <td class="highlight-red confluenceTd"><p>no</p></td>
+                            <td class="highlight-green confluenceTd"><p>yes</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Control which entities are reported on</p></td>
+                            <td class="highlight-yellow confluenceTd"><p>limited</p></td>
+                            <td class="highlight-yellow confluenceTd"><p>limited</p></td>
+                            <td class="highlight-green confluenceTd"><p>yes</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Compilation time</p></td>
+                            <td class="highlight-green confluenceTd"><p>no impact</p></td>
+                            <td class="highlight-yellow confluenceTd"><p>variable</p></td>
+                            <td class="highlight-yellow confluenceTd"><p>variable</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Runtime performace</p></td>
+                            <td class="highlight-red confluenceTd"><p>high impact</p></td>
+                            <td class="highlight-yellow confluenceTd"><p>variable</p></td>
+                            <td class="highlight-yellow confluenceTd"><p>variable</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Container friendly</p></td>
+                            <td class="highlight-red confluenceTd"><p>no</p></td>
+                            <td class="highlight-red confluenceTd"><p>no</p></td>
+                            <td class="highlight-green confluenceTd"><p>yes</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

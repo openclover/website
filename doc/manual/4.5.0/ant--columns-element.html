@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : &lt;columns&gt; element</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--clover-report.html">clover-report</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            &lt;columns&gt; element
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>Specifies the data columns to be included on summary pages. If not specified, default columns will be
+                    output.</p>
+                <p>Specific columns are defined as sub-elements to this one. See the <a
+                        href="ant--clover-report.html"><span class="confluence-link">clover-report</span></a>.</p>
+                <p>Columns can be defined in a &lt;<a href="ant--clover-columns.html">clover-columns</a>/&gt; Ant type for <a
+                         href="http://ant.apache.org/manual/using.html#references" rel="nofollow">referencing</a>
+                    elsewhere in the build file.</p>
+                <p>Each column element takes an optional <code>format</code> attribute which determines how the column's
+                    value is rendered. The <code>format</code> attribute may be one of the following:</p>
+                <ul>
+                    <li><code>raw</code> — the actual value. Always used for total columns</li>
+                    <li><code>bar</code> — render a bar chart (40px wide) showing the coverage percentage</li>
+                    <li><code>longbar</code> — same as <code>bar</code> above, except 200px wide</li>
+                    <li><code>%</code> — The coverage percentage value</li>
+                </ul>
+                <p>Note that <code>bar</code> and <code>%</code> are not valid formats for total columns.</p>
+                <p>All column elements also take <code>max</code> and/or <code>min</code> threshold attributes. If the
+                    value for the column is outside the threshold, the value will be highlighted.</p>
+                <p><span class="confluence-anchor-link" id="id-&lt;columns&gt;element-columnNames"></span></p>
+                <p><strong>Table of Column Names</strong></p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p><strong>Column</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Valid Format Attributes</strong></p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>avgClassesPerFile</p></td>
+                            <td class="confluenceTd"><p>The average number of classes per file.</p></td>
+                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>avgMethodComplexity</p></td>
+                            <td class="confluenceTd"><p>The average number of paths per method.</p></td>
+                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>avgMethodsPerClass</p></td>
+                            <td class="confluenceTd"><p>The average number of methods per class.</p></td>
+                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>avgStatementsPerMethod</p></td>
+                            <td class="confluenceTd"><p>The average number of statements per method.</p></td>
+                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>complexity</p></td>
+                            <td class="confluenceTd"><p>Cyclomatic Complexity is a measure of the number of paths in
+                                your code.</p></td>
+                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>complexityDensity</p></td>
+                            <td class="confluenceTd"><p>The average complexity per statement.</p></td>
+                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>coveredBranches</p></td>
+                            <td class="confluenceTd"><p>The amount of covered branches.</p></td>
+                            <td class="confluenceTd"><p>
+                                <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>coveredElements</p></td>
+                            <td class="confluenceTd"><p>The total number of covered elements (branches + statements) in
+                                the project.</p></td>
+                            <td class="confluenceTd"><p>
+                                <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>coveredMethods</p></td>
+                            <td class="confluenceTd"><p>The amount of covered methods.</p></td>
+                            <td class="confluenceTd"><p>
+                                <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>coveredStatements</p></td>
+                            <td class="confluenceTd"><p>The amount of covered statements.</p></td>
+                            <td class="confluenceTd"><p>
+                                <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>expression</p></td>
+                            <td class="confluenceTd"><p>The body of this element will be evaluated as an arithmetic
+                                expression. All other column names can be referenced. See Clover EL. This column takes
+                                an optional title attribute.</p></td>
+                            <td class="confluenceTd"><p>raw</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>filteredElements</p></td>
+                            <td class="confluenceTd"><p>The amount of elements that have been filtered out of the
+                                report.</p></td>
+                            <td class="confluenceTd"><p>
+                                <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>ncLineCount</p></td>
+                            <td class="confluenceTd"><p>The total number of non-comment lines. <br/> <img
+                                    class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
+                                    data-emoticon-name="information" alt="(info)"/> When using Clover on Groovy source
+                                code, this column consistently reports '0' at the moment.</p></td>
+                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>lineCount</p></td>
+                            <td class="confluenceTd"><p>The total number of lines.</p></td>
+                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>SUM</p></td>
+                            <td class="confluenceTd"><p>Scientifically Untested Metric. This is very similar to crap4j
+                                and is defined by this expression:</p>
+                                <div class="code panel pdl" style="border-width: 1px;">
+                                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">complexity^2 * ((1 - %coveredElements/100)^3) + complexity
+</pre>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="confluenceTd"><p>raw</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>percentageCoveredContribution</p></td>
+                            <td class="confluenceTd"><p>Helps you to work out how much an individual package, file or
+                                class contributes (percentage-wise) to the overall number of covered elements in the
+                                project. Useful for spotting quick wins.</p></td>
+                            <td class="confluenceTd"><p>raw;bar;%;longbar</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>percentageUncoveredContribution</p></td>
+                            <td class="confluenceTd"><p>Helps you to work out how much an individual package, file or
+                                class contributes (percentage-wise) to the overall number of uncovered elements in the
+                                project. Useful for spotting quick wins.</p></td>
+                            <td class="confluenceTd"><p>raw;bar;%;longbar</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>totalBranches</p></td>
+                            <td class="confluenceTd"><p>The total number of branches in the project.</p></td>
+                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>totalChildren</p></td>
+                            <td class="confluenceTd"><p>The number of lower order elements. The order of elements is:
+                                Project, Package, File, Class, Method, Statement</p></td>
+                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>totalClasses</p></td>
+                            <td class="confluenceTd"><p>The total number of classes below the package, project or
+                                file.</p></td>
+                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>totalElements</p></td>
+                            <td class="confluenceTd"><p>The total number of elements (branches + statements) in the
+                                project.</p></td>
+                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>totalFiles</p></td>
+                            <td class="confluenceTd"><p>The total number of files below the package or project.</p></td>
+                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>totalMethods</p></td>
+                            <td class="confluenceTd"><p>The total number of methods in the project.</p></td>
+                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>totalPercentageCovered</p></td>
+                            <td class="confluenceTd"><p>The total coverage.</p></td>
+                            <td class="confluenceTd"><p>
+                                <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>totalStatements</p></td>
+                            <td class="confluenceTd"><p>The total number of statements in the project.</p></td>
+                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>uncoveredBranches</p></td>
+                            <td class="confluenceTd"><p>Branches that were not executed.</p></td>
+                            <td class="confluenceTd"><p>raw;bar;%;longbar</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>uncoveredElements</p></td>
+                            <td class="confluenceTd"><p>Elements that were not executed.</p></td>
+                            <td class="confluenceTd"><p>raw;bar;%;longbar</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>uncoveredMethods</p></td>
+                            <td class="confluenceTd"><p>Methods that were not executed.</p></td>
+                            <td class="confluenceTd"><p>raw;bar;%;longbar</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>uncoveredStatements</p></td>
+                            <td class="confluenceTd"><p>Statements that were not executed.</p></td>
+                            <td class="confluenceTd"><p>raw;bar;%;longbar</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p> </p>
+                <p><strong>Column Attributes</strong></p>
+                <p>Each of the above column elements can take the following attributes:</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>format</p></td>
+                            <td class="confluenceTd"><p>Determines how the value is rendered. Depending on the column,
+                                this may be one of <code>raw</code>, <code>bar</code>, <code>%</code> or
+                                <code>longbar</code>.</p></td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>min</p></td>
+                            <td class="confluenceTd"><p>Sets a minimum threshold on the value of the column. If the
+                                value is less than this it will be highlighted.</p></td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>max</p></td>
+                            <td class="confluenceTd"><p>Sets a maximum threshold on the value of the column. If the
+                                value is greater than this it will be highlighted.</p></td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>scope</p></td>
+                            <td class="confluenceTd"><p>Controls at which level in the report the column will appear.
+                                The scope attribute can be one of: &quot;package&quot;, &quot;class&quot; or &quot;method&quot;.
+                                If omitted, the column will be used at every level in the report. Note that only the
+                                following columns support the scope attribute: <strong>expression</strong>, <strong>complexity</strong>,
+                                <strong>complexityDensity</strong>, <strong>coveredXXX</strong>,
+                                <strong>uncoveredXXX</strong> and <strong>totalXXX</strong>.</p></td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><br class="atl-forced-newline"/> <br class="atl-forced-newline"/> <span
+                        class="confluence-anchor-link" id="id-&lt;columns&gt;element-CloverEL"></span><br/> <strong>Clover
+                    Expression Language</strong><br/> Clover Expression Language enables you to combine any of Clover's
+                    built-in column types to produce a custom column. The following arithmetic operators are available:
+                    +, - , *, /, ^, (). Any of Clover's columns may be referenced.<br/> A percentage sign, '%', before a
+                    column identifier will evaluate to the percentage of that columns data, rather than its raw value.
+                    e.g. %CoveredElements == (CoveredElements/TotalElements) * 100</p>
+                <p><em>Example</em>:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;columns&gt;
+  &lt;expression title=&quot;SUM&quot;&gt;complexity^2 * ((1 - %coveredElements/100)^3) + complexity&lt;/expression&gt;
+&lt;/columns&gt;
+</pre>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

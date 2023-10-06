@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : 6. Generating reports in IDEA</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="idea--overview.html">Clover-for-IDEA</a></span>
+                    </li>
+                    <li>
+                        <span><a href="idea--user-guide.html">Clover-for-IDEA User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            6. Generating reports in IDEA
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813727836 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813727836 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813727836 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813727836'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#id-6.GeneratingreportsinIDEA-Introduction'>Introduction</a></li>
+                        <li><a href='#id-6.GeneratingreportsinIDEA-GeneratingaReport'>Generating a Report</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#id-6.GeneratingreportsinIDEA-SelectanOutputFormat'>Select an Output
+                                    Format</a></li>
+                                <li><a href='#id-6.GeneratingreportsinIDEA-ConfigureGeneralSettingsfortheReport'>Configure
+                                    General Settings for the Report</a></li>
+                                <li><a href='#id-6.GeneratingreportsinIDEA-Configurecontextfilters'>Configure context
+                                    filters</a></li>
+                                <li><a href='#id-6.GeneratingreportsinIDEA-FinalizetheReport'>Finalize the Report</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href='#id-6.GeneratingreportsinIDEA-OpeningtheGeneratedReport'>Opening the Generated
+                            Report</a></li>
+                    </ul>
+                </div>
+                </p><h2 id="id-6.GeneratingreportsinIDEA-Introduction">Introduction</h2>
+                <p>The Clover for IDEA plugin allows you to generate HTML, PDF or XML reports for your project.</p>
+                <h2 id="id-6.GeneratingreportsinIDEA-GeneratingaReport">Generating a Report</h2>
+                <p>To create a report, open the<em> &quot;Cloverage&quot;</em> window and click on the <em>&quot;Generate
+                    Clover Report&quot;</em> button. The '<strong>Generate Coverage Report</strong>' dialog opens.</p>
+                <h4 id="id-6.GeneratingreportsinIDEA-SelectanOutputFormat">Select an Output Format</h4>
+                <p>For your report, you can select an output format of HTML, PDF or XML. To select the desired output
+                    format, click the corresponding radio button in the '<strong>Generate Coverage Report</strong>'
+                    dialog and click '<strong>Next</strong>'. </p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/300814884/301008097.png"
+                                                                       data-image-src="attachments/300814884/301008097.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301008097"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="idea_generate_report_format.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="300814884"
+                                                                       data-linked-resource-container-version="5"></span>
+                </p>
+                <p> </p><h4 id="id-6.GeneratingreportsinIDEA-ConfigureGeneralSettingsfortheReport">Configure General
+                Settings for the Report</h4>
+                <p>Your report can make use of the following settings:</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p><strong>Setting</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Default</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">Report Title</td>
+                            <td colspan="1" class="confluenceTd">&lt;project name&gt; Coverage Report</td>
+                            <td colspan="1" class="confluenceTd">Report title.</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">Output Directory</td>
+                            <td colspan="1" class="confluenceTd">&lt;project dir&gt;\report\html</td>
+                            <td colspan="1" class="confluenceTd">Directory where report will be written to. In case when
+                                report already exists in this location, appropriate warning will be displayed.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Include sources (only for HTML reports)</p></td>
+                            <td class="confluenceTd"><p>True</p></td>
+                            <td class="confluenceTd"><p>Whether to include source code in the HTML reports. Not
+                                including source will mean users can't see per-line coverage information but report
+                                generation will run faster.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Include line info (only for XML reports)</p></td>
+                            <td class="confluenceTd"><p>False</p></td>
+                            <td class="confluenceTd"><p>Whether line by line coverage information is added to the
+                                report.</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd"><p>Include failed test coverage (only for HTML
+                                reports)</p></td>
+                            <td colspan="1" class="confluenceTd"><p>True</p></td>
+                            <td colspan="1" class="confluenceTd"><p>Tests from failed tests are included by default but
+                                can be excluded if they wish to discount this as worthy of being reported.</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">Use current filter settings</td>
+                            <td colspan="1" class="confluenceTd">False</td>
+                            <td colspan="1" class="confluenceTd">If the user un-checks this they will be given the
+                                opportunity to set a custom context.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/300814884/301008098.png"
+                                                                       data-image-src="attachments/300814884/301008098.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301008098"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="idea_generate_report_location.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="300814884"
+                                                                       data-linked-resource-container-version="5"></span>
+                </p>
+                <p> </p><h4 id="id-6.GeneratingreportsinIDEA-Configurecontextfilters">Configure context filters</h4>
+                <p>Filter configuration page is only shown if you choose not to accept default filter settings. This
+                    lets you select any of the predefined pre-defined filters.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/300814884/301008099.png"
+                                                                       data-image-src="attachments/300814884/301008099.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301008099"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="idea_generate_report_filters.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="300814884"
+                                                                       data-linked-resource-container-version="5"></span>
+                </p>
+                <p> </p><h4 id="id-6.GeneratingreportsinIDEA-FinalizetheReport">Finalize the Report</h4>
+                <p>Clicking '<strong>Finish</strong>' will start the report generation process. Progress will be
+                    displayed on status bar.</p>
+                <h2 id="id-6.GeneratingreportsinIDEA-OpeningtheGeneratedReport">Opening the Generated Report</h2>
+                <p>When report generation is complete, a pop-up will display a location of generated report. You have to
+                    open this report manually.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/300814884/301008096.png"
+                                                                       data-image-src="attachments/300814884/301008096.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301008096"
+                                                                       data-linked-resource-version="2"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="idea_generate_report_finished.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="300814884"
+                                                                       data-linked-resource-container-version="5"></span>
+                </p>
+                <p><em>Sample PDF Report</em><br/> <span class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image confluence-content-image-border"
+                        src="attachments/180294939/187826188.png" data-image-src="attachments/180294939/187826188.png"
+                        data-unresolved-comment-count="0" data-linked-resource-id="187826188"
+                        data-linked-resource-version="1" data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="Clover_2.5_Eclipse_Report_Generation_005.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="180294939"
+                        data-linked-resource-container-version="34"></span></p>
+                <p> </p>
+                <hr/>
+                <p>Next chapter: <a href="idea--test-optimization.html">7. Test Optimization for
+                    IDEA</a>.</p>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

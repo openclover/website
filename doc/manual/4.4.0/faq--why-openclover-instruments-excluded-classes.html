@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Why does Clover instrument classes I have excluded using the &#39;exclude&#39; element of the
+        &#39;clover-setup &#39; task?</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="faq--openclover.html">Clover FAQ</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Why does Clover instrument classes I have excluded using the &#39;exclude&#39; element of the &#39;clover-setup &#39; task?
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p><strong>Q: Why does Clover instrument classes I have excluded using the</strong> <code><strong>&lt;exclude&gt;</strong></code>
+                    <strong>element of the</strong> <code><strong>&lt;</strong><strong><a
+                            href="ant--clover-setup.html">clover-setup</a></strong><strong>&gt;</strong></code>
+                    <strong>task?</strong>There are two possible causes:</p>
+                <ol>
+                    <li>Cascading build files:<br/>
+                        Clover uses Ant patternsets to manage the includes and excludes specified in the <code>&lt;<a
+                                href="ant--clover-setup.html">clover-setup</a>&gt;</code> task. By default Ant does
+                        not pass these patternsets to the sub-builds. If you are using<br/>
+                        a master-build/sub-build arrangement, with compilation occuring in the sub-builds and <code>&lt;<a
+                                href="ant--clover-setup.html">clover-setup</a>&gt;</code> done in the master-build,
+                        you will need to explicitly pass these patternsets as references:
+                        <div class="preformatted panel" style="border-width: 1px;">
+                            <div class="preformattedContent panelContent">
+<pre>&lt;ant ...&gt;
+&lt;reference refid=&quot;clover.files&quot;/&gt;
+&lt;reference refid=&quot;clover.useclass.files&quot;/&gt;
+&lt;/ant&gt;
+</pre>
+                            </div>
+                        </div>
+                    </li>
+                    <li>Excluded files are still registered in the Clover database:<br/>
+                        Clover's database is built incrementally, and this can mean that files that are now excluded but
+                        were previously included are still reported on. The simple workaround is to delete the Clover
+                        database whenever you change the Clover includes or excludes. This is fixed in Clover 1.2.
+                    </li>
+                </ol>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

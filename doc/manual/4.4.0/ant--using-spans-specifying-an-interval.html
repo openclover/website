@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Specifying an Interval</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--configuring-reports.html">5. Configuring Reports</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--using-spans.html">Using Spans</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Specifying an Interval
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>The <code>interval</code> type is used to specify a period of time. It consists of a value and a unit
+                    specifier, eg. &quot;3 days&quot;. The interval type is very flexible about how it interprets the
+                    time unit. In general, the first letter is sufficient to indicate the interval unit. For example,
+                    the previous example could be written as &quot;3 d&quot;. The time ranges supported are specified in
+                    the following table:</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p> Unit specifier </p></th>
+                            <th class="confluenceTh"><p> Abbreviation </p></th>
+                            <th class="confluenceTh"><p> Example Values </p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p> second </p></td>
+                            <td class="confluenceTd"><p> s </p></td>
+                            <td class="confluenceTd"><p> 3 seconds <br class="atl-forced-newline"/>
+                                20s <br class="atl-forced-newline"/></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p> minute </p></td>
+                            <td class="confluenceTd"><p> m </p></td>
+                            <td class="confluenceTd"><p> 5 minute <br class="atl-forced-newline"/>
+                                7 min, 11m <br class="atl-forced-newline"/></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p> hour </p></td>
+                            <td class="confluenceTd"><p> h </p></td>
+                            <td class="confluenceTd"><p> 4 hours <br class="atl-forced-newline"/>
+                                2h <br class="atl-forced-newline"/></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p> day </p></td>
+                            <td class="confluenceTd"><p> d </p></td>
+                            <td class="confluenceTd"><p> 7 days <br class="atl-forced-newline"/>
+                                365d <br class="atl-forced-newline"/></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p> week </p></td>
+                            <td class="confluenceTd"><p> w </p></td>
+                            <td class="confluenceTd"><p> 4 weeks <br class="atl-forced-newline"/>
+                                10w <br class="atl-forced-newline"/></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p> month </p></td>
+                            <td class="confluenceTd"><p> mo </p></td>
+                            <td class="confluenceTd"><p> 5.6 months <br class="atl-forced-newline"/>
+                                24mo <br class="atl-forced-newline"/></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p> year </p></td>
+                            <td class="confluenceTd"><p> y </p></td>
+                            <td class="confluenceTd"><p> 100 years <br class="atl-forced-newline"/>
+                                5y <br class="atl-forced-newline"/></p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>If no time unit is provided, the default unit of &quot;days&quot; is used. A numeric value must
+                    always be provided or an exception will be thrown. Numeric values may be fractional (e.g. 5.6).</p>
+                <div class="confluence-information-macro confluence-information-macro-note"><p class="title">Note</p>
+                    <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Due to the variable lengths of months and years,
+                        approximations are used for these values within Clover. A month is considered to be 30.346 days
+                        and a year is considered to be 365.232 days. All other units are exact.</p></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

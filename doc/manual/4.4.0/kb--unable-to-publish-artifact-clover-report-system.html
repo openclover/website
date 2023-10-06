@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unable to publish artifact &quot;Clover Report (System)&quot;</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--troubleshooting-bamboo.html">Troubleshooting Bamboo</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Unable to publish artifact &quot;Clover Report (System)&quot;
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h3 id="Unabletopublishartifact&quot;CloverReport(System)&quot;-Symptoms">Symptoms</h3>
+                <p>Bamboo with Clover is used. Clover HTML report artifact is empty after the build. Build log contains
+                    an error message like this:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>Unable to publish artifact [Clover Report (System)]: the source directory &lt;bamboo_home&gt;\xml-data\build-dir\AA-BB-JOB1\target\site\clover does not exist.</pre>
+                    </div>
+                </div>
+                <h3 id="Unabletopublishartifact&quot;CloverReport(System)&quot;-Cause">Cause</h3>
+                <p><strong>1) Build has failed causing that not all Clover's goals have been called</strong></p>
+                <p>Example:</p>
+                <ul>
+                    <li>the &quot;Automatically integrate Clover into this build&quot; option is enabled</li>
+                    <li>automatic Clover integration adds extra goals to the maven command line, such as <em>&quot;clover:setup
+                        verify clover:aggregate clover:clover&quot;</em></li>
+                    <li>a build fails in the <em>test</em> phase due to test failures</li>
+                    <li>Maven breaks the build, as a consequence latter goals <em>(clover:aggregate clover:clover)</em>
+                        are not called, Clover reports are not generated
+                    </li>
+                    <li>as reports are unavailable, the &quot;Unable to publish artifact&quot; error appears at the end
+                        of the build
+                    </li>
+                </ul>
+                <p>or</p>
+                <p><strong>2) Clover reports were written do a directory different than defined in a &quot;Clover Report&quot;
+                    artifact</strong></p>
+                <p>Example:</p>
+                <ul>
+                    <li>the &quot;Automatically integrate Clover into this build&quot; option is enabled</li>
+                    <li>the &quot;Clover Report (System)&quot; artifact is defined with a standard pattern
+                        (target/site/clover + **/*, for instance)
+                    </li>
+                    <li>a build succeeds and a build log shows that Clover reports have been generated</li>
+                    <li>but build was configured to run in a sub-directory (see <em>Bamboo &gt; Job configuration &gt;
+                        Maven Task &gt; Working directory</em> field, for instance)
+                    </li>
+                    <li>and as a consequence, Clover's reports have been written to &quot;<em><strong>&lt;working
+                        directory&gt;</strong></em>/target/site/clover&quot;, which does not match the location from
+                        artifact definition
+                    </li>
+                </ul>
+                <h3 id="Unabletopublishartifact&quot;CloverReport(System)&quot;-Resolution">Resolution</h3>
+                <p><strong>ad 1) Do not fail a build in case of test failures</strong></p>
+                <ul>
+                    <li>set the maven.test.failure.ignore=true property for Surefire plugin or</li>
+                    <li>set the <a
+                                   href="../../maven/4.4.0/setup-mojo.html#setTestFailureIgnore"
+                                   rel="nofollow">setTestFailureIgnore</a>=true property for Clover plugin (which sets
+                        several common properties)
+                    </li>
+                </ul>
+                <p> </p>
+                <p><strong>ad 2) Correct location of reports</strong></p>
+                <ul>
+                    <li>either correct definition of the &quot;Clover Report (System)&quot; artifact</li>
+                    <li>or define custom location for Clover reports in Maven Task - see the <a
+                                                                                                href="../../maven/4.4.0/setup-mojo.html"
+                                                                                                rel="nofollow">clover:setup</a>
+                        goal
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

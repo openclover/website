@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : 9. Clover Target Reference</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            9. Clover Target Reference
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>Clover provides a set of high level, preconfigured Ant targets. A target is a high-level,
+                    pre-configured set of functionality that you can use to quickly integrate Clover. They can be
+                    launched by adding them as values to Ant on the command line.</p>
+                <p>Each target contains a number of logically grouped lower-level pieces of functionality made up of
+                    Clover-specific <a href="ant--task-reference.html">Tasks</a> and <a
+                            href="ant--type-reference.html">Types</a>. These allow you to harness Clover's
+                    feature set, applying the concept of <em>convention over configuration</em>. This should help you
+                    avoid laboriously coding your own targets from scratch — allowing you to rapidly begin using Clover,
+                    no matter how complex your environment.</p>
+                <p><img class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
+                        data-emoticon-name="information" alt="(info)"/> To enable Ant targets in Clover, you need to
+                    firstly follow the <a href="ant--quick-start-guide.html">Clover Quickstart Guide</a>.</p>
+                <p><em>On this page:</em></p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813710786 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813710786 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813710786 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813710786'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#id-9.CloverTargetReference-UsingaTarget'>Using a Target</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#id-9.CloverTargetReference-with.clover(target)'>with.clover (target)</a>
+                                </li>
+                                <li><a href='#id-9.CloverTargetReference-clover.all(target)'>clover.all (target)</a>
+                                </li>
+                                <li><a href='#id-9.CloverTargetReference-clover.clean(target)'>clover.clean (target)</a>
+                                </li>
+                                <li><a href='#id-9.CloverTargetReference-clover.current(target)'>clover.current
+                                    (target)</a></li>
+                                <li><a href='#id-9.CloverTargetReference-clover.report(target)'>clover.report
+                                    (target)</a></li>
+                                <li><a href='#id-9.CloverTargetReference-clover.save-history(target)'>clover.save-history
+                                    (target)</a></li>
+                                <li><a href='#id-9.CloverTargetReference-clover.snapshot(target)'>clover.snapshot
+                                    (target)</a></li>
+                                <li><a href='#id-9.CloverTargetReference-clover.snapshot.file(target)'>clover.snapshot.file
+                                    (target)</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#id-9.CloverTargetReference-CustomTargets'>Custom Targets</a></li>
+                    </ul>
+                </div>
+                </p><h2 id="id-9.CloverTargetReference-UsingaTarget">Using a Target</h2>
+                <p>Each Clover target typically has a name (and optional Ant properties) that can be used on the command
+                    line, as follows:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">ant clover.all
+</pre>
+                    </div>
+                </div>
+                <p>In the above example, we are running the <code>clover.all</code> target. This runs a
+                    '<strong>clean</strong>' process, creates a build with Clover applied and then generates a Clover
+                    report.</p>
+                <p><span class="confluence-anchor-link" id="id-9.CloverTargetReference-with.clover"></span></p>
+                <h3 id="id-9.CloverTargetReference-with.clover(target)">with.clover (target)</h3>
+                <p>Enables Clover on the current build. There are no properties for this target.</p>
+                <p><strong>Example:</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">ant with.clover
+</pre>
+                    </div>
+                </div>
+                <p><span class="confluence-anchor-link" id="id-9.CloverTargetReference-clover.all"></span></p>
+                <h3 id="id-9.CloverTargetReference-clover.all(target)">clover.all (target)</h3>
+                <p>Runs <em>clover.clean, with.clover, &lt;test.target&gt;, clover.report, clover.log</em> (in that
+                    order) from a single target.</p>
+                <p><strong>clover.all Properties</strong>:</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p>Property name</p></th>
+                            <th class="confluenceTh"><p>Description</p></th>
+                            <th class="confluenceTh"><p>Options</p></th>
+                            <th class="confluenceTh"><p>Dependency</p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>test.target</p></td>
+                            <td class="confluenceTd"><p>Defines the name of a custom target to run the tests.</p></td>
+                            <td class="confluenceTd"><p>inheritrefs (TRUE/FALSE)</p></td>
+                            <td class="confluenceTd"><p>clover.clean, with.clover</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Example:</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">ant clover.all -Dtest.target=run.tests
+</pre>
+                    </div>
+                </div>
+                <p>In the example above, we are specifying the <code>test.target</code> property. This is fed another
+                    value, ( shown as <code>run.tests</code>). Note that <code>run.tests</code> in this example could be
+                    replaced by the name of any custom target you may have created yourself in build.xml.</p>
+                <p><span class="confluence-anchor-link" id="id-9.CloverTargetReference-clover.clean"></span></p>
+                <h3 id="id-9.CloverTargetReference-clover.clean(target)">clover.clean (target)</h3>
+                <p>Deletes the clover database and the <code>clover.dest</code> directory.<br/> There are no properties
+                    for this target.</p>
+                <p><strong>Example:</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">ant clover.clean
+</pre>
+                    </div>
+                </div>
+                <p><span class="confluence-anchor-link" id="id-9.CloverTargetReference-clover.current"></span></p>
+                <h3 id="id-9.CloverTargetReference-clover.current(target)">clover.current (target)</h3>
+                <p>Generates HTML and XML reports to <code>clover.dest</code> using <code>project.title</code>.</p>
+                <p><strong>clover.current Properties</strong>:</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p>Property name</p></th>
+                            <th class="confluenceTh"><p>Description</p></th>
+                            <th class="confluenceTh"><p>Options</p></th>
+                            <th class="confluenceTh"><p>Dependency</p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>project.title</p></td>
+                            <td class="confluenceTd"><p>A string value, the user-specified name for this project</p>
+                            </td>
+                            <td class="confluenceTd"><p>None</p></td>
+                            <td class="confluenceTd"><p>None</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.dest</p></td>
+                            <td class="confluenceTd"><p>A system path, the destination directory for clover reports for
+                                this project</p></td>
+                            <td class="confluenceTd"><p>None</p></td>
+                            <td class="confluenceTd"><p>None</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.span</p></td>
+                            <td class="confluenceTd"><p>A time <a
+                                    href="ant--using-spans-specifying-an-interval.html">interval</a> defining the <a
+                                    href="ant--using-spans.html">time span</a> to use when creating historical
+                                reports</p></td>
+                            <td class="confluenceTd"><p>None</p></td>
+                            <td class="confluenceTd"><p>None</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Example:</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">ant clover.current -Dproject.title=&quot;MyProject&quot;
+</pre>
+                    </div>
+                </div>
+                <p><span class="confluence-anchor-link" id="id-9.CloverTargetReference-clover.report"></span></p>
+                <h3 id="id-9.CloverTargetReference-clover.report(target)">clover.report (target)</h3>
+                <p>This is the same as clover.current, i.e. it generates HTML and XML reports to
+                    <code>clover.dest</code> using <code>project.title</code>. Additionally, a history report will also
+                    be created using the historypoints in <code>clover.project.historydir</code>.</p>
+                <p><strong>clover.report Properties</strong>:</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p>Property name</p></th>
+                            <th class="confluenceTh"><p>Description</p></th>
+                            <th class="confluenceTh"><p>Options</p></th>
+                            <th class="confluenceTh"><p>Dependency</p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.historypoint.projectdir</p></td>
+                            <td class="confluenceTd"><p>A path location, where history points are stored.</p></td>
+                            <td class="confluenceTd"><p>None</p></td>
+                            <td class="confluenceTd"><p>None</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.dest</p></td>
+                            <td class="confluenceTd"><p>A system path, the destination directory for clover reports for
+                                this project</p></td>
+                            <td class="confluenceTd"><p>None</p></td>
+                            <td class="confluenceTd"><p>None</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.span</p></td>
+                            <td class="confluenceTd"><p>A time <a
+                                    href="ant--using-spans-specifying-an-interval.html">interval</a> defining the <a
+                                    href="ant--using-spans.html">time span</a> to use when creating historical
+                                reports</p></td>
+                            <td class="confluenceTd"><p>None</p></td>
+                            <td class="confluenceTd"><p>None</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Example:</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">ant clover.report -Dclover.historypoint.projectdir=&quot;\myprojects\project3\history\&quot;
+</pre>
+                    </div>
+                </div>
+                <p><span class="confluence-anchor-link" id="id-9.CloverTargetReference-clover.save-history"></span></p>
+                <h3 id="id-9.CloverTargetReference-clover.save-history(target)">clover.save-history (target)</h3>
+                <p>Saves a history point to <code>clover.project.historydir</code>.</p>
+                <p><strong>clover.save-history Properties</strong>:</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p>Property name</p></th>
+                            <th class="confluenceTh"><p>Description</p></th>
+                            <th class="confluenceTh"><p>Options</p></th>
+                            <th class="confluenceTh"><p>Dependency</p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.project.historydir</p></td>
+                            <td class="confluenceTd"><p>A path location, where history points are stored.</p></td>
+                            <td class="confluenceTd"><p>None</p></td>
+                            <td class="confluenceTd"><p>None</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>test.target</p></td>
+                            <td class="confluenceTd"><p>Defines the name of a custom target to run the tests.</p></td>
+                            <td class="confluenceTd"><p>inheritrefs (TRUE/FALSE)</p></td>
+                            <td class="confluenceTd"><p>clover.clean, with.clover</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.span</p></td>
+                            <td class="confluenceTd"><p>A time <a
+                                    href="ant--using-spans-specifying-an-interval.html">interval</a> defining the <a
+                                    href="ant--using-spans.html">time span</a> to use when creating historical
+                                reports</p></td>
+                            <td class="confluenceTd"><p>None</p></td>
+                            <td class="confluenceTd"><p>None</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Example:</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">ant clover.save-history
+</pre>
+                    </div>
+                </div>
+                <p><span class="confluence-anchor-link" id="id-9.CloverTargetReference-clover.snapshot"></span></p>
+                <h3 id="id-9.CloverTargetReference-clover.snapshot(target)">clover.snapshot (target)</h3>
+                <p>Saves a snapshot file to assist with Clover's <a href="general--what-is-test-optimization.html">Test
+                    Optimization</a> feature. There are no properties for this target.</p>
+                <p><strong>Example:</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">ant clover.snapshot
+</pre>
+                    </div>
+                </div>
+                <p><strong>clover.snapshot Properties</strong>:</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p>Property name</p></th>
+                            <th class="confluenceTh"><p>Description</p></th>
+                            <th class="confluenceTh"><p>Options</p></th>
+                            <th class="confluenceTh"><p>Dependency</p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.snapshot.file</p></td>
+                            <td class="confluenceTd"><p>Defines the location of the snapshot file to use when saving
+                                optimized data. For use with Clover's <a href="general--what-is-test-optimization.html">Test
+                                    Optimization</a> feature.</p></td>
+                            <td class="confluenceTd"><p>None</p></td>
+                            <td class="confluenceTd"><p>None</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><span class="confluence-anchor-link" id="id-9.CloverTargetReference-clover.snapshot.file"></span></p>
+                <h3 id="id-9.CloverTargetReference-clover.snapshot.file(target)">clover.snapshot.file (target)</h3>
+                <p>Defines the location of the snapshot file to use when saving optimized data. For use with Clover's <a
+                        href="general--what-is-test-optimization.html">Test Optimization</a> feature. <br/> <strong>Example:</strong>
+                </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">ant clover.snapshot.file
+</pre>
+                    </div>
+                </div>
+                <h2 id="id-9.CloverTargetReference-CustomTargets">Custom Targets</h2>
+                <p>Clover targets can be modified or overwritten. You can also create your own targets by specifying
+                    targets with the same names in <code>build.xml</code>.</p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

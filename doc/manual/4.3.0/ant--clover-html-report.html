@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : clover-html-report</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            clover-html-report
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h3 id="clover-html-report-Description">Description</h3>
+                <p>The <code>&lt;clover-html-report&gt;</code> task generates a full HTML report with sensible default
+                    settings. If configured, a <a href="ant--clover-historypoint.html">history point</a> is also
+                    generated prior to generation of the full report. </p>
+                <p> </p>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>If you need more options, please use the <code>&lt;</code><code><a
+                            href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> task, which
+                        provides more functionality, such as:</p>
+                        <ul>
+                            <li>generating reports in HTML, PDF, JSON, XML formats</li>
+                            <li>generating multiple reports linked with each other</li>
+                            <li>generating custom charts, defining metrics, 'movers', overviews etc</li>
+                            <li>pointing to source location different than during compilation</li>
+                        </ul>
+                    </div>
+                </div>
+                <p> </p>
+                <h3 id="clover-html-report-Parameters">Parameters</h3>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd"><p>coverageCacheSize</p></td>
+                            <td colspan="1" class="confluenceTd"><p>This is a performance tuning option, which is used
+                                to specify the maximum size of coverage data kept in memory when generating an HTML
+                                report. Accepts storage values such as 256m (256 megabytes) or 1g (1 gigabyte). Also
+                                accepts the value &quot;nocache&quot; to force all coverage data to be loaded into
+                                memory.</p></td>
+                            <td colspan="1" class="confluenceTd"><p>No. Default is 256m.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>historydir</p></td>
+                            <td class="confluenceTd"><p>The directory for Clover history points. <strong>If this
+                                attribute is set, a new history point will be generated prior to the generation of the
+                                full report.</strong> For more information, see <code>&lt;</code><code><a
+                                    href="ant--clover-historypoint.html">clover-historypoint</a></code><code>&gt;</code>.
+                            </p></td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>historyIncludes</p></td>
+                            <td class="confluenceTd"><p>An <a
+                                                              href="http://ant.apache.org/manual/dirtasks.html#patterns"
+                                                              rel="nofollow">Ant GLOB</a> to select specific history
+                                point files within the <code>historyDir</code> directory</p></td>
+                            <td class="confluenceTd"><p>No. Default is <code>clover-*.xml.gz</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>initstring</p></td>
+                            <td class="confluenceTd"><p>The path to the Clover database. If not specified, Clover will
+                                use the initstring set by a previous execution of <code>&lt;</code><code><a
+                                        href="ant--clover-setup.html">clover-setup</a></code><code>/&gt;</code> in
+                                the current build sequence. Otherwise, the default database location will be used.</p>
+                            </td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>maxtestsperfile</p></td>
+                            <td class="confluenceTd"><p>This limits the number of tests displayed for each file.</p>
+                            </td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>numThreads</p></td>
+                            <td class="confluenceTd"><p>The number of threads to start when generating a HTML report. A
+                                value of 0 will disable multi-threading for report generation. This is a performance
+                                tuning option.</p></td>
+                            <td class="confluenceTd"><p>No. Default is 2.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p><strong>outdir</strong></p></td>
+                            <td class="confluenceTd"><p>The directory to write the report to.</p></td>
+                            <td class="confluenceTd"><p><strong>Yes.</strong></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>projectName</p></td>
+                            <td class="confluenceTd"><p>Overrides the project name set in the Ant build file. This is
+                                used for display purposes only.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to the project name of the Ant build file.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>showUniqueCoverage</p></td>
+                            <td class="confluenceTd"><p>Calculate and show unique per-test coverage (for large projects,
+                                this can take a significant amount of time). Defaults to <br/> - <code>true</code> for
+                                Clover 3.1.4 and older<br/> - <code>false</code> for Clover 3.1.5 and newer.</p></td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>testresultsdir</p></td>
+                            <td class="confluenceTd"><p>The directory containing the XML results of the unit tests.
+                                Clover will look for all <code>TEST*.xml</code> files in this directory. <strong>This
+                                    attribute is generally not required by most users</strong>, as the built-in test
+                                results will provide all required information in the majority of cases. For more details
+                                please see '<a href="ant--test-results-and-per-test-coverage.html">Advanced
+                                    Usage</a>'.</p></td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>title</p></td>
+                            <td class="confluenceTd"><p>The title to use in the report.</p></td>
+                            <td class="confluenceTd"><p>No.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3 id="clover-html-report-Examples">Examples</h3>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-html-report outdir=&quot;clover/report&quot;/&gt;
+</pre>
+                    </div>
+                </div>
+                <p>This is the simplest way to generate an HTML report. It will be written to the directory &quot;<code>clover/report</code>&quot;.
+                </p>
+                <p> </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-html-report outdir=&quot;build/clover/report&quot;
+                    historydir=&quot;clover/historypoints&quot;
+                    title=&quot;MyProject Coverage&quot;/&gt;
+</pre>
+                    </div>
+                </div>
+                <p>This will generate a report in the &quot;<code>build/clover/report</code>&quot; directory. A history
+                    point will be created in the &quot;<code>clover/historypoints</code>&quot; directory, and all
+                    history points in that directory will be used to generate the historical section of the report. The
+                    report will be titled &quot;<code>MyProject Coverage</code>&quot;.</p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

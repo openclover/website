@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : Using Clover for web applications</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Using Clover for web applications
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813715013 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813715013 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813715013 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813715013'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#UsingCloverforwebapplications-Introduction'>Introduction</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#UsingCloverforwebapplications-Flushingcoveragedatainapplicationcontainer'>Flushing
+                                    coverage data in application container</a></li>
+                                <li>
+                                    <a href='#UsingCloverforwebapplications-Providingnecessarypermissionsinrestrictedsecurityenvironments'>Providing
+                                        necessary permissions in restricted security environments</a></li>
+                                <li><a href='#UsingCloverforwebapplications-Configuringdistributedcodecoverage'>Configuring
+                                    distributed code coverage</a></li>
+                                <li><a href='#UsingCloverforwebapplications-ApplicationbasedontheGoogleWebToolkit'>Application
+                                    based on the Google Web Toolkit</a></li>
+                                <li>
+                                    <a href='#UsingCloverforwebapplications-Runninginthe&#39;test&#39;or&#39;integration-test&#39;phase'>Running
+                                        in the &#39;test&#39; or &#39;integration-test&#39; phase</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#UsingCloverforwebapplications-Examples'>Examples</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#UsingCloverforwebapplications-WebApp'>WebApp</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                </p><h1 id="UsingCloverforwebapplications-Introduction">Introduction</h1>
+                <p>This manual presents how to configure Clover in order to get code coverage for web applications - and
+                    this issue can actually split into several problem areas:</p><h4
+                    id="UsingCloverforwebapplications-Flushingcoveragedatainapplicationcontainer">Flushing coverage data
+                in application container</h4>
+                <p>By default, Clover dumps coverage data at JVM shutdown. In case when your application sever is never
+                    shut down, you have to change the flush policy during instrumentation and use the &quot;interval&quot;
+                    or &quot;threaded&quot; option. See:</p>
+                <ul>
+                    <li><a href="ant--clover-instr.html">clover-instr</a> or <a href="ant--clover-setup.html">clover-setup</a>
+                        task and theirs <em>flushpolicy, flushinterval</em> attributes (for Ant)
+                    </li>
+                    <li><a
+                           href="../../maven/4.5.0/instrument-mojo.html"
+                           rel="nofollow">clover:instrument</a> or <a
+                                                                      href="../../maven/4.5.0/setup-mojo.html"
+                                                                      rel="nofollow">clover:setup</a>  and their  <em>flushPolicy</em>,
+                        <em>flushInterval</em> parameters (for Maven)
+                    </li>
+                </ul>
+                <p><strong><br/></strong></p><h4
+                    id="UsingCloverforwebapplications-Providingnecessarypermissionsinrestrictedsecurityenvironments">
+                Providing necessary permissions in restricted security environments</h4>
+                <p>Clover requires permissions to read and write files on disk, read properties, register to JVM
+                    shutdown hook. It can happen that your application container has security restrictions applied and
+                    you have to grant Clover necessary permissions. See:</p>
+                <ul>
+                    <li><a href="guideline--working-with-restricted-security-environments.html">Working with Restricted
+                        Security Environments</a></li>
+                </ul>
+                <h4 id="UsingCloverforwebapplications-Configuringdistributedcodecoverage">Configuring distributed code
+                    coverage</h4>
+                <p>In case when:</p>
+                <ul>
+                    <li>your tests are being executed in a different JVM than application code called by them (for
+                        example JUnits executed during build calls servlets deployed on Tomcat, or EJBs on JBoss)
+                        <strong>and</strong></li>
+                    <li>you're interested in <a
+                            href="ant--test-results-and-per-test-coverage.html">the per-test coverage feature</a> (i.e. which test methods have covered which
+                        business methods) or you're interested in the <a
+                                href="general--what-is-test-optimization.html">test optimization feature</a></li>
+                </ul>
+                <p>then your project must be configured with a <em><strong>distributed coverage</strong> </em>option.
+                    See:</p>
+                <ul>
+                    <li><a href="guideline--working-with-distributed-applications.html">Working with Distributed
+                        Applications</a>
+                        <ul>
+                            <li><a href="ant--using-distributed-per-test-coverage.html">Using
+                                Distributed Per-test Coverage with Clover-for-Ant</a></li>
+                            <li><a href="maven--using-distributed-per-test-coverage.html">Using Distributed Per-test
+                                Coverage</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="guideline--using-openclover-in-various-environment-configurations.html">Using Clover in
+                        various environment configurations</a></li>
+                </ul>
+                <p> </p><h4 id="UsingCloverforwebapplications-ApplicationbasedontheGoogleWebToolkit">Application based
+                on the Google Web Toolkit</h4>
+                <p>GWT performs translation from Java to JavaScript of a client-side code. In this case Clover shall
+                    either instrument server-side code only or GWT application shall be executed in a sandbox. See:</p>
+                <ul>
+                    <li><a href="maven--using-with-the-gwt-maven-plugin.html">Using Clover with the GWT-maven
+                        plugin</a></li>
+                </ul>
+                <p> </p><h4
+                    id="UsingCloverforwebapplications-Runninginthe&#39;test&#39;or&#39;integration-test&#39;phase">
+                Running in the 'test' or 'integration-test' phase</h4>
+                <p>Depends on whether your build is running tests in 'test' and/or 'integration-test' phase as well as
+                    is using maven-surefire-plugin and/or maven-failsafe-plugin, Clover configuration may vary a little.
+                    See:</p>
+                <ul>
+                    <li><a href="maven--using-with-surefire-and-failsafe-plugins.html">Using with Surefire and
+                        Failsafe Plugins</a></li>
+                </ul>
+                <p> </p>
+                <h1 id="UsingCloverforwebapplications-Examples">Examples</h1><h4
+                    id="UsingCloverforwebapplications-WebApp">WebApp</h4>
+                <p>Get sources from: <a
+                                                  href="https://github.com/openclover/clover-maven-plugin"
+                                                  rel="nofollow">https://github.com/openclover/clover-maven-plugin</a>,
+                    next go to <em>src/it/webapp</em>.</p>
+                <p>It' a simple web application with two servlets named MyServlet and RemoteServlet and a one JSP page.
+                    Maven during integration test phase runs unit test which calls servlets locally (by instantiating
+                    them) or remotely (in container).</p>
+                <p>A project build has been configured with a distributed coverage feature in such way that the &quot;Server&quot;
+                    (i.e. the JVM where JUnits are launched) will wait until at least one &quot;Client&quot; (i.e. the
+                    JVM where business code is executed; in our case inside a Tomcat container) connects to it. Because
+                    of fact that our servlet classes will not be loaded by Tomcat class loader until first HTTP request
+                    comes, an extra MyServletContextListener class was created. This class does virtually nothing, but
+                    due to fact that it's being loaded by class loader during application deployment, the Clover
+                    initialization code bundled into this class will run and connect to &quot;Server&quot; on a
+                    specified port. As soon as connection is established, &quot;Server&quot; will start execution of
+                    unit tests.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/296096967/296586525.png"
+                                                                       data-image-src="attachments/296096967/296586525.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="296586525"
+                                                                       data-linked-resource-version="3"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="clover-scenario-4-simplified.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="296096967"
+                                                                       data-linked-resource-container-version="9"></span>
+                </p>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

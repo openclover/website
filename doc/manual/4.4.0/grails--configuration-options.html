@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Configuration options</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="grails--overview.html">Clover-for-Grails</a></span>
+                    </li>
+                    <li>
+                        <span><a href="grails--user-guide.html">Clover-for-Grails User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Configuration options
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>Clover-for-Grails supports the configuration options outlined in the code sample below. All of these
+                    configuration options are defined in a single <code>clover</code> {} code block, which itself is
+                    defined within the Groovy build configuration file (<code>BuildConfig.groovy</code>) of your Grails
+                    project.</p>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>The <code>BuildConfig.groovy</code> file is
+                        located in the <code>grails-app/conf</code> subdirectory of your Grails project's root
+                        directory.</p></div>
+                </div>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">clover {
+
+ on = true|false // a boolean value indicating whether or not clover is enabled
+
+ optimize = true|false // whether test optimization is enabled 
+                       // (by setting optimize=true there&#39;s not need to set on=true)
+
+ license.path = &quot;/path/to/clover.license&quot; // the location of the clover license file,
+                                          // if not in one of the default locations; deprecated
+
+ debug = true|false    // a boolean to toggle debugging on or off
+
+ verbose = true|false  // a boolean to toggle verbose output on or off; can be overridden by debug=true; since 3.1.6
+
+ initstring = &quot;&quot; // the location to use for Clover to write out its database
+
+ instrumentLambda = &quot;none|expression|block|all_but_reference|all&quot; // whether to instrument Java 8 lambda functions, 
+                         // see the &lt;clover-setup&gt; Ant task for more details
+
+ forceClean = true|false  // whether to clean build directory (to force compilation of classes with Clover),
+                         // true by default
+
+ srcDirs = []  // an array of Strings of source directories to including in instrumentation
+
+ includes = [] // an array of String Ant Glob Patterns to include for instrumentation
+
+ excludes = [] // an array of String Ant Glob Patterns to exclude for instrumentation
+
+ setuptask = {} // Gant script to be called instead of the default clover-setup
+
+ reporttask = {} // Gant script to be called when tests have finished
+
+ historypointtask = {} // Gant script to be called when clover history point has to be created
+
+ reportStyle = &quot;adg|classic&quot;  // style of the report - since Clover 4.0
+
+ json = true|false   // a boolean to enable generation of json output in report; used if custom &#39;reporttask&#39; script is not defined
+
+ title = &quot;&quot;    // a report title
+
+ view = true|false   // launch generated report in a web browser
+
+}
+</pre>
+                    </div>
+                </div>
+                <div class="confluence-information-macro confluence-information-macro-warning"><span
+                        class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Hint: you can also pass these values from a
+                        command line, e.g. &quot;grails test-app -clover.on&quot;. However, on Windows platform, all
+                        <strong>&quot;-key=value&quot;</strong> pairs must be put in double quotes (otherwise they will
+                        be parsed incorrectly by Grails - it's a Grails &quot;feature&quot;).</p></div>
+                </div>
+                <p> </p>
+                <p>More details for:</p>
+                <ul>
+                    <li><a href="grails--advanced-setup-configuration.html">setuptask</a></li>
+                    <li><a href="grails--advanced-report-configuration.html">reporttask </a></li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

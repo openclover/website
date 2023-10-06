@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : Part 3 - Automating Coverage Checks</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="tutorials--index.html">Clover Tutorials</a></span>
+                    </li>
+                    <li>
+                        <span><a href="tutorials--ant-tutorial.html">Clover-for-Ant tutorial</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Part 3 - Automating Coverage Checks
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>This section of the tutorial looks at some advanced features of Clover.</p>
+                <p>The <code>&lt;<a href="ant--clover-check.html">clover-check</a>&gt;</code> task provides a useful
+                    mechanism for automating your coverage checking and gives you the option of failing your build if
+                    the specified coverage percentage is not met. It is easily integrated into your build system.</p>
+                <p><em>On this page:</em></p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813745134 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813745134 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813745134 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813745134'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#Part3-AutomatingCoverageChecks-Validatingbuildsagainstcodecoverage'>Validating
+                            builds against code coverage</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#Part3-AutomatingCoverageChecks-Addingcoveragechecking'>Adding coverage
+                                    checking</a></li>
+                                <li><a href='#Part3-AutomatingCoverageChecks-Failingthebuildifcoveragecriterianotmet'>Failing
+                                    the build if coverage criteria not met</a></li>
+                                <li><a href='#Part3-AutomatingCoverageChecks-Addingpackage-levelcoveragecriteria'>Adding
+                                    package-level coverage criteria</a></li>
+                                <li><a href='#Part3-AutomatingCoverageChecks-Contextfiltering'>Context filtering</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href='#Part3-AutomatingCoverageChecks-Nextsteps'>Next steps</a></li>
+                    </ul>
+                </div>
+                </p><h1 id="Part3-AutomatingCoverageChecks-Validatingbuildsagainstcodecoverage">Validating builds
+                against code coverage</h1>
+                <h2 id="Part3-AutomatingCoverageChecks-Addingcoveragechecking">Adding coverage checking</h2>
+                <p>Ensure that you have current Clover coverage data so that you can check the coverage percentage for
+                    your project. Clover coverage data is generated as described in <a
+                            href="ant--tutorial-part-1-measuring-coverage.html">Part 1</a> of the Tutorial.</p>
+                <p>Add the <code>&lt;<a href="ant--clover-check.html">clover-check</a>&gt;</code> task to your build
+                    by specifying a target similar to the following:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;clover.check&quot; depends=&quot;with.clover&quot;&gt;
+    &lt;clover-check target=&quot;80%&quot;/&gt;
+&lt;/target&gt;
+</pre>
+                    </div>
+                </div>
+                <p>This configuration sets an overall project target of 80% coverage.</p>
+                <p>Use the command <code>ant clover.check</code> to run the check. If your test coverage satisfies the
+                    target coverage percentage, output will be similar to the following:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">$ ant clover.check
+Buildfile: build.xml
+
+with.clover:
+  ...
+clover.check:
+  ...
+  [clover-check] Coverage check PASSED.
+
+BUILD SUCCESSFUL
+</pre>
+                    </div>
+                </div>
+                <p>If your coverage percentage does not reach the coverage target, you'll get something like this
+                    instead:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">$ ant clover.check
+Buildfile: build.xml
+
+with.clover:
+
+clover.check:
+  [clover-check] Coverage check FAILED
+  [clover-check] The following coverage targets were not met:
+  [clover-check] Overall coverage of 74% did not meet target of 80%
+
+BUILD SUCCESSFUL
+</pre>
+                    </div>
+                </div>
+                <p>In order to try this out on the Money library used in this tutorial, try commenting out some of the
+                    tests in the <code>MoneyTest.java</code> file to create a situation where the code coverage does not
+                    reach 80%.</p>
+                <h2 id="Part3-AutomatingCoverageChecks-Failingthebuildifcoveragecriterianotmet">Failing the build if
+                    coverage criteria not met</h2>
+                <p>In the above situation where the target is not met, after the message has been written to output, the
+                    build for the specified target will continue as normal.</p>
+                <p>Adding the <code>haltOnFailure</code> attribute allows you to specify whether or not you want the
+                    build to fail automatically if the coverage target is not met. The default for
+                    <code>haltOnFailure</code> is <code>false</code>.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;clover.check.haltonfail&quot; depends=&quot;with.clover&quot;&gt;
+    &lt;clover-check target=&quot;80%&quot; haltOnFailure=&quot;true&quot;/&gt;
+ &lt;/target&gt;
+</pre>
+                    </div>
+                </div>
+                <p>The <code>failureProperty</code> attribute of the <code>&lt;<a href="ant--clover-check.html">clover-check</a>&gt;</code>
+                    task allows you to set a specified property if the target of the project is not met:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;clover.check.setproperty&quot; depends=&quot;with.clover&quot;&gt;
+    &lt;clover-check target=&quot;80%&quot; failureProperty=&quot;coverageFailed&quot;/&gt;
+ &lt;/target&gt;
+</pre>
+                    </div>
+                </div>
+                <p>In this case, if the coverage does not reach 80%, the property <code>coverageFailed</code> will have
+                    its value set to the coverage summary message &quot;Overall coverage of *% did not meet target of
+                    80%&quot;. This allows you to check the value of this property in other Ant targets and manage the
+                    outcome accordingly. For an example on managing the resulting actions for a project which does not
+                    meet its coverage target, see <a href="ant--using-in-automated-builds.html">Using
+                        Clover in Automated Builds</a>.</p>
+                <h2 id="Part3-AutomatingCoverageChecks-Addingpackage-levelcoveragecriteria">Adding package-level
+                    coverage criteria</h2>
+                <p>The <code>&lt;<a href="ant--clover-check.html">clover-check</a>&gt;</code> task also allows you
+                    to specify the desired percentage covered for different packages, which is useful if you have
+                    certain packages that have more or less stringent coverage requirements than the rest of the
+                    project. This is done by adding nested '<code>package</code>' elements like the following:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;clover.check.packages&quot; depends=&quot;with.clover&quot;&gt;
+    &lt;clover-check target=&quot;80%&quot;&gt;
+        &lt;package name=&quot;com.clover.example.one&quot; target=&quot;70%&quot;/&gt;
+        &lt;package name=&quot;com.clover.example.two&quot; target=&quot;40%&quot;/&gt;
+    &lt;/clover-check&gt;
+&lt;/target&gt;
+</pre>
+                    </div>
+                </div>
+                <h2 id="Part3-AutomatingCoverageChecks-Contextfiltering">Context filtering</h2>
+                <p>The <code>&lt;<a href="ant--clover-check.html">clover-check</a>&gt;</code> task allows you to
+                    prescribe a filter that excludes coverage of certain block-types from overall coverage calculations.
+                    See <a href="ant--using-coverage-contexts.html">Coverage Contexts</a> for more information. The
+                    <code>filter</code> attribute accepts a comma separated list of the contexts to exclude from
+                    coverage calculations.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;clover.check.nocatch&quot; depends &quot;with.clover&quot;&gt;
+    &lt;clover-check target=&quot;80%&quot; filter=&quot;catch&quot;/&gt;
+&lt;/target&gt;
+</pre>
+                    </div>
+                </div>
+                <p>This will run the Clover coverage percentage check as normal, but will calculate coverage with
+                    omission of all '<code>catch</code>' blocks.</p>
+                <h1 id="Part3-AutomatingCoverageChecks-Nextsteps">Next steps</h1>
+                <p><a href="ant--tutorial-part-4-test-optimization.html">Part 4 - Test Optimization Tutorial</a>
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

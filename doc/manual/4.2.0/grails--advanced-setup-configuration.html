@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : Advanced setup configuration</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="grails--overview.html">Clover-for-Grails</a></span>
+                    </li>
+                    <li>
+                        <span><a href="grails--user-guide.html">Clover-for-Grails User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Advanced setup configuration
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>Define a <code>setuptask</code> 'closure' in your <code>clover</code> {} code block to configure
+                    advanced options for your Groovy project's build processes. Here, you can define various attributes
+                    and elements of the <a href="ant--clover-setup.html">clover-setup</a> task.</p>
+                <p>The <code>setuptask</code> closure is passed the following parameters:</p>
+                <ul>
+                    <li><code>ant</code> — an instance of a org.codehaus.gant.GantBuilder</li>
+                    <li><code>binding</code> — the groovy binding for accessing project variables</li>
+                    <li><code>plugin</code> — the clover grails plugin that invoked this closure</li>
+                </ul>
+                <p>The syntax used to define your clover-setup tasks in the <code>clover</code> {} code block is <a
+                         href="https://gant.github.io/" rel="nofollow">Gant</a>.</p>
+                <div class="confluence-information-macro confluence-information-macro-note"><span
+                        class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Please be aware that some attributes and
+                        sub-elements of the <a href="ant--clover-setup.html">clover-setup</a> task do not support
+                        Groovy. Therefore, if your Grails project makes substantial use of Groovy code (as opposed to
+                        pure Java code, which is likely to be the case), not all features of the <a
+                                href="ant--clover-setup.html">clover-setup</a> task will be available to you. Refer
+                        to the <a href="ant--clover-setup.html">clover-setup</a> topic for details.</p></div>
+                </div>
+                <p> </p><h4
+                    id="Advancedsetupconfiguration-Example:usingcustomclover.dblocationandsetoffilestobeinstrumented">
+                Example: using custom clover.db location and set of files to be instrumented</h4>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">clover {
+    // Example setuptask closure that will be invoked to configure clover.
+    // Any Clover initialisation tasks should be defined here.
+    // All attributes on the ant clover-setup task, which are
+    // supported by your source code, can be defined here.
+
+    setuptask = { ant, binding, plugin -&gt;
+        ant.&#39;clover-setup&#39;(initstring: &quot;${binding.projectWorkDir}/clover/custom/clover.db&quot;) {
+            ant.fileset(dir: &quot;grails-app&quot;, includes: &quot;**/*.groovy&quot;) { }
+        }
+    }
+} </pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="Advancedsetupconfiguration-Example:enablingdistributedcoverage">Example: enabling
+                distributed coverage</h4>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
+     data-theme="Confluence">clover {
+    setuptask = { ant, binding, plugin -&gt; 
+        ant.&#39;clover-setup&#39;(initstring: &quot;${binding.projectWorkDir}/clover/db/clover.db&quot;, 
+                       tmpDir: &quot;${binding.projectWorkDir}/clover/tmp&quot;) {
+            distributedCoverage(port: 7777, host: &quot;localhost&quot;, timeout: 5000, numClients: 0)
+        }
+    }
+}</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="Advancedsetupconfiguration-Example:usingsharedcoveragerecorder">Example: using shared
+                coverage recorder</h4>
+                <p>Use the Shared Coverage Recorder only in case when you have performance problem related with creation
+                    of thousands of coverage recording files in clover.db directory. See <span
+                            class="confluence-link"><a
+                            href="ant--coverage-recorders.html">Coverage Recorders</a></span> for more details.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
+     data-theme="Confluence">clover {
+    setuptask = { ant, binding, plugin -&gt; 
+        ant.delete(dir: &quot;target/clover/db&quot;)
+        ant.delete(dir: &quot;target/clover/tmp&quot;)
+        ant.&#39;clover-setup&#39;(initstring: &quot;target/clover/db/clover.db&quot;, 
+                           tmpDir: &quot;target/clover/tmp&quot;) {
+            ant.profiles {
+                ant.profile(name: &quot;default&quot;, coverageRecorder: &quot;SHARED&quot;)
+            } 
+        }
+    }
+    reporttask =  { ant, binding, plugin -&gt;
+        ant.delete(dir: &quot;target/clover/report&quot;)
+        ant.&#39;clover-report&#39;(initstring: &quot;target/clover/db/clover.db&quot;) {
+            ant.current(outfile: &quot;target/clover/report/clover.xml&quot;) {
+                ant.format(type: &quot;xml&quot;)
+            }
+            ant.current(outfile: &quot;target/clover/report&quot;) {
+                ant.format(type: &quot;html&quot;)
+            }
+        }
+    }
+ }</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

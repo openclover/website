@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : Managing the Coverage Database</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a
+                                href="8.-Controlling-Clover-at-Runtime_71599101.html">8. Controlling Clover at Runtime</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Managing the Coverage Database
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h3 id="ManagingtheCoverageDatabase-Databasestructureandlifecycle">Database structure and lifecycle</h3>
+                <p>The Clover database consists of several files that are constructed at various stages of the
+                    instrumentation and coverage recording process. The following files are created if Clover is
+                    initialized with an <code>initstring</code> of &quot;clover.db&quot;</p><h4
+                    id="ManagingtheCoverageDatabase-Registryfile">Registry file</h4>
+                <p><strong>Filename:</strong> <code>clover.db</code></p>
+                <p><strong>Description:</strong> The Registry file contains information about all of the classes that
+                    have been instrumented by Clover. This file does not contain any actual coverage recording data.</p>
+                <p><strong>Lifecycle:</strong> The Registry file is <strong>written</strong> during the instrumentation
+                    process. If an existing Registry file is found, the existing file is updated. If no Registry file is
+                    found, a new Registry file is created. The Registry file is <strong>read</strong> by
+                    Clover-instrumented code when it is executed, and also during report generation or coverage browsing
+                    (such as via an IDE plugin or the Swing Viewer).</p><h4
+                    id="ManagingtheCoverageDatabase-CoverageRecordingFiles">CoverageRecording Files</h4>
+                <p><strong>Filename:</strong> <code>clover.dbHHHHHHH_TTTTTTTTTT</code> or <code>clover.dbHHHHHHH_TTTTTTTTTT.1</code>
+                    (where HHHHHHH and TTTTTTTTTT are both hex strings)</p>
+                <p><strong>Description:</strong> CoverageRecording files contain actual coverage data. When running
+                    instrumented code, Clover creates one or more Coverage Recorders. Each Coverage Recorder will write
+                    one CoverageRecording file. The number of Coverage Recorders created at runtime depends the nature
+                    of the application you are Clovering. In general a new Coverage Recorder will be created for each
+                    new ClassLoader instance that loads a Clovered class file. The first hex number in the filename
+                    (HHHHHHH) is a unique number based on the recording context. The second hex number (TTTTTTTTTT) is
+                    the timestamp (ms since epoch) of the creation of the Clover Recorder. CoverageRecording files are
+                    named this way to try to minimize the chance of a name clash. While it is theoretically possible
+                    that a name clash could occur, in practice the chances are very small.</p>
+                <p><strong>Lifecycle:</strong> CoverageRecording files are <strong>written</strong> during the execution
+                    of Clover-instrumented code. CoverageRecording files are <strong>read</strong> during report
+                    generation or coverage browsing.</p>
+                <div class="confluence-information-macro confluence-information-macro-note"><p class="title">Note</p>
+                    <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Clover has a failsafe mechanism for writing
+                        recording files to disk when using interval-based flush policies. The mechanism alternates
+                        between writing to a primary recording file and a secondary recording file. This prevents data
+                        loss in the event of abnormal JVM termination. The secondary recording file has the same name as
+                        a normal recording file but with .1 appended to its name.</p></div>
+                </div>
+                <h3 id="ManagingtheCoverageDatabase-ManagingtheCloverdatabase">Managing the Clover database</h3>
+                <p>Because the Clover database can consist of many recording files, you might find it easier to create
+                    the database in its own directory. This directory can be created at the start of a Clover build, and
+                    deleted once coverage reports have been generated from the database.</p>
+                <p>Although Clover will update an existing database over successive builds, it is in general recommended
+                    that the database be deleted after it is used to generate reports, so that a fresh database is
+                    created on the next build. <strong>Doing this improves the runtime performance of Clover.</strong>
+                    The <code>&lt;<a href="ant--clover-clean.html">clover-clean</a>&gt;</code> Ant task is provided
+                    to allow easy deletion of a Clover database. Note that the IDE Plugins all have a feature to
+                    automatically manage the Clover database for you.</p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

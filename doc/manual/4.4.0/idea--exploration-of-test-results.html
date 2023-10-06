@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : 3. Exploration of test results in IDEA</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="idea--overview.html">Clover-for-IDEA</a></span>
+                    </li>
+                    <li>
+                        <span><a href="idea--user-guide.html">Clover-for-IDEA User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            3. Exploration of test results in IDEA
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="id-3.ExplorationoftestresultsinIDEA-TestRunsExplorer">Test Runs Explorer</h4>
+                <p>The Test Runs Explorer displays recently run tests in your Clover-instrumented project.</p>
+                <p>The upper panel displays test cases as a flat list ( <span
+                        class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                      src="attachments/300814878/301008071.gif"
+                                                                      data-image-src="attachments/300814878/301008071.gif"
+                                                                      data-unresolved-comment-count="0"
+                                                                      data-linked-resource-id="301008071"
+                                                                      data-linked-resource-version="1"
+                                                                      data-linked-resource-type="attachment"
+                                                                      data-linked-resource-default-alias="test_testcases.gif"
+                                                                      data-base-url="https://confluence.atlassian.com"
+                                                                      data-linked-resource-content-type="image/gif"
+                                                                      data-linked-resource-container-id="300814878"
+                                                                      data-linked-resource-container-version="4"></span>),
+                    grouped by package ( <span class="confluence-embedded-file-wrapper"><img
+                            class="confluence-embedded-image" src="attachments/300814878/301008072.gif"
+                            data-image-src="attachments/300814878/301008072.gif" data-unresolved-comment-count="0"
+                            data-linked-resource-id="301008072" data-linked-resource-version="1"
+                            data-linked-resource-type="attachment"
+                            data-linked-resource-default-alias="test_packages.gif"
+                            data-base-url="https://confluence.atlassian.com"
+                            data-linked-resource-content-type="image/gif" data-linked-resource-container-id="300814878"
+                            data-linked-resource-container-version="4"></span>) or by source root folder ( <span
+                            class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                          src="attachments/300814878/301008073.png"
+                                                                          data-image-src="attachments/300814878/301008073.png"
+                                                                          data-unresolved-comment-count="0"
+                                                                          data-linked-resource-id="301008073"
+                                                                          data-linked-resource-version="1"
+                                                                          data-linked-resource-type="attachment"
+                                                                          data-linked-resource-default-alias="testRootClosed.png"
+                                                                          data-base-url="https://confluence.atlassian.com"
+                                                                          data-linked-resource-content-type="image/png"
+                                                                          data-linked-resource-container-id="300814878"
+                                                                          data-linked-resource-container-version="4"></span>).
+                </p>
+                <p>The lower panel displays classes and methods covered by the test case selected in the upper panel.
+                    Two metrics are displayed for each class and method:</p>
+                <ul>
+                    <li><strong>Contributed Coverage</strong> indicates the percentage of statements that have been
+                        covered by selected test case,
+                    </li>
+                    <li><strong>Unique Coverage</strong> indicates the percentage of statements that have been covered
+                        by selected test case <strong>only</strong>.
+                    </li>
+                </ul>
+                <p><em><br/></em></p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/300814878/648609834.png"
+                                                                       data-image-src="attachments/300814878/648609834.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="648609834"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="test_runs_explorer.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="300814878"
+                                                                       data-linked-resource-container-version="4"></span>
+                </p><h5 id="id-3.ExplorationoftestresultsinIDEA-UniqueActionsinTestRunExplorer">Unique Actions in Test
+                Run Explorer</h5>
+                <ul>
+                    <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                            src="attachments/300814878/301008071.gif"
+                                                                            data-image-src="attachments/300814878/301008071.gif"
+                                                                            data-unresolved-comment-count="0"
+                                                                            data-linked-resource-id="301008071"
+                                                                            data-linked-resource-version="1"
+                                                                            data-linked-resource-type="attachment"
+                                                                            data-linked-resource-default-alias="test_testcases.gif"
+                                                                            data-base-url="https://confluence.atlassian.com"
+                                                                            data-linked-resource-content-type="image/gif"
+                                                                            data-linked-resource-container-id="300814878"
+                                                                            data-linked-resource-container-version="4"></span> / <span
+                            class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                          src="attachments/300814878/301008072.gif"
+                                                                          data-image-src="attachments/300814878/301008072.gif"
+                                                                          data-unresolved-comment-count="0"
+                                                                          data-linked-resource-id="301008072"
+                                                                          data-linked-resource-version="1"
+                                                                          data-linked-resource-type="attachment"
+                                                                          data-linked-resource-default-alias="test_packages.gif"
+                                                                          data-base-url="https://confluence.atlassian.com"
+                                                                          data-linked-resource-content-type="image/gif"
+                                                                          data-linked-resource-container-id="300814878"
+                                                                          data-linked-resource-container-version="4"></span>
+                        / <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                              src="attachments/300814878/301008073.png"
+                                                                              data-image-src="attachments/300814878/301008073.png"
+                                                                              data-unresolved-comment-count="0"
+                                                                              data-linked-resource-id="301008073"
+                                                                              data-linked-resource-version="1"
+                                                                              data-linked-resource-type="attachment"
+                                                                              data-linked-resource-default-alias="testRootClosed.png"
+                                                                              data-base-url="https://confluence.atlassian.com"
+                                                                              data-linked-resource-content-type="image/png"
+                                                                              data-linked-resource-container-id="300814878"
+                                                                              data-linked-resource-container-version="4"></span>
+                        : Click to choose test cases layout.
+                    </li>
+                    <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                            src="attachments/300814878/301008075.png"
+                                                                            data-image-src="attachments/300814878/301008075.png"
+                                                                            data-unresolved-comment-count="0"
+                                                                            data-linked-resource-id="301008075"
+                                                                            data-linked-resource-version="1"
+                                                                            data-linked-resource-type="attachment"
+                                                                            data-linked-resource-default-alias="calccoverage.png"
+                                                                            data-base-url="https://confluence.atlassian.com"
+                                                                            data-linked-resource-content-type="image/png"
+                                                                            data-linked-resource-container-id="300814878"
+                                                                            data-linked-resource-container-version="4"></span> :
+                        Toggle calculating test coverage to display in the upper panel. If enabled, the plugin will
+                        provide information about given test contribution to the selected target scope (see below). Note
+                        that enabling this option seriously slows down the Clover database refresh.
+                    </li>
+                    <li><strong>Target scope</strong>: Only tests touching selected scope would be shown.<br/>
+                        <ul>
+                            <li><em>All tests</em>: All recorded tests in the project,</li>
+                            <li><em>File tests</em>: All tests touching the currently displayed file,</li>
+                            <li><em>Class / Method / Statement at cursor</em>: All tests involving the class, method or
+                                statement under the cursor, respectively.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p> </p><h4 id="id-3.ExplorationoftestresultsinIDEA-SelectIn-&gt;Clover(Alt-F1menu)">Select In -&gt;
+                Clover (Alt-F1 menu)</h4>
+                <p>It is possible to view currently selected element in Clover using the Alt-F1 menu.</p>
+                <p>If the cursor is inside a recognized test case, it would be displayed in Test Runs Explorer, listing
+                    methods touched by the test in the lower panel.<br/> Otherwise the element under cursor is displayed
+                    in the Coverage view.</p>
+                <p> </p>
+                <hr/>
+                <p>You have already learned how to navigate through code coverage and test results. But don't you have a
+                    feeling that your coverage reports could be more accurate when focused on <em>really important</em>
+                    areas of your application? If you do so, don't hesitate to read <a
+                            href="idea--scope-of-instrumentation.html">4. Scope of instrumentation in
+                        IDEA</a> to learn how to configure instrumentation scope from whole project down to a single
+                    line of code.</p>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

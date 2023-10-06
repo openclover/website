@@ -1,0 +1,5 @@
+RewriteEngine on
+
+# redirect no extension to html
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([a-zA-Z0-9-]+)$ $1.html [L]

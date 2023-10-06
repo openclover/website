@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : Clover-for-Android</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="hacking--hacking-openclover.html">Hacking Clover</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Clover-for-Android
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <div class="confluence-information-macro confluence-information-macro-warning"><span
+                        class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p><span style="color: rgb(0,0,0);">It's always hard for us to say <strong>no</strong> to our customers. However, design decisions are not only about <em>&quot;Do we want to have this feature?&quot; </em>but also <em>&quot;Is this a best feature we can implement using our available resources?&quot;</em>. We want to invest our time in making your lives (and code!) better. The fact that Google are building their Android IDE based on IntelliJ IDEA, which has a built-in coverage tool, means that you can measure code coverage for your Android apps, in an environment supported by Google. Therefore, we <span>decided to not </span><span>implement Clover for Android in the near future</span><span>. </span></span>
+                    </p></div>
+                </div>
+                <p> </p>
+                <p><em>The following article is a rough guideline how you could &quot;hack&quot; Clover to run on
+                    Android.</em></p>
+                <h1 id="Clover-for-Android-Integrationsteps">Integration steps</h1>
+                <p>Download:</p>
+                <ul>
+                    <li>org.openclover:clover artifact from Maven</li>
+                    <li>org.openclover:clover-runtime artifact</li>
+                </ul>
+                <p>Integrate with your build scripts:</p>
+                <ul>
+                    <li>Bundle <em>org.openclover:clover-runtime</em> artifact into your application. Do not use
+                        <em>org.openclover:clover</em> - this is because of the 64k method limit on Dalvik VM -
+                        the 'clover' artifact (about 15 MB) is too large.
+                    </li>
+                    <li>Instrument your java sources using Clover - for instance call &lt;clover-instr&gt; Ant task or
+                        the CloverInstr command line tool (these classes are available in 'clover' artifact)
+                        <ul>
+                            <li>Use the same path for clover.db on your development machine and on android
+                                device/emulator - typical location for data files is /data/data/&lt;application_id&gt;/;
+                                it also means that you shall use Linux or MacOS for development and not Windows (due to
+                                drive letters) to have the same path.
+                            </li>
+                            <li>Ensure that the location on device will be write-able</li>
+                            <li>Use an absolute path for initstring, e.g. <strong>&quot;/data/data/&lt;your_application_id&gt;/clover.db&quot;</strong>
+                            </li>
+                            <li>Set flush policy to &quot;interval&quot; and/or add &quot;///CLOVER:FLUSH&quot; comment
+                                on your application shutdown event - this is necessary because by default Clover writes
+                                coverage data to disk on JVM shutdown, which doesn't happen on Android.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Compile these instrumented sources instead of the original ones and package the application</li>
+                    <li>Copy clover.db to /data/data/&lt;your_application_id&gt;... folder - you can use 'adb copy'
+                        command for this purpose; an alternative is to use the '<a
+                                href="ant--coverage-recorders.html">growable coverage recorder</a>'
+                    </li>
+                    <li>Run the application and/or tests</li>
+                    <li>As soon as application terminates, copy coverage recording files back from the device - again,
+                        you can use 'adb ls' + 'adb copy' for this purpose
+                    </li>
+                    <li>Generate an HTML report using Clover database and coverage recording files from a developer
+                        machine
+                    </li>
+                </ul>
+                <h1 id="Clover-for-Android-Hints">Hints</h1>
+                <h2 id="Clover-for-Android-Manualtesting">Manual testing</h2>
+                <p>You can also force Clover to write coverage files to disk by putting ///CLOVER:FLUSH inline comment
+                    in your code, for example in an Activity.onDestroy() method.</p>
+                <h2 id="Clover-for-Android-Unittesting">Unit testing</h2>
+                <p>You may need to add &quot;CLOVER:FLUSH&quot; directive in tear-down methods like below (in order to
+                    force writing coverage data to disk):</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">public void tearDown() throws Exception {
+    super.tearDown();
+    ///CLOVER:FLUSH
+}</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h1 id="Clover-for-Android-Troubleshooting">Troubleshooting</h1>
+                <p>The following features may not work on Android:</p>
+                <ul>
+                    <li>Per-test coverage (when 'growable coverage recorder' is used)</li>
+                    <li>Test Optimization</li>
+                    <li>Distributed Coverage</li>
+                </ul>
+                <p>Known bugs</p>
+                <ul>
+                    <li>
+    <span class="jira-issue" data-issue-key="CLOV-1194">
+                <a href="https://jira.atlassian.com/browse/CLOV-1194?src=confmacro" class="jira-issue-key"><img
+                        class="icon"
+                        src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51493&amp;avatarType=issuetype"/>CLOV-1194</a>
+                    -
+            <span class="summary">Implement GrowablePerTestRecorder and use it for Android instrumentation</span>
+                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-complete jira-macro-single-issue-export-pdf">Open</span>
+            </span>
+                    </li>
+                </ul>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : Coverage Legend</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="general--understanding-reports.html">4. Understanding Reports</a></span>
+                    </li>
+                    <li>
+                        <span><a href="general--understanding-reports-current.html">&#39;Current&#39; Report</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Coverage Legend
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>In Clover HTML reports, test coverage is indicated by the following color-coded legend.</p>
+                <p> </p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/102597557/639991811.png"
+                                                                       data-image-src="attachments/102597557/639991811.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="639991811"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="clover_html_report_source_code_legend.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="102597557"
+                                                                       data-linked-resource-container-version="11"></span>
+                </p>
+                <p> </p>
+                <p>The page margin has three color indicators:</p>
+                <ul>
+                    <li>left half with line number is the &quot;optimistic marker&quot;, which is highlighted in: <br/>
+                        <ul>
+                            <li>green when at least part of the code line was covered during execution</li>
+                            <li>otherwise red if it was not covered at all</li>
+                        </ul>
+                    </li>
+                    <li>right half with number of hit counts (i.e. how many times given line was executed) is the &quot;pessimistic
+                        marker&quot; which is highlighted in 
+                        <ul>
+                            <li>red if at least part of line was not executed or when branch expression was not
+                                evaluated to both true and false
+                            </li>
+                            <li>otherwise green if the whole line was fully covered</li>
+                        </ul>
+                    </li>
+                    <li>narrow strip related with per-test code coverage, which is:
+                        <ul>
+                            <li>dark green if given source line was executed at least once from a successful test case
+                                (i.e. test has passed), or
+                            </li>
+                            <li>dark yellow if given source line was executed from one or more test cases, but all tests
+                                were failed or
+                            </li>
+                            <li>empty if given code was not executed from a test case (for instance from &quot;main()&quot;
+                                method or called by JVM GC &quot;finalize()&quot; method)
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

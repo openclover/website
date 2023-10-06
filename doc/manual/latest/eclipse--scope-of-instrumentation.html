@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : 4. Scope of instrumentation in Eclipse</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="eclipse--overview.html">Clover-for-Eclipse</a></span>
+                    </li>
+                    <li>
+                        <span><a href="eclipse--user-guide.html">Clover-for-Eclipse User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            4. Scope of instrumentation in Eclipse
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p> </p>
+                <p>Clover provides many ways to fine-tune instrumentation scope, which gives you an ability to
+                    concentrate your work on the most important code.</p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813720416 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813720416 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813720416 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813720416'>
+                    <ul class='toc-indentation'>
+                        <li>
+                            <a href='#id-4.ScopeofinstrumentationinEclipse-EnablinganddisablingCloverforselectedprojects'>Enabling
+                                and disabling Clover for selected projects</a></li>
+                        <li>
+                            <a href='#id-4.ScopeofinstrumentationinEclipse-EnablinganddisablinginstrumentationforClover-enabledprojects'>Enabling
+                                and disabling instrumentation for Clover-enabled projects</a></li>
+                        <li><a href='#id-4.ScopeofinstrumentationinEclipse-Excludingandincludingpackages'>Excluding and
+                            including packages</a></li>
+                        <li><a href='#id-4.ScopeofinstrumentationinEclipse-Excludingandincludingfiles'>Excluding and
+                            including files</a></li>
+                        <li><a href='#id-4.ScopeofinstrumentationinEclipse-Excludingcertainblocksofcode'>Excluding
+                            certain blocks of code</a></li>
+                        <li>
+                            <a href='#id-4.ScopeofinstrumentationinEclipse-Excludingmethodsandstatementsmatchingregularexpression'>Excluding
+                                methods and statements matching regular expression</a></li>
+                        <li><a href='#id-4.ScopeofinstrumentationinEclipse-Excludingarbitrarylinesofcode'>Excluding
+                            arbitrary lines of code</a></li>
+                        <li><a href='#id-4.ScopeofinstrumentationinEclipse-Settinginstrumentationdetaillevel'>Setting
+                            instrumentation detail level</a></li>
+                        <li>
+                            <a href='#id-4.ScopeofinstrumentationinEclipse-ShowingClovercoverageannotationsinJavasourceeditors'>Showing
+                                Clover coverage annotations in Java source editors</a></li>
+                    </ul>
+                </div>
+                </p><p> </p><h4 id="id-4.ScopeofinstrumentationinEclipse-EnablinganddisablingCloverforselectedprojects">
+                Enabling and disabling Clover for selected projects</h4>
+                <p>If you want to completely disable Clover support for a project (which will remove it from the three
+                    Clover views, remove all Clover data etc), then right click on the project and select <em>&quot;Clover
+                        &gt; Disable on this Project&quot;</em>. If you wish to enable/disable Clover on multiple
+                    projects, right click on one of them and select<em> &quot;Clover | Enable/Disable on...&quot;</em>
+                    and select the projects you wish to have Clover enabled/disabled for.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667015/297600101.png"
+                                                                       data-image-src="attachments/297667015/297600101.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600101"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="clover_enable_on_projects.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667015"
+                                                                       data-linked-resource-container-version="14"></span>
+                </p>
+                <p> </p><h4
+                    id="id-4.ScopeofinstrumentationinEclipse-EnablinganddisablinginstrumentationforClover-enabledprojects">
+                Enabling and disabling instrumentation for Clover-enabled projects</h4>
+                <p>In order to track the code coverage of your projects, Clover must insert special code into your
+                    programs at compilation time - called instrumentation - to record this coverage. When Clover is
+                    enabled on your projects, Clover will automatically perform this task for every file you compile in
+                    the project. You can tell Clover not to instrument your projects by:</p>
+                <ul>
+                    <li>right clicking on them in the <em>Coverage Explorer</em> or <em>Test Run Explorer</em> views and
+                        deselecting <em>&quot;Compiled with Clover&quot;</em> option or
+                    </li>
+                </ul>
+                <p style="margin-left: 60.0px;"><span class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image" src="attachments/297667015/297600103.png"
+                        data-image-src="attachments/297667015/297600103.png" data-unresolved-comment-count="0"
+                        data-linked-resource-id="297600103" data-linked-resource-version="1"
+                        data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="clover_toggle_on_off_from_context_menu.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="297667015"
+                        data-linked-resource-container-version="14"></span></p>
+                <ul>
+                    <li>selecting them in the <em>Coverage Explorer</em> or <em>Test Run Explorer</em> views and
+                        clicking <em>&quot;Toggle whether Clover Instrumentation...&quot;</em> button
+                    </li>
+                </ul>
+                <p style="margin-left: 60.0px;"><span class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image" src="attachments/297667015/297600102.png"
+                        data-image-src="attachments/297667015/297600102.png" data-unresolved-comment-count="0"
+                        data-linked-resource-id="297600102" data-linked-resource-version="1"
+                        data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="clover_toggle_on_off.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="297667015"
+                        data-linked-resource-container-version="14"></span></p>
+                <p> </p><h4 id="id-4.ScopeofinstrumentationinEclipse-Excludingandincludingpackages">Excluding and
+                including packages</h4>
+                <p>Right click on a package in <em>Package Explorer</em> view, choose <em>&quot;Clover &gt;
+                    Include/Exclude &lt;package name&gt;&quot;</em> from context menu.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667015/297600104.png"
+                                                                       data-image-src="attachments/297667015/297600104.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600104"
+                                                                       data-linked-resource-version="2"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="scope_exclude_package.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667015"
+                                                                       data-linked-resource-container-version="14"></span>
+                </p>
+                <p> </p><h4 id="id-4.ScopeofinstrumentationinEclipse-Excludingandincludingfiles">Excluding and including
+                files</h4>
+                <p>Right click on a file in <em>Package Explorer</em> view, choose <em>&quot;Clover &gt; Include/Exclude
+                    &lt;file name&gt;&quot;</em> from context menu.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667015/297600104.png"
+                                                                       data-image-src="attachments/297667015/297600104.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600104"
+                                                                       data-linked-resource-version="2"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="scope_exclude_package.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667015"
+                                                                       data-linked-resource-container-version="14"></span>
+                </p>
+                <p> </p><h4 id="id-4.ScopeofinstrumentationinEclipse-Excludingcertainblocksofcode">Excluding certain
+                blocks of code</h4>
+                <p>Right click on a project in <em>Package Explorer</em> view, choose <em>&quot;Properties&quot;</em>
+                    from context menu, next <em>&quot;Clover &gt; Instrumentation&quot;</em> tab.</p>
+                <p>In the <em>Standard Coverage Context Filters</em> you can choose Java language constructs or coding
+                    patterns to be excluded. The most interesting are:</p>
+                <ul>
+                    <li>assert statements</li>
+                    <li>catch body</li>
+                    <li>finally body</li>
+                    <li>private methods (all methods having private keyword)</li>
+                    <li>property methods (all methods having name like getXyz() / setXyz() / isXyz(), being public and
+                        having no arguments for isXyz/getXyz)
+                    </li>
+                </ul>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667015/297600106.png"
+                                                                       data-image-src="attachments/297667015/297600106.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600106"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="block_contexts.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667015"
+                                                                       data-linked-resource-container-version="14"></span>
+                </p>
+                <p> </p><h4
+                    id="id-4.ScopeofinstrumentationinEclipse-Excludingmethodsandstatementsmatchingregularexpression">
+                Excluding methods and statements matching regular expression</h4>
+                <p>Right click on a project in <em>Package Explorer</em> view, choose <em>&quot;Properties&quot;</em>
+                    from context menu, next <em>&quot;Clover &gt; Instrumentation&quot;</em> tab.</p>
+                <p>In the <em>Custom Coverage Context Filters </em>you can define regular expressions for method
+                    signatures and statements.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667015/297600107.png"
+                                                                       data-image-src="attachments/297667015/297600107.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600107"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="scope_method_filter.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667015"
+                                                                       data-linked-resource-container-version="14"></span>
+                </p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667015/297600108.png"
+                                                                       data-image-src="attachments/297667015/297600108.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600108"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="scope_statement_filter.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667015"
+                                                                       data-linked-resource-container-version="14"></span>
+                </p>
+                <p> </p><h4 id="id-4.ScopeofinstrumentationinEclipse-Excludingarbitrarylinesofcode">Excluding arbitrary
+                lines of code</h4>
+                <p>Put &quot;///CLOVER:OFF&quot; and &quot;///CLOVER:ON&quot; in source code (note that three slashes
+                    are used) to exclude given sections.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667015/297600109.png"
+                                                                       data-image-src="attachments/297667015/297600109.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600109"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="scope_clover_on_off.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667015"
+                                                                       data-linked-resource-container-version="14"></span>
+                </p>
+                <p> </p><h4 id="id-4.ScopeofinstrumentationinEclipse-Settinginstrumentationdetaillevel">Setting
+                instrumentation detail level</h4>
+                <p><strong>Left click</strong> on a project in Coverage Explorer view. A pop-up will show with &quot;Instrument
+                    and compile at&quot; having two options:</p>
+                <ul>
+                    <li><strong>statement level</strong> - it is a recommended setting as it gives the most accurate
+                        information about code coverage; Clover will record information about: method calls, statement
+                        calls and whether given branch was evaluated to true/false.
+                    </li>
+                    <li><strong>method level</strong> - it records only whether given method was called or not; this
+                        option can be useful for very large projects (as it produces smaller instrumentation overhead
+                        and code compilation is faster) or when you need just rough information about coverage
+                    </li>
+                </ul>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667015/301007775.png"
+                                                                       data-image-src="attachments/297667015/301007775.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301007775"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="eclipse_instrument_and_compile_at.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667015"
+                                                                       data-linked-resource-container-version="14"></span>
+                </p>
+                <p> </p><h4
+                    id="id-4.ScopeofinstrumentationinEclipse-ShowingClovercoverageannotationsinJavasourceeditors">
+                Showing Clover coverage annotations in Java source editors</h4>
+                <p>If you wish to temporarily disable the red/green code coverage annotations in your Java source
+                    editors (but wish to continue using Clover on your projects), you can simple toggle one of three
+                    toggles:</p>
+                <ul>
+                    <li>&quot;Show All&quot;</li>
+                    <li>&quot;Show Uncovered&quot;</li>
+                    <li>&quot;Show None&quot;</li>
+                </ul>
+                <p>This setting applies to all Clover-enabled projects in the workspace.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667015/297600110.png"
+                                                                       data-image-src="attachments/297667015/297600110.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600110"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="clover_coverage_annotations.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667015"
+                                                                       data-linked-resource-container-version="14"></span>
+                </p>
+                <p> </p>
+                <hr/>
+                <p>Now you have your project instrumentation tuned to your needs. Are you looking for more tweaks? Read
+                    the <a href="eclipse--configuration-options.html">5. Eclipse configuration options</a>
+                    chapter.</p>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

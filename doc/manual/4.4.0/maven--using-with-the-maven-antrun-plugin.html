@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Using Clover via the maven-antrun-plugin</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Using Clover via the maven-antrun-plugin
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>Any of Clover's Ant Tasks may be used directly from within Maven by using the <a
+                         href="http://maven.apache.org/plugins/maven-antrun-plugin/"
+                        rel="nofollow">maven-antrun-plugin</a>.</p>
+                <p>Specifically, if you wanted to use the <a href="ant--clover-check.html">clover-check</a> task to
+                    ensure that a particular package maintains a given coverage percentage, you could use the following
+                    configuration in Maven:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>&lt;profile&gt;
+     &lt;id&gt;clover.check&lt;/id&gt;
+            &lt;build&gt;
+                &lt;plugins&gt;
+                    &lt;plugin&gt;
+                        &lt;artifactId&gt;maven-antrun-plugin&lt;/artifactId&gt;
+                        &lt;dependencies&gt;
+                            &lt;dependency&gt;
+                                &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+                                &lt;artifactId&gt;clover&lt;/artifactId&gt;
+                                &lt;version&gt;4.4.0&lt;/version&gt; &lt;!-- Ensure you use the same version as the clover-maven-plugin --&gt;
+                            &lt;/dependency&gt;
+                        &lt;/dependencies&gt;
+                        &lt;executions&gt;
+                            &lt;execution&gt;
+                                &lt;phase&gt;verify&lt;/phase&gt;
+                                &lt;configuration&gt;
+                                    &lt;tasks&gt;
+                                        &lt;taskdef resource=&quot;cloverlib.xml&quot; classpathref=&quot;maven.plugin.classpath&quot;/&gt;
+                                        &lt;clover-setup initString=&quot;${project.build.directory}/clover/clover.db&quot;/&gt;
+                                        &lt;clover-check filter=&quot;${clover.filter}&quot; haltOnFailure=&quot;true&quot;&gt;
+                                            &lt;package name=&quot;com.mypkg&quot; target=&quot;100%&quot;/&gt; &lt;!-- Check that com.mypkg always has 100% code coverage --&gt;
+                                        &lt;/clover-check&gt;
+                                    &lt;/tasks&gt;
+                                &lt;/configuration&gt;
+                                &lt;goals&gt;
+                                    &lt;goal&gt;run&lt;/goal&gt;
+                                &lt;/goals&gt;
+                            &lt;/execution&gt;
+                        &lt;/executions&gt;
+                    &lt;/plugin&gt;
+                &lt;/plugins&gt;
+            &lt;/build&gt;
+&lt;/profile&gt;
+</pre>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

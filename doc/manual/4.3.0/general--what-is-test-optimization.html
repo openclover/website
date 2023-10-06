@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : About Test Optimization</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="general--about-openclover.html">About Clover</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            About Test Optimization
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>This page explains Clover's Test Optimization feature and gives a brief explanation of how it works.
+                    See the <a href="ant--test-optimization-quick-start-guide.html">Test Optimization Quick
+                        Start Guide for Ant</a> for practical instructions.</p>
+                <p><em>On this page</em>:</p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813706185 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813706185 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813706185 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813706185'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#AboutTestOptimization-WhatisTestOptimization?'>What is Test Optimization?</a></li>
+                        <li><a href='#AboutTestOptimization-HowTestOptimizationWorks'>How Test Optimization Works</a>
+                        </li>
+                        <li><a href='#AboutTestOptimization-SupportedTestEnvironmentsforTestOptimization'>Supported Test
+                            Environments for Test Optimization</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#AboutTestOptimization-Ant'>Ant</a></li>
+                                <li><a href='#AboutTestOptimization-Maven2&amp;3'>Maven 2 &amp; 3</a></li>
+                                <li><a href='#AboutTestOptimization-Eclipse'>Eclipse</a></li>
+                                <li><a href='#AboutTestOptimization-IDEA'>IDEA</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#AboutTestOptimization-Exemplaryresults'>Exemplary results</a></li>
+                        <li><a href='#AboutTestOptimization-RelatedLinks'>Related Links</a></li>
+                    </ul>
+                </div>
+                </p><h2 id="AboutTestOptimization-WhatisTestOptimization?">What is Test Optimization?</h2>
+                <p>Test optimization will make a build potentially complete a lot faster than a full build and test run.
+                    It should do this without substantially compromising the quality of the feedback it gives; in other
+                    words a quicker pass or fail result, but a reasonably accurate pass or fail.</p>
+                <p>There are two ways of ensuring a build completes quickly:</p>
+                <p>1. Run only the tests required to confirm the validity of the changes that triggered the build.<br/>
+                    2. Run all the tests but in an optimal order: any failed tests from the previous build, all tests
+                    covering modified code, then in ascending order by test invocation time.</p>
+                <p>Since Clover records which tests covered which lines of code, it can tell the build to only run tests
+                    that cover code modified since the last build.</p>
+                <h2 id="AboutTestOptimization-HowTestOptimizationWorks">How Test Optimization Works</h2>
+                <p>The following is a general outline of what is required to enable Clover to optimize the test and
+                    build process.</p>
+                <ol>
+                    <li>A full clean build is performed. Any existing Clover databases are removed.</li>
+                    <li>Clover performs instrumentation on all Java source files. The Clover registry is created.</li>
+                    <li>javac compiles the instrumented sources</li>
+                    <li>All unit tests are run. Coverage data is stored next to the Clover registry.</li>
+                    <li>A Clover snapshot is saved - this is essentially a mapping of application source files to the
+                        set of tests which hit each file.
+                    </li>
+                    <li><strong>Zero or more Java source files are modified, added or removed</strong></li>
+                    <li>Clover re-instruments either only the modified source files or all source files (depending on
+                        how Clover is invoked). The Clover registry is updated, and any files modified or added since
+                        the last snapshot are marked as such.
+                    </li>
+                    <li>Clover uses this information and the snapshot from the previous test run to determine which
+                        tests need rerunning.
+                    </li>
+                    <li>The test runner is invoked. Only tests obtained in #9 and any tests unknown to Clover (perhaps
+                        excluded from instrumentation) are run. Tests are ordered to encourage early failures.
+                    </li>
+                    <li>A snapshot is saved.</li>
+                    <li><strong>Go to step 7</strong> unless a maximum number of optimized builds has reached, <code>clover.jar</code>
+                        has changed between builds or some other build-specific condition signifies a full rebuild is
+                        required (e.g. configuration file changes) in which case <strong>go to step 1</strong>.
+                    </li>
+                </ol>
+                <h2 id="AboutTestOptimization-SupportedTestEnvironmentsforTestOptimization">Supported Test Environments
+                    for Test Optimization</h2>
+                <p>The following environments are supported for Test Optimization.</p>
+                <p>Your unit tests must be completely standalone and have no inter-test dependencies.</p>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Clover's Test Optimization features currently do
+                        not support Groovy.</p></div>
+                </div>
+                <h4 id="AboutTestOptimization-Ant">Ant</h4>
+                <ul>
+                    <li>Junit - using the &lt;batchset/&gt; element nested in the Ant &lt;junit/&gt; task to select
+                        tests to be run.
+                    </li>
+                    <li>Junit TestSuites are currently not supported.</li>
+                    <li>TestNG is unsupported by Test Optimization for Clover for Ant.</li>
+                    <li>If your tests run in a separate JVM to your application, you will need to <a
+                            href="ant--using-distributed-per-test-coverage.html">enable
+                        distributed coverage</a>.
+                    </li>
+                </ul>
+                <h4 id="AboutTestOptimization-Maven2&amp;3">Maven 2 &amp; 3</h4>
+                <ul>
+                    <li>Maven version 2.0.8+</li>
+                    <li>maven-surefire-plugin.</li>
+                    <li>JUnit TestSuites are currently not supported.</li>
+                    <li>TestNG test suites are currently not supported. (<strong>NB</strong> Will not work in Maven
+                        2.0.9)
+                    </li>
+                    <li>Parallel test execution is unsupported.</li>
+                    <li>If your tests run in a separate JVM to your application (e.g. in a forked web server), you will
+                        need to <a href="maven--using-distributed-per-test-coverage.html">enable distributed
+                            coverage</a>.
+                    </li>
+                </ul>
+                <h4 id="AboutTestOptimization-Eclipse">Eclipse</h4>
+                <ul>
+                    <li>JUnit test classes are supported but TestSuites are not currently supported.</li>
+                    <li>TestNG is not currently supported.</li>
+                    <li>Optimization of tests where they reside in different project to the application code is not
+                        currently supported (to be addressed in a future release).
+                    </li>
+                </ul>
+                <h4 id="AboutTestOptimization-IDEA">IDEA</h4>
+                <ul>
+                    <li>JUnit test classes are supported but TestSuites are not currently supported.</li>
+                    <li>TestNG is not currently supported.</li>
+                </ul>
+                <p> </p>
+                <h2 id="AboutTestOptimization-Exemplaryresults">Exemplary results</h2>
+                <p><strong><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
+                                data-emoticon-name="warning" alt="(warning)"/> The following is a sample from
+                    development of one of Atlassian products. Optimization results in your project(s) may vary.</strong>
+                </p>
+                <p>To see the benefits of Clover's Test Optimization, we have tracked build times on one Atlassian
+                    software development project. Over a 10 day period a development team committed 142 changesets as
+                    part of their ongoing development effort. For each changeset, two builds were triggered - a &quot;normal&quot;
+                    build, where all tests were executed, and a test-optimized build, where only relevant tests were
+                    executed. The following chart shows cumulative times for both the normal and test-optimized
+                    builds.</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <td class="confluenceTd"><p><span class="confluence-embedded-file-wrapper"><img
+                                    class="confluence-embedded-image" src="attachments/169119919/302944465.png"
+                                    data-image-src="attachments/169119919/302944465.png"
+                                    data-unresolved-comment-count="0" data-linked-resource-id="302944465"
+                                    data-linked-resource-version="1" data-linked-resource-type="attachment"
+                                    data-linked-resource-default-alias="build_times.png"
+                                    data-base-url="https://confluence.atlassian.com"
+                                    data-linked-resource-content-type="image/png"
+                                    data-linked-resource-container-id="169119919"
+                                    data-linked-resource-container-version="45"></span></p></td>
+                            <td class="confluenceTd"><p><em><br/></em></p>
+                                <p><em><br/></em></p>
+                                <p><em><br/></em></p>
+                                <p><em>Clover's test optimization was configured to perform full test run every 10
+                                    builds. </em></p>
+                                <p><em>This is a reason why you can see regular peaks in optimized build time.</em></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img
+                                    class="confluence-embedded-image" src="attachments/169119919/302944466.png"
+                                    data-image-src="attachments/169119919/302944466.png"
+                                    data-unresolved-comment-count="0" data-linked-resource-id="302944466"
+                                    data-linked-resource-version="1" data-linked-resource-type="attachment"
+                                    data-linked-resource-default-alias="build_times_cumulative.png"
+                                    data-base-url="https://confluence.atlassian.com"
+                                    data-linked-resource-content-type="image/png"
+                                    data-linked-resource-container-id="169119919"
+                                    data-linked-resource-container-version="45"></span></td>
+                            <td colspan="1" class="confluenceTd"><p> </p>
+                                <p> </p>
+                                <p> </p>
+                                <p><em>We have gained about 70% reduction of cumulative build time thanks to test
+                                    optimization.</em></p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd"><span class="confluence-embedded-file-wrapper"><img
+                                    class="confluence-embedded-image" src="attachments/169119919/302944467.png"
+                                    data-image-src="attachments/169119919/302944467.png"
+                                    data-unresolved-comment-count="0" data-linked-resource-id="302944467"
+                                    data-linked-resource-version="1" data-linked-resource-type="attachment"
+                                    data-linked-resource-default-alias="tests_run.png"
+                                    data-base-url="https://confluence.atlassian.com"
+                                    data-linked-resource-content-type="image/png"
+                                    data-linked-resource-container-id="169119919"
+                                    data-linked-resource-container-version="45"></span></td>
+                            <td colspan="1" class="confluenceTd"><p> </p>
+                                <p> </p>
+                                <p> </p>
+                                <p><em>Less than 10% of test cases (on average) were executed in optimized runs <br/>(i.e.
+                                    after a peak with a full test run).</em></p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p> </p>
+                <h2 id="AboutTestOptimization-RelatedLinks">Related Links</h2>
+                <ul>
+                    <li><a href="ant--test-optimization-quick-start-guide.html">Test Optimization Quick
+                        Start for Ant</a></li>
+                </ul>
+                <ul>
+                    <li><a href="maven--using-test-optimization.html">Test Optimization Quick Start for
+                        Maven 2</a></li>
+                </ul>
+                <ul>
+                    <li><a href="maven--best-practices.html">Clover for Maven 2 - Test Optimization Best
+                        Practices</a></li>
+                </ul>
+                <ul>
+                    <li><a href="idea--test-optimization.html">Test Optimization for IDEA</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

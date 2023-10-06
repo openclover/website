@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : Configuring a coverage goal</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Configuring a coverage goal
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h2 id="Configuringacoveragegoal-Settingcoveragethresholdasaqualitygate">Setting coverage threshold as a
+                    quality gate</h2>
+                <p>You can check that your test coverage has reached a certain threshold, and fail the build if it has
+                    not by adding a <code>targetPercentage</code> tag to your plugin configuration in
+                    <code>pom.xml</code>:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;configuration&gt;
+  ...
+  &lt;targetPercentage&gt;75%&lt;/targetPercentage&gt;
+  ...
+&lt;/configuration&gt;
+</pre>
+                    </div>
+                </div>
+                <p>You can then use the <a
+                                           href="../../maven/4.2.0/check-mojo.html"
+                                           rel="nofollow">clover:check</a> target to examine the Clover database and
+                    check that you have reached the coverage threshold.</p>
+                <p>If you want the build to succeed anyway (printing a warning to your log), use the command line option
+                    <code>-DfailOnViolation=false</code>.</p>
+                <h2 id="Configuringacoveragegoal-RatchetingUpCoverage">Ratcheting Up Coverage</h2>
+                <p>Clover can be configured to fail the build or warn you when the code coverage for a project drops
+                    relative to the previous build.</p>
+                <p>The steps to configure the <code>clover-maven-plugin</code> to do this are as follows:</p>
+                <ul>
+                    <li>specify the <a
+                                       href="../../maven/4.2.0/check-mojo.html#historyDir"
+                                       rel="nofollow">clover:historyDir</a> configuration for <a
+                                                                                                 href="../../maven/4.2.0/check-mojo.html"
+                                                                                                 rel="nofollow">clover:check</a>
+                    </li>
+                    <li>save a history point using the <a
+                                                          href="../../maven/4.2.0/save-history-mojo.html"
+                                                          rel="nofollow">clover:save-history</a> goal at report time.
+                        This will be used by the subsequent build.
+                    </li>
+                </ul>
+                <p>You can also optionally specify a <a
+                                                        href="../../maven/4.2.0/check-mojo.html#historyThreshold"
+                                                        rel="nofollow">historyThreshold</a> parameter which is the
+                    leeway used by <a
+                                      href="../../maven/4.2.0/check-mojo.html"
+                                      rel="nofollow">clover:check</a> when comparing the coverage with the previous
+                    build. </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

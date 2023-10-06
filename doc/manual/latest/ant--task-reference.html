@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : 6. Ant Task Reference</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            6. Ant Task Reference
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h1 id="id-6.AntTaskReference-InstallingtheCloverAntTasks">Installing the Clover Ant Tasks</h1>
+                <p>Clover provides a set of Ant tasks to make project integration easy. To make these tasks available in
+                    your project build file, you need to:</p>
+                <ul>
+                    <li><p>load the '<code>cloverlib.xml</code>' antlib by adding the following line to your build file:
+                    </p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;/path/to/clover.jar&quot;/&gt;
+</pre>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <p>Make sure you change the above &quot;<code>/path/to/clover.jar</code>&quot; to point directly to your
+                    clover.jar.</p>
+                <p>For further options, see also <a href="ant--installation-guide.html">Ant
+                    Installation Options</a>.</p>
+                <h1 id="id-6.AntTaskReference-Thetasks">The tasks</h1>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;
+                            </p></td>
+                            <td class="confluenceTd"><p>Installs Clover as the Ant <code>build.compiler</code>. This
+                                means that Clover will be invoked whenever the Ant <code>&lt;javac&gt;</code> is used,
+                                resulting in instrumented compilation.</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd"><p>&lt;<a href="ant--clover-instr.html">clover-instr</a>&gt;
+                            </p></td>
+                            <td colspan="1" class="confluenceTd"><p>Allows manual instrumentation of source files, for
+                                cases where the normal &lt;<code>clover-setup</code>&gt; integration approach can't be
+                                used.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-report.html">clover-report</a>&gt;
+                            </p></td>
+                            <td class="confluenceTd"><p>Produces coverage reports in different formats.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-html-report.html">clover-html-report</a>&gt;
+                            </p></td>
+                            <td class="confluenceTd"><p>Generates a HTML report with default settings.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>&lt;<a
+                                    href="ant--clover-pdf-report.html">clover-pdf-report</a>&gt;</p></td>
+                            <td class="confluenceTd"><p>Generates a PDF report with default settings.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-historypoint.html">clover-historypoint</a>&gt;
+                            </p></td>
+                            <td class="confluenceTd"><p>Records a coverage history point for use in historical coverage
+                                reports.</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">&lt;<a href="ant--clover-snapshot.html">clover-snapshot</a>&gt;
+                            </td>
+                            <td colspan="1" class="confluenceTd">Generates a snapshot file used to assist Clover in
+                                optimizing the tests run in subsequent build.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-merge.html">clover-merge</a>&gt;
+                            </p></td>
+                            <td class="confluenceTd"><p>Merges several Clover databases into one, to allow for combined
+                                reports to be generated.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-check.html">clover-check</a>&gt;
+                            </p></td>
+                            <td class="confluenceTd"><p>Tests project/package code coverage against criteria, optionally
+                                failing the build if the criteria are not met.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-log.html">clover-log</a>&gt;</p>
+                            </td>
+                            <td class="confluenceTd"><p>Reports coverage results to the console at various levels.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-clean.html">clover-clean</a>&gt;
+                            </p></td>
+                            <td class="confluenceTd"><p>Deletes the coverage database and/or associated coverage
+                                records.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-env.html">clover-env</a>&gt;</p>
+                            </td>
+                            <td class="confluenceTd"><p>This task imports several useful Ant targets that can help you
+                                quickly integrate Clover into many common Ant builds.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

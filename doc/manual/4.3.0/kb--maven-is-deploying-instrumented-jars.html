@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Maven is deploying instrumented jars</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--troubleshooting-maven.html">Troubleshooting Maven</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Maven is deploying instrumented jars
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="Mavenisdeployinginstrumentedjars-Symptoms">Symptoms</h4>
+                <p>A Maven project with clover-maven-plugin configured with the <em><strong>clover:setup</strong> </em>goal.
+                </p>
+                <p>When &quot;mvn deploy&quot; command is used, Maven deploys a JAR which contains classes instrument by
+                    Clover.</p>
+                <p> </p><h4 id="Mavenisdeployinginstrumentedjars-Cause">Cause</h4>
+                <p>The <em><strong>clover:setup</strong> </em>goal performs instrumentation in the main life cycle
+                    build. This is normal behavior.</p>
+                <p> </p><h4 id="Mavenisdeployinginstrumentedjars-Resolution">Resolution</h4>
+                <p>You can use:</p>
+                <ul>
+                    <li><em>&quot;clover:instrument&quot;</em> goal, which forks a parallel build life cycle and creates
+                        a second set of artifacts with &quot;-clover&quot; suffix; thanks to this non-instrumented and
+                        instrumented code is separated; however artifacts having custom classifiers may not be installed
+                        correctly (see <a  href="https://jira.atlassian.com/browse/CLOV-1668"
+                                          rel="nofollow">CLOV-1668</a>)
+                    </li>
+                    <li><em>&quot;clover:instrument-test&quot;</em> goal, which forks a parallel life cycle, but runs it
+                        till the &quot;test&quot; phase; thus instrumented artifacts are not installed
+                    </li>
+                    <li><em>&quot;clover:setup&quot;</em> goal configured in a profile and execute two separate builds
+                        (for example <em>&quot;mvn clean install -Pwith.clover&quot;</em> and <em>&quot;mvn clean deploy&quot;</em>)
+                    </li>
+                </ul>
+                <p> <!--$body--></p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

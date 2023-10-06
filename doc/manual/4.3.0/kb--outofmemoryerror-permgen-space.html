@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OutOfMemoryError: PermGen space</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a
+                                href="kb--troubleshooting-performance.html">Troubleshooting Performance</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            OutOfMemoryError: PermGen space
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="OutOfMemoryError:PermGenspace-Symptoms">Symptoms</h4>
+                <p>Running a build with Clover results in OutOfMemory error (usually during test execution):</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">java.lang.OutOfMemoryError: PermGen space
+</pre>
+                    </div>
+                </div>
+                <h4 id="OutOfMemoryError:PermGenspace-Cause">Cause</h4>
+                <p>Possible causes are:</p>
+                <p><strong>1) Insufficient memory allocation for PermGen</strong></p>
+                <p>PermGen space keeps class definitions. Due to a fact that:</p>
+                <ul>
+                    <li>Clover generates one helper class for every top-level class being instrumented and</li>
+                    <li>Clover adds extra method call for every method, statement and branch in your original code</li>
+                </ul>
+                <p>the memory requirement for PermGen space grows up. How much? It's roughly:</p>
+                <ul>
+                    <li>for helper classes - 3kB * number of classes in your app</li>
+                    <li>for instrumented classes - 2 * original class size</li>
+                </ul>
+                <p>Therefore, doubling PermGen size is usually sufficient.</p>
+                <p> </p>
+                <p><strong>2) Memory leak in PermGen space</strong></p>
+                <p>This can happen when you have a long running process (such us an application server) and you deploy
+                    multiple times a new version of an application into it (without restarting the process). It can
+                    happen that classes from old application will not be deallocated. See this article for more details:
+                    <a  href="http://plumbr.eu/blog/what-is-a-permgen-leak" rel="nofollow">http://plumbr.eu/blog/what-is-a-permgen-leak</a>.
+                </p><h4 id="OutOfMemoryError:PermGenspace-Resolution">Resolution</h4>
+                <p>The required memory can be increased by setting the <code>-XX:MaxPermSize</code> setting on the JVM.
+                    Add proper toggle for 'java' command call or set JAVA_OPTS, ANT_OPTS, MAVEN_OPTS depending on the
+                    build tool you use.</p>
+                <div class="confluence-information-macro confluence-information-macro-note"><p class="title">Forking
+                    Processes</p><span
+                        class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>It's important to note that some Maven plugins
+                        (such as Surefire or Failsafe) will fork the JVM process and <code>MAVEN_OPTS</code> may not
+                        take effect. If you are experiencing issues using Maven plugins even after you've set <code>MAVEN_OPTS</code>
+                        for your build, you will likely need to set the <code>-XX:MaxPermSize</code> setting in the
+                        respective plugin configurations.</p></div>
+                </div>
+                <p> </p>
+                <p><strong>Example for maven-surefire-plugin</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;plugin&gt;
+  &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+  &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+  &lt;configuration&gt;
+    &lt;argLine&gt;-Xmx512m -XX:MaxPermSize=256m&lt;/argLine&gt;
+  &lt;/configuration&gt;
+&lt;/plugin&gt;
+</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="OutOfMemoryError:PermGenspace-Exampleformaven-cargo-plugin">Example for
+                maven-cargo-plugin</h4>
+                <p>If you are using the <a  href="http://cargo.codehaus.org/Maven2+plugin"
+                                           rel="nofollow">Maven Cargo plugin</a>, add the following in the <code>&lt;systemProperties/&gt;</code>
+                    element of the Maven Cargo plugin:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;cargo.jvmargs&gt;-Xmx512m -XX:MaxPermSize=256m&lt;/cargo.jvmargs&gt;
+</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p> </p><!--$body-->
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

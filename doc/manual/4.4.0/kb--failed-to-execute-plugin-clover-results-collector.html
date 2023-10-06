@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Failed to execute plugin &#39;Clover Results Collector&#39;</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--troubleshooting-bamboo.html">Troubleshooting Bamboo</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Failed to execute plugin &#39;Clover Results Collector&#39;
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h3 id="Failedtoexecuteplugin&#39;CloverResultsCollector&#39;-Symptoms">Symptoms</h3>
+                <p>Bamboo with Clover is used. Clover tab is not visible for a Job. Clover statistics are not available
+                    in build Metadata after the build. Build log contains an error message like this:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>Running post build plugin &#39;Clover Results Collector&#39;
+Failed to execute plugin &#39;Clover Results Collector&#39; with error: No file matches the specified pattern:target/site/clover\**\clover.xml in [&lt;bamboo_home&gt;\xml-data\build-dir\AA-BB-JOB1]</pre>
+                    </div>
+                </div>
+                <h3 id="Failedtoexecuteplugin&#39;CloverResultsCollector&#39;-Cause">Cause</h3>
+                <p><strong>1) Build has failed causing that not all Clover's goals have been called</strong></p>
+                <ul>
+                    <li>the &quot;Automatically integrate Clover into this build&quot; is used</li>
+                    <li>automatic Clover integration adds extra goals to the Maven command line, such as <em>&quot;clover:setup
+                        verify clover:aggregate clover:clover&quot;</em></li>
+                    <li>build fails in the <strong><em>test</em> </strong>phase due to test failures</li>
+                    <li>Maven breaks the build, as a consequence latter goals <em>(clover:aggregate clover:clover)</em>
+                        are not called, Clover reports are not generated
+                    </li>
+                    <li>as report is unavailable, the &quot;Failed to execute Clover Results Collector&quot; error
+                        appears at the end of the build
+                    </li>
+                </ul>
+                <p>or</p>
+                <p><strong><br/></strong></p>
+                <p><strong>2) Clover's XML report was written do a directory different than defined in Job configuration
+                    (manual integration)</strong></p>
+                <ul>
+                    <li>manual Clover integration is configured</li>
+                    <li>path to XML report is declared (Job configuration &gt; Miscellaneous tab &gt; Clover XML
+                        Location field)
+                    </li>
+                    <li>a build succeeds and a build log shows that Clover's XML report has been generated</li>
+                    <li>but path from a build log does not match the path configured (for instance: build was performed
+                        in a subdirectory or there is a typo in the path)
+                    </li>
+                    <li>as a consequence, the &quot;Failed to execute Clover Results Collector&quot; error appears</li>
+                </ul>
+                <p>or</p>
+                <p><strong>3) Clover Results Collector tries to find an XML file in a wrong subdirectory (automatic
+                    integration)</strong></p>
+                <ul>
+                    <li>automatic Clover integration is enabled</li>
+                    <li>Job contains several tasks, one or more tasks has the &quot;working subdirectory&quot; field
+                        filled
+                    </li>
+                    <li>build succeeds, the XML report is being written to one subdirectory, but the Clover Results
+                        Collector searches for it in another subdirectory
+                    </li>
+                    <li>as a consequence, the &quot;Failed to execute Clover Results Collector&quot; error appears</li>
+                </ul>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <h3 id="Failedtoexecuteplugin&#39;CloverResultsCollector&#39;-Resolution">Resolution</h3>
+                <p><strong>ad 1) Do not fail a build in case of test failures</strong></p>
+                <ul>
+                    <li>set the maven.test.failure.ignore=true property for Surefire plugin or</li>
+                    <li>set the <a
+                                   href="../../maven/4.4.0/setup-mojo.html#setTestFailureIgnore"
+                                   rel="nofollow">setTestFailureIgnore</a>=true property for Clover plugin (which sets
+                        several common properties)
+                    </li>
+                </ul>
+                <p> </p>
+                <p><strong>ad 2) Ensure that XML location is correct</strong></p>
+                <ul>
+                    <li>either correct &quot;Clover XML Location&quot; field</li>
+                    <li>or define custom location for Clover reports in Maven Task - see the <a
+                                                                                                href="../../maven/4.4.0/setup-mojo.html"
+                                                                                                rel="nofollow">clover:setup</a>
+                        goal
+                    </li>
+                </ul>
+                <p> </p>
+                <p><strong>ad 3) Ensure that first non-VCS checkout task has the working directory same the one where
+                    XML report is being written to</strong></p>
+                <p>When the automatic integration is enabled, the Bamboo Clover Plugin takes a first task which is not a
+                    VCS checkout one from a list of tasks declared in a Job. A working subdirectory declared in this
+                    task is assumed to be a root folder in which the Clover Results Collector searches for the
+                    clover.xml file. Next, to this working subdirectory the plugin appends one of the following
+                    patterns, depending on the task type:</p>
+                <ul>
+                    <li>/clover/**/clover.xml - for Ant tasks</li>
+                    <li>/target/clover/report/**/clover.xml - for Grails tasks</li>
+                    <li>/target/site/clover/**/clover.xml - for Maven tasks</li>
+                </ul>
+                <p>For this reason, if one of your tasks generates a Clover report, please ensure that the first task
+                    (after the &quot;VCS checkout&quot; ones) has the same working directory as the task generating the
+                    report. You can, for example:</p>
+                <ul>
+                    <li>change working subdirectory used in tasks, </li>
+                    <li>change order of tasks,</li>
+                    <li>add an empty task after the &quot;VCS Checkout&quot; one with a proper working subdirectory.
+                    </li>
+                </ul>
+                <p> </p><!--$body-->
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

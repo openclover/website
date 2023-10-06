@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : Performance Tuning in Clover for Eclipse</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="eclipse--overview.html">Clover-for-Eclipse</a></span>
+                    </li>
+                    <li>
+                        <span><a href="eclipse--user-guide.html">Clover-for-Eclipse User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="9.-Eclipse-advanced-topics_297667027.html">9. Eclipse advanced topics</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Performance Tuning in Clover for Eclipse
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>Since every project varies in size and speed, Clover may need to be configured to work best for your
+                    project.</p>
+                <h3 id="PerformanceTuninginCloverforEclipse-Clover-for-EclipseMemoryAllocation">Clover-for-Eclipse
+                    Memory Allocation</h3>
+                <p>Tracking code coverage for a project, particularly per-test code coverage for large projects can
+                    consume a good deal of memory. If things are running too slowly with Clover enabled, consider
+                    boosting the memory allocated to your Eclipse installation.</p>
+                <p>If your workspace contains a lot of projects, we recommend you incrementally enable Clover on them
+                    rather than enabling it on all of them at once. Doing it in stages will allow you to determine how
+                    many your current memory settings can accommodate.</p>
+                <p>By default Clover-for-Eclipse will keep its memory usage as low as possible but this may cause code
+                    coverage to take a bit longer to be updated after a test run. If you believe you have sufficient
+                    memory to load all the per-test coverage data into memory and get faster coverage feedback, consider
+                    switching on the '<strong>Keep per-test coverage data in memory</strong>' setting, as seen in the
+                    following screenshot:</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/189432810/648675345.png"
+                                                                       data-image-src="attachments/189432810/648675345.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="648675345"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="workspace_settings.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="189432810"
+                                                                       data-linked-resource-container-version="11"></span>
+                </p>
+                <p>If you use Clover-for-Eclipse purely for Test Optimization purposes and not for coverage reporting,
+                    you can reduce the granularity of Clover instrumentation from statement to method level. This will
+                    speed up instrumentation times, compilation times and test run times. To make this change, click on
+                    a project in the Coverage Explorer and alter its instrumentation level. A full rebuild is required
+                    after making this change.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/189432810/648675346.png"
+                                                                       data-image-src="attachments/189432810/648675346.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="648675346"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="project_settings.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="189432810"
+                                                                       data-linked-resource-container-version="11"></span>
+                </p>
+                <h3 id="PerformanceTuninginCloverforEclipse-RelatedLinks">Related Links</h3>
+                <p><a
+                      href="ant--runtime-performance-tuning.html" rel="nofollow">Clover
+                    Performance Tuning for Ant</a></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

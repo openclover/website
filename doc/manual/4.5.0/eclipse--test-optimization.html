@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : 7. Test Optimization for Eclipse</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="eclipse--overview.html">Clover-for-Eclipse</a></span>
+                    </li>
+                    <li>
+                        <span><a href="eclipse--user-guide.html">Clover-for-Eclipse User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            7. Test Optimization for Eclipse
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>This page explains how to set up Clover's Test Optimization feature in the Eclipse development
+                    environment.</p>
+                <p><em>On this page:</em></p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813721158 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813721158 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813721158 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813721158'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#id-7.TestOptimizationforEclipse-BeforeYouBegin'>Before You Begin</a></li>
+                        <li><a href='#id-7.TestOptimizationforEclipse-LaunchingTestOptimization'>Launching Test
+                            Optimization</a></li>
+                        <li><a href='#id-7.TestOptimizationforEclipse-MeasuringTestOptimizationResults'>Measuring Test
+                            Optimization Results</a></li>
+                        <li><a href='#id-7.TestOptimizationforEclipse-TestOptimizationSettings'>Test Optimization
+                            Settings</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#id-7.TestOptimizationforEclipse-SettingGlobalPreferences'>Setting Global
+                                    Preferences</a></li>
+                                <li><a href='#id-7.TestOptimizationforEclipse-SettingPer-launcherPreferences'>Setting
+                                    Per-launcher Preferences</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#id-7.TestOptimizationforEclipse-ConfigurationsUnsuitableForTestOptimization'>Configurations
+                            Unsuitable For Test Optimization</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#id-7.TestOptimizationforEclipse-LimitationswithMulti-ProjectSet-Ups'>Limitations
+                                    with Multi-Project Set-Ups</a></li>
+                                <li><a href='#id-7.TestOptimizationforEclipse-LimitationswithTestSuites'>Limitations
+                                    with Test Suites</a></li>
+                                <li><a href='#id-7.TestOptimizationforEclipse-LimitationswithTestingFrameworks'>Limitations
+                                    with Testing Frameworks</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#id-7.TestOptimizationforEclipse-Troubleshooting'>Troubleshooting</a></li>
+                    </ul>
+                </div>
+                </p><h2 id="id-7.TestOptimizationforEclipse-BeforeYouBegin">Before You Begin</h2>
+                <p>Before using Test Optimization with Clover-for-Eclipse, be aware of the following.</p>
+                <ul>
+                    <li>Test Optimization is available as a launch command, similar to '<strong>Run</strong>' or
+                        '<strong>Debug</strong>'.
+                    </li>
+                    <li>Test Optimization supports JUnit launch configurations only.</li>
+                    <li>Ensure you have Clover enabled on the project - when there is no Clover instrumentation, there
+                        is no Test Optimization.
+                    </li>
+                </ul>
+                <h2 id="id-7.TestOptimizationforEclipse-LaunchingTestOptimization">Launching Test Optimization</h2>
+                <p><strong>To establish Test Optimization in Clover-for-Eclipse, carry out one of the following
+                    actions</strong>:</p>
+                <ul>
+                    <li>Select a folder or package containing test classes and click the '<strong>Run Optimized</strong>'
+                        icon <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                                 src="attachments/185040929/185139222.png"
+                                                                                 data-image-src="attachments/185040929/185139222.png"
+                                                                                 data-unresolved-comment-count="0"
+                                                                                 data-linked-resource-id="185139222"
+                                                                                 data-linked-resource-version="1"
+                                                                                 data-linked-resource-type="attachment"
+                                                                                 data-linked-resource-default-alias="run_optimized.png"
+                                                                                 data-base-url="https://confluence.atlassian.com"
+                                                                                 data-linked-resource-content-type="image/png"
+                                                                                 data-linked-resource-container-id="185040929"
+                                                                                 data-linked-resource-container-version="43"></span>,
+                        OR
+                    </li>
+                    <li>Right-click on a folder or package containing test classes and select '<strong>Run Optimized As:
+                        JUnit Test</strong>', OR
+                    </li>
+                </ul>
+                <p><em>Screenshot: Launching a Build with Test Optimization from the Context Menu</em><br/> <span
+                        class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image confluence-content-image-border"
+                        src="attachments/185040929/185139235.png" data-image-src="attachments/185040929/185139235.png"
+                        data-unresolved-comment-count="0" data-linked-resource-id="185139235"
+                        data-linked-resource-version="1" data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="Run Optimized from context menu.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="185040929"
+                        data-linked-resource-container-version="43"></span></p>
+                <ul>
+                    <li>Select an existing launch configuration from the Run Optimized dropdown, OR</li>
+                </ul>
+                <p><em>Screenshot: Launching a Build with Test Optimization from the Drop-Down Menu</em><br/> <span
+                        class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image confluence-content-image-border"
+                        src="attachments/185040929/185139234.png" data-image-src="attachments/185040929/185139234.png"
+                        data-unresolved-comment-count="0" data-linked-resource-id="185139234"
+                        data-linked-resource-version="1" data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="Run Optimized dropdown2.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="185040929"
+                        data-linked-resource-container-version="43"></span></p>
+                <ul>
+                    <li>Create a Run Optimized configuration and execute it from the configuration dialog.</li>
+                </ul>
+                <p><em>Screenshot: Launching a Build with Test Optimization from the Configuration Dialog</em><br/>
+                    <span class="confluence-embedded-file-wrapper"><img
+                            class="confluence-embedded-image confluence-content-image-border"
+                            src="attachments/185040929/185139240.png"
+                            data-image-src="attachments/185040929/185139240.png" data-unresolved-comment-count="0"
+                            data-linked-resource-id="185139240" data-linked-resource-version="1"
+                            data-linked-resource-type="attachment"
+                            data-linked-resource-default-alias="Run Optimized dropdown.png"
+                            data-base-url="https://confluence.atlassian.com"
+                            data-linked-resource-content-type="image/png" data-linked-resource-container-id="185040929"
+                            data-linked-resource-container-version="43"></span></p>
+                <p><img class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
+                        data-emoticon-name="information" alt="(info)"/> When the Run Optimized button is used, Clover
+                    will run the configuration that was most recently run optimized.</p>
+                <h2 id="id-7.TestOptimizationforEclipse-MeasuringTestOptimizationResults">Measuring Test Optimization
+                    Results</h2>
+                <p>When Optimized tests are being run, the JUnit view displays additional info about savings (as shown
+                    in the screenshot below).</p>
+                <p><em>Screenshot: Pop-up Notification of Time Savings With Test Optimization</em><br/> <span
+                        class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image confluence-content-image-border"
+                        src="attachments/185040929/189202434.png" data-image-src="attachments/185040929/189202434.png"
+                        data-unresolved-comment-count="0" data-linked-resource-id="189202434"
+                        data-linked-resource-version="2" data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="Clover_2.5_Eclipse_Test_Optimization_Savings_Notification_Popup.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="185040929"
+                        data-linked-resource-container-version="43"></span></p>
+                <p>After Optimized tests run, Clover saves a snapshot file with coverage information that is used to
+                    optimize the following test runs.<br/> This file may be deleted using the Delete Snapshot icon <span
+                            class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                          src="attachments/185040929/185139223.png"
+                                                                          data-image-src="attachments/185040929/185139223.png"
+                                                                          data-unresolved-comment-count="0"
+                                                                          data-linked-resource-id="185139223"
+                                                                          data-linked-resource-version="1"
+                                                                          data-linked-resource-type="attachment"
+                                                                          data-linked-resource-default-alias="delete_snapshot.png"
+                                                                          data-base-url="https://confluence.atlassian.com"
+                                                                          data-linked-resource-content-type="image/png"
+                                                                          data-linked-resource-container-id="185040929"
+                                                                          data-linked-resource-container-version="43"></span>
+                    in the Coverage View (next to Delete Coverage Recordings button; you need to select a project
+                    first).</p>
+                <p><img class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
+                        data-emoticon-name="information" alt="(info)"/> The '<strong>Delete Coverage Recordings</strong>'
+                    button <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                               src="attachments/185040929/188383282.png"
+                                                                               data-image-src="attachments/185040929/188383282.png"
+                                                                               data-unresolved-comment-count="0"
+                                                                               data-linked-resource-id="188383282"
+                                                                               data-linked-resource-version="1"
+                                                                               data-linked-resource-type="attachment"
+                                                                               data-linked-resource-default-alias="delete_coverage_recordings.png"
+                                                                               data-base-url="https://confluence.atlassian.com"
+                                                                               data-linked-resource-content-type="image/png"
+                                                                               data-linked-resource-container-id="185040929"
+                                                                               data-linked-resource-container-version="43"></span>
+                    also clears the snapshot file.</p>
+                <p>The Delete Snapshot icon is disabled when the selected project does not have the snapshot file.<br/>
+                    Test Optimization would run all tests (no optimization) when the snapshot file is deleted or absent.
+                </p>
+                <h2 id="id-7.TestOptimizationforEclipse-TestOptimizationSettings">Test Optimization Settings</h2>
+                <p>The list below shows the settings available for Test Optimization.</p>
+                <ul>
+                    <li>Show dialog when no tests need to be run: when Test Optimization reduces amount of tests to 0,
+                        display a notification dialog. Otherwise JUnit silently does nothing.
+                    </li>
+                    <li>Discard snapshot every X compiles: when enabled, snapshot is re-generated every X compiles. This
+                        is the equivalent of Ant's '<strong>fullrunevery</strong>' setting.
+                    </li>
+                    <li>Minimize tests: main functionality. When disabled Clover only reorders tests, all of them are
+                        always run.
+                    </li>
+                    <li>Test reordering:
+                        <ul>
+                            <li>Do not reorder (means NOOP if Minimize Tests is also off)</li>
+                            <li>Failing tests first: reorder tests so that the ones which failed the last time Optimized
+                                Test was run are run first.
+                            </li>
+                            <li>Random order.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="id-7.TestOptimizationforEclipse-SettingGlobalPreferences">Setting Global Preferences</h3>
+                <p><em>Screenshot: Setting Global Preferences</em><br/> <span
+                        class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image confluence-content-image-border"
+                        src="attachments/185040929/185139242.png" data-image-src="attachments/185040929/185139242.png"
+                        data-unresolved-comment-count="0" data-linked-resource-id="185139242"
+                        data-linked-resource-version="1" data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="global preferences.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="185040929"
+                        data-linked-resource-container-version="43"></span></p>
+                <p>These are global (workspace-scope) preferences of Test Optimization; they are used as a template for
+                    per-launch configuration preferences, or used when launch configuration uses default settings.</p>
+                <h3 id="id-7.TestOptimizationforEclipse-SettingPer-launcherPreferences">Setting Per-launcher
+                    Preferences</h3>
+                <p><em>Screenshot: Running Optimized Configurations</em><br/> <span
+                        class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image confluence-content-image-border"
+                        src="attachments/185040929/185139241.png" data-image-src="attachments/185040929/185139241.png"
+                        data-unresolved-comment-count="0" data-linked-resource-id="185139241"
+                        data-linked-resource-version="2" data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="Run Optimized Configurations.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="185040929"
+                        data-linked-resource-container-version="43"></span> <br class="atl-forced-newline"/> <br
+                        class="atl-forced-newline"/> <em>Screenshot: The Run Optimized Drop-Down Menu</em><br/> <span
+                        class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image confluence-content-image-border"
+                        src="attachments/185040929/185139240.png" data-image-src="attachments/185040929/185139240.png"
+                        data-unresolved-comment-count="0" data-linked-resource-id="185139240"
+                        data-linked-resource-version="1" data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="Run Optimized dropdown.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="185040929"
+                        data-linked-resource-container-version="43"></span></p>
+                <p>Allows overriding the workspace settings for single launch config.</p>
+                <ul>
+                    <li>Use default settings: when set, use the workspace (global) settings.</li>
+                    <li>Copy defaults: copy workspace settings to current settings.</li>
+                </ul>
+                <h2 id="id-7.TestOptimizationforEclipse-ConfigurationsUnsuitableForTestOptimization">Configurations
+                    Unsuitable For Test Optimization</h2>
+                <p>Some configurations are not suitable for Test Optimization. Please see the following points for
+                    specific details.</p>
+                <h3 id="id-7.TestOptimizationforEclipse-LimitationswithMulti-ProjectSet-Ups">Limitations with
+                    Multi-Project Set-Ups</h3>
+                <p>Clover does not aggregate data across projects, so it is not possible to detect changed sources in
+                    projects other than the one the test is in. As a result, if your project contains tests that are
+                    dependent on other projects, any change in those projects would not be detected by Test Optimization
+                    and some tests that should be run will be 'optimized' too aggressively and not executed.</p>
+                <p>For more information, see this JIRA issue: <a
+                                                                 href="http://jira.atlassian.com/browse/CEP-297"
+                                                                 rel="nofollow">CEP-297</a>.</p>
+                <h3 id="id-7.TestOptimizationforEclipse-LimitationswithTestSuites">Limitations with Test Suites</h3>
+                <p>Clover does not recognize test suites as entities that should be optimized away. As the result test
+                    suites are always run (never optimized).<br/> If your test launch configuration includes both test
+                    suite and the test case (which is probably an incorrect configuration), then the test case would be
+                    run twice (normal behavior) or once (via test suite) when the test case is optimized away.</p>
+                <p>Resolution: Do not include test suites in launch configuration, add test cases directly.</p>
+                <p>For more information, see this JIRA issue: <a
+                                                                 href="http://jira.atlassian.com/browse/CEP-299"
+                                                                 rel="nofollow">CEP-299</a>.</p>
+                <h3 id="id-7.TestOptimizationforEclipse-LimitationswithTestingFrameworks">Limitations with Testing
+                    Frameworks</h3>
+                <p>Test Optimization is only supported with JUnit tests at this time.</p>
+                <h2 id="id-7.TestOptimizationforEclipse-Troubleshooting">Troubleshooting</h2>
+                <p>To troubleshoot Test Optimization in Clover-for-Eclipse, check through the following solutions:</p>
+                <ol>
+                    <li>If Clover is disabled for the project or generally Clover does not work for the project;<br/>
+                        <ul>
+                            <li>Check the project icon has the nice green Clover overlay.</li>
+                            <li>Check whether Coverage Explorer shows any coverage for the project.</li>
+                        </ul>
+                    </li>
+                    <li>If Clover has the test source settings wrong;<br/>
+                        <ul>
+                            <li>Check whether the Test Run Explorer shows any tests.</li>
+                            <li>Go to project Properties | Clover | Test Classes, make sure that either the Ant-style
+                                pattern or source folder list selects all your test classes properly.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>If Test Optimization does not work when your have tests in different project than the classes
+                        being tested;<br/>
+                        <ul>
+                            <li>This is a known issue. See this JIRA issue for more details: (<a
+                                                                                                 href="http://jira.atlassian.com/browse/CEP-297"
+                                                                                                 rel="nofollow">CEP-297</a>).
+                            </li>
+                        </ul>
+                    </li>
+                    <li>If your test case is run twice, or not optimized at all;<br/>
+                        <ul>
+                            <li>Clover does not support test suites. Make sure you don't try to run one, launch test
+                                cases directly (<a  href="http://jira.atlassian.com/browse/CEP-299"
+                                                   rel="nofollow">CEP-299</a>).
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                <p> </p>
+                <hr/>
+                <p>Next chapter: <a href="8.-Launching-an-Ant-build-from-Eclipse_180295964.html">8. Launching an Ant
+                    build from Eclipse</a>.</p>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

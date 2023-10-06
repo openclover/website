@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Using with Surefire and Failsafe Plugins</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Using with Surefire and Failsafe Plugins
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h2 id="UsingwithSurefireandFailsafePlugins-Introduction">Introduction</h2>
+                <p>Clover can be used to generate code coverage statistics from practically any kind of test - unit,
+                    integration, functional, regression ... - both automatic and manual. The only thing that has to be
+                    done is to instrument source code and run it with proper options.</p>
+                <p>The most frequent Clover usage is to run unit test with code coverage - typically the
+                    maven-surefire-plugin is used for this purpose - and thus Clover-for-Maven was designed to cooperate
+                    with Surefire plugin &quot;out of the box&quot;.</p>
+                <p>In this short tutorial you will learn how to configure Clover with the Maven Failsafe Plugin, which
+                    is used for integration tests.</p>
+                <h2 id="UsingwithSurefireandFailsafePlugins-Comparisonofmaven-surefire-pluginandmaven-failsafe-plugin">
+                    Comparison of maven-surefire-plugin and maven-failsafe-plugin</h2>
+                <p> </p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"> </th>
+                            <th class="confluenceTh">maven-surefire-plugin</th>
+                            <th class="confluenceTh">maven-failsafe-plugin</th>
+                        </tr>
+                        <tr>
+                            <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey">Main
+                                purpose
+                            </td>
+                            <td colspan="1" class="confluenceTd">unit tests</td>
+                            <td colspan="1" class="confluenceTd">integration tests</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-grey confluenceTd" data-highlight-colour="grey">Bound to build phase
+                            </td>
+                            <td class="confluenceTd">test</td>
+                            <td class="confluenceTd"><p>pre-integration-test</p>
+                                <p>integration-test</p>
+                                <p>post-integration-test</p>
+                                <p>verify</p></td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-grey confluenceTd" data-highlight-colour="grey">Build fails in phase
+                            </td>
+                            <td class="confluenceTd">test</td>
+                            <td class="confluenceTd">verify</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-grey confluenceTd" data-highlight-colour="grey">Default wildcard
+                                pattern
+                            </td>
+                            <td class="confluenceTd"><p>**/Test*.java</p>
+                                <p>**/*Test.java</p>
+                                <p>**/*TestCase.java</p></td>
+                            <td class="confluenceTd"><p>**/IT*.java</p>
+                                <p>**/*IT.java</p>
+                                <p>**/*ITCase.java</p></td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-grey confluenceTd" data-highlight-colour="grey">Default output
+                                directory
+                            </td>
+                            <td class="confluenceTd">${basedir}/target/surefire-reports</td>
+                            <td class="confluenceTd">${basedir}/target/failsafe-reports</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p> </p>
+                <h2 id="UsingwithSurefireandFailsafePlugins-SettingupCloverwithmaven-failsafe-plugin(only)">Setting up
+                    Clover with maven-failsafe-plugin (only)</h2>
+                <p>In order to have code coverage statistics from integration tests <em><strong>and excluding</strong>
+                    <strong>unit tests</strong></em>, you have to do the following:</p>
+                <ol>
+                    <li>Disable Surefire plugin, e.g. by setting &lt;skip&gt;true&lt;/skip&gt; option.</li>
+                    <li>Enable Failsafe plugin in your build<br/>
+                        <ol>
+                            <li>Failsafe plugin requires a test framework provider, e.g. JUnit or TestNG - declare it.
+                            </li>
+                        </ol>
+                    </li>
+                    <li>Tell Clover to use target/failsafe-reports as report directory - use the &lt;reportDescriptor&gt;
+                        for this.
+                    </li>
+                    <li>Tell Clover to use test case wildcard pattern for both plugins - use the &lt;reportDescriptor&gt;
+                        for this.
+                    </li>
+                    <li>Instrument sources, execute tests and generate reports<br/>
+                        <ol>
+                            <li>we recommend calling clover goals from command line (as typically projects are
+                                multi-module and we have to call clover:aggregate)
+                            </li>
+                            <li>we recommend calling &quot;verify&quot; target instead of &quot;integration-test&quot;
+                                (because when you call &quot;integration-test&quot;, the Failsafe plugin will not
+                                perform post-integration-test cleanup)
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+                <p> </p><h4 id="UsingwithSurefireandFailsafePlugins-Contentofpom.xml">Content of pom.xml</h4>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;dependencies&gt;
+    &lt;!-- Test framework which will be used by Failsafe plugin. Version number is mandatory --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;junit&lt;/groupId&gt;
+        &lt;artifactId&gt;junit&lt;/artifactId&gt;
+        &lt;version&gt;4.7&lt;/version&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;`
+            &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+            &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+            &lt;configuration&gt;
+                &lt;!-- Use custom report descriptor --&gt;
+                &lt;reportDescriptor&gt;clover-report.xml&lt;/reportDescriptor&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-failsafe-plugin&lt;/artifactId&gt;
+            &lt;executions&gt;
+                    &lt;execution&gt;
+                        &lt;goals&gt;
+                            &lt;goal&gt;integration-test&lt;/goal&gt;
+                            &lt;goal&gt;verify&lt;/goal&gt;
+                        &lt;/goals&gt;
+                    &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+            &lt;configuration&gt;
+                &lt;!-- Disable unit tests --&gt;
+                &lt;skip&gt;true&lt;/skip&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="UsingwithSurefireandFailsafePlugins-Contentofclover-report.xml">Content of
+                clover-report.xml</h4>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
+    &lt;!-- Initialize Clover --&gt;
+    &lt;clover-setup initString=&quot;${cloverdb}&quot;/&gt;
+    &lt;target name=&quot;historical&quot;&gt;
+        &lt;!-- Empty as we&#39;re not interested in historical reports right now --&gt;
+    &lt;/target&gt;
+    &lt;target name=&quot;current&quot;&gt;
+        &lt;clover-report&gt;
+            &lt;current outfile=&quot;${output}&quot; title=&quot;${title}&quot;&gt;
+                &lt;format type=&quot;html&quot;/&gt;
+                &lt;!-- Declare naming convention in order to have test classes listed on the &quot;Tests&quot; tab in HTML report --&gt;
+                &lt;testsources dir=&quot;src/test&quot;&gt;
+                    &lt;!-- Use Maven-Failsafe-Plugin naming convention --&gt;
+                    &lt;include name=&quot;**/IT*.java&quot;/&gt;
+                    &lt;include name=&quot;**/*IT.java&quot;/&gt;
+                    &lt;include name=&quot;**/*ITCase.java&quot;/&gt;
+                    &lt;!-- Use Maven-Surefire-Pugin naming convention. 
+                    NOTE: Although we don&#39;t run unit tests, we still want to have them on &quot;Tests&quot; tab instead of &quot;Classes&quot; --&gt;
+                    &lt;include name=&quot;**/Test*.java&quot;/&gt;
+                    &lt;include name=&quot;**/*Test.java&quot;/&gt;
+                    &lt;include name=&quot;**/*TestCase.java&quot;/&gt;
+                &lt;/testsources&gt;
+                &lt;!-- Tell Clover to get test results from failsafe. They will be listed on &quot;Results&quot; tab --&gt;
+                &lt;testresults dir=&quot;target/failsafe-reports&quot; includes=&quot;TEST-*.xml&quot;/&gt;
+            &lt;/current&gt;
+        &lt;/clover-report&gt;
+    &lt;/target&gt;
+&lt;/project&gt;</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="UsingwithSurefireandFailsafePlugins-Mavencommand">Maven command</h4>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
+                             data-theme="Confluence">mvn clean clover:setup verify clover:aggregate clover:clover</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p> </p>
+                <h2 id="UsingwithSurefireandFailsafePlugins-SettingupCloverwithmaven-surefire-pluginandmaven-failsafe-plugin(combinedreport)">
+                    Setting up Clover with maven-surefire-plugin and maven-failsafe-plugin (combined report)</h2>
+                <p>In order to have combined coverage statistics from unit <em><strong>and</strong> </em>integration
+                    tests, you have to do the following:</p>
+                <ol>
+                    <li>Set &lt;reportsDirectory&gt; option for both Surefire and Failsafe plugin pointing to the same
+                        location.
+                    </li>
+                    <li>Enable both Surefire and Failsafe plugin in your build.<br/>
+                        <ol>
+                            <li>Failsafe plugin requires a test framework provider, e.g. JUnit or TestNG - declare it.
+                            </li>
+                        </ol>
+                    </li>
+                    <li>Tell Clover to use location from point 1 as report directory - use the &lt;reportDescriptor&gt;
+                        for this.
+                    </li>
+                    <li>Tell Clover to use test case wildcard pattern for both plugins - use the &lt;reportDescriptor&gt;
+                        for this.
+                    </li>
+                    <li>Instrument sources, execute tests and generate reports<br/>
+                        <ol>
+                            <li>we recommend calling clover goals from command line (as typically projects are
+                                multi-module and we have to call clover:aggregate)
+                            </li>
+                            <li>we recommend calling &quot;verify&quot; target instead of &quot;integration-test&quot;
+                                (because when you call &quot;integration-test&quot;, the Failsafe plugin will not
+                                perform post-integration-test cleanup)
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+                <p> </p><h4 id="UsingwithSurefireandFailsafePlugins-Contentofpom.xml.1">Content of pom.xml</h4>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;properties&gt;
+    &lt;!-- A common location in which a surefire report from &#39;test&#39; and failsafe report from
+    &#39;integration-test&#39; phase will be stored. See also the clover-report.xml file which refers
+    to this location --&gt;
+    &lt;surefire.and.failsafe.report.dir&gt;target/test-report&lt;/surefire.and.failsafe.report.dir&gt;
+&lt;/properties&gt;
+&lt;dependencies&gt;
+    &lt;!-- Test framework which will be used by Failsafe plugin. Version number is mandatory --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;junit&lt;/groupId&gt;
+        &lt;artifactId&gt;junit&lt;/artifactId&gt;
+        &lt;version&gt;4.7&lt;/version&gt;
+        &lt;scope&gt;test&lt;/scope&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+            &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+            &lt;configuration&gt;
+                &lt;!-- Use custom report descriptor --&gt;
+                &lt;reportDescriptor&gt;clover-report.xml&lt;/reportDescriptor&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-failsafe-plugin&lt;/artifactId&gt;
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;integration-test&lt;/goal&gt;
+                        &lt;goal&gt;verify&lt;/goal&gt;
+                    &lt;/goals&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+            &lt;configuration&gt;
+                &lt;reportsDirectory&gt;${surefire.and.failsafe.report.dir}&lt;/reportsDirectory&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+            &lt;configuration&gt;
+                &lt;reportsDirectory&gt;${surefire.and.failsafe.report.dir}&lt;/reportsDirectory&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="UsingwithSurefireandFailsafePlugins-Contentofclover-report.xml.1">Content of
+                clover-report.xml</h4>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
+    &lt;!-- Initialize Clover --&gt;
+    &lt;clover-setup initString=&quot;${cloverdb}&quot;/&gt;
+    &lt;target name=&quot;historical&quot;&gt;
+        &lt;!-- Empty as we&#39;re not interested in historical reports right now --&gt;
+    &lt;/target&gt;
+    &lt;target name=&quot;current&quot;&gt;
+        &lt;clover-report&gt;
+            &lt;current outfile=&quot;${output}&quot; title=&quot;${title}&quot;&gt;
+                &lt;format type=&quot;html&quot;/&gt;
+                &lt;!-- Declare naming convention in order to have test classes listed on the &quot;Test&quot; tab in HTML report --&gt;
+                &lt;testsources dir=&quot;src/test&quot;&gt;
+                    &lt;!-- Use Maven-Failsafe-Plugin naming convention --&gt;
+                    &lt;include name=&quot;**/IT*.java&quot;/&gt;
+                    &lt;include name=&quot;**/*IT.java&quot;/&gt;
+                    &lt;include name=&quot;**/*ITCase.java&quot;/&gt;
+                    &lt;!-- Use Maven-Surefire-Pugin naming convention --&gt;
+                    &lt;include name=&quot;**/Test*.java&quot;/&gt;
+                    &lt;include name=&quot;**/*Test.java&quot;/&gt;
+                    &lt;include name=&quot;**/*TestCase.java&quot;/&gt;
+                &lt;/testsources&gt;
+                &lt;!-- Tell Clover to get test results directory as defined in pom.xml. They will be listed on &quot;Results&quot; tab --&gt;
+                &lt;testresults dir=&quot;target/test-report&quot; includes=&quot;TEST-*.xml&quot;/&gt;
+            &lt;/current&gt;
+        &lt;/clover-report&gt;
+    &lt;/target&gt;
+&lt;/project&gt;</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="UsingwithSurefireandFailsafePlugins-Mavencommand.1">Maven command</h4>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
+                             data-theme="Confluence">mvn clean clover:setup verify clover:aggregate clover:clover</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h2 id="UsingwithSurefireandFailsafePlugins-Testoptimization">Test optimization</h2>
+                <p>Test Optimization feature is available for Surefire plugin. You you have to use:</p>
+                <ul>
+                    <li><a
+                           href="../../maven/4.4.0/optimize-mojo.html"
+                           rel="nofollow">clover:optimize</a> goal for maven-surefire-plugin used in 'test' phase
+                    </li>
+                    <li><a
+                           href="../../maven/4.4.0/optimizeIntegration-mojo.html"
+                           rel="nofollow">clover:optimizeIntegration</a> goal for maven-surefire-plugin used in
+                        'integration-test' phase
+                    </li>
+                </ul>
+                <p><strong><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
+                                data-emoticon-name="warning" alt="(warning)"/> Test Optimization feature for
+                    maven-failsafe-plugin is not available yet. See <a
+                            href="hacking--updating-optimization-snapshot-file.html">Hacking Clover / Updating
+                        optimization snapshot file</a> if you need a workaround. <br/></strong></p>
+                <h2 id="UsingwithSurefireandFailsafePlugins-Sampleproject">Sample project</h2>
+                <p>A sample project shows usage of Surefire and Failsafe plugins together.</p>
+                <p>Checkout code: <a
+                                                    href="https://github.com/openclover/clover-maven-plugin"
+                                                    rel="nofollow">https://github.com/openclover/clover-maven-plugin</a> 
+                </p>
+                <p>Go to: <strong>src/it/surefire-and-failsafe-plugins</strong></p>
+                <p>Run mvn command with goals as specified in <em>goals.txt</em> file in this project.</p>
+                <h2 id="UsingwithSurefireandFailsafePlugins-References">References</h2>
+                <p>See also:</p>
+                <ul>
+                    <li><a  href="http://maven.apache.org/plugins/maven-surefire-plugin/"
+                           rel="nofollow">maven-surefire-plugin</a></li>
+                    <li><a  href="http://maven.apache.org/plugins/maven-failsafe-plugin/"
+                           rel="nofollow">maven-failsafe-plugin</a></li>
+                    <li><a
+                           href="../../maven/4.4.0/clover-mojo.html#reportDescriptor"
+                           rel="nofollow">clover-mojo#reportDescriptor</a></li>
+                    <li><a href="ant--clover-report.html" rel="nofollow">clover-report</a>
+                        - <em>Ant task reference</em></li>
+                    <li><a  href="https://github.com/openclover/clover-maven-plugin"
+                           rel="nofollow">clover-maven-plugin</a>, file
+                        src/main/resources/default-clover-report.xml <em>- default report configuration used by
+                            clover:clover</em></li>
+                    <li><a href="ant--test-results-and-per-test-coverage.html">Unit Test Results and Per-Test
+                        Coverage</a></li>
+                </ul>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

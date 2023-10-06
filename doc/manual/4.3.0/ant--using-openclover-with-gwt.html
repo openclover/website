@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : Using Clover-for-Ant with GWT</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--integrating-openclover-with-other-tools.html">A. Integrating Clover-for-Ant with other tools</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Using Clover-for-Ant with GWT
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>You can instrument server-side code only. This is
+                        due to a nature of the Google Web Toolkit which translates client and shared parts into a
+                        JavaScript. If you try to instrument client code, GWT will search for sources of all referenced
+                        classes, including the Clover instrumentation, which would cause a build failure.</p></div>
+                </div>
+                <p> </p>
+                <h2 id="UsingClover-for-AntwithGWT-CloverwithmanualGWTintegration">Clover with manual GWT
+                    integration</h2>
+                <p><em>The following example is based on GWT SDK 2.5.</em></p>
+                <p> </p>
+                <p>1) Download and install</p>
+                <ul>
+                    <li>GWT SDK 2.5 - <a
+                                         href="http://code.google.com/p/google-web-toolkit/downloads/list"
+                                         rel="nofollow">http://code.google.com/p/google-web-toolkit/downloads/list</a>
+                        (referred as &lt;gwt-sdk&gt;)
+                    </li>
+                </ul>
+                <p>2) Open the sample DynaTable application (located in &lt;gwt-sdk&gt;/samples/DynaTable; referred as
+                    &lt;project_dir&gt;) and enhance <em>build.xml</em> file by adding:</p>
+                <ul>
+                    <li>&lt;clover-setup&gt; with includes=&quot;'' for server-side code</li>
+                    <li>&lt;clover-report&gt; or &lt;clover-html-report&gt;</li>
+                    <li>clover.jar to runtime classpath</li>
+                </ul>
+                <p> </p>
+                <p>Example:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>build.xml</b></div>
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;project name=&quot;DynaTable&quot; default=&quot;build&quot; basedir=&quot;.&quot;&gt;
+    &lt;!-- Add following properties and targets --&gt;
+
+    &lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/clover.jar&quot;/&gt;
+    &lt;property name=&quot;clover.db&quot; location=&quot;clover/db/clover.db&quot;/&gt;
+    &lt;property name=&quot;clover.report&quot; location=&quot;clover/report&quot;/&gt;
+    &lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
+
+    &lt;target name=&quot;init&quot; if=&quot;with.clover&quot;&gt;
+        &lt;clover-setup initstring=&quot;${clover.db}&quot;&gt;
+            &lt;fileset dir=&quot;src&quot; includes=&quot;com/google/gwt/sample/dynatable/server/**&quot;/&gt;
+        &lt;/clover-setup&gt;
+    &lt;/target&gt;
+
+    &lt;target name=&quot;report&quot;&gt;
+        &lt;clover-html-report initstring=&quot;${clover.db}&quot; outdir=&quot;${clover.report}&quot;/&gt;
+    &lt;/target&gt;
+
+    &lt;!-- ... --&gt;
+
+    &lt;!-- Add the &quot;init&quot; target to depends=&quot;...&quot; --&gt;
+    &lt;target name=&quot;javac&quot; depends=&quot;libs, init&quot; description=&quot;Compile java source to bytecode&quot;&gt;
+       &lt;!-- ... --&gt;
+    &lt;/target&gt; 
+
+    &lt;!-- Add the clover.jar to classpath --&gt;
+
+    &lt;target name=&quot;devmode&quot; depends=&quot;javac&quot; description=&quot;Run development mode&quot;&gt;
+        &lt;java failonerror=&quot;true&quot; fork=&quot;true&quot; classname=&quot;com.google.gwt.dev.DevMode&quot;&gt;
+            &lt;classpath&gt;
+                &lt;pathelement location=&quot;src&quot;/&gt;
+                &lt;path refid=&quot;project.class.path&quot;/&gt;
+                &lt;pathelement location=&quot;../../validation-api-1.0.0.GA.jar&quot; /&gt;
+                &lt;pathelement location=&quot;../../validation-api-1.0.0.GA-sources.jar&quot; /&gt;
+                &lt;pathelement location=&quot;${clover.jar}&quot;/&gt; &lt;!-- ADD THIS --&gt;
+            &lt;/classpath&gt;
+            &lt;!-- ... --&gt;
+        &lt;/java&gt;
+    &lt;/target&gt;
+
+    &lt;!-- ... --&gt;
+
+&lt;/project&gt;</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>3) Build application, run tests and generate Clover report.</p>
+                <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
+                        data-emoticon-name="warning" alt="(warning)"/> GWT requires Java 1.6 or above</p>
+                <p> </p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>ant devmode -Dwith.clover=true
+... open web browser, close GWT console ...
+ant report</pre>
+                    </div>
+                </div>
+                <p>Open <em>&lt;project_dir&gt;/clover/report/index.html</em> file. You shall see a report like this:
+                </p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/317195603/317163618.png"
+                                                                       data-image-src="attachments/317195603/317163618.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="317163618"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="clover_with_gwt_html_report.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="317195603"
+                                                                       data-linked-resource-container-version="6"></span>
+                </p>
+                <h2 id="UsingClover-for-AntwithGWT-References">References</h2>
+                <p>See also</p>
+                <ul>
+                    <li><a href="maven--using-with-the-gwt-maven-plugin.html">Using Clover with the GWT-maven
+                        plugin</a>.
+                    </li>
+                </ul>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

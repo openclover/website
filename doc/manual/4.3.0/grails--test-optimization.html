@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : Test Optimization with Clover-for-Grails</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="grails--overview.html">Clover-for-Grails</a></span>
+                    </li>
+                    <li>
+                        <span><a href="grails--user-guide.html">Clover-for-Grails User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Test Optimization with Clover-for-Grails
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>This feature is available since <strong>Clover-for-Grails
+                        3.1.10.1</strong>.</p></div>
+                </div>
+                <p> </p>
+                <p>Follow the steps in this document to set up Clover's Test Optimization, which allows targeted testing
+                    of only the code which has changed since the last build. This page contains the basic steps for
+                    adding Clover's Test Optimization to a Grails application.</p>
+                <h2 id="TestOptimizationwithClover-for-Grails-Commandlinequickstart">Command line quick start</h2>
+                <p>The quickest possible way to start using Test Optimization in Clover-for-Grails is to run tests with
+                    the <strong>-clover.optimize</strong> option, for instance:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                             data-theme="Confluence">grails test-app -clover.optimize</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>The <strong>-clover.optimize</strong> does the following:</p>
+                <ul>
+                    <li>enables Clover instrumentation</li>
+                    <li>disables clean (note that <strong>-clover.on</strong> performs full clean by default, unless the
+                        <strong>-clover.forceClean=false</strong> is used)
+                    </li>
+                    <li>analyzes which application and test classes were modified since the last build and selects
+                        appropriate set of tests
+                        <ul>
+                            <li>it's achieved by overwriting value of the testTargetPatterns variable from
+                                _GrailsTest.groovy script
+                            </li>
+                        </ul>
+                    </li>
+                    <li>stores optimization snapshot after test phase</li>
+                </ul>
+                <p> </p>
+                <p>By default, the snapshot file gets saved to
+                    <strong>&quot;${projectWorkDir}/clover.snapshot&quot;</strong> (the ${projectWorkDir} is <em>&quot;~/.grails/X.X.X/projects/project_name&quot;</em>
+                    by default).</p>
+                <p>This file is needed to optimize subsequent builds. You can also specify an alternative location in
+                    <strong>clover.snapshotLocation</strong>, which can be defined in BuildConfig.groovy or passed from
+                    command line, for instance:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
+     data-theme="Confluence">clover {
+   snapshotLocation = &quot;/path/to/clover.snapshot&quot;
+} </pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h2 id="TestOptimizationwithClover-for-Grails-TestOptimizationinaction">Test Optimization in action</h2>
+                <p>For the first time you should run a full build in order to make sure that the whole code is
+                    instrumented by Clover. You can run:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>grails clean
+grails test-app -clover.optimize</pre>
+                    </div>
+                </div>
+                <p>or</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>grails test-app -clover.on    # clover.on forces full clean
+grails test-app -clover.optimize</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>The first time Clover Test Optimization is used a full test run will be done. You should see the
+                    following log message appear in the console:</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/317196228/317164217.png"
+                                                                       data-image-src="attachments/317196228/317164217.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="317164217"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="clover_optimize_1st_run.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="317196228"
+                                                                       data-linked-resource-container-version="6"></span>
+                </p>
+                <p> </p>
+                <p>If you then rerun the build, without modifying any source files (and ensuring the snapshot file is
+                    not deleted) you should see the following:</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/317196228/317164218.png"
+                                                                       data-image-src="attachments/317196228/317164218.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="317164218"
+                                                                       data-linked-resource-version="2"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="clover_optimize_2nd_run.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="317196228"
+                                                                       data-linked-resource-container-version="6"></span>
+                </p>
+                <p> </p>
+                <p>If a source file (application or test class) is modified in any way (including whitespace changes),
+                    and you re-run the build, only test cases that cover the modified file will be run:</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/317196228/317164220.png"
+                                                                       data-image-src="attachments/317196228/317164220.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="317164220"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="clover_optimize_3rd_run.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="317196228"
+                                                                       data-linked-resource-container-version="6"></span>
+                </p>
+                <p> </p>
+                <p>By default, the same snapshot file is updated for 10 consecutive builds. On the 10th build, the
+                    snapshot file is deleted and recreated, which triggers a full test run. </p>
+                <p>You can also delete this file manually to force a full test run (note that if snapshot file is stored
+                    in default location, the 'grails clean' command does not remove this file).</p>
+                <h2 id="TestOptimizationwithClover-for-Grails-References">References</h2>
+                <ul>
+                    <li><a href="general--what-is-test-optimization.html">Test Optimization Technical Details</a></li>
+                </ul>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

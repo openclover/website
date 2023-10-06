@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : Jenkins Clover Plugin Developer Guide</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="developer-guide.html">Clover Development Hub</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Jenkins Clover Plugin Developer Guide
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h2 style="margin-left: 0.0px;" id="JenkinsCloverPluginDeveloperGuide-Preconditions">Preconditions</h2>
+                <ul style="margin-left: 0.0px;">
+                    <li style="margin-left: 0.0px;">You have GitHub account with SSH keys configured and the local SSH
+                        key is not protected by password (otherwise release:prepare will hang)
+                    </li>
+                    <li style="margin-left: 0.0px;"><p>Configure maven.jenkins-ci.org in settings.xml:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
+                                <b>settings.xml</b></div>
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;!-- user/password of your Jenkins account http://jenkins-ci.org/account --&gt;
+&lt;server&gt;
+    &lt;id&gt;maven.jenkins-ci.org&lt;/id&gt;
+    &lt;username&gt;xxxxxx&lt;/username&gt; 
+    &lt;password&gt;yyyyyy&lt;/password&gt;
+&lt;/server&gt;</pre>
+                            </div>
+                        </div>
+                    </li>
+                    <li><p>Clone the repository from GitHub using SSH:</p>
+                        <div class="preformatted panel" style="border-width: 1px;">
+                            <div class="preformattedContent panelContent">
+                                <pre>git clone git@github.com:jenkinsci/clover-plugin.git jenkins-clover-plugin</pre>
+                            </div>
+                        </div>
+                    </li>
+                    <li>You have<strong> JDK1.6+ </strong>installed</li>
+                    <li>You have<strong> Maven 3.0.5+ </strong>installed</li>
+                </ul>
+                <h2 id="JenkinsCloverPluginDeveloperGuide-Buildandtest">Build and test</h2>
+                <ol>
+                    <li><p>If you have already cloned jenkinsci/clover-plugin then ensure you <strong><em>git pull</em>
+                    </strong>upstream</p></li>
+                    <li>Create a JIRA on <a  href="https://issues.jenkins-ci.org/" rel="nofollow">https://issues.jenkins-ci.org/</a> for
+                        the issue you are fixing.
+                    </li>
+                    <li>Make changes necessary. Use issue key in commit messages.</li>
+                    <li>Bump the dependency version of Clover Core if necessary (in pom.xml)</li>
+                    <li>Test by running Jenkins with the Clover plugin installed and setting up a &quot;Clovered&quot;
+                        project for CI. This can be achieved via:<br/><strong>mvn clean hpi:run</strong><br/>
+                        <ol>
+                            <li>it will start Jenkins on localhost:8080 by default, open it in web browser</li>
+                            <li>open &quot;Manage Jenkins&quot; &gt; &quot;Manage plugins&quot; &gt; &quot;Installed&quot;
+                                and check if new &quot;Jenkins Clover Plugin&quot; is listed
+                            </li>
+                            <li>configure new project (you can use MoneyBags as a test case) and a build job (e.g.
+                                &quot;freestyle project&quot; with &quot;ant task&quot;)
+                            </li>
+                            <li>configure &quot;Post-build actions&quot; &gt; &quot;Publish Clover Coverage Report&quot;
+                                in the build job
+                            </li>
+                            <li>run &quot;Build now&quot; and check if Clover summary report is available</li>
+                        </ol>
+                    </li>
+                    <li>Commit changes and push to GitHub. Include your JIRA issue from above.</li>
+                </ol>
+                <h2 id="JenkinsCloverPluginDeveloperGuide-Releaseandpublish">Release and publish</h2>
+                <p><span>Run release:prepare and release:perform in </span><a
+                                                                              href="https://wiki.jenkins-ci.org/display/JENKINS/Hosting+Plugins#HostingPlugins-Releasingtojenkinsci.org"
+                                                                              rel="nofollow">one
+                    command</a><span>:</span></p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>mvn release:prepare release:perform</pre>
+                    </div>
+                </div>
+                <p>Verify that the plugin has been deployed:</p>
+                <ul>
+                    <li>visit <a
+                                 href="http://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/" rel="nofollow">http://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/</a>
+                    </li>
+                    <li>check <a  href="http://updates.jenkins-ci.org/update-center.json"
+                                 rel="nofollow">http://updates.jenkins-ci.org/update-center.json</a> (file is updated
+                        every 6 hours)
+                    </li>
+                    <li>run your local Jenkins and open Administration page, check if you see the latest version
+                        number
+                    </li>
+                </ul>
+                <h2 id="JenkinsCloverPluginDeveloperGuide-Documentation">Documentation</h2>
+                <p>Update the <span class="nt"> </span><a
+                                                          href="http://wiki.jenkins-ci.org/display/JENKINS/Clover+Plugin"
+                                                          rel="nofollow">http://wiki.jenkins-ci.org/display/JENKINS/Clover+Plugin</a>
+                    page.</p>
+                <h2 id="JenkinsCloverPluginDeveloperGuide-Troubleshooting">Troubleshooting</h2>
+                <p><strong>Problem with 'git clone' on Windows</strong></p>
+                <p>See <a  href="https://help.github.com/articles/generating-ssh-keys"
+                          rel="nofollow">https://help.github.com/articles/generating-ssh-keys</a> and <a
+                         href="https://help.github.com/articles/error-permission-denied-publickey"
+                        rel="nofollow" style="background-color: transparent;">https://help.github.com/articles/error-permission-denied-publickey</a> how
+                    to set it up.</p>
+                <p class="emoticon emoticon-warning" title="Warning (!)"><strong>The 'git push' during mvn
+                    'release:prepare' hangs</strong></p>
+                <p class="emoticon emoticon-warning" title="Warning (!)">Probably it hangs on ssh due to id_rsa key
+                    protected by a password.</p>
+                <p class="emoticon emoticon-warning" title="Warning (!)"> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

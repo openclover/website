@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Part 0 - Clover in 10 minutes</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="tutorials--index.html">Clover Tutorials</a></span>
+                    </li>
+                    <li>
+                        <span><a href="tutorials--ant-tutorial.html">Clover-for-Ant tutorial</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Part 0 - Clover in 10 minutes
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                
+                <p>Welcome to the Clover-for-Ant 10 minutes tutorial. This document will show you how to quickly get
+                    Clover reports for sample project.</p>
+                <p><em>On this page:</em></p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813744764 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813744764 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813744764 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813744764'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#Part0-Cloverin10minutes-Introduction'>Introduction</a></li>
+                        <li><a href='#Part0-Cloverin10minutes-Generatingreport'>Generating report</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#Part0-Cloverin10minutes-RunningAntcommand'>Running Ant command</a></li>
+                                <li><a href='#Part0-Cloverin10minutes-Openingreport'>Opening report</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#Part0-Cloverin10minutes-Uncoveringdetails'>Uncovering details</a></li>
+                    </ul>
+                </div>
+                </p>
+
+                <h1 id="Part0-Cloverin10minutes-Introduction">Introduction</h1>
+                <p>In this tutorial we will generate Clover HTML report for Money library provided in the <code>tutorial/src</code>
+                    directory.</p>
+                <h1 id="Part0-Cloverin10minutes-Generatingreport">Generating report</h1>
+                <p>The process of generating report contains few phases, configured to be executed with single Ant
+                    command for the purpose of this tutorial:</p>
+                <ul>
+                    <li>Compiling project (and instrumenting its source code with Clover statements).</li>
+                    <li>Running unit tests (and gathering code coverage).</li>
+                    <li>Generating code coverage report.</li>
+                </ul>
+                <h1>Install</h1>
+                <p><a href="ant--installation-guide.html">Install Clover-for-Ant</a> or use the command
+                    <code>ant -f build_quick.xml install.clover</code></p>
+
+                <h2 id="Part0-Cloverin10minutes-RunningAntcommand">Running Ant command</h2>
+                <p>To generate report, use the command <code>ant -f build_quick.xml<br/></code></p>
+                <p>Output should be similar to the following:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">$ ant -f build_quick.xml
+
+Buildfile: .../tutorial/build_quick.xml
+
+with.clover:
+[clover-setup] Clover Version 4.3.1, built on ...
+[clover-setup] Loaded from: .../lib/clover.jar
+[clover-setup] Clover is enabled with initstring &#39;.../tutorial/build/clover/db/clover.db&#39;
+
+compile:
+    [mkdir] Created dir: .../tutorial/build/classes
+    [javac] Compiling 3 source files to .../tutorial/build/classes
+   [clover] Clover Version 4.3.1, built on ...
+   [clover] Loaded from: .../lib/clover.jar
+   [clover] Creating new database at &#39;.../tutorial/build/clover/db/clover.db&#39;.
+   [clover] Processing files at 1.8 source level.
+   [clover] Clover all over. Instrumented 3 files (1 package).
+   [clover] Elapsed time = 0.091 secs. (32.967 files/sec, 3,142.857 srclines/sec)
+    [mkdir] Created dir: .../tutorial/build/testclasses
+    [javac] Compiling 2 source files to .../tutorial/build/testclasses
+   [clover] Clover Version 4.3.1, built on ...
+   [clover] Loaded from: .../lib/clover.jar
+   [clover] Updating existing database at &#39;.../tutorial/build/clover/db/clover.db&#39;.
+   [clover] Processing files at 1.8 source level.
+   [clover] Clover all over. Instrumented 2 files (1 package).
+   [clover] 23 test methods detected.
+   [clover] Elapsed time = 0.041 secs. (48.78 files/sec, 4,682.927 srclines/sec)
+
+test:
+    [mkdir] Created dir: .../tutorial/build/testresults
+    [junit] Running com.atlassian.samples.money.MoneyBagTest
+    [junit] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 sec
+    [junit] Running com.atlassian.samples.money.MoneyTest
+    [junit] Tests taking too long? Try Clover&#39;s test optimization.
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.063 sec
+
+clover.report:
+[clover-html-report] Clover Version 4.3.1, built on ...
+[clover-html-report] Loaded from: .../lib/clover.jar
+[clover-html-report] Loading coverage database from: &#39;.../tutorial/build/clover/db/clover.db&#39;
+[clover-html-report] Writing HTML report to &#39;.../tutorial/build/clover_html&#39;
+[clover-html-report] Done. Processed 1 packages in 1089ms (1089ms per package).
+
+BUILD SUCCESSFUL</pre>
+                    </div>
+                </div>
+                <p>This shows that the java source files have been compiled and instrumented, tests have been executed
+                    and Clover report generated.</p>
+                <h2 id="Part0-Cloverin10minutes-Openingreport">Opening report</h2>
+                <p>You can now view the report by opening the file <em>tutorial/build/clover_html/index.html</em> in a
+                    web browser. See <a href="general--understanding-reports-current.html">'Current' Report</a> for details about interpreting this coverage
+                    report.</p>
+                <h1 id="Part0-Cloverin10minutes-Uncoveringdetails">Uncovering details</h1>
+                <p>If you want to understand what happened under the hood and how to customize and adjust the process of
+                    getting reports, please continue with <a href="ant--tutorial-part-1-measuring-coverage.html">Part 1 -
+                        Measuring Coverage</a></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

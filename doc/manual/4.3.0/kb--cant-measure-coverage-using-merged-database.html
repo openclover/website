@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Can&#39;t measure coverage using merged database</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--troubleshooting-execution.html">Troubleshooting Execution</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Can&#39;t measure coverage using merged database
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="Can&#39;tmeasurecoverageusingmergeddatabase-Symptoms">Symptoms</h4>
+                <p>Several Clover databases created during instrumentation are merged into one. Next such merged
+                    database is used to run instrumented application. During application startup a following message
+                    appears:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence"
+     data-theme="Confluence">ERROR: CLOVER: Unable to load coverage database.
+ERROR: CLOVER: No coverage data will be gathered.
+ERROR: CLOVER: com.atlassian.clover.registry.ReadOnlyRegistryException
+ERROR: CLOVER: This database can only be used for reporting because it 
+is the result of a merge. It does not support further coverage 
+gathering.
+</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="Can&#39;tmeasurecoverageusingmergeddatabase-Cause">Cause</h4>
+                <p>It is possible to merge several Clover databases into one in order to have a single coverage report.
+                    However, such merged database becomes 'read-only' and cannot be used for further code coverage
+                    gathering.</p>
+                <p> </p><h4 id="Can&#39;tmeasurecoverageusingmergeddatabase-Resolution">Resolution</h4>
+                <p>Use original non-merged databases for execution of application module(s).</p>
+                <p> </p>
+                <p>Alternatively, it's possible to create a single database for several application modules during
+                    instrumentation and use just one database at runtime:</p>
+                <ul>
+                    <li>in Maven use the &lt;singleCloverDatabase&gt; parameter</li>
+                    <li>in Ant setup Clover in master build file and make sure that
+                        <em>inheritrefs=&quot;true&quot;</em> is used across ant calls.
+                    </li>
+                </ul>
+                <p> </p><!--$body-->
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

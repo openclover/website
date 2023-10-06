@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Clover test detection</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--clover-setup.html">clover-setup</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Clover test detection
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h2 id="Clovertestdetection-Detectionoftestmethods">Detection of test methods</h2>
+                <p>Clover is able to detect test methods for following test frameworks and code patterns.</p>
+                <h3 id="Clovertestdetection-JavaDoctags">JavaDoc tags</h3>
+                <p>This approach can be used for Java 1.4, which does not support annotations. In such case, test
+                    methods can be marked using JavaDoc tags:</p>
+                <p><strong>TestNG style</strong></p>
+                <pre>/** @testng.test */</pre>
+                <pre>class MyTest {</pre>
+                <pre>    /** @testng.test */</pre>
+                <pre>    void myTestMethod() <span> </span>{ }</pre>
+                <pre>} </pre>
+                <p><strong>JUnit style</strong></p>
+                <pre>/** @test */</pre>
+                <pre>void myTestMethod() { }</pre>
+                <h3 id="Clovertestdetection-JUnit3">JUnit3</h3>
+                <p>Methods with a following signature:</p>
+                <pre>public void test***()</pre>
+                <h3 id="Clovertestdetection-JUnit4"><span class="hl_comment">JUnit4</span></h3>
+                <p><span class="hl_comment">Methods annotated with one of the following:<br/></span></p>
+                <pre>@junit.org.Test</pre>
+                <pre>@Test</pre>
+                Also expected exceptions are understood, e.g.:
+                <pre>@Test(expected={Foo.class})</pre>
+                <pre>@Test(expected=Foo.class)</pre>
+                <h3 id="Clovertestdetection-JUnit4+Spring"><span class="hl_comment"><span class="hl_comment"><span
+                        class="hl_comment">JUnit4+Spring</span></span></span><strong><span
+                        class="hl_comment"> </span></strong></h3>
+                <p>Methods annotated with:</p>
+                <pre>@Test<br/>@org.springframework.test.annotation.ExpectedException({Bar.class})</pre>
+                <p><span class="hl_comment"><span class="hl_comment"><span
+                        class="hl_comment">or<br/></span></span></span></p>
+                <pre>@Test <br/>@ExpectedException(value={Bar.class})</pre>
+                <h3 id="Clovertestdetection-TestNG"><span class="hl_comment"><span class="hl_comment"><span
+                        class="hl_comment"><span class="hl_comment"><span class="hl_comment">TestNG</span></span></span></span></span>
+                </h3>
+                <p><span class="hl_comment"><span class="hl_comment"><span class="hl_comment"><span
+                        class="hl_comment"><span
+                        class="hl_comment">Methods annotated with one of the following:<br/></span></span></span></span></span>
+                </p>
+                <pre>@org.testng.annotations.ExpectedExceptions(Foo.class)</pre>
+                <pre>@ExpectedExceptions(org.bar.Foo.class)</pre>
+                <pre>@org.testng.annotations.Test(expectedExceptions={Foo.class})</pre>
+                <pre>@Test(expectedExceptions={Foo.class})</pre>
+                <pre>@org.testng.annotations.Test(expectedExceptions=Foo.class)</pre>
+                <pre>@Test(expectedExceptions=Foo.class)</pre>
+                <h3 id="Clovertestdetection-Instinct">Instinct</h3>
+                <p><span class="hl_comment"><span class="hl_comment"><span class="hl_comment"><span
+                        class="hl_comment"><span class="hl_comment">Methods annotated with one of the following:</span></span></span></span></span>
+                </p>
+                <pre>@com.googlecode.instinct.marker.annotate.Specification(expectedException=Foo.class)</pre>
+                <pre>@Specification(expectedException=Foo.class)</pre>
+                <h2 id="Clovertestdetection-Usagecontext">Usage context</h2>
+                <p>These patterns are being used by Clover for per-test coverage, test optimization and reporting.</p>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

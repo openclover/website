@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : What happened to maven-clover2-plugin ?</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="faq--openclover.html">Clover FAQ</a></span>
+                    </li>
+                    <li>
+                        <span>Maven Plugin FAQ</span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            What happened to maven-clover2-plugin ?
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>This plugin is currently being developed under name <code>clover-maven-plugin. </code>Since version
+                    4.1.1 it has been renamed to <code style="background-color: transparent;">clover-maven-plugin</code> to
+                    stay compliant with Apache Maven naming conventions.</p>
+                <p>The new plugin is backward-compatible and it's enough to change <code>artifactId</code> in the <code>pom.xml</code> and
+                    call it by new name, e.g.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;plugin&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;4.5.0&lt;/version&gt;
+&lt;/plugin&gt;</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>Similarly, when ran from a command line, goals have &quot;clover:&quot; prefix, instead of &quot;clover2:&quot;:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">mvn clean clover:setup verify clover:clover
+ 
+# before 4.1.1 it was
+# mvn clean clover2:setup verify clover2:clover</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>JIRA issue: 
+                    <span class="jira-issue resolved" data-issue-key="CLOV-1775">
+                <a href="https://jira.atlassian.com/browse/CLOV-1775?src=confmacro" class="jira-issue-key"><img
+                        class="icon"
+                        src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51500&amp;avatarType=issuetype"/>CLOV-1775</a>
+                    -
+            <span class="summary">Rename maven-clover2-plugin artifactId to clover-maven-plugin</span>
+                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-success jira-macro-single-issue-export-pdf">Closed</span>
+            </span>
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

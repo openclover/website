@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="OpenClover is a free and open-source code coverage tool for Java, Groovy and AspectJ.
+            It's based on the open-sourced version of Atlassian Clover&reg;, the world's most sophisticated code coverage tool.">
+    <meta name="author" content="">
+    <link rel="icon" href="../resources/img/clover.ico">
+
+    <title>OpenClover - Java, Groovy and AspectJ code coverage tool</title>
+
+    <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../resources/css/style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index"><img src="../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../index">Overview</a></li>
+                <li><a href="../features">Features</a></li>
+                <li><a href="../downloads">Downloads</a></li>
+                <li class="active"><a href="../documentation">Documentation</a></li>
+                <li><a href="../support">Support</a></li>
+                <li><a href="../blog">Blog</a></li>
+                <!--<li><a href="../faq">FAQ</a></li>-->
+                <li><a href="../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h1>OpenClover 4.2.0 Release Notes</h1>
+
+    <div class="alert alert-warning">
+        <h4>OpenClover 4.2.0 is available</h4>
+        It is based on the open-sourced version of Atlassian Clover&reg; 4.1.2. Scope:
+        <ul>
+            <li>the license key is no longer required to run Clover</li>
+            <li>the Atlassian brand and logos were removed to avoid any trademark violations</li>
+            <li>the 'org.openclover.*' groupId is used for artifacts</li>
+        </ul>
+
+        <br/>
+        We released: Clover Runtime, Core, Ant, Eclipse, IDEA, Maven, Grails, AspectJ, Hudson and Jenkins (Gradle plugin is still pending).<br/>
+        <br/>
+        Note: the <a href="http://wiki.hudson-ci.org/display/HUDSON/Clover+Plugin">Hudson wiki is down</a>, but the
+        <a href="https://oss.sonatype.org/content/repositories/releases/org/hudsonci/plugins/clover/4.7.0/clover-4.7.0.hpi">artifact is available</a>.
+    </div>
+
+    <h2>Features</h2>
+
+    <h4>No license key required</h4>
+
+    <div>
+        OpenClover requires no license key, in some places you may see a "Clover free edition" message.
+        You no longer need any external license key to run it. In case you still pass the license key issued by Atlassian
+        in your builds (e.g. via -Dclover.license.path JVM property), it will be ignored and the
+        built-in one will be used. <br/> <br/> This license key gives you full set of features - there is no "Clover
+        Desktop" or "Clover Server" license
+        anymore. In case you were using Desktop license previously, now you can enjoy having HTML / XML / PDF
+        reports generated directly from your Eclipse or IntelliJ IDEA - try the HTML one - it's awesome!
+    </div>
+
+    <h2>Upgrading from Clover 4.1.x</h2>
+
+    <h4>License key</h4>
+
+    <div>As OpenClover comes with the built-in license key, you no longer have to pass any license key for
+        instrumentation
+        or report generation. Thus, you can remove any -Dclover.license or -Dclover.license.path JVM properties as
+        well as remove &lt;license&gt; or &lt;licenseLocation&gt; properties from pom.xml.
+    </div>
+
+    <h4>Clover for Ant</h4>
+
+    <div>Simply download new Clover-for-Ant zip file and use the clover.jar from it.</div>
+
+    <h4>Clover for Eclipse</h4>
+
+    <div>In case you have Atlassian Clover&reg; installed - disable Clover on all your projects in the workspace
+        and next uninstall the plugin. Next, install the OpenClover version and enable Clover on your projects again.
+    </div>
+
+    <h4>Clover for IDEA</h4>
+
+    <div>Uninstall Atlassian Clover&reg; for IDEA. Install OpenClover plugin.</div>
+
+    <h4>Clover Maven Plugin</h4>
+
+    <div>Clover Core artifact has been renamed from 'com.atlassian.clover:clover' to 'org.openclover:clover'.
+        Clover Maven Plugin artifact has been renamed from 'com.atlassian.maven.plugins:clover-maven-plugin' to
+        'org.openclover:clover-maven-plugin'. Update these references in pom.xml files.<br/> <br/>
+
+        The most probably you have also the 'com.atlassian.maven.plugins' group defined in ~/.m2/settings.xml file.
+        This allows to use a short name to run Clover from command line. Replace it with:
+    <pre>&lt;pluginGroups>
+    &lt;pluginGroup>org.openclover&lt;/pluginGroup>
+&lt;/pluginGroups></pre>
+    </div>
+
+    <h4>Grails Clover Plugin</h4>
+
+    <div>It's still named 'org.grails.plugins:clover', so simply upgrade to version 4.2.0 to start using OpenClover
+        <br/><br/>
+        Please note that Grails Clover Plugin does not support Grails 3 yet.
+    </div>
+
+    <h4>Bamboo Clover Plugin</h4>
+
+    <div>In case you use automatic Clover integration in Bamboo, then you have to switch it to manual one, as
+        Bamboo is using Atlassian Clover&reg; instead of OpenClover. In case of a Maven task, the manual integration
+        should define goals similar to the following:
+    </div>
+
+    <pre>clean org.openclover:clover-maven-plugin:setup verify org.openclover:clover-maven-plugin:aggregate org.openclover:clover-maven-plugin:clover</pre>
+
+    <h4>Jenkins Clover Plugin</h4>
+
+    <div>Name of the plugin did not change, so simply upgrade to the latest 4.8.0 version to use OpenClover.
+        In case you use Maven integration, you may need to change the goals called - see example for Bamboo.
+    </div>
+
+    <h4>Hudson Clover Plugin</h4>
+
+    <div>Name of the plugin did not change, so simply upgrade to the latest 4.7.0 version to use OpenClover.
+        In case you use Maven integration, you may need to change the goals called - see example for Bamboo.
+    </div>
+
+    <h4>Gradle Clover Plugin</h4>
+
+    <div>We have not released the OpenClover version of the Gradle plugin yet. You can find its source code here:
+        <a href="https://github.com/openclover/gradle-clover-plugin">https://github.com/openclover/gradle-clover-plugin</a>
+    </div>
+</div>
+
+
+<script src="../resources/js/jquery-1.12.4.min.js"></script>
+<script src="../resources/js/bootstrap.min.js"></script>
+</body>
+</html>

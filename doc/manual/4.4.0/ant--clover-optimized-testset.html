@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : clover-optimized-testset</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--type-reference.html">7. Ant Type Reference</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            clover-optimized-testset
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h3 id="clover-optimized-testset-Description">Description</h3>
+                <p>The <code>&lt;clover-optimized-testset&gt;</code> type is designed to be used within JUnit and Ant's
+                    <code>&lt;batchtest/&gt;</code> task (which is used to feed JUnit a list of .java files that map to
+                    the test classes to be run). This type accepts other resource collection elements (e.g. <code>&lt;fileset/&gt;</code>
+                    ), filters and reorders their resources for Test Optimization. To use this type, you must first
+                    include <code>cloverlib.xml</code>.</p>
+                <h3 id="clover-optimized-testset-Parameters">Parameters</h3>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p><strong>snapshotfile</strong></p></td>
+                            <td class="confluenceTd"><p>Snapshot file path if not in the default location.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to (initstring + &quot;.snapshot&quot;).</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p><strong>enabled</strong></p></td>
+                            <td class="confluenceTd"><p>Boolean value that specifies whether the selector should
+                                optimize. If set to false no optimization occurs, if true, then optimization occurs as
+                                per the other attributes.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p><strong>minimize</strong></p></td>
+                            <td class="confluenceTd"><p>Boolean value that (when true) tells Clover to restrict the set
+                                of tests, running only those that caused coverage in a changed file. When set to false,
+                                this will cause Clover to run all tests. this attribute can be used to force a full test
+                                run if, for instance, some important configuration files change and the build system
+                                decides that a full test run should be executed</p></td>
+                            <td class="confluenceTd"><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p><strong>fullrunevery</strong></p></td>
+                            <td class="confluenceTd"><p>Specifies how many optimized builds can run before a full run
+                                should be performed (to re-calibrate the optimization).</p></td>
+                            <td class="confluenceTd"><p>No; defaults to &quot;<code>10</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p><strong>ordering</strong></p></td>
+                            <td class="confluenceTd"><p>Specifies how tests should be ordered during an optimized build.
+                                Accepts values &quot;failfast&quot;, &quot;original&quot; or &quot;random&quot;. The
+                                &quot;failfast&quot; setting runs the previously failed test first then shortest to
+                                longest test. The &quot;original&quot; setting orders the tests as they were found by
+                                the underlying fileset. The &quot;random&quot; setting applies a random ordering to the
+                                tests.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to &quot;<code>failfast</code>&quot;.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Elements</strong>:<br/> &lt;*/&gt; - any <a
+                                                                       href="http://ant.apache.org/manual/Types/resources.html"
+                                                                       rel="nofollow">Ant resource collection</a>:
+                    anything that implements <code>org.apache.tools.ant.types.ResourceCollection</code>.</p>
+                <h3 id="clover-optimized-testset-Example">Example</h3>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;junit ...&gt;
+    &lt;batchtest todir=&quot;${outdir}/${testresultsprefix}&quot; fork=&quot;true&quot;&gt;
+        &lt;clover-optimized-testset fullrunevery=&quot;${max.optimized.builds}&quot;&gt;
+            &lt;fileset dir=&quot;${test.location}&quot; includes=&quot;**/*Test.java&quot;/&gt;
+        &lt;/clover-optimized-testset&gt;
+        &lt;formatter type=&quot;xml&quot;/&gt;
+        &lt;formatter type=&quot;plain&quot;/&gt;
+    &lt;/batchtest&gt;
+&lt;/junit&gt;
+</pre>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

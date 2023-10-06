@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compilation error with Clover enabled - variable of type Object</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a
+                                href="kb--troubleshooting-compilation.html">Troubleshooting Compilation</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Compilation error with Clover enabled - variable of type Object
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="CompilationerrorwithCloverenabled-variableoftypeObject-Symptoms">Symptoms</h4>
+                <p>Clover instrumented code fails to compile with following error:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">src/LambdaAndStreams.java:35: error: cannot find symbol
+                .filter(e -&gt; {__CLR4_0_500ibutyhjw.R.inc(17);return !e.isEmpty();});
+                                                                      ^
+  symbol:   method isEmpty()
+  location: variable e of type Object
+src/LambdaAndStreams.java:35: error: incompatible types: Stream&lt;Object&gt; cannot be converted to Stream&lt;String&gt;
+                .filter(e -&gt; {__CLR4_0_500ibutyhjw.R.inc(17);return !e.isEmpty();});
+                       ^
+2 errors</pre>
+                    </div>
+                </div>
+                <p>Where original code looks like:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">public static Stream&lt;String&gt; test(List&lt;String&gt; input) {
+    return input.stream()
+            .map(String::toUpperCase)
+            .filter(e -&gt; !e.isEmpty());
+}</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="CompilationerrorwithCloverenabled-variableoftypeObject-Cause">Cause</h4>
+                <p>Clover proxies lambda expression with method wrapper defined with generic signatures. Type inferring
+                    algorithm JDK 8 the compiler uses has its own limitations and the compiler may not be able to infer
+                    proper type when a method reference is used and which results in compilation error. Since it's not
+                    possible to apply the same heuristics for method references as Clover uses for lambda expressions
+                    compilation of instrumented code fails. </p>
+                <p><span style="color: rgb(0,0,0);font-weight: bold;line-height: 1.4285715;">Solution </span></p>
+                <ol>
+                    <li><p>
+                        <span>Rewrite method references into lambda expressions, ideally into lambda block, i.e</span>
+                    </p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">public static Stream&lt;String&gt; test(List&lt;String&gt; input) {
+	return input.stream()
+            .map(e -&gt; e.toUpperCase)  // was String::toUpperCase
+            .filter(e -&gt; !e.isEmpty());
+}</pre>
+                            </div>
+                        </div>
+                        <p><span><br/></span></p></li>
+                    <li><p><span>Disable instrumentation of method references (since 4.0.5) </span></p>
+                        <div class="confluence-information-macro confluence-information-macro-note"><span
+                                class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
+                            <div class="confluence-information-macro-body"><p>Use instrumentLambda = &quot;all_but_reference&quot;,
+                                &quot;block&quot;, &quot;expression&quot; or &quot;none&quot;</p></div>
+                        </div>
+                        <p><span><br/></span></p>
+                        <ol>
+                            <li><p><span>Ant - build.xml<br/></span></p>
+                                <div class="code panel pdl" style="border-width: 1px;">
+                                    <div class="codeContent panelContent pdl">
+                                        <pre class="syntaxhighlighter-pre"
+                                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                                             data-theme="Confluence">&lt;clover-setup instrumentLambda=&quot;all_but_reference&quot;/&gt;</pre>
+                                    </div>
+                                </div>
+                                <p><span> </span></p></li>
+                            <li><p><span>Maven - pom.xml</span></p>
+                                <div class="code panel pdl" style="border-width: 1px;">
+                                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;configuration&gt;
+   &lt;instrumentLambda&gt;all_but_reference&lt;/instrumentLambda&gt;
+&lt;/configuration&gt;</pre>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><p>Grails - BuildConfig.groovy<br/><br/></p>
+                                <div class="code panel pdl" style="border-width: 1px;">
+                                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">clover {
+   instrumentLambda = &quot;all_but_reference&quot;
+}</pre>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><p>Eclipse</p>
+                                <p>Open <code>Project Properties</code> &gt; <code>Clover</code> page &gt; <code>Instrumentation</code>
+                                    tab. <br/>In <code>Miscellaneous</code> box select proper value in <code>Instrument
+                                        lambda functions</code> drop-down.</p></li>
+                            <li><p>IntelliJ IDEA<br/>Open <code>File</code> &gt; <code>Settings</code> &gt; <code>Project
+                                Settings</code> &gt; <code>Clover</code> page &gt; <code>Compilation</code>. <br/>In
+                                <code>Miscellaneous</code> box select proper value in <code>Instrument lambda
+                                    functions</code> drop-down. </p>
+                                <p> </p></li>
+                        </ol>
+                    </li>
+                </ol>
+                <h4 id="CompilationerrorwithCloverenabled-variableoftypeObject-Bugtracker:">
+                    <span> </span><br/><br/><span>Bug tracker:</span></h4>
+                <p><span>
+    <span class="jira-issue" data-issue-key="CLOV-1762">
+                <a href="https://jira.atlassian.com/browse/CLOV-1762?src=confmacro" class="jira-issue-key"><img
+                        class="icon"
+                        src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51493&amp;avatarType=issuetype"/>CLOV-1762</a>
+                    -
+            <span class="summary">Instrumentation of method references with no compilation errors</span>
+                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-complete jira-macro-single-issue-export-pdf">Open</span>
+            </span>
+</span></p>
+                <p>
+    <span class="jira-issue" data-issue-key="CLOV-1465">
+                <a href="https://jira.atlassian.com/browse/CLOV-1465?src=confmacro" class="jira-issue-key"><img
+                        class="icon"
+                        src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51500&amp;avatarType=issuetype"/>CLOV-1465</a>
+                    -
+            <span class="summary">Instrumentation of expression-like lambdas with no compilation errors in all cases</span>
+                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-complete jira-macro-single-issue-export-pdf">Open</span>
+            </span>
+                </p>
+                <p> <!--$body--></p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : How do I use Clover with NetBeans?</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="faq--openclover.html">Clover FAQ</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            How do I use Clover with NetBeans?
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>Clover can be used with NetBeans 6.1 by integrating Clover for Ant into your NetBeans project build,
+                    which is Ant-based. This integration will allow seamless instrumentation, test execution and
+                    hard-copy coverage report generation from within NetBeans.</p>
+
+                <p>To start, download Clover for Ant at <a
+                                                           href="http://openclover.org/downloads"
+                                                           rel="nofollow">http://openclover.org/downloads</a>.
+                    Once you've downloaded Clover for Ant, expand it to a separate folder (referred to as <code>CLOVER_HOME</code>).
+                </p>
+
+                <h3 id="HowdoIuseCloverwithNetBeans?-1.AddClovertotheNetBeansAnt">1. Add Clover to the NetBeans Ant</h3>
+
+                <p>1.1 Go to Preferences-&gt;Miscellaneous-&gt;Ant and use Add JAR/ZIP to add <code>CLOVER_HOME/lib/clover.jar</code>
+                    to the classpath.</p>
+
+                <h3 id="HowdoIuseCloverwithNetBeans?-2.CreateanewCloverLibrary">2. Create a new Clover Library</h3>
+
+                <p>2.1 Open Tools/Libraries</p>
+
+                <p>2.2 Click &quot;New Library...&quot; and name it &quot;Clover&quot;</p>
+
+                <p>2.3 Add <code>CLOVER_HOME/lib/clover.jar</code> to the new library.</p>
+
+                <h3 id="HowdoIuseCloverwithNetBeans?-3.UseAddJAR/FoldertoaddCLOVER_HOME/lib/clover.jartotheprojectclasspaths">
+                    3. Use Add JAR/Folder to add <code>CLOVER_HOME/lib/clover.jar</code> to the project classpaths</h3>
+
+                <p>3.1 Open Project/Properties...</p>
+
+                <p>3.2 In Libraries add the Clover library to the Compile, Run, Compile tests, Run tests classpaths</p>
+
+                <h3 id="HowdoIuseCloverwithNetBeans?-4.AddClovertargetstothebuild">4. Add Clover targets to the
+                    build</h3>
+
+                <p>4.1 Add the following to the project <code>build.xml</code> (go to Files view and edit this file)</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>&lt;target name=&quot;-pre-init&quot; depends=&quot;with.clover&quot;/&gt;
+&lt;target name=&quot;-post-clean&quot; depends=&quot;clover.clean&quot;/&gt;
+
+&lt;property name=&quot;clover.enable&quot; value=&quot;on&quot;/&gt;
+&lt;property name=&quot;clover.reportdir&quot; value=&quot;clover_html&quot;/&gt;
+
+&lt;taskdef resource=&quot;cloverlib.xml&quot;/&gt;
+
+&lt;target name=&quot;with.clover&quot; if=&quot;clover.enable&quot;&gt;
+    &lt;clover-setup/&gt;
+&lt;/target&gt;
+
+&lt;target name=&quot;clover.report&quot; depends=&quot;-pre-init&quot;&gt;
+    &lt;clover-report&gt;
+        &lt;current outfile=&quot;${clover.reportdir}&quot;&gt;
+            &lt;format type=&quot;html&quot;/&gt;
+        &lt;/current&gt;
+    &lt;/clover-report&gt;
+&lt;/target&gt;
+
+&lt;target name=&quot;clover.clean&quot;&gt;
+    &lt;clover-clean/&gt;
+&lt;/target&gt;
+</pre>
+                    </div>
+                </div>
+
+                <h3 id="HowdoIuseCloverwithNetBeans?-5.UsingCloverfromwithinNetBeans">5. Using Clover from within
+                    NetBeans</h3>
+
+                <p>5.1 Perform a complete clean and rebuild of the project by selecting Build-&gt;Clean and Build Main
+                    Project...</p>
+
+                <p>5.2 Select the project <code>build.xml</code> and run the <code>test</code> target using the Ant
+                    Targets window</p>
+
+                <p>5.3 Run the <code>clover.report</code> target to generate a Clover HTML report</p>
+
+                <p>5.4 The <code>clover.enable</code> can be used to disable Clover integration</p>
+
+                <p>5.5 The <code>clover.reportdir</code> can be used to control where the HTML report is generated</p>
+
+                <h4 id="HowdoIuseCloverwithNetBeans?-6.ExtendingtheCloverintegration">6. Extending the Clover
+                    integration</h4>
+
+                <p>Because NetBeans uses a standard Ant-based build, you can use all of Clover's Ant tasks from your
+                    project build file. This allows you to control includes and excludes, set up source-level filters,
+                    change report formats and more. For an overview of the Clover Ant tasks, see
+                    <a href="ant--task-reference.html">Ant Task Reference</a>.
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

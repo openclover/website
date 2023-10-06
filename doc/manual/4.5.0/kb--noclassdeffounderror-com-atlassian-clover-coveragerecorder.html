@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NoClassDefFoundError com_atlassian_clover/CoverageRecorder</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--troubleshooting-execution.html">Troubleshooting Execution</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            NoClassDefFoundError com_atlassian_clover/CoverageRecorder
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h3 id="NoClassDefFoundErrorcom_atlassian_clover/CoverageRecorder-Symptoms">Symptoms</h3>
+                <p>During execution of tests or application a following message appears:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">FATAL ERROR: Clover could not be initialised. Are you sure you have Clover in the runtime classpath?
+...
+ (class java.lang.NoClassDefFoundError:com_atlassian_clover/CoverageRecorder)
+or
+ (class java.lang.NoClassDefFoundError:com_atlassian_clover/CloverVersionInfo)
+or
+ (class java.lang.NoClassDefFoundError:com_atlassian_clover/CloverProfile) </pre>
+                    </div>
+                </div>
+                <p>or there is a stack trace related with class initialization (Spring, Tomcat container, class loaders
+                    ...)</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;stack trace describing that initialization of some class has failed or that some field is null followed by&gt;
+  ...
+Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer     &lt;or other clover class&gt;</pre>
+                    </div>
+                </div>
+                <h3 id="NoClassDefFoundErrorcom_atlassian_clover/CoverageRecorder-Cause">Cause</h3>
+                <p>In 99% of cases this is caused by a fact that <strong>Clover's JAR </strong>(clover.jar in case of
+                    Ant, org.openclover:clover artifact in case of Maven) is missing in runtime. Please keep in
+                    mind that it's not enough to have clover.jar during compilation - classes instrumented by Clover
+                    needs Clover's core classes from clover.jar during application (or test) execution.</p>
+                <p> </p>
+                <p>This kind of error may appear in various contexts, typical cases are:</p>
+                <p><strong>Ant JUnit tests<br/></strong></p>
+                <ul>
+                    <li>when you run unit tests in a forked JVM (&lt;junit&gt; Ant task), without clover.jar declared in
+                        &lt;classpath/&gt;
+                    </li>
+                </ul>
+                <p><strong>Running tests in a container instantiated on the fly<br/></strong></p>
+                <ul>
+                    <li>occurs usually in Ant / Maven / Bamboo / Jenkins / Hudson builds</li>
+                    <li>when you instantiate container of the fly (e.g. using maven-cargo-plugin)</li>
+                </ul>
+                <p><strong>Running tests of an application deployed on a remote machine</strong></p>
+                <ul>
+                    <li>when you deploy EAR/WAR to application server but without clover.jar bundled in the archive or
+                        installed in /lib
+                    </li>
+                </ul>
+                <p><strong>Bamboo</strong></p>
+                <ul>
+                    <li>occurs usually when &quot;automatic Clover integration&quot; is enabled and you have tests
+                        running in separate JVM (for instance in-container tests or tests accessing business logic on an
+                        application server)
+                    </li>
+                    <li>may occur if you have a multi-module Maven build with inter-module dependencies and when the
+                        automatic Clover integration is used
+                    </li>
+                    <li>may happen for &quot;automatic Clover integration&quot; with Ant, Maven or Grails</li>
+                </ul>
+                <p><strong>Maven</strong></p>
+                <ul>
+                    <li>when you have Maven build with some extra plug-ins, run tests in-container etc</li>
+                </ul>
+                <p><strong>Eclipse</strong></p>
+                <ul>
+                    <li>when you choose 'Run as ...' instead of 'Run with Clover as ..' from main menu</li>
+                    <li>in RCP or OSGI applications</li>
+                </ul>
+                <p><strong>IDEA<br/></strong></p>
+                <ul>
+                    <li>when you uninstalled Clover plug-in</li>
+                </ul>
+                <p> </p>
+                <h3 id="NoClassDefFoundErrorcom_atlassian_clover/CoverageRecorder-Resolution">Resolution</h3>
+                <p><strong>Ant JUnit tests</strong></p>
+                <p>Add clover.jar to runtime classpath for forked junit tests, for instance:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;junit fork=&quot;yes&quot;&gt;
+  &lt;classpath&gt;
+    &lt;pathelement location=&quot;/path/to/clover.jar&quot;/&gt;
+    &lt;pathelement path=&quot;/path/to/other/application.jars&quot;/&gt;
+  &lt;classpath&gt;
+&lt;/junit&gt; </pre>
+                    </div>
+                </div>
+                <p><strong><br/></strong></p>
+                <p><strong>Tests executed in container / on a remote machine<br/></strong></p>
+                <p>1) In case you use standalone server, the easiest way is to copy the clover.jar into the server's
+                    /lib directory. Thanks to this you won't need to deploy it together with the application (but at the
+                    cost that all applications deployed will have to be instrumented using the same Clover version; and
+                    you'll have to remember about upgrading clover.jar in server's /lib when necessary).</p>
+                <p>Alternatively, you can bundle clover.jar into your application's EAR / WAR.</p>
+                <p>2) In case you instantiate container on the fly, make sure that Clover JAR dependency is declared for
+                    runtime. Example for maven-cargo-plugin can be found here:</p>
+                <p><a  href="https://github.com/openclover/clover-maven-plugin" rel="nofollow">https://github.com/openclover/clover-maven-plugin</a>
+                    <span class="nolink">folder /src/it/webapp</span></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">...
+&lt;plugin&gt;
+    &lt;groupId&gt;org.codehaus.cargo&lt;/groupId&gt;
+    &lt;artifactId&gt;cargo-maven2-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;container&gt;
+            &lt;dependencies&gt;
+                &lt;!-- We need clover.jar to be present in container classpath --&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+                    &lt;artifactId&gt;clover&lt;/artifactId&gt;
+                &lt;/dependency&gt;
+            &lt;/dependencies&gt;
+         &lt;/container&gt;
+         ...
+    &lt;/configuration&gt;
+&lt;/plugin&gt;</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p><strong>Bamboo</strong></p>
+                <p>1) If you use Automatic Clover integration <strong>and</strong> have code running in separate JVM
+                    then you have to add dependency to the <strong>org.openclover:clover</strong> artifact.
+                    See '<em>Ant JUnit tests', 'Tests executed in container'
+                        and 'Maven</em>' chapters on this page.</p>
+                <p> </p>
+                <p>2) If you have a multi-module Maven project with dependencies between modules <strong>and</strong>
+                    use manual Clover integration, it can happen that an instrumented version of the dependent artifact
+                    will be fetched from a repository (or local ~/.m2 repository cache) for a non-Clover build. Be
+                    careful not to use &quot;mvn deploy&quot; (or &quot;mvn install&quot;) together with <strong><em>clover:setup</em></strong>
+                    (Clover 4.1 or newer) / <em><strong>clover2:setup</strong></em> (before Clover 4.1) goal, otherwise
+                    your repository will contain instrumented artifacts. We recommend the following:</p>
+                <ul>
+                    <li>use the &quot;clover:setup&quot; goal with a build till the &quot;verify&quot; phase (the
+                        latest) or
+                    </li>
+                    <li>use the &quot;clover:instrument&quot; goal (it forks a parallel build life cycle so that all
+                        artifacts produced have a '-clover' suffix).
+                    </li>
+                </ul>
+                <p> </p>
+                <p>3) If you have a multi-module Maven project with dependencies between modules <strong>and</strong>
+                    use Automatic Clover integration, it can happen that an instrumented JAR of the dependent artifact
+                    will be taken for test execution in a build phase where Clover was not enabled yet. See <a
+                             href="https://jira.atlassian.com/browse/BAM-13208" rel="nofollow">BAM-13208</a>
+                    for more details (this has been fixed in <strong>Bamboo 5.9</strong>). We recommend the following:
+                </p>
+                <ul>
+                    <li>create a separate Job in which automatic Clover integration is enabled</li>
+                    <li>create a Maven task in this job, which will do nothing (call &quot;clean&quot; goal, for
+                        instance)
+                    </li>
+                    <li>Bamboo will automatically add Clover-related goals (<em>&quot;clover:setup verify
+                        clover:aggregate clover:clover&quot;</em> for Clover  4.1 or newer, <em>&quot;clover2:setup
+                        verify clover2:aggregate clover2:clover&quot; </em>before Clover 4.1)
+                    </li>
+                </ul>
+                <p> </p>
+                <p><strong>Maven </strong></p>
+                <p>Some plug-in may need to have Clover dependency declared explicitly (e.g. for packaging artifacts,
+                    starting a container ...).</p>
+                <p>Usually, adding a following dependency to a configuration section of the specific plug-in solves the
+                    problem - exact syntax depends on the plug-in:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;!-- usually under the &lt;configuration&gt; / &lt;dependencies&gt; section - depends on a plug-in --&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;org.openclover&lt;/groupId&gt;
+	&lt;artifactId&gt;clover&lt;/artifactId&gt;
+&lt;/dependency&gt;</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>See:</p>
+                <ul>
+                    <li><a href="maven--using-with-the-maven-jaxb2-plugin.html">Using
+                        Clover with JAXB plugin</a></li>
+                    <li><a href="maven--using-with-maven-tycho-plugin.html">Using
+                        Clover with Maven Tycho Plugin</a></li>
+                </ul>
+                <p> </p>
+                <p><strong>Eclipse</strong></p>
+                <p>When you use &quot;Run with Clover as...&quot; from main menu, Clover-for-Eclipse enhances the
+                    <strong>-Xbootclasspath</strong> by adding a path to <strong>com.atlassian.clover.eclipse.runtime-&lt;version&gt;.jar</strong>
+                    from Eclipse installation directory. However, because of the fact that it's not always possible to
+                    use &quot;Run with Clover as...&quot; option (for instance when you'd like to debug or profile
+                    application), you have to modify your runtime configuration and add -Xbootclasspath manually.
+                    Example:</p>
+                <ul>
+                    <li><a href="eclipse--instrumenting-rcp-application.html">Instrumenting
+                        RCP Application</a></li>
+                </ul>
+                <p> </p>
+                <p><strong>IDEA</strong></p>
+                <p>In case when you uninstall Clover plug-in, you have to rebuild the whole project to ensure that no
+                    instrumented classes are left.</p>
+                <p> </p><h4 id="NoClassDefFoundErrorcom_atlassian_clover/CoverageRecorder-References">References</h4>
+                <ul>
+                    <li><a
+                           href="https://community.atlassian.com/t5/Clover/ct-p/clover"
+                           rel="nofollow">posts on Atlassian Community</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Integrating Clover with JUnit4 Parameterized Tests</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--integrating-openclover-with-other-tools.html">A. Integrating Clover-for-Ant with other tools</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Integrating Clover with JUnit4 Parameterized Tests
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h1 id="IntegratingCloverwithJUnit4ParameterizedTests-Introduction">Introduction</h1>
+                <p>JUnit4 framework version <strong>4.10</strong> has introduced a feature which allows to run the same
+                    test multiple times, using different data as input.</p>
+                <p>In order to use this, you have to:</p>
+                <ul>
+                    <li>annotate test class with <em>@RunWith(Parameterized.class)</em></li>
+                    <li>declare a <em>data()</em> method returning collection of input values and annotate this method
+                        with <em>@Parameters</em> annotation. 
+                    </li>
+                    <li>declare a test method annotated with <em>@Test</em></li>
+                </ul>
+                <p>Furthermore, the JUnit version 4.11 has added a 'name' attribute to the @Parameters annotation -
+                    thanks to this, you can define a custom name for a test. You can use variables such as &quot;{index}&quot;
+                    for an iteration number and &quot;{0}, {1}, ... &quot; for N-th input argument in a test name.</p>
+                <p>For example:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">@RunWith(Parameterized.class)
+public class PersonTest {
+    @Parameterized.Parameters(name = &quot;{0} is a {1} [{index}]&quot;)
+    public static Collection&lt;Object[]&gt; data() {
+        return Arrays.asList(new Object[][]{
+                {&quot;Alice&quot;, &quot;woman&quot;}, {&quot;Bob&quot;, &quot;man&quot;}, {&quot;Rex&quot;, &quot;unknown&quot;}
+        });
+    }
+    protected String input;
+    protected String expected;
+    public PersonTest(String input, String expected) {
+        this.input = input;
+        this.expected = expected;
+    }
+    @Test
+    public void test() {
+        assertEquals(expected, new Person(input).getSex());
+    }
+}</pre>
+                    </div>
+                </div>
+                <p>See more details on <a
+                                          href="https://github.com/junit-team/junit/wiki/Parameterized-tests"
+                                          rel="nofollow">JUnit wiki page</a>.</p>
+                <h1 id="IntegratingCloverwithJUnit4ParameterizedTests-IntegratingClover">Integrating Clover</h1>
+                <p>As such parametrized tests are being executed by JUnit's test runner, Clover has no problem with
+                    recording test results for them. However, till Clover 3.3.0 there's was no information about which
+                    test iteration has failed - all test iterations had the same same:</p>
+                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                        class="confluence-embedded-image" width="750"
+                        confluence-query-params="effects=border-simple,shadow-kn"
+                        src="attachments/487096327/487325697.png?effects=border-simple,shadow-kn"
+                        data-image-src="attachments/487096327/487325697.png" data-unresolved-comment-count="0"
+                        data-linked-resource-id="487325697" data-linked-resource-version="2"
+                        data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="junit4_without_clover_interceptor.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="487096327" data-linked-resource-container-version="8"></span>
+                </p>
+                <p><strong><br/></strong></p>
+                <p><strong>Clover 3.3.0</strong> introduced a JUnitTestRunnerInterceptor, which can be attached to
+                    JUnit's runner. It &quot;listens&quot; which test is being executed and what runtime name it has
+                    (evaluated by JUnit). Thanks to this, you can see an iteration number:</p>
+                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                        class="confluence-embedded-image" width="750"
+                        confluence-query-params="effects=border-simple,shadow-kn"
+                        src="attachments/487096327/487325698.png?effects=border-simple,shadow-kn"
+                        data-image-src="attachments/487096327/487325698.png" data-unresolved-comment-count="0"
+                        data-linked-resource-id="487325698" data-linked-resource-version="2"
+                        data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="junit4_sequence_numbers.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="487096327" data-linked-resource-container-version="8"></span>
+                </p>
+                <p> </p>
+                <p>as well as full test names (<em>@Parameters(name=...)</em>) in the reports:</p>
+                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                        class="confluence-embedded-image" width="750"
+                        confluence-query-params="effects=border-simple,shadow-kn"
+                        src="attachments/487096327/487325699.png?effects=border-simple,shadow-kn"
+                        data-image-src="attachments/487096327/487325699.png" data-unresolved-comment-count="0"
+                        data-linked-resource-id="487325699" data-linked-resource-version="2"
+                        data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="junit4_custom_test_names.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="487096327" data-linked-resource-container-version="8"></span>
+                </p>
+                <p> </p>
+                <h2 id="IntegratingCloverwithJUnit4ParameterizedTests-IntegratingwithAnt">Integrating with Ant</h2>
+                <p>Unfortunately, neither Ant's &lt;junit&gt; task nor JUnit itself (via command line argument) has a
+                    way to attach test listeners. It must be done programmatically. You have to instantiate a JUnitCore,
+                    add Clover's JUnitTestRunnerInterceptor to it and call core.run() method passing test class(es) as
+                    an argument.</p>
+                <p>Example:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">import org.junit.runner.JUnitCore;
+import com.atlassian.clover.recorder.junit.JUnitTestRunnerInterceptor;
+
+public class RunJUnit4WithClover {
+    public static void main(String[] args) {
+        JUnitCore core= new JUnitCore();
+        core.addListener(new JUnitTestRunnerInterceptor());
+        core.run(SquareTest.class);
+    }
+}</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>As soon as test execution is finished you can generate a Clover report.</p>
+                <p> </p>
+                <div class="confluence-information-macro confluence-information-macro-information"><p class="title">
+                    LIMITATION</p><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Clover's JUnitTestRunnerInterceptor can correctly
+                        handle parameterized test names when test methods from a single test case class are executed
+                        sequentially. It means that you shall not use a test runner which will run all iterations in
+                        parallel.</p>
+                        <p>On the other hand, running entire test cases or test suites in parallel is allowed.</p></div>
+                </div>
+                <h2 id="IntegratingCloverwithJUnit4ParameterizedTests-IntegratingwithMaven">Integrating with Maven</h2>
+                <p>See <a href="maven--surefire-and-junit4-parameterized-tests.html">Running JUnit4
+                    Parameterized tests with Surefire</a>.</p>
+                <h1 id="IntegratingCloverwithJUnit4ParameterizedTests-References">References</h1>
+                <ul>
+                    <li><a  href="https://github.com/junit-team/junit/wiki/Parameterized-tests"
+                           rel="nofollow">https://github.com/junit-team/junit/wiki/Parameterized-tests</a></li>
+                    <li><a  href="https://github.com/openclover/clover-examples" rel="nofollow">https://github.com/openclover/clover-examples</a>
+                        parameterized-junit4-example
+                    </li>
+                </ul>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

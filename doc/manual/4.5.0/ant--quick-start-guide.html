@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : 1. QuickStart Guide</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            1. QuickStart Guide
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <div class="confluence-information-macro confluence-information-macro-tip"><span
+                        class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Do you want to type less code? See the even faster
+                        <a href="ant--two-line-integration.html">Clover Two Line Integration</a>.
+                    </p>
+                        <p>Do you want to try out a ready-to-use code sample? See the <a
+                                href="ant--tutorial-part-0-clover-in-10-minutes.html">Clover Tutorial, Part 0 - Clover in
+                            10 minutes</a>.</p></div>
+                </div>
+                <h2 id="id-1.QuickStartGuide-GettingstartedwithClover-for-Ant">Getting started with Clover-for-Ant</h2>
+                <p><em>This section shows you how to quickly get Clover integrated into your build. Clover
+                    instrumentation and reporting are highly configurable so later sections of this manual will detail
+                    available configuration options and typical usage scenarios.</em> </p>
+                <p>Follow these simple steps to integrate Clover with your build. Unless otherwise indicated, all
+                    configuration options throughout this User's Guide apply to both Java and Groovy.</p>
+
+                <h3>1. Install Clover</h3>
+
+                <p>See <a href="ant--installation-guide.html">installation guide</a>.</p>
+
+                <h3 id="id-1.QuickStartGuide-2.AddClovertargets">2. Add Clover targets</h3>
+                <p>Edit build.xml for your project:</p>
+                <p><strong>2.1</strong> Add the Clover Ant tasks to your project:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">
+&lt;taskdef resource=&quot;cloverlib.xml&quot;/&gt;
+</pre>
+                    </div>
+                </div>
+                <p><strong>2.2</strong> Add a target to switch on Clover:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;with.clover&quot;&gt;
+    &lt;clover-setup/&gt;
+&lt;/target&gt;
+</pre>
+                    </div>
+                </div>
+                <p><strong>2.3</strong> Add one or more targets to run Clover reports:</p>
+                <p><em>For HTML reporting, use the following (but change the</em> <code><em>outdir</em></code> <em>to a
+                    directory path where Clover should put the generated HTML</em><em>):</em></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;clover.html&quot;&gt;
+    &lt;clover-html-report outdir=&quot;coverage&quot;/&gt;
+&lt;/target&gt;
+</pre>
+                    </div>
+                </div>
+                <p><em>OR, for PDF reporting, use the following (but change the</em> <code><em>outfile</em></code> <em>to
+                    a file where Clover should write the PDF file):</em></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;clover.pdf&quot;&gt;
+  &lt;clover-pdf-report outfile=&quot;coverage.pdf&quot;/&gt;
+&lt;/target&gt;
+</pre>
+                    </div>
+                </div>
+                <p><em>OR, for XML reporting, use the following (but change the</em> <code><em>outfile</em></code> <em>to
+                    a file where Clover should write the XML file):</em></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;clover.xml&quot;&gt;
+    &lt;clover-report&gt;
+       &lt;current outfile=&quot;coverage.xml&quot;&gt;
+          &lt;format type=&quot;xml&quot;/&gt;
+       &lt;/current&gt;
+    &lt;/clover-report&gt;
+&lt;/target&gt;
+</pre>
+                    </div>
+                </div>
+                <p><em>OR, for simple emacs-style reporting to the console, try:</em></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;clover.log&quot;&gt;
+    &lt;clover-log/&gt;
+&lt;/target&gt;
+</pre>
+                    </div>
+                </div>
+                <p><strong>2.4</strong> Add <code>clover.jar</code> to the runtime classpath for your tests. How you do
+                    this depends on how you run your tests. For tests executed via the <code>&lt;junit&gt;</code> task,
+                    add a <code>&lt;classpath&gt;</code> element:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/.ant/lib/clover.jar&quot;/&gt;
+
+    &lt;junit ...&gt;
+     ...
+     &lt;classpath&gt;
+         &lt;pathelement path=&quot;${clover.jar}&quot;/&gt;
+     &lt;/classpath&gt;
+    &lt;formatter type=&quot;xml&quot;/&gt;
+&lt;/junit&gt;
+</pre>
+                    </div>
+                </div>
+                <h3 id="id-1.QuickStartGuide-CompileandrunwithClover">Compile and run with Clover</h3>
+                <p>Now you can build your project with Clover turned on by adding the &quot;<code>with.clover</code>&quot;
+                    target to the list of targets to execute. For example (if your compile target is named
+                    '<code>build</code>' and your unit test target is named '<code>test</code>'):</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">ant clean with.clover test
+</pre>
+                    </div>
+                </div>
+                <h3 id="id-1.QuickStartGuide-GenerateaCoverageReport">Generate a Coverage Report</h3>
+                <p>To generate a Clover coverage report:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">ant clover.html (or clover.xml, clover.pdf etc)
+</pre>
+                    </div>
+                </div>
+                <div class="confluence-information-macro confluence-information-macro-tip"><span
+                        class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>For a sample report, see <a href="general--understanding-reports-current.html">'Current'
+                        Report</a>.</p></div>
+                </div>
+                <h2 id="id-1.QuickStartGuide-Nextsteps">Next steps</h2>
+                <p>See the <a href="ant--test-optimization-quick-start-guide.html">Test Optimization Quick
+                    Start Guide for Ant</a>, for how to set up Clover's Test Optimization feature to streamline your
+                    testing.</p>
+                <h2 id="id-1.QuickStartGuide-Furtherreading">Further reading</h2>
+                <p>See <a href="ant--best-practices.html">Clover for Ant Best Practices</a>.</p>
+                <h2 id="id-1.QuickStartGuide-Troubleshooting">Troubleshooting</h2>
+                <p>See <a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a> and
+                    <a href="https://community.atlassian.com/t5/Clover/ct-p/clover">Atlassian Community</a>.</p>
+                <p> </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

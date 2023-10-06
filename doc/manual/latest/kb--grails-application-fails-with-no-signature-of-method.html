@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grails application with Clover fails with &#39;No signature of method&#39;
+        exception</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--troubleshooting-grails.html">Troubleshooting Grails</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Grails application with Clover fails with &#39;No signature of method&#39; exception
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="GrailsapplicationwithCloverfailswith&#39;Nosignatureofmethod&#39;exception-Symptoms">
+                    Symptoms</h4>
+                <p>Your application is using the Clover-for-Grails plugin. You run Grails under Windows. A path to
+                    Clover's license key is passed as a command line argument.</p>
+                <p>Build fails with a &quot;No signature of method&quot; exception.</p>
+                <p> </p>
+                <p>For example:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>$ grails test-app -clover.on -clover.license.path=c:\Users\Alice\clover.license
+
+...
+
+Clover: Clover is enabled. Configuration: [license:[path:true], on:true, debug:[:], verbose:[:]] 
+Exception occurred trigger event [SetClasspath]: No signature of method: static java.lang.System.setProperty() 
+is applicable for argument types: (java.lang.String, java.lang.Boolean) values: [clover.license.path, true]</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="GrailsapplicationwithCloverfailswith&#39;Nosignatureofmethod&#39;exception-Cause">
+                Cause</h4>
+                <p>All &quot;key=value&quot; properties passed as a command line argument under Windows platform must be
+                    put in double quotes (there is no need to put in quotes on Linux or MacOS). If you don't put them
+                    into double quotes, Grails will assign a value of &quot;true&quot; during command line arguments
+                    parsing. This is a known issue in the Grails framework.</p><h4
+                    id="GrailsapplicationwithCloverfailswith&#39;Nosignatureofmethod&#39;exception-Resolution">
+                Resolution</h4>
+                <p>Put path to a Clover license key in double quotes, e.g.:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>$ grails test-app -clover.on &quot;-clover.license.path=c:\Users\Alice\clover.license&quot;</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p> </p><!--$body-->
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

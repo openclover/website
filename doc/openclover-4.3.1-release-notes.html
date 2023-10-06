@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="OpenClover is a free and open-source code coverage tool for Java, Groovy and AspectJ.
+            It's based on the open-sourced version of Atlassian Clover&reg;, the world's most sophisticated code coverage tool.">
+    <meta name="author" content="">
+    <link rel="icon" href="../resources/img/clover.ico">
+
+    <title>OpenClover - Java, Groovy and AspectJ code coverage tool</title>
+
+    <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../resources/css/style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index"><img src="../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../index">Overview</a></li>
+                <li><a href="../features">Features</a></li>
+                <li><a href="../downloads">Downloads</a></li>
+                <li class="active"><a href="../documentation">Documentation</a></li>
+                <li><a href="../support">Support</a></li>
+                <li><a href="../blog">Blog</a></li>
+                <!--<li><a href="../faq">FAQ</a></li>-->
+                <li><a href="../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h1>OpenClover 4.3.0 Release Notes</h1>
+
+    <div class="alert alert-warning">
+        Due to a <a href="https://github.com/openclover/clover/issues/72">blocker bug</a> present in version 4.3.0
+        we strongly recommend upgrading to 4.3.1 or later.
+    </div>
+
+    <div class="alert alert-warning">
+        We released: Clover Runtime, Core, Ant, Eclipse, IDEA, Maven, Grails, AspectJ, Hudson and Jenkins.
+    </div>
+
+    <h2>Features</h2>
+
+    <h4>Java 9 support</h4>
+
+    <div>
+        You can use the "Java 9" source level setting in OpenClover command line tools,
+            Ant or Maven as well as in your Eclipse and IntelliJ IDEA projects. OpenClover core can also detect use of JDK9
+            and apply this language level automatically, if not set. The Java grammar parser has been extended
+            and can parse <i>module-info.java</i> files - there is no need to exclude these files from instrumentation.
+    </div>
+
+    <h2>Upgrading from OpenClover 4.2.x</h2>
+
+    <p>
+        <b>The &lt;clover-env&gt; task behaviour has been changed.</b> It no longer adds clover.jar to the system
+        classpath, as Java 9 is more restrictive regarding classpath manipulation. This in particular affects
+        Ant integration and &lt;clover-setup&gt; task as well as automatic Ant integration in Hudson, Jenkins and Bamboo.
+        In order to have them working correctly, you have to add <a href="manual/latest/ant--adding-to-ants-classpath.html">clover.jar
+        to Ant's classpath</a>.
+    </p>
+
+    <h4>Clover for Ant</h4>
+
+    <p>Simply download new Clover-for-Ant zip file and use the clover.jar from it.</p>
+
+    <h4>Clover for Eclipse</h4>
+
+    <div>Download new update site ZIP and install in your Eclipse.</div>
+
+    <h4>Clover for IDEA</h4>
+
+    <div>IntelliJ IDEA 13 is no longer supported. As announced few months ago, we had to use APIs from IDEA 14
+        in order to implement JDK9 support, so OpenClover will no longer run in IDEA 13.
+        Download new plugin JAR and install in your IDEA.</div>
+
+    <h4>Clover Maven Plugin</h4>
+
+    <div>Bump version number to 4.3.1 for 'org.openclover:clover-maven-plugin' and 'org.openclover:clover' in
+        your pom.xml files.
+    </div>
+
+    <h4>Grails Clover Plugin</h4>
+
+    <div>Upgrade to version 4.3.1.</div>
+
+    <h4>Bamboo Clover Plugin</h4>
+
+    <div>In case you use automatic Clover integration in Bamboo, then you have to switch it to manual one, as
+        Bamboo is using Atlassian Clover&reg; instead of OpenClover. In case of a Maven task, the manual integration
+        should define goals similar to the following (the latest version will be picked up automatically):
+    </div>
+
+    <pre>clean org.openclover:clover-maven-plugin:setup verify org.openclover:clover-maven-plugin:aggregate org.openclover:clover-maven-plugin:clover</pre>
+
+    <h4>Jenkins Clover Plugin</h4>
+
+    <p>Upgrade to the latest 4.10.0 plugin version.</p>
+
+    <p>
+        In this version <b>the 'clover.fullclean' target is no longer called</b>
+        in a build (see <a href="https://jira.atlassian.com/browse/CLOV-736">CLOV-736</a> for details) when automatic
+        integration is enabled. Add such target if you need this (you can find it in cloverlib.xml inside the
+        clover.jar).
+    </p>
+
+    <h4>Hudson Clover Plugin</h4>
+
+    <div>Upgrade to the latest 4.8.0 plugin version.</div>
+
+    <h4>Gradle Clover Plugin</h4>
+
+    <div>We have not released the OpenClover version of the Gradle plugin yet. You can find its source code here:
+        <a href="https://github.com/openclover/gradle-clover-plugin">https://github.com/openclover/gradle-clover-plugin</a>
+    </div>
+
+
+    <h2>Changelog</h2>
+
+    <h4>2018.08.03 OpenClover 4.3.0</h4>
+
+    <ul>
+        <li><a href="https://github.com/openclover/clover/issues/61">#61: Support Java 9</a></li>
+    </ul>
+
+    <h4>2018.09.21 OpenClover 4.3.1</h4>
+
+    <div>This release solves the #72 blocker bug introduced in version 4.3.0. We recommend an upgrade to 4.3.1.</div>
+
+    <ul>
+        <li><a href="https://github.com/openclover/clover/issues/72">#72 Instrumentation errors on module-info keywords</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/75">#73 Ant javac task is unable to find CloverCompilerAdapter class</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/67">#67 Support 'Android JUnit' configuration in IDEA</a></li>
+    </ul>
+</div>
+
+
+<script src="../resources/js/jquery-1.12.4.min.js"></script>
+<script src="../resources/js/bootstrap.min.js"></script>
+</body>
+</html>

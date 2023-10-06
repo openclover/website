@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-module Maven build on Bamboo with Clover history reports</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--troubleshooting-bamboo.html">Troubleshooting Bamboo</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Multi-module Maven build on Bamboo with Clover history reports
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>This problem has been solved in the bug fix <a
+                             href="https://jira.atlassian.com/browse/CLOV-1290" rel="nofollow">CLOV-1290</a>
+                        in Clover version 3.1.12 and the bug fix <a
+                                                                    href="https://jira.atlassian.com/browse/BAM-13222"
+                                                                    rel="nofollow">BAM-13222</a> in Bamboo version 5.0.
+                        We recommend upgrading to the latest Clover and Bamboo versions.</p></div>
+                </div>
+                <h4 id="Multi-moduleMavenbuildonBamboowithCloverhistoryreports-Symptoms">Symptoms</h4>
+                <p>Multi-module Maven build on Bamboo with automatic Clover integration. Generation of history reports
+                    enabled.</p>
+                <p>Build failing on a sub-module with an error like below:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence"
+     data-theme="Confluence">/tmp/MY-JOB1/mvn6923231521105500978resource:21: java.lang.IllegalStateException:
+basedir /home/bamboo/xml-data/build-dir/MY-JOB1/my-module/.cloverhistory is not a directory</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="Multi-moduleMavenbuildonBamboowithCloverhistoryreports-Cause">Cause</h4>
+                <p>When automatic Clover integration with historical reports is enabled in Bamboo, the Bamboo adds a
+                    following parameter to a Maven build task:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>-Dmaven.clover.historyDir=.cloverhistory</pre>
+                    </div>
+                </div>
+                <p>As a consequence, in case of sub-modules, it cannot find a directory containing historical data,
+                    because it's located in the top-level module.</p>
+                <p> </p><h4 id="Multi-moduleMavenbuildonBamboowithCloverhistoryreports-Resolution">Resolution</h4>
+                <p>The best way to use Clover with Bamboo and Maven to create historical charts is:</p>
+                <ul>
+                    <li>use a single clover database for all modules, rather than 1 per module<br/>
+                        <ul>
+                            <li>this removes the need to call clover:aggregate</li>
+                            <li>use -Dmaven.clover.singleCloverDatabase=true</li>
+                        </ul>
+                    </li>
+                    <li>specify a single historydir location:
+                        -Dmaven.clover.historyDir=/some/dir/notdeleted-across-clean-builds<br/>
+                        <ul>
+                            <li>this location must be preserved between bamboo builds</li>
+                            <li>if you have multiple bamboo agents, be sure to capture the contents of this dir somehow
+                                and make it available for the next build.
+                            </li>
+                            <li>use manual Clover integration, otherwise mvn command will have two
+                                -Dmaven.clover.historyDir options provided (one defined manually, one added by Bamboo) -
+                                bug <a  href="https://jira.atlassian.com/browse/BAM-13222"
+                                       rel="nofollow">BAM-13222</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p> </p><!--$body-->
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

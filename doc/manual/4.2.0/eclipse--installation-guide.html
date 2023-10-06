@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : Clover-for-Eclipse Installation Guide</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="eclipse--overview.html">Clover-for-Eclipse</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Clover-for-Eclipse Installation Guide
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813721968 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813721968 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813721968 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813721968'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#Clover-for-EclipseInstallationGuide-Requirements'>Requirements</a></li>
+                        <li><a href='#Clover-for-EclipseInstallationGuide-Knownissues'>Known issues</a></li>
+                        <li><a href='#Clover-for-EclipseInstallationGuide-Installation'>Installation</a>
+                            <ul class='toc-indentation'>
+                                <li>
+                                    <a href='#Clover-for-EclipseInstallationGuide-1a.Installingtheplug-infromtheliveCloverEclipseupdatesite'>1a.
+                                        Installing the plug-in from the live Clover Eclipse update site</a></li>
+                                <li>
+                                    <a href='#Clover-for-EclipseInstallationGuide-1b.Installingtheplug-infromadownloadedarchiveoftheCloverEclipseupdatesite'>1b.
+                                        Installing the plug-in from a downloaded archive of the Clover Eclipse update
+                                        site</a></li>
+                                <li>
+                                    <a href='#Clover-for-EclipseInstallationGuide-1c.Installingtheplug-infromtheEclipseMarketplace'>1c.
+                                        Installing the plug-in from the Eclipse Marketplace</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#Clover-for-EclipseInstallationGuide-Uninstallation'>Uninstallation</a></li>
+                    </ul>
+                </div>
+                </p><h2 id="Clover-for-EclipseInstallationGuide-Requirements">Requirements</h2>
+                <p>The Clover-for-Eclipse system requirements are as follows:</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <td class="confluenceTd"><p><strong>Eclipse Projects</strong></p></td>
+                            <td class="confluenceTd"><p>Your Eclipse projects must use the built-in Java Builder for
+                                compilation of source code. <br class="atl-forced-newline"/> We do not support
+                                AspectJ-based projects.</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd"><strong>JDK Version</strong></td>
+                            <td rowspan="3" class="confluenceTd"><p> </p>
+                                <p>See <a href="general--supported-platforms.html">Supported Platforms</a></p>
+                                <p> </p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd"><p><strong>Eclipse</strong> <strong>Version</strong>
+                            </p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p><strong>Operating System</strong></p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h2 id="Clover-for-EclipseInstallationGuide-Knownissues">Known issues</h2>
+                <ul>
+                    <li>Projects initially instrumented/built using an earlier Clover plugin version or build may appear
+                        as grey in the Coverage Explorer. To resolve this, perform a clean build on your
+                        Clover-instrumented classes and select &quot;Yes&quot; when asked to delete coverage data.
+                    </li>
+                </ul>
+                <h2 id="Clover-for-EclipseInstallationGuide-Installation">Installation</h2>
+                <p>You can either install the Clover-for-Eclipse from the live Clover Eclipse update site, Eclipse
+                    Marketplace or from a zipped archive downloaded manually.</p><h5
+                    id="Clover-for-EclipseInstallationGuide-1a.Installingtheplug-infromtheliveCloverEclipseupdatesite">
+                1a. Installing the plug-in from the live Clover Eclipse update site</h5>
+                <ol>
+                    <li>Select from the menu <em>&quot;Help &gt; Install New Software ...&quot;</em>.</li>
+                    <li>Click <em>&quot;Add...&quot;</em>, enter <a
+                                                                    href="http://openclover.org/update"
+                                                                    rel="nofollow">http://openclover.org/update</a>
+                        in the <em>&quot;Location&quot;</em> field. Click <em>&quot;OK&quot;</em>.
+                    </li>
+                    <li>Select the entry <em>&quot;Clover &lt;version&gt; (Eclipse 3.6 - 4.4 and RAD 8.0 -
+                        9.0)&quot;</em>.
+                    </li>
+                    <li>Deselect the checkbox <em>&quot;Contact all update sites ... &quot;</em> for faster
+                        installation.
+                    </li>
+                    <li>Click <em>&quot;Next&quot;</em> twice, select the radio button next to <em>&quot;I accept the
+                        license agreement&quot;</em> and click the <em>&quot;Finish&quot;</em>.
+                    </li>
+                    <li>Installation process will start. <br/>
+                        <ol>
+                            <li>You will be asked to install unsigned content. Click <em>&quot;OK&quot;</em>.</li>
+                            <li>You will be asked to restart Eclipse. Click <em>&quot;Restart now&quot;</em> to complete
+                                the installation.
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+                <h5 id="Clover-for-EclipseInstallationGuide-1b.Installingtheplug-infromadownloadedarchiveoftheCloverEclipseupdatesite">
+                    1b. Installing the plug-in from a downloaded archive of the Clover Eclipse update site</h5>
+                <ol>
+                    <li>Download the most recent Clover Eclipse update site archive from the <a
+                                                                                                href="http://openclover.org/downloads"
+                                                                                                rel="nofollow">Clover
+                        downloads page</a>.
+                    </li>
+                    <li>Select from the menu <em>&quot;Help &gt; Install New Software ...&quot;</em>.</li>
+                    <li>Click <em>&quot;Add...&quot;</em>, next click <em>&quot;Archive...&quot;</em> and point to the
+                        location of the downloaded archive. Click <em>&quot;OK&quot;</em>.
+                    </li>
+                    <li>Select the entry <em>&quot;Clover <em>&lt;version&gt;</em> (Eclipse 3.6 - 4.3. and RAD 8.0 -
+                        9.0)&quot;</em>.
+                    </li>
+                    <li>Deselect the checkbox <em>&quot;Contact all update sites ... &quot;</em> for faster
+                        installation.
+                    </li>
+                    <li>Click <em>&quot;Next&quot;</em> twice, select the radio button next to <em>&quot;I accept the
+                        license agreement&quot;</em> and click the <em>&quot;Finish&quot;</em>.
+                    </li>
+                    <li>Installation process will start. <br/>
+                        <ol>
+                            <li>You will be asked to install unsigned content. Click <em>&quot;OK&quot;</em>.</li>
+                            <li>You will be asked to restart Eclipse. Click <em>&quot;Restart now&quot;</em> to complete
+                                the installation.
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+                <h5 id="Clover-for-EclipseInstallationGuide-1c.Installingtheplug-infromtheEclipseMarketplace">1c.
+                    Installing the plug-in from the Eclipse Marketplace</h5>
+                <ol>
+                    <li>Select from the menu <em>&quot;Help &gt; Eclipse Marketplace ...&quot;</em>.</li>
+                    <li>On the <em>&quot;Search&quot;</em> tab, in the <em>&quot;Find&quot;</em> field type <em>&quot;Clover&quot;</em>
+                        and click <em>&quot;Go&quot;</em>.
+                    </li>
+                    <li>You shall see a message <em>&quot;0 matches. Browse for more solutions.&quot;</em> Click on this
+                        link. <br/><em><img class="emoticon emoticon-light-on"
+                                            src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on"
+                                            alt="(lightbulb)"/> Clover is not listed in this dialog due to license
+                            restrictions applied by Eclipse Marketplace.</em></li>
+                    <li>An internal web browser view will open. Click the <em>&quot;Atlassian Clover for
+                        Eclipse&quot;</em> on a list of results.<br/><span
+                            class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                            class="confluence-embedded-image" width="500"
+                            confluence-query-params="effects=border-simple,blur-border"
+                            src="attachments/71599658/588420410.png?effects=border-simple,blur-border"
+                            data-image-src="attachments/71599658/588420410.png" data-unresolved-comment-count="0"
+                            data-linked-resource-id="588420410" data-linked-resource-version="2"
+                            data-linked-resource-type="attachment"
+                            data-linked-resource-default-alias="clover_on_eclipse_marketplace.png"
+                            data-base-url="https://confluence.atlassian.com"
+                            data-linked-resource-content-type="image/png" data-linked-resource-container-id="71599658"
+                            data-linked-resource-container-version="78"></span></li>
+                    <li>Plug-in page will open. Click the <em>&quot;Install&quot;</em> button.</li>
+                    <li>A dialog with a list of features to install will open. Check that <em>&quot;Clover 4&quot;</em>
+                        and <em>&quot;Clover 4 Ant Support&quot;</em> are selected and click <em>&quot;Next&quot;</em>.
+                    </li>
+                    <li>A license agreement will be displayed. Select the radio button next to <em>&quot;I accept the
+                        license agreement&quot;</em> and click the <em>&quot;Finish&quot;</em>.
+                    </li>
+                    <li>Installation process will start. <br/>
+                        <ol>
+                            <li>You will be asked to install unsigned content. Click <em>&quot;OK&quot;</em>.</li>
+                            <li>You will be asked to restart Eclipse. Click <em>&quot;Restart now&quot;</em> to complete
+                                the installation.
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+                <h2 id="Clover-for-EclipseInstallationGuide-Uninstallation">Uninstallation</h2>
+                <p>To uninstall the plug-in:</p>
+                <ol>
+                    <li>Select from the menu<em> &quot;Help &gt; About Eclipse &gt; Installation Details&quot;</em>.
+                    </li>
+                    <li>Select &quot;Installed Software&quot; tab.</li>
+                    <li>Find the Clover features in the list - there should be two:<em> &quot;Clover 4&quot;</em> and
+                        <em>&quot;Clover 4 Ant Support&quot;</em>.
+                    </li>
+                    <li>Select both, right click and select <em>&quot;Uninstall...&quot;</em>. Click <em>&quot;Finish&quot;</em>
+                        to confirm you want to proceed.
+                    </li>
+                    <li>Uninstallation process will start. You will be asked if you want to restart Eclipse. Click <em>&quot;Restart
+                        Now&quot;</em>.
+                    </li>
+                </ol>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : 1. Clover for IDEA in 10 minutes</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="idea--overview.html">Clover-for-IDEA</a></span>
+                    </li>
+                    <li>
+                        <span><a href="idea--user-guide.html">Clover-for-IDEA User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            1. Clover for IDEA in 10 minutes
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h2 id="id-1.CloverforIDEAin10minutes-GettingStarted">Getting Started</h2>
+                <p>This getting started guide will take you through the steps required to generate Clover coverage for
+                    your project.</p>
+                <ol>
+                    <li><a href="idea--installation-guide.html">Install the plugin</a>.</li>
+                    <li>Enable Clover, by selecting the 'Enable Clover' check box in the &quot;File | Settings | Project
+                        | Clover&quot; interface.
+                    </li>
+                    <li>Turn on clover instrumentation by selecting the <span
+                            class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                          src="attachments/300814874/648609826.png"
+                                                                          data-image-src="attachments/300814874/648609826.png"
+                                                                          data-unresolved-comment-count="0"
+                                                                          data-linked-resource-id="648609826"
+                                                                          data-linked-resource-version="1"
+                                                                          data-linked-resource-type="attachment"
+                                                                          data-linked-resource-default-alias="compile_with_clover.png"
+                                                                          data-base-url="https://confluence.atlassian.com"
+                                                                          data-linked-resource-content-type="image/png"
+                                                                          data-linked-resource-container-id="300814874"
+                                                                          data-linked-resource-container-version="5"></span>
+                        toolbar item.
+                    </li>
+                    <li>Rebuild your project using any of the build mechanisms provided by IDEA.</li>
+                    <li>Run your project by running the unit tests or some other means.</li>
+                    <li>Refresh the latest coverage data by clicking the <span class="confluence-embedded-file-wrapper"><img
+                            class="confluence-embedded-image" src="attachments/300814874/648609830.png"
+                            data-image-src="attachments/300814874/648609830.png" data-unresolved-comment-count="0"
+                            data-linked-resource-id="648609830" data-linked-resource-version="1"
+                            data-linked-resource-type="attachment" data-linked-resource-default-alias="sync.png"
+                            data-base-url="https://confluence.atlassian.com"
+                            data-linked-resource-content-type="image/png" data-linked-resource-container-id="300814874"
+                            data-linked-resource-container-version="5"></span> toolbar item.
+                    </li>
+                    <li>Highlight coverage in the source code editor by selecting the <span
+                            class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                          src="attachments/300814874/648609827.png"
+                                                                          data-image-src="attachments/300814874/648609827.png"
+                                                                          data-unresolved-comment-count="0"
+                                                                          data-linked-resource-id="648609827"
+                                                                          data-linked-resource-version="1"
+                                                                          data-linked-resource-type="attachment"
+                                                                          data-linked-resource-default-alias="cloverview_sml.png"
+                                                                          data-base-url="https://confluence.atlassian.com"
+                                                                          data-linked-resource-content-type="image/png"
+                                                                          data-linked-resource-container-id="300814874"
+                                                                          data-linked-resource-container-version="5"></span>
+                        toolbar item. <br class="atl-forced-newline"/> Available highlighting options: <br
+                                class="atl-forced-newline"/><span class="confluence-embedded-file-wrapper"><img
+                                class="confluence-embedded-image" src="attachments/300814874/301008088.gif"
+                                data-image-src="attachments/300814874/301008088.gif" data-unresolved-comment-count="0"
+                                data-linked-resource-id="301008088" data-linked-resource-version="1"
+                                data-linked-resource-type="attachment"
+                                data-linked-resource-default-alias="all_editor_coverage.gif"
+                                data-base-url="https://confluence.atlassian.com"
+                                data-linked-resource-content-type="image/gif"
+                                data-linked-resource-container-id="300814874"
+                                data-linked-resource-container-version="5"></span> highlight covered code (in green) and
+                        code with no coverage (in red), <br class="atl-forced-newline"/><span
+                                class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                              src="attachments/300814874/301008089.gif"
+                                                                              data-image-src="attachments/300814874/301008089.gif"
+                                                                              data-unresolved-comment-count="0"
+                                                                              data-linked-resource-id="301008089"
+                                                                              data-linked-resource-version="1"
+                                                                              data-linked-resource-type="attachment"
+                                                                              data-linked-resource-default-alias="uncovered_editor_coverage.gif"
+                                                                              data-base-url="https://confluence.atlassian.com"
+                                                                              data-linked-resource-content-type="image/gif"
+                                                                              data-linked-resource-container-id="300814874"
+                                                                              data-linked-resource-container-version="5"></span>
+                        only highlight code with no coverage, <br class="atl-forced-newline"/><span
+                                class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                              src="attachments/300814874/301008090.gif"
+                                                                              data-image-src="attachments/300814874/301008090.gif"
+                                                                              data-unresolved-comment-count="0"
+                                                                              data-linked-resource-id="301008090"
+                                                                              data-linked-resource-version="1"
+                                                                              data-linked-resource-type="attachment"
+                                                                              data-linked-resource-default-alias="no_editor_coverage.gif"
+                                                                              data-base-url="https://confluence.atlassian.com"
+                                                                              data-linked-resource-content-type="image/gif"
+                                                                              data-linked-resource-container-id="300814874"
+                                                                              data-linked-resource-container-version="5"></span>
+                        turn code coverage highlighting off. <br class="atl-forced-newline"/><span
+                                class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                              src="attachments/300814874/301008091.png"
+                                                                              data-image-src="attachments/300814874/301008091.png"
+                                                                              data-unresolved-comment-count="0"
+                                                                              data-linked-resource-id="301008091"
+                                                                              data-linked-resource-version="2"
+                                                                              data-linked-resource-type="attachment"
+                                                                              data-linked-resource-default-alias="clover_annotate_included.png"
+                                                                              data-base-url="https://confluence.atlassian.com"
+                                                                              data-linked-resource-content-type="image/png"
+                                                                              data-linked-resource-container-id="300814874"
+                                                                              data-linked-resource-container-version="5"></span>
+                        this enables little gray and green clovers in package explorer. These indicate the toggled state
+                        of the exclusion annotation.
+                    </li>
+                    <li>When <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                                 src="attachments/300814874/301008092.png"
+                                                                                 data-image-src="attachments/300814874/301008092.png"
+                                                                                 data-unresolved-comment-count="0"
+                                                                                 data-linked-resource-id="301008092"
+                                                                                 data-linked-resource-version="1"
+                                                                                 data-linked-resource-type="attachment"
+                                                                                 data-linked-resource-default-alias="include_passed_only.png"
+                                                                                 data-base-url="https://confluence.atlassian.com"
+                                                                                 data-linked-resource-content-type="image/png"
+                                                                                 data-linked-resource-container-id="300814874"
+                                                                                 data-linked-resource-container-version="5"></span>
+                        option is selected only coverage from passed unit tests contributes to the coverage percentage.
+                    </li>
+                    <li>View the TreeMap report for the current project using the <span
+                            class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                          src="attachments/300814874/301008093.gif"
+                                                                          data-image-src="attachments/300814874/301008093.gif"
+                                                                          data-unresolved-comment-count="0"
+                                                                          data-linked-resource-id="301008093"
+                                                                          data-linked-resource-version="1"
+                                                                          data-linked-resource-type="attachment"
+                                                                          data-linked-resource-default-alias="report_treemap.gif"
+                                                                          data-base-url="https://confluence.atlassian.com"
+                                                                          data-linked-resource-content-type="image/gif"
+                                                                          data-linked-resource-container-id="300814874"
+                                                                          data-linked-resource-container-version="5"></span>
+                        button.
+                    </li>
+                    <li>View the Cloud report for current project using <span
+                            class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                          src="attachments/300814874/301008094.png"
+                                                                          data-image-src="attachments/300814874/301008094.png"
+                                                                          data-unresolved-comment-count="0"
+                                                                          data-linked-resource-id="301008094"
+                                                                          data-linked-resource-version="2"
+                                                                          data-linked-resource-type="attachment"
+                                                                          data-linked-resource-default-alias="cloud_report.png"
+                                                                          data-base-url="https://confluence.atlassian.com"
+                                                                          data-linked-resource-content-type="image/png"
+                                                                          data-linked-resource-container-id="300814874"
+                                                                          data-linked-resource-container-version="5"></span>
+                        button.
+                    </li>
+                </ol>
+                <p> </p>
+                <hr/>
+                <p>Congratulations! You now know basics of <em>Clover for IDEA </em>plugin - enough to start your daily
+                    work with it. If you want to learn more, read the <a
+                            href="idea--exploration-of-coverage.html">2. Exploration of coverage in
+                        IDEA</a> chapter.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

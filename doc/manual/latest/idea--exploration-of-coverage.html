@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : 2. Exploration of coverage in IDEA</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="idea--overview.html">Clover-for-IDEA</a></span>
+                    </li>
+                    <li>
+                        <span><a href="idea--user-guide.html">Clover-for-IDEA User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            2. Exploration of coverage in IDEA
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h2 id="id-2.ExplorationofcoverageinIDEA-ViewingCoverageResults">Viewing Coverage Results</h2>
+                <p>Clover will record the code coverage information each time you run your application or a unit-test.
+                    This coverage information is available for viewing using IDEA.</p>
+                <p>The coverage information can be browsed using the <em>&quot;Cloverage&quot;</em> window. The upper
+                    portion of the tool window contains a project class browser with inline coverage information:</p>
+                <p><br/>  <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                              src="attachments/300814876/301008004.png"
+                                                                              data-image-src="attachments/300814876/301008004.png"
+                                                                              data-unresolved-comment-count="0"
+                                                                              data-linked-resource-id="301008004"
+                                                                              data-linked-resource-version="2"
+                                                                              data-linked-resource-type="attachment"
+                                                                              data-linked-resource-default-alias="Cloverage.png"
+                                                                              data-base-url="https://confluence.atlassian.com"
+                                                                              data-linked-resource-content-type="image/png"
+                                                                              data-linked-resource-container-id="300814876"
+                                                                              data-linked-resource-container-version="7"></span>
+                </p>
+                <p>The tool bar at the top of the browser contains the following buttons:</p>
+                <ul>
+                    <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                            src="attachments/300814876/301008005.gif"
+                                                                            data-image-src="attachments/300814876/301008005.gif"
+                                                                            data-unresolved-comment-count="0"
+                                                                            data-linked-resource-id="301008005"
+                                                                            data-linked-resource-version="2"
+                                                                            data-linked-resource-type="attachment"
+                                                                            data-linked-resource-default-alias="flattenPackages.gif"
+                                                                            data-base-url="https://confluence.atlassian.com"
+                                                                            data-linked-resource-content-type="image/gif"
+                                                                            data-linked-resource-container-id="300814876"
+                                                                            data-linked-resource-container-version="7"></span><strong>Flatten
+                        Packages.</strong> With this selected, only concrete packages are shown in the browser.
+                    </li>
+                    <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                            src="attachments/300814876/301008006.gif"
+                                                                            data-image-src="attachments/300814876/301008006.gif"
+                                                                            data-unresolved-comment-count="0"
+                                                                            data-linked-resource-id="301008006"
+                                                                            data-linked-resource-version="2"
+                                                                            data-linked-resource-type="attachment"
+                                                                            data-linked-resource-default-alias="autoscrollToSource.gif"
+                                                                            data-base-url="https://confluence.atlassian.com"
+                                                                            data-linked-resource-content-type="image/gif"
+                                                                            data-linked-resource-container-id="300814876"
+                                                                            data-linked-resource-container-version="7"></span><strong>Autoscroll
+                        to Source.</strong> With this selected, a single click on a class in the browser will load the
+                        corresponding source file in an editor pane, with coverage info overlaid.
+                    </li>
+                    <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                            src="attachments/300814876/301008007.gif"
+                                                                            data-image-src="attachments/300814876/301008007.gif"
+                                                                            data-unresolved-comment-count="0"
+                                                                            data-linked-resource-id="301008007"
+                                                                            data-linked-resource-version="2"
+                                                                            data-linked-resource-type="attachment"
+                                                                            data-linked-resource-default-alias="autoscrollFromSource.gif"
+                                                                            data-base-url="https://confluence.atlassian.com"
+                                                                            data-linked-resource-content-type="image/gif"
+                                                                            data-linked-resource-container-id="300814876"
+                                                                            data-linked-resource-container-version="7"></span><strong>Autoscroll
+                        from Source.</strong> With this selected, the coverage browser will track the currently active
+                        source file in the editor pane.
+                    </li>
+                    <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                            src="attachments/300814876/301008008.png"
+                                                                            data-image-src="attachments/300814876/301008008.png"
+                                                                            data-unresolved-comment-count="0"
+                                                                            data-linked-resource-id="301008008"
+                                                                            data-linked-resource-version="2"
+                                                                            data-linked-resource-type="attachment"
+                                                                            data-linked-resource-default-alias="auto_cloud.png"
+                                                                            data-base-url="https://confluence.atlassian.com"
+                                                                            data-linked-resource-content-type="image/png"
+                                                                            data-linked-resource-container-id="300814876"
+                                                                            data-linked-resource-container-version="7"></span><strong>Always
+                        view package in the Cloud report.</strong> When this is selected the Cloud view will
+                        automatically show a package selected in this tree.
+                    </li>
+                    <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                            src="attachments/300814876/301008009.gif"
+                                                                            data-image-src="attachments/300814876/301008009.gif"
+                                                                            data-unresolved-comment-count="0"
+                                                                            data-linked-resource-id="301008009"
+                                                                            data-linked-resource-version="2"
+                                                                            data-linked-resource-type="attachment"
+                                                                            data-linked-resource-default-alias="showStructure.gif"
+                                                                            data-base-url="https://confluence.atlassian.com"
+                                                                            data-linked-resource-content-type="image/gif"
+                                                                            data-linked-resource-container-id="300814876"
+                                                                            data-linked-resource-container-version="7"></span><strong>Show
+                        Coverage Summary.</strong> With this selected, the Coverage metrics (see below) will be visible.
+                    </li>
+                    <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                            src="attachments/300814876/301008010.png"
+                                                                            data-image-src="attachments/300814876/301008010.png"
+                                                                            data-unresolved-comment-count="0"
+                                                                            data-linked-resource-id="301008010"
+                                                                            data-linked-resource-version="2"
+                                                                            data-linked-resource-type="attachment"
+                                                                            data-linked-resource-default-alias="export.png"
+                                                                            data-base-url="https://confluence.atlassian.com"
+                                                                            data-linked-resource-content-type="image/png"
+                                                                            data-linked-resource-container-id="300814876"
+                                                                            data-linked-resource-container-version="7"></span><strong>Generate
+                        Report.</strong> Launches a dialog to create a coverage report in HTML, XML or PDF format.
+                    </li>
+                    <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                            src="attachments/300814876/301008011.png"
+                                                                            data-image-src="attachments/300814876/301008011.png"
+                                                                            data-unresolved-comment-count="0"
+                                                                            data-linked-resource-id="301008011"
+                                                                            data-linked-resource-version="2"
+                                                                            data-linked-resource-type="attachment"
+                                                                            data-linked-resource-default-alias="package_cloud.png"
+                                                                            data-base-url="https://confluence.atlassian.com"
+                                                                            data-linked-resource-content-type="image/png"
+                                                                            data-linked-resource-container-id="300814876"
+                                                                            data-linked-resource-container-version="7"></span><strong>Cloud
+                        report for selected package.</strong> Opens Cloud report for selected package.
+                    </li>
+                    <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                            src="attachments/300814876/301008012.gif"
+                                                                            data-image-src="attachments/300814876/301008012.gif"
+                                                                            data-unresolved-comment-count="0"
+                                                                            data-linked-resource-id="301008012"
+                                                                            data-linked-resource-version="2"
+                                                                            data-linked-resource-type="attachment"
+                                                                            data-linked-resource-default-alias="sync.gif"
+                                                                            data-base-url="https://confluence.atlassian.com"
+                                                                            data-linked-resource-content-type="image/gif"
+                                                                            data-linked-resource-container-id="300814876"
+                                                                            data-linked-resource-container-version="7"></span><strong>Refresh.</strong>
+                        Reloads coverage data.
+                    </li>
+                    <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                            src="attachments/300814876/301008013.png"
+                                                                            data-image-src="attachments/300814876/301008013.png"
+                                                                            data-unresolved-comment-count="0"
+                                                                            data-linked-resource-id="301008013"
+                                                                            data-linked-resource-version="2"
+                                                                            data-linked-resource-type="attachment"
+                                                                            data-linked-resource-default-alias="reset.png"
+                                                                            data-base-url="https://confluence.atlassian.com"
+                                                                            data-linked-resource-content-type="image/png"
+                                                                            data-linked-resource-container-id="300814876"
+                                                                            data-linked-resource-container-version="7"></span><strong>Clean
+                        Coverage.</strong> Cleans gathered coverage data without deleting the instrumentation database.
+                    </li>
+                    <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                            src="attachments/300814876/648609831.png"
+                                                                            data-image-src="attachments/300814876/648609831.png"
+                                                                            data-unresolved-comment-count="0"
+                                                                            data-linked-resource-id="648609831"
+                                                                            data-linked-resource-version="2"
+                                                                            data-linked-resource-type="attachment"
+                                                                            data-linked-resource-default-alias="delete.png"
+                                                                            data-base-url="https://confluence.atlassian.com"
+                                                                            data-linked-resource-content-type="image/png"
+                                                                            data-linked-resource-container-id="300814876"
+                                                                            data-linked-resource-container-version="7"></span><strong>Delete.</strong>
+                        Delete the current coverage database.
+                    </li>
+                    <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                            src="attachments/300814876/301008015.gif"
+                                                                            data-image-src="attachments/300814876/301008015.gif"
+                                                                            data-unresolved-comment-count="0"
+                                                                            data-linked-resource-id="301008015"
+                                                                            data-linked-resource-version="2"
+                                                                            data-linked-resource-type="attachment"
+                                                                            data-linked-resource-default-alias="filter.gif"
+                                                                            data-base-url="https://confluence.atlassian.com"
+                                                                            data-linked-resource-content-type="image/gif"
+                                                                            data-linked-resource-container-id="300814876"
+                                                                            data-linked-resource-container-version="7"></span><strong>Set
+                        Context Filter.</strong> Launches a dialog to set the context filter.
+                    </li>
+                    <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                            src="attachments/300814876/301008016.gif"
+                                                                            data-image-src="attachments/300814876/301008016.gif"
+                                                                            data-unresolved-comment-count="0"
+                                                                            data-linked-resource-id="301008016"
+                                                                            data-linked-resource-version="2"
+                                                                            data-linked-resource-type="attachment"
+                                                                            data-linked-resource-default-alias="hierarchy_hide_fully_covered.gif"
+                                                                            data-base-url="https://confluence.atlassian.com"
+                                                                            data-linked-resource-content-type="image/gif"
+                                                                            data-linked-resource-container-id="300814876"
+                                                                            data-linked-resource-container-version="7"></span><strong>Hide
+                        Fully Covered Elements.</strong> Removes elements with 100% coverage from view.
+                    </li>
+                    <li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                            src="attachments/300814876/301008017.gif"
+                                                                            data-image-src="attachments/300814876/301008017.gif"
+                                                                            data-unresolved-comment-count="0"
+                                                                            data-linked-resource-id="301008017"
+                                                                            data-linked-resource-version="2"
+                                                                            data-linked-resource-type="attachment"
+                                                                            data-linked-resource-default-alias="show_classes.gif"
+                                                                            data-base-url="https://confluence.atlassian.com"
+                                                                            data-linked-resource-content-type="image/gif"
+                                                                            data-linked-resource-container-id="300814876"
+                                                                            data-linked-resource-container-version="7"></span><strong>Set
+                        Coverage Scope.</strong> Choose which classes should be included in the Clover Coverage View -
+                        only application classes, only test classes or all classes.
+                    </li>
+                </ul>
+                <p> </p>
+                <h3 id="id-2.ExplorationofcoverageinIDEA-Coveragetreemapreports">Coverage tree map reports</h3>
+                <p>The coverage tree map report allows simultaneous comparison of classes and package by complexity and
+                    by code coverage. The tree map is divided by a package (labeled) and then further divided by a class
+                    (unlabeled). The size of the package or the class indicates its complexity (larger squares indicate
+                    great complexity, while smaller squares indicate less complexity). Colors indicate the level of
+                    coverage, as follows:</p>
+                <ul>
+                    <li>Bright green (most covered)</li>
+                    <li>Dark green (more coverage)</li>
+                    <li>Vivid yellow (around 70% coverage)</li>
+                    <li>Dark yellow</li>
+                    <li>Bight red (little coverage)</li>
+                    <li>Dark red (uncovered)<br/><br/></li>
+                </ul>
+                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                        class="confluence-embedded-image" width="800" src="attachments/300814876/781386967.png"
+                        data-image-src="attachments/300814876/781386967.png" data-unresolved-comment-count="0"
+                        data-linked-resource-id="781386967" data-linked-resource-version="4"
+                        data-linked-resource-type="attachment" data-linked-resource-default-alias="idea_tree_report.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="300814876" data-linked-resource-container-version="7"></span>
+                </p>
+                <p>The percentage shown in the yellow box is the code coverage for the class currently under the
+                    mouse.</p>
+                <p>View the TreeMap report for current project using the <span class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image" src="attachments/169120301/169050564.gif"
+                        data-image-src="attachments/169120301/169050564.gif" data-unresolved-comment-count="0"
+                        data-linked-resource-id="169050564" data-linked-resource-version="1"
+                        data-linked-resource-type="attachment" data-linked-resource-default-alias="report_treemap.gif"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/gif"
+                        data-linked-resource-container-id="169120301"
+                        data-linked-resource-container-version="23"></span> button.</p>
+                <h3 id="id-2.ExplorationofcoverageinIDEA-SettingContextFilters">Setting Context Filters</h3>
+                <p>The types of classes you want included in the Clover Coverage View can be set with Context
+                    Filters:</p>
+                <p><em>Screenshot: Setting Context Filters</em><br/> <span class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image" src="attachments/300814876/301008019.gif"
+                        data-image-src="attachments/300814876/301008019.gif" data-unresolved-comment-count="0"
+                        data-linked-resource-id="301008019" data-linked-resource-version="2"
+                        data-linked-resource-type="attachment" data-linked-resource-default-alias="filter_popup.gif"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/gif"
+                        data-linked-resource-container-id="300814876" data-linked-resource-container-version="7"></span>
+                </p>
+                <h3 id="id-2.ExplorationofcoverageinIDEA-UsingtheToolWindow">Using the Tool Window</h3>
+                <p>The lower portion of the Tool Window contains various Metrics for the currently selected node in the
+                    browser:</p>
+                <p><em>Screenshot: Clover Tool Window Summary</em><br/> <span
+                        class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                      src="attachments/300814876/301008020.gif"
+                                                                      data-image-src="attachments/300814876/301008020.gif"
+                                                                      data-unresolved-comment-count="0"
+                                                                      data-linked-resource-id="301008020"
+                                                                      data-linked-resource-version="2"
+                                                                      data-linked-resource-type="attachment"
+                                                                      data-linked-resource-default-alias="clover_tool_window_summary.gif"
+                                                                      data-base-url="https://confluence.atlassian.com"
+                                                                      data-linked-resource-content-type="image/gif"
+                                                                      data-linked-resource-container-id="300814876"
+                                                                      data-linked-resource-container-version="7"></span>
+                </p>
+                <h3 id="id-2.ExplorationofcoverageinIDEA-ShowingCoveragewithAnnotations">Showing Coverage with
+                    Annotations</h3>
+                <p>In addition, the plugin can annotate the Java code with the coverage information. This can be turned
+                    on by pressing the Show Coverage <span class="confluence-embedded-file-wrapper"><img
+                            class="confluence-embedded-image" src="attachments/300814876/648609833.png"
+                            data-image-src="attachments/300814876/648609833.png" data-unresolved-comment-count="0"
+                            data-linked-resource-id="648609833" data-linked-resource-version="2"
+                            data-linked-resource-type="attachment"
+                            data-linked-resource-default-alias="cloverview_sml.png"
+                            data-base-url="https://confluence.atlassian.com"
+                            data-linked-resource-content-type="image/png" data-linked-resource-container-id="300814876"
+                            data-linked-resource-container-version="7"></span> toolbar button.</p>
+                <p><em>Screenshot: Annotated Java Code</em><br/> <span class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image" src="attachments/300814876/301008021.gif"
+                        data-image-src="attachments/300814876/301008021.gif" data-unresolved-comment-count="0"
+                        data-linked-resource-id="301008021" data-linked-resource-version="2"
+                        data-linked-resource-type="attachment" data-linked-resource-default-alias="source_highlight.gif"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/gif"
+                        data-linked-resource-container-id="300814876" data-linked-resource-container-version="7"></span>
+                </p>
+                <div class="confluence-information-macro confluence-information-macro-note"><span
+                        class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>If you do not have &quot;Auto Coverage Refresh&quot;
+                        enabled, you will need to press the Refresh Button in the Main Toolbar or the Clover Tool Window
+                        to see the updated coverage information.</p></div>
+                </div>
+                <p>If a source file has changed since a Clover build, then a warning will be displayed alerting you to
+                    fact that the inline coverage information may not be accurate. The coverage highlighting will be
+                    yellow, rather than the red shown above.</p>
+                <p> </p>
+                <hr/>
+                <p>Now you perfectly know how your application is covered. But how to efficiently navigate between tests
+                    and application code? Read the <a href="idea--exploration-of-test-results.html">3.
+                        Exploration of test results in IDEA</a>chapter.</p>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

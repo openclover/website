@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : 7. Test Optimization for IDEA</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="idea--overview.html">Clover-for-IDEA</a></span>
+                    </li>
+                    <li>
+                        <span><a href="idea--user-guide.html">Clover-for-IDEA User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            7. Test Optimization for IDEA
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>This page explains how to set up Clover's Test Optimization feature in the IDEA development
+                    environment.</p>
+                <p><em>On this page:</em></p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813727982 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813727982 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813727982 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813727982'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#id-7.TestOptimizationforIDEA-BeforeYouBegin'>Before You Begin</a></li>
+                        <li><a href='#id-7.TestOptimizationforIDEA-LaunchingTestOptimization'>Launching Test
+                            Optimization</a></li>
+                        <li><a href='#id-7.TestOptimizationforIDEA-MeasuringTestOptimizationResults'>Measuring Test
+                            Optimization Results</a></li>
+                        <li><a href='#id-7.TestOptimizationforIDEA-TestOptimizationSettings'>Test Optimization
+                            Settings</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#id-7.TestOptimizationforIDEA-SettingGlobalPreferences'>Setting Global
+                                    Preferences</a></li>
+                                <li><a href='#id-7.TestOptimizationforIDEA-SettingPer-launcherPreferences'>Setting
+                                    Per-launcher Preferences</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#id-7.TestOptimizationforIDEA-ConfigurationsUnsuitableForTestOptimization'>Configurations
+                            Unsuitable For Test Optimization</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#id-7.TestOptimizationforIDEA-LimitationswithTestSuites'>Limitations with
+                                    Test Suites</a></li>
+                                <li><a href='#id-7.TestOptimizationforIDEA-Limitationwithtestmethods'>Limitation with
+                                    test methods</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#id-7.TestOptimizationforIDEA-Troubleshooting'>Troubleshooting</a></li>
+                    </ul>
+                </div>
+                </p><h2 id="id-7.TestOptimizationforIDEA-BeforeYouBegin">Before You Begin</h2>
+                <p>Before using Test Optimization with Clover-for-IDEA, be aware of the following.</p>
+                <ul>
+                    <li>Test Optimization is available as a '<strong>Run Optimized</strong>' command, similar to
+                        '<strong>Run</strong>' or '<strong>Debug</strong>'.
+                    </li>
+                    <li>Test Optimization supports JUnit launch configurations only.</li>
+                    <li>Ensure you have Clover enabled on the project; when there is no Clover instrumentation, there is
+                        no Test Optimization.
+                    </li>
+                </ul>
+                <h2 id="id-7.TestOptimizationforIDEA-LaunchingTestOptimization">Launching Test Optimization</h2>
+                <p><strong>To establish Test Optimization in Clover-for-IDEA, carry out one of the following
+                    actions</strong>:</p>
+                <ul>
+                    <li>Right-click on a folder or package containing test classes and select '<span
+                            class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                          src="attachments/188514333/188678182.png"
+                                                                          data-image-src="attachments/188514333/188678182.png"
+                                                                          data-unresolved-comment-count="0"
+                                                                          data-linked-resource-id="188678182"
+                                                                          data-linked-resource-version="3"
+                                                                          data-linked-resource-type="attachment"
+                                                                          data-linked-resource-default-alias="run_optimized.png"
+                                                                          data-base-url="https://confluence.atlassian.com"
+                                                                          data-linked-resource-content-type="image/png"
+                                                                          data-linked-resource-container-id="188514333"
+                                                                          data-linked-resource-container-version="19"></span>
+                        <strong>Run Optimized</strong>', OR
+                    </li>
+                </ul>
+                <p><em>Screen shot: launching a build with test optimization from the context menu</em></p>
+                <p><em><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                           src="attachments/188514333/648675598.png"
+                                                                           data-image-src="attachments/188514333/648675598.png"
+                                                                           data-unresolved-comment-count="0"
+                                                                           data-linked-resource-id="648675598"
+                                                                           data-linked-resource-version="1"
+                                                                           data-linked-resource-type="attachment"
+                                                                           data-linked-resource-default-alias="run_optimized_menu.png"
+                                                                           data-base-url="https://confluence.atlassian.com"
+                                                                           data-linked-resource-content-type="image/png"
+                                                                           data-linked-resource-container-id="188514333"
+                                                                           data-linked-resource-container-version="19"></span><br/></em>
+                </p>
+                <p> </p>
+                <ul>
+                    <li>Select an existing launch configuration in the <strong>Run Configurations</strong> drop-down
+                        menu and press <span class="confluence-embedded-file-wrapper"><img
+                                class="confluence-embedded-image" src="attachments/188514333/188678182.png"
+                                data-image-src="attachments/188514333/188678182.png" data-unresolved-comment-count="0"
+                                data-linked-resource-id="188678182" data-linked-resource-version="3"
+                                data-linked-resource-type="attachment"
+                                data-linked-resource-default-alias="run_optimized.png"
+                                data-base-url="https://confluence.atlassian.com"
+                                data-linked-resource-content-type="image/png"
+                                data-linked-resource-container-id="188514333"
+                                data-linked-resource-container-version="19"></span> icon.
+                    </li>
+                </ul>
+                <p><em>Screenshot: Launching a Build with Test Optimization from the Drop-Down Menu</em></p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/188514333/648675595.png"
+                                                                       data-image-src="attachments/188514333/648675595.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="648675595"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="run_optimized_button.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="188514333"
+                                                                       data-linked-resource-container-version="19"></span>
+                </p>
+                <h2 id="id-7.TestOptimizationforIDEA-MeasuringTestOptimizationResults">Measuring Test Optimization
+                    Results</h2>
+                <p>When optimized tests are being run, Clover displays additional information about it.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/188514333/648675597.png"
+                                                                       data-image-src="attachments/188514333/648675597.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="648675597"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="test_optimization_baloon.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="188514333"
+                                                                       data-linked-resource-container-version="19"></span>
+                </p>
+                <p>After Optimized tests run, Clover saves a snapshot file with coverage information that is used to
+                    optimize the following test runs. This file may be deleted using the Delete Snapshot icon <span
+                            class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                          src="attachments/188514333/188678181.png"
+                                                                          data-image-src="attachments/188514333/188678181.png"
+                                                                          data-unresolved-comment-count="0"
+                                                                          data-linked-resource-id="188678181"
+                                                                          data-linked-resource-version="3"
+                                                                          data-linked-resource-type="attachment"
+                                                                          data-linked-resource-default-alias="delete_snapshot.png"
+                                                                          data-base-url="https://confluence.atlassian.com"
+                                                                          data-linked-resource-content-type="image/png"
+                                                                          data-linked-resource-container-id="188514333"
+                                                                          data-linked-resource-container-version="19"></span>
+                    in the Clover tool bar. The Delete Snapshot icon is invisible when the project does not have the
+                    snapshot file. Test Optimization would run all tests (no optimization) when the snapshot file is
+                    deleted or absent.</p>
+                <h2 id="id-7.TestOptimizationforIDEA-TestOptimizationSettings">Test Optimization Settings</h2>
+                <h3 id="id-7.TestOptimizationforIDEA-SettingGlobalPreferences">Setting Global Preferences</h3>
+                <p>Open the &quot;Clover (global settings)&quot; page. On this page you can defined how Clover should
+                    notify about empty test runs, i.e. ones that have all tests optimised out.</p>
+                <ul>
+                    <li>Display a dialog: Shows a dialog box that requires the user to close it manually before test run
+                        can proceed,
+                    </li>
+                    <li>Display a balloon: Pops up a notification balloon.</li>
+                </ul>
+                <p><em>Screen shot: Setting Global Preferences</em></p>
+                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                        class="confluence-embedded-image" width="700" src="attachments/188514333/857059072.png"
+                        data-image-src="attachments/188514333/857059072.png" data-unresolved-comment-count="0"
+                        data-linked-resource-id="857059072" data-linked-resource-version="1"
+                        data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="clover_global_settings_test_optimization.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="188514333"
+                        data-linked-resource-container-version="19"></span></p>
+                <h3 id="id-7.TestOptimizationforIDEA-SettingPer-launcherPreferences">Setting Per-launcher
+                    Preferences</h3>
+                <p>Open the &quot;Edit configurations&quot; dialog, select test configuration. Next open the &quot;Startup/Connection&quot;
+                    tab and select the &quot;Clover Test Optimization&quot;.</p>
+                <p>The list below shows the settings available for Test Optimization for specific JUnit
+                    configurations.</p>
+                <ul>
+                    <li>Discard snapshot every X compiles: When enabled, snapshot is re-generated every X compiles. This
+                        is the equivalent of Ant's '<strong>fullrunevery</strong>' setting.
+                    </li>
+                    <li>Minimize tests: when enabled, Clover will run only tests relevant to recent changes in code;
+                        when disabled, Clover will only reorder tests
+                    </li>
+                    <li>Test reordering:
+                        <ul>
+                            <li>Do not reorder  - run tests in the original order</li>
+                            <li>Failing tests first - re-order tests so that the ones which failed (the last time
+                                Optimized Test was run) are run first.
+                            </li>
+                            <li>Random order - re-order tests randomly; this can be useful to spot bugs which were
+                                hiding because of specific order of tests
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>The defaults copied to new configurations may be set using Edit Defaults button.</p>
+                <p><em>Screen shot: Running Optimized Configurations</em></p>
+                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                        class="confluence-embedded-image" width="700" src="attachments/188514333/857059064.png"
+                        data-image-src="attachments/188514333/857059064.png" data-unresolved-comment-count="0"
+                        data-linked-resource-id="857059064" data-linked-resource-version="1"
+                        data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="run_optimized_configurations.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="188514333"
+                        data-linked-resource-container-version="19"></span></p>
+                <p> </p>
+                <h2 id="id-7.TestOptimizationforIDEA-ConfigurationsUnsuitableForTestOptimization">Configurations
+                    Unsuitable For Test Optimization</h2>
+                <p>Some configurations are not suitable for Test Optimization. Please see the following points for
+                    specific details.</p>
+                <h3 id="id-7.TestOptimizationforIDEA-LimitationswithTestSuites">Limitations with Test Suites</h3>
+                <p>Clover does not recognise test suites as entities that should be optimised away. As the result test
+                    suites are always run (never optimised).<br/> If your test launch configuration includes both test
+                    suite and the test case (which is probably an incorrect configuration), then the test case would be
+                    run twice (normal behaviour) or once (via test suite) when the test case is optimised away.</p>
+                <p>Resolution: Do not include test suites in launch configuration, add test cases directly.</p>
+                <p>For more information, see this JIRA issue: <a
+                                                                 href="http://jira.atlassian.com/browse/CIJ-249"
+                                                                 rel="nofollow">CIJ-249</a>.</p>
+                <h3 id="id-7.TestOptimizationforIDEA-Limitationwithtestmethods">Limitation with test methods</h3>
+                <p>Due to bug <a  href="https://jira.atlassian.com/browse/CLOV-1084"
+                                 rel="nofollow">CLOV-1084</a>, in case when you execute optimized run and next add new
+                    test method to a class, such class will be always executed in next optimized runs. In order to fix
+                    it, you have to delete optimization snapshot (see button in tool bar menu).</p>
+                <h2 id="id-7.TestOptimizationforIDEA-Troubleshooting">Troubleshooting</h2>
+                <p>To troubleshoot Test Optimization in Clover-for-IDEA, check through the following solutions:</p>
+                <ol>
+                    <li>If Clover is disabled for the project or generally Clover does not work for the project;<br/>
+                        <ul>
+                            <li>Ensure that the Clover icons are visible.</li>
+                            <li>Check whether Coverage Explorer shows any coverage for the project.</li>
+                        </ul>
+                    </li>
+                    <li>If Clover has the test source settings wrong;<br/>
+                        <ul>
+                            <li>Check whether the Test Runs tool window shows any tests.</li>
+                            <li>Ensure that Clover | Compilation | <em>Instrument test source folders</em> option is
+                                enabled.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>If your test case is run twice, or not optimized at all;<br/>
+                        <ul>
+                            <li>Clover does not support test suites. Make sure you don't try to run one, launch test
+                                cases directly (<a  href="http://jira.atlassian.com/browse/CIJ-249"
+                                                   rel="nofollow">CIJ-249</a>).
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+                <p> </p>
+                <hr/>
+                <p>Next chapter: <a href="9.-IDEA-Advanced-topics_300814894.html">9. IDEA Advanced topics</a>.</p>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

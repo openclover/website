@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : Clover-for-Ant Two Line Integration</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--quick-start-guide.html">1. QuickStart Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Clover-for-Ant Two Line Integration
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>To get Clover integrated into your build as quickly as possible, follow these simple steps.</p>
+                <ol>
+                    <li><a  href="http://openclover.org/downloads"
+                           rel="nofollow">Download Clover-for-Ant</a>, unzip it, take the lib/clover.jar and save it in
+                        your home directory.<br/><br/></li>
+                    <li><p>Add the following lines to your build.xml file:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${user.home}/clover.jar&quot;/&gt;
+&lt;clover-env/&gt;
+</pre>
+                            </div>
+                        </div>
+                        <p><img class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
+                                data-emoticon-name="information" alt="(info)"/> Note that this will not work within an
+                            Ant target. It must be at the top level of the build file. <br
+                                    class="atl-forced-newline"/><br class="atl-forced-newline"/></p></li>
+                    <li><p>Add the clover.jar to your test classpath:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot;&gt;
+  &lt;classpath&gt;
+    &lt;pathelement location=&quot;${user.home}/clover.jar&quot;/&gt;
+  &lt;/classpath&gt;
+&lt;/junit&gt;
+</pre>
+                            </div>
+                        </div>
+                    </li>
+                    <li><p>If you have a target already called &quot;test&quot; you can simply run</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">ant clover.all
+</pre>
+                            </div>
+                        </div>
+                        <p><br class="atl-forced-newline"/> Otherwise, run the following:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">ant with.clover your.test.target clover.report
+</pre>
+                            </div>
+                        </div>
+                        <p>Alternatively, define a property called &quot;test.target&quot; whose value is the name of
+                            your test target.<br/><br/></p></li>
+                    <li><p>Complete! That concludes the Ant two-line integration. You should now be set up to run Clover
+                        on your Ant builds and start taking advantage of Clover's advanced code coverage analysis.</p>
+                    </li>
+                </ol>
+                <p> </p>
+                <p> </p>
+                <h2 id="Clover-for-AntTwoLineIntegration-Appendix">Appendix</h2>
+                <p>By calling &lt;clover-env/&gt;, the following targets becomes available to you:</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p>Target Name</p></th>
+                            <th class="confluenceTh"><p>Description</p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.all</p></td>
+                            <td class="confluenceTd"><p>Runs clover.clean, with.clover, test, clover.report from a
+                                single target.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.clean</p></td>
+                            <td class="confluenceTd"><p>Deletes the clover database and the</p>
+                                <div class="code panel pdl" style="border-width: 1px;">
+                                    <div class="codeContent panelContent pdl">
+                                        <pre class="syntaxhighlighter-pre"
+                                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                                             data-theme="Confluence">${clover.dest}</pre>
+                                    </div>
+                                </div>
+                                <p>directory.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.current</p></td>
+                            <td class="confluenceTd"><p>Generates an HTML and XML report to</p>
+                                <div class="code panel pdl" style="border-width: 1px;">
+                                    <div class="codeContent panelContent pdl">
+                                        <pre class="syntaxhighlighter-pre"
+                                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                                             data-theme="Confluence">${clover.dest}</pre>
+                                    </div>
+                                </div>
+                                <p>using</p>
+                                <div class="code panel pdl" style="border-width: 1px;">
+                                    <div class="codeContent panelContent pdl">
+                                        <pre class="syntaxhighlighter-pre"
+                                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                                             data-theme="Confluence">${project.title}</pre>
+                                    </div>
+                                </div>
+                                <p>.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.report</p></td>
+                            <td class="confluenceTd"><p>Same as clover.current, however a history report will also be
+                                created, using the historypoints in</p>
+                                <div class="code panel pdl" style="border-width: 1px;">
+                                    <div class="codeContent panelContent pdl">
+                                        <pre class="syntaxhighlighter-pre"
+                                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                                             data-theme="Confluence">${clover.project.historydir}</pre>
+                                    </div>
+                                </div>
+                                <p>.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.save-history</p></td>
+                            <td class="confluenceTd"><p>Saves a history point to</p>
+                                <div class="code panel pdl" style="border-width: 1px;">
+                                    <div class="codeContent panelContent pdl">
+                                        <pre class="syntaxhighlighter-pre"
+                                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                                             data-theme="Confluence">${clover.project.historydir}</pre>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>with.clover</p></td>
+                            <td class="confluenceTd"><p>Enables Clover on this build</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.snapshot</p></td>
+                            <td class="confluenceTd"><p>Saves a snapshot file to assist with unit test optimization</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><img class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
+                        data-emoticon-name="information" alt="(info)"/> These are available also by running `ant
+                    -projecthelp`.</p>
+                <p> </p>
+                <p>For more instructions about using targets, see the <a
+                        href="9.-Clover-Target-Reference_179445247.html">Clover Target Reference</a>. Any <em>${}</em>
+                    properties may be defined on the command line, for example:<em>
+                        -Dclover.project.historydir=/home/clover/historydir</em></p>
+                <p> </p>
+                <p> </p>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Need more information? Find it in the <a
+                            href="ant--quick-start-guide.html">Clover QuickStart Guide</a>.</p></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

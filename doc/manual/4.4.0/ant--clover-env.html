@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : clover-env</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            clover-env
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h3 id="clover-env-Description">Description</h3>
+
+                <p>The <code>&lt;clover-env&gt;</code> task imports a set of standard Ant targets into the current
+                    project. </p>
+
+                <p>The following targets will be available:</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p>Target Name</p></th>
+                            <th class="confluenceTh"><p>Description</p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.all</p></td>
+                            <td class="confluenceTd"><p>Runs clover.clean, with.clover, test, clover.report from a
+                                single target.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.clean</p></td>
+                            <td class="confluenceTd"><p>Deletes the clover database and the</p>
+                                <div class="code panel pdl" style="border-width: 1px;">
+                                    <div class="codeContent panelContent pdl">
+                                        <pre class="syntaxhighlighter-pre"
+                                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                                             data-theme="Confluence">${clover.dest}</pre>
+                                    </div>
+                                </div>
+                                <p>directory.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.current</p></td>
+                            <td class="confluenceTd"><p>Generates an HTML and XML report to</p>
+                                <div class="code panel pdl" style="border-width: 1px;">
+                                    <div class="codeContent panelContent pdl">
+                                        <pre class="syntaxhighlighter-pre"
+                                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                                             data-theme="Confluence">${clover.dest}</pre>
+                                    </div>
+                                </div>
+                                <p>using</p>
+                                <div class="code panel pdl" style="border-width: 1px;">
+                                    <div class="codeContent panelContent pdl">
+                                        <pre class="syntaxhighlighter-pre"
+                                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                                             data-theme="Confluence">${project.title}</pre>
+                                    </div>
+                                </div>
+                                <p>.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.report</p></td>
+                            <td class="confluenceTd"><p>Same as clover.current, however a history report will also be
+                                created, using the historypoints in</p>
+                                <div class="code panel pdl" style="border-width: 1px;">
+                                    <div class="codeContent panelContent pdl">
+                                        <pre class="syntaxhighlighter-pre"
+                                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                                             data-theme="Confluence">${clover.project.historydir}</pre>
+                                    </div>
+                                </div>
+                                <p>.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.save-history</p></td>
+                            <td class="confluenceTd"><p>Saves a history point to</p>
+                                <div class="code panel pdl" style="border-width: 1px;">
+                                    <div class="codeContent panelContent pdl">
+                                        <pre class="syntaxhighlighter-pre"
+                                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                                             data-theme="Confluence">${clover.project.historydir}</pre>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>with.clover</p></td>
+                            <td class="confluenceTd"><p>Enables Clover on this build</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>clover.snapshot</p></td>
+                            <td class="confluenceTd"><p>Saves a snapshot file to assist with unit test optimization</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>Alternatively, running: <code>$ ant -projecthelp</code> will display the list of targets available.
+                </p>
+
+                <h3 id="clover-env-Parameters">Parameters</h3>
+
+                <p>This task has no parameters.</p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

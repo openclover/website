@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : Basic Clover Confluence Integration</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--clover-report.html">clover-report</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--json-reference.html">JSON reference</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Basic Clover Confluence Integration
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+            <div id="main-content" class="wiki-content group">
+                <h2 id="BasicCloverConfluenceIntegration-EmbeddingCloverDataintoaConfluencePage">Embedding Clover Data
+                    into a Confluence Page</h2>
+                <p>There is currently no native support for embedding Clover in Confluence. Many use cases can be
+                    achieved however by using the <a href="https://confluence.atlassian.com/display/DOC/HTML+Macro"
+                                                     rel="nofollow">{html} macro</a>. <span
+                            style="background-color: transparent;">The following are examples of displaying live Clover data directly in Confluence.</span>
+                </p>
+                <h2 id="BasicCloverConfluenceIntegration-CloverDashboard">Clover Dashboard</h2>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">{html}
+&lt;iframe 
+  src=&quot;http://downloads.atlassian.com/software/clover/samples/lucene/dashboard.html&quot;
+  width=&quot;100%&quot; height=&quot;600px&quot;/&gt;
+{html}</pre>
+                    </div>
+                </div>
+                <h2 id="BasicCloverConfluenceIntegration-ProjectRisksCoverageCloud">Project Risks Coverage Cloud</h2>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">{html}
+&lt;iframe 
+  src=&quot;http://downloads.atlassian.com/software/clover/samples/lucene/proj-risks.html&quot;
+  width=&quot;100%&quot; height=&quot;600px&quot;/&gt;
+{html}
+</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p><em>Note that the HTML macro is not enabled by default in Confluence and generally is not recommended
+                    due to the ability to run javascript directly in it.</em></p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

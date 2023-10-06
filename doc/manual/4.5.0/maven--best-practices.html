@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : Best Practices for Maven</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Best Practices for Maven
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>This page contains best practices for using Clover for Maven.</p>
+                <p><strong>On this page:</strong></p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813715104 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813715104 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813715104 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813715104'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#BestPracticesforMaven-TestOptimizationinaCIenvironment'>Test Optimization in a CI
+                            environment</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#BestPracticesforMaven-SettingupaCIprofile'>Setting up a CI profile</a>
+                                </li>
+                                <li><a href='#BestPracticesforMaven-RunningtheClovergoalsdirectly'>Running the Clover
+                                    goals directly</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#BestPracticesforMaven-Testoptimizationonthedesktop'>Test optimization on the
+                            desktop</a></li>
+                        <li><a href='#BestPracticesforMaven-Combiningbuildoptimizationwithsitecoveragereporting'>Combining
+                            build optimization with site coverage reporting</a></li>
+                        <li><a href='#BestPracticesforMaven-Testoptimizationacrossamulti-moduleproject'>Test
+                            optimization across a multi-module project</a></li>
+                        <li><a href='#BestPracticesforMaven-Usingclover:setupfornon-forkedlifecycle'>Using clover:setup
+                            for non-forked life cycle</a></li>
+                        <li><a href='#BestPracticesforMaven-CrosscompilationusingGroovy'>Cross compilation using
+                            Groovy</a></li>
+                        <li><a href='#BestPracticesforMaven-Coloringtestoptimization'>Coloring test optimization</a>
+                        </li>
+                        <li><a href='#BestPracticesforMaven-BuildProfiles'>Build Profiles</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#BestPracticesforMaven-clover.reportProfile'>clover.report Profile</a></li>
+                                <li><a href='#BestPracticesforMaven-CloverOptimizeProfile'>Clover Optimize Profile</a>
+                                </li>
+                                <li><a href='#BestPracticesforMaven-CloverOptimize,Report,LogandCheckProfile'>Clover
+                                    Optimize, Report, Log and Check Profile</a>
+                                    <ul class='toc-indentation'>
+                                        <li><a href='#BestPracticesforMaven-RelatedLinks'>Related Links</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                </p><h1 id="BestPracticesforMaven-TestOptimizationinaCIenvironment">Test Optimization in a CI
+                environment</h1>
+                <p>There are two recommended ways to utilize Clover's test optimization in a CI (<a
+                         href="http://en.wikipedia.org/wiki/Continuous_integration" rel="nofollow">Continuous
+                    Integration</a>) environment, either using a Profile, or to run the goals directly.<br/> NB. Clover
+                    Test Optimization will not work if you have added the <code>clover-maven-plugin</code> to the
+                    default build section of the pom with an execution binding the 'instrument' goal.</p>
+                <h2 id="BestPracticesforMaven-SettingupaCIprofile">Setting up a CI profile</h2>
+                <ol>
+                    <li>Add a <span class="confluence-link">'clover.optimize'</span> profile to the project's <code>pom.xml</code>.
+                    </li>
+                    <li>Create a new '<strong>Gateway</strong>' build plan in your CI server. A 'Gateway' build plan is
+                        one that gets run before any others and if successful, triggers any subsequent builds.
+                    </li>
+                    <li><p>The gateway plan should execute the <strong>verify</strong> phase, with the <a
+                            href="maven--best-practices.html">'clover.optimize'</a> profile activated.
+                        Example:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">mvn verify -Pclover.optimize
+</pre>
+                            </div>
+                        </div>
+                    </li>
+                    <li><p>If your build plan is configured to do a full clean checkout before each build — you will
+                        need to ensure the Clover snapshot file is stored in a location that will not be removed between
+                        builds. The following configuration added to the <code>pom.xml</code> is one option:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;configuration&gt;
+  &lt;snapshot&gt;${user.home}/.clover/${groupId}-${artifactId}/clover.snapshot&lt;/snapshot&gt;
+&lt;/configuration&gt;
+</pre>
+                            </div>
+                        </div>
+                    </li>
+                    <li><p>Beware however, that this set up will instrument your source and test files and compile them
+                        to the usual Maven output location. If you run this command:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">mvn deploy -Pclover.optimize
+</pre>
+                            </div>
+                        </div>
+                        <p>then you will be deploying class files that have been instrumented by Clover <img
+                                class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
+                                data-emoticon-name="warning" alt="(warning)"/>.</p></li>
+                </ol>
+                <h2 id="BestPracticesforMaven-RunningtheClovergoalsdirectly">Running the Clover goals directly</h2>
+                <p>Add a new build plan with the following command line:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                             data-theme="Confluence">mvn clover:setup verify clover:snapshot</pre>
+                    </div>
+                </div>
+                <h1 id="BestPracticesforMaven-Testoptimizationonthedesktop">Test optimization on the desktop</h1>
+                <p>Running Clover's test optimization locally is very advantageous. This is achieved using the <span
+                        class="confluence-link">'clover.optimize'</span> profile that can be activated like so:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">mvn verify -Pclover.optimize
+</pre>
+                    </div>
+                </div>
+                <h1 id="BestPracticesforMaven-Combiningbuildoptimizationwithsitecoveragereporting">Combining build
+                    optimization with site coverage reporting</h1>
+                <p>Maven2 will merge any executions defined in the default build section of the pom, with those defined
+                    in a profile. It is therefore recommended practice to always use two profiles — one for test
+                    optimization and one for generating a Clover report when you generate a site. The <code>clover:instrument</code>
+                    goal forks the build lifecycle ensuring that Clover instrumented sources are kept completely
+                    separate from production sources. This also means that your tests get run twice — which is obviously
+                    not desirable in an optimized build.</p>
+                <p>The <span class="confluence-link">'<a href="#BestPracticesforMaven-clover.report">clover.report</a>'</span>
+                    profile is an example of a build profile to activate when running this command:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">mvn site -Pclover.report
+</pre>
+                    </div>
+                </div>
+                <p>Using separate profiles for site generation and Test Optimization is currently the recommended way to
+                    have both a site and a Test Optimization Clover build configured in the same <code>pom.xml</code>.
+                </p>
+                <h1 id="BestPracticesforMaven-Testoptimizationacrossamulti-moduleproject">Test optimization across a
+                    multi-module project</h1>
+                <p>By default, Clover will generate a new <code>clover.db</code> and <code>clover.snapshot</code> file
+                    for each module. This means, that if you have tests in module A that cover code in module B, and you
+                    modify code in module B, the tests in module A will not be run. You can achieve the desired behavior
+                    however, by configuring Clover to use a single <code>clover.db</code> and
+                    <code>clover.snapshot</code> for the entire project:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;configuration&gt;
+    &lt;snapshot&gt;${user.home}/.clover/atlassian-plugins-clover.snapshot&lt;/snapshot&gt;
+    &lt;singleCloverDatabase&gt;true&lt;/singleCloverDatabase&gt;
+&lt;/configuration&gt;
+</pre>
+                    </div>
+                </div>
+                <p>If you have many modules, you may need to set <a
+                                                                    href="../../maven/4.5.0/optimize-mojo.html#fullRunEvery"
+                                                                    rel="nofollow">fullBuildEvery</a> to a value higher
+                    than the default of 10. See also <a
+                                                        href="../../maven/4.5.0/snapshot-mojo.html#singleCloverDatabase"
+                                                        rel="nofollow">singleCloverDatabase</a>.</p>
+                <h1 id="BestPracticesforMaven-Usingclover:setupfornon-forkedlifecycle">Using clover:setup for non-forked
+                    life cycle</h1>
+                <p>The <a
+                          href="../../maven/4.5.0/setup-mojo.html" rel="nofollow">clover:setup</a>
+                    is designed to make integration with integration and functional tests a lot simpler than using the
+                    forked lifecycle that comes with <a
+                                                        href="../../maven/4.5.0/instrument-mojo.html"
+                                                        rel="nofollow">clover:instrument</a>. It also has the added
+                    advantage of not having to run your tests twice.</p>
+                <p>Executing clover:setup does the following:</p>
+                <ul>
+                    <li>Instruments all source and test files found in <code>src/main/java, src/test/java</code> .</li>
+                    <li>Copies the instrumented source files to <code>target/clover/src-instrumented,
+                        target/clover/src-test-</code><code>instrumented</code> respectively.
+                    </li>
+                    <li>Redirects the Maven project's source and test directories to <code>target/clover/src-<code>instrumented</code>,
+                        target/clover/src-test-</code><code>instrumented</code>. Subsequent plug-ins in the build life
+                        cycle then use these locations as the source directories.
+                    </li>
+                </ul>
+                <p>Therefore, executing the following line will instrument all source and test files, compile the
+                    instrumented source files, run all tests and then install the compiled and
+                    <strong>instrumented</strong> classes.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">mvn clover:setup install clover:clover
+</pre>
+                    </div>
+                </div>
+                <p>WARNING: It is not recommended to deploy your Clover instrumented classes to an external Maven
+                    repository.</p>
+                <p>Note: clover:setup will automatically bind itself to the 'process-sources' phase if defined in the
+                    goals list of the plugin's executions.</p>
+                <p><span class="confluence-anchor-link" id="BestPracticesforMaven-groovycrosscompilation"></span></p>
+                <h1 id="BestPracticesforMaven-CrosscompilationusingGroovy">Cross compilation using Groovy</h1>
+                <p>If you are using cross-compilation with Groovy code, you should ensure that the
+                    clover-maven-plugin<code>:setup</code> goal runs before the GMaven Plugin's <code>gmaven:generateStubs</code>
+                    goal in your <code>pom.xml</code>. Otherwise, you may end up with errors when running the
+                    Clover-for-Maven plugin.</p>
+                <p>Alternatively, if you run <code>clover:setup</code> directly from the <code>mvn</code> command line,
+                    then this Clover goal will run before the <code>gmaven:generateStubs</code> goal and you will avoid
+                    these errors when cross-compiling Groovy code.</p>
+                <h1 id="BestPracticesforMaven-Coloringtestoptimization">Coloring test optimization</h1>
+                <p>If your terminal supports ANSI escape codes, run your Maven build with the <code>-Dansi.color</code>
+                    flag. Currently a few important log messages dealing with Clover's Test Optimization will be logged
+                    in color:</p>
+                <p><em><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                           src="attachments/171180506/317165321.png"
+                                                                           data-image-src="attachments/171180506/317165321.png"
+                                                                           data-unresolved-comment-count="0"
+                                                                           data-linked-resource-id="317165321"
+                                                                           data-linked-resource-version="2"
+                                                                           data-linked-resource-type="attachment"
+                                                                           data-linked-resource-default-alias="maven_test_optimization_colors.png"
+                                                                           data-base-url="https://confluence.atlassian.com"
+                                                                           data-linked-resource-content-type="image/png"
+                                                                           data-linked-resource-container-id="171180506"
+                                                                           data-linked-resource-container-version="32"></span><br/></em>
+                </p>
+                <p> </p>
+                <h1 id="BestPracticesforMaven-BuildProfiles">Build Profiles</h1>
+                <p>The following profiles can be used directly in the pom.xml. This avoids the need to modify the
+                    ~/.m2/settings.xml file.</p>
+                <h2 id="BestPracticesforMaven-clover.reportProfile">clover.report Profile</h2>
+                <p><span class="confluence-anchor-link" id="BestPracticesforMaven-clover.report"></span></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;profile&gt;
+            &lt;id&gt;clover.report&lt;/id&gt;
+            &lt;build&gt;
+                &lt;plugins&gt;
+                    &lt;plugin&gt;
+                        &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+                        &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+                        &lt;version&gt;${cloverVersion}&lt;/version&gt;
+                        &lt;executions&gt;
+                            &lt;execution&gt;
+                                &lt;id&gt;clover&lt;/id&gt;
+                                &lt;phase&gt;verify&lt;/phase&gt;
+                                &lt;goals&gt;
+                                    &lt;goal&gt;instrument&lt;/goal&gt;
+                                    &lt;goal&gt;check&lt;/goal&gt;
+                                    &lt;goal&gt;clover&lt;/goal&gt;
+                                &lt;/goals&gt;
+                            &lt;/execution&gt;
+                        &lt;/executions&gt;
+                    &lt;/plugin&gt;
+                &lt;/plugins&gt;
+            &lt;/build&gt;
+             &lt;reporting&gt;
+                 &lt;plugins&gt;
+                     &lt;plugin&gt;
+                         &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+                         &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+                         &lt;version&gt;${cloverVersion}&lt;/version&gt;
+                     &lt;/plugin&gt;
+                 &lt;/plugins&gt;
+             &lt;/reporting&gt;
+        &lt;/profile&gt;
+</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h2 id="BestPracticesforMaven-CloverOptimizeProfile">Clover Optimize Profile</h2>
+                <p><span class="confluence-anchor-link" id="BestPracticesforMaven-clover.optimize"></span></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;profile&gt;
+            &lt;id&gt;clover.optimize&lt;/id&gt;
+            &lt;build&gt;
+                &lt;plugins&gt;
+                    &lt;plugin&gt;
+                        &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+                        &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+                        &lt;version&gt;${cloverVersion}&lt;/version&gt;
+                        &lt;configuration&gt;
+                              &lt;snapshot&gt;${user.home}/.clover/${groupId}-${artifactId}/clover.snapshot&lt;/snapshot&gt;
+                        &lt;/configuration&gt;
+                        &lt;executions&gt;
+                            &lt;execution&gt;
+                                &lt;id&gt;clover&lt;/id&gt;
+                                &lt;goals&gt;
+                                    &lt;goal&gt;setup&lt;/goal&gt;
+                                    &lt;goal&gt;optimize&lt;/goal&gt;
+                                    &lt;goal&gt;snapshot&lt;/goal&gt;
+                                &lt;/goals&gt;
+                            &lt;/execution&gt;
+                        &lt;/executions&gt;
+                    &lt;/plugin&gt;
+                &lt;/plugins&gt;
+            &lt;/build&gt;
+        &lt;/profile&gt;
+    &lt;/profiles&gt;
+</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h2 id="BestPracticesforMaven-CloverOptimize,Report,LogandCheckProfile">Clover Optimize, Report, Log and
+                    Check Profile</h2>
+                <p><span class="confluence-anchor-link" id="BestPracticesforMaven-clover.all"></span></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;profile&gt;
+            &lt;id&gt;clover.all&lt;/id&gt;
+            &lt;build&gt;
+                &lt;plugins&gt;
+                    &lt;plugin&gt;
+                        &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+                        &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+                        &lt;configuration&gt;
+                              &lt;targetPercentage&gt;93%&lt;/targetPercentage&gt;
+                              &lt;snapshot&gt;${user.home}/.clover/${groupId}-${artifactId}/clover.snapshot&lt;/snapshot&gt;
+                        &lt;/configuration&gt;
+                        &lt;executions&gt;
+                            &lt;execution&gt;
+                                &lt;id&gt;clover&lt;/id&gt;
+                                &lt;goals&gt;
+                                    &lt;goal&gt;setup&lt;/goal&gt;
+                                    &lt;goal&gt;optimize&lt;/goal&gt;
+                                    &lt;goal&gt;snapshot&lt;/goal&gt;
+                                &lt;/goals&gt;
+                            &lt;/execution&gt;
+                            &lt;execution&gt;
+                                &lt;phase&gt;verify&lt;/phase&gt;
+                                &lt;goals&gt;
+                                    &lt;goal&gt;clover&lt;/goal&gt;
+                                    &lt;goal&gt;log&lt;/goal&gt;
+                                    &lt;goal&gt;check&lt;/goal&gt;
+                                &lt;/goals&gt;
+                            &lt;/execution&gt;
+                        &lt;/executions&gt;
+                    &lt;/plugin&gt;
+                &lt;/plugins&gt;
+            &lt;/build&gt;
+        &lt;/profile&gt;
+</pre>
+                    </div>
+                </div>
+                <h5 id="BestPracticesforMaven-RelatedLinks">Related Links</h5>
+                <ul>
+                    <li><a href="general--what-is-test-optimization.html">Test Optimization Technical Details</a></li>
+                </ul>
+                <ul>
+                    <li><a href="ant--test-optimization-quick-start-guide.html">Test Optimization Quick
+                        Start for Ant</a></li>
+                </ul>
+                <ul>
+                    <li><a href="maven--using-test-optimization.html">Test Optimization Quick Start for
+                        Maven</a></li>
+                </ul>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

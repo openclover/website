@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : Creating custom reports</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--configuring-reports.html">Configuring reports</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Creating custom reports
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>It is possible to define an external clover report descriptor file, the same way one can define a
+                    site.xml descriptor file. The descriptor file is basically a stripped down Ant file which will be
+                    run to produce the reports. All options available in <a href="ant--clover-report.html">clover-report</a>
+                    can be specified. The default report descriptor used by the <code>clover-maven-plugin</code> is:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
+
+    &lt;clover-format id=&quot;clover.format&quot; type=&quot;${type}&quot; orderBy=&quot;${orderBy}&quot; filter=&quot;${filter}&quot;/&gt;
+    &lt;clover-setup initString=&quot;${cloverdb}&quot;/&gt;
+
+    &lt;clover-columns id=&quot;clover.columns&quot;&gt;
+        &lt;totalChildren/&gt;
+        &lt;avgMethodComplexity/&gt;
+        &lt;uncoveredElements format=&quot;raw&quot;/&gt;
+        &lt;totalPercentageCovered format=&quot;longbar&quot;/&gt;
+    &lt;/clover-columns&gt;
+
+
+    &lt;target name=&quot;historical&quot;&gt;
+        &lt;clover-report&gt;
+            &lt;current outfile=&quot;${output}&quot;  summary=&quot;${summary}&quot;&gt;
+                &lt;format refid=&quot;clover.format&quot;/&gt;
+                &lt;testsources dir=&quot;${tests}&quot;/&gt;
+                &lt;columns refid=&quot;clover.columns&quot;/&gt;
+            &lt;/current&gt;
+            &lt;historical outfile=&quot;${historyout}&quot; historydir=&quot;${history}&quot;&gt;
+                &lt;format refid=&quot;clover.format&quot;/&gt;
+                &lt;columns refid=&quot;clover.columns&quot;/&gt;
+            &lt;/historical&gt;
+        &lt;/clover-report&gt;
+    &lt;/target&gt;
+
+    &lt;target name=&quot;current&quot;&gt;
+        &lt;clover-report&gt;
+            &lt;current outfile=&quot;${output}&quot; title=&quot;${title}&quot; summary=&quot;${summary}&quot;&gt;
+                &lt;format refid=&quot;clover.format&quot;/&gt;
+                &lt;testsources dir=&quot;${tests}&quot;/&gt;
+                &lt;columns refid=&quot;clover.columns&quot;/&gt;
+            &lt;/current&gt;
+        &lt;/clover-report&gt;
+    &lt;/target&gt;
+
+&lt;/project&gt;
+</pre>
+                    </div>
+                </div>
+                <p>This is a very simple Ant file, which defines two known targets: &quot;historical&quot; and &quot;current&quot;
+                    .<br/> If there are no history points saved (via: <code><a
+                            href="../../maven/4.3.0/save-history-mojo.html"
+                            rel="nofollow">clover:save-history</a></code>) then only the &quot;current&quot; target will
+                    be called. Otherwise, the &quot;historical&quot; target gets called which generates both a
+                    historical and current report which are linked together.</p>
+                <p>To change Clover's default reporting behavior, it is easiest to copy this file and add the changes
+                    you require. For a full list of clover-report elements and attributes, please consult the <a
+                            href="ant--clover-report.html">clover-report</a> documentation.</p>
+                <p>This file can be stored either on your local file system, or in your maven repository as a classified
+                    artifact.</p>
+                <p>If stored on the file system, set this system property:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">-Dmaven.clover.reportDescriptor=/path/to/clover-report.xml
+</pre>
+                    </div>
+                </div>
+                <p>or specify this element:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;reportDescriptor&gt;/path/to/clover-report.xml&lt;/reportDescriptor&gt;
+</pre>
+                    </div>
+                </div>
+                <p>in the <code>&lt;configuration&gt;</code> element for the <code>clover-maven-plugin</code> in your
+                    <strong>pom.xml</strong>.</p>
+                <p>If you wish to keep this descriptor in your maven repository you must specify this system
+                    property:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">-Dmaven.clover.resolveReportDescriptor=true
+</pre>
+                    </div>
+                </div>
+                <p>or set this element:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;resolveReportDescriptor&gt;true&lt;/resolveReportDescriptor&gt;
+</pre>
+                    </div>
+                </div>
+                <p>in the <code>&lt;configuration&gt;</code> element for the <code>clover-maven-plugin</code> in your
+                    <strong>pom.xml</strong>.<br/> The descriptor should be deployed using the &quot;clover-report&quot;
+                    classifier. For example:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">mvn deploy:deploy-file -DgroupId=my.group.id -DartifactId=my-artifact-id -Dversion=X.X -Dclassifier=clover-report \
+ -Dpackaging=xml -Dfile=/path/to/file -Durl=[url] -DrepositoryId=[id]
+</pre>
+                    </div>
+                </div>
+                <h3 id="Creatingcustomreports-PropertiesforCustomReports">Properties for Custom Reports</h3><h4
+                    id="Creatingcustomreports-StandardMavenproperties">Standard Maven properties</h4>
+                <p>A custom clover report descriptor can access the standard Maven properties. The following
+                    properties are available:</p>
+                <ul>
+                    <li><code>project.url</code></li>
+                    <li><code>project.version</code></li>
+                    <li><code>project.name</code></li>
+                    <li><code>project.description</code></li>
+                    <li><code>project.id</code></li>
+                    <li><code>project.groupId</code></li>
+                    <li><code>project.inceptionYear</code></li>
+                </ul>
+                <p>In addition to these properties, any additional properties defined in <code>pom.xml</code> will also
+                    be available.</p><h4 id="Creatingcustomreports-Cloverconfigurationproperties">Clover configuration
+                properties</h4>
+                <p>Configuration options defined for <em><strong>clover:clover</strong> </em>MOJO<em> </em>are available
+                    in report descriptor under following names:</p>
+                <ul>
+                    <li>${cloverdb} = full path to Clover database, depending on settings:<br/>
+                        <ul>
+                            <li>default database location (&lt;build directory&gt;/clover/clover.db) or</li>
+                            <li><em><em>maven.</em>clover.cloverDatabase</em> or </li>
+                            <li><em><em>maven.</em>clover.cloverMergeDatabase</em></li>
+                        </ul>
+                    </li>
+                    <li>${output} = full path to report directory or file:<br/>
+                        <ul>
+                            <li>absolute path of <em><em>maven.</em>clover.outputDirectory</em> (HTML/JSON reports) or
+                            </li>
+                            <li><em><em>maven.</em><em>clover.</em>outputDirectory</em> + &quot;/clover.pdf&quot; (PDF
+                                report) or
+                            </li>
+                            <li><em><em>maven.</em><em>clover.</em>outputDirectory</em> + &quot;/clover.xml&quot; (XML
+                                report)
+                            </li>
+                        </ul>
+                    </li>
+                    <li>${history} = <em>maven.</em><em><em>clover.</em>historyDir</em></li>
+                    <li>${title} = report title, one of:<br/>
+                        <ul>
+                            <li><em><em>maven.</em><em>clover.</em>title</em> or </li>
+                            <li>project's artifactId + version</li>
+                            <li>in case when <em>maven.</em><em>clover.cloverMergeDatabase</em> is set then the &quot;(Aggregated)&quot;
+                                word is appended
+                            </li>
+                        </ul>
+                    </li>
+                    <li>${titleAnchor} = <em><em>maven.</em>clover.</em><em>titleAnchor</em></li>
+                    <li>${projectDir} = project base dir</li>
+                    <li>${testPattern} = &quot;**/src/test/**&quot;</li>
+                    <li>${filter} = <em>maven.clover.contextFilters</em></li>
+                    <li>${orderBy} = <em>maven.clover.orderBy</em></li>
+                    <li>${charset} = <em>maven.clover.charset</em></li>
+                    <li>${type} = html / pdf / xml / json  <br/>
+                        <ul>
+                            <li>depends on <em>maven.clover.generateHtml</em> / <em>maven.clover.generatePdf</em> / <em>maven.clover.generateXml</em>
+                                / <em>maven.clover.generateJson</em></li>
+                            <li>custom report will be run for each of types enabled</li>
+                        </ul>
+                    </li>
+                    <li>${reportStyle} = style of the report (&quot;adg&quot; / &quot;classic&quot;) - since Clover
+                        4.0
+                    </li>
+                    <li>${span} = <em>maven.clover.span</em></li>
+                    <li>${alwaysReport} = <em>maven.clover.alwaysReport</em></li>
+                    <li>${summary} = whether to generate a summary, true for PDF report</li>
+                    <li>${historyout} = location of history report<br/>
+                        <ul>
+                            <li>${output} for HTML</li>
+                            <li>${output}/historical.pdf for PDF</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

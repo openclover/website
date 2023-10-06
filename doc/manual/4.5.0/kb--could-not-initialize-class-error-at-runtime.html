@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>&quot;Could not initialize class&quot; error at runtime</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--troubleshooting-execution.html">Troubleshooting Execution</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            &quot;Could not initialize class&quot; error at runtime
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="id-&quot;Couldnotinitializeclass&quot;erroratruntime-Symptoms">Symptoms</h4>
+                <p>Execution of tests or a standalone application terminates with an error message similar to the
+                    following:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>Could not initialize class com.acme.MyClass$__CLR3_2_02t2thng9gff</pre>
+                    </div>
+                </div>
+                <p>or from Maven:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>java.lang.reflect.InvocationTargetException
+    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke(Method.java:606)
+    at org.codehaus.mojo.exec.ExecJavaMojo$1.run(ExecJavaMojo.java:297)
+    at java.lang.Thread.run(Thread.java:724)
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.acme.MyClass$__CLR3_2_02t2thng9gffc</pre>
+                    </div>
+                </div>
+                <p>or from JBoss:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>org.jboss.arquillian.container.spi.client.container.DeploymentException: Could not deploy to container: ...
+Caused by: javax.persistence.PersistenceException: ...
+Caused by: org.hibernate.MappingException: Could not get constructor for org.hibernate.persister.entity.SingleTableEntityPersister
+Caused by: org.hibernate.InstantiationException: could not instantiate test &lt;some test name&gt;
+Caused by: java.lang.reflect.InvocationTargetException
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.acme.MyEntity$__CLR3_1_12b0b0hlfzxawo
+</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="id-&quot;Couldnotinitializeclass&quot;erroratruntime-Cause">Cause</h4>
+                <p>In 99% of cases this is caused by a fact that <strong>clover.jar</strong> is missing in runtime.
+                    Please keep in mind that it's not enough to have clover.jar during compilation - classes
+                    instrumented by Clover needs Clover's core classes from clover.jar during application (or test)
+                    execution.</p>
+                <p>Please have a look at solutions in a related article: <a href="kb--noclassdeffounderror-com-atlassian-clover-coveragerecorder.html">NoClassDefFoundError
+                    com_atlassian_clover/CoverageRecorder</a>.</p><h4
+                    id="id-&quot;Couldnotinitializeclass&quot;erroratruntime-References">References</h4>
+                <ul>
+                    <li><a
+                           href="https://community.atlassian.com/t5/Clover/ct-p/clover"
+                           rel="nofollow">posts on Atlassian Community</a></li>
+                </ul>
+                <p> </p><!--$body-->
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

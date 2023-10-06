@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : Adding to Ant&#39;s build.xml</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--installation-guide.html">Clover-for-Ant Installation Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Adding to Ant&#39;s build.xml
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+            <div id="main-content" class="wiki-content group">
+                <p>This is the recommended method of installing Clover.</p>
+                <p> </p>
+                <p>Adding Clover to your build is done by adding the following to your buildfile (e.g. build.xml):</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;/path/to/clover.jar&quot;/&gt;
+</pre>
+                    </div>
+                </div>
+                <p><img class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
+                        data-emoticon-name="information" alt="(info)"/> '/path/to' is the path to the 'clover.jar' file.
+                    Hence, a typical example of the 'classpath' parameter might be <code>classpath=&quot;../lib/clover.jar&quot;</code>.
+                </p>
+                <h3 id="AddingtoAnt&#39;sbuild.xml-CheckingifCloverisavailableforthebuild(optional)">Checking if Clover
+                    is available for the build (optional)</h3>
+                <p>In some cases you may want to check if Clover is available before executing Clover-related targets.
+                    For example, you may need to ship the build file to others who may not have Clover installed. To
+                    check Clover's availability you can make use of the standard Ant <code>&lt;available&gt;</code>
+                    task:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;-check.clover&quot;&gt;
+&lt;available property=&quot;clover.installed&quot;
+classname=&quot;com.atlassian.clover.CloverInstr&quot; /&gt;
+&lt;/target&gt;
+
+&lt;target name=&quot;guard.noclover&quot; depends=&quot;-check.clover&quot; unless=&quot;clover.installed&quot;&gt;
+&lt;fail message=&quot;The target you are attempting to run requires Clover, which doesn&#39;t appear to be installed&quot;/&gt;
+&lt;/target&gt;
+
+&lt;target name=&quot;with.clover&quot; depends=&quot;guard.noclover&quot;&gt;
+...
+</pre>
+                    </div>
+                </div>
+                <p>
+                <h3 id="AddingtoAnt&#39;sbuild.xml-Troubleshooting">Troubleshooting</h3>
+
+                <ul>
+                    <li>To enable logging of the Clover installation, set the environment variable <code>ANT_OPTS</code>
+                        to <code>'-Dclover.debug=true'</code></li>
+                    <li>Run ant with the <code>-debug</code> and <code>-verbose</code> options</li>
+                    <li>Certain environments may require the clover.jar to be placed directly on Ant's Classpath.
+                        Details are outlined <a href="ant--adding-to-ants-classpath.html">here</a>.
+                    </li>
+                    <li>To enable logging of Clover at runtime set the environment variable <code>-Dclover.logging.level=debug</code>
+                        on the JVM that is running your Clover instrumented code. e.g. the JUnit JVM, the Tomcat JVM.
+                    </li>
+                </ul>
+                </p><p> </p><h5 id="AddingtoAnt&#39;sbuild.xml-NEXTSTEP">NEXT STEP</h5>
+                <p>See <a href="ant--best-practices.html">Clover for Ant Best Practices</a></p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

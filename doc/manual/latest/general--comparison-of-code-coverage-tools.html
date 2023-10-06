@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : Comparison of code coverage tools</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img
+                    src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="general--about-openclover.html">About Clover</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Comparison of code coverage tools
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <div class="confluence-information-macro confluence-information-macro-information"><p class="title">
+                    Disclaimer</p><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>We've tried to do our best to prepare non-biased,
+                        based on features, comparison of various code coverage tools available on the market in order to
+                        help in evaluation process. Information gathered here is based on the official tools'
+                        documentation as well as on documentation of tools' integrations. In case you'd find some
+                        information presented here inaccurate or outdated or if you think that new tool or feature shall
+                        be added to the comparison, please do not hesitate to <a
+                                href="https://github.com/openclover/clover/issues"
+                                rel="nofollow">raise an issue</a> - we
+                        will review it and update the page accordingly.</p></div>
+                </div>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh" width="12.5%"><p>Feature</p></th>
+                            <th class="confluenceTh" width="12.5%"><b>OpenClover</b></th>
+                            <th class="confluenceTh" width="12.5%">Atlassian Clover</th>
+                            <th class="confluenceTh" width="12.5%">Cobertura</th>
+                            <th class="confluenceTh" width="12.5%">JaCoCo</th>
+                            <th class="confluenceTh" width="12.5%">JCov</th>
+                            <th class="confluenceTh" width="12.5%">Code Cover</th>
+                            <th class="confluenceTh" width="12.5%">PIT</th>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="confluenceTh">Home page</th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"> </td>
+                            <td class="confluenceTd">
+                                <a href="http://openclover.org" rel="nofollow">www</a>
+                            </td>
+                            <td class="confluenceTd"><a
+                                    href="http://www.atlassian.com/software/clover" rel="nofollow">www</a>
+                            </td>
+                            <td class="confluenceTd"><a
+                                    href="http://cobertura.github.io/cobertura" rel="nofollow">www</a>
+                            </td>
+                            <td class="confluenceTd"><a href="http://www.eclemma.org/jacoco"
+                                                        rel="nofollow">www</a></td>
+                            <td class="confluenceTd"><a
+                                    href="https://wiki.openjdk.java.net/display/CodeTools/jcov"
+                                    rel="nofollow">www</a></td>
+                            <td class="confluenceTd"><a href="http://codecover.org"
+                                                        rel="nofollow">www</a></td>
+                            <td class="confluenceTd"><a href="http://pitest.org" rel="nofollow">www</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="confluenceTh">Instrumentation</th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">Source files</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">Class files</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><em><img class="emoticon emoticon-tick"
+                                                                          src="images/icons/emoticons/check.png"
+                                                                          data-emoticon-name="tick" alt="(tick)"/>
+                                off-line instrumentation</em></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <em>off-line
+                                and <em>on-the-fly </em>instrumentation</em></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <em>off-line
+                                and <em>on-the-fly </em>instrumentation</em></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="confluenceTh">Coverage metrics</th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Method</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-cross"
+                                                             src="images/icons/emoticons/error.png"
+                                                             data-emoticon-name="cross" alt="(error)"/></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Statement <span style="color: rgb(0,0,255);"><sup><a
+                                    href="#Comparisonofcodecoveragetools-legend">(1)</a></sup></span></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-cross"
+                                                             src="images/icons/emoticons/error.png"
+                                                             data-emoticon-name="cross" alt="(error)"/></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td rowspan="2" class="confluenceTd"><p> </p>
+                                <p>linear block</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Line <span style="color: rgb(0,0,255);"><sup><a
+                                    href="#Comparisonofcodecoveragetools-legend">(1)</a></sup></span></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Branch</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                             src="images/icons/emoticons/check.png"
+                                                             data-emoticon-name="tick" alt="(tick)"/></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">MC/DC</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">Instruction</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <em><a
+                                    href="http://www.eclemma.org/jacoco/trunk/doc/counters.html"
+                                    rel="nofollow">explanation</a></em></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">Global coverage</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Per-test coverage</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                             src="images/icons/emoticons/check.png"
+                                                             data-emoticon-name="tick" alt="(tick)"/> <em>via</em> <em>sonar</em>
+                            </p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/>
+                                <em>JMX</em> / sonar
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <em>via
+                                extensions</em></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <em>lists
+                                tests per file</em></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">Mutation coverage</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="confluenceTh">Source code metrics</th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">Available metrics</td>
+                            <td colspan="2" class="confluenceTd"><a
+                                    href="ant--columns-element.html"
+                                    rel="nofollow">20+ metrics</a>, also custom ones
+                            </td>
+                            <td class="confluenceTd">cyclomatic complexity</td>
+                            <td class="confluenceTd">cyclomatic complexity</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="confluenceTh"><p>Report types</p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>HTML</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <a
+                                    href="general--understanding-reports-current.html"><em>details</em></a></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <a
+                                    href="general--understanding-reports-current.html"><em>details</em></a></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                             src="images/icons/emoticons/check.png"
+                                                             data-emoticon-name="tick" alt="(tick)"/></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>PDF</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-cross"
+                                                             src="images/icons/emoticons/error.png"
+                                                             data-emoticon-name="cross" alt="(error)"/></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>XML</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                             src="images/icons/emoticons/check.png"
+                                                             data-emoticon-name="tick" alt="(tick)"/></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>JSON</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-cross"
+                                                             src="images/icons/emoticons/error.png"
+                                                             data-emoticon-name="cross" alt="(error)"/></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Text</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                             src="images/icons/emoticons/check.png"
+                                                             data-emoticon-name="tick" alt="(tick)"/> <em>via</em> <em>cobertura:check</em>
+                            </p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">CSV</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <th class="highlight-grey confluenceTh" colspan="8" data-highlight-colour="grey">Data
+                                management and report filtering
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">Merging of coverage databases</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <em>clover:merge</em>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <em>clover:merge</em>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <em>via
+                                &lt;jacoco:merge</em>&gt;
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">Historical reporting</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <em><a
+                                    href="general--understanding-reports-historical.html">details</a></em></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <em><a
+                                    href="general--understanding-reports-historical.html">details</a></em></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <em>via
+                                sonar</em></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <em>via
+                                sonar</em></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">Selecting scope of code coverage</td>
+                            <td colspan="2" class="confluenceTd">file patterns, class patterns, method patterns (entire
+                                signature), code block type, statement's regular expression, code complexity,
+                                CLOVER:OFF/ON code comments
+                            </td>
+                            <td class="confluenceTd"><p>file patterns,</p>
+                                <p>code annotations</p></td>
+                            <td class="confluenceTd">class patterns</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd">file patterns</td>
+                            <td class="confluenceTd">package patterns</td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">Cross-report linking</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <em>via
+                                &lt;structure&gt; element </em></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="confluenceTh">Supported languages</th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">Java</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">Groovy</td>
+                            <td colspan="2" class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                                         src="images/icons/emoticons/check.png"
+                                                                         data-emoticon-name="tick" alt="(tick)"/></p>
+                                    <div id="expander-content-1889976987" class="expand-content">Clover recognizes
+                                        Groovy-specific language constructs, such as &quot;?.&quot;, &quot;?:&quot;
+                                        operators, properties, methods with default arguments. It also handles
+                                        Grails-specific AST transformations such as controller classes. Thanks to this,
+                                        you can see more accurate data in reports (compared to pure byte-code
+                                        instrumentation tools).
+                                    </div>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">AspectJ</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <sup>(<a
+                                    href="aspectj--clover-aspectj-compiler.html">details</a>)</sup></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <sup>(<a
+                                    href="aspectj--clover-aspectj-compiler.html">details</a></sup><sup>)</sup></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                          src="images/icons/emoticons/help_16.png"
+                                                          data-emoticon-name="question" alt="(question)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                          src="images/icons/emoticons/help_16.png"
+                                                          data-emoticon-name="question" alt="(question)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                          src="images/icons/emoticons/help_16.png"
+                                                          data-emoticon-name="question" alt="(question)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                          src="images/icons/emoticons/help_16.png"
+                                                          data-emoticon-name="question" alt="(question)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                          src="images/icons/emoticons/help_16.png"
+                                                          data-emoticon-name="question" alt="(question)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">Other</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td colspan="5" class="confluenceTd"><em><img class="emoticon emoticon-tick"
+                                                                          src="images/icons/emoticons/check.png"
+                                                                          data-emoticon-name="tick" alt="(tick)"/> instrumentation
+                                is class-based so theoretically any JVM language</em> <em>is supported</em>, <em>but it
+                                may lack good reporting</em> <em>(esp. for language-specific constructs); it may also
+                                have problems with synthetic methods etc.<br/></em></td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="confluenceTh">Supported JDK</th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"> </td>
+                            <td class="confluenceTd"><p>1.7-1.9 (JRE/JDK)</p>
+                                <p>1.7-1.9 (for &quot;-source&quot; level setting)</p></td>
+                            <td class="confluenceTd"><p>1.6-1.8 (JRE/JDK)</p>
+                                <p>1.3-1.8 (for &quot;-source&quot; level setting)</p></td>
+                            <td class="confluenceTd">1.5-1.7</td>
+                            <td class="confluenceTd">1.5-1.8</td>
+                            <td class="confluenceTd">1.0-1.8</td>
+                            <td class="confluenceTd">1.5-1.7</td>
+                            <td class="confluenceTd">1.5-1.8</td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="confluenceTh">Supported test frameworks</th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">JUnit</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/>
+                                <sup><span style="color: rgb(0,0,255);"><a href="#Comparisonofcodecoveragetools-legend">(4)</a></span></sup>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/>
+                                <sup><span style="color: rgb(0,0,255);"><a href="#Comparisonofcodecoveragetools-legend">(5)</a><br/></span></sup>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">TestNG</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/>
+                                <sup><span style="color: rgb(0,0,255);"><a href="#Comparisonofcodecoveragetools-legend">(4)</a></span></sup>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/> <sup><a
+                                    href="#Comparisonofcodecoveragetools-legend">(5)</a><br/></sup></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">Spock</td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                                         src="images/icons/emoticons/check.png"
+                                                                         data-emoticon-name="tick" alt="(tick)"/></p>
+                            </td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                                         src="images/icons/emoticons/check.png"
+                                                                         data-emoticon-name="tick" alt="(tick)"/></p>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/>
+                                <sup><span style="color: rgb(0,0,255);"><a href="#Comparisonofcodecoveragetools-legend">(4)</a></span></sup>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/> <sup><a
+                                    href="#Comparisonofcodecoveragetools-lege">(4)</a></sup></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">Other</td>
+                            <td colspan="2" class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                                         src="images/icons/emoticons/check.png"
+                                                                         data-emoticon-name="tick" alt="(tick)"/></p>
+                                    <div id="expander-content-817915439" class="expand-content"><p>It's possible to
+                                        define custom patterns for tests, based on file names, class signatures, method
+                                        signatures (including annotations and javadoc tags). <a
+                                                href="ant--clover-setup.html">More details</a>.</p></div>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/>
+                                <sup><span style="color: rgb(0,0,255);"><a href="#Comparisonofcodecoveragetools-legend">(4)</a></span></sup>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/> <sup><a
+                                    href="#Comparisonofcodecoveragetools-le">(4)</a></sup></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                                         src="images/icons/emoticons/check.png"
+                                                                         data-emoticon-name="tick" alt="(tick)"/></p>
+                                    <div id="expander-content-427246279" class="expand-content"><p>It's possible to
+                                        define test boundaries by special instructions put in code comments</p></div>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="confluenceTh"><p>IDE integrations</p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>IntelliJ IDEA</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                          src="images/icons/emoticons/error.png"
+                                                          data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Eclipse</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                             src="images/icons/emoticons/check.png"
+                                                             data-emoticon-name="tick" alt="(tick)"/> <a
+                                    href="http://ecobertura.johoop.de" rel="nofollow"><em>eCobertura</em></a>
+                            </p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">NetBeans</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="confluenceTh">Build tools integrations</th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">command line</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Ant</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                                         src="images/icons/emoticons/check.png"
+                                                                         data-emoticon-name="tick" alt="(tick)"/></p>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Maven</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                             src="images/icons/emoticons/check.png"
+                                                             data-emoticon-name="tick" alt="(tick)"/></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Grails</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                             src="images/icons/emoticons/check.png"
+                                                             data-emoticon-name="tick" alt="(tick)"/> <em><a
+                                    href="http://grails.org/plugin/code-coverage" rel="nofollow">code-coverage</a></em>
+                            </p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Gradle</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                             src="images/icons/emoticons/check.png"
+                                                             data-emoticon-name="tick" alt="(tick)"/> <em><a
+                                    href="https://github.com/stevesaliman/gradle-cobertura-plugin"
+                                    rel="nofollow">gradle-cobertura-plugin</a></em></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>SBT</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                             src="images/icons/emoticons/check.png"
+                                                             data-emoticon-name="tick" alt="(tick)"/> <em><a
+                                    href="https://bitbucket.org/jmhofer/cobertura4sbt/wiki/Home"
+                                    rel="nofollow">cobertura4sbt</a></em></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="confluenceTh"><p>CI servers integrations</p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Bamboo</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-cross"
+                                                             src="images/icons/emoticons/error.png"
+                                                             data-emoticon-name="cross" alt="(error)"/></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Hudson</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                             src="images/icons/emoticons/check.png"
+                                                             data-emoticon-name="tick" alt="(tick)"/></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Jenkins</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                             src="images/icons/emoticons/check.png"
+                                                             data-emoticon-name="tick" alt="(tick)"/></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>TeamCity</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-cross"
+                                                             src="images/icons/emoticons/error.png"
+                                                             data-emoticon-name="cross" alt="(error)"/></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="confluenceTh"><p>Other integrations</p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Sonar</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-tick"
+                                                             src="images/icons/emoticons/check.png"
+                                                             data-emoticon-name="tick" alt="(tick)"/></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>JIRA</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-tick"
+                                                                      src="images/icons/emoticons/check.png"
+                                                                      data-emoticon-name="tick" alt="(tick)"/></td>
+                            <td class="confluenceTd"><p><img class="emoticon emoticon-cross"
+                                                             src="images/icons/emoticons/error.png"
+                                                             data-emoticon-name="cross" alt="(error)"/></p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-cross"
+                                                                      src="images/icons/emoticons/error.png"
+                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="confluenceTh"><p>Development activity</p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Last release</p></td>
+                            <td class="confluenceTd"><p>4.4.1 in Oct 2019, about one feature release per year</p></td>
+                            <td class="confluenceTd"><p>Clover 4.1.2 is the last release published by
+                                Atlassian. Since 11-Apr-2017 Clover is open source. See <a
+                                        href="https://www.atlassian.com/blog/announcements/atlassian-clover-open-source"
+                                        rel="nofollow">blog post</a>
+                                and <a href="faq--clover-open-sourcing-faq.html">FAQ</a>.</p></td>
+                            <td class="confluenceTd"><p>minor activity,</p>
+                                <p>last release - 2013</p></td>
+                            <td class="confluenceTd"><p>actively developed,</p>
+                                <p>few releases / year</p></td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd"><p>minor activity,</p>
+                                <p>last release - 2011</p></td>
+                            <td class="confluenceTd"><p>actively developed,</p>
+                                <p>few releases / year</p></td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" class="confluenceTh"><p>Technical support</p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p> </p></td>
+                            <td class="confluenceTd"><p>community support, handled by Clover developers</p></td>
+                            <td class="confluenceTd"><p>Atlassian
+                                Support, 24h response</p>
+                                <p>(for customers with active maintenance subscription)</p></td>
+                            <td class="confluenceTd"><p>open source community</p></td>
+                            <td class="confluenceTd">open source community</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd">open source community</td>
+                            <td class="confluenceTd">open source community</td>
+                        </tr>
+                        <tr>
+                            <th class="highlight-grey confluenceTh" colspan="8" data-highlight-colour="grey">Subjective
+                                summary
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">Advantages</td>
+                            <td class="confluenceTd"><p>OpenClover has the same feature set as Atlassian Clover,
+                                it is being maintained by former Clover developers.</p></td>
+                            <td class="confluenceTd"><p>Clover has great and highly configurable <a
+                                    href="general--understanding-reports-current.html">HTML reports</a>, per-test code coverage and <a
+                                        href="general--what-is-test-optimization.html">test
+                                    optimization</a>, <a href="general--what-is-distributed-per-test-coverage.html">distributed
+                                    per-test coverage</a> and many tool integrations. It is no longer developed by Atlassian.</p></td>
+                            <td class="confluenceTd">Easy to use thanks to off-line byte code
+                                instrumentation. You can measure coverage without having the source code. It has very
+                                nice and easy to navigate HTML report.
+                            </td>
+                            <td class="confluenceTd">Very easy to integrate thanks to the on-the-fly byte
+                                code instrumentation. You can measure coverage without having the source code. It has
+                                nice HTML report (<a
+                                        href="http://www.eclemma.org/jacoco/trunk/coverage/index.html"
+                                        rel="nofollow">example</a>).
+                            </td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd">It has the most detailed code coverage metric (MC/DC),
+                                which may be useful for critical systems (medical, aeronautical etc). The Eclipse
+                                plug-in comes also with a cool Boolean Expression Analyzer view and a Test Correlation
+                                matrix. It has also an interesting feature to start/stop test case via JMX, which can be
+                                useful for manual testing.
+                            </td>
+                            <td class="confluenceTd">PIT is a tool for mutation coverage, which means it
+                                will not only measure line coverage of your code but will also perform mutations in
+                                application logic in order to check how well written your tests are.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd">Disadvantages</td>
+                            <td colspan="2" class="confluenceTd">Due to a fact that Clover is based on source code
+                                instrumentation, integration requires a build - it's necessary to recompile code with
+                                Clover. Most Clover's integrations have an automatic integration feature, but in some
+                                cases you may need to add Clover JAR to a class path or set some Clover options.
+                            </td>
+                            <td class="confluenceTd">Classes must be compiled with debug option.</td>
+                            <td class="confluenceTd">Classes must be compiled with debug option.</td>
+                            <td class="confluenceTd"><img class="emoticon emoticon-question"
+                                                                      src="images/icons/emoticons/help_16.png"
+                                                                      data-emoticon-name="question" alt="(question)"/>
+                            </td>
+                            <td class="confluenceTd">Last release has been performed 3 years ago. The HTML
+                                report generated is quite fragmented - source code is shown separately for every method.
+                            </td>
+                            <td class="confluenceTd"> </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><span class="confluence-anchor-link" id="Comparisonofcodecoveragetools-legend"></span></p>
+                <p><em>1. Statement and line metrics are roughly similar in terms of their granularity (i.e. code has
+                    roughly one statement per line). Statement coverage has huge advantage over line coverage in case
+                    when language uses many short statements in a single line (a good example is Java8 stream with
+                    several map() and filter() calls) - it's more precise as it can detect partially covered lines.</em>
+                </p>
+                <p><em>4. While it's possible to instrument test classes and run test frameworks with Cobertura and
+                    JaCoCo, there is no built-in, dedicated support for these frameworks. Which means that standard HTML
+                    report shows <em>neither </em>test results nor per-test coverage. There is also no per-test data in
+                    Eclipse IDE (<em>EclEmma, </em>based on JaCoCo). <br/></em></p>
+                <p><em><em>5. Sonar can generate separate coverage data sets for every test case and show them in a
+                    combined report.</em> See <a
+                        href="http://deors.wordpress.com/2014/07/04/individual-test-coverage-sonarqube-jacoco/"
+                        rel="nofollow">http://deors.wordpress.com/2014/07/04/individual-test-coverage-sonarqube-jacoco/</a></em>
+                </p>
+                <p> </p>
+                <p><strong>Q: Why Emma is not included in this report?</strong></p>
+                <p>A: The original <a href="http://emma.sourceforge.net/" rel="nofollow">Emma</a> is
+                    a dead tool, last release has been made in 2005. On the other hand, the <a
+                            href="http://eclemma.org/"
+                            rel="nofollow"
+                            style="background-color: transparent;">Eclipse
+                        Emma</a> (EclEmma), which was originally based on Emma, since version 2.0 (released 2011) is
+                    based on JaCoCo. So its feature set is the same as for JaCoCo. </p>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

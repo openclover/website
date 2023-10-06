@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : Instrumenting RCP Application</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="eclipse--overview.html">Clover-for-Eclipse</a></span>
+                    </li>
+                    <li>
+                        <span><a href="eclipse--user-guide.html">Clover-for-Eclipse User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="9.-Eclipse-advanced-topics_297667027.html">9. Eclipse advanced topics</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Instrumenting RCP Application
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813721759 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813721759 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813721759 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813721759'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#InstrumentingRCPApplication-RunningapplicationinsideEclipseIDE(withClover)'>Running
+                            application inside Eclipse IDE (with Clover)</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#InstrumentingRCPApplication-Instrumentingcode'>Instrumenting code</a></li>
+                                <li><a href='#InstrumentingRCPApplication-Runningproduct'>Running product</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#InstrumentingRCPApplication-RunningapplicationinanotherEclipse'>Running
+                            application in another Eclipse</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#InstrumentingRCPApplication-Glossary'>Glossary</a></li>
+                                <li><a href='#InstrumentingRCPApplication-Instrumentingcode.1'>Instrumenting code</a>
+                                </li>
+                                <li>
+                                    <a href='#InstrumentingRCPApplication-ExportingPlug-insorPlug-infragmentsExportingPlug-insorPlug-infragments'>Exporting
+                                        Plug-ins or Plug-in fragments</a></li>
+                                <li><a href='#InstrumentingRCPApplication-ExportingFeatures'>Exporting Features</a></li>
+                                <li><a href='#InstrumentingRCPApplication-Runningplug-insandfeatures'>Running plug-ins
+                                    and features</a></li>
+                                <li><a href='#InstrumentingRCPApplication-Generatingreport'>Generating report</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#InstrumentingRCPApplication-RunningproductoutsideEclipse'>Running product outside
+                            Eclipse</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#InstrumentingRCPApplication-ExportingProduct'>Exporting Product</a></li>
+                                <li><a href='#InstrumentingRCPApplication-Approach#1:Instrumentsourcecodemanually'>Approach
+                                    #1: Instrument source code manually</a></li>
+                                <li>
+                                    <a href='#InstrumentingRCPApplication-Approach#2:Overwriteproduct&#39;spluginsbyinstrumentedversions'>Approach
+                                        #2: Overwrite product&#39;s plugins by instrumented versions</a></li>
+                                <li><a href='#InstrumentingRCPApplication-Runningproduct.1'>Running product</a></li>
+                                <li><a href='#InstrumentingRCPApplication-Generatingreport.1'>Generating report</a></li>
+                                <li><a href='#InstrumentingRCPApplication-Sampleworkbenchconfiguration'>Sample workbench
+                                    configuration</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#InstrumentingRCPApplication-Appendix1Appendix1'>Appendix 1</a></li>
+                    </ul>
+                </div>
+                </p><h1 id="InstrumentingRCPApplication-RunningapplicationinsideEclipseIDE(withClover)">Running
+                application inside Eclipse IDE (with Clover)</h1><h4 id="InstrumentingRCPApplication-Instrumentingcode">
+                Instrumenting code</h4>
+                <p>Just right click on projects you wish to instrument and choose &quot;Clover &gt; Enable on this
+                    project&quot; option. Clover will:</p>
+                <ul>
+                    <li>add &quot;Clover Pre-Java Builder&quot; and &quot;Clover Post-Java Builder&quot; on Builders tab
+                        (in project properties); typically it looks like this:
+                    </li>
+                </ul>
+                <p style="margin-left: 90.0px;"><span
+                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                        class="confluence-embedded-image confluence-content-image-border" height="161" width="421"
+                        src="attachments/296091649/296583853.png" data-image-src="attachments/296091649/296583853.png"
+                        data-unresolved-comment-count="0" data-linked-resource-id="296583853"
+                        data-linked-resource-version="1" data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="builders_tab.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="296091649"
+                        data-linked-resource-container-version="12"></span></p>
+                <ul>
+                    <li>add CLOVER_RUNTIME variable on &quot;Java Build Path / Libraries&quot; tab</li>
+                    <li>rebuild project</li>
+                </ul>
+                <p> </p>
+                <div class="confluence-information-macro confluence-information-macro-warning"><span
+                        class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Your project must use a Java Builder in order to
+                        be instrumented by Clover. If you're using other builders for compilation (like Ant Builder)
+                        instead of Java Builder, your code won't be instrumented.</p>
+                        <p>In such case, instrument sources manually before building them - for example by adding &lt;clover-instr/&gt;
+                            or &lt;clover-setup/&gt; to your Ant's build.xml. See example in <a
+                                    href="#InstrumentingRCPApplication-Appendix1">Appendix 1</a>.</p></div>
+                </div>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Note that having PDE builders like Plug-in
+                        Manifest Builder / Extension Point Schema Builder in addition to Java Builder is OK, as they are
+                        just packaging compiled classes.</p></div>
+                </div>
+                <p> </p><h4 id="InstrumentingRCPApplication-Runningproduct">Running product</h4>
+                <p>In order to run instrumented code you have to use <em>&quot;Run with Clover as...&quot;</em> button
+                    from tool bar. It will add Clover jar to -Xbootclasspath.</p>
+                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                        class="confluence-embedded-image confluence-content-image-border" height="134" width="448"
+                        src="attachments/296091649/295537859.png" data-image-src="attachments/296091649/295537859.png"
+                        data-unresolved-comment-count="0" data-linked-resource-id="295537859"
+                        data-linked-resource-version="1" data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="run_with_clover_as.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="296091649"
+                        data-linked-resource-container-version="12"></span></p>
+                <p> </p>
+                <p>Alternatively, if you wish to use &quot;Run as...&quot; (or other action like Debug, Profile) to run
+                    instrumented application, define <strong>-Xbootclasspath/a:/your/path/to/clover-runtime.jar</strong>
+                    in <em>VM Arguments</em> box as presented below:</p>
+                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                        class="confluence-embedded-image confluence-content-image-border" height="593" width="1024"
+                        src="attachments/296091649/295537856.png" data-image-src="attachments/296091649/295537856.png"
+                        data-unresolved-comment-count="0" data-linked-resource-id="295537856"
+                        data-linked-resource-version="2" data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="run_configurations.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="296091649"
+                        data-linked-resource-container-version="12"></span></p>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>You can find clover-runtime.jar in <em><strong>&lt;eclipse_dir&gt;\plugins\com.atlassian.clover.eclipse.runtime_4.X.X.vYYYYMMDD000000\clover-runtime.jar</strong></em>.
+                    </p>
+                        <p><em>(Usage of other clover*.jar files is discouraged, because they can have <em>different
+                            content</em>, build time stamp or instrumentation database version).</em></p></div>
+                </div>
+                <p> </p>
+                <h1 id="InstrumentingRCPApplication-RunningapplicationinanotherEclipse">Running application in another
+                    Eclipse</h1>
+                <p>This chapter describes a case, when code is instrumented in one Eclipse IDE and next features/plugins
+                    are exported, installed and tested in another Eclipse installation .</p>
+                <p>This is more tricky, because you have to ensure that instrumented classes will be packaged into jar
+                    files. You also have to change location of <em>clover.db</em>.</p>
+                <p> </p><h4 id="InstrumentingRCPApplication-Glossary">Glossary</h4>
+                <p><strong>Eclipse Test</strong> - instance where application is executed (typically, it's a pure
+                    Eclipse installation used for testing)</p>
+                <p><strong>Eclipse IDE</strong> - instance where application is compiled, it has Clover plug-in
+                    installed</p>
+                <p> </p><h4 id="InstrumentingRCPApplication-Instrumentingcode.1">Instrumenting code</h4>
+                <p>Run Eclipse IDE. Open Project Properties &gt; Clover. Check the <em>&quot;Enable Clover in this
+                    project</em>&quot; box. On the <em>&quot;Instrumentation&quot;</em> tab in<em> &quot;Initstring</em>&quot;
+                    box:</p>
+                <ul>
+                    <li>select the <em>&quot;Custom value&quot;</em> radio button,</li>
+                    <li>enter absolute path for Clover database</li>
+                    <li>deselect the <em>&quot;Relative to project dir&quot;</em> toggle.</li>
+                </ul>
+                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                        class="confluence-embedded-image confluence-content-image-border" height="231" width="391"
+                        src="attachments/296091649/296583851.png" data-image-src="attachments/296091649/296583851.png"
+                        data-unresolved-comment-count="0" data-linked-resource-id="296583851"
+                        data-linked-resource-version="1" data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="clover_initstring.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="296091649"
+                        data-linked-resource-container-version="12"></span></p>
+                <p>Click OK and rebuild the project.</p>
+                <p> </p><h4
+                    id="InstrumentingRCPApplication-ExportingPlug-insorPlug-infragmentsExportingPlug-insorPlug-infragments">
+                <span class="confluence-anchor-link"
+                      id="InstrumentingRCPApplication-ExportingPlug-insorPlug-infragments"></span>Exporting Plug-ins or
+                Plug-in fragments</h4>
+                <p>Right click on plug-in project, choose <em>&quot;Export ...&quot;</em> &gt; <em>&quot;Plug-in
+                    Development&quot;</em> / <em>&quot;Deployable plug-ins and fragments&quot;</em>. On<em> &quot;Options&quot;</em>
+                    tab make sure that the <em>&quot;Use class files compiled in the workspace&quot;</em> checkbox is
+                    selected.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/296091649/296583852.png"
+                                                                       data-image-src="attachments/296091649/296583852.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="296583852"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="export_plugins_use_workspace_classes.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="296091649"
+                                                                       data-linked-resource-container-version="12"></span>
+                </p>
+                <p> </p><h4 id="InstrumentingRCPApplication-ExportingFeatures">Exporting Features</h4>
+                <p>Right click on feature project, choose <em>&quot;Export ...&quot;</em> &gt; <em>&quot;Plug-in
+                    Development&quot;</em> / <em>&quot;Deployable features&quot;</em>. On<em> &quot;Options&quot;</em>
+                    tab make sure that the <em>&quot;Use class files compiled in the workspace&quot;</em> checkbox is
+                    selected.</p>
+                <p> </p><h4 id="InstrumentingRCPApplication-Runningplug-insandfeatures">Running plug-ins and
+                features</h4>
+                <p>Now, you can install these features or plug-ins into the Eclipse Test. Make sure that the
+                    <strong><em>clover-runtime.jar</em></strong> (you can find it in <em>&lt;eclipse&gt;\plugins\com.atlassian.clover.eclipse.runtime_version_number</em>)
+                    is available in Java <strong>-Xbootclasspath</strong>.</p>
+                <p>Add this to your Eclipse Test <em>eclipse.ini</em> file, for example:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>-vmargs
+-Xbootclasspath/a:/path/to/eclipse-ide/plugins/com.atlassian.clover.eclipse.runtime_4.0.0.v20140711000000/clover-runtime.jar</pre>
+                    </div>
+                </div>
+                <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
+                        data-emoticon-name="light-on" alt="(lightbulb)"/>Note that <em><strong>-vmargs</strong> </em>is
+                    necessary because all arguments listed after <em>-vmargs</em> are being passed as arguments for JVM,
+                    instead of arguments for Eclipse framework.</p>
+                <p> </p><h4 id="InstrumentingRCPApplication-Generatingreport">Generating report</h4>
+                <p>As during instrumentation the absolute path was used for Clover database, your Eclipse IDE should
+                    automatically fetch coverage files so that you can see results in Coverage Explorer.</p>
+                <p>You can also generate report manually, using &lt;clover-report&gt; Ant task for instance. See the
+                    &quot;report&quot; target in Appendix 1.</p>
+                <p> </p>
+                <h1 id="InstrumentingRCPApplication-RunningproductoutsideEclipse">Running product outside Eclipse</h1>
+                <h4 id="InstrumentingRCPApplication-ExportingProduct">Exporting Product</h4>
+                <p>Unfortunately, exporting the whole product at once:</p>
+                <ul>
+                    <li>right click on project, choose &quot;Export ...&quot; &gt; &quot;Plug-in Development / Eclipse
+                        Product&quot; or
+                    </li>
+                    <li>open the MyProudct.product file and click &quot;Use the Eclipse Product export wizard&quot; from
+                        Overview tab.
+                    </li>
+                </ul>
+                <p><strong>will not work</strong> because the standard &quot;Eclipse Product Export Wizard&quot; does
+                    not use Builders defined in project properties, but calls PDE Ant build scripts. As a consequence it
+                    bypasses the &quot;Clover Pre/Post-Java Builder&quot;.</p>
+                <p> </p>
+                <p>There are two ways to solve this:</p><h4
+                    id="InstrumentingRCPApplication-Approach#1:Instrumentsourcecodemanually">Approach #1: Instrument
+                source code manually</h4>
+                <p class="emoticon emoticon-light-on" title="Lightbulb On (on)">1) Use <a
+                        href="commandline--cloverinstr.html"
+                        rel="nofollow">CloverInstr </a>command line tool or <a
+                        href="ant--clover-instr.html"
+                        rel="nofollow">clover-instr</a> Ant task to instrument sources manually - see script in <a
+                        href="#InstrumentingRCPApplication-Appendix1">Appendix 1</a></p>
+                <p class="emoticon emoticon-light-on" style="margin-left: 30.0px;" title="Lightbulb On (on)"><img
+                        class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
+                        data-emoticon-name="light-on" alt="(lightbulb)"/>remember to put instrumented sources in another
+                    location, i.e. not into your original source folder <img class="emoticon emoticon-smile"
+                                                                             src="images/icons/emoticons/smile.png"
+                                                                             data-emoticon-name="smile" alt="(smile)"/>
+                </p>
+                <p class="emoticon emoticon-light-on" title="Lightbulb On (on)"><br/>2) Open instrumented sources in
+                    Eclipse IDE.</p>
+                <p>Add the <em>clover-runtime.jar</em> from <em>&lt;eclipse_home&gt;\plugins\com.atlassian.clover.eclipse.runtime_&lt;version_number&gt;</em>
+                    as external JAR to Java Build Path.</p>
+                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                        class="confluence-embedded-image confluence-content-image-border" height="414" width="798"
+                        src="attachments/296091649/296583857.png" data-image-src="attachments/296091649/296583857.png"
+                        data-unresolved-comment-count="0" data-linked-resource-id="296583857"
+                        data-linked-resource-version="1" data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="clover_runtime_java_build_path.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="296091649"
+                        data-linked-resource-container-version="12"></span></p>
+                <p style="margin-left: 30.0px;"><img class="emoticon emoticon-light-on"
+                                                     src="images/icons/emoticons/lightbulb_on.png"
+                                                     data-emoticon-name="light-on" alt="(lightbulb)"/> Do not add it as
+                    dependency in MANIFEST.MF as there's no reason to package this jar inside your product - it's only
+                    for compilation. At runtime, the -<em>Xbootclasspath</em> will be used. </p>
+                <p>Run Eclipse Product Export Wizard.</p>
+                <p> </p><h4 class="emoticon emoticon-light-on" title="Lightbulb On (on)"
+                            id="InstrumentingRCPApplication-Approach#2:Overwriteproduct&#39;spluginsbyinstrumentedversions">
+                Approach #2: Overwrite product's plugins by instrumented versions</h4>
+                <p>1) Manually export all plugins being part of your product - see <a
+                        href="#InstrumentingRCPApplication-ExportingPlug-insorPlug-infragments">Exporting Plug-ins or
+                    Plug-in fragments</a> (they will contain instrumented classes).</p>
+                <p>2) Export product using &quot;Eclipse Product Export Wizard&quot; into some folder (it will contain
+                    un-instrumented classes).</p>
+                <p>3) Overwrite plugins in the exported product folder by those exported manually.</p>
+                <p> </p>
+                <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
+                        data-emoticon-name="light-on" alt="(lightbulb)"/> This is less convenient compared to Approach
+                    #1 as you have to export plugins one-by-one, but might be needed if:</p>
+                <ul>
+                    <li>you have sources generated during build (XML schema bindings, for instance) and</li>
+                    <li>you want to have them instrumented as well (which is usually not practised).</li>
+                </ul>
+                <p> </p><h4 id="InstrumentingRCPApplication-Runningproduct.1">Running product</h4>
+                <p>Make sure that the <em>clover-runtime.jar</em> (you can find it in <em>&lt;eclipse&gt;\plugins\com.atlassian.clover.eclipse.runtime_&lt;version_number&gt;</em>)
+                    is available in Java <strong>-Xbootclasspath</strong>. Add this to your product's
+                    <em>config.ini</em> file, for example:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>-vmargs
+-Xbootclasspath/a:/path/to/eclipse-ide/plugins/com.atlassian.clover.eclipse.runtime_4.0.0.v20140711000000/clover-runtime.jar</pre>
+                    </div>
+                </div>
+                <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
+                        data-emoticon-name="light-on" alt="(lightbulb)"/>Note that <em><strong>-vmargs</strong> </em>is
+                    necessary because all arguments listed after <em>-vmargs</em> are being passed as arguments for JVM,
+                    instead of arguments for Eclipse framework.</p>
+                <p> </p><h4 id="InstrumentingRCPApplication-Generatingreport.1">Generating report</h4>
+                <p>As during instrumentation the absolute path was used for Clover database, your Eclipse IDE should
+                    automatically fetch coverage files so that you can see results in Coverage Explorer.</p>
+                <p>You can also generate it manually e.g. using &lt;clover-report&gt; Ant task. See the &quot;report&quot;
+                    target in Appendix 1.</p>
+                <p> </p><h4 id="InstrumentingRCPApplication-Sampleworkbenchconfiguration">Sample workbench
+                configuration</h4>
+                <p>The diagram below shows how work with manually instrumented sources (Approach #1) can be organized. A
+                    location of Clover database configured in Eclipse IDE as well as in Ant script which instruments
+                    sources is the same and points to an absolute path. Thanks to this, after running product, coverage
+                    results can be fetched automatically into Eclipse IDE #1.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/296091649/296586347.png"
+                                                                       data-image-src="attachments/296091649/296586347.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="296586347"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="eclipse-product-instrumentation.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="296091649"
+                                                                       data-linked-resource-container-version="12"></span>
+                </p>
+                <h1 id="InstrumentingRCPApplication-Appendix1Appendix1"><span class="confluence-anchor-link"
+                                                                              id="InstrumentingRCPApplication-Appendix1"></span>Appendix
+                    1</h1>
+                <p> </p>
+                <p>Sample Ant script which instruments all *.java files from <em>project.original.dir</em> and puts them
+                    into <em>project.instrumented.dir</em>, preserving original directory structure. It copies also all
+                    non-java files as well.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;project default=&quot;instrument&quot;&gt;
+    &lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/clover.jar&quot;/&gt;
+    &lt;property name=&quot;ant-contrib.jar&quot; location=&quot;${user.home}/ant-contrib-1.0b3.jar&quot;/&gt;
+    &lt;property name=&quot;project.original.dir&quot; location=&quot;original_project&quot;/&gt;
+    &lt;property name=&quot;project.instrumented.dir&quot; location=&quot;instr_project&quot;/&gt;
+    &lt;property name=&quot;project.clover.db&quot; location=&quot;${project.instrumented.dir}/.clover/clover.db&quot;/&gt;
+
+    &lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
+    &lt;taskdef resource=&quot;net/sf/antcontrib/antlib.xml&quot; classpath=&quot;${ant-contrib.jar}&quot;/&gt;
+
+    &lt;target name=&quot;_instrument-dir&quot;&gt;
+        &lt;!-- Use double-slash for windows paths --&gt;
+        &lt;propertyregex property=&quot;original.dir.quoted&quot; input=&quot;${project.original.dir}&quot; regexp=&quot;\\&quot; replace=&quot;\\\\\\\\&quot; global=&quot;true&quot;/&gt;
+        &lt;propertyregex property=&quot;relative.dir&quot; input=&quot;${source.dir}&quot; regexp=&quot;${original.dir.quoted}(.*)&quot; select=&quot;\1&quot;/&gt;
+        &lt;echo message=&quot;Instrumenting ${source.dir} into ${project.instrumented.dir}${relative.dir}&quot;/&gt;
+        &lt;echo message=&quot;Clover database is ${project.clover.db}&quot;/&gt;
+        &lt;clover-instr destdir=&quot;${project.instrumented.dir}${relative.dir}&quot; initstring=&quot;${project.clover.db}&quot;&gt;
+            &lt;fileset dir=&quot;${project.original.dir}${relative.dir}&quot;&gt;
+                &lt;include name=&quot;**/*.java&quot;/&gt;
+            &lt;/fileset&gt;
+        &lt;/clover-instr&gt;
+    &lt;/target&gt;
+
+    &lt;target name=&quot;instrument&quot;&gt;
+        &lt;!-- Cleanup from previous run --&gt;
+        &lt;delete dir=&quot;${project.instrumented.dir}&quot;/&gt;
+        &lt;!-- Find all source directories, for each of them call clover-instr. Please note that we cannot use sth like:
+             &lt;clover-instr srcdir=&quot;${project.original.dir}&quot; destdir=&quot;${project.instrumented.dir}&quot; initstring=&quot;${project.clover.db}&quot;&gt;
+             directly, because clover-instr does not recreate original directory structure, but puts everything
+             under one destdir root.
+         --&gt;
+        &lt;foreach target=&quot;_instrument-dir&quot; param=&quot;source.dir&quot; inheritall=&quot;true&quot; inheritrefs=&quot;true&quot;&gt;
+            &lt;path&gt;
+                &lt;!-- Define all package roots here --&gt;
+                &lt;dirset dir=&quot;${project.original.dir}&quot;&gt;
+                    &lt;include name=&quot;**/src&quot;/&gt;
+                    &lt;include name=&quot;**/test&quot;/&gt;
+                &lt;/dirset&gt;
+            &lt;/path&gt;
+        &lt;/foreach&gt;
+
+        &lt;!-- Copy all other non-java files as well --&gt;
+        &lt;echo message=&quot;Copying other files from ${project.original.dir} to ${project.instrumented.dir}&quot;/&gt;
+        &lt;copy todir=&quot;${project.instrumented.dir}&quot;&gt;
+            &lt;fileset dir=&quot;${project.original.dir}&quot;&gt;
+                &lt;exclude name=&quot;**/*.java&quot;/&gt;
+            &lt;/fileset&gt;
+        &lt;/copy&gt;
+
+        &lt;!-- Now we can build it under PDE. Don&#39;t even try to read instrumented sources ;-) --&gt;
+        &lt;echo message=&quot;INSTRUMENTATION DONE. Run Eclipse and open project from ${project.instrumented.dir}&quot;/&gt;
+    &lt;/target&gt;
+
+    &lt;target name=&quot;report&quot;&gt;
+        &lt;clover-report initstring=&quot;${project.clover.db}&quot;&gt;
+           &lt;current outfile=&quot;current.html&quot;&gt;
+              &lt;format type=&quot;html&quot;/&gt;
+           &lt;/current&gt;
+           &lt;current outfile=&quot;current.xml&quot;&gt;
+              &lt;format type=&quot;xml&quot;/&gt;
+           &lt;/current&gt;
+        &lt;/clover-report&gt;
+    &lt;/target&gt;
+&lt;/project&gt;</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

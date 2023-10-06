@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : Using Distributed Per-test Coverage</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Using Distributed Per-test Coverage
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p> </p>
+                <p>This page contains instructions on how to collect per-test coverage from a set of functional tests,
+                    which run in multiple JVMs (Java Virtual Machines). This may be necessary when starting a web server
+                    with the <a  href="https://codehaus-cargo.github.io/cargo/Maven2+plugin.html"
+                                rel="nofollow">Maven Cargo plugin</a> or the <a
+                                                                                href="http://tomcat.apache.org/maven-plugin.html"
+                                                                                rel="nofollow">Tomcat Maven Plugin</a>,
+                    for example.</p>
+                <div class="confluence-information-macro confluence-information-macro-information"><p class="title">Why
+                    measure per-test coverage?</p><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Clover's per-test coverage data gives you unique
+                        insight into how each of your tests exercises the codebase. Clover's per-test reporting gives
+                        statement level detail about the behavior of each test. Furthermore, once you've measured
+                        per-test coverage, you can use Clover's powerful new <strong>test optimization</strong> feature,
+                        where Clover can choose a smart subset of tests to run for a given code change, saving you the
+                        time and hassle of running a full test suite for every change.</p></div>
+                </div>
+                <p><em>On this page</em>:</p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813714191 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813714191 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813714191 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813714191'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#UsingDistributedPer-testCoverage-Option1.EnablingDistributedCoverageatRuntime'>Option
+                            1. Enabling Distributed Coverage at Runtime</a>
+                            <ul class='toc-indentation'>
+                                <li>
+                                    <a href='#UsingDistributedPer-testCoverage-SettingaSystemPropertyintheMavenCargoplugin'>Setting
+                                        a System Property in the Maven Cargo plugin</a></li>
+                                <li>
+                                    <a href='#UsingDistributedPer-testCoverage-SettingaSystemPropertyintheMavenSurefireplugin'>Setting
+                                        a System Property in the Maven Surefire plugin</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href='#UsingDistributedPer-testCoverage-Option2.ActivateDistributedCoverageduringInstrumentation.'>Option
+                                2. Activate Distributed Coverage during Instrumentation.</a>
+                            <ul class='toc-indentation'>
+                                <li>
+                                    <a href='#UsingDistributedPer-testCoverage-Step1:ActivatetheDistributedCoverageFeature'>Step
+                                        1: Activate the Distributed Coverage Feature</a></li>
+                                <li>
+                                    <a href='#UsingDistributedPer-testCoverage-Step2:SpecifytheJVMrunningtheTestsastheServer'>Step
+                                        2: Specify the JVM running the Tests as the Server</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#UsingDistributedPer-testCoverage-Execution'>Execution</a></li>
+                        <li><a href='#UsingDistributedPer-testCoverage-RelatedLinks'>Related Links</a></li>
+                    </ul>
+                </div>
+                </p><p>To set up collection of per-test coverage from distributed builds, carry out the following
+                steps.</p>
+                <h2 id="UsingDistributedPer-testCoverage-Option1.EnablingDistributedCoverageatRuntime">Option 1.
+                    Enabling Distributed Coverage at Runtime</h2>
+                <p>It is recommended, but not necessary, to enable distributed coverage collection at runtime. This can
+                    be done by defining the <code>clover.distributed.coverage</code> system property in all JVMs running
+                    Clovered code, including your Surefire JVM, and the JVM running your web server.</p>
+                <p>For the following examples, we are using the Maven Cargo plugin to start the webserver and the <a
+                         href="http://maven.apache.org/plugins/maven-surefire-plugin/"
+                        rel="nofollow">Maven Surefire plugin</a> to run the tests.</p>
+                <h3 id="UsingDistributedPer-testCoverage-SettingaSystemPropertyintheMavenCargoplugin">Setting a System
+                    Property in the Maven Cargo plugin</h3>
+                <p>The &quot;<code>clover.distributed.coverage</code>&quot; System Property must be set to &quot;ON&quot;
+                    in the Maven Cargo Plugin configuration.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;systemProperties&gt;
+    &lt;clover.distributed.coverage&gt;ON&lt;/clover.distributed.coverage&gt;
+&lt;/systemProperties&gt;
+</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
+                        data-emoticon-name="light-on" alt="(lightbulb)"/> TIP: the
+                    <em>clover.distributed.coverage=ON</em> takes default settings (host=localhost, port=1198,
+                    timeout=5000ms, numClients=0, retryPeriod=1000ms, name=clover.tcp.server). In case when you cannot
+                    use default settings, you can pass specific value for any of attributes using the &quot;key=value&quot;
+                    syntax passed as <em>clover.distributed.coverage</em> value:</p>
+                <ul>
+                    <li>host - host name of the &quot;Clover Server&quot;</li>
+                    <li>port - port on which the Clover will listen</li>
+                    <li>numClients - number of &quot;Clover Clients&quot; to connect until server starts test
+                        execution
+                    </li>
+                    <li>timeout - connection timeout in milliseconds</li>
+                    <li>retryPeriod - interval between connection retries, in milliseconds</li>
+                    <li>name - name of the configuration (URL is <em>host:port/name</em>)</li>
+                </ul>
+                <p>Example:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;systemProperties&gt;
+    &lt;clover.distributed.coverage&gt;host=myhost;port=7777;numclients=2&lt;/clover.distributed.coverage&gt;
+&lt;/systemProperties&gt;</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h3 id="UsingDistributedPer-testCoverage-SettingaSystemPropertyintheMavenSurefireplugin">Setting a
+                    System Property in the Maven Surefire plugin</h3>
+                <p>The following System properties must be set in the Maven Surefire Plugin configuration:</p>
+                <ul>
+                    <li>&quot;<code>clover.distributed.coverage</code>&quot; System Property must be set to &quot;ON&quot;,
+                    </li>
+                    <li>&quot;<code>clover.server</code>&quot; System Property must be set to &quot;true&quot;.</li>
+                </ul>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;configuration&gt;
+   &lt;forkMode&gt;once&lt;/forkMode&gt;
+   &lt;systemProperties&gt;
+       &lt;property&gt;
+           &lt;name&gt;clover.server&lt;/name&gt;
+           &lt;value&gt;true&lt;/value&gt;
+       &lt;/property&gt;
+       &lt;property&gt;
+           &lt;name&gt;clover.distributed.coverage&lt;/name&gt;
+           &lt;value&gt;ON&lt;/value&gt;
+       &lt;/property&gt;
+   &lt;/systemProperties&gt;
+&lt;/configuration&gt;
+</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p> </p>
+                <h2 id="UsingDistributedPer-testCoverage-Option2.ActivateDistributedCoverageduringInstrumentation.">
+                    Option 2. Activate Distributed Coverage during Instrumentation.</h2>
+                <h3 id="UsingDistributedPer-testCoverage-Step1:ActivatetheDistributedCoverageFeature">Step 1: Activate
+                    the Distributed Coverage Feature</h3>
+                <p>To add the <code>&lt;distributedCoverage/&gt;</code> element to the <span
+                        style="font-family: monospace;">clover-maven-plugin</span> configuration section, apply the
+                    following code:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;configuration&gt;
+   &lt;distributedCoverage/&gt;
+&lt;/configuration&gt;
+</pre>
+                    </div>
+                </div>
+                <p>This will enable distributed per-test coverage to be collected. Clover running in the JVM that hosts
+                    the tests will start a TCP server to do so. By default, it listens on <code>localhost:1198</code> .
+                </p>
+                <p>The <code>&lt;distributedCoverage&gt;</code> element takes the following nested elements:</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p>Element name</p></th>
+                            <th class="confluenceTh"><p>Description</p></th>
+                            <th class="confluenceTh"><p>Required</p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>host</p></td>
+                            <td class="confluenceTd"><p>The hostname the test JVM should bind to.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to '<code>localhost</code>'</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>name</p></td>
+                            <td class="confluenceTd"><p>The name of this configuration.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to '<code>tcp-config</code>'</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>numClients</p></td>
+                            <td class="confluenceTd"><p>The number of clients that need to connect to the test server
+                                before the tests will continue.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to '<code>0</code>'</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>port</p></td>
+                            <td class="confluenceTd"><p>The port the test JVM should listen on.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to '<code>1198</code>'</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>retryPeriod</p></td>
+                            <td class="confluenceTd"><p>The amount of time (in milliseconds) to wait before attempting
+                                to reconnect in the event of a network failure.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to '<code>1000</code>'</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>timeout</p></td>
+                            <td class="confluenceTd"><p>The amount of time (in milliseconds) to wait before a connection
+                                attempt will fail.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to '<code>5000</code>'</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><img class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
+                        data-emoticon-name="information" alt="(info)"/> All attributes are optional.</p>
+                <h3 id="UsingDistributedPer-testCoverage-Step2:SpecifytheJVMrunningtheTestsastheServer">Step 2: Specify
+                    the JVM running the Tests as the Server</h3>
+                <p>Add the <code>clover.server</code> system property to the <code>maven-surefire-plugin</code>
+                    configuration section, and ensure the forkMode parameter is set to 'once':</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;plugin&gt;
+    &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;forkMode&gt;once&lt;/forkMode&gt;
+        &lt;systemProperties&gt;
+            &lt;property&gt;
+                &lt;name&gt;clover.server&lt;/name&gt;
+                &lt;value&gt;true&lt;/value&gt;
+            &lt;/property&gt;
+        &lt;/systemProperties&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+</pre>
+                    </div>
+                </div>
+                <h2 id="UsingDistributedPer-testCoverage-Execution">Execution</h2>
+                <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
+                        data-emoticon-name="warning" alt="(warning)"/> In order to run your tests and generate reports,
+                    you might need to copy Clover database (clover.db) and coverage recordings
+                    (clover.dbHHHHHHH_TTTTTTTTTT) between machines. You might also need to provide clover.jar at
+                    runtime. It depends on how your environment is configured and especially whether Clover database is
+                    accessible via shared network drive. Read the <a
+                            href="guideline--using-openclover-in-various-environment-configurations.html">Using Clover in
+                        various environment configurations</a>.</p>
+                <h2 id="UsingDistributedPer-testCoverage-RelatedLinks">Related Links</h2>
+                <ul>
+                    <li><a href="guideline--working-with-distributed-applications.html">Working with Distributed
+                        Applications</a></li>
+                    <li><a href="maven--using-test-optimization.html">Using Test Optimization in Maven</a>
+                    </li>
+                    <li><a href="guideline--using-openclover-in-various-environment-configurations.html">Using Clover in
+                        various environment configurations</a></li>
+                </ul>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

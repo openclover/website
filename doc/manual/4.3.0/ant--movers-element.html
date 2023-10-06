@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : &lt;movers&gt; element</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--clover-report.html">clover-report</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            &lt;movers&gt; element
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>Specifies a table that shows those classes that have a coverage delta higher than a specified
+                    threshold over a specified time period. This can be specified multiple times, to track project
+                    movers over a given time frame, for example, weeks and months.</p>
+                <p>Parameters for &lt;movers&gt;:</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>threshold</p></td>
+                            <td class="confluenceTd"><p>The absolute point change in percent coverage that class must
+                                have changed by for inclusion. e.g &quot;<code>10%</code>&quot;.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to <code>1%.</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>range</p></td>
+                            <td class="confluenceTd"><p>The maximum number of classes to show. If the value is 5, then a
+                                maximum of 5 &quot;gainers&quot; and 5 &quot;losers&quot; will be shown.</p></td>
+                            <td class="confluenceTd"><p>No; defaults to <code>5.</code></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>interval</p></td>
+                            <td class="confluenceTd"><p>The time interval over which the delta should be calculated
+                                (from the last history point). Uses the <a href="ant--using-spans-specifying-an-interval.html">Interval</a>
+                                format. The range is automatically adjusted to the closest smaller interval available.
+                            </p></td>
+                            <td class="confluenceTd"><p>No; the default is to take the delta of the last two history
+                                points.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><span class="confluence-anchor-link" id="id-&lt;movers&gt;element-Format"></span><br/> <strong>Nested
+                    elements of &lt;movers&gt;</strong></p>
+                <p>The &lt;movers&gt; element can take a single <a href="ant--clover-report.html">column</a> element, allowing you to
+                    add one additional metric to the data shown in &lt;movers&gt;.</p>
+                <p><span class="confluence-anchor-link"
+                         id="id-&lt;movers&gt;element-movers-totalStatements"></span><br/> <strong>Example: &lt;totalStatements&gt;</strong>
+                </p>
+                <p>You could add totalStatements to &lt;movers&gt; with the following code.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;movers&gt;
+         &lt;columns&gt;
+                   &lt;totalStatements/&gt;
+         &lt;/columns&gt;
+&lt;/movers&gt;
+</pre>
+                    </div>
+                </div>
+                <p><img class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
+                        data-emoticon-name="information" alt="(info)"/> No more than one additional column can be added
+                    to &lt;movers&gt;.</p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

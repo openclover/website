@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : Clover-for-Maven Upgrade Guide</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Clover-for-Maven Upgrade Guide
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <div class="wiki-content"><h1 id="Clover-for-Maven2and3UpgradeGuide-Generalinstructions">General
+                    instructions</h1>
+                    <p><strong>1. Update version number of clover-maven-plugin in your pom.xml<br/></strong></p>
+                    <div class="code panel pdl" style="border-width: 1px;">
+                        <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;plugin&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;&lt;!-- PUT CLOVER VERSION --&gt;&lt;/version&gt;
+&lt;/plugin&gt; </pre>
+                        </div>
+                    </div>
+                    <p> </p>
+                    <p><strong>2. Update version number of clover dependency in your
+                        pom.xml </strong><strong>(optional)</strong></p>
+                    <p>Your pom.xml may contain a dependency to Clover Core (org.openclover:clover). Update it's
+                        version number the same version as the clover-maven-plugin:</p>
+                    <div class="code panel pdl" style="border-width: 1px;">
+                        <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;dependency&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover&lt;/artifactId&gt;
+    &lt;version&gt;&lt;!-- PUT CLOVER VERSION --&gt;&lt;/version&gt;
+&lt;/dependency&gt; </pre>
+                        </div>
+                    </div>
+                    <p><strong>3. Delete existing coverage databases</strong> <strong>(optional)</strong></p>
+                    <p>Clover's database format may change in newer versions. In such case you may get a build error
+                        with a message informing about database incompatibility. In such case you have to delete old
+                        database files. </p>
+                    <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
+                            data-emoticon-name="light-on" alt="(lightbulb)"/> By default, databases are stored in
+                        module's /target directory; thanks to this incompatible databases are removed automatically upon
+                        'mvn clean'.</p>
+                    <h1 id="Clover-for-Maven2and3UpgradeGuide-Upgradingfromspecificreleases">Upgrading from specific
+                        releases</h1>
+                    <p>Please see the <a href="release--notes.html">Clover Release Notes</a>.</p></div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

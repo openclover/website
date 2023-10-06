@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Properties such as Excludes is not being passed on to antcall tasks</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--troubleshooting-ant.html">Troubleshooting Ant</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Properties such as Excludes is not being passed on to antcall tasks
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="PropertiessuchasExcludesisnotbeingpassedontoantcalltasks-Symptoms">Symptoms</h4>
+                <p>In your build.xml file you use antcall to run some tasks. You have defined some excludes, but when
+                    looking at the logs, you see:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">file: Setup scanner in dir C:\path\to\example\dir with patternSet{ includes: [] excludes: [] }
+</pre>
+                    </div>
+                </div>
+                <p>i.e. the excludes is not being picked up.</p><h4
+                    id="PropertiessuchasExcludesisnotbeingpassedontoantcalltasks-Cause">Cause</h4>
+                <ul>
+                    <li>By default, the <a
+                                           href="http://ant.apache.org/manual/CoreTasks/antcall.html" rel="nofollow">inheritRefs
+                        for antcall task</a> is set to false. Thus, all the references will not pass to the sub-build
+                        files.
+                    </li>
+                    <li><code>&lt;files&gt;</code> patternset is used instead of <code>&lt;fileset&gt;</code> patternset
+                    </li>
+                </ul>
+                <h4 id="PropertiessuchasExcludesisnotbeingpassedontoantcalltasks-Resolution">Resolution</h4>
+                <ul>
+                    <li>Change the &lt;files/&gt; patternset into a &lt;fileset/&gt; -
+                        <a href="ant--clover-setup.html">clover-setup</a>
+                    </li>
+                    <li>Set<strong> inheritrefs=&quot;true&quot;</strong> in all &lt;antcall&gt; tasks - <a
+                             href="http://ant.apache.org/manual/CoreTasks/antcall.html"
+                            rel="nofollow">http://ant.apache.org/manual/CoreTasks/antcall.html</a></li>
+                </ul>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p><!--$body--><p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

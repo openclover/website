@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : Adding to Ant&#39;s Classpath</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--installation-guide.html">Clover-for-Ant Installation Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Adding to Ant&#39;s Classpath
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+            <div id="main-content" class="wiki-content group">
+                <div class="confluence-information-macro confluence-information-macro-note"><p class="title">Note</p>
+                    <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>This is an alternative method of installing
+                        Clover, and only applies to certain environments.<br/> The normal and recommended method of
+                        installing Clover is outlined on <a href="ant--adding-to-build-xml.html">Adding to Ant's build.xml</a>.</p>
+                    </div>
+                </div>
+                <p>Below are three options for adding the clover.jar to your Ant classpath directly.</p>
+                <h3 id="AddingtoAnt&#39;sClasspath-InstallingCloverlocallyforasingleuser">Installing Clover locally for
+                    a single user</h3>
+                <ol>
+                    <li>Create a directory ${user.home}/.ant/lib</li>
+                    <li><p>Copy clover.jar to ${user.home}/.ant/lib</p>
+                        <div class="confluence-information-macro confluence-information-macro-note"><p class="title">
+                            Note</p><span
+                                class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
+                            <div class="confluence-information-macro-body"><p>The location of ${user.home} depends on
+                                your JVM and platform. On Unix systems, ${user.home} usually maps to the user's home
+                                directory. On Windows systems, ${user.home} will map to something like C:\Documents and
+                                Settings\username\. Check your JVM documentation for more details.</p></div>
+                        </div>
+                    </li>
+                </ol>
+                <h3 id="AddingtoAnt&#39;sClasspath-InstallingCloveratanarbitarylocation">Installing Clover at an
+                    arbitary location</h3>
+                <p>You can install and use Clover at an arbitary location and then refer to it using the -lib command
+                    line option with Ant:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">ant -lib CLOVER_HOME/lib buildWithClover
+</pre>
+                    </div>
+                </div>
+                <p>(where <code>CLOVER_HOME</code> is the directory where Clover was installed.)</p>
+                <h3 id="AddingtoAnt&#39;sClasspath-InstallingClovergloballyintoAnt">Installing Clover globally into
+                    Ant</h3>
+                <p>Copy <code>clover.jar</code> into <code>ANT_HOME/lib</code> (since all jars in this directory are
+                    automatically added to Ant's classpath by the scripts that start Ant).</p>
+                <p>Alternatively, you can add <code>CLOVER_HOME/clover.jar</code> to the <code>CLASSPATH</code> system
+                    environment variable before running Ant. For information about setting this variable, please consult
+                    your Operating System documentation.</p><h5 id="AddingtoAnt&#39;sClasspath-NEXTSTEP">NEXT STEP</h5>
+                <p>See <a href="ant--best-practices.html">Clover for Ant Best Practices</a></p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

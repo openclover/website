@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : Instrumenting JSP files</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="hacking--hacking-openclover.html">Hacking Clover</a></span>
+                    </li>
+                    <li>
+                        <span><a href="hacking--using-openclover-for-other-programming-languages.html">Using Clover for other programming languages</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Instrumenting JSP files
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+            
+            <div id="main-content" class="wiki-content group">
+                <p>Clover cannot instrument JSP files directly. However, as all JSP files are translated to Java and
+                    next compiled using standard javac compiler, it is possible to enhance generated Java sources with
+                    Clover instrumentation and compile them. Thanks to this it is possible to get code coverage and
+                    reports for them.</p>
+                <p> </p><h4 id="InstrumentingJSPfiles-JSPonTomcat">JSP on Tomcat</h4>
+                <div class="action-body flooded"><p>By default, Tomcat compiles JSP file on the first access. Generated
+                    Java source code as well as compiled classes are stored in <em>&lt;tomcat_home&gt;/work/Catalina/localhost/&lt;application_name&gt;</em>.
+                    Luckily, Tomcat allows to perform pre-compilation of JSP files - classes should be bundled into WAR
+                    and proper servlet definitions added to web.xml. More details can be found on <a
+                             href="http://tomcat.apache.org/tomcat-6.0-doc/jasper-howto.html"
+                            rel="nofollow">http://tomcat.apache.org/tomcat-6.0-doc/jasper-howto.html</a> page.</p><br
+                        class="action-body flooded"/>
+                    <h2 id="InstrumentingJSPfiles-Examples">Examples</h2><h4 id="InstrumentingJSPfiles-Tomcat">
+                        Tomcat</h4>
+                    <p>1) Download sample application from <a
+                                                              href="http://tomcat.apache.org/tomcat-6.0-doc/appdev/sample/"
+                                                              rel="nofollow">http://tomcat.apache.org/tomcat-6.0-doc/appdev/sample/</a>
+                    </p>
+                    <p>2) Take sample Ant build script from <a
+                                                               href="http://tomcat.apache.org/tomcat-6.0-doc/jasper-howto.html"
+                                                               rel="nofollow">http://tomcat.apache.org/tomcat-6.0-doc/jasper-howto.html</a>
+                    </p>
+                    <p>3) Add Clover-related tasks and properties, for instance:</p>
+                    <div class="code panel pdl" style="border-width: 1px;">
+                        <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/clover.jar&quot;/&gt;
+&lt;property name=&quot;clover.db&quot; location=&quot;${java.io.tmpdir}/clover/clover.db&quot;/&gt;
+&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt; 
+   
+&lt;target name=&quot;init&quot;&gt;
+    &lt;clover-setup initstring=&quot;${clover.db}&quot; flushpolicy=&quot;interval&quot; flushinterval=&quot;500&quot;/&gt;
+&lt;/target&gt;
+    
+&lt;target name=&quot;report&quot;&gt;
+    &lt;clover-html-report initstring=&quot;${clover.db}&quot; outdir=&quot;report&quot;/&gt;
+&lt;/target&gt;
+
+...
+
+&lt;target name=&quot;all&quot; depends=&quot;init, jspc, compile&quot;&gt; &lt;!-- add &quot;init&quot; --&gt; </pre>
+                        </div>
+                    </div>
+                    <p>Comments:</p>
+                    <ul>
+                        <li>the &quot;init&quot; target has &lt;clover-setup&gt; task with flushpolicy=&quot;interval&quot;
+                            set (so that coverage recording files will be written at specified time interval, instead of
+                            JVM shutdown - thanks to this it's required to shutdown Tomcat)
+                        </li>
+                        <li>the &quot;init&quot; target has &quot;inistring&quot; with an absolute path to database (in
+                            order to simplify deployment as there's no need to copy clover.db to Tomcat directory)
+                        </li>
+                        <li>the &quot;all&quot; target depends on &quot;init, jspc, compile&quot;</li>
+                    </ul>
+                    <p> </p>
+                    <p>4) Build application using &quot;ant&quot; command:</p>
+                    <ul>
+                        <li>JSP files are precompiled into <em>WEB-INF/classes/org/apache/jsp</em></li>
+                        <li>clover.db is created in <em>${java.io.tmpdir}/clover</em></li>
+                        <li>the <em>WEB-INF\generated_web.xml</em> is created</li>
+                    </ul>
+                    <p>5) Copy definitions of servlets from <em>WEB-INF/generated_web.xml</em> into
+                        <em>WEB-INF/web.xml</em>. Otherwise Tomcat would compile JSP files (without Clover
+                        instrumentation).</p>
+                    <p>6) Copy also clover.jar into <em>&lt;tomcat_home&gt;/lib</em> directory.</p>
+                    <p>7) Package sample.war and deploy to Tomcat (copy to <em>&lt;tomcat_home&gt;/webapps</em>).</p>
+                    <p>8) Open the <code><span class="nolink">http://localhost:8080/sample</span></code> page, click on
+                        the &quot;To JSP page&quot; link. Page should print &quot;hello&quot;. Coverage files shall be
+                        generated in the location of clover.db database.</p>
+                    <p>9) Run &quot;ant report&quot; in order to generate coverage report.</p>
+                    <p> </p>
+                    <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                           src="attachments/313459436/313918719.png"
+                                                                           data-image-src="attachments/313459436/313918719.png"
+                                                                           data-unresolved-comment-count="0"
+                                                                           data-linked-resource-id="313918719"
+                                                                           data-linked-resource-version="1"
+                                                                           data-linked-resource-type="attachment"
+                                                                           data-linked-resource-default-alias="jsp_coverage.png"
+                                                                           data-base-url="https://confluence.atlassian.com"
+                                                                           data-linked-resource-content-type="image/png"
+                                                                           data-linked-resource-container-id="313459436"
+                                                                           data-linked-resource-container-version="3"></span>
+                    </p></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

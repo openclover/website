@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Build system</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="developer-guide.html">Clover Development Hub</a></span>
+                    </li>
+                    <li>
+                        <span><a href="developer-guide--clover-architecture.html">Clover architecture</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Build system
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p><span>Clover sources are organised into individually build-able modules. </span></p>
+                <h2 id="Buildsystem-Modulelayout"><span>Module layout</span></h2>
+                <p><span>Each module lives in a separate top-level directory with its own build file. The rough template is:</span>
+                </p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>/
++--&lt;module-name&gt;
+|  +--etc                - miscellaneous resources like icons
+|  +--src   
+|  |  +-- main
+|  |      +--java|groovy - source for the module
+|  +--src
+|  |  +--test
+|  |     +--groovy       - test sources (unit testing, based on Groovy JUnit)
+|  |     +--resources    - extra tests (integration tests, based on different frameworks)
+|  +-- build.xml         - local build file for a module
+|
++--common.xml            - contains version properties for all deliverables, common targets
++--build.properties      - paths to tools installed on developer&#39;s workstation
++--build.xml             - convenience build file that allows global build/test</pre>
+                    </div>
+                </div>
+                <h2 id="Buildsystem-Targets"><span>Targets</span></h2>
+                <p>The target names in build files for each module are prefixed by the name of the module, allowing
+                    modules to import other modules build files and express target dependencies in the normal Ant
+                    way. <strong>This naming convention is important for the operation of the build</strong>. Each
+                    module <code>build.xml</code> is designed to be location independent, so that imported targets can
+                    still work from importing build files. Because modules use import to express dependency this allows
+                    you to run the targets of any module up the dependency chain from the local module's build.</p>
+                <p>Every module needs the following minimum targets:</p>
+                <ul>
+                    <li>&lt;module-name&gt;.build</li>
+                    <li>&lt;module-name&gt;.test</li>
+                    <li>&lt;module-name&gt;.clean</li>
+                </ul>
+                <p>&quot;deliverable&quot; modules are those that produce an end product, they have the following extra
+                    targets</p>
+                <ul>
+                    <li>&lt;module-name&gt;.pkg</li>
+                    <li>&lt;module-name&gt;.prod</li>
+                </ul>
+                <p>All modules import a common set of properties and targets from the file <code>/common.xml</code>.
+                    This file contains the version information for all deliverable packages (note that most modules
+                    import this indirectly, by importing other modules that in turn import <code>/common.xml</code>).
+                </p>
+                <p>A global convenience build file <code>/build.xml</code> provides global build/test/report/clean
+                    targets, as well as exposing all targets from all modules.</p>
+                <h2 id="Buildsystem-Day-to-daydevelopment">Day-to-day development</h2>
+                <ul>
+                    <li>If you are working on a particular module, you can either call build targets on the local module
+                        build file or from the global build file.
+                    </li>
+                    <li>You can run tests locally using <code>&lt;module-name&gt;.test</code> or globally using <code>global.test</code>.
+                        In both cases the properties <code>test.includes</code> and <code>test.excludes</code> can be
+                        used to filter tests of interest.
+                    </li>
+                    <li>All output from a module build is put under <code>/&lt;module-name&gt;/target</code></li>
+                    <li><p>There is also a global /target/dependencies directory which is used to cache third party
+                        libraries or a repackaged clover.jar</p></li>
+                    <li>Before checking in, you should run at least <code>clover-core.test</code> and <code>clover-ant.test</code>
+                    </li>
+                    <li>Some modules have a <code>&lt;module-name&gt;.install</code> convenience target to build and
+                        install the module.
+                    </li>
+                </ul>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

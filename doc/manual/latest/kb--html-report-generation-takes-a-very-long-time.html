@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML report generation takes a very long time</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a
+                                href="kb--troubleshooting-performance.html">Troubleshooting Performance</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            HTML report generation takes a very long time
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="HTMLreportgenerationtakesaverylongtime-Symptoms"><span style="color: rgb(0,51,102);"><strong>Symptoms</strong></span>
+                </h4>
+
+                <p><span style="color: rgb(0,0,0);">Able to instrument code correctly, run tests, and generate clover DB files and clover XML. When running HTML report generation, however, the report generation takes a very long time.</span>
+                </p>
+
+                <h4 id="HTMLreportgenerationtakesaverylongtime-Causes"><span style="color: rgb(0,51,102);"><strong>Causes</strong></span>
+                </h4>
+
+                <ul>
+                    <li>Clover HTML report generation is, by default, optimised to minimise memory usage. For some
+                        projects these optimisations may slow down report generation.
+                    </li>
+                    <li>To generate reports efficiently sometimes Clover requires a slightly larger memory heap than is
+                        currently allowed and this may cause excessive memory swapping.
+                    </li>
+                </ul>
+
+
+                <h4 id="HTMLreportgenerationtakesaverylongtime-Resolution"><span style="color: rgb(0,51,102);"><strong>Resolution</strong></span>
+                </h4>
+
+                <p><span style="color: rgb(0,0,0);">First increase the memory available to Clover to the maximum allowed for your JVM. For example up to -Xmx2048m on *nix 32 bit JVMs, -Xmx1546m on Windows 32 bit JVMs. Consider using a 64 bit JVM for reporting on large projects (&gt; 500k LOC) with many test methods (&gt; 1000) as Clover may need more heap than a 32bit JVM can provide.</span>
+                </p>
+
+                <p><span style="color: rgb(0,0,0);">To increase for Ant, you need to set it in your ANT_OPTS environment variable. E.g. </span>export
+                    ANT_OPTS=&quot;-Xmx1024m -Xms256m&quot;</p>
+
+                <p><span style="color: rgb(0,0,0);">Similarly for Maven, you need to set it in your MAVEN_OPTS environment variable. E.g. </span>export
+                    MAVEN_OPTS=&quot;-Xmx1024m -Xms256m&quot;</p>
+
+                <p>If this does not improve report times, then disable calculation of unique test coverage (the
+                    calculation of the code coverage a test methods provides that is provided by no other test method)
+                    by setting showUniqueCoverage to &quot;false&quot;. See
+                    <a href="ant--clover-html-report.html">clover-html-report</a></p>
+
+
+                <p><span style="color: rgb(0,0,0);">If this does not improve report times, then gradually increase numThreads (the number of additional Clover report threads) to see if this improves the situation. The default is 2 so start with 3 and increase from there if performance times improve. See <a
+                         href="ant--clover-html-report.html"
+                        rel="nofollow">clover-html-report</a><br/>
+<br/>
+If this does not speed up report generation and if your project has a large number of tests and a high lines-of-code count then reset numThreads to its default value of 2 and try disabling the per-test coverage cache by setting coverageCacheSize=&quot;nocache&quot;. See <a
+
+                            href="ant--clover-html-report.html" rel="nofollow">clover-html-report</a><br/>
+<br/>
+If this results in an out of memory exception during report generation then reduce numThreads (the number of additional Clover report threads used) to 1 or, failing that, to 0.<br/>
+<br/>
+If it still fails, then please <a href="../../../support">create a support case</a> and let us know how big is your project (number of files, number of non-comment lines of code, number of test methods etc).</span>
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

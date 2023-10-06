@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+        <title>OpenClover Blog</title>
+        <link>http://openclover.org</link>
+        <description>OpenClover code coverage tool for Java, Groovy and AspectJ</description>
+        <item>
+            <title>OpenClover road map - look into the future</title>
+            <link>http://openclover.org/blog#2019-10-open-clover-roadmap</link>
+            <description>What next can you expect to see in OpenClover? We'd like to share our plans.</description>
+            <pubDate>Sat, 19 Oct 2019 21:00:00 GMT</pubDate>
+        </item>
+        <description>OpenClover code coverage tool for Java, Groovy and AspectJ</description>
+        <item>
+            <title>OpenClover 4.5.0 is available!</title>
+            <link>http://openclover.org/blog#2023-09-open-clover-4-5-0</link>
+            <description>New feature release with support for Java 17 and annotations on data types.</description>
+            <pubDate>Wed, 04 Oct 2023 23:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>OpenClover 4.4.1 is available!</title>
+            <link>http://openclover.org/blog#2019-10-open-clover-4-4-1</link>
+            <description>In case you struggled to use OpenClover 4.4.0, this bug-fix release brings three major fixes.</description>
+            <pubDate>Fri, 11 Oct 2019 23:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>OpenClover 4.4.0 is available!</title>
+            <link>http://openclover.org/blog#2019-09-open-clover-4-4</link>
+            <description>We are thrilled to share with you new feature release 4.4.0.</description>
+            <pubDate>Thu, 26 Sep 2019 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>OpenClover 4.3.1 is available!</title>
+            <link>http://openclover.org/blog#2018-08-open-clover-4-3-1</link>
+            <description>Release 4.3.1 fixes a blocker introduced in 4.3.0, which was causing parse errors during
+                code instrumentation.</description>
+            <pubDate>Fri, 21 Sep 2018 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>Let's meet in Barcelona!</title>
+            <link>http://openclover.org/blog#2018-08-meet-in-barcelona</link>
+            <description>I'll be on the Atlassian Summit conference in Barcelona.</description>
+            <pubDate>Tue, 21 Aug 2018 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>OpenClover 4.3.0 is available!</title>
+            <link>http://openclover.org/blog#2018-08-open-clover-4-3-0</link>
+            <description>We are proud to share with you new feature release of OpenClover. Version 4.3.0 brings support
+                for Java 9.</description>
+            <pubDate>Wed, 18 Jul 2018 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>OpenClover platform deprecation announcements</title>
+            <link>http://openclover.org/blog#2018-04-deprecation-announcements</link>
+            <description>As we want to modernize and simplify code base as well as simplify testing, we would like to
+                drop support for some of the old tools.</description>
+            <pubDate>Wed, 18 Apr 2018 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>Jenkins Clover Plugin 4.9.0 has been released</title>
+            <link>http://openclover.org/blog#2018-03-jenkins-4-9</link>
+            <description>In this release we focused on solving bugs related with Pipeline builds and remote agents.</description>
+            <pubDate>Tue, 6 Mar 2018 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>Autumn update</title>
+            <link>http://openclover.org/blog#2017-q4-update</link>
+            <description>We are happy to announce that we have prepared end-user and developer documentation on
+                our website.</description>
+            <pubDate>Tue, 7 Nov 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>OpenClover 4.2.0 has been released. What's next?</title>
+            <link>http://openclover.org/blog#openclover-4-2</link>
+            <description>We are happy to announce that our first release of OpenClover is out. It is based on the
+                open-sourced code of Atlassian Clover 4.1.2.</description>
+            <pubDate>Thu, 8 Jun 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>Welcome to OpenClover</title>
+            <link>http://openclover.org/blog#welcome</link>
+            <description>In April 2017 Atlassian® decided to publish sources of Clover - the most sophisticated
+                code coverage tool for Java and Groovy.</description>
+            <pubDate>Tue, 11 Apr 2017 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>

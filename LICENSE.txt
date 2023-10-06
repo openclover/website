@@ -1,0 +1,16 @@
+Copyright @ 2002 - 2017 Atlassian Pty Ltd
+Copyright @ 2017 - 2023 modifications by OpenClover.org
+
+The content of the website is covered by the following licenses:
+
+/ (top level files) - (c) Marek Parfianowicz
+/doc
+    /*.html - (c) Marek Parfianowicz
+    /javadoc - Apache 2.0
+    /manual - Creative Commons 2.5 Australia
+    /maven - Apache 2.0
+/download
+    /atlassian-clover - Atlassian Software Agreement https://www.atlassian.com/legal/software-license-agreement
+    /openclover - Apache 2.0, OpenClover binaries
+/resources - it varies, but mostly Apache 2.0
+/update - Apache 2.0, OpenClover binaries

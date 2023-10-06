@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : 2. Exploration of coverage in Eclipse</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="eclipse--overview.html">Clover-for-Eclipse</a></span>
+                    </li>
+                    <li>
+                        <span><a href="eclipse--user-guide.html">Clover-for-Eclipse User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            2. Exploration of coverage in Eclipse
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813719642 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813719642 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813719642 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813719642'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#id-2.ExplorationofcoverageinEclipse-TheCloverCoverageExplorer'>The Clover Coverage
+                            Explorer</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#id-2.ExplorationofcoverageinEclipse-Columns'>Columns</a></li>
+                                <li><a href='#id-2.ExplorationofcoverageinEclipse-SummaryPanel'>Summary Panel</a></li>
+                                <li><a href='#id-2.ExplorationofcoverageinEclipse-ActionsandMenus'>Actions and Menus</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href='#id-2.ExplorationofcoverageinEclipse-ViewingCoverageResults'>Viewing Coverage
+                            Results</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#id-2.ExplorationofcoverageinEclipse-SourceCodeAnnotations'>Source Code
+                                    Annotations </a></li>
+                                <li><a href='#id-2.ExplorationofcoverageinEclipse-CoverageCloudReports'>Coverage Cloud
+                                    Reports</a>
+                                    <ul class='toc-indentation'>
+                                        <li><a href='#id-2.ExplorationofcoverageinEclipse-'></a></li>
+                                        <li><a href='#id-2.ExplorationofcoverageinEclipse-PackageRisks'>Package
+                                            Risks</a></li>
+                                        <li><a href='#id-2.ExplorationofcoverageinEclipse-QuickWins'>Quick Wins</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href='#id-2.ExplorationofcoverageinEclipse-CoverageTreemapReports'> Coverage
+                                    Treemap Reports</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                </p><h1 id="id-2.ExplorationofcoverageinEclipse-TheCloverCoverageExplorer">The Clover Coverage
+                Explorer</h1>
+                <p>The Coverage Explorer allows you to view and control Clover's instrumentation of your Java projects,
+                    and shows you the coverage statistics for each project based on recent test runs or application
+                    runs. It is automatically added to the workbench when you enable Clover for your project. If the
+                    viewer is closed, you can open it again using &quot;Window | Show View | Other...&quot; and
+                    selecting &quot;Clover | Coverage Explorer&quot;.</p>
+                <p>The main tree shows coverage and metrics information for packages, files, class and methods of any
+                    Clover-enabled project in your workspace. Clover will auto-detect which classes are your tests and
+                    which are your application classes - by using the drop-down box above the tree you can then restrict
+                    the coverage tree shown so that you only see coverage for application classes, test classes or
+                    both.</p>
+                <p><em>Screenshot: Clover Coverage Explorer</em></p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667009/297600121.png"
+                                                                       data-image-src="attachments/297667009/297600121.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600121"
+                                                                       data-linked-resource-version="3"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="coverage_explorer_view.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667009"
+                                                                       data-linked-resource-container-version="14"></span>
+                </p><h4 id="id-2.ExplorationofcoverageinEclipse-Columns">Columns</h4>
+                <p>Initially the Coverage Explorer's tree displays the following four columns:</p>
+                <ul>
+                    <li><strong>Element</strong> - The name of the package, file, class or method.</li>
+                    <li><strong>%TOTAL Coverage</strong> - The total coverage of the element as a percentage.</li>
+                    <li><strong>Complexity</strong> - The cyclomatic complexity of the element</li>
+                    <li><strong>Average Method Complexity</strong> - The average method complexity of the element</li>
+                </ul>
+                <p>Clover supports <a href="ant--clover-report.html">24 standard column types</a> which can be chosen in the Coverage
+                    Explorer Column Chooser. The Column Chooser can be summoned by selecting &quot;Columns...&quot; in
+                    the Coverage Explorer view menu.</p>
+                <p><em>Screenshot: Coverage Explorer Column Chooser</em></p>
+                <p><em><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                           src="attachments/297667009/297600122.png"
+                                                                           data-image-src="attachments/297667009/297600122.png"
+                                                                           data-unresolved-comment-count="0"
+                                                                           data-linked-resource-id="297600122"
+                                                                           data-linked-resource-version="2"
+                                                                           data-linked-resource-type="attachment"
+                                                                           data-linked-resource-default-alias="coverage_explorer_column_chooser_dialog.png"
+                                                                           data-base-url="https://confluence.atlassian.com"
+                                                                           data-linked-resource-content-type="image/png"
+                                                                           data-linked-resource-container-id="297667009"
+                                                                           data-linked-resource-container-version="14"></span><br/></em>
+                </p>
+                <p> </p>
+                <p>Clover-for-Eclipse also lets your define your own custom columns for display within the Coverage
+                    Explorer tree. While choosing columns in the Column Chooser dialog, click the &quot;New&quot; button
+                    to summon the Custom Column Builder dialog. Custom columns must have a name and a valid
+                    <a href="ant--clover-report.html">Clover expression</a>. Custom columns may be left, center or right justified
+                    and the value may be displayed as a decimal value or as a percentage value. Clover expressions can
+                    refer to any of the 24 standard columns; these references can be easily inserted into the expression
+                    by selecting &quot;Insert...&quot; and choosing the appropriate column name.</p>
+                <p><em>Screenshot: Coverage Explorer Custom Column Builder</em></p>
+                <p><em><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                           src="attachments/297667009/297600123.png"
+                                                                           data-image-src="attachments/297667009/297600123.png"
+                                                                           data-unresolved-comment-count="0"
+                                                                           data-linked-resource-id="297600123"
+                                                                           data-linked-resource-version="2"
+                                                                           data-linked-resource-type="attachment"
+                                                                           data-linked-resource-default-alias="custom_column_builder.png"
+                                                                           data-base-url="https://confluence.atlassian.com"
+                                                                           data-linked-resource-content-type="image/png"
+                                                                           data-linked-resource-container-id="297667009"
+                                                                           data-linked-resource-container-version="14"></span><br/></em>
+                </p>
+                <p><br/>  </p><h4 id="id-2.ExplorationofcoverageinEclipse-SummaryPanel">Summary Panel</h4>
+                <p>Summary metrics are displayed alongside the tree for the selected project, package, file, class or
+                    method in the tree. The following metrics are provided:</p>
+                <ul>
+                    <li><strong>Structure</strong><br/>
+                        <ul>
+                            <li><strong>Packages:</strong> The number of packages the project or package root contains
+                            </li>
+                            <li><strong>Files:</strong> The number of files the package, package root or project
+                                contains
+                            </li>
+                            <li><strong>Classes:</strong> The number of classes the file, package, package root or
+                                project contains
+                            </li>
+                            <li><strong>Methods:</strong> The number of methods the class, file, package, package root
+                                or project contains
+                            </li>
+                            <li><strong>Statements:</strong> The number of statements the method, class, file, package,
+                                package root or project contains
+                            </li>
+                            <li><strong>Branches:</strong> The number of branches the method, class, file, package,
+                                package root or project contains
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong> Tests:</strong><br/>
+                        <ul>
+                            <li><strong>Tests:</strong> The total number of tests in the class, file, package, package
+                                root or project
+                            </li>
+                            <li><strong>Passes:</strong> The total number of passing tests in the class, file, package,
+                                package root or project
+                            </li>
+                            <li><strong>Fails:</strong> The total number of failing tests in the class, file, package,
+                                package root or project
+                            </li>
+                            <li><strong>Errors:</strong> The total number of tests with errors in the class, file,
+                                package, package root or project. Currently Clover does not differentiate between fails
+                                and errors and counts all errors as failures.
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Source:</strong><br/>
+                        <ul>
+                            <li><strong>LOC:</strong> The total number of lines of code in the class, file, package,
+                                package root or project
+                            </li>
+                            <li><strong>NC LOC:</strong> The total number of non-commented lines of code in the class,
+                                file, package, package root or project
+                            </li>
+                            <li><strong>Total Cmp:</strong> The total cyclomatic complexity of code in the method,
+                                class, file, package, package root or project
+                            </li>
+                            <li><strong>Avg Method Cmp:</strong> The average method complexity of the class, file,
+                                package, package root or project
+                            </li>
+                            <li><strong>Cmp Density:</strong> The complexity density of code in the class, file,
+                                package, package root or project
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p> </p><h4 id="id-2.ExplorationofcoverageinEclipse-ActionsandMenus">Actions and Menus</h4>
+                <p>The Coverage Explorer view allows the following actions (from the view toolbar, menu or both):</p>
+                <ul>
+                    <li><strong>Enable/Disable Clover On...</strong> Allows you to select multiple project to enable or
+                        disable Clover for. This allows you, for example, to quickly turn Clover on for all projects in
+                        your workspace in one action.
+                    </li>
+                    <li><strong>Refresh Coverage Data</strong>. Re-loads from disk the Clover coverage data for the
+                        selected project.
+                    </li>
+                    <li><strong>Delete Coverage Recordings</strong>. Deletes the coverage recording data recorded from
+                        test runs or applications runs for the selected project.
+                    </li>
+                    <li><strong>Clear Snapshot</strong> Deletes the <a
+                            href="eclipse--test-optimization.html">Test Optimization</a> snapshot file
+                    </li>
+                    <li><strong>Compiled with Clover</strong>. Toggles the use of Clover instrumentation when Eclipse
+                        compiles the selected Java project.
+                    </li>
+                    <li><strong>Edit Context Filter.</strong>.. Allows you to edit the block and custom coverage
+                        'contexts' used to help you filter out unwanted coverage data. An explanation of what contexts
+                        are can be found <a href="ant--using-coverage-contexts.html">here</a>.<br/><br/></li>
+                    <li><strong>Generate Coverage Treemap</strong>. Generates a mini report page in treemap format for
+                        the selected project. This report arranges package and classes enabling easy comparison of their
+                        complexity while also indicating their level of code coverage.
+                    </li>
+                    <li><strong>Generate Coverage Cloud</strong>. Generates a report page in cloud tag format for the
+                        selected project. This lists classes considered project risks or quick wins.
+                    </li>
+                    <li><strong>Coverage Reports &gt; Run new report</strong>... Launches the report generation wizard
+                        that will take you through the steps required to generate a PDF, HTML or XML. These reports can
+                        be generated for single or multiple projects.
+                    </li>
+                    <li><strong>Coverage Reports &gt; View report  </strong>Browse recently generated
+                        reports<strong>.<br/><br/></strong></li>
+                    <li><strong>Coverage in Explorer &gt; Show All Classes</strong>. Shows code coverage for all
+                        application and test classes in the Coverage Explorer.
+                    </li>
+                    <li><strong>Coverage in Explorer &gt; Show Only Application Classes</strong>. Shows code coverage
+                        only for application (non-test) classes in the Coverage Explorer.
+                    </li>
+                    <li><strong>Coverage in Explorer &gt; Show Only Test Classes</strong>. Shows code coverage only for
+                        test classes in the Coverage Explorer.<br/><br/></li>
+                    <li><strong>Enable Clover Working Set</strong>. Enables or disables usage of the Clover working set.
+                        This filters the files, directories and projects that Clover will report on and are especially
+                        handy for large projects.
+                    </li>
+                    <li><strong>Edit Clover Working Set...</strong> Allows you to edit the files, directories and
+                        projects in the Clover working set.
+                    </li>
+                    <li><strong>Clear Clover Working Set.</strong> Removes all files, directories and projects from the
+                        Clover working set.<br/><br/></li>
+                    <li><strong>Hide Unavailable</strong>. This check button hides any elements in the Coverage
+                        Explorer's tree that don't have associated coverage information and helps reduce visual clutter.
+                        For instance, with this button checked any project that isn't Clover-enabled will not be shown
+                        in the Coverage View.
+                    </li>
+                    <li><strong>Hide 100% Covered</strong>. This check button hides any elements in the Coverage
+                        Explorer's tree that have full coverage and helps you focus on only those classes that require
+                        more testing.<br/><br/></li>
+                    <li><strong>Layout &gt; Packages</strong>. Arranges the coverage tree by package. This is useful if
+                        you have a single source directory for your project.
+                    </li>
+                    <li><strong>Layout &gt; Package Roots</strong>. Arranges the coverage tree first by package root,
+                        then by package. This is useful if you have multiple source directories within your project.
+                    </li>
+                    <li><strong>Layout &gt; Hierarchical packages </strong>Toggle showing packages in hierarchical
+                        or<strong> </strong>flat list.<br/><br/></li>
+                    <li><strong>Columns...</strong> Allows you to customize the columns shown shown in the Coverage
+                        Explorer.<br/><br/></li>
+                    <li><strong>Coverage in Editors &gt; Show All</strong>. Shows red/green coverage areas in open Java
+                        editors. This is useful for finding out exactly which parts of the code are being covered.
+                    </li>
+                    <li><strong>Coverage in Editors &gt; Show Uncovered</strong>. Shows only red (uncovered) areas in
+                        open Java editors. This is useful for finding out exactly which parts of the code are not being
+                        covered while not cluttering your editor with the overwhelming large green areas (covered code).
+                    </li>
+                    <li><strong>Coverage in Editors &gt; Show None</strong>. Hides all red/green coverage areas in open
+                        Java editors.
+                    </li>
+                    <li><strong>Include passed only</strong> If enabled, code coverage from failed tests will not be
+                        taken into account. 
+                    </li>
+                    <li><strong>Show exclusion annotations</strong> If enabled, draws small Clover icons in the Package
+                        Explorer view for every source file, indicating whether it's included or excluded from
+                        instrumentation.
+                    </li>
+                    <li><strong>About</strong> Shows information about Clover version, copyright and licenses. </li>
+                </ul>
+                <p> </p>
+                <p>The Coverage Explorer view has also actions accessible from buttons and links in browser (left panel)
+                    as well as on left/right click on elements in a browser:</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667009/301007766.png"
+                                                                       data-image-src="attachments/297667009/301007766.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301007766"
+                                                                       data-linked-resource-version="2"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="eclipse_coverage_explorer_extra_actions.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667009"
+                                                                       data-linked-resource-container-version="14"></span>
+                </p>
+                <ul>
+                    <li><strong>Show: All Classes</strong>  Shows code coverage for all application and test classes in
+                        the Coverage Explorer.
+                    </li>
+                    <li><strong>Show: Application classes  </strong>Shows code coverage only for application (non-test)
+                        classes in the Coverage Explorer.
+                    </li>
+                    <li><strong>Show: Test classes</strong>  Shows code coverage only for test classes in the Coverage
+                        Explorer.<br/><br/></li>
+                    <li><strong>Workspace Settings &gt; Aggregate coverage generated since the last clean
+                        build  </strong> If enabled, coverage from all test or application runs will sum up (the &quot;Delete
+                        Coverage Recordings&quot; action or full project rebuild will clean them). 
+                    </li>
+                    <li><strong>Workspace Settings &gt; Track per-test coverage</strong>   If enabled, Clover will track
+                        individual code coverage generated by every test case. It's useful for checking what code has
+                        been exactly covered by given tests or which tests are the most relevant for given application
+                        code. 
+                    </li>
+                    <li><strong>Workspace Settings &gt; Keep per-test coverage data fully in memory  </strong> If
+                        enabled, per-test coverage will be stored in memory instead temporary files on disk. Attention:
+                        can consume a lot of memory.
+                    </li>
+                    <li><strong>Workspace Settings &gt; Look for updated coverage every N s </strong> Whether and how
+                        frequently Clover should refresh coverage view<br/><br/></li>
+                    <li><strong>Project Settings &gt; Instrument and compile</strong>  The &quot;statement level&quot;
+                        is recommended as it gives the most accurate information. The &quot;method level&quot; records
+                        only whether given method was called or not; it can be used for very large projects (as produces
+                        smaller instrumentation overhead and compiles faster) or when you need just rough information
+                        about coverage.
+                    </li>
+                </ul>
+                <h1 id="id-2.ExplorationofcoverageinEclipse-ViewingCoverageResults">Viewing Coverage Results</h1>
+                <p>The Clover-for-Eclipse plugin shows coverage data in number of ways. Viewing any coverage data, of
+                    course, requires that you have executed tests or you have launched your application and it also
+                    requires that Clover has detected the change in coverage. On the Clover preferences page, you can
+                    change how often Clover looks for new coverage data for your application or tests.</p>
+                <h2 id="id-2.ExplorationofcoverageinEclipse-SourceCodeAnnotations">Source Code Annotations </h2>
+                <p>To view coverage information on a line-by-line basis, Clover adds colored annotations to your
+                    project's Java source code editors.</p>
+                <p><em>Screenshot: Clover Source Annotations in Java editor<br/></em></p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667009/301007767.png"
+                                                                       data-image-src="attachments/297667009/301007767.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301007767"
+                                                                       data-linked-resource-version="3"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="eclipse_java_editor_annotations.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667009"
+                                                                       data-linked-resource-container-version="14"></span>
+                </p>
+                <p>The table below explains the meanings of various colors:</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p><strong>Annotation Color</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Meaning</strong></p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Green</p></td>
+                            <td class="confluenceTd"><p>Coverage from passing tests.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Green</p></td>
+                            <td class="confluenceTd"><p>Coverage caused incidentally (caused by something other than
+                                test methods, e.g. main() methods, test setUp() and tearDown() methods). A different
+                                tooltip is presented to show it is incidental.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Squiggly Red Lines</p></td>
+                            <td class="confluenceTd"><p>Partial branch coverage (caused when only one part of a branch
+                                has been covered).</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Yellow</p></td>
+                            <td class="confluenceTd"><p>Failed test coverage (where coverage has only been caused by one
+                                or more failing tests and no passing tests).</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Grey</p></td>
+                            <td class="confluenceTd"><p>Filtered out code.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Red</p></td>
+                            <td class="confluenceTd"><p>Code with no coverage.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p> </p>
+                <p>A left margin ruler shows three color markers:</p>
+                <ul>
+                    <li>left half - green if at least part of line is covered, yellow if at least part of line is
+                        covered but only from failed tests, red if line is not covered at all (it's an &quot;optimistic
+                        marker&quot;)
+                    </li>
+                    <li>right half - red if at least part of line is not covered, yellow if at least part of line is
+                        covered but only from failed tests, green for fully covered line (it's an &quot;pessimistic
+                        marker&quot;)
+                    </li>
+                    <li>right strip - dark green for coverage related with passed tests, dark yellow for coverage
+                        related with failed tests
+                    </li>
+                </ul>
+                <p> </p>
+                <p><em><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
+                            data-emoticon-name="warning" alt="(warning)"/> In case you don't see hit counts on a left
+                    margin ruler, then right click on it and ensure you have the &quot;Show touching tests&quot; toggle
+                    enabled. </em></p>
+                <p><em><br/></em></p>
+                <p>Each coloured source annotation displays a tool tip providing more information about the relevant
+                    line or lines. These coverage annotations are added automatically to any opened source files from a
+                    Clover-enabled project. For example, if a statement was executed ten times, or a conditional
+                    expression was only executed twice in the true case but never in the false case, this information
+                    will appear in the tool tip.</p>
+                <p>If you wish to switch off the source code annotations, you can easily do so by de-selecting the menu
+                    / toolbar item &quot;Show Coverage in Editor&quot; on the Coverage Explorer view or Test Run
+                    Explorer view. Using an adjacent menu / toolbar item you can also force Clover to only annotate code
+                    without coverage, thus only showing the red annotations.</p>
+                <p>You can also change these colours and effects in Eclipse. To do so, access '<strong>Eclipse
+                    Preferences &gt; General &gt; Editors &gt; Text Editors &gt; Annotations</strong>'. On this page,
+                    see the '<strong>Annotation Types</strong>' list and click the settings that begin with 'Clover'.
+                </p>
+                <p><em>Screenshot: Clover Source Annotation Settings</em></p>
+                <p><em><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                           src="attachments/297667009/301007768.png"
+                                                                           data-image-src="attachments/297667009/301007768.png"
+                                                                           data-unresolved-comment-count="0"
+                                                                           data-linked-resource-id="301007768"
+                                                                           data-linked-resource-version="2"
+                                                                           data-linked-resource-type="attachment"
+                                                                           data-linked-resource-default-alias="eclipse_preferences_annotations.png"
+                                                                           data-base-url="https://confluence.atlassian.com"
+                                                                           data-linked-resource-content-type="image/png"
+                                                                           data-linked-resource-container-id="297667009"
+                                                                           data-linked-resource-container-version="14"></span><br/></em>
+                </p>
+                <h2 id="id-2.ExplorationofcoverageinEclipse-CoverageCloudReports">Coverage Cloud Reports</h2>
+                <p>Coverage cloud report are a great way to work out the classes that form major risks (low coverage but
+                    high complexity) to your project and its packages, and also to highlight potential quick wins for
+                    increasing the overall project or per-package coverage.</p>
+                <p>The coverage cloud report has two tabs, one tab for the project/package risks cloud and the other for
+                    quick wins cloud. Each cloud shows the classes of the project/package enlarged or reduced depending
+                    on their significance to the report and clicking on any class name will open the corresponding
+                    source file in an editor. At the bottom of the report you can select the target for the clouds -
+                    either the entire project or one of the packages within the project - changing this will update the
+                    cloud tabs. Where a package is selected and has sub-packages, the checkbox &quot;Include classes
+                    from sub-packages&quot; allows you to include or exclude sub-package clouds from the clouds.</p>
+                <p>The coverage cloud report can be generated by right clicking on your Clover-enabled project in the
+                    Coverage Explorer view or Test Run Explorer view and selecting Generate Coverage Cloud.</p><h4
+                    id="id-2.ExplorationofcoverageinEclipse-"><span
+                    class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                    class="confluence-embedded-image" width="858" src="attachments/297667009/781386985.png"
+                    data-image-src="attachments/297667009/781386985.png" data-unresolved-comment-count="0"
+                    data-linked-resource-id="781386985" data-linked-resource-version="1"
+                    data-linked-resource-type="attachment" data-linked-resource-default-alias="aaa_project_risks.png"
+                    data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                    data-linked-resource-container-id="297667009" data-linked-resource-container-version="14"></span>
+            </h4><h4 id="id-2.ExplorationofcoverageinEclipse-PackageRisks">Package Risks</h4>
+                <p>The Package Risks Cloud highlights those classes that are the <strong>most complex, yet are the least
+                    covered</strong> by your tests. The larger and redder the class, the greater the risk that class
+                    poses for your project or package. Package risk clouds can be toggled to include or exclude classes
+                    in sub-packages.</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <thead>
+                        <tr>
+                            <th class="confluenceTh">
+                                <div class="tablesorter-header-inner"><p><strong>Metric</strong></p></div>
+                            </th>
+                            <th class="confluenceTh">
+                                <div class="tablesorter-header-inner"><p><strong>Attribute</strong></p></div>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="confluenceTd"><p>Average Method Complexity</p></td>
+                            <td class="confluenceTd"><p>Font Size</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>% Coverage</p></td>
+                            <td class="confluenceTd"><p>Font Color</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h4 id="id-2.ExplorationofcoverageinEclipse-QuickWins">Quick Wins</h4>
+                <p>This Cloud highlights the <strong>&quot;low hanging coverage fruit&quot;</strong> of your project or
+                    package. You will achieve the greatest increase in overall project coverage by covering the largest,
+                    reddest classes first. Package Quick Win clouds can be toggled to include or exclude classes in
+                    sub-packages.</p>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <thead>
+                        <tr>
+                            <th class="confluenceTh">
+                                <div class="tablesorter-header-inner"><p><strong>Metric</strong></p></div>
+                            </th>
+                            <th class="confluenceTh">
+                                <div class="tablesorter-header-inner"><p><strong>Attribute</strong></p></div>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="confluenceTd"><p>Number of Elements</p></td>
+                            <td class="confluenceTd"><p>Font Size</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>Number of Elements Untested</p></td>
+                            <td class="confluenceTd"><p>Font Color</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p> </p>
+                <h2 id="id-2.ExplorationofcoverageinEclipse-CoverageTreemapReports"> Coverage Treemap Reports</h2>
+                <p>The coverage treemap report allows simultaneous comparison of classes and package by complexity and
+                    by code coverage. The treemap is divided by package (labeled) and then further divided by class
+                    (unlabeled). The size of the package or class indicates its complexity (larger squares indicate
+                    great complexity, while smaller squares indicate less complexity). Colors indicate the level of
+                    coverage, as follows:</p>
+                <ul>
+                    <li>Bright green (most covered)</li>
+                    <li>Dark green (more coverage)</li>
+                    <li>Black (around 50% coverage)</li>
+                    <li>Dark Red (little coverage)</li>
+                    <li>Bright Red (uncovered)</li>
+                </ul>
+                <p>The percentage shown in the yellow box is the code coverage for the class currently under the
+                    mouse.</p>
+                <p>Right clicking on a package area and selecting the magnify option will then focus the treemap on the
+                    package's classes. Right clicking again and selecting the demagnify option will re-focus on the
+                    project's top level. Double clicking on a class will open the corresponding source file in an
+                    editor.</p>
+                <p>The treemap cloud report can be generated by right clicking on your Clover-enabled project in the
+                    Coverage Explorer and selecting <em>Generate Coverage Treemap</em>. You can also click on a <em>Generate
+                        a coverage treemap</em> button.<span
+                            class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                            class="confluence-embedded-image" width="845" src="attachments/297667009/781386984.png"
+                            data-image-src="attachments/297667009/781386984.png" data-unresolved-comment-count="0"
+                            data-linked-resource-id="781386984" data-linked-resource-version="2"
+                            data-linked-resource-type="attachment"
+                            data-linked-resource-default-alias="eclipse_tree_map.png"
+                            data-base-url="https://confluence.atlassian.com"
+                            data-linked-resource-content-type="image/png" data-linked-resource-container-id="297667009"
+                            data-linked-resource-container-version="14"></span></p>
+                <hr/>
+                <p>Now you perfectly know how your application is covered. But how to efficiently navigate between tests
+                    and application code? Read the <a href="eclipse--exploration-of-test-results.html">3.
+                        Exploration of test results in Eclipse</a> chapter.</p>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

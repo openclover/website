@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : Clover-for-IDEA Installation Guide</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="idea--overview.html">Clover-for-IDEA</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Clover-for-IDEA Installation Guide
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h2 id="Clover-for-IDEAInstallationGuide-Installingtheplug-infromIDEA(recommended)">Installing the
+                    plug-in from IDEA (recommended)</h2>
+                <p>The easiest way to install Clover-for-IDEA is to select it from IDEA's plug-in menu.</p>
+                <ol>
+                    <!--<li>Launch IntelliJ IDEA.</li>-->
+                    <!--<li>In IDEA 14 or newer go to the<strong> 'File &gt; Settings &gt; Plugins &gt; Browse-->
+                        <!--repositories'</strong> (Linux, Windows) or<strong> 'IDEA &gt; Preferences &gt; Plugins &gt;-->
+                        <!--Brows repositories'</strong> (OS X). In IDEA 13 or older go to the '<strong>File &gt; Settings-->
+                        <!--&gt; IDE Settings &gt; Plugins &gt; Browse repositories</strong>'.  -->
+                    <!--</li>-->
+                    <!--<li>Select 'Atlassian Clover for IDEA' and click 'Install plugin'.</li>-->
+
+                    <li>Download the <a href="http://openclover.org/downloads">Clover-for-IDEA plug-in</a>.</li>
+                    <li>Launch IntelliJ IDEA.</li>
+                    <li>In IDEA 14 or newer go to the<strong> 'File &gt; Settings &gt; Plugins'</strong> (Linux, Windows)
+                        or<strong> 'IDEA &gt; Preferences &gt; Plugins'</strong> (OS X). In IDEA 13 or older go to the
+                        '<strong>File &gt; Settings &gt; IDE Settings &gt; Plugins</strong>'.  
+                    </li>
+                    <li>Select 'Install plugin from disk'.</li>
+                    <li>Close and re-start IDEA.</li>
+                </ol>
+                <p>You can now begin <a href="idea--user-guide.html">using Clover for IDEA</a>.</p>
+                <!--<p><em>Screen shot: installing Clover from the IDEA plugin menu</em></p>-->
+                <!--<p><em><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"-->
+                                                                           <!--src="attachments/154633621/648675599.png"-->
+                                                                           <!--data-image-src="attachments/154633621/648675599.png"-->
+                                                                           <!--data-unresolved-comment-count="0"-->
+                                                                           <!--data-linked-resource-id="648675599"-->
+                                                                           <!--data-linked-resource-version="4"-->
+                                                                           <!--data-linked-resource-type="attachment"-->
+                                                                           <!--data-linked-resource-default-alias="install_plugin.png"-->
+                                                                           <!--data-base-url="https://confluence.atlassian.com"-->
+                                                                           <!--data-linked-resource-content-type="image/png"-->
+                                                                           <!--data-linked-resource-container-id="154633621"-->
+                                                                           <!--data-linked-resource-container-version="22"></span><br/></em>-->
+                <!--</p>-->
+                <h2 id="Clover-for-IDEAInstallationGuide-Installingtheplug-inmanually">Installing the plug-in
+                    manually</h2>
+                <p>You can download the Clover-for-IDEA plug-in from <a
+                        href="http://openclover.org/downloads">http://openclover.org/downloads</a> and
+                    install it manually as follows:</p>
+                <ol>
+                    <li>Shut down any running instances of IDEA.</li>
+                    <li>Remove any previous versions of the the Clover-for-IDEA plug-in .jar file from the following
+                        plug-in installation locations:
+                        <ol>
+                            <li>IDEA_HOME/plugins (all platforms)</li>
+                            <li>IDEA_HOME/config/plugins (all platforms excepting Mac OS X)</li>
+                            <li>USER_HOME/Library/Application/Support/IntelliJIDEA70 (Mac OS X only)</li>
+                        </ol>
+                    </li>
+                    <li>Copy the downloaded .jar file into the relevant location for your operating system:
+                        <ol>
+                            <li>IDEA_HOME/plugins (all platforms)</li>
+                            <li>IDEA_HOME/config/plugins (all platforms excepting Mac OS X)</li>
+                            <li>USER_HOME/Library/Application/Support/IntelliJIDEA70 (Mac OS X only - create the
+                                directory if it doesn't exist)
+                            </li>
+                        </ol>
+                    </li>
+                    <li>Re-start IDEA.</li>
+                </ol>
+                <h2 id="Clover-for-IDEAInstallationGuide-ShowingClovertoolbar">Showing Clover tool bar</h2>
+                <p>IDEA 13 and later hides the tool bar by default. Click &quot;View -&gt; Toolbar&quot; from main menu
+                    to show Clover's buttons.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/154633621/857058968.png"
+                                                                       data-image-src="attachments/154633621/857058968.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="857058968"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="clover_toolbar.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="154633621"
+                                                                       data-linked-resource-container-version="22"></span>
+                </p>
+                <h2 id="Clover-for-IDEAInstallationGuide-Configuringcompilersettings">Configuring compiler settings</h2>
+                <div class="confluence-information-macro confluence-information-macro-information"><p class="title">
+                    IntelliJ IDEA 12</p><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p><span
+                            style="color: rgb(0,0,0);">JetBrains IDEA <strong>12.0</strong> has a new compiler feature named &quot;external build&quot;, which is enabled by default in project settings (<span
+                            style="color: rgb(0,0,0);"><em>File &gt; Settings &gt; Project Settings &gt; Compiler</em> &gt; <em>&quot;Use external build&quot;</em> toggle). The IDEA 12 is supported since Clover version 3.1.8, however the support for &quot;external build&quot; feature is available since Clover version <strong>3.1.12</strong> and IDEA <strong>12.1.1</strong>. <span
+                            style="color: rgb(0,0,0);"><span style="color: rgb(0,0,0);">For older versions, i.e. the combination of Clover 3.1.8-3.1.12 and IDEA 12.0.0-12.1.0 please keep the &quot;external build&quot; feature disabled.</span></span></span></span>
+                    </p></div>
+                </div>
+                <p><span style="color: rgb(0,0,0);"><br/></span></p>
+                <div class="confluence-information-macro confluence-information-macro-information"><p class="title">
+                    IntelliJ IDEA 13</p><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>In the IDEA <strong>13.0</strong> the &quot;external
+                        build&quot; feature has become default setting and thus there's no 'Use external build' toggle
+                        available.</p></div>
+                </div>
+                <p><span style="color: rgb(0,0,0);"><br style="color: rgb(0,0,0);"/></span></p><h4
+                    id="Clover-for-IDEAInstallationGuide-Enablingthe&quot;externalbuild&quot;feature"><span
+                    style="color: rgb(0,0,0);">Enabling the &quot;external build&quot; feature</span></h4>
+                <p><span
+                        style="color: rgb(0,0,0);">Open the <em>File &gt; Settings &gt; Project Settings &gt; Compiler</em> page.</span>
+                </p>
+                <p><span style="color: rgb(0,0,0);"><span class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image" src="attachments/154633621/376898587.png"
+                        data-image-src="attachments/154633621/376898587.png" data-unresolved-comment-count="0"
+                        data-linked-resource-id="376898587" data-linked-resource-version="1"
+                        data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="external_build_settings.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="154633621"
+                        data-linked-resource-container-version="22"></span><br/></span></p>
+                <p><span style="color: rgb(0,0,0);"> </span></p>
+                <p><span style="color: rgb(0,0,0);">Use the following state for toggles:</span></p>
+                <ul>
+                    <li><span style="color: rgb(0,0,0);"><em>Use external build</em> - it can be either enabled (the new IDEA12 feature is used) or disabled (the &quot;classic&quot; IDEA build is used)</span>
+                    </li>
+                    <li><span style="color: rgb(0,0,0);"><em>Make project automatically </em>- it's strongly recommended to disable this option; enabling it causes frequent compilation and faster growth of Clover database, which might affect performance</span>
+                    </li>
+                    <li><span
+                            style="color: rgb(0,0,0);"><em>Compile independent modules in parallel</em> - it <u>must</u> be disabled; Clover does not support parallel build; follow the <a
+                             href="https://jira.atlassian.com/browse/CLOV-1293" rel="nofollow">CLOV-1293</a> for future updates</span>
+                    </li>
+                </ul>
+                <h2 id="Clover-for-IDEAInstallationGuide-KnownIssues">Known Issues</h2>
+                <ul>
+                    <li>If you are using the Maven build tool, you should avoid using the same IntelliJ output directory
+                        as Maven does. As Maven uses the <code>target/classes</code> and
+                        <code>target/test-classes</code> directories, avoid specifying these ones. The
+                        <code>clover.db</code> location for IntelliJ should also be distinct from that used by Maven.
+                    </li>
+                </ul>
+                <h2 id="Clover-for-IDEAInstallationGuide-UninstallingthePlugin">Uninstalling the Plugin</h2>
+                <p>The easiest way to uninstall it is via '<strong>File &gt; Settings &gt; Plugins'</strong> (Linux,
+                    Windows) or <strong>'IDEA &gt; Preferences &gt; Plugins'</strong> (OS X). Just select the Clover
+                    IDEA Plugin from the list and click '<strong>Uninstall Plugin</strong>'. The removal will take place
+                    after you restart IDEA.</p>
+                <p>To uninstall Clover-for-IDEA manually:</p>
+                <ol>
+                    <li>Shut down any running instances of IDEA.</li>
+                    <li>Delete the 'clover-idea.jar' file from its installation directory, either
+                        IDEA_HOME/config/plugins (all platforms),  IDEA_HOME/plugins (all platforms except Mac OS X) or
+                        USER_HOME/Library/Application\ Support/IntelliJIDEA70 (Mac OS X only)
+                    </li>
+                    <li>Restart IDEA.</li>
+                </ol>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

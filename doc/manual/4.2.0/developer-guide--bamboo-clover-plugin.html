@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : Bamboo Clover Plugin Developer Guide</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="developer-guide.html">Clover Development Hub</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Bamboo Clover Plugin Developer Guide
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h2 id="BambooCloverPluginDeveloperGuide-Preconditions">Preconditions</h2>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Downloads of the open source packages included in
+                        Bamboo are available <a
+                                                href="https://maven.atlassian.com/content/repositories/atlassian-license/"
+                                                rel="nofollow">here</a>. This download includes modifications to the
+                        open source packages (if we made any). Source code to the remainder of Bamboo (e.g. the
+                        Atlassian-proprietary portions) may also be available to those who hold a valid license to
+                        Bamboo. Login to <a  href="https://my.atlassian.com/" rel="nofollow">My
+                            Account</a> to view your licenses and download the source code. For more details, check out
+                        the <a  href="https://www.atlassian.com/licensing/purchase-licensing"
+                               rel="nofollow">source code FAQ</a>.</p></div>
+                </div>
+                <ul>
+                    <li>Install<strong> JDK1.8</strong></li>
+                    <li>Install<strong> Maven 3.2.5</strong></li>
+                    <li>Download Bamboo sources</li>
+                </ul>
+                <h2 id="BambooCloverPluginDeveloperGuide-Buildandtest">Build and test</h2>
+                <p>Source code:</p>
+                <ul>
+                    <li>Bamboo Clover Plugin is located in: &lt;bamboo&gt;/components/bamboo-plugins2/bamboo-plugin-clover</li>
+                    <li>dependency to Clover Core is declared in &lt;clover.version&gt; property in
+                        bamboo-plugin-clover/pom.xml
+                    </li>
+                </ul>
+                <p> </p>
+                <p>To run unit tests:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>mvn test</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>To run manual tests:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre># run this at the Bamboo project top level to install all the &lt;bamboo snapshot version&gt; 
+# artefacts locally); skipping tests and javadocs will make it faster
+mvn install -DskipTests=true -Dmaven.javadoc.skip=true
+ 
+# run this in components/bamboo-plugins2/bamboo-plugin-clover. The version is
+# required to ensure the AMPS plugin runs against the snapshot version of
+# Bamboo installed locally rather than the current blessed release)
+mvn bamboo:run -Dproduct.version=&lt;bamboo snapshot version&gt; -Dproduct.data.version=3.2.2</pre>
+                    </div>
+                </div>
+                <div class="line number1 index0 alt2"><p>in the console you'll find a port number on which Bamboo
+                    instance has started, e.g:</p>
+                    <div class="preformatted panel" style="border-width: 1px;">
+                        <div class="preformattedContent panelContent">
+<pre>[INFO] [talledLocalContainer] Tomcat 8.x started on port [6990]
+[INFO] bamboo started successfully in 58s at http://localhost:6990/bamboo
+[INFO] Type Ctrl-D to shutdown gracefully
+[INFO] Type Ctrl-C to exit</pre>
+                        </div>
+                    </div>
+                    <p> </p>
+                    <pre> </pre>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

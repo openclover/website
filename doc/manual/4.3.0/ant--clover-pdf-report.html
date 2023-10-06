@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : clover-pdf-report</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            clover-pdf-report
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h3 id="clover-pdf-report-Description">Description</h3>
+
+                <p>The <code>&lt;clover-pdf-report&gt;</code> task generates a PDF report with sensible default
+                    settings. If configured, a history point is also generated prior to generation of the full report.
+                    For more configuration options, use the <code>&lt;<a href="ant--clover-report.html">clover-report</a>&gt;</code>
+                    task.</p>
+
+                <h3 id="clover-pdf-report-Parameters">Parameters</h3>
+
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
+                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p> outfile </p></td>
+                            <td class="confluenceTd"><p> The filename to write the report to. </p></td>
+                            <td class="confluenceTd"><p> Yes. </p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p> initstring </p></td>
+                            <td class="confluenceTd"><p> The path to the Clover database. If not specified, Clover will
+                                use the <code>initstring</code> set by a previous execution of <code>&lt;<a
+                                        href="ant--clover-setup.html">clover-setup</a>&gt;</code> in the current
+                                build sequence. Otherwise, the default database location will be used. </p></td>
+                            <td class="confluenceTd"><p> No. </p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p> historydir </p></td>
+                            <td class="confluenceTd"><p> The directory that contains any clover history points. <strong>If
+                                this attribute is set, a new history point will be generated prior to the generation of
+                                the full report.</strong> For more information, see <code>&lt;<a
+                                    href="ant--clover-historypoint.html">clover-historypoint</a>&gt;</code>. </p>
+                            </td>
+                            <td class="confluenceTd"><p> No. </p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p> title </p></td>
+                            <td class="confluenceTd"><p> The title to use in the report. </p></td>
+                            <td class="confluenceTd"><p> No. </p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <h3 id="clover-pdf-report-Examples">Examples</h3>
+
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">
+&lt;clover-pdf-report outfile=&quot;clover_coverage.pdf&quot;/&gt;
+</pre>
+                    </div>
+                </div>
+                <p>This is the simplest way to generate a pdf report. It will be written to the file &quot;<code>clover_coverage.pdf</code>&quot;.
+                </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">
+&lt;clover-pdf-report outfile=&quot;clover_coverage.pdf&quot; historydir=&quot;clover/historypoints&quot; title=&quot;MyProject Coverage&quot;/&gt;
+</pre>
+                    </div>
+                </div>
+                <p>This will generate a report in the current directory called &quot;<code>clover_coverage.pdf</code>&quot;.
+                    A history point will be created in the &quot;<code>clover/historypoints</code>&quot; directory, and
+                    all history points in that directory will be used to generate the historical section of the report.
+                    The report will be titled &quot;<code>MyProject Coverage</code>&quot;.</p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

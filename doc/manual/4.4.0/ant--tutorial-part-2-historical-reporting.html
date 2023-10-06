@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Part 2 - Historical Reporting</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="tutorials--index.html">Clover Tutorials</a></span>
+                    </li>
+                    <li>
+                        <span><a href="tutorials--ant-tutorial.html">Clover-for-Ant tutorial</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Part 2 - Historical Reporting
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>Part two of this tutorial focuses on the creation and interpretation of Clover 'Historical'
+                    reports.</p>
+                <p><em>On this page:</em></p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813745097 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813745097 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813745097 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813745097'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#Part2-HistoricalReporting-Step1-Creatinghistorypoints'>Step 1 - Creating history
+                            points</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#Part2-HistoricalReporting-Addingahistorypointtarget'>Adding a history
+                                    point target</a></li>
+                                <li><a href='#Part2-HistoricalReporting-Recordingahistorypoint'>Recording a history
+                                    point</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#Part2-HistoricalReporting-Step2-Generatinghistoricaldata'>Step 2 - Generating
+                            historical data</a></li>
+                        <li><a href='#Part2-HistoricalReporting-Step3-Creatinghistoricalreports'>Step 3 - Creating
+                            historical reports</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#Part2-HistoricalReporting-Addahistoricalreporttarget'>Add a historical
+                                    report target</a></li>
+                                <li><a href='#Part2-HistoricalReporting-Generatingahistoricalreport'>Generating a
+                                    historical report</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#Part2-HistoricalReporting-Step4-Customizinghistoricalreports'>Step 4 - Customizing
+                            historical reports</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#Part2-HistoricalReporting-Changingoutputformat'>Changing output format</a>
+                                </li>
+                                <li><a href='#Part2-HistoricalReporting-Chartselection'>Chart selection</a></li>
+                                <li><a href='#Part2-HistoricalReporting-Chartconfiguration'>Chart configuration</a></li>
+                                <li><a href='#Part2-HistoricalReporting-&#39;Movers&#39;configuration'>&#39;Movers&#39;
+                                    configuration</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#Part2-HistoricalReporting-Nextsteps'>Next steps</a></li>
+                    </ul>
+                </div>
+                </p><p>Historical reports display graphical and numerical data relating to sets of coverage data
+                collected over time for the project. This tutorial covers the generation of a set of historical data,
+                interpretation of the information displayed in the Historical reports and customization of the reports
+                for your particular reporting preferences.</p>
+                <p>In the first step, we will edit the Ant build file to generate a <em>history point</em>.</p>
+                <p>A history point is a snapshot of code coverage and metrics data for the project at a particular point
+                    in time. By running tests with Clover over time and creating a series of history points, it is
+                    possible to compare code coverage and metrics by viewing results in a single Clover report and
+                    enabling you to track the development of your project.</p>
+                <h1 id="Part2-HistoricalReporting-Step1-Creatinghistorypoints">Step 1 - Creating history points</h1>
+                <p>Step 1 describes how to set up the relevant Ant target and run the command so that a history point
+                    can be created. The generation of historical reports is discussed in later steps.</p>
+                <h2 id="Part2-HistoricalReporting-Addingahistorypointtarget">Adding a history point target</h2>
+                <p>Add the following target to your <code>build.xml</code> file:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;record.point&quot;&gt;
+    &lt;clover-historypoint historyDir=&quot;clover_history&quot;/&gt;
+&lt;/target&gt;
+</pre>
+                    </div>
+                </div>
+                <p>When this target is run, a history point will be created with the timestamp value of the coverage
+                    run.</p>
+                <p>The value of the <code>historyDir</code> parameter is the directory where the history points will be
+                    stored. You should create this directory before executing this target.</p>
+                <div class="confluence-information-macro confluence-information-macro-note"><span
+                        class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>By default, Clover records the history point with
+                        a timestamp of the coverage run. If you wish to override the timestamp value of a history point,
+                        you can add <code>date</code> and <code>dateformat</code> attributes to the task allowing you to
+                        reconstruct coverage history. See documentation for the &lt;<a
+                                href="ant--clover-historypoint.html">clover-historypoint</a>&gt; task for details.
+                    </p></div>
+                </div>
+                <h2 id="Part2-HistoricalReporting-Recordingahistorypoint">Recording a history point</h2>
+                <p>Ensure that the source code has been instrumented, and the tests run, by using the command <code>ant
+                    clean with.clover test</code>.</p>
+                <p>Run the command <code>ant record.point</code>. Output should be similar to the following:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">$ ant record.point
+Buildfile: .../tutorial/build.xml
+
+
+record.point:
+[clover-historypoint] Clover Version 4.1.0, built on ...
+[clover-historypoint] Loaded from: .../lib/clover.jar
+[clover-historypoint] Clover: Site License registered to ...
+[clover-historypoint] Writing report to &#39;.../tutorial/clover_history/clover-20151029123507.xml.gz&#39;
+
+
+BUILD SUCCESSFUL</pre>
+                    </div>
+                </div>
+                <p>In the next step we will add more tests to improve coverage of the Money library, recording Clover
+                    history points along the way.</p>
+                <h1 id="Part2-HistoricalReporting-Step2-Generatinghistoricaldata">Step 2 - Generating historical
+                    data</h1>
+                <p>In <a href="ant--tutorial-part-1-measuring-coverage.html">Part 1 of the tutorial</a> we made additions
+                    to the testing suite to improve code coverage. In order to show the historical reporter in use, we
+                    will now continue to add tests and periodically record history points which will later be used as
+                    code coverage and metrics data by the historical reporter.</p>
+                <p>The <code>Money.java</code> file is at 100% coverage, but there are several sections of code that
+                    remain untested in the <code>MoneyBag.java</code> file. This step will focus on bringing the
+                    coverage of this class to 100%, as well as creating historical data in the form of history points.
+                </p>
+                <p>Open the source file <code>MoneyBagTest.java</code> in your favorite text editor and make the
+                    following additions shown in bold:</p>
+                <p>Declare the variables <code>f0CHF</code> and <code>fMB3</code>:</p>
+                <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
+                    <div class="panelContent" style="background-color: white;">
+                        <p>public class MoneyBagTest extends TestCase     {<br/>     private Money f12CHF;<br/>    
+                            private Money f14CHF;<br/>     private Money f7USD;<br/>     private Money f21USD;<br/>    
+                            private Money f0USD;<br/>     <strong>private Money f0CHF;</strong></p>
+                        <p>    private IMoney fMB1;<br/>     private IMoney fMB2;<br/>     <strong>private IMoney
+                            fMB3;</strong><br/>         ...</p>
+                    </div>
+                </div>
+                <p>Initialize <code>f0CHF</code> and <code>fMB3</code> in the <code>setUp()</code> method:</p>
+                <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
+                    <div class="panelContent" style="background-color: white;">
+                        <p>protected void setUp()     {<br/>     f12CHF = new Money(12, &quot;CHF&quot;);<br/>    
+                            f14CHF = new Money(14, &quot;CHF&quot;);<br/>     f7USD = new Money( 7,
+                            &quot;USD&quot;);<br/>     f21USD = new Money(21, &quot;USD&quot;);<br/>     f0USD = new
+                            Money(0, &quot;USD&quot;);<br/>     <strong>f0CHF = new Money(0, &quot;CHF&quot;);</strong>
+                        </p>
+                        <p>    fMB1 = MoneyBag.create(f12CHF, f7USD);<br/>     fMB2 = MoneyBag.create(f14CHF,
+                            f21USD);<br/>     <strong>fMB3 = MoneyBag.create(f0CHF, f0USD);</strong><br/>         ...
+                        </p>
+                    </div>
+                </div>
+                <p>Add the following test:</p>
+                <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
+                    <div class="panelContent" style="background-color: white;">
+                        <p><strong>public void testMoneyBagEqualsZero()   {</strong><br/> <strong>   
+                            assertTrue(!fMB3.equals(null));</strong><br/> <strong>    IMoney expected =
+                            MoneyBag.create(new Money(0, &quot;CHF&quot;), new Money(0, &quot;USD&quot;));</strong><br/>
+                            <strong>    assertTrue(fMB3.equals(expected));</strong><br/> <strong>}</strong></p>
+                    </div>
+                </div>
+                <p>After making the above changes, re-instrument and test your code by running <code>ant clean
+                    with.clover t</code><code>est</code>. Then record a new history point by running <code>ant
+                    record.point</code>. By recording new history point now, Clover will capture the new state of code
+                    coverage and metrics for comparison with past or future runs.</p>
+                <p>Add the following tests to bring the coverage of the Money project to 100%:</p>
+                <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
+                    <div class="panelContent" style="background-color: white;">
+                        <p><strong>public void testToString()    {</strong><br/> <strong>    String expected=&quot;{[12
+                            CHF][7 USD]</strong><strong>}&quot;;</strong><br/> <strong>    assertEquals(expected,
+                            fMB1.toString());</strong><br/> <strong>}</strong><br/> <strong>public void
+                            testVectorSize()   {</strong><br/> <strong>    IMoney other = MoneyBag.create(new Money(2,
+                            &quot;CHF&quot;), new Money(2, &quot;USD&quot;));</strong><br/> <strong>   
+                            assertTrue(!other.equals(fMB3));</strong><br/> <strong>}</strong></p>
+                    </div>
+                </div>
+                <p>Once again, re-instrument your code, test and record a new history point.</p>
+                <p>We have now created a series of history points for the Money library. The next section discusses how
+                    to generate a Clover historical report which will display the historical data that has been
+                    collected.</p>
+                <h1 id="Part2-HistoricalReporting-Step3-Creatinghistoricalreports">Step 3 - Creating historical
+                    reports</h1>
+                <p>Now that we have recorded several history points, the next step is to add a target to the build file
+                    which will call the historical reporter and generate a historical report.</p>
+                <h2 id="Part2-HistoricalReporting-Addahistoricalreporttarget">Add a historical report target</h2>
+                <p>Add the following target to <code>build.xml</code>:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;hist.report&quot;&gt;
+     &lt;clover-report&gt;
+           &lt;historical outfile=&quot;historical.pdf&quot;
+                  historyDir=&quot;clover_history&quot;&gt;
+                &lt;format type=&quot;pdf&quot;/&gt;
+           &lt;/historical&gt;
+     &lt;/clover-report&gt;
+&lt;/target&gt;
+</pre>
+                    </div>
+                </div>
+                <p>The <code>hist.report</code> target is similar to the <code>report.html</code> target defined in Part
+                    1. The main differences are that the nested element specifies <code>&lt;historical&gt;</code> rather
+                    than <code>&lt;current&gt;</code> and there is no specification of the output format as
+                    <code>html</code>.</p>
+                <p>The historical reporter needs to be able to find the coverage history files in order to create the
+                    report; so the <code>historyDir</code> value must be the same as the <code>historyDir</code> defined
+                    for the history points. The format of the report can be either PDF or HTML, as specified by the
+                    <code>&lt;format&gt;</code> element <code>&lt;<a
+                            href="ant--clover-report.html">clover-report</a>&gt;</code>. The
+                    <code>&lt;format&gt;</code> element is optional and is not included in the example above. When the
+                    <code>&lt;format&gt;</code> element is omitted, a PDF report is produced by default. Depending on
+                    the chosen format, the <code>outfile</code> value may represent a single file as in the case of the
+                    PDF format, or the name of a directory (in the case of the HTML format).</p>
+                <h2 id="Part2-HistoricalReporting-Generatingahistoricalreport">Generating a historical report</h2>
+                <p>Create a historical report by using the command <code>ant hist.report</code>. Output should be
+                    similar to the following:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">$ ant hist.report
+Buildfile: /Users/mparfianowicz/Work/clover-hg/tutorial/build.xml
+
+
+hist.report:
+[clover-report] Clover Version 4.1.0, built on ...
+[clover-report] Loaded from: .../lib/clover.jar
+[clover-report] Clover: Site License registered to ...
+[clover-report] Loading historical coverage data from: &#39;.../tutorial/clover_history&#39;
+[clover-report] Read 3 history points.
+[clover-report] using movers interval of 57 seconds
+[clover-report] using movers interval of 57 seconds
+
+
+BUILD SUCCESSFUL </pre>
+                    </div>
+                </div>
+                <p>The report can now be viewed by opening the file <code>tutorial/historical.pdf</code> in a PDF viewer
+                    such as <a  href="http://www.adobe.com/" rel="nofollow">Adobe Acrobat
+                        Reader</a>.</p>
+                <div class="confluence-information-macro confluence-information-macro-tip"><span
+                        class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>To interpret this history report, see <a
+                            href="general--understanding-reports-historical.html">Understanding a Historical Report</a></p></div>
+                </div>
+                <h1 id="Part2-HistoricalReporting-Step4-Customizinghistoricalreports">Step 4 - Customizing historical
+                    reports</h1>
+                <p>In the previous sections of this tutorial we have looked at how to create and interpret a basic
+                    historical report. In addition to basic reporting, the historical reporter is highly configurable
+                    and this section will detail some of the options you can use. For a full list of the report
+                    configuration options, see the documentation for the <code>&lt;<a
+                            href="ant--clover-report.html">clover-report</a>&gt;</code> task.</p>
+                <h2 id="Part2-HistoricalReporting-Changingoutputformat">Changing output format</h2>
+                <p>The default historical report type is PDF, although an HTML report can also be produced. To create an
+                    HTML report, add a nested <code>&lt;format&gt;</code> element with type specified as
+                    <code>html</code> to your <code>&lt;<a
+                            href="ant--clover-report.html">clover-report</a>&gt;</code> element. Try adding the
+                    following target to your <code>build.xml</code> file and executing the command <code>ant
+                        hist.report.html</code>:</p>
+                <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
+                    <div class="panelContent" style="background-color: white;">
+                        <p>&lt;target name=&quot;hist.report.html&quot;&gt;<br/>     &lt;clover-report&gt;<br/>        
+                                &lt;historical outfile=&quot;build/clover_html/historical&quot;<br/>                
+                            title=&quot;My Project&quot;<br/>                
+                            historyDir=&quot;clover_history&quot;&gt;<br/>             <strong>&lt;format type=&quot;html&quot;/&gt;</strong><br/>
+                                    &lt;/historical&gt;<br/>     &lt;/clover-report&gt;<br/> &lt;/target&gt;</p>
+                    </div>
+                </div>
+                <p>A custom title can also be displayed for your report by using the <code>title</code> attribute in the
+                    <code>&lt;historical&gt;</code> element as above. You can find report in <code>tutorial/build/clover_html/historical/historical.html</code>.
+                </p>
+                <h2 id="Part2-HistoricalReporting-Chartselection">Chart selection</h2>
+                <p>The historical reporter allows you to specify which charts to include in your report, and also allows
+                    you to configure further options in the charts themselves.</p>
+                <p>The default reporting mode is to include all four report elements: <code>&lt;overview&gt;</code>,
+                    <code>&lt;coverage&gt;</code>, <code>&lt;metrics&gt;</code> and <code>&lt;movers&gt;</code>. But to
+                    include some and not the others is a simple matter of nesting the desired elements within the <code>&lt;historical&gt;</code>
+                    element. Try adding the following target to your <code>build.xml</code> file as an example:</p>
+                <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
+                    <div class="panelContent" style="background-color: white;">
+                        <p>&lt;target name=&quot;hist.report.coverage&quot;&gt;<br/>     &lt;clover-report&gt;<br/>    
+                                &lt;historical outfile=&quot;histCoverage.pdf&quot;<br/>                 title=&quot;My
+                            Project&quot;<br/>                 historyDir=&quot;clover_history&quot;&gt;<br/>        
+                                <strong>&lt;overview/&gt;</strong><br/>            
+                            <strong>&lt;coverage/&gt;</strong><br/>             &lt;format
+                            type=&quot;pdf&quot;/&gt;<br/>         &lt;/historical&gt;<br/>    
+                            &lt;/clover-report&gt;<br/> &lt;/target&gt;</p>
+                    </div>
+                </div>
+                <p>The above code will produce a historical PDF report with the title '<code>My Project</code>' which
+                    includes only two sections: the 'Overview' and the 'Coverage over time' charts.</p>
+                <h2 id="Part2-HistoricalReporting-Chartconfiguration">Chart configuration</h2>
+                <p>Clover presents flexible charting configuration, allowing you to present information exactly as you
+                    like it. The <code>&lt;chart&gt;</code> element allows you to define a custom chart and fill it with
+                    specific data with the <code>&lt;columns&gt;</code> element.</p>
+                <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
+                    <div class="panelContent" style="background-color: white;">
+                        <p>&lt;target name=&quot;hist.report.select&quot;&gt;<br/>     &lt;clover-report&gt;<br/>    
+                                &lt;historical outfile=&quot;histSelect.pdf&quot;<br/>                 title=&quot;My
+                            Project&quot;<br/>                 historyDir=&quot;clover_history&quot;&gt;<br/>        
+                                <strong>&lt;chart/&gt;</strong><br/>             <strong>&lt;metrics/&gt;</strong><br/>
+                                        &lt;format type=&quot;pdf&quot;/&gt;<br/>         &lt;/historical&gt;<br/>    
+                            &lt;/clover-report&gt;<br/> &lt;/target&gt;</p>
+                    </div>
+                </div>
+                <p>This will produce a PDF file with the filename '<code>histSelect.pdf</code>' with two sections: the a
+                    custom chart with total coverage information; and the 'Metrics over time' chart. You can also
+                    specify whether or not a chart uses a log scale by adding the <code>logscale</code> attribute:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;metrics logscale=&quot;false&quot;/&gt;
+</pre>
+                    </div>
+                </div>
+                <h2 id="Part2-HistoricalReporting-&#39;Movers&#39;configuration">'Movers' configuration</h2>
+                <p>The 'Movers' section of the historical report shows you the classes whose coverage has changed the
+                    most recently. This is useful for spotting classes that have had sudden changes in coverage, perhaps
+                    the unintended result of changes to the unit test suite.</p>
+                <p>The 'Movers' chart allows you to specify the threshold of point change a class must satisfy, the
+                    maximum number of gainers and losers to display and the period across which the gains and losses are
+                    calculated. Add the following target to your <code>build.xml</code> file as an example of this
+                    feature in use:</p>
+                <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
+                    <div class="panelContent" style="background-color: white;">
+                        <p>&lt;target name=&quot;hist.report.movers&quot;&gt;<br/>     &lt;clover-report&gt;<br/>    
+                                &lt;historical outfile=&quot;histMovers.pdf&quot;<br/>                 title=&quot;My
+                            Project&quot;<br/>                 historyDir=&quot;clover_history&quot;&gt;<br/>        
+                                <strong>&lt;movers threshold=&quot;5%&quot; range=&quot;20&quot; interval=&quot;2w&quot;/&gt;</strong><br/>
+                                        &lt;format type=&quot;pdf&quot;/&gt;<br/>         &lt;/historical&gt;<br/>    
+                            &lt;/clover-report&gt;<br/> &lt;/target&gt;</p>
+                    </div>
+                </div>
+                <p>In this case, the configuration values selected state that classes must have a change in coverage of
+                    at least 5 percentage points to be included in the chart, a maximum of 20 gainers and 20 losers can
+                    be displayed, and the initial valuation point for class coverage is 2 weeks prior to the most recent
+                    history point. Should there be greater than 20 gainers in this period, then the classes with the
+                    biggest percentage point gain will be displayed, and the same for the losers.</p>
+                <p>See <a href="ant--using-spans-specifying-an-interval.html">Interval Format</a> for details on the syntax for
+                    specifying interval values.</p>
+                <p>The next section of this tutorial will discuss how you can automate the coverage checking of your
+                    project.</p>
+                <h1 id="Part2-HistoricalReporting-Nextsteps">Next steps</h1>
+                <p><a href="ant--tutorial-part-3-automating-coverage-checks.html">Part 3 - Automating Coverage Checks</a>
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

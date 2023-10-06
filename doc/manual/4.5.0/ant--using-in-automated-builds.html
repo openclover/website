@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.5 : 3. Using Clover in Automated Builds</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.5</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            3. Using Clover in Automated Builds
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                In this scenario, the project is checked out, built and tested at regular intervals, usually by an
+                automated process. Some tools that support this type of build are <a
+                                                                                     href="http://www.anthillpro.com/html/products/anthillos/default.html"
+                                                                                     rel="nofollow">AntHill</a>, <a
+                     href="http://www.atlassian.com/software/bamboo" rel="nofollow">Bamboo</a> and
+                <a  href="http://cruisecontrol.sourceforge.net/" rel="nofollow">CruiseControl</a>.
+                <p><br/> Clover supports this scenario with the following features:</p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813706850 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813706850 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813706850 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813706850'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#id-3.UsingCloverinAutomatedBuilds-Detailedcoveragereportsforthewholeteam'>Detailed
+                            coverage reports for the whole team</a></li>
+                        <li><a href='#id-3.UsingCloverinAutomatedBuilds-Executivesummarycoveragereports'>Executive
+                            summary coverage reports</a></li>
+                        <li><a href='#id-3.UsingCloverinAutomatedBuilds-Historicalcoverageandprojectmetricsreporting'>Historical
+                            coverage and project metrics reporting</a></li>
+                        <li><a href='#id-3.UsingCloverinAutomatedBuilds-Coveragecriteriacheckingandtriggers'>Coverage
+                            criteria checking and triggers</a></li>
+                    </ul>
+                </div>
+                </p><h3 id="id-3.UsingCloverinAutomatedBuilds-Detailedcoveragereportsforthewholeteam">Detailed coverage
+                reports for the whole team</h3>
+                <div class="confluence-information-macro confluence-information-macro-note"><p class="title">Note</p>
+                    <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>The <code>&lt;</code><code><a
+                            href="ant--clover-html-report.html">clover-html-report</a></code><code>&gt;</code> and
+                        the <code>&lt;</code><code><a
+                                href="ant--clover-pdf-report.html">clover-pdf-report</a></code><code>&gt;</code>
+                        tasks used here are simplified versions of the <code>&lt;</code><code><a
+                                href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> task. If
+                        you require more control over your report formatting and structure, use the
+                        <code>&lt;</code><code><a
+                                href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> task.</p>
+                    </div>
+                </div>
+                <p>In this example, the <code>&lt;</code><code><a href="ant--clover-html-report.html">clover-html-report</a></code><code>&gt;</code>
+                    task is used to generate source-level coverage reports in HTML format that can be published for
+                    viewing by the whole team:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;clover.report&quot; depends=&quot;with.clover&quot;&gt;
+   &lt;clover-html-report outdir=&quot;clover_html&quot;/&gt;
+&lt;/target&gt;
+</pre>
+                    </div>
+                </div>
+                <p><br class="atl-forced-newline"/> <br class="atl-forced-newline"/> <br class="atl-forced-newline"/>
+                </p>
+                <h3 id="id-3.UsingCloverinAutomatedBuilds-Executivesummarycoveragereports">Executive summary coverage
+                    reports</h3>
+                <p>In this example, the <code>&lt;</code><code><a href="ant--clover-pdf-report.html">clover-pdf-report</a></code><code>&gt;</code>
+                    task is used to generate summary reports in PDF format, suitable for email or audit purposes.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;clover.summary&quot; depends=&quot;with.clover&quot;&gt;
+   &lt;clover-pdf-report outfile=&quot;coverage.pdf&quot;/&gt;
+&lt;/target&gt;
+</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h3 id="id-3.UsingCloverinAutomatedBuilds-Historicalcoverageandprojectmetricsreporting">Historical
+                    coverage and project metrics reporting</h3>
+                <p>Clover can generate a historical snapshot of coverage and other metrics for your project using the
+                    <code>&lt;</code><code><a
+                            href="ant--clover-historypoint.html">clover-historypoint</a></code><code>&gt;</code>
+                    task. Historical data can then be collated into a historical report using the
+                    <code>&lt;</code><code><a
+                            href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> task:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;clover.report&quot; depends=&quot;with.clover&quot;&gt;
+
+   &lt;!-- generate a historypoint for the current coverage --&gt;
+   &lt;clover-historypoint historyDir=&quot;clover_hist&quot;/&gt;
+
+   &lt;!-- generate a report with both current and historical data --&gt;
+
+   &lt;clover-html-report outdir=&quot;clover_html&quot;
+                       historyDir=&quot;clover_hist&quot;/&gt;
+&lt;/target&gt;
+</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h3 id="id-3.UsingCloverinAutomatedBuilds-Coveragecriteriacheckingandtriggers">Coverage criteria
+                    checking and triggers</h3>
+                <p>The <code>&lt;</code><code><a
+                        href="ant--clover-check.html">clover-check</a></code><code>&gt;</code> task can be used to
+                    monitor coverage criteria. If coverage does not meet the criteria, the build can be made to fail or
+                    an arbitary activity can be triggered. In the example below, if project coverage is not 80%, an
+                    executive summary coverage report is generated and mailed to the team:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;coverageAlert&quot; depends=&quot;coverage.check&quot;
+         if=&quot;coverage_check_failure&quot;&gt;
+
+   &lt;clover-pdf-report outfile=&quot;coverage.pdf&quot;/&gt;
+
+   &lt;mail from=&quot;nightlybuild@somewhere.not&quot;
+      tolist=&quot;team@somewhere.not&quot;
+      subject=&quot;coverage criteria not met&quot;
+      message=&quot;${coverage_check_failure}&quot;
+      files=&quot;coverage.pdf&quot;/&gt;
+&lt;/target&gt;
+
+&lt;target name=&quot;coverage.check&quot; depends=&quot;with.clover&quot;&gt;
+   &lt;clover-check target=&quot;80%&quot;
+                 failureProperty=&quot;coverage_check_failure&quot;/&gt;
+&lt;/target&gt;
+</pre>
+                    </div>
+                </div>
+                <p><br class="atl-forced-newline"/> <br class="atl-forced-newline"/> <br class="atl-forced-newline"/>
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

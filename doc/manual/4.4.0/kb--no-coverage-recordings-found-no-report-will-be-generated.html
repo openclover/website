@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>No coverage recordings found. No report will be generated.</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--troubleshooting-reports.html">Troubleshooting Reports</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            No coverage recordings found. No report will be generated.
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="Nocoveragerecordingsfound.Noreportwillbegenerated.-Symptoms">Symptoms</h4>
+                <p>Generation of a Clover report fails with a message like:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>[clover-report] Processed 0 recording files in 12ms (- per recording)
+[clover-report] Processed 0 per-test recording files in 0ms (- per recording)
+[clover-report] No coverage recordings found. No report will be generated.</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>In case coverage recording files are present next to the Clover database:</p>
+                <ul>
+                    <li>see <a href="kb--ignoring-coverage-recording-files.html">Ignoring coverage recording
+                        files</a></li>
+                </ul>
+                <p> </p>
+                <p>In case when there are no coverage recording files:</p>
+                <ul>
+                    <li>Clover could not initialize due to missing clover.jar on a class path - see <a
+                            href="kb--noclassdeffounderror-com-atlassian-clover-coveragerecorder.html">NoClassDefFoundError com_atlassian_clover/CoverageRecorder</a></li>
+                    <li>Clover could not initialize due to missing clover.db database - see <a
+                            href="guideline--using-openclover-in-various-environment-configurations.html">Using
+                        Clover in various environment configurations</a></li>
+                </ul>
+                <p> </p><h4 id="Nocoveragerecordingsfound.Noreportwillbegenerated.-References">References</h4>
+                <ul>
+                    <li><a href="ant--managing-the-coverage-database.html">Managing
+                        the Coverage Database</a></li>
+                    <li><a
+                           href="https://community.atlassian.com/t5/Questions/clover-html-report-No-coverage-recordings-found-No-report-will/qaq-p/168931"
+                           rel="nofollow">clover-html-report-No-coverage-recordings-found-No-report-will</a>
+                    </li>
+                    <li><a
+                           href="https://community.atlassian.com/t5/Clover-questions/WARN-No-coverage-recordings-found-No-report-will-be-generated/qaq-p/115999"
+                           rel="nofollow">WARN-No-coverage-recordings-found-No-report-will-be-generated</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

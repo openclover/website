@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clover registry file &lt;path/to/clover.db&gt; does not exist</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--troubleshooting-reports.html">Troubleshooting Reports</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Clover registry file &lt;path/to/clover.db&gt; does not exist
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="Cloverregistryfile&lt;path/to/clover.db&gt;doesnotexist-Symptoms">Symptoms</h4>
+                <p>Trying to generate a Clover report, but a following message is thrown:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>Clover registry file &lt;path/to/clover.db&gt; does not exist, cannot be read or is a directory. 
+Please ensure Clover has instrumented your source files. 
+You may need to remove existing .class files for this to occur.</pre>
+                    </div>
+                </div>
+                <p>or</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>Clover registry file: &lt;path/to/clover.db&gt; does not exist.</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="Cloverregistryfile&lt;path/to/clover.db&gt;doesnotexist-Cause">Cause</h4>
+                <p>Clover was not able find a Clover database at specified location. It means that:</p>
+                <p>1) either location is invalid</p>
+                <ul>
+                    <li>usually happens if you use relative path for initstring and compilation (and thus Clover
+                        instrumentation) is executed from one working directory, while report generation from another
+                        directory
+                    </li>
+                </ul>
+                <p> </p>
+                <p>2) or database is missing</p>
+                <ul>
+                    <li>it can happen when report is being generated on a different machine and the Clover database was
+                        not copied to this machine<br/>
+                        <ul>
+                            <li>for instance: Clover with Bamboo + multiple remote agents + build and reporting made in
+                                separate Jobs + clover.db is not defined as a shared artefact
+                            </li>
+                        </ul>
+                    </li>
+                    <li>it can happen when your build did not perform Clover instrumentation before running report
+                        generation
+                        <ul>
+                            <li>for instance: when your build have compiled sources without Clover first, next it called
+                                &lt;clover-setup&gt; but did not call &quot;clean&quot; target and next tried to compile
+                                sources again; as no sources were recompiled (no &quot;clean&quot;), no database was
+                                generated
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p> </p><h4 id="Cloverregistryfile&lt;path/to/clover.db&gt;doesnotexist-Resolution">Resolution</h4>
+                <p>Check if initstring path does not need to be corrected. Check if builds are running from a correct
+                    working directory.</p>
+                <p>In case when reporting is done on a different machine, check if clover.db (and coverage files!) was
+                    copied to the desired location.</p>
+                <p>In case when Bamboo with multiple remote agents is used and reporting is made in a separate job,
+                    share the clover.db (with coverage files) as a Shared Artefact.</p>
+                <p>Check if build executes &quot;clean&quot; before calling &quot;clover-setup&quot;.</p><!--$body-->
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

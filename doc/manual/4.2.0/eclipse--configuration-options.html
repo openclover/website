@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : 5. Eclipse configuration options</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="eclipse--overview.html">Clover-for-Eclipse</a></span>
+                    </li>
+                    <li>
+                        <span><a href="eclipse--user-guide.html">Clover-for-Eclipse User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            5. Eclipse configuration options
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p> </p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813720586 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813720586 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813720586 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813720586'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#id-5.Eclipseconfigurationoptions-ProjectProperties'>Project Properties</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#id-5.Eclipseconfigurationoptions-Clover-Instrumentation'>Clover -
+                                    Instrumentation</a></li>
+                                <li><a href='#id-5.Eclipseconfigurationoptions-Clover-Contexts'>Clover - Contexts</a>
+                                </li>
+                                <li><a href='#id-5.Eclipseconfigurationoptions-Clover-SourceFiles'>Clover - Source
+                                    Files</a></li>
+                                <li><a href='#id-5.Eclipseconfigurationoptions-Clover-TestClasses'>Clover - Test
+                                    Classes</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#id-5.Eclipseconfigurationoptions-GlobalPreferences'>Global Preferences</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#id-5.Eclipseconfigurationoptions-Clover-General'>Clover - General</a></li>
+                                <li><a href='#id-5.Eclipseconfigurationoptions-Clover-TestOptimization'>Clover - Test
+                                    Optimization</a></li>
+                                <li><a href='#id-5.Eclipseconfigurationoptions-TextEditors-Annotations'>Text Editors -
+                                    Annotations</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                </p><p> </p>
+                <p>The Clover Eclipse plugin's configuration can be accessed in three places:</p>
+                <ul>
+                    <li>From the &quot;Clover&quot; page of a project's properties dialog (Project &gt; Properties &gt;
+                        Clover).
+                    </li>
+                    <li>From the &quot;Clover&quot; page of the workspace preferences (Window &gt; Preferences &gt;
+                        Clover).
+                    </li>
+                    <li>From the &quot;Annotations&quot; page of the workspace preferences (Window &gt; Preferences &gt;
+                        General &gt; Editors &gt; Text Editors &gt; Annotations)
+                    </li>
+                </ul>
+                <h1 id="id-5.Eclipseconfigurationoptions-ProjectProperties">Project Properties</h1>
+                <h2 id="id-5.Eclipseconfigurationoptions-Clover-Instrumentation">Clover - Instrumentation</h2>
+                <p>These options control how Clover instrumentation works when &quot;Compile with Clover&quot; is
+                    selected on your project.</p>
+                <ul>
+                    <li><strong>Initstring -</strong> This controls where the Clover plugin stores (and looks for) the
+                        coverage database. You may want to specify a custom value if you want the Clover coverage data
+                        generated to be available to an external merge task or report generation.
+                    </li>
+                </ul>
+                <p> </p>
+                <ul>
+                    <li><strong>Flush Policy -</strong> The Flush Policy controls how Clover writes coverage data to
+                        disk when your application runs.<br/>
+                        <ul>
+                            <li>&quot;At JVM shutdown and on special instruction&quot; is the default and means coverage
+                                data is written to disk when the JVM shutsdown or when Clover encounters an inline
+                                comment directive instructing it to flush.
+                            </li>
+                            <li>&quot;At set intervals&quot; allows you to specify that coverage data should be written
+                                out at regular intervals.
+                            </li>
+                            <li>&quot;At set intervals from a Clover thread&quot; causes Clover to create a separate
+                                thread within your application which regularly flushes coverage data to disk. See <a
+
+                                        href="ant--flush-policy.html"
+                                        >Flush Policies</a>.<br/> These options control the compilation of
+                                the instrumented source code that Clover generate.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p> </p>
+                <ul>
+                    <li><strong>Output Folder -</strong> This specifies where instrumented classes are placed after
+                        compilation.<br/>
+                        <ul>
+                            <li>&quot;Copy instrumented class files to project output dir(s)&quot; will cause
+                                instrumented classes to be placed in the same folder or folders as Eclipse would
+                                normally place class files according to your project settings. In this mode Clover will
+                                only output instrumented class files.
+                            </li>
+                            <li>&quot;Copy instrumented class files to a different project dir&quot; will place
+                                instrumented class files in the folder specified by you and continue to place
+                                un-instrumented class files in the project's configured output folder(s).
+                            </li>
+                            <li>&quot;Recreate original output folders&quot; if checked, instrumented packages and
+                                classes will be placed in subfolders that mimic the original output folders relative to
+                                the project root
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p> </p>
+                <ul>
+                    <li><strong>Miscellaneous</strong> - other settings<br/>
+                        <ul>
+                            <li>&quot;Fully qualify instrumentation references to java.lang classes&quot; - if checked,
+                                all classes from <em>java.lang</em> package will be referenced using their fully
+                                qualified name; this option avoids name conflicts in case your project contains classes
+                                named the same as those from <em>java.lang</em> package.
+                            </li>
+                            <li><em>&quot;Instrument and compile at: statement level / method level&quot;</em> -
+                                statement level instrumentation is more accurate but has a runtime performance penalty,
+                                method level instrumentation is less accurate but will run faster. We recommend using
+                                statement level unless you have a performance issue. <em>(Since Clover 3.1.8).</em></li>
+                            <li><em>&quot;Instrument lambda functions&quot;</em> - whether Java 8 lambda functions shall
+                                be instrumented. If instrumented, they're treated like normal methods (they can be shown
+                                in HTML report and considered in code metrics, for example). Possible values:
+                                <ul>
+                                    <li><em>none</em> - do not instrument lambda functions,</li>
+                                    <li><em>expression</em> - instrument lambdas in expression-like form, e.g.<em>
+                                        &quot;(a, b) -&gt; a + b&quot;</em>,
+                                    </li>
+                                    <li><em>block</em> - instrument lambdas in code blocks, e.g.<em> &quot;(a, b) -&gt;
+                                        { return a + b; }&quot;</em>,
+                                    </li>
+                                    <li><em>all</em> - instrument all lambda functions.</li>
+                                </ul>
+                                <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
+                                     data-emoticon-name="warning" alt="(warning)"/> Due to Clover's restrictions related
+                                with code instrumentation and javac compiler's type inference capabilities, you may get
+                                compilation errors when expression-like lambda functions are passed to generic methods
+                                or types. In such case disable instrumentation of expression-like form (i.e. use the
+                                <em>none</em> or <em>block</em> setting). See the <a
+                                        href="kb--java-8-code-instrumented-by-clover-fails-to-compile.html"
+                                        rel="nofollow">Java 8 code instrumented by Clover fails to compile</a> Knowledge
+                                Base article for more details. <em>(Option available since Clover 3.3.0).</em></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><em><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                           src="attachments/297667019/297600111.png"
+                                                                           data-image-src="attachments/297667019/297600111.png"
+                                                                           data-unresolved-comment-count="0"
+                                                                           data-linked-resource-id="297600111"
+                                                                           data-linked-resource-version="2"
+                                                                           data-linked-resource-type="attachment"
+                                                                           data-linked-resource-default-alias="project_properties_clover_instrumentation.png"
+                                                                           data-base-url="https://confluence.atlassian.com"
+                                                                           data-linked-resource-content-type="image/png"
+                                                                           data-linked-resource-container-id="297667019"
+                                                                           data-linked-resource-container-version="15"></span><br/></em>
+                </p>
+                <p> </p>
+                <h2 id="id-5.Eclipseconfigurationoptions-Clover-Contexts">Clover - Contexts</h2>
+                <p>Clover's coverage contexts allow you to filter out certain parts of your project's code when
+                    considering how much of your code is covered. This is useful when you do not have 100% code coverage
+                    yet don't feel the uncovered code is of sufficient importance to invest time to test. See <a
+
+                            href="ant--using-coverage-contexts.html"
+                            rel="nofollow">Using Coverage Contexts</a> for an in-depth discussion of contexts and how
+                    they are used.</p>
+                <p>Clover recognizes two main types of contexts - block contexts which are pre-defined by Clover, and
+                    custom contexts which are defined by you.</p>
+                <ul>
+                    <li><strong>Block Contexts</strong> - these are pre-defined by Clover and refer to common Java
+                        coding constructs or idioms such as the body of if statements; static initializer blocks; or
+                        property style methods.
+                    </li>
+                </ul>
+                <ul>
+                    <li><strong>Custom Contexts -</strong>Are defined by you and and come in two flavors - method
+                        contexts and statement contexts.
+                        <ul>
+                            <li><em>Methods contexts</em> are specified as regular expressions that match methods in
+                                your classes. For example, a method context of &quot;(.* )?public .(foo|bar)(.<strong>*&quot;</strong>
+                                will identify any public method named foo or bar. You could then later filter out
+                                coverage for such methods if you considered them unimportant to your project's total
+                                coverage figures. See <a href="ant--using-coverage-contexts.html">Using Coverage Contexts - Method Contexts</a>.
+                            </li>
+                            <li><em>Statement contexts</em> are also specified as regular expressions and they match
+                                statements in your methods. For example, a statement context of &quot;.<strong>LOG\.debug.</strong>&quot;
+                                would identify identify statements that perform debug level logging. You could then
+                                filter out coverage for these logging statements if you found their coverage (or lack of
+                                coverage) too distracting.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><em><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                           src="attachments/297667019/297600112.png"
+                                                                           data-image-src="attachments/297667019/297600112.png"
+                                                                           data-unresolved-comment-count="0"
+                                                                           data-linked-resource-id="297600112"
+                                                                           data-linked-resource-version="1"
+                                                                           data-linked-resource-type="attachment"
+                                                                           data-linked-resource-default-alias="project_properties_clover_contexts.png"
+                                                                           data-base-url="https://confluence.atlassian.com"
+                                                                           data-linked-resource-content-type="image/png"
+                                                                           data-linked-resource-container-id="297667019"
+                                                                           data-linked-resource-container-version="15"></span><br/></em>
+                </p>
+                <p> </p>
+                <h2 id="id-5.Eclipseconfigurationoptions-Clover-SourceFiles">Clover - Source Files</h2>
+                <p>The Source Files tab let you select in detail what exactly should be instrumented. You can select one
+                    of the following:</p>
+                <ul>
+                    <li>A global pattern for including and/or excluding source files.</li>
+                    <li>A per-source root selection (including per-source root includes/excludes).</li>
+                </ul>
+                <p>This configuration window allows you to use Ant-style pattern sets. If there are only certain source
+                    files you want instrumented, then by using these Ant-style include and exclude pattern sets you can
+                    fine-tune how Clover determines whether files are eligible for instrumentation. For example, by
+                    using an &quot;Excludes&quot; value of <em>**/remote/*.java</em> you will stop instrumentation of
+                    files in the &quot;remote&quot; folder of your project.</p>
+                <ul>
+                    <li><strong>Look in all source folders and apply the following Ant-style pattern sets (relative to
+                        the project root) -</strong><br/> Applies your pattern sets to all source folders.
+                    </li>
+                </ul>
+                <ul>
+                    <li><strong>Only look in these folders and apply their Ant-style pattern sets (relative to the
+                        project root) -</strong><br/> Applies your pattern sets to all specified set of folders.
+                    </li>
+                </ul>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667019/297600113.png"
+                                                                       data-image-src="attachments/297667019/297600113.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600113"
+                                                                       data-linked-resource-version="2"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="project_properties_clover_source_files.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667019"
+                                                                       data-linked-resource-container-version="15"></span>
+                </p>
+                <p> </p>
+                <h2 id="id-5.Eclipseconfigurationoptions-Clover-TestClasses">Clover - Test Classes</h2>
+                <p>The Test classes tab lets you select how Clover should look for your tests. You can select from one
+                    of the following:</p>
+                <ul>
+                    <li>A global pattern for including and/or excluding source files.</li>
+                    <li>A per-source root selection.</li>
+                    <li>None (Clover makes no attempt to look for tests).</li>
+                </ul>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667019/297600115.png"
+                                                                       data-image-src="attachments/297667019/297600115.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600115"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="project_properties_clover_test_classes.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667019"
+                                                                       data-linked-resource-container-version="15"></span>
+                </p>
+                <p> </p>
+                <h1 id="id-5.Eclipseconfigurationoptions-GlobalPreferences">Global Preferences</h1>
+                <h2 id="id-5.Eclipseconfigurationoptions-Clover-General">Clover - General</h2>
+                <p>These options control how Clover works across all projects which have &quot;Compile with Clover&quot;
+                    enabled.</p>
+                <ul>
+                    <li><strong>When rebuilding project</strong> - when you rebuild a project, Clover will ask you
+                        whether you want to delete the existing coverage information. This section allows you to specify
+                        what the default action should be, and whether Clover should prompt you at all.
+                    </li>
+                    <li><strong>Coverage visualization should </strong><br/>
+                        <ul>
+                            <li><strong>Refresh automatically</strong> <strong>every Ns -</strong> if enabled, the
+                                plugin will check for updated coverage data at the frequency given below and display and
+                                new coverage. If it is not enabled, then you will need to use the &quot;Refresh Coverage
+                                Data&quot; button to see updated coverage data.
+                            </li>
+                            <li><strong>Span coverage before build</strong> - the span attribute allows you to control
+                                which coverage recordings are merged to form a current coverage report. For more
+                                information, see <a href="ant--using-spans.html">Using Spans</a>.
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>When changing the coverage context filter for a project</strong> - when you change
+                        context filter, Clover can perform full rebuild of a project or let you rebuild it manually;
+                        &quot;Ask me each time&quot; sets whether Clover should prompt about it
+                    </li>
+                    <li><strong>When changing the instrumentation source settings for a project</strong> - similar as
+                        above
+                    </li>
+                    <li><strong>Miscellaneous settings</strong>
+                        <ul>
+                            <li><strong>When generating reports first initialize AWT in the UI thread</strong> - is a
+                                compatibility setting for certain systems. Please leave this in its default setting
+                                unless advised otherwise by support personnel.
+                            </li>
+                            <li><strong>Annotate Package Explorer icons to show source Clover exclusions</strong> - If
+                                enabled, Clover will add small icons in the Package Explorer view for every source file,
+                                indicating whether it's included or excluded from instrumentation.
+                            </li>
+                            <li><p><strong>Clover plugin logging output level</strong> allows you to set the logging
+                                output of the plugin to one of four levels: <code>info, verbose</code>,
+                                <code>debug</code> or <code>none</code>. Output will be written to standard Eclipse log
+                                file (&lt;eclipse_workspace&gt;\.metadata\.log).</p></li>
+                            <li><p><strong>Automatically open Clover views when enabling Clover on a
+                                project</strong><br/>When selected, Clover will automatically open four standards views
+                                (&quot;Coverage Explorer&quot;, &quot;Test Run Explorer&quot;, &quot;Test Contributions&quot;,
+                                &quot;Clover Dashboard&quot;) in the current perspective every time Clover is being
+                                enabled on a project (e.g. by right click on a project and selecting &quot;Clover -&gt;
+                                Enable/Disable on&quot;). De-selecting this option is useful when you don't use some of
+                                Clover views and don't want to have them re-appearing</p></li>
+                            <li><p><strong>Preserve instrumented sources in temporary directory</strong><br/>When
+                                enabled, Clover will keep a copy of every instrumented source file in the temporary
+                                directory (in Eclipse workspace). This allows to see the exact content of file which was
+                                passed to the compiler. Use this option for troubleshooting only, i.e. when you believe
+                                that code was incorrectly instrumented. There is no reason to have this option enabled
+                                during normal work. Files will not be automatically removed, so you'd have to clean
+                                temporary directory manually. Files are stored in a structure reflecting project layout.
+                                When you enable this option, the &quot;Logging Level&quot; will automatically switch to
+                                &quot;Info&quot;. After every compilation you can find a message in Error Log view about
+                                location of instrumented files, for example:<em><br/>CLOVER: Instrumented sources have
+                                    been preserved in &lt;workspace&gt;\.metadata\.plugins\org.eclipse.core.resources\.projects\Moneybags\com.atlassian.clover.core\CLOV_INSTR_SRC</em>
+                            </p></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667019/297600118.png"
+                                                                       data-image-src="attachments/297667019/297600118.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600118"
+                                                                       data-linked-resource-version="2"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="global_preferences_clover.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667019"
+                                                                       data-linked-resource-container-version="15"></span>
+                </p>
+                <h2 id="id-5.Eclipseconfigurationoptions-Clover-TestOptimization">Clover - Test Optimization</h2>
+                <p>This page allows to view and change Test Optimization settings.</p>
+                <ul>
+                    <li><strong>Show dialog when no tests need to be run</strong> - if enabled, Clover will show pop-up
+                        in case when due to test optimization no test case have been executed
+                    </li>
+                    <li><strong>Discard snapshot every N compiles</strong> - if enabled, Clover will delete test
+                        optimization file after N builds (thus causing that no tests will be optimized during next test
+                        run)
+                    </li>
+                    <li><strong>Minimize tests</strong> - if enabled, Clover will execute only these tests which have
+                        failed or these which are affected by code changes; otherwise all tests are executed
+                    </li>
+                    <li><strong>Test reordering</strong><br/>
+                        <ul>
+                            <li><strong>Do not reorder</strong> - no change in test execution order</li>
+                            <li><strong>Failing tests first</strong> - tests are first sorted by test result from
+                                previous run (failing first) and next by their execution time (shortest first)
+                            </li>
+                            <li><strong>Random order</strong> - tests are shuffled in random order; this option is good
+                                for detecting unwanted cross-test dependencies
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667019/297600119.png"
+                                                                       data-image-src="attachments/297667019/297600119.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="297600119"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="global_preferences_clover_test_optimization.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667019"
+                                                                       data-linked-resource-container-version="15"></span>
+                </p>
+                <p> </p>
+                <h2 id="id-5.Eclipseconfigurationoptions-TextEditors-Annotations">Text Editors - Annotations</h2>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667019/301007776.png"
+                                                                       data-image-src="attachments/297667019/301007776.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301007776"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="eclipse_preferences_annotations.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667019"
+                                                                       data-linked-resource-container-version="15"></span>
+                </p>
+                <p>Code markers are as follows:</p>
+                <ul>
+                    <li><strong>Clover: Code covered</strong> - code which has been covered during execution</li>
+                    <li><strong>Clover: Code covered (but not directly by test execution)</strong> - code which has been
+                        covered, but there is no related test case (e.g. from a call of the <em>main() </em>method)
+                    </li>
+                    <li><strong>Clover: Code covered (but not for all branches)</strong> - code with a partial branch
+                        coverage (caused when only one part of a branch has been covered)
+                    </li>
+                    <li><strong>Clover: Code covered (but only by failing tests)</strong> - code which has been covered,
+                        but all related test cases are failing
+                    </li>
+                    <li><strong>Clover: Code covered (filtered from view)</strong> - code which has been <a
+                            href="eclipse--scope-of-instrumentation.html">filtered out</a></li>
+                    <li><strong>Clover: Code not covered</strong> - code which has been never executed</li>
+                    <li><strong>Clover: Passed tests (at least one)</strong> - color for overview ruler marker stripe
+                        indicating that at least one passing test case is related with given line
+                    </li>
+                    <li><strong>Clover: Failed tests (all of them)</strong> - color for overview ruler marker stripe
+                        indicating that all tests related with given line are failing
+                    </li>
+                </ul>
+                <p> </p>
+                <hr/>
+                <p>Now you have tweaked and hacked Clover according to your developer needs. But you would like to share
+                    information about code coverage with you colleagues or present it to management? If yes, read next
+                    chapter: <a href="eclipse--generating-reports.html">6. Generating reports in
+                        Eclipse</a>.</p>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

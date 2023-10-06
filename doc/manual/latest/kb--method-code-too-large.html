@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Method code too large</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a
+                                href="kb--troubleshooting-compilation.html">Troubleshooting Compilation</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Method code too large
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h3 id="Methodcodetoolarge-Symptoms">Symptoms</h3>
+                <p>Compilation of Groovy code instrumented by Clover fails with an error like:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>| Error Compilation error compiling [integration] tests: startup failed:
+General error during class generation: Method code too large!
+
+java.lang.RuntimeException: Method code too large!
+	at groovyjarjarasm.asm.MethodWriter.a(Unknown Source)
+	at groovyjarjarasm.asm.ClassWriter.toByteArray(Unknown Source)
+	at org.codehaus.groovy.control.CompilationUnit$16.call(CompilationUnit.java:807)
+	at org.codehaus.groovy.control.CompilationUnit.applyToPrimaryClassNodes(CompilationUnit.java:1047)
+	at org.codehaus.groovy.control.CompilationUnit.doPhaseOperation(CompilationUnit.java:583)
+	at org.codehaus.groovy.control.CompilationUnit.processPhaseOperations(CompilationUnit.java:561)
+	at org.codehaus.groovy.control.CompilationUnit.compile(CompilationUnit.java:538)
+	at org.codehaus.groovy.control.CompilationUnit.compile(CompilationUnit.java:517)
+    ...</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h3 id="Methodcodetoolarge-Cause">Cause</h3>
+                <p>There is a 64kB limit of byte code of a single method. In some cases this limit may be hit, for
+                    instance when many AST transformation plugins are used.</p>
+                <p>A good example is a test method written in a Spock framework, having dozens of &quot;when: / then:&quot;
+                    blocks, which is first transformed by the Spock and next instrumented by Clover.</p>
+                <p> </p>
+                <h3 id="Methodcodetoolarge-Resolution">Resolution</h3>
+                <p>1) Identify the large method in your code causing a problem (this may be hard as there's no
+                    information from a groovyc, even with --verbose or --verboseCompile). Reduce size of this method,
+                    e.g. by splitting it.</p>
+                <p> </p>
+                <p>or</p>
+                <p> </p>
+                <p>2) Identify which plugins used in your build perform heavy AST transformations. Check what AST
+                    annotations you're using in your code. Try disabling or reconfiguring these plugins or removing
+                    annotations.</p>
+                <p> </p>
+                <p>or</p>
+                <p> </p>
+                <p>3) Reduce instrumentation level performed by Clover from &quot;statement&quot; to &quot;method&quot;.
+                    This will result in smaller overhead generated by Clover at the cost of the coverage recording
+                    accuracy - only method entries will be recorded.</p>
+                <p> </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Ant</b></div>
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+                             data-theme="Confluence">&lt;clover-setup instrumentationLevel=&quot;method&quot;/&gt; </pre>
+                    </div>
+                </div>
+                <p>See: <a href="ant--clover-setup.html">Clover-for-Ant /
+                    clover-setup</a></p>
+                <p> </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Maven</b></div>
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;plugin&gt;
+  &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+  &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+  &lt;configuration&gt;
+    &lt;instrumentation&gt;method&lt;/instrumentation&gt;
+  &lt;/configuration&gt;
+&lt;/plugin&gt; 
+
+</pre>
+                    </div>
+                </div>
+                <p>See: <a
+                           href="../../maven/4.5.0/setup-mojo.html#instrumentation"
+                           rel="nofollow">Clover-for-Maven / setup mojo</a></p>
+                <p> </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Grails</b></div>
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
+     data-theme="Confluence">// grails-app/conf/BuildConfig.groovy:
+
+clover { 
+    setuptask = { ant, binding, plugin -&gt;
+        ant.&#39;clover-setup&#39;(instrumentationLevel: &quot;method&quot;, 
+                           initstring: &quot;${binding.projectWorkDir}/target/clover/clover.db&quot;) {
+            
+        }
+    }
+}
+
+</pre>
+                    </div>
+                </div>
+                <p>See: <a href="grails--advanced-setup-configuration.html">Clover-for-Grails
+                    / Advanced setup configuration</a></p>
+                <p> </p><!--$body-->
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : Clover Core, Ant, Eclipse and IDEA Plugins Developer Guide</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="developer-guide.html">Clover Development Hub</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Clover Core, Ant, Eclipse and IDEA Plugins Developer Guide
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h2 id="CloverCore,Ant,EclipseandIDEAPluginsDeveloperGuide-Prerequisites">Prerequisites</h2>
+                <p>1. Install tools. Mandatory tools are:</p>
+                <ul>
+                    <li>Ant 1.9.4<em><br/></em></li>
+                    <li>Maven 3.2.5</li>
+                    <li>Git</li>
+                    <li>JDK 1.6</li>
+                    <li>IntelliJ IDEA 13</li>
+                    <li>Eclipse 4.2.2</li>
+                </ul>
+                <p>Optional tools are:</p>
+                <ul>
+                    <li>JDK 1.7, JDK 1.8 - to run tests against these JDKs</li>
+                    <li>IDEA 14.x, 15.x, 2016.x - to run tests against newer IDEA versions</li>
+                    <li>Eclipse 4.3.1, 4.4.0, 4.5.1, 4.6.0 - to run tests against newer Eclipse versions</li>
+                </ul>
+                <p> </p>
+                <p>2. Set environment variables:</p>
+                <ul>
+                    <li>ANT_HOME=/path/to/apache-ant</li>
+                    <li>M2_HOME=/path/to/maven3</li>
+                    <li>JAVA_HOME=/path/to/jdk1.6</li>
+                </ul>
+                <p> </p>
+                <p>3. <span>Check out main Clover repository:</span></p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>git clone ssh://git@github.com/openclover/clover.git</pre>
+                    </div>
+                </div>
+                <p><span><br/></span></p>
+                <p><span>4. Set up paths to JDK, IDEA and Eclipse:</span></p>
+                <p><span>Open &lt;clover&gt;/build.properties and put proper paths.</span></p>
+                <p><span><br/></span></p>
+                <p><span>5. Download, repack and install third party libraries:</span></p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre># cd clover
+mvn install -f clover-core-libs/jarjar/pom.xml
+mvn install -Prepack -f clover-core-libs/pom.xml
+mvn install -Prepack -f clover-idea/clover-jtreemap/pom.xml</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p><span>6. Install Atlassian fork of KTreeMap library:</span></p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>git clone https://bitbucket.org/atlassian/ktreemap
+git checkout ktreemap-1.1.0-atlassian-01
+mvn install</pre>
+                    </div>
+                </div>
+                <h2 id="CloverCore,Ant,EclipseandIDEAPluginsDeveloperGuide-Buildandtest">Build and test</h2>
+                <h3 id="CloverCore,Ant,EclipseandIDEAPluginsDeveloperGuide-Buildingfromacommandline">Building from a
+                    command line</h3>
+                <p>To compile application code:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>ant global.build</pre>
+                    </div>
+                </div>
+                <p>To run tests:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>ant global.test</pre>
+                    </div>
+                </div>
+                <p>To create Clover-for-Ant, Clover-for-IDEA and Clover-for-Eclipse packages:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>ant clover-ant.pkg clover-idea.pkg clover-eclipse.pkg</pre>
+                    </div>
+                </div>
+                <p>To install Clover Core in .m2/repository:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>ant clover-ant.mvn.install</pre>
+                    </div>
+                </div>
+                <p>To learn about other targets available see <a href="developer-guide--build-system.html">Build system</a>.
+                </p>
+                <h3 id="CloverCore,Ant,EclipseandIDEAPluginsDeveloperGuide-BuildingCloverfromIntelliJIDEA">Building
+                    Clover from IntelliJ IDEA</h3>
+                <ol>
+                    <li>Compile sources using Ant first using 'ant global.build'. This is because the script downloads
+                        third party JARs as well as generates some Java sources.
+                    </li>
+                    <li>Open Clover project in IDEA - just select the directory containing Clover code (.idea folder and
+                        *.iml files are versioned in SCM).
+                    </li>
+                    <li>Open project settings and
+                        <ol>
+                            <li>define JDKs named '1.6', '1.7', '1.8'. While Clover is compiled using JDK 1.6, there are
+                                two test projects using JDK 1.7 and 1.8.
+                            </li>
+                            <li>define IntelliJ Platform Plugin SDK named 'IDEA 13.0.0' (you can actually use the newest
+                                13.1.7 bug-fix version). 
+                            </li>
+                            <li>configure path to 'eclipse-4.2.2' library</li>
+                        </ol>
+                    </li>
+                    <li>Whole project should be compile-able now. There shall be no need to define other libraries or to
+                        change paths etc.
+                    </li>
+                </ol>
+                <h2 id="CloverCore,Ant,EclipseandIDEAPluginsDeveloperGuide-Releaseandpublish">Release and publish</h2>
+                <p>To create a snapshot version of Clover Core as well as plugins for Ant, Eclipse and IDEA:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>ant global.clean clover-ant.pkg clover-idea.pkg clover-eclipse.pkg</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>To create a stable version of Clover Core as well as plugins for Ant, Eclipse and IDEA:</p>
+                <ol>
+                    <li><p>update &quot;core.release.base&quot; and &quot;core.release.num.sanitised&quot; in
+                        /common.xml</p></li>
+                    <li><p>update com.atlassian.clover.registry.format.RegHeader#REG_FORMAT_VERSION (only if format of
+                        the database has changed)</p></li>
+                    <li>run a command </li>
+                </ol>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>ant global.clean mvn.versioncheck prod.mvn.setup clover-ant.prod clover-idea.prod clover-eclipse.prod -Dclover.prod.build=true -Dpath.to.mvn=/path/to/apache-maven-3.2.5/bin/mvn</pre>
+                    </div>
+                </div>
+                <p>Artefacts will be created in:</p>
+                <ul>
+                    <li><span>Clover API JavaDoc - <span>clover-ant/target/javadoc</span></span></li>
+                    <li><span><span><span class="artifactName">Clover Core - <span>clover-ant/target/clover-*.jar, pom.xml</span></span></span></span>
+                    </li>
+                    <li>Clover-for-Ant - clover-ant/target/clover-ant-*.zip</li>
+                    <li><span>Clover-for-Eclipse - <span>clover-eclipse/target/main/<span>com.atlassian.clover.eclipse.updatesite_*.zip</span></span></span>
+                    </li>
+                    <li><span><span><span><span class="artifactName">Clover-for-IDEA - <span>clover-idea/target/clover-idea.jar</span></span></span></span></span>
+                    </li>
+                </ul>
+                <p> </p>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

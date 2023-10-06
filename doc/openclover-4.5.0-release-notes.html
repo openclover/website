@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="OpenClover is a free and open-source code coverage tool for Java, Groovy and AspectJ.
+            It's based on the open-sourced version of Atlassian Clover&reg;, the world's most sophisticated code coverage tool.">
+    <meta name="author" content="">
+    <link rel="icon" href="../resources/img/clover.ico">
+
+    <title>OpenClover - Java, Groovy and AspectJ code coverage tool</title>
+
+    <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../resources/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../resources/css/style.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index"><img
+                    src="../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../index">Overview</a></li>
+                <li><a href="../features">Features</a></li>
+                <li><a href="../downloads">Downloads</a></li>
+                <li class="active"><a href="../documentation">Documentation</a></li>
+                <li><a href="../support">Support</a></li>
+                <li><a href="../blog">Blog</a></li>
+                <!--<li><a href="../faq">FAQ</a></li>-->
+                <li><a href="../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <h1>OpenClover 4.5.0 Release Notes</h1>
+
+    <div><i>2023-10-04</i></div>
+
+    <div>
+        We're happy to share with you <b>OpenClover 4.5</b>!
+    </div>
+
+    <h2>Changes</h2>
+    <h3>Features</h3>
+    <h4>Support for Java 17 (experimental)</h4>
+
+    <div>
+        We are thrilled to announce support for Java 17. This is thanks to amazing contributions by
+        <a href="https://github.com/mhagnumdw">mhagnumdw</a> and <a href="https://github.com/satob">SATO Yusuke</a>.
+    </div>
+    <div>&nbsp;</div>
+    <div>
+        This is an experimental version. While support for nearly all new language syntax features has been added,
+        except case expressions. There might still be
+        some corner cases undiscovered. We kindly ask you to report any bugs with code instrumentation and compilation in our
+        <a href="https://github.com/openclover/clover/issues">issue tracker</a>. Also, OpenClover does not automatically
+        instrument module-info.java files, so you might need to add imports manually.
+    </div>
+    <div>&nbsp;</div>
+    <div>
+        We expect to drop support for Java 7 in a next release.
+    </div>
+
+    <h4>Annotations on data types</h4>
+    <div>
+        Long-awaited support for annotations on data types is here too! Huge "thank you!" for
+        <a href="https://github.com/satob">SATO Yusuke</a>. OpenClover will no longer fail on annotations put
+        in places like these:
+
+        <pre>class A<@Annotation1 T>
+class A implements @Annotation2 Serializable
+int @Annotation3 [][] intArray
+int intArray @Annotation4 [][]
+obj instanceof @Annotation5 String
+new @Annotation6 HashMap<>()
+new int @Annotation7[2][2]
+void a() throws @Annotation8 Exception</pre>
+    </div>
+
+    <h3>Other</h3>
+
+    <h4>Repository migrations</h4>
+
+    <div>
+        We migrated all our Mercurial repositories hosted on Bitbucket to Git repositories hosted on GitHub.
+        We moved our issue tracker as well. You can find everything on <a href="https://github.com/openclover">
+        https://github.com/openclover</a> now.
+    </div>
+
+    <h4>Build system migration</h4>
+
+    <div>
+        We migrated from Ant to Maven.
+    </div>
+
+    <h4>End of life for Grails and Hudson plugins</h4>
+
+    <div>
+        We will no longer develop Grails Clover Plugin. It integrated with Grails 2.x only and this release line
+        is no longer maintained. As Grails 3.0 and newer use Gradle, please try to use the Gradle Clover Plugin instead.
+        Similarly, the Hudson CI is dead since long time, so we will no longer publish new releases of the
+        Hudson Clover Plugin. We recommend migration to Jenkins or Bamboo instead.
+    </div>
+
+    <h4>Java 1.6 and older is unsupported</h4>
+
+    <div>
+        OpenClover requires at least Java 1.7 to run. You can still use "1.3-1.6" source level flag, but it will be
+        treated as 1.7.
+    </div>
+
+    <h4>Groovy 2.0.0 and older is unsupported</h4>
+
+    <div>
+        Minimum Groovy version is 2.0.1.
+    </div>
+
+    <h2>Upgrading from OpenClover 4.4.x</h2>
+
+    <h4>Clover for Ant</h4>
+
+    <p>Simply download new Clover-for-Ant zip file and use the clover.jar from it.</p>
+
+    <h4>Clover for Eclipse</h4>
+
+    <div>Download new update site ZIP and install in your Eclipse.</div>
+
+    <h4>Clover for IDEA</h4>
+
+    <div>Download new plugin JAR and install in your IDEA.</div>
+
+    <h4>Clover Maven Plugin</h4>
+
+    <div>Bump version number to 4.5.0 for 'org.openclover:clover-maven-plugin' and 'org.openclover:clover' in
+        your pom.xml files.
+    </div>
+
+    <h4>Jenkins Clover Plugin</h4>
+
+    <p>Upgrade to the latest 4.12.0 plugin version.</p>
+
+
+    <h2>Changelog</h2>
+
+    <h4>2023.10.04 OpenClover 4.5.0</h4>
+
+    <ul>
+        <li><a href="https://github.com/openclover/clover/issues/20">OC-20: CLOV-1839 Clover fails to instrument source code with type annotations</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/59">OC-59: Instrumentation error for multidimensional array constructor reference </a></li>
+        <li><a href="https://github.com/openclover/clover/issues/65">OC-65: Drop support for 1.3-1.6 language levels</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/93">OC-93: Unexpected token: @ when using Lombok</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/95">OC-95: Use of long[]::new breaks clover instrumentation</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/98">OC-98: Migrate repositories to Git</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/100">OC-100: Drop support for Hudson Clover Plugin</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/101">OC-101: Drop support for Java 1.6</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/110">OC-110: Drop support for Grails 2.x plugin</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/112">OC-112: Remove Guava dependency</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/116">OC-116: Migrate build system from Ant to Maven</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/128">OC-128: Upgrade Guava to 24.1.1 or later</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/131">OC-131: Upgrade commons-collections to 3.2.2 or later</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/136">OC-136: MismatchedTokenException for try-with-resources</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/137">OC-137: Drop support for Groovy 1.x</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/143">OC-143: Migrate Jenkins Clover Plugin documentation to GitHub</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/150">OC-150: Clover fails to instrument source code with TYPE_USE annotations following to new operator</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/152">OC-152: Clover fails to instrument source code with TYPE_USE annotations before declaration of array</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/154">OC-154: Clover fails to instrument source code with TYPE_USE annotations before array bracket after new operator</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/157">OC-157: Clover fails to instrument source code with TYPE_USE annotations before declaration of array</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/159">OC-159: Clover fails to instrument source code with TYPE_USE annotations in type parameter</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/161">OC-161: Clover fails to instrument source code with TYPE_USE annotations in implements clause</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/166">OC-166: Support Java 14 - records (Instrumentation)</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/170">OC-170: Clover fails to instrument source code with TYPE_USE annotations in throws clause</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/172">OC-172: Clover fails to instrument source code with TYPE_USE annotations in instanceof clause</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/175">OC-175: Prepare repacked clover-log4j</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/177">OC-177: Simplify initial project configuration for development</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/180">OC-180: Fix nondeterminism in java grammar</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/184">OC-184: Clover fails to instrument source code with TYPE_USE annotations in super/extends clause in generics</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/186">OC-186: Clover fails to instrument source code with TYPE_USE annotations in instanceof with array of primitives</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/204">OC-204: Update Groovy patch versions used in tests</a></li>
+    </ul>
+
+</div>
+
+
+<script src="../resources/js/jquery-1.12.4.min.js"></script>
+<script src="../resources/js/bootstrap.min.js"></script>
+</body>
+</html>

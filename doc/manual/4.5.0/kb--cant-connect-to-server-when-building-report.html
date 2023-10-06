@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Can&#39;t connect to window server - not enough permissions thrown when building
+        clover report.</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--troubleshooting-reports.html">Troubleshooting Reports</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Can&#39;t connect to window server - not enough permissions thrown when building clover report.
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="Can&#39;tconnecttowindowserver-notenoughpermissionsthrownwhenbuildingcloverreport.-Symptoms">
+                    Symptoms</h4>
+                <p>Generation of Clover report ends with a following error:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence"
+     data-theme="Confluence">clover.report:
+[clover-report] Clover Version 3.1.6, built on June 19 2012 (build-867)
+[clover-report] Loaded from: /home/alice/clover.jar
+[clover-report] Clover: Developer License registered to Atlassian.
+[clover-report] Loading coverage database from: &#39;/home/alice/.clover/clover3_1_6.db&#39;
+[clover-report] Loading coverage database from: &#39;/home/alice/.clover/clover3_1_6.db&#39;
+[clover-report] Loading historical coverage data from: &#39;/home/alice/.cloverhistory&#39;
+[clover-report] Writing HTML report to &#39;/home/alice/.clover/report&#39;
+
+BUILD FAILED
+jar:file:/home/alice/clover.jar!/clover.xml:33: java.lang.InternalError: Can&#39;t connect to X11 window server using &#39;SOME_HOST_NAME&#39; as the value of the DISPLAY variable.
+at sun.awt.X11GraphicsEnvironment.initDisplay(Native Method)
+...
+at clover.org.jfree.chart.JFreeChart.&lt;clinit&gt;(JFreeChart.java:254)
+...
+at com.atlassian.clover.reporters.CloverReporter.execute(CloverReporter.java:41)
+</pre>
+                    </div>
+                </div>
+                <p>Typical messages:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">java.lang.InternalError: Can&#39;t connect to window server - not enough permissions
+java.lang.InternalError: Can&#39;t connect to X11 window server using &#39;SOME_HOST_NAME&#39; as the value of the DISPLAY variable
+java.lang.InternalError: Can&#39;t connect to X11 window server using &#39;&#39; as the value of the DISPLAY variable </pre>
+                    </div>
+                </div>
+                <p> </p><h4
+                    id="Can&#39;tconnecttowindowserver-notenoughpermissionsthrownwhenbuildingcloverreport.-Cause">
+                Cause</h4>
+                <p>This error can occur if you are running the command remotely (via putty).</p>
+                <p>This error can also occur when DISPLAY variable is set, but it's empty or points to non-existing
+                    host.</p>
+                <p>This error can also occur when X11 server is not running on a machine.</p>
+                <p> </p><h4
+                    id="Can&#39;tconnecttowindowserver-notenoughpermissionsthrownwhenbuildingcloverreport.-Resolution">
+                Resolution</h4>
+                <p>1) Set correct value of DISPLAY variable or</p>
+                <p>2) If you-re running Clover on a machine with no X11 server, then add <strong>-Djava.awt.headless=true</strong>
+                    to VM launch parameters, this tells AWT to use headless mode:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">export ANT_OPTS=-Djava.awt.headless=true
+</pre>
+                    </div>
+                </div>
+                <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
+                        data-emoticon-name="light-on" alt="(lightbulb)"/> Use &quot;export ANT_OPTS=-D...&quot; instead
+                    of &quot;ant -D...&quot;</p>
+                <p> </p>
+                <p> </p><!--$body-->
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Compiling Groovy with GMaven plugin</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Compiling Groovy with GMaven plugin
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h1 id="CompilingGroovywithGMavenplugin-ConfiguringtheGMavenPluginforGroovySupportinMaven2and3">
+                    Configuring the GMaven Plugin for Groovy Support in Maven</h1>
+                <p>If you are using Clover-for-Maven on Groovy code, you would typically need to define a <code>plugin</code>
+                    element for the <a  href="https://groovy.github.io/gmaven/" rel="nofollow">GMaven
+                        Plugin</a> in your <code>pom.xml</code> file.</p>
+                <p>As shown in the example definition below, the GMaven Plugin definition requires the Groovy dependency
+                    (<code>groovy-all</code>). However, within this dependency, you <em>must</em> define a <a
+                            href="general--supported-platforms.html">version of Groovy that Clover supports</a> inside
+                    a <code>version</code> sub-element. If you omit this <code>version</code> element, the GMaven Plugin
+                    will default to using Groovy version 1.6.0, which is not compatible with Clover.</p>
+                <p> </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;properties&gt;
+  &lt;groovy.version&gt;1.8.8&lt;/groovy.version&gt;
+  &lt;gmaven.version&gt;1.5&lt;/gmaven.version&gt;
+&lt;/properties&gt;
+...
+&lt;plugins&gt;
+  &lt;plugin&gt;
+    &lt;groupId&gt;org.codehaus.gmaven&lt;/groupId&gt;
+    &lt;artifactId&gt;gmaven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;${gmaven.version}&lt;/version&gt;
+    &lt;configuration&gt;
+      &lt;providerSelection&gt;1.8&lt;/providerSelection&gt;
+    &lt;/configuration&gt;
+    &lt;dependencies&gt;
+      &lt;dependency&gt;
+        &lt;groupId&gt;org.codehaus.gmaven.runtime&lt;/groupId&gt;
+        &lt;artifactId&gt;gmaven-runtime-1.8&lt;/artifactId&gt;
+        &lt;version&gt;${gmaven.version}&lt;/version&gt;
+      &lt;/dependency&gt;
+      &lt;dependency&gt;
+        &lt;groupId&gt;org.codehaus.groovy&lt;/groupId&gt;
+        &lt;artifactId&gt;groovy-all&lt;/artifactId&gt;
+        &lt;version&gt;${groovy.version}&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+    &lt;executions&gt;
+      &lt;execution&gt;
+        &lt;goals&gt;
+          &lt;goal&gt;generateStubs&lt;/goal&gt;
+          &lt;goal&gt;compile&lt;/goal&gt;
+          &lt;goal&gt;generateTestStubs&lt;/goal&gt;
+          &lt;goal&gt;testCompile&lt;/goal&gt;
+        &lt;/goals&gt;
+      &lt;/execution&gt;
+    &lt;/executions&gt;
+  &lt;/plugin&gt;
+&lt;/plugins&gt;
+</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h3 id="CompilingGroovywithGMavenplugin-Tips">Tips</h3><h4
+                    id="CompilingGroovywithGMavenplugin-Cross-compilation">Cross-compilation</h4>
+                <p>If you use cross-compilation with Groovy code, please refer to the <a
+                        href="maven--best-practices.html#BestPracticesforMaven-groovycrosscompilation">Cross
+                    Compilation using Groovy</a> on the <a href="maven--best-practices.html">Best Practices
+                    for Maven</a> page.</p><h4 id="CompilingGroovywithGMavenplugin-Stubgeneration">Stub generation</h4>
+                <p>Use the <strong>clover:setup </strong>goal for Clover instrumentation in case you have generateStubs
+                    or generateTestStubs goal declared in GMaven plugin configuration.</p>
+                <p>In case you use clover:instrument a build will fail with an error message like:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>org.apache.maven.BuildFailureException: Compilation failure
+... error: duplicate class: com.acme.MyClass</pre>
+                    </div>
+                </div>
+                <p>A reason is that GMaven will generate stubs twice and will add
+                    <em>/generated-sources/groovy-stubs</em> source root for both the default build life cycle (<em>/target</em>)
+                    and the Clover's forked build life cycle (<em>/target/clover</em>) resulting in duplicated source
+                    files passed to the Maven compiler.</p><h4
+                    id="CompilingGroovywithGMavenplugin-SettingtheproviderSelection">Setting the providerSelection</h4>
+                <p>Remember to configure a providerSelection parameter. Otherwise build might fail with the following
+                    error: <em>&quot;org.apache.maven.lifecycle.LifecycleExecutionException: Unexpected node:
+                        Node[7:1,64,ANNOTATIONS]&quot; (see <a
+                                                               href="http://stackoverflow.com/questions/2199547/maven-compile-mixed-java-groovy-1-7-project-using-gmaven-plugin"
+                                                               rel="nofollow">stackoverflow</a>).</em></p><h4
+                    id="CompilingGroovywithGMavenplugin-Codeexample">Code example</h4>
+                <p>See <a  href="https://github.com/openclover/clover-maven-plugin"
+                          rel="nofollow">https://github.com/openclover/clover-maven-plugin</a> repository,
+                    <strong><em>src/it/groovy </em></strong>directory<em>.</em><strong><em><br/></em></strong></p>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Debugging Clover</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="developer-guide.html">Clover Development Hub</a></span>
+                    </li>
+                    <li>
+                        <span><a href="developer-guide--clover-architecture.html">Clover architecture</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Debugging Clover
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h2 id="DebuggingClover-DebuggingAntplugin">Debugging Ant plugin</h2>
+                <ol>
+                    <li>Create &quot;Remote&quot; run configuration in IDEA.</li>
+                    <li><p>Export ANT_OPTS, e.g.:</p>
+                        <div class="preformatted panel" style="border-width: 1px;">
+                            <div class="preformattedContent panelContent">
+                                <pre>export ANT_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005</pre>
+                            </div>
+                        </div>
+                    </li>
+                    <li>Run '<em>ant</em>'. Attach remote debugger in IDEA.</li>
+                </ol>
+                <h2 id="DebuggingClover-DebuggingMavenplugin">Debugging Maven plugin</h2>
+                <ol>
+                    <li>Create &quot;Remote&quot; run configuration in IDEA.</li>
+                    <li><p>Export MAVEN_OPTS, e.g.:</p>
+                        <div class="preformatted panel" style="border-width: 1px;">
+                            <div class="preformattedContent panelContent">
+                                <pre>export MAVEN_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005</pre>
+                            </div>
+                        </div>
+                    </li>
+                    <li>Run '<em>mvn</em>'. Attach remote debugger in IDEA.</li>
+                </ol>
+                <h2 id="DebuggingClover-DebuggingEclipseplugin">Debugging Eclipse plugin</h2>
+                <ol>
+                    <li>Create &quot;Remote&quot; run configuration in IDEA.</li>
+                    <li><p>Edit <em>eclipse.ini</em> and add options for remote debugging <strong>after</strong> the
+                        <em>&quot;-vmargs&quot;</em> flag, e.g.:</p>
+                        <div class="preformatted panel" style="border-width: 1px;">
+                            <div class="preformattedContent panelContent">
+<pre>-startup
+[...]
+-vmargs
+-Dosgi.requiredJavaVersion=1.7
+-XstartOnFirstThread
+-Dorg.eclipse.swt.internal.carbon.smallFonts
+-XX:MaxPermSize=256m
+-Xms256m
+-Xmx1024m
+-Xdock:icon=../Resources/Eclipse.icns
+-XstartOnFirstThread
+-Dorg.eclipse.swt.internal.carbon.smallFonts
+-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</pre>
+                            </div>
+                        </div>
+                    </li>
+                    <li>Run Eclipse. Attach remote debugger in IDEA.</li>
+                </ol>
+                <p> </p>
+                <h2 id="DebuggingClover-DebuggingIDEAplugin">Debugging IDEA plugin</h2>
+                <h3 id="DebuggingClover-DebuggingdirectlyinIDE">Debugging directly in IDE</h3>
+                <ol>
+                    <li>Add &quot;Plugin&quot; run configuration and set &quot;Use classpath of module&quot; to <strong>clover-idea</strong>.
+                    </li>
+                    <li><p>Optional: setup alternative JRE.</p></li>
+                    <li><p>Click &quot;Debug&quot;.<br/><br/>In case you encounter this error while building a project
+                        in IDEA instance being debugged:</p>
+                        <div class="code panel pdl" style="border-width: 1px;">
+                            <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">Error:Internal error: (java.lang.ClassNotFoundException) clover.com.google.common.collect.Lists
+java.lang.ClassNotFoundException: clover.com.google.common.collect.Lists
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:202)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:190)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:247)
+	at com.atlassian.clover.idea.build.jps.CloverSerializerExtension.getGlobalExtensionSerializers(CloverSerializerExtension.java:50)
+...</pre>
+                            </div>
+                        </div>
+                        <p>then extract all &quot;clover/**&quot; classes from clover-idea.jar
+                            into <em>$IDEA_CACHES_DIR</em>/<em>plugins-sandbox/plugin/clover-idea/classes. </em>A
+                            problem is caused by a fact that a build server process does not see third party JARs from
+                            the 'clover-idea' module. The <em>IDEA_CACHES_DIR</em> is base directory where is your`s
+                            Idea stores caches.<br/>For Mac it's:<em style="background-color: transparent;">
+                                ~/Library/Caches/IntelliJIdea14/plugins-sandbox/plugin/clover-idea/</em></p>
+                        <p>For Windows it's:<em> ~/.IntelliJIdea/system/plugins-sandbox/plugins/clover-idea<br/></em>
+                        </p>
+                        <p>Reference: <a
+                                         href="https://intellij-support.jetbrains.com/hc/en-us/articles/206544519-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs"
+                                         rel="nofollow">https://intellij-support.jetbrains.com/hc/en-us/articles/206544519-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs</a>
+                        </p></li>
+                </ol>
+                <h3 id="DebuggingClover-DebugginginstandaloneIDEA">Debugging in standalone IDEA</h3>
+                <ol>
+                    <li>Create &quot;Remote&quot; run configuration in IDEA.</li>
+                    <li><p>Edit <em>idea64.vmoptions</em> (or <em>idea.vmoptions</em>) of your test IDEA instance and
+                        add options for remote debugging, e.g.:</p>
+                        <div class="preformatted panel" style="border-width: 1px;">
+                            <div class="preformattedContent panelContent">
+<pre>-Xms128m
+-Xmx750m
+-XX:ReservedCodeCacheSize=240m
+-XX:+UseCompressedOops
+-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</pre>
+                            </div>
+                        </div>
+                    </li>
+                    <li><p>Run test IDEA instance. Attach remote debugger in developer IDEA.</p></li>
+                    <li><p>In case you would like to debug the external build process (which is launched by IDEA), then
+                        add the following option to the <em>idea.properties</em> file:</p>
+                        <div class="preformatted panel" style="border-width: 1px;">
+                            <div class="preformattedContent panelContent">
+                                <pre>-Dcompiler.process.debug.port=5006</pre>
+                            </div>
+                        </div>
+                        <p>External compiler process will pause until debugger is connected to specified port.</p></li>
+                </ol>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

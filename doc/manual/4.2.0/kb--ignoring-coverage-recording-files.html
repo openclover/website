@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ignoring coverage recording files</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--troubleshooting-reports.html">Troubleshooting Reports</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Ignoring coverage recording files
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="Ignoringcoveragerecordingfiles-Symptoms">Symptoms</h4>
+                <p>When you try to generate a Clover report you see:</p>
+                <p> - less coverage than expected</p>
+                <p> - or no coverage</p>
+                <p> - or even report is not created at all and a message like this is printed:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>[clover-report] Processed 0 recording files in 12ms (- per recording)
+[clover-report] Processed 0 per-test recording files in 0ms (- per recording)
+[clover-report] No coverage recordings found. No report will be generated.</pre>
+                    </div>
+                </div>
+                <p>Despite the fact that you see <a
+                        href="ant--managing-the-coverage-database.html">global
+                    coverage recording files</a> in a directory where Clover database is located. </p>
+                <p> </p>
+                <p>When you enable Clover debug logging (ant -d / mvn -X) you see a message like:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>[clover-report] Ignoring coverage recording CoverageRecordingTranscript.FromStream[header=Header[
+dbVersion=1322688610511, writeTimeStamp=1323291710342, format=0], coverageSum=171, hitCounts.length=1751667] 
+because no FileInfo supports its coverage range</pre>
+                    </div>
+                </div>
+                <h4 id="Ignoringcoveragerecordingfiles-Cause">Cause</h4>
+                <p>Whenever Clover instruments a source file, it records its time stamp in the Clover database. It's not
+                    a file modification time <img class="emoticon emoticon-yellow-star"
+                                                  src="images/icons/emoticons/star_yellow.png"
+                                                  data-emoticon-name="yellow-star" alt="(star)"/>, but a time when
+                    instrumentation of the file was performed. As you can modify and instrument the same file multiple
+                    times, Clover will record history of this file as well, tracking all build sessions in which it was
+                    instrumented. When you compile and next run an instrumented class, it will connect to an instance of
+                    Clover's coverage recorder associated with a proper instrumentation session (in a sample above it's <em>dbVersion=1322688610511</em>).
+                    Coverage recorder will write a global coverage file to disk with current system time as its time
+                    stamp (in a sample above <em>writeTimeStamp=1323291710342</em>).</p>
+                <p> </p>
+                <p>During report generation, Clover checks <em>dbVersion</em> property of global coverage recording
+                    files discarding those which are outdated (comparing <em>dbVersion</em> against a list of
+                    instrumentation sessions registered in a Clover database).</p>
+                <p> </p>
+                <p>This is a normal Clover behaviour, however it may cause troubles in case when Clover database and
+                    coverage recording files are not managed correctly.</p>
+                <p>Imagine a following, faulty, scenario:</p>
+                <ol>
+                    <li>application code is instrumented, clover.db file is created</li>
+                    <li><span style="color: rgb(255,0,0);">clover.db is deleted</span></li>
+                    <li>test code is instrumented, new clover.db file is created</li>
+                    <li>tests are launched
+                        <ul>
+                            <li>coverage recorder for application classes writes a global recording file</li>
+                            <li>another coverage recorder for test classes writes another global recording file</li>
+                        </ul>
+                    </li>
+                    <li>report is generated
+                        <ul>
+                            <li>because of the fact that the clover.db was deleted in step 2, a global recording file
+                                with a coverage for application classes is discarded
+                            </li>
+                            <li>as a result, coverage for application code is missing in a report</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p> </p>
+                <p><em><img class="emoticon emoticon-yellow-star" src="images/icons/emoticons/star_yellow.png"
+                            data-emoticon-name="yellow-star" alt="(star)"/> OK. Clover records file modification time as
+                    well, but it's being used for different purposes. </em></p>
+                <p> </p><h4 id="Ignoringcoveragerecordingfiles-Resolution">Resolution</h4>
+                <p>Check whether your build script does not accidentally delete Clover's database in a middle of a
+                    build. Look for <em>&quot;Creating new database at &lt;path/to/clover.db&gt;&quot;</em> vs <em>&quot;Updating
+                        existing database at &lt;path/to/clover.db&gt;&quot;</em> messages in a build log. </p>
+                <p>Check if your build does not use outdated database for reporting (fetching a shared artefact from old
+                    build on continuous integration server, for instance).</p>
+                <p>Check if you delete old Clover database and coverage recording files between builds (unless you
+                    perform an incremental compilation).</p>
+                <p>In case when build is performed on several machines - check if system time is set correctly on all of
+                    them.</p>
+                <p>Check if you don't modify source files after they were compiled and coverage was recorded and before
+                    the report is generated, which could potentially trigger recompilation (imagine a target dependency
+                    like: &quot;report -&gt; test -&gt; compile&quot; where the &quot;compile&quot; target removes
+                    clover.db).</p>
+                <p> </p><h4 id="Ignoringcoveragerecordingfiles-References">References</h4>
+                <ul>
+                    <li><a href="ant--coverage-recorders.html">Coverage
+                        Recorders</a></li>
+                    <li><a href="ant--managing-the-coverage-database.html">Managing
+                        the Coverage Database</a></li>
+                </ul>
+                <p> </p><!--$body-->
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : Running JUnit4 Parameterized tests with Surefire</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Running JUnit4 Parameterized tests with Surefire
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h1 id="RunningJUnit4ParameterizedtestswithSurefire-Introduction">Introduction</h1>
+                <p>JUnit4 framework version <strong>4.10</strong> has introduced a feature, which allows to run the same
+                    test multiple times, using different data as input.</p>
+                <p>In order to use this, you have to:</p>
+                <ul>
+                    <li>annotate test class with <em>@RunWith(Parameterized.class)</em></li>
+                    <li>declare a <em>data()</em> method returning collection of input values and annotate this method
+                        with <em>@Parameters</em> annotation. 
+                    </li>
+                    <li>declare a test method annotated with <em>@Test</em></li>
+                </ul>
+                <p>Furthermore, the JUnit version 4.11 has added a 'name' attribute to the @Parameters annotation -
+                    thanks to this, you can define a custom name for a test. You can use variables such as &quot;{index}&quot;
+                    for an iteration number and &quot;{0}, {1}, ... &quot; for N-th input argument in a test name.</p>
+                <h1 id="RunningJUnit4ParameterizedtestswithSurefire-IntegratingClover">Integrating Clover</h1>
+                <p><strong>Clover 3.3.0</strong> introduced a JUnitTestRunnerInterceptor, which can be attached to
+                    JUnit's runner. It &quot;listens&quot; which test is being executed and what runtime name it has
+                    (evaluated by JUnit). Thanks to this, you can see an iteration number:</p>
+                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                        class="confluence-embedded-image" width="850" src="attachments/785332222/785332215.png"
+                        data-image-src="attachments/785332222/785332215.png" data-unresolved-comment-count="0"
+                        data-linked-resource-id="785332215" data-linked-resource-version="1"
+                        data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="junit4_sequence_numbers.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="785332222" data-linked-resource-container-version="2"></span>
+                </p>
+                <p>as well as full test names (<em>@Parameters(name=...)</em>) in the reports:</p>
+                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                        class="confluence-embedded-image" width="850" src="attachments/785332222/785332216.png"
+                        data-image-src="attachments/785332222/785332216.png" data-unresolved-comment-count="0"
+                        data-linked-resource-id="785332216" data-linked-resource-version="1"
+                        data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="junit4_custom_test_names.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="785332222" data-linked-resource-container-version="2"></span>
+                </p>
+                <p> </p>
+                <p>To enable this Clover extension, add the following snippet for maven-surefire-plugin:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;plugins&gt;
+    &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+        &lt;configuration&gt;
+            &lt;properties&gt;
+                &lt;!-- Attach Clover&#39;s test interceptor in order to record JUnit4 Parameterized tests --&gt;
+                &lt;property&gt;
+                    &lt;name&gt;listener&lt;/name&gt;
+                    &lt;value&gt;com.atlassian.clover.recorder.junit.JUnitTestRunnerInterceptor&lt;/value&gt;
+                &lt;/property&gt;
+            &lt;/properties&gt;
+        &lt;/configuration&gt;
+    &lt;/plugin&gt;
+&lt;/plugins&gt;</pre>
+                    </div>
+                </div>
+                <div class="confluence-information-macro confluence-information-macro-information"><p class="title">
+                    LIMITATION</p><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Clover's JUnitTestRunnerInterceptor can correctly
+                        handle parameterized test names when test methods from a single test case class are executed
+                        sequentially. It means that you shall not use a test runner which will run all iterations in
+                        parallel.</p>
+                        <p>On the other hand, running entire test cases or test suites in parallel is allowed.</p></div>
+                </div>
+                <h1 id="RunningJUnit4ParameterizedtestswithSurefire-References">References</h1>
+                <ul>
+                    <li><a href="ant--integrating-with-junit4-parameterized-tests.html">Integrating Clover
+                        with JUnit4 Parameterized Tests</a> - how to enable it programatically (useful for Ant and
+                        command line integration)
+                    </li>
+                    <li><a  href="https://github.com/junit-team/junit/wiki/Parameterized-tests"
+                           rel="nofollow">Parameterized-tests</a> - developer manual
+                    </li>
+                    <li><a
+                           href="http://maven.apache.org/surefire/maven-surefire-plugin/examples/junit.html"
+                           rel="nofollow">maven-surefire-plugin/examples/junit.html</a> - about test listeners in
+                        Surefire
+                    </li>
+                    <li><a  href="https://github.com/openclover/clover-examples" rel="nofollow">https://github.com/openclover/clover-examples</a> -
+                        sample project with parameterized tests
+                    </li>
+                </ul>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

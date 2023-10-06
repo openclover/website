@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : Database Structure</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="developer-guide.html">Clover Development Hub</a></span>
+                    </li>
+                    <li>
+                        <span><a href="developer-guide--clover-architecture.html">Clover architecture</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Database Structure
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h2 id="DatabaseStructure-Model">Model</h2>
+                <h3 id="DatabaseStructure-Classoverview">Class overview</h3>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/420972456/420807283.png"
+                                                                       data-image-src="attachments/420972456/420807283.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="420807283"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="clover_database_model.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="420972456"
+                                                                       data-linked-resource-container-version="9"></span>
+                </p>
+                <div class="action-body flooded"><h3 id="DatabaseStructure-Possibleentitynesting">Possible entity
+                    nesting</h3>
+                    <div class="table-wrap">
+                        <table class="confluenceTable">
+                            <tbody>
+                            <tr>
+                                <td class="confluenceTd">entity below can be nested in entity</td>
+                                <td class="confluenceTd">branch</td>
+                                <td class="confluenceTd">statement</td>
+                                <td class="confluenceTd">method</td>
+                                <td class="confluenceTd">class</td>
+                                <td class="confluenceTd">file</td>
+                                <td class="confluenceTd">package</td>
+                            </tr>
+                            <tr>
+                                <td class="confluenceTd">branch</td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/check.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/check.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="confluenceTd">statement</td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/check.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/check.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/check.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/check.gif"></span>
+                                    N
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/check.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/check.gif"></span>
+                                    N
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="confluenceTd">method</td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/check.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/check.gif"></span>
+                                    N
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/check.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/check.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/check.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/check.gif"></span>
+                                    N
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="confluenceTd">class</td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/check.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/check.gif"></span>
+                                    N
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/check.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/check.gif"></span>
+                                    N
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/check.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/check.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                    1
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="confluenceTd">file</td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/check.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/check.gif"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="confluenceTd">package</td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                </td>
+                                <td class="confluenceTd"><span
+                                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                                        class="confluence-embedded-image emoticon confluence-external-resource"
+                                        height="16" width="16"
+                                        src="https://jira.atlassian.com/images/icons/emoticons/error.gif"
+                                        data-image-src="https://jira.atlassian.com/images/icons/emoticons/error.gif"></span>
+                                    2
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p><strong>Comments</strong></p>
+                    <p>N - new in Clover 3.2.0<br/> 1 - there are helper methods PackageInfo.getClasses() /
+                        getAllClasses() which returns classes from a package<br/> 2 - there are helper methods
+                        PackageInfo.getClassesIncludingSubPackages() / getAllClassesIncludingSubPackages() searching for
+                        classes in nested packages</p>
+                    <p><strong><br/></strong></p>
+                    <p>From a logical perspective a branch should be nested inside a statement, e.g. &quot;if (a &gt; 5)
+                        ..&quot; has one statement with true and false branches in it. However, due to performance
+                        reasons, branches are kept aside statements, directly under a method. It's planned to add
+                        branches also under a class and a file in one of future Clover releases.</p>
+                    <p> </p>
+                    <p>Since Clover 3.2 it's possible to nest classes inside classes. This can be used to model an inner
+                        class such as:</p>
+                    <div class="code panel pdl" style="border-width: 1px;">
+                        <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">class A {
+  class B { }
+}</pre>
+                        </div>
+                    </div>
+                    <p>Clover does not keep inner classes this way, however. All inner classes are kept directly under a
+                        file. One of the reasons for such approach is a separation of code metrics, i.e. a complexity of
+                        an inner class B does not count to the complexity of a parent class A.</p>
+                    <p> </p>
+                    <p>Clover does not keep anonymous inline classes as a class entity in the model. Instead of this,
+                        methods of an anonymous class are being added to the parent class. This is a legacy issue.</p>
+                    <p>Note that Clover 3.2 keeps lambda functions as classes declared under a method. Due to fact that
+                        lambda functions can be converted to a functional interface and vice versa, we plan to fix it
+                        and make it consistent in a future Clover release. Therefore, anonymous inline classes will have
+                        their own entity in a database model and will be kept under an enclosing method.</p>
+                    <h2 id="DatabaseStructure-JavaAPI">Java API</h2>
+                    <p>Interfaces describing the database structure are located in the <strong>com.atlassian.clover.api.registry</strong>
+                        package (<a href="../../javadoc/4.3.0/index.html"
+                                    rel="nofollow">JavaDoc</a>).</p>
+                    <p>They can be grouped into few categories:</p>
+                    <ul>
+                        <li>basic entities stored in a database are represented by <em>ProjectInfo, PackageInfo,
+                            FileInfo, ClassInfo, MethodInfo, StatementInfo</em> and <em>BranchInfo</em></li>
+                        <li>these entities implement <em>HasPackages, HasFiles, HasClasses, HasMethods,
+                            HasStatements </em>or<em> HasBranches</em> interfaces which allow to navigate to their
+                            children
+                        </li>
+                        <li><em>HasParent, EntityContainer</em> and <em>EntityVisitor</em> allows to get to the parent
+                            entity (note that some entities might have different parent types)
+                        </li>
+                        <li><em>HasMetrics, HasAggregatedMetrics</em> returns information about code metrics</li>
+                        <li>helper interfaces describing data structures such as <em>MethodSignatureInfo, Annotation,
+                            AnnotationValue</em> etc
+                        </li>
+                    </ul>
+                    <p> </p>
+                    <h2 id="DatabaseStructure-ReadingfromaCloverdatabase">Reading from a Clover database</h2>
+                    <p>An example how to read a content of a database.</p>
+                    <p>If you'd like to read a database without coverage, then replace &quot;CloverDatabase.loadWithCoverage(..)&quot; 
+                        by &quot;new CloverDatabase(initstring)&quot;</p>
+                    <div class="code panel pdl" style="border-width: 1px;">
+                        <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">import com.atlassian.clover.CloverDatabase;
+import com.atlassian.clover.CoverageDataSpec;
+import com.atlassian.clover.api.registry.ClassInfo;
+import com.atlassian.clover.api.registry.FileInfo;
+import com.atlassian.clover.api.registry.MethodInfo;
+import com.atlassian.clover.api.registry.PackageInfo;
+import com.atlassian.clover.api.registry.ProjectInfo;
+
+import java.io.PrintStream;
+
+public class SimpleRegistryDumper {
+
+    public static void main(String[] args) throws Exception {
+        if (args.length != 1) {
+            System.err.println(&quot;Usage:&quot;);
+            System.err.println(&quot;java &quot; + SimpleRegistryDumper.class.getName() + &quot; database&quot;);
+        } else {
+            // read clover database together with coverage recording files, use time span=0 (latest build)
+            CloverDatabase db = CloverDatabase.loadWithCoverage(args[0], new CoverageDataSpec());
+            ProjectInfo projectInfo = db.getRegistry().getProject();
+            // print some project details
+            printProject(projectInfo, System.out);
+        }
+    }
+
+    private static void printProject(ProjectInfo db, PrintStream out) {
+       for (PackageInfo packageInfo : db.getAllPackages()) {
+           out.println(&quot;package: &quot; + packageInfo.getName());
+           for (FileInfo fileInfo : packageInfo.getFiles()) {
+               out.println(&quot;\tfile: &quot; + fileInfo.getName());
+               for (ClassInfo classInfo : fileInfo.getClasses()) {
+                   out.println(&quot;\t\tclass: &quot; + classInfo.getName());
+                   for (MethodInfo methodInfo : classInfo.getMethods()) {
+                       out.println(&quot;\t\t\tmethod: &quot; + methodInfo.getName());
+                   }
+               }
+           }
+       }
+    }
+}</pre>
+                        </div>
+                    </div>
+                    <h2 id="DatabaseStructure-WritingtoaCloverdatabase">Writing to a Clover database</h2>
+                    <div class="code panel pdl" style="border-width: 1px;">
+                        <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">import com.atlassian.clover.api.CloverException;
+import com.atlassian.clover.api.instrumentation.InstrumentationSession;
+import com.atlassian.clover.api.registry.FileInfo;
+import com.atlassian.clover.api.registry.MethodInfo;
+import com.atlassian.clover.api.registry.StatementInfo;
+import com.atlassian.clover.context.ContextSet;
+import com.atlassian.clover.registry.Clover2Registry;
+import com.atlassian.clover.registry.FixedSourceRegion;
+import com.atlassian.clover.registry.entities.MethodSignature;
+import com.atlassian.clover.registry.entities.Modifier;
+import com.atlassian.clover.registry.entities.Modifiers;
+import com.atlassian.clover.registry.entities.Parameter;
+import com.atlassian.clover.spi.lang.LanguageConstruct;
+
+import java.io.File;
+import java.io.IOException;
+
+public class SimpleCodeInstrumenter {
+    private Clover2Registry registry;
+    private InstrumentationSession session;
+
+    public SimpleCodeInstrumenter(String initString, String projectName) throws CloverException {
+        try {
+            final File dbFile = new File(initString);
+            registry = Clover2Registry.createOrLoad(dbFile, projectName);
+            if (registry == null) {
+                throw new CloverException(&quot;Unable to create or load clover registry located at: &quot; + dbFile);
+            }
+        } catch (IOException e) {
+            throw new CloverException(e);
+        }
+    }
+
+    public void startInstrumentation(String encoding) throws CloverException {
+        session = registry.startInstr(encoding);
+    }
+
+    public Clover2Registry endInstrumentation(boolean append) throws CloverException {
+        try {
+            session.close();
+            if (append) {
+                registry.saveAndAppendToFile();
+            } else {
+                registry.saveAndOverwriteFile();
+            }
+            return registry;
+        } catch (IOException e) {
+            throw new CloverException(e);
+        }
+    }
+
+    /**
+     * This method should perform the actual instrumentation. On every code construct you find in your
+     * source file(s) being instrumented (such as file, class, method, statement, branch) you shall call
+     * proper handler from InstrumentationSession class in order to record data for a given code entity
+     * in the Clover database.
+     */
+    public void instrument() {
+        // note: there is no need to call session.enterPackage(packageName), it will be called from
+        // session.enterFile(); the same applies to session.exitPackage()
+
+        // example: register a file with attributes such as enclosing package, number of lines, time stamp, checksum
+        String packageName = &quot;com.acme.my.package&quot;;
+        File sourceFile =  new File(&quot;com/acme/my/package/Foo.java&quot;);
+        FileInfo fileInfo = session.enterFile(packageName, sourceFile,
+                200, 100, sourceFile.lastModified(), sourceFile.length(), 3423452);
+
+        // example: register a class (in current file)
+        session.enterClass(&quot;Foo&quot;,                            // class name
+                new FixedSourceRegion(10, 1),                // start row:column
+                Modifiers.createFrom(Modifier.PUBLIC, null), // modifiers and annotations
+                false, false, false);                        // is interface, is enum, is annotation
+
+        // example: add a method to the Foo class
+        MethodSignature methodSignature = new MethodSignature(&quot;helloWorld&quot;, null,  // method name and generic type
+                &quot;void&quot;,                                                            // return type
+                new Parameter[] { new Parameter(&quot;String&quot;, &quot;name&quot;) },               // formal parameters
+                null,                                                              // throws
+                Modifiers.createFrom(Modifier.PROTECTED | Modifier.STATIC, null)); // modifiers
+        MethodInfo methodInfo = session.enterMethod(new ContextSet(),
+                new FixedSourceRegion(12, 1),  // start row:column
+                methodSignature,  // signature
+                false,            // is test method
+                null,             // test name (if different from the method name)
+                false,            // is lambda function
+                5,                // cyclomatic complexity
+                LanguageConstruct.Builtin.METHOD);
+        int methodIndex = methodInfo.getDataIndex(); // use this index in your coverage recorder
+
+        // example: add a statement in the helloWorld method
+        StatementInfo statementInfo = session.addStatement(new ContextSet(),
+                new FixedSourceRegion(13, 1, 13, 44),  // start row:column, end row:column
+                3,                                     // cyclomatic complexity
+                LanguageConstruct.Builtin.STATEMENT);
+        int statementIndex = statementInfo.getDataIndex(); // use this index in your coverage recorder
+
+        // end method, class and a file
+        session.exitMethod(14, 1);  // end row:column
+        session.exitClass(30, 2);   // end row:column
+        session.exitFile();
+    }
+
+    public static void main(String[] args) throws CloverException {
+        if (args.length != 1) {
+            System.err.println(&quot;Usage:&quot;);
+            System.err.println(&quot;java &quot; + SimpleCodeInstrumenter.class.getName() + &quot; database&quot;);
+        } else {
+            SimpleCodeInstrumenter instrumenter = new SimpleCodeInstrumenter(args[0], &quot;MyProject&quot;);
+            instrumenter.startInstrumentation(&quot;UTF-8&quot;);
+            instrumenter.instrument();
+            instrumenter.endInstrumentation(true);
+        }
+    }
+}</pre>
+                        </div>
+                    </div>
+                    <p> </p>
+                    <h2 id="DatabaseStructure-Creatingaglobalcoveragerecordingfile">Creating a global coverage recording
+                        file</h2>
+                    <p>In addition to the Clover database, which holds information about code structure, you need also
+                        to generate a global coverage recording file. It keeps information about hit counts for every
+                        code element registered in a database (i.e. how many times given method/statement/branch was
+                        executed).</p>
+                    <div class="code panel pdl" style="border-width: 1px;">
+                        <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">import com.atlassian.clover.api.CloverException;
+import com.atlassian.clover.recorder.FileBasedGlobalCoverageRecording;
+import com.atlassian.clover.registry.Clover2Registry;
+import com_atlassian_clover.Clover;
+
+import java.io.File;
+import java.io.IOException;
+
+public class GlobalCoverageFileGenerator {
+
+    private static void convertCoverage(final Clover2Registry registry) throws IOException {
+        // TODO fill this array with hit counts, e.g. from another coverage tool
+        int[] elements = { 1, 2, 3, 4, 5 };
+        // note: should be &gt;= from registry.getVersion() otherwise will be discarded as outdated
+        long coverageTS = registry.getVersion();
+        // generate global recording file name (&lt;clover.db&gt;&lt;randomhash&gt;_&lt;timestamp&gt;)
+        String recname = Clover.getRecordingName(12345, registry.getRegistryFile().getAbsolutePath(), coverageTS);
+
+        // create global coverage file
+        flushToDisk(recname, registry.getVersion(), coverageTS, elements);
+    }
+
+    /**
+     * @param dbname name of the coverage recording file
+     * @param dbversion database timestamp
+     * @param writeTS coverage file timestamp
+     * @param elements an array with hit counts
+     */
+    private static void flushToDisk(final String dbname, long dbversion, long writeTS, int[] elements) throws IOException {
+        new FileBasedGlobalCoverageRecording(dbname, dbversion, writeTS, new int[][] {elements}, elements.length).write();
+    }
+
+    public static void main(String[] args) throws IOException, CloverException {
+        final Clover2Registry registry = Clover2Registry.fromFile(new File(&quot;clover.db&quot;));
+        convertCoverage(registry);
+    }
+}</pre>
+                        </div>
+                    </div>
+                    <div class="confluence-information-macro confluence-information-macro-information"><span
+                            class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                        <div class="confluence-information-macro-body"><p>You can find these code samples on <a
+                                 href="https://github.com/openclover/clover-examples"
+                                rel="nofollow">https://github.com/openclover/clover-examples</a>.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="attachments/420972456/420807282.graphml">clover_database_model.graphml</a>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

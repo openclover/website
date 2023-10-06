@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : 3. Exploration of test results in Eclipse</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="eclipse--overview.html">Clover-for-Eclipse</a></span>
+                    </li>
+                    <li>
+                        <span><a href="eclipse--user-guide.html">Clover-for-Eclipse User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            3. Exploration of test results in Eclipse
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p> </p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813720185 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813720185 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813720185 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813720185'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#id-3.ExplorationoftestresultsinEclipse-TestRunExplorer'>Test Run Explorer</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#id-3.ExplorationoftestresultsinEclipse-ActionsandMenus'>Actions and
+                                    Menus</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#id-3.ExplorationoftestresultsinEclipse-TestContributions'>Test Contributions</a>
+                        </li>
+                    </ul>
+                </div>
+                </p><p> </p>
+                <h1 id="id-3.ExplorationoftestresultsinEclipse-TestRunExplorer">Test Run Explorer</h1>
+                <p>The Test Run Explorer view, like several popular plugins such as the JUnit Plugin or TestNG Plugin,
+                    lets you explore your recently run tests - showing whether they passed or failed, their duration and
+                    any error messages that they generated. Clover-for-Eclipse takes this one step further and allows
+                    you to explore the code coverage caused by an individual test, a test class, a package or even your
+                    entire project.</p>
+                <p>After running tests in a Clover-enabled project, select the Test Run Explorer view (or to open it,
+                    select <em>Window &gt; Show Views &gt; Other... &gt; Clover &gt; Test Run Explorer</em>). On the
+                    left-hand side of this view you will see a tree of tests that were run and their containers such as
+                    classes, packages, projects. On selecting an element on the left-hand side, the right-hand side
+                    displays all the application (i.e. non-test) classes that had coverage caused by the selection.</p>
+                <p>For example, selecting a test method on the left side will cause the right-hand side to show the
+                    application classes with code executed (directly or indirectly) by that test method. Selecting a
+                    test class or test package will cause the right-hand side to show application classes with code
+                    executed by all the test methods contained by the test classes or test package.</p>
+                <p>The right-hand table displays not only the names of the classes that were partially or fully covered
+                    by the test methods, but also the percentage of class' total coverage that is attributable to the
+                    test method (the test method's coverage contribution) as well as the percentage of the class'
+                    coverage that was attributable only to the selected test method (the test method's unique
+                    coverage).</p>
+                <p>The tree of tests and their containers on the left-hand tree can be presented in three different ways
+                    for maximum convenience:</p>
+                <ol>
+                    <li><p>Test Cases: shows &quot;Project &gt; Test Methods&quot; (qualified with Test Class names)</p>
+                    </li>
+                    <li>Packages : shows &quot;Project &gt; Package &gt; Test Class &gt; Test Methods&quot; layout</li>
+                    <li>Source Roots: shows &quot;Project &gt; Source Root &gt; Package &gt; Test Class &gt; Test
+                        Methods&quot; layout
+                    </li>
+                </ol>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667011/301007773.png"
+                                                                       data-image-src="attachments/297667011/301007773.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301007773"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="test_run_explorer_view.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667011"
+                                                                       data-linked-resource-container-version="10"></span>
+                </p>
+                <p> </p><h4 id="id-3.ExplorationoftestresultsinEclipse-ActionsandMenus">Actions and Menus</h4>
+                <p>The Test Run Explorer view allows the following actions (from the view toolbar, menu or both):</p>
+                <ul>
+                    <li><strong>Enable/Disable Clover On...</strong> Allows you to select multiple project to enable or
+                        disable Clover for. This allows you, for example, to quickly turn Clover on for all projects in
+                        your workspace in one action.
+                    </li>
+                    <li><strong>Refresh Coverage Data</strong>. Re-loads from disk the Clover coverage data for the
+                        selected project.
+                    </li>
+                    <li><strong>Delete Coverage Recordings</strong>. Deletes the coverage recording data recorded from
+                        test runs or applications runs for the selected project.
+                    </li>
+                    <li><strong>Clear Snapshot</strong> Deletes the <a
+                            href="eclipse--test-optimization.html"
+                            rel="nofollow">Test Optimization</a> snapshot file
+                    </li>
+                    <li><strong>Compiled with Clover</strong>. Toggles the use of Clover instrumentation when Eclipse
+                        compiles the selected Java project.
+                    </li>
+                    <li><strong>Edit Context Filter.</strong>.. Allows you to edit the block and custom coverage
+                        'contexts' used to help you filter out unwanted coverage data. An explanation of what contexts
+                        are can be found <a href="ant--using-coverage-contexts.html">here</a>.<br/><br/></li>
+                    <li><strong>Generate Coverage Treemap</strong>. Generates a mini report page in treemap format for
+                        the selected project. This report arranges package and classes enabling easy comparison of their
+                        complexity while also indicating their level of code coverage.
+                    </li>
+                    <li><strong>Generate Coverage Cloud</strong>. Generates a report page in cloud tag format for the
+                        selected project. This lists classes considered project risks or quick wins.
+                    </li>
+                    <li><strong>Coverage Reports &gt; Run new report</strong>... Launches the report generation wizard
+                        that will take you through the steps required to generate a PDF, HTML or XML. These reports can
+                        be generated for single or multiple projects.
+                    </li>
+                    <li><strong>Coverage Reports &gt; View report  </strong>Browse recently generated
+                        reports<strong>.<br/><br/></strong></li>
+                    <li><strong>Layout &gt; Test cases</strong>  Shows &quot;Project &gt; Test Methods&quot; layout</li>
+                    <li><strong>Layout &gt; Packages</strong>  Shows &quot;Project &gt; Package &gt; Test Class &gt;
+                        Test Methods&quot; layout
+                    </li>
+                    <li><strong>Layout &gt; Source roots</strong>  Shows &quot;Project &gt; Source Root &gt; Package
+                        &gt; Test Class &gt; Test Methods&quot; layout<br/><br/></li>
+                    <li><strong>Coverage in Editors &gt; Show All</strong>. Shows red/green coverage areas in open Java
+                        editors. This is useful for finding out exactly which parts of the code are being covered.
+                    </li>
+                    <li><strong>Coverage in Editors &gt; Show Uncovered</strong>. Shows only red (uncovered) areas in
+                        open Java editors. This is useful for finding out exactly which parts of the code are not being
+                        covered while not cluttering your editor with the overwhelming large green areas (covered code).
+                    </li>
+                    <li><strong>Coverage in Editors &gt; Show None</strong>. Hides all red/green coverage areas in open
+                        Java editors.
+                    </li>
+                    <li><strong>Include passed only</strong> If enabled, code coverage from failed tests will not be
+                        taken into account. 
+                    </li>
+                    <li><strong>Show exclusion annotations</strong> If enabled, draws small Clover icons in the Package
+                        Explorer view for every source file, indicating whether it's included or excluded from
+                        instrumentation.<br/><br/></li>
+                    <li><strong>Enable Clover Working Set</strong>. Enables or disables usage of the Clover working set.
+                        This filters the files, directories and projects that Clover will report on and are especially
+                        handy for large projects.
+                    </li>
+                    <li><strong>Edit Clover Working Set...</strong> Allows you to edit the files, directories and
+                        projects in the Clover working set.
+                    </li>
+                    <li><strong>Clear Clover Working Set.</strong> Removes all files, directories and projects from the
+                        Clover working set.<br/><br/></li>
+                    <li><strong>About</strong> Shows information about Clover version, copyright and licenses.</li>
+                </ul>
+                <p> </p>
+                <p>Note that double-clicking on any element in left or right pane will navigate you directly to the
+                    source code.</p>
+                <h1 id="id-3.ExplorationoftestresultsinEclipse-TestContributions">Test Contributions</h1>
+                <p>The Test Contributions view shows unit tests and methods that generated coverage for the currently
+                    opened and selected Java source file. As you switch between Java source file editors, the top most
+                    tree is updated with the test methods that contributed to coverage of this file. Clicking on the any
+                    of the tests and their methods will take you to their associated source. Unchecking a test or test
+                    method will remove the coverage it provides from the open source file. The bottom tree tracks the
+                    test methods that contributed to coverage of the file at the current cursor position.</p>
+                <p>The Test Contributions view allows you to better understand the relationship between your test code
+                    and your application code as you move between Java source files.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/297667011/301007774.png"
+                                                                       data-image-src="attachments/297667011/301007774.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="301007774"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="eclipse_test_contributions_view.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="297667011"
+                                                                       data-linked-resource-container-version="10"></span>
+                </p>
+                <p> </p>
+                <hr/>
+                <p>You have already learned how to navigate through code coverage and test results. But don't you have a
+                    feeling that your coverage reports could be more accurate when focused on <em>really </em>important
+                    areas of application? If you do so, don't hesitate to read <a
+                            href="eclipse--scope-of-instrumentation.html">4. Scope of instrumentation in
+                        Eclipse</a> to learn how to configure instrumentation scope from whole projects down to a single
+                    line of code.</p>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

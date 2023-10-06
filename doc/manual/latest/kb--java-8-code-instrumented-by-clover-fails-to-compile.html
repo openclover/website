@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Java 8 code instrumented by Clover fails to compile</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a
+                                href="kb--troubleshooting-compilation.html">Troubleshooting Compilation</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Java 8 code instrumented by Clover fails to compile
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="Java8codeinstrumentedbyCloverfailstocompile-Symptoms">Symptoms</h4>
+                <p>Compilation of Java 8 code instrumented by Clover fails when a lambda expression is passed as an
+                    argument of a generic method.</p>
+                <p> </p><h4 id="Java8codeinstrumentedbyCloverfailstocompile-Example#1-overloadedgenericmethods">Example
+                #1 - overloaded generic methods</h4>
+                <p>For the following code</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">public class LambdaAndGenerics {
+    static interface Predicate&lt;T&gt; {
+        boolean test(T t);
+    }
+
+    static class Fails {
+        void start() {
+            System.out.println(goo(e -&gt; false)); // COMPILER ERRORS &quot;reference to goo is ambiguous&quot; + &quot;cannot infer type variables&quot;
+        }
+        &lt;N&gt; String goo(Class&lt;N&gt; arg) {
+            return &quot;Fails class: &quot; + arg;
+        }
+        &lt;M&gt; String goo(Predicate&lt;M&gt; arg) {
+            return &quot;Fails predicate: &quot; + arg.test(null);
+        }
+    }
+    public static void main(String[] args) {
+        new Fails().start();
+    }
+}</pre>
+                    </div>
+                </div>
+                <p>compiler fails with:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>java: reference to goo is ambiguous
+  both method &lt;N&gt;goo(java.lang.Class&lt;N&gt;) in LambdaAndGenerics.Fails and method &lt;M&gt;goo(LambdaAndGenerics.Predicate&lt;M&gt;) in LambdaAndGenerics.Fails match
+
+java: incompatible types: cannot infer type-variable(s) I,T
+    (argument mismatch; java.lang.Class is not a functional interface)</pre>
+                    </div>
+                </div>
+                <h4 id="Java8codeinstrumentedbyCloverfailstocompile-Example#2-Java8streams">Example #2 - Java 8
+                    streams</h4>
+                <p>The following code:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">public static List&lt;String&gt; testMapAndCollectBounds(List&lt;String&gt; input) {
+    return input.stream()
+            .map(e -&gt; e.toUpperCase())
+            .collect(Collectors.toList());
+}</pre>
+                    </div>
+                </div>
+                <p>fails with a compilation error:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>incompatible types: inference variable T has incompatible bounds
+equality constraints: java.lang.String
+lower bounds: java.lang.Object</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>The following code:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">public static Stream&lt;String&gt; testMapAndFilterBounds(List&lt;String&gt; input) {
+    return input.stream()
+            .map(e -&gt; e.toUpperCase())
+            .filter(e -&gt; !e.isEmpty());
+}</pre>
+                    </div>
+                </div>
+                <p>fails with a compilation error:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>incompatible types: java.util.stream.Stream&lt;java.lang.Object&gt; cannot be converted to java.util.stream.Stream&lt;java.lang.String&gt;</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="Java8codeinstrumentedbyCloverfailstocompile-Cause">Cause</h4>
+                <p>In case of example #1 it's a bug (aka technical limitation) in Oracle's javac compiler which fails to
+                    perform type inference for several nested generic types or methods. Roughly speaking, due to
+                    performance reasons, a compiler performs simplified method matching:</p>
+                <ul>
+                    <li>in a first step it tries to match all methods with a given name, no matter of their signature to
+                        the lambda expression (i.e. it ignores overloading)
+                    </li>
+                    <li>in a second step it selects a method which fits the best (i.e. taking the one with the most
+                        narrow type)
+                    </li>
+                </ul>
+                <p>In means that a compiler fails if you have two (or more) overloaded methods and one (or more) of them
+                    does have a functional interface argument, while others don't have.</p>
+                <p> </p>
+                <p>In case of example #2 this relates with a fact how type of a lambda expression or type of a method
+                    reference are being resolved by the compiler. See <a
+                                                                         href="http://docs.oracle.com/javase/specs/jls/se8/jls8.pdf"
+                                                                         rel="nofollow">Java Language Specification</a>,
+                    chapters <em>&quot;15.13 Method Reference Expressions&quot;</em> and <em>&quot;15.27 Lambda
+                        Expressions&quot;</em> for more details. Due to a fact that an original lambda is being wrapped
+                    into Clover's helper method having a signature like this:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;I, T extends I&gt; I lambdaInc(int index, T lambda, int stmtIndex)
+</pre>
+                    </div>
+                </div>
+                <p>this may cause problems when used with generic method having wildcards, such as:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">stream()
+    .map(...)       // &lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper)
+    .collect(...)   // &lt;R&gt; R collect(Supplier&lt;R&gt; supplier, BiConsumer&lt;R, ? super T&gt; accumulator, BiConsumer&lt;R, R&gt; combiner)</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="Java8codeinstrumentedbyCloverfailstocompile-Resolution">Resolution</h4>
+                <p>1) Change a lambda function from an expression to a code block, e.g.:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">// expression lambda
+System.out.println(goo(e -&gt; false));
+// block lambda
+System.out.println(goo(e -&gt; { return false; }));</pre>
+                    </div>
+                </div>
+                <p><em>Clover uses different instrumentation for these two lambda forms, so a type inference error will
+                    not occur for a lambda block.</em></p>
+                <p> </p>
+                <p>2) Or disable instrumentation of lambda functions declared as expressions (since Clover 3.2.2).</p>
+                <p><em>Use instrumentLambda = &quot;all_but_reference&quot;, &quot;block&quot; or &quot;none&quot;</em>
+                </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Ant - build.xml</b>
+                    </div>
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+                             data-theme="Confluence"> &lt;clover-setup instrumentLambda=&quot;block&quot;/&gt;</pre>
+                    </div>
+                </div>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Maven - pom.xml</b>
+                    </div>
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;configuration&gt;
+   &lt;instrumentLambda&gt;block&lt;/instrumentLambda&gt;
+&lt;/configuration&gt;</pre>
+                    </div>
+                </div>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Grails -
+                        BuildConfig.groovy</b></div>
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
+     data-theme="Confluence">clover {
+   instrumentLambda = &quot;block&quot;
+} </pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>Eclipse:</p>
+                <p>Open &quot;Project Properties &quot;&gt; &quot;Clover&quot; page &gt; &quot;Instrumentation&quot;
+                    tab. In the &quot;Miscellaneous&quot; box select proper value in &quot;Instrument lambda functions&quot;
+                    drop-down.</p>
+                <p> </p>
+                <p>IntelliJ IDEA:</p>
+                <p>Open &quot;File&quot; &gt; &quot;Settings&quot; &gt; &quot;Project Settings&quot; &gt; &quot;Clover&quot;
+                    page &gt; &quot;Compilation&quot; tab. In the &quot;Miscellaneous&quot; box select proper value in
+                    &quot;Instrument lambda functions&quot; drop-down. </p>
+                <p> </p>
+                <p>3) Or surround a lambda by ///CLOVER:OFF and ///CLOVER:ON comments, e.g.:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">... some code ...
+///CLOVER:OFF
+System.out.println(goo(e -&gt; false));
+///CLOVER:ON 
+... some code ...</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>4) Or rename a method which does not have an argument of functional interface type (example #1),
+                    e.g.:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">static class Works {
+    void start() {
+        System.out.println(goo(e -&gt; false));
+    }
+    &lt;M&gt; String goo(Predicate&lt;M&gt; arg) {
+        return &quot;goo: &quot; + arg.test(null);
+    }
+    &lt;M&gt; String goo(SomeFunctionalInterface&lt;M&gt; arg) {
+        return &quot;goo: &quot; + arg.run(null);
+    }
+    &lt;N&gt; String notAGoo(Class&lt;N&gt; arg) { // this is not a functional interface
+       return &quot;Class: &quot; + arg;
+    }
+}</pre>
+                    </div>
+                </div>
+                <p>5) Since Clover 4.0.5 heuristics are applied to rewrite lambda expressions in <em>JDK Stream's</em> and <em>Guava
+                    classes'</em> methods into a block form. More details here: <a
+                        href="ant--lambda-rewriting-heuristics.html">Lambda
+                    rewriting heuristics</a>. Try upgrading to Clover 4.0.5 and/or use <code>instrumentLambda=&quot;expression&quot;</code> or <code>instrumentLambda=&quot;all_but_references&quot;</code>.
+                </p><h4 id="Java8codeinstrumentedbyCloverfailstocompile-Bugtracker">Bug tracker</h4>
+                <p>
+    <span class="jira-issue" data-issue-key="CLOV-1465">
+                <a href="https://jira.atlassian.com/browse/CLOV-1465?src=confmacro" class="jira-issue-key"><img
+                        class="icon"
+                        src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51500&amp;avatarType=issuetype"/>CLOV-1465</a>
+                    -
+            <span class="summary">Instrumentation of expression-like lambdas with no compilation errors in all cases</span>
+                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-complete jira-macro-single-issue-export-pdf">Open</span>
+            </span>
+                </p>
+                <p>
+    <span class="jira-issue resolved" data-issue-key="CLOV-1596">
+                <a href="https://jira.atlassian.com/browse/CLOV-1596?src=confmacro" class="jira-issue-key"><img
+                        class="icon"
+                        src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51493&amp;avatarType=issuetype"/>CLOV-1596</a>
+                    -
+            <span class="summary">Use heuristics to solve JDK8 Stream compilation errors</span>
+                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-success jira-macro-single-issue-export-pdf">Closed</span>
+            </span>
+                </p>
+                <p>
+    <span class="jira-issue" data-issue-key="CLOV-1762">
+                <a href="https://jira.atlassian.com/browse/CLOV-1762?src=confmacro" class="jira-issue-key"><img
+                        class="icon"
+                        src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51493&amp;avatarType=issuetype"/>CLOV-1762</a>
+                    -
+            <span class="summary">Instrumentation of method references with no compilation errors</span>
+                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-complete jira-macro-single-issue-export-pdf">Open</span>
+            </span>
+                </p>
+                <p> </p><!--$body-->
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

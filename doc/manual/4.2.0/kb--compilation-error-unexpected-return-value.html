@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compilation error with Clover enabled - unexpected return value</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a
+                                href="kb--troubleshooting-compilation.html">Troubleshooting Compilation</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Compilation error with Clover enabled - unexpected return value
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="CompilationerrorwithCloverenabled-unexpectedreturnvalue-Symptoms">Symptoms</h4>
+                <p>Clover-instrumented code fails to compile with a following error:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">src/LambdaAndStreams.java:75: error: incompatible types: bad return type in lambda expression
+				mapClass.map((internalMap) -&gt; {__CLR4_0_500ibutb8q0.R.inc(50);return internalMap.put(&quot;some&quot;, &quot;some&quot;);});
+                                                                                                                   ^
+    unexpected return value
+1 error</pre>
+                    </div>
+                </div>
+                <p> </p><h4 id="CompilationerrorwithCloverenabled-unexpectedreturnvalue-Cause">Cause</h4>
+                <p>Since version 4.0.5, Clover tries to resolve some compilation errors listed <a
+                        href="kb--java-8-code-instrumented-by-clover-fails-to-compile.html">here</a> by rewriting some of lambda expressions to lambda blocks. Clover looks
+                    for JDK <code>java.util.stream.Stream's</code> and some of <code>Guava</code> classes' with lambda
+                    expression as an argument and rewrites them into a lambda block. However, if the lambda passed as
+                    argument returns void, it will cause a compilation error:</p>
+                <p>For example, a lambda expression:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                             data-theme="Confluence">myList.map((a) -&gt; System.out.println(&quot;Hello: &quot; + a))</pre>
+                    </div>
+                </div>
+                <p>will be rewritten as follows:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+                             data-theme="Confluence">myList.map((a) -&gt; { return System.out.println(&quot;Hello: &quot; + a);}) </pre>
+                    </div>
+                </div>
+                <p>The full list of methods which are affected can be found <a
+                        href="ant--lambda-rewriting-heuristics.html">here</a></p>
+                <h4 id="CompilationerrorwithCloverenabled-unexpectedreturnvalue-Solution"><span
+                        style="color: rgb(0,0,0);">Solution </span></h4>
+                <p><span style="color: rgb(0,0,0);">1) Please use <code>CLOVER:VOID</code> directive to instruct Clover that this specific lambda does not return a value, as follows:</span>
+                </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">(a) -&gt; /*CLOVER:VOID*/ System.out.println(&quot;Hello: &quot; + a)
+
+or
+
+(a) -&gt; //CLOVER:VOID
+		System.out.println(&quot;Hello: &quot; + a)</pre>
+                    </div>
+                </div>
+                <p>2) Alternatively, you can disable instrumentation of lambda functions (use instrumentLambda = block
+                    or none).</p>
+                <p> <!--$body--></p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

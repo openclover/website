@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Java- Scala cross-compilation error - cannot find symbol</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="kb--index.html">Clover Knowledge Base</a></span>
+                    </li>
+                    <li>
+                        <span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li>
+                        <span><a
+                                href="kb--troubleshooting-compilation.html">Troubleshooting Compilation</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Java- Scala cross-compilation error - cannot find symbol
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h4 id="Java-Scalacross-compilationerror-cannotfindsymbol-Symptoms">Symptoms</h4>
+                <p>Running Clover with mixed Java-Scala project having cross-dependencies between Java and Scala
+                    classes, results in compiler complaining about missing Scala classes:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>[ERROR] /project/target/clover/src-instrumented/test/java/HelloJavaWorld.java:3: error: package test.scala does not exist
+[ERROR] import test.scala.HelloScalaProvider;
+[ERROR]                  ^
+[ERROR] /project/target/clover/src-instrumented/test/java/HelloJavaWorld.java:8: error: cannot find symbol
+[ERROR]         __CLR4_0_422ic5u5wnb.R.inc(3);final String provide = HelloScalaProvider.provide();
+[ERROR]                                                              ^
+[ERROR]   symbol:   variable HelloScalaProvider
+[ERROR]   location: class HelloJavaWorld
+[ERROR] 2 errors</pre>
+                    </div>
+                </div>
+                <h4 id="Java-Scalacross-compilationerror-cannotfindsymbol-Cause">Cause</h4>
+                <p>Typically, project structure looks like this:</p>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+<pre>project/
+    src/
+        main/
+            java/
+            scala/
+        test/
+            java/
+            scala/</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>Normally, Scala plugin looks for *.scala files in compilation source roots directory (here in <code>src/*/scala</code>). 
+                    However, when Clover is enabled, it:</p>
+                <ul>
+                    <li>instruments *.java files from original source roots and writes them to the <em>target/clover/src-(test-)instrumented</em>
+                        folders
+                    </li>
+                    <li>next it copies all other files from original source roots to <em>target/clover/src-(test-)instrumented</em>
+                        folders (to ensure that resource files won't be missing etc)
+                    </li>
+                    <li>next it removes original source roots and sets <em>target/clover/src-(test-)instrumented</em> as
+                        new roots
+                    </li>
+                </ul>
+                <p>Because of this, when Scala compiler runs, it can't find *.scala files.</p>
+                <p> </p><h4 id="Java-Scalacross-compilationerror-cannotfindsymbol-Resolution">Resolution</h4>
+                <p>Configure <code>build-helper-maven-plugin</code> to add Scala directories to compile source roots.
+                    Example: </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;build&gt;
+  &lt;plugins&gt;
+	&lt;plugin&gt;
+    	&lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+	    &lt;artifactId&gt;build-helper-maven-plugin&lt;/artifactId&gt;
+	    &lt;version&gt;1.9.1&lt;/version&gt;
+	    &lt;executions&gt;
+	        &lt;execution&gt;
+	            &lt;id&gt;add-source&lt;/id&gt;
+	            &lt;phase&gt;validate&lt;/phase&gt;
+	            &lt;goals&gt;
+	                &lt;goal&gt;add-source&lt;/goal&gt;
+	            &lt;/goals&gt;
+	            &lt;configuration&gt;
+	                &lt;sources&gt;
+    	                &lt;source&gt;src/main/scala&lt;/source&gt;
+        	        &lt;/sources&gt;
+	            &lt;/configuration&gt;
+    	    &lt;/execution&gt;
+	        &lt;execution&gt;
+	            &lt;id&gt;add-test-source&lt;/id&gt;
+	            &lt;phase&gt;validate&lt;/phase&gt;
+	            &lt;goals&gt;
+	                &lt;goal&gt;add-test-source&lt;/goal&gt;
+	            &lt;/goals&gt;
+	            &lt;configuration&gt;
+	                &lt;sources&gt;
+    	                &lt;source&gt;src/test/scala&lt;/source&gt;
+        	        &lt;/sources&gt;
+	            &lt;/configuration&gt;
+    	    &lt;/execution&gt;
+         &lt;/executions&gt;
+	&lt;/plugin&gt;
+  &lt;/plugins&gt;
+&lt;/build&gt;</pre>
+                    </div>
+                </div>
+                <div class="confluence-information-macro confluence-information-macro-warning"><span
+                        class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Since Scala is not supported, code coverage will
+                        be reported only for Java classes
+                        <span class="jira-issue" data-issue-key="CLOV-932">
+                <a href="https://jira.atlassian.com/browse/CLOV-932?src=confmacro" class="jira-issue-key"><img
+                        class="icon"
+                        src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51497&amp;avatarType=issuetype"/>CLOV-932</a>
+                    -
+            <span class="summary">Provide support for the Scala language</span>
+                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-complete jira-macro-single-issue-export-pdf">Open</span>
+            </span>
+                        .</p></div>
+                </div>
+                <p> </p>
+                <p> </p><!--$body-->
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

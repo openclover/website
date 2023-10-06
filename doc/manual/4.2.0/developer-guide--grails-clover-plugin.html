@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : Grails Clover Plugin Developer Guide</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="developer-guide.html">Clover Development Hub</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Grails Clover Plugin Developer Guide
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <h2 style="margin-left: 0.0px;" id="GrailsCloverPluginDeveloperGuide-Preconditions">Preconditions</h2>
+                <ul style="margin-left: 0.0px;">
+                    <li style="margin-left: 0.0px;">Install Grails <strong>2.0.4</strong> and set $GRAILS_HOME <br/>
+                        <ul>
+                            <li style="margin-left: 0.0px;">the minimum Grails version required to run the plugin is
+                                2.0.0 (see CloverGrailsPlugin.groovy)
+                            </li>
+                            <li style="margin-left: 0.0px;">the compilation and deployment of the plugin is done using
+                                2.0.4 (see application.properties)
+                            </li>
+                        </ul>
+                    </li>
+                    <li style="margin-left: 0.0px;">Set JAVA_HOME to <strong>JDK 1.6+</strong> (otherwise you'll end up
+                        with <em>java.lang.NoClassDefFoundError: org.codehaus.gant.GantBuilder</em> error)
+                    </li>
+                    <li style="margin-left: 0.0px;">Clone the repository:</li>
+                </ul>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>git clone ssh://git@github.com/openclover/grails-clover-plugin.git</pre>
+                    </div>
+                </div>
+                <h2 id="GrailsCloverPluginDeveloperGuide-Buildandtest">Build and test</h2>
+                <p>To build the plugin and to run unit tests type:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">grails package-plugin
+grails test-app</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>To run integration tests:</p>
+                <ol>
+                    <li><p>Install the artefact</p>
+                        <div class="preformatted panel" style="border-width: 1px;">
+                            <div class="preformattedContent panelContent">
+                                <pre>grails test maven-install # it puts zip into local Maven cache ~/.m2</pre>
+                            </div>
+                        </div>
+                        <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
+                                data-emoticon-name="light-on" alt="(lightbulb)"/> <span>By default maven-install and publish-plugin targets are switching environment context to &quot;production&quot; and our CloverGrailsPlugin.groovy has </span><em>def
+                            environment = [&quot;test&quot;]</em><span> declared. Therefore you have to force switch of environment context by &quot;grails test ...&quot;, otherwise a build fails.</span>
+                        </p>
+                        <p> </p></li>
+                    <li>Test it against the enclosed Grails test applications located in /testcases directory.
+                        <ol>
+                            <li><p>Update Clover plugin number in <em style="background-color: transparent;">&lt;grails&gt;</em><span
+                                    style="background-color: transparent;">/testcases/</span><em
+                                    style="background-color: transparent;">&lt;project&gt;</em><span
+                                    style="background-color: transparent;">/grails-app/conf/BuildConfig.groovy, e.g.:<br/></span>
+                            </p>
+                                <div class="preformatted panel" style="border-width: 1px;">
+                                    <div class="preformattedContent panelContent">
+<pre>plugins {
+    build &quot;:clover:4.2.0&quot;
+}</pre>
+                                    </div>
+                                </div>
+                            </li>
+                            <li><p><span style="background-color: transparent;">Switch to proper Grails version - set GRAILS_HOME and PATH variables according to test project's settings.</span>
+                            </p></li>
+                            <li><p><span style="background-color: transparent;">Change directory to <em>&lt;grails&gt;/testcases/&lt;project_name&gt;</em> and run<br/></span>
+                            </p>
+                                <div class="preformatted panel" style="border-width: 1px;">
+                                    <div class="preformattedContent panelContent">
+                                        <pre>grails test-app -clover.on</pre>
+                                    </div>
+                                </div>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+                <h2 id="GrailsCloverPluginDeveloperGuide-Creatingapullrequest">Creating a pull request</h2>
+                <p>In case you'd like to have your changes included in the official release:</p>
+                <ol>
+                    <li>Fork <a  href="https://github.com/openclover/grails-clover-plugin"
+                                rel="nofollow">grails-clover-plugin</a> repository and clone the fork into
+                        your workstation. 
+                    </li>
+                    <li>Implement the change (also write unit or integration tests). Commit changes.</li>
+                    <li>Create a pull request for <a
+                                                     href="https://github.com/openclover/grails-clover-plugin"
+                                                     rel="nofollow">grails-clover-plugin</a> project
+                        <ol>
+                            <li>Ensure any new features / configuration options are documented in the pull request
+                                description.
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+                <h2 id="GrailsCloverPluginDeveloperGuide-Releaseandpublish">Release and publish</h2>
+                <p>In case you'd like to build a new release on your own:</p>
+                <p><strong>Preconditions</strong></p>
+                <p>You must be a member of the Grails Plug-in Development team:</p>
+                <ul>
+                    <li>register at  <a  href="http://grails.org/register"
+                                        rel="nofollow">http://<span class="il">grails</span>.org/register</a></li>
+                    <li><span>get permission to write to the Grails Central release repository; s</span><span>ee </span><a
+                             href="http://grails.org/Creating+Plugins" rel="nofollow"
+                            style="text-decoration: underline;">http://grails.org/Creating+Plugins</a></li>
+                    <li>get write permissions in <a
+                                                    href="https://github.com/openclover/grails-clover-plugin"
+                                                    rel="nofollow">grails-clover-plugin</a><span> Git </span>repository
+                    </li>
+                    <li>create an account on Grails Wiki in order to edit the <a
+                                                                                 href="http://grails.org/plugins/clover"
+                                                                                 rel="nofollow">http://grails.org/plugins/clover</a> page
+                    </li>
+                    <li><p>add the following in <strong>~/.grails/settings.groovy</strong>:</p>
+                        <div class="preformatted panel" style="border-width: 1px;">
+                            <div class="preformattedContent panelContent">
+<pre>grails.project.repos.grailsCentral.username = &quot;YOUR_GRAILS_ORG_LOGIN&quot;
+grails.project.repos.grailsCentral.password = &quot;YOUR_GRAILS_ORG_PASSWORD&quot;</pre>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <p><strong>Steps</strong></p>
+                <ol>
+                    <li>Increment the version number in <em>&lt;grails&gt;</em>/CloverGrailsPlugin.groovy<span
+                            style="color: rgb(128,128,128);"> </span>and commit this, e.g. <br/>    def version = &quot;<strong>4.2.0</strong>&quot;
+                    </li>
+                    <li>Update <em>&lt;grails&gt;</em>/grails-app/conf/BuildConfig.groovy and change the version of
+                        Clover Core required (if necessary), e.g.<br/>    core.version =
+                        'org.openclover:clover:<strong>4.2.0</strong>'
+                    </li>
+                    <li><span>Build the plugin via:</span><br/><span>    </span><strong>grails
+                        package-plugin</strong><br/><span>    </span><strong>grails test
+                        maven-install</strong><strong> </strong></li>
+                    <li>Test it against the enclosed Grails test applications located in /testcases directory</li>
+                    <li><span>Create a tag for new version, e.g:</span><br/><span>    </span><strong>git tag
+                        grails-clover-plugin-4.2.0</strong><br/><span>and push code changes:</span><br/><span>    </span><strong>git
+                        push</strong></li>
+                    <li>Push the plugin to Grails Central via:<strong><br/><strong>    grails test
+                        publish-plugin</strong><span> </span><strong>--plain-output --verbose</strong></strong></li>
+                    <li>Test that the zip has been pushed to the Grails Central and exists at: <a
+                                                                                                  href="http://grails.org/plugin/clover"
+                                                                                                  rel="nofollow">http://grails.org/plugin/clover</a> and
+                        is being listed via:<br/><strong>    grails list-plugins</strong><br/>   <img
+                                class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
+                                data-emoticon-name="light-on" alt="(lightbulb)"/>You may have to wait few minutes before
+                        it becomes visible; if not - contact <a
+                                                                href="mailto:dev@grails.codehaus.org" rel="nofollow">dev@grails.codehaus.org</a>
+                    </li>
+                    <li>Test that plugin can be installed, e.g.: <br/><strong>    grails install-plugin clover
+                        4.2.0<br/></strong>    <img class="emoticon emoticon-light-on"
+                                                    src="images/icons/emoticons/lightbulb_on.png"
+                                                    data-emoticon-name="light-on" alt="(lightbulb)"/> <span
+                            style="background-color: transparent;">Make sure that clover-X.Y.Z.zip </span><span
+                            style="color: rgb(128,128,128);"> </span><span style="background-color: transparent;">is not available locally in ~/.m2, ~/.ivy2, ~/.grails/X.Y.Z/*, ~/.grails/ivy_cache to check that it indeed downloads from Grails Central and not your cache.</span>
+                    </li>
+                    <li>Update plugin's documentation on <a  href="http://grails.org/plugin/clover"
+                                                            rel="nofollow" style="background-color: transparent;">http://grails.org/plugin/clover</a>.
+                    </li>
+                </ol>
+                <h2 id="GrailsCloverPluginDeveloperGuide-Binaries">Binaries</h2>
+                <p>Stable releases can be downloaded from <a
+                                                             href="http://grails.org/plugin/clover" rel="nofollow">Grails
+                    Plugins</a> site.</p>
+                <h2 id="GrailsCloverPluginDeveloperGuide-Furtherreading">Further reading</h2>
+                <p>See <a href="developer-guide--creating-grails-plugin-using-clover.html">Creating Grails plugins using
+                    Clover</a>.</p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : Using Clover in various environment configurations</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
+                    </li>
+                    <li>
+                        <span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Using Clover in various environment configurations
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p> </p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813714313 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813714313 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813714313 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813714313'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#UsingCloverinvariousenvironmentconfigurations-Introduction'>Introduction</a></li>
+                        <li><a href='#UsingCloverinvariousenvironmentconfigurations-Decisionmatrix'>Decision matrix</a>
+                        </li>
+                        <li>
+                            <a href='#UsingCloverinvariousenvironmentconfigurations-Example#1-oneapplicationexecutedonseveralservers'>Example
+                                #1 - one application executed on several servers</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#UsingCloverinvariousenvironmentconfigurations-Assumptions'>Assumptions</a>
+                                </li>
+                                <li><a href='#UsingCloverinvariousenvironmentconfigurations-Overviewchart'>Overview
+                                    chart</a></li>
+                                <li><a href='#UsingCloverinvariousenvironmentconfigurations-Steps'>Steps</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href='#UsingCloverinvariousenvironmentconfigurations-Example#2-oneapplicationwithmanyCloverdatabasesexecutedonseveralservers'>Example
+                                #2 - one application with many Clover databases executed on several servers</a>
+                            <ul class='toc-indentation'>
+                                <li>
+                                    <a href='#UsingCloverinvariousenvironmentconfigurations-Assumptions.1'>Assumptions</a>
+                                </li>
+                                <li><a href='#UsingCloverinvariousenvironmentconfigurations-Overviewchart.1'>Overview
+                                    chart</a></li>
+                                <li><a href='#UsingCloverinvariousenvironmentconfigurations-Steps.1'>Steps</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href='#UsingCloverinvariousenvironmentconfigurations-Example#3-multipleapplicationsexecutedonseveralserversinisolation'>Example
+                                #3 - multiple applications executed on several servers in isolation</a>
+                            <ul class='toc-indentation'>
+                                <li>
+                                    <a href='#UsingCloverinvariousenvironmentconfigurations-Assumptions.2'>Assumptions</a>
+                                </li>
+                                <li><a href='#UsingCloverinvariousenvironmentconfigurations-Overviewchart.2'>Overview
+                                    chart</a></li>
+                                <li><a href='#UsingCloverinvariousenvironmentconfigurations-Steps.2'>Steps</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href='#UsingCloverinvariousenvironmentconfigurations-Example#3b-multipleapplicationsexecutedonseveralserversinpartialisolation'>Example
+                                #3b - multiple applications executed on several servers in partial isolation</a></li>
+                        <li>
+                            <a href='#UsingCloverinvariousenvironmentconfigurations-Example#4-multi-moduleapplicationwithdistributedexecutiononseveralservers'>Example
+                                #4 - multi-module application with distributed execution on several servers</a>
+                            <ul class='toc-indentation'>
+                                <li>
+                                    <a href='#UsingCloverinvariousenvironmentconfigurations-Assumptions.3'>Assumptions</a>
+                                </li>
+                                <li><a href='#UsingCloverinvariousenvironmentconfigurations-Overviewchart.3'>Overview
+                                    chart</a></li>
+                                <li><a href='#UsingCloverinvariousenvironmentconfigurations-Steps.3'>Steps</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href='#UsingCloverinvariousenvironmentconfigurations-Example#5-multi-moduleapplicationwithhistorypoints'>Example
+                                #5 - multi-module application with history points</a>
+                            <ul class='toc-indentation'>
+                                <li>
+                                    <a href='#UsingCloverinvariousenvironmentconfigurations-Assumptions.4'>Assumptions</a>
+                                </li>
+                                <li><a href='#UsingCloverinvariousenvironmentconfigurations-Overviewchart.4'>Overview
+                                    chart</a></li>
+                                <li><a href='#UsingCloverinvariousenvironmentconfigurations-Steps.4'>Steps</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#UsingCloverinvariousenvironmentconfigurations-References'>References</a></li>
+                    </ul>
+                </div>
+                </p><h1 id="UsingCloverinvariousenvironmentconfigurations-Introduction">Introduction</h1>
+                <p>This is a tutorial showing how to use Clover:</p>
+                <ul>
+                    <li>with projects containing multiple modules,</li>
+                    <li>running on multiple application severs,</li>
+                    <li>in multiple test phases (e.g. unit tests, integration, manual testing),</li>
+                    <li>in multiple test runs (snapshots and history points)</li>
+                    <li>in distributed environment</li>
+                </ul>
+                <p>This tutorial shall help you answering questions like:</p>
+                <ul>
+                    <li>should I use cloverDatabase, singleCloverDatabase or cloverMergeDatabase?</li>
+                    <li>should I deploy instrumented code on all application servers and run tests at once or
+                        sequentially?
+                    </li>
+                    <li>what should I copy (or not copy) to test server?</li>
+                    <li>should I use distributed.coverage=on?</li>
+                    <li>should I merge Clover databases?</li>
+                </ul>
+                <p> </p>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Confused which scenario you shall use? Have a
+                        quick look at the <a href="#UsingCloverinvariousenvironmentconfigurations-DecisionMatrix">Decision
+                            Matrix</a>.</p></div>
+                </div>
+                <p> </p>
+                <p><span style="color: rgb(255,0,0);"><span class="confluence-anchor-link"
+                                                            id="UsingCloverinvariousenvironmentconfigurations-DecisionMatrix"></span> </span>
+                </p>
+                <h1 id="UsingCloverinvariousenvironmentconfigurations-Decisionmatrix">Decision matrix</h1><h4
+                    id="UsingCloverinvariousenvironmentconfigurations-Step1:BuildingyourapplicationwithClover">Step 1:
+                Building your application with Clover</h4>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey">
+                                <strong>Q1</strong></td>
+                            <td class="highlight-grey confluenceTd" colspan="4" data-highlight-colour="grey"><strong>How
+                                many applications do you build, for which you want to have single, consolidated report?
+                                (term 'application' means a separate source code and independent build)</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey"> </td>
+                            <td colspan="2" style="text-align: center;" class="confluenceTd">one application</td>
+                            <td colspan="2" style="text-align: center;" class="confluenceTd">many applications</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey">
+                                <strong>Q2</strong></td>
+                            <td class="highlight-grey confluenceTd" colspan="4" data-highlight-colour="grey"><strong>How
+                                many modules your application(s) has(have)? (term 'module' means a part of source code,
+                                built in the same session as other parts of code, like the Maven module)</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey"> </td>
+                            <td colspan="1" style="text-align: center;" class="confluenceTd">one module</td>
+                            <td colspan="1" style="text-align: center;" class="confluenceTd">many modules</td>
+                            <td colspan="1" style="text-align: center;" class="confluenceTd">one module</td>
+                            <td colspan="1" style="text-align: center;" class="confluenceTd">many modules</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey"><strong>Solution</strong>
+                            </td>
+                            <td class="highlight-grey confluenceTd" colspan="4" data-highlight-colour="grey"> </td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey"> </td>
+                            <td colspan="1" class="confluenceTd"><p>only one database will be produced under default
+                                location so there's nothing to do</p></td>
+                            <td colspan="1" class="confluenceTd">one database is created for every module</td>
+                            <td colspan="1" class="confluenceTd"><p>keep all applications under a common root; every
+                                application will have one Clover database in its default location</p></td>
+                            <td colspan="1" class="confluenceTd"><p>keep all applications under a common root; one
+                                database is created for every module for each application</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p> </p><h4
+                    id="UsingCloverinvariousenvironmentconfigurations-Step2:Running/testingyourapplicationwithClover">
+                Step 2: Running / testing your application with Clover</h4>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="highlight-grey confluenceTh" colspan="1"><strong>Q3</strong></th>
+                            <th class="highlight-grey confluenceTh" colspan="3"><strong>Do you use separate machines or
+                                working directories for compilation and testing?</strong></th>
+                        </tr>
+                        <tr>
+                            <th colspan="1" class="confluenceTh"> </th>
+                            <td colspan="1" class="confluenceTd">no</td>
+                            <td colspan="2" class="confluenceTd">yes</td>
+                        </tr>
+                        <tr>
+                            <th class="highlight-grey confluenceTh" colspan="1" data-highlight-colour="grey">
+                                <strong>Q4</strong></th>
+                            <td class="highlight-grey confluenceTd" colspan="3" data-highlight-colour="grey"><strong>Do
+                                you have many Clover databases generated from Step 1?</strong></td>
+                        </tr>
+                        <tr>
+                            <th class="highlight-grey confluenceTh" colspan="1" data-highlight-colour="grey"> </th>
+                            <td colspan="1" class="confluenceTd">n/a</td>
+                            <td style="text-align: center;" class="confluenceTd">one database</td>
+                            <td style="text-align: center;" class="confluenceTd">many databases</td>
+                        </tr>
+                        <tr>
+                            <th class="highlight-grey confluenceTh" colspan="1" data-highlight-colour="grey"><strong>Solution</strong>
+                            </th>
+                            <td class="highlight-grey confluenceTd" colspan="3" data-highlight-colour="grey"> </td>
+                        </tr>
+                        <tr>
+                            <th class="highlight-grey confluenceTh" colspan="1" data-highlight-colour="grey"> </th>
+                            <td class="confluenceTd">nothing to do; path to database <br/>is already stored in
+                                instrumented code
+                            </td>
+                            <td class="confluenceTd">copy database to a test machine; provide <em>clover.initstring</em>
+                                at runtime pointing to database location on a test machine
+                            </td>
+                            <td class="confluenceTd">ensure that you've used relative paths in Step 1; copy all
+                                databases to a test machine preserving directory structure; use <em>clover.initstring.basedir</em>
+                                pointing to common root folder
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="1" class="confluenceTh"> </th>
+                            <td colspan="1" class="confluenceTd">as soon as tests are finished, you shall have coverage
+                                recording files in the same directory where database is located
+                            </td>
+                            <td colspan="1" class="confluenceTd">as soon as tests are finished, copy coverage recording
+                                files to a build machine into a directory with a database
+                            </td>
+                            <td colspan="1" class="confluenceTd">as soon as tests are finished, copy coverage recording
+                                files generated for all databases to a build machine preserving directory structure
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p> </p><h4
+                    id="UsingCloverinvariousenvironmentconfigurations-Step3:Aggregatingcoveragedataandgeneratingreport">
+                Step 3: Aggregating coverage data and generating report</h4>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh"><strong>Q5</strong></th>
+                            <th colspan="3" class="confluenceTh"><strong>Do you have many Clover databases generated
+                                from Step 1?</strong></th>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"> </td>
+                            <td class="confluenceTd">one database</td>
+                            <td class="confluenceTd">many databases from one application</td>
+                            <td class="confluenceTd">many databases from many applications</td>
+                        </tr>
+                        <tr>
+                            <th class="confluenceTh">Solution</th>
+                            <th colspan="3" class="confluenceTh"> </th>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd"> </td>
+                            <td colspan="1" class="confluenceTd">nothing to merge, just generate a report using <em>clover:clover</em>
+                            </td>
+                            <td colspan="1" class="confluenceTd">merge databases after tests using
+                                <em>clover:aggregate</em> and next generate report using <em>clover:clover</em></td>
+                            <td colspan="1" class="confluenceTd">merge databases after tests using
+                                <em>clover:aggregate</em> (to merge modules of every single application), followed by
+                                <em>clover:merge</em> (to merge merged databases from all applications into one
+                                database)
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p> </p><h4
+                    id="UsingCloverinvariousenvironmentconfigurations-Optional:Optimizingyourenvironmentconfiguration">
+                Optional: Optimizing your environment configuration</h4>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh">Q6</th>
+                            <th colspan="4" class="confluenceTh">In case you use different machines for build/reporting
+                                and testing - do you have a shared network drive? 
+                            </th>
+                        </tr>
+                        <tr>
+                            <td colspan="1" style="text-align: center;" class="confluenceTd"> </td>
+                            <td colspan="2" style="text-align: center;" class="confluenceTd">yes</td>
+                            <td colspan="2" style="text-align: center;" class="confluenceTd">no</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey">
+                                <strong>Q7</strong></td>
+                            <td class="highlight-grey confluenceTd" colspan="4" data-highlight-colour="grey"><strong>Do
+                                you execute the same application (i.e. binaries produced in one build and using the same
+                                clover.db) on several machines?</strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd"> </td>
+                            <td colspan="1" style="text-align: center;" class="confluenceTd">no</td>
+                            <td colspan="1" style="text-align: center;" class="confluenceTd">yes</td>
+                            <td colspan="1" style="text-align: center;" class="confluenceTd">no</td>
+                            <td colspan="1" style="text-align: center;" class="confluenceTd">yes</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey"><strong>Solution</strong>
+                            </td>
+                            <td class="highlight-grey confluenceTd" colspan="4" data-highlight-colour="grey"> </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd"> </td>
+                            <td colspan="1" class="confluenceTd">nothing to do (clover.db created during build <br/>is
+                                available on test machine too thanks to<br/>a network drive; coverage recording
+                                files<br/>are written to the same directory)
+                            </td>
+                            <td colspan="1" class="confluenceTd">nothing to do (clover.db created during build <br/>is
+                                accessible on all test machines too; coverage<br/>recordings from all test machines are
+                                written to<br/>the same directory; coverage files generated on different<br/>machines
+                                will not clash because they're using<br/>unique file names)
+                            </td>
+                            <td colspan="1" class="confluenceTd"><p>copy clover.db from build to test server</p>
+                                <p>execute tests</p>
+                                <p>copy clover.db and coverage files from test to report server</p></td>
+                            <td colspan="1" class="confluenceTd"><p>copy clover.db from build to test servers</p>
+                                <p>execute tests</p>
+                                <p>copy clover.db from build to report server<br/>copy coverage files from all test
+                                    servers to <br/>report server into the same directory</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p> </p><h4
+                    id="UsingCloverinvariousenvironmentconfigurations-Optional:Per-testcoverageandtestoptimizationanddistributedcoverage">
+                Optional: Per-test coverage and test optimization and distributed coverage</h4>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <th class="confluenceTh">Q8</th>
+                            <th colspan="4" class="confluenceTh">Are you interested in per-test coverage report or in
+                                test optimization?
+                            </th>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd"> </td>
+                            <td colspan="2" style="text-align: center;" class="confluenceTd">no</td>
+                            <td colspan="2" style="text-align: center;" class="confluenceTd">yes</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey">
+                                <strong>Q9</strong></td>
+                            <td class="highlight-grey confluenceTd" colspan="4" data-highlight-colour="grey"><strong>Do
+                                you have distributed application, so that single test case executes application logic on
+                                several machines?</strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd"> </td>
+                            <td colspan="1" style="text-align: center;" class="confluenceTd">no</td>
+                            <td colspan="1" style="text-align: center;" class="confluenceTd">yes</td>
+                            <td colspan="1" style="text-align: center;" class="confluenceTd">no</td>
+                            <td colspan="1" style="text-align: center;" class="confluenceTd">yes</td>
+                        </tr>
+                        <tr>
+                            <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey"><strong>Solution</strong>
+                            </td>
+                            <td class="highlight-grey confluenceTd" colspan="4" data-highlight-colour="grey"> </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd"> </td>
+                            <td colspan="1" class="confluenceTd">nothing to do</td>
+                            <td colspan="1" class="confluenceTd"><p>don't set up distributed coverage feature</p>
+                                <p>just run your application and gather <br/>coverage recording files from all <br/>machines
+                                    in one common directory</p></td>
+                            <td colspan="1" class="confluenceTd"><p>don't set up distributed coverage feature</p>
+                                <p>use showUniqueCoverage=true for reporting</p></td>
+                            <td colspan="1" class="confluenceTd"><p>instrument code with distributedCoverage option<br/>(define
+                                host/port for server hosting unit tests)</p>
+                                <p>at runtime, designate one server where unit tests are<br/> executed and run with
+                                    <code class="java plain">clover.server=true</code> runtime property<br/><br/>see <a
+                                            href="maven--using-distributed-per-test-coverage.html">Using Distributed
+                                        Per-test Coverage</a></p>
+                                <p>use showUniqueCoverage=true for reporting</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p> </p><h4 id="UsingCloverinvariousenvironmentconfigurations-Assumptionsforallscenarios:">Assumptions
+                for all scenarios:</h4>
+                <p>For the simplicity of the tutorial it's assumed that:</p>
+                <ul>
+                    <li>we have separated machines for build, tests and reporting</li>
+                    <li>we have a shared network drive accessible from all machines at the same absolute path</li>
+                </ul>
+                <p>In case when your environment is different and:</p>
+                <ul>
+                    <li>build, application or reporting server is the same machine =&gt; skip points talking about
+                        copying files
+                    </li>
+                    <li>shared network drive is accessible from all machines but at different absolute paths =&gt;
+                        instrument sources using relative paths, use clover.initstring.basedir /
+                        clover.initstring.prefix at runtime
+                    </li>
+                    <li>shared network drive is not available =&gt; copy clover.db / recording snapshots / history
+                        points between machines
+                    </li>
+                </ul>
+                <p> </p>
+                <h1 id="UsingCloverinvariousenvironmentconfigurations-Example#1-oneapplicationexecutedonseveralservers">
+                    Example #1 - one application executed on several servers</h1>
+                <h2 id="UsingCloverinvariousenvironmentconfigurations-Assumptions">Assumptions</h2>
+                <ul>
+                    <li>there is one application having one Clover database <br/>(e.g. a Maven project with a &lt;singleCloverDatabase&gt;
+                        or an Ant project with one &lt;clover-setup&gt;)
+                    </li>
+                    <li>application is deployed to several machines</li>
+                    <li>we're not interested in per-test coverage recording</li>
+                    <li>we want to have a single report showing combined coverage from all machines</li>
+                </ul>
+                <p> </p>
+                <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
+                        data-emoticon-name="light-on" alt="(lightbulb)"/>TIP: this scenario applies also to a case when:
+                </p>
+                <ul>
+                    <li>application is deployed on one server or</li>
+                    <li>application is deployed on one server and running in multiple JVMs or</li>
+                    <li>application is executed multiple times (for example: unit tests + integration tests + manual
+                        testing)
+                    </li>
+                </ul>
+                <h2 id="UsingCloverinvariousenvironmentconfigurations-Overviewchart">Overview chart</h2>
+                <p><strong><span style="color: rgb(255,0,0);"><span class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image" confluence-query-params="effects=border-simple,shadow-kn"
+                        src="attachments/294489251/294912829.png?effects=border-simple,shadow-kn"
+                        data-image-src="attachments/294489251/294912829.png" data-unresolved-comment-count="0"
+                        data-linked-resource-id="294912829" data-linked-resource-version="5"
+                        data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="clover-scenario-1.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="294489251"
+                        data-linked-resource-container-version="35"></span><br/></span></strong></p>
+                <h2 id="UsingCloverinvariousenvironmentconfigurations-Steps">Steps</h2>
+                <p><strong>1) Build application with Clover</strong></p>
+                <p><strong>a) using Ant</strong></p>
+                <p>Define <em>initstring</em> attribute for &lt;clover-setup&gt; or &lt;clover-instr&gt; tag, e.g.:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+                             data-theme="Confluence">&lt;clover-setup initstring=&quot;/path/to/network/drive/clover.db&quot; /&gt;</pre>
+                    </div>
+                </div>
+                <p><strong>b) using Maven</strong></p>
+                <p>Define <em>&lt;cloverDatabase&gt;</em> and &lt;singleCloverDatabase&gt; property in pom.xml, e.g.:
+                </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;plugin&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;singleCloverDatabase&gt;true&lt;/singleCloverDatabase&gt; 
+        &lt;cloverDatabase&gt;/path/to/network/drive/clover.db&lt;/cloverDatabase&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;</pre>
+                    </div>
+                </div>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
+                             data-theme="Confluence">mvn clean clover:setup install</pre>
+                    </div>
+                </div>
+                <p><strong><br/></strong></p>
+                <p><strong>2) Deploy instrumented application<br/></strong></p>
+                <p>Copy clover.jar and your application EAR/WAR. There's no need to copy <em>clover.db</em> as it's on a
+                    network drive.</p>
+                <p><strong><br/></strong></p>
+                <p><strong>3) Run tests<br/></strong></p>
+                <p>Execute your tests. There is no need to provide <em>clover.initstring</em> parameter at runtime as
+                    path to <em>clover.db</em> database is already hardcoded in instrumented sources.</p>
+                <p> </p>
+                <p><strong>4) Generate coverage report</strong></p>
+                <p><strong>a) using Ant</strong></p>
+                <p>Execute <em>&lt;clover-report&gt;</em> task; use <em>initstring</em> pointing to <em>clover.db</em>
+                    on a network drive, e.g.:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+                             data-theme="Confluence">&lt;clover-report initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;</pre>
+                    </div>
+                </div>
+                <p><strong>b) using Maven</strong></p>
+                <p>Execute <em>clover:clover</em> goal. Note that you don't need to call <em>clover:aggregate</em> or
+                    <em>clover:merge</em> as there is only one database. The <em>&lt;cloverDatabase&gt;</em> defined in
+                    pom.xml will be used for reporting.</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;plugin&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;singleCloverDatabase&gt;true&lt;/singleCloverDatabase&gt;
+        &lt;cloverDatabase&gt;/path/to/network/drive/clover.db&lt;/cloverDatabase&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;</pre>
+                    </div>
+                </div>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
+                             data-theme="Confluence">mvn clover:clover</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h1 id="UsingCloverinvariousenvironmentconfigurations-Example#2-oneapplicationwithmanyCloverdatabasesexecutedonseveralservers">
+                    Example #2 - one application with many Clover databases executed on several servers</h1>
+                <h2 id="UsingCloverinvariousenvironmentconfigurations-Assumptions.1">Assumptions</h2>
+                <ul>
+                    <li>one application containing multiple Clover databases<br/>
+                        <ul>
+                            <li>like a Maven project with many modules, each with own clover.db,</li>
+                            <li>or an Ant project with several modules, each with own clover.db</li>
+                        </ul>
+                    </li>
+                    <li>an application is deployed to several machines</li>
+                    <li>we're not interested in per-test coverage recording</li>
+                    <li>we want to have a single report showing combined coverage for all modules from all servers</li>
+                </ul>
+                <h2 id="UsingCloverinvariousenvironmentconfigurations-Overviewchart.1">Overview chart</h2>
+                <p><span style="color: rgb(255,0,0);"><span class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image" confluence-query-params="effects=border-simple,shadow-kn"
+                        src="attachments/294489251/294912832.png?effects=border-simple,shadow-kn"
+                        data-image-src="attachments/294489251/294912832.png" data-unresolved-comment-count="0"
+                        data-linked-resource-id="294912832" data-linked-resource-version="3"
+                        data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="clover-scenario-2.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="294489251"
+                        data-linked-resource-container-version="35"></span><br/></span></p>
+                <h2 id="UsingCloverinvariousenvironmentconfigurations-Steps.1">Steps</h2>
+                <p><strong>1) Build application with Clover</strong></p>
+                <p><strong>a) using Ant</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;all&quot;&gt;
+   &lt;!-- Enable Clover for every module, each with own database --&gt;
+   &lt;clover-setup initstring=&quot;/path/to/network/drive/moduleX/clover.db&quot;&gt;
+&lt;/target&gt;</pre>
+                    </div>
+                </div>
+                <p><strong><br/></strong></p>
+                <p><strong>b) using Maven</strong></p>
+                <ul>
+                    <li>don't define <em>singleCloverDatabase</em> and <em>cloverDatabase</em>, so that default values
+                        will be used
+                    </li>
+                    <li>keep databases on a shared drive (or copy them to test machines)</li>
+                </ul>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;!-- top level pom.xml --&gt;
+&lt;plugin&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;!-- no &lt;cloverDatabase&gt; and &lt;singleCloverDatabase&gt; --&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+</pre>
+                    </div>
+                </div>
+                <p><strong><br/></strong></p>
+                <p><strong>2) Deploy instrumented application</strong></p>
+                <p>Copy clover.jar and your application EAR/WAR. There's no need to copy <em>clover.db</em> files as
+                    they're on a network drive.</p>
+                <p> </p>
+                <p><strong>3) Run tests<br/></strong></p>
+                <p>Execute your tests. Provide <em>clover.initstring.basedir=/path/to/top-level-module/dir</em> or use
+                    <em>clover.initstring.prefix</em> at runtime. There is no need to define such property if databases
+                    are available under the same absolute path on test machines as on the build machine.</p>
+                <p> </p>
+                <p><strong>4) Generate coverage report</strong></p>
+                <p>Before generating report you have to merge all databases. For example:</p>
+                <p><strong>a) using Ant</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-merge initstring=&quot;/path/to/mergedClover.db&quot;&gt;
+   &lt;cloverDb initstring=&quot;/path/to/network/drive/moduleA/clover.db&quot;/&gt;
+   &lt;cloverDb initstring=&quot;/path/to/network/drive/moduleB/clover.db&quot;/&gt;
+&lt;/clover-merge&gt;
+&lt;clover-report initstring=&quot;/path/to/mergedClover.db&quot;/&gt; </pre>
+                    </div>
+                </div>
+                <p><strong>b) using Maven</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;!-- Top-level pom.xml --&gt;
+&lt;plugin&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;cloverMergeDatabase&gt;/path/to/network/drive/cloverMerged.db&lt;/cloverMergeDatabase&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;</pre>
+                    </div>
+                </div>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
+                             data-theme="Confluence">mvn clover:aggregate clover:clover</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h1 id="UsingCloverinvariousenvironmentconfigurations-Example#3-multipleapplicationsexecutedonseveralserversinisolation">
+                    Example #3 - multiple applications executed on several servers in isolation</h1>
+                <h2 id="UsingCloverinvariousenvironmentconfigurations-Assumptions.2">Assumptions</h2>
+                <ul>
+                    <li>we have multiple applications (each of them can have one or more modules)<br/>
+                        <ul>
+                            <li>every application has separate code base (i.e. no shared source files)</li>
+                            <li>every application is built and instrumented separately (i.e. separate clover.db for
+                                every app)
+                            </li>
+                        </ul>
+                    </li>
+                    <li>we deploy instrumented applications to several application servers<br/>
+                        <ul>
+                            <li>every application runs on it's own server (i.e. no case when two apps runs in the same
+                                JVM)
+                            </li>
+                        </ul>
+                    </li>
+                    <li>tests run independently on each application server and for each application</li>
+                    <li>we're not interested in per-test coverage recording</li>
+                    <li>we want to have a single report showing combined coverage for all modules of all applications
+                        from all application servers
+                    </li>
+                </ul>
+                <h2 id="UsingCloverinvariousenvironmentconfigurations-Overviewchart.2">Overview chart</h2>
+                <p><span style="color: rgb(255,0,0);"><span class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image" confluence-query-params="effects=border-simple,shadow-kn"
+                        src="attachments/294489251/294912833.png?effects=border-simple,shadow-kn"
+                        data-image-src="attachments/294489251/294912833.png" data-unresolved-comment-count="0"
+                        data-linked-resource-id="294912833" data-linked-resource-version="1"
+                        data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="clover-scenario-3.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="294489251"
+                        data-linked-resource-container-version="35"></span><br/></span></p>
+                <h2 id="UsingCloverinvariousenvironmentconfigurations-Steps.2">Steps</h2>
+                <p><strong>1) Build application with Clover</strong></p>
+                <p><strong>a) using Ant</strong></p>
+                <p>Define <em>initstring</em> attribute for &lt;clover-setup&gt; or &lt;clover-instr&gt; tag, which will
+                    point to different directory for every application ,e.g.:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;!-- App1 build.xml --&gt;
+&lt;clover-setup initstring=&quot;/path/to/network/drive/app1/clover.db&quot;&gt;
+
+&lt;!-- App2 build.xml --&gt;
+&lt;clover-setup initstring=&quot;/path/to/network/drive/app2/clover.db&quot;&gt;</pre>
+                    </div>
+                </div>
+                <p><strong>b) using Maven</strong></p>
+                <p>Define <em>&lt;cloverDatabase&gt;</em> property for Clover plugin in pom.xml. You can use
+                    singleCloverDatabase in case your application is multi-module. Databases for all applications
+                    <strong>must</strong> be stored under common root (it's a limitation of clover:merge goal; Ant
+                    clover-merge task is more flexible regarding paths). Example:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;!-- App1 pom.xml --&gt;
+&lt;plugin&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;cloverDatabase&gt;/path/to/network/drive/common-root/app1/clover.db&lt;/cloverDatabase&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+
+&lt;!-- App2 pom.xml --&gt;
+&lt;plugin&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;cloverDatabase&gt;/path/to/network/drive/common-root/app2/clover.db&lt;/cloverDatabase&gt;
+        &lt;singleCloverDatabase&gt;true&lt;/singleCloverDatabase&gt; &lt;!-- assuming that app2 is multi-module --&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;</pre>
+                    </div>
+                </div>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
+                             data-theme="Confluence">mvn clean clover:setup install</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p><strong>2) Deploy instrumented application to Application Servers</strong></p>
+                <p>Copy clover.jar and your application jar/war to proper machines. There's no need to copy <em>clover.db</em>
+                    as it's on a network drive.</p>
+                <p><strong><br/></strong></p>
+                <p><strong>3) Run tests on Application Servers</strong></p>
+                <p>Execute your applications. As every application runs in their own JVM and due to fact that we have
+                    used cloverDatabase (and optionally singleCloverDatabase) pointing to absolute path on a network
+                    drive, we don't need to provide <em>clover.initstring</em> parameter at runtime, because correct
+                    path is hardcoded in instrumented classes.</p>
+                <p> </p>
+                <p><strong>4) Generate coverage report</strong></p>
+                <p>Before generating report you have to merge all databases. for example:</p>
+                <p><strong>a) using Ant</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-merge initstring=&quot;/path/to/network/drive/cloverMerged.db&quot;&gt;
+   &lt;cloverDb initstring=&quot;/path/to/network/drive/app1/clover.db&quot;/&gt;
+   &lt;cloverDb initstring=&quot;/path/to/network/drive/app2/clover.db&quot;/&gt;
+&lt;/clover-merge&gt;
+&lt;clover-report initstring=&quot;/path/to/cloverMerged.db&quot;/&gt; </pre>
+                    </div>
+                </div>
+                <p><strong>b) using Maven</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;!-- Top-level pom.xml --&gt;
+&lt;plugin&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;cloverMergeDatabase&gt;/path/to/network/drive/cloverMerged.db&lt;/cloverMergeDatabase&gt;  &lt;!-- output database --&gt;
+        &lt;baseDir&gt;/path/to/network/drive/common-root&lt;/baseDir&gt;  &lt;!-- common root --&gt;
+        &lt;includes&gt;*.db&lt;/includes&gt; &lt;!-- filename pattern, separated by comma or space --&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;</pre>
+                    </div>
+                </div>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
+     data-theme="Confluence">mvn clover:aggregate             # run it for multi-module applications
+mvn clover:merge clover:clover  # run it for final report</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p> </p>
+                <h1 id="UsingCloverinvariousenvironmentconfigurations-Example#3b-multipleapplicationsexecutedonseveralserversinpartialisolation">
+                    Example #3b - multiple applications executed on several servers in partial isolation</h1>
+                <p>This scenario is a variation of Scenario 3 in such way, that:</p>
+                <ul>
+                    <li>location of clover.db(s) on test server is different than on build server (so you have to
+                        provide/change <em>initstring</em> at runtime)
+                    </li>
+                    <li>some applications are executed in the same JVM (as a consequence, you cannot pass <em>clover.initstring</em>
+                        as JVM argument, because you need a different value for each application).
+                    </li>
+                </ul>
+                <p> </p>
+                <p>In such case, you have to:</p>
+                <ul>
+                    <li>instrument these applications using relative paths in &lt;cloverDatabase&gt; parameter (Maven)
+                        or &lt;clover-setup initstring=&quot;&quot;&gt; (Ant), like below:
+                    </li>
+                </ul>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
+     data-theme="Confluence">app1/clover.db
+app2/clover.db
+app2/moduleA/clover.db
+app2/moduleB/clover.db</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <ul>
+                    <li>copy generated clover.db(s) to test server, keeping their relative paths (under a common root),
+                        for instance:
+                    </li>
+                </ul>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
+     data-theme="Confluence">/path/to/common-root/app1/clover.db
+/path/to/common-root/app2/clover.db
+/path/to/common-root/app2/moduleA/clover.db
+/path/to/common-root/app2/moduleB/clover.db</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <ul>
+                    <li>provide <em>clover.iniststring.basedir=/path/to/common-root</em> at runtime</li>
+                </ul>
+                <p> </p>
+                <p> </p>
+                <h1 id="UsingCloverinvariousenvironmentconfigurations-Example#4-multi-moduleapplicationwithdistributedexecutiononseveralservers">
+                    Example #4 - multi-module application with distributed execution on several servers</h1>
+                <h2 id="UsingCloverinvariousenvironmentconfigurations-Assumptions.3">Assumptions</h2>
+                <ul>
+                    <li>we have a multi-module project (like Maven project with modules, or Ant project with several
+                        build.xml files with inheriting properties across ant calls)
+                    </li>
+                    <li>we deploy instrumented application (the same code) to several application servers</li>
+                    <li>unit tests are executed on one <strong>&lt;&lt;server&gt;&gt;</strong> machine, but these unit
+                        tests call business logic on one or more <strong>&lt;&lt;client&gt;&gt;</strong> machines
+                    </li>
+                    <li>we are interested in per-test coverage recording, showing combined coverage from distributed
+                        execution
+                    </li>
+                    <li>we want to have a single report showing combined coverage for all modules from all application
+                        servers
+                    </li>
+                </ul>
+                <h2 id="UsingCloverinvariousenvironmentconfigurations-Overviewchart.3">Overview chart</h2>
+                <p><span style="color: rgb(255,0,0);"><span class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image" confluence-query-params="effects=border-simple,shadow-kn"
+                        src="attachments/294489251/294912834.png?effects=border-simple,shadow-kn"
+                        data-image-src="attachments/294489251/294912834.png" data-unresolved-comment-count="0"
+                        data-linked-resource-id="294912834" data-linked-resource-version="2"
+                        data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="clover-scenario-4.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="294489251"
+                        data-linked-resource-container-version="35"></span><br/></span></p>
+                <h2 id="UsingCloverinvariousenvironmentconfigurations-Steps.3">Steps</h2>
+                <p><strong>1) Build application with Clover</strong></p>
+                <ul>
+                    <li>define how many clients will connect to JVM running unit tests;</li>
+                </ul>
+                <p style="margin-left: 60.0px;"><img class="emoticon emoticon-warning"
+                                                     src="images/icons/emoticons/warning.png"
+                                                     data-emoticon-name="warning" alt="(warning)"/> a number greater
+                    than 0 means that server will hold until all clients are connected before it continues execution;
+                    number equal 0 means that tests will start immediately</p>
+                <p style="margin-left: 60.0px;"><img class="emoticon emoticon-warning"
+                                                     src="images/icons/emoticons/warning.png"
+                                                     data-emoticon-name="warning" alt="(warning)"/> you might have a
+                    dependency loop so that server waits for clients and clients wait for server - see below</p>
+                <ul>
+                    <li>define server host name (default is localhost) and listening port (default is 1198)</li>
+                    <li>optionally define connection timeout (in milliseconds), retry period </li>
+                </ul>
+                <p> </p>
+                <p><strong>a) using Ant</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-setup initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
+    &lt;distributedCoverage host=&quot;my.server.com&quot; port=&quot;1234&quot; numClients=&quot;2&quot; timeout=&quot;10000&quot;/&gt;
+&lt;/clover-setup&gt;</pre>
+                    </div>
+                </div>
+                <p><strong>b) using Maven</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;plugin&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;cloverDatabase&gt;/path/to/network/drive/clover.db&lt;/cloverDatabase&gt;
+        &lt;singleCloverDatabase&gt;true&lt;/singleCloverDatabase&gt;  &lt;!-- In case of multi-module application (optional) --&gt;
+        &lt;distributedCoverage&gt;
+            &lt;host&gt;my.server.com&lt;/host&gt;
+            &lt;port&gt;1234&lt;/port&gt;
+            &lt;numClients&gt;2&lt;/numClients&gt;
+            &lt;timeout&gt;10000&lt;/timeout&gt;
+        &lt;/distributedCoverage&gt;
+   &lt;/configuration&gt;
+&lt;/plugin&gt;
+</pre>
+                    </div>
+                </div>
+                <p><strong><br/></strong></p>
+                <p><strong>2) Deploy instrumented application to Application Servers</strong></p>
+                <p>Copy clover.jar and your application jar/war to proper machines. There's no need to copy <em>clover.db</em>
+                    as it's on a network drive.</p>
+                <p> </p>
+                <p><strong>3) Run tests on Application Servers</strong></p>
+                <p><strong>On &lt;&lt;server&gt;&gt; machine</strong></p>
+                <p><code class="java plain">java ... </code><code class="java plain">-Dclover.server=</code><code
+                        class="java keyword">true</code></p>
+                <p><strong>On &lt;&lt;client&gt;&gt; machines</strong></p>
+                <p>You don't have to provide any runtime options for JVM. They're already compiled in the code.</p>
+                <p> </p>
+                <p><strong>Potential problems</strong></p>
+                <div class="confluence-information-macro confluence-information-macro-warning"><p class="title">Server
+                    does not wait for clients, despite having numClients != 0 in build configuration</p><span
+                        class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Do not use <code class="java plain">-Dclover.distributed.coverage=ON</code>
+                        runtime option if numClients!=0 was set in instrumentation. The
+                        <em>clover.distributed.coverage</em> provided at runtime will override <em>numClients</em>
+                        setting from instrumentation, setting it to 0. As a consequence your tests on server will start
+                        immediately, without waiting for clients to connect. It can result in lower or zero coverage.
+                    </p>
+                        <p>Instead of this:</p>
+                        <ul>
+                            <li>enable distributed coverage option in build file or</li>
+                            <li>use -Dclover.distributed.coverage=numClients=N (where N is a number &gt;= 0) at
+                                runtime
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="confluence-information-macro confluence-information-macro-warning"><p class="title">
+                    Execution of tests hangs when with numClients != 0</p><span
+                        class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>It can happen that your server will wait for
+                        clients to connect, while clients will wait until server starts unit test execution. This is a
+                        typical case for web applications running in container (like Tomcat, JBoss), when your unit test
+                        calls a servlet class (e.g. via HTTP request). The issue is as follows:</p>
+                        <ul>
+                            <li>unit tests on &lt;&lt;server&gt;&gt; are waiting until all clients are connected
+                                (numClients != 0) but
+                            </li>
+                            <li>none of the clients will connect until servlet class is loaded in the container, which
+                                happens only when first request comes (and it will not come, due to point above)
+                            </li>
+                        </ul>
+                        <p>See <a href="guideline--working-with-distributed-applications.html">Working with Distributed
+                            Applications</a> how to fix this circular dependency.</p></div>
+                </div>
+                <p> </p>
+                <p><strong>4) Generate coverage report</strong></p>
+                <p><strong>a) using Ant</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-report initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
+    &lt;current showUniqueCoverage=&quot;true&quot; outfile=&quot;/path/to/clover/report&quot;&gt;
+        &lt;format type=&quot;html&quot;/&gt;
+        &lt;fileset dir=&quot;src&quot;/&gt;
+    &lt;/current&gt;
+&lt;/clover-report&gt;</pre>
+                    </div>
+                </div>
+                <p><strong>b) using Maven</strong></p>
+                <p>In order to show per-test coverage in the HTML report (<em>showUniqueCoverage</em>), you have to use
+                    the custom <em>&lt;reportDescriptor&gt;</em> in pom.xml and in the report descriptor set the <em>showUniqueCoverage=true</em>.
+                    For example:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
+                        <b>report-descriptor.xml</b></div>
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
+    &lt;clover-setup initString=&quot;${cloverdb}&quot;/&gt;
+    &lt;target name=&quot;historical&quot;/&gt;
+    &lt;target name=&quot;current&quot;&gt;
+        &lt;clover-report&gt;
+            &lt;current showUniqueCoverage=&quot;true&quot; outfile=&quot;${output}&quot;&gt;  &lt;!-- Show per-test coverage in report --&gt;
+                &lt;format type=&quot;html&quot;/&gt;
+            &lt;/current&gt;
+        &lt;/clover-report&gt;
+    &lt;/target&gt;
+&lt;/project&gt;</pre>
+                    </div>
+                </div>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>pom.xml</b></div>
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;plugin&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;cloverDatabase&gt;/path/to/network/drive/clover.db&lt;/cloverDatabase&gt;
+        &lt;outputDirectory&gt;/path/to/clover/report&lt;/outputDirectory&gt;
+        &lt;reportDescriptor&gt;report-descriptor.xml&lt;/reportDescriptor&gt;    &lt;!-- Use custom report --&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;</pre>
+                    </div>
+                </div>
+                <p><strong><br/></strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
+                             data-theme="Confluence">mvn clover:clover</pre>
+                    </div>
+                </div>
+                <p><span style="color: rgb(255,0,0);"> </span></p>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>More information about format of report descriptor
+                        can be found here:</p>
+                        <ul>
+                            <li><a
+                                   href="../../maven/4.2.0/clover-mojo.html#reportDescriptor"
+                                   rel="nofollow">clover-mojo.html#reportDescriptor</a>
+                            </li>
+                            <li><a href="ant--clover-report.html">clover-report</a>
+                            </li>
+                            <li><span class="nolink"><a
+                                                        href="https://github.com/openclover/clover-maven-plugin"
+                                                        rel="nofollow">https://github.com/openclover/clover-maven-plugin</a> in src/main/resources/default-clover-report.xml</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h1 id="UsingCloverinvariousenvironmentconfigurations-Example#5-multi-moduleapplicationwithhistorypoints">
+                    Example #5 - multi-module application with history points</h1>
+                <h2 id="UsingCloverinvariousenvironmentconfigurations-Assumptions.4">Assumptions</h2>
+                <ul>
+                    <li>we have a multi-module project (like Maven project with modules, or Ant project with several
+                        build.xml files with inheriting properites across ant calls)
+                    </li>
+                    <li>we deploy instrumented application to one application server</li>
+                    <li>we are not interested in per-test coverage or test optimization</li>
+                    <li>we want to have a single report showing combined coverage for all modules</li>
+                </ul>
+                <h2 id="UsingCloverinvariousenvironmentconfigurations-Overviewchart.4">Overview chart</h2>
+                <p><span style="color: rgb(255,0,0);"><span class="confluence-embedded-file-wrapper"><img
+                        class="confluence-embedded-image" confluence-query-params="effects=border-simple,shadow-kn"
+                        src="attachments/294489251/294912835.png?effects=border-simple,shadow-kn"
+                        data-image-src="attachments/294489251/294912835.png" data-unresolved-comment-count="0"
+                        data-linked-resource-id="294912835" data-linked-resource-version="3"
+                        data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="clover-scenario-5.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="294489251"
+                        data-linked-resource-container-version="35"></span><br/></span></p>
+                <h2 id="UsingCloverinvariousenvironmentconfigurations-Steps.4">Steps</h2>
+                <p><span style="color: rgb(255,0,0);"> </span><strong>1) Build application with Clover</strong></p>
+                <p><strong>a) using Ant</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;target name=&quot;all&quot;&gt;
+   &lt;!-- Enable clover for top level module --&gt;
+   &lt;clover-setup initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
+   &lt;!-- Build sub-modules ensuring that properties are passed --&gt;
+   &lt;ant inheritrefs=&quot;true&quot; inheritprops=&quot;true&quot; file=&quot;sub-module-a/build.xml&quot; target=&quot;all&quot;/&gt;
+   &lt;ant inheritrefs=&quot;true&quot; inheritprops=&quot;true&quot; file=&quot;sub-module-b/build.xml&quot; target=&quot;all&quot;/&gt;
+&lt;/target&gt;</pre>
+                    </div>
+                </div>
+                <p><strong>b) using Maven</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;!-- TOP LEVEL POM.XML --&gt;
+&lt;plugin&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;cloverDatabase&gt;/path/to/network/drive/clover.db&lt;/cloverDatabase&gt;
+        &lt;singleCloverDatabase&gt;true&lt;/singleCloverDatabase&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;
+</pre>
+                    </div>
+                </div>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
+                             data-theme="Confluence">mvn clover:setup test </pre>
+                    </div>
+                </div>
+                <p><strong><br/></strong></p>
+                <p><strong>2) Deploy instrumented application to Application Servers</strong></p>
+                <p>Remove previous version of application and copy clover.jar and your application jar/war. There's no
+                    need to copy <em>clover.db</em> as it's on a network drive.</p>
+                <p> </p>
+                <p><strong>3) Run tests on Application Servers</strong></p>
+                <p>Execute your application. As we have used <em>singleCloverDatabase</em> and <em>cloverDatabase</em>
+                    pointing to absolute path on a network drive, we don't need to provide <em>clover.initstring</em>
+                    parameter at runtime.</p>
+                <p><strong><br/></strong></p>
+                <p><strong>4) Generate coverage report</strong></p>
+                <p><strong>a) using Ant</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;clover-report initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
+    &lt;current outfile=&quot;/path/to/clover/report/current&quot; title=&quot;Coverage Report&quot;&gt;
+        &lt;format type=&quot;html&quot;/&gt;
+        &lt;fileset dir=&quot;src&quot;/&gt;
+    &lt;/current&gt;
+    &lt;historical outfile=&quot;/path/to/clover/report/historical&quot; title=&quot;Historical Report&quot; historyDir=&quot;/path/to/clover/historypoints&quot;&gt;
+       &lt;format type=&quot;html&quot;/&gt;
+    &lt;/historical&gt;
+&lt;/clover-report&gt;
+
+&lt;clover-historypoint historyDir=&quot;/path/to/clover/historypoints&quot;&gt;
+       &lt;fileset dir=&quot;src&quot;/&gt;
+&lt;/clover-historypoint&gt;</pre>
+                    </div>
+                </div>
+                <p><strong>b) using Maven</strong></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;!-- Top-level pom.xml --&gt;
+&lt;plugin&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;cloverDatabase&gt;/path/to/network/drive/clover.db&lt;/cloverDatabase&gt;
+        &lt;singleCloverDatabase&gt;true&lt;/singleCloverDatabase&gt;
+        &lt;generateHistorical&gt;true&lt;/generateHistorical&gt;
+        &lt;generateHtml&gt;true&lt;/generateHtml&gt;
+        &lt;historyDir&gt;/path/to/clover/historypoints&lt;/historyDir&gt;
+        &lt;outputDirectory&gt;/path/to/clover/report&lt;/outputDirectory&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;</pre>
+                    </div>
+                </div>
+                <p><span style="color: rgb(255,0,0);"><br/></span></p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+                        <pre class="syntaxhighlighter-pre"
+                             data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
+                             data-theme="Confluence">mvn clover:clover clover:save-history</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h1 id="UsingCloverinvariousenvironmentconfigurations-References">References</h1>
+                <ul>
+                    <li><a href="general--what-is-distributed-per-test-coverage.html">About Distributed Per-Test
+                        Coverage</a></li>
+                    <li><a href="guideline--working-with-distributed-applications.html">Working with Distributed
+                        Applications</a><br/>
+                        <ul>
+                            <li><a href="ant--using-distributed-per-test-coverage.html">Using
+                                Distributed Per-test Coverage with Clover-for-Ant</a></li>
+                            <li><a href="maven--using-distributed-per-test-coverage.html">Using Distributed Per-test
+                                Coverage</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="guideline--using-openclover-for-web-applications.html">Using Clover for web applications</a>
+                    </li>
+                    <li>FAQ / Atlassian Community<br/>
+                        <ul>
+                            <li><a href="faq--noclassdeffounderror-when-running-code.html">When using Clover, why do I get a java.lang.NoClassDefFoundError
+                                when I run my code?</a></li>
+                            <li><a
+                                   href="https://community.atlassian.com/t5/Clover-questions/No-coverage-being-generated-from-WebLogic-hosted-instrumented/qaq-p/449840"
+                                   rel="nofollow">No coverage being generated from WebLogic hosted instrumented EAR</a>
+                            </li>
+                            <li><a
+                                   href="https://community.atlassian.com/t5/Clover-questions/Clover-on-J2EE-Manual-Testing/qaq-p/123333"
+                                   rel="nofollow">Clover on J2EE: Manual Testing</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <p> </p>
+                <p>Don't define &lt;cloverDatabase&gt; and &lt;singleCloverDatabase&gt; so that default values will be
+                    used (relative path <em>target/clover/clover.db</em> and <em>false</em>).</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

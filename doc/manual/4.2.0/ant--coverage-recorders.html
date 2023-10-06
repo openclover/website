@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.2 : Coverage Recorders</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.2</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li>
+                        <span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li>
+                        <span><a
+                                href="8.-Controlling-Clover-at-Runtime_71599101.html">8. Controlling Clover at Runtime</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Coverage Recorders
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>This page explains few details how Clover code instrumentation works and how the coverage data is
+                    being collected at runtime.</p>
+                <p>This article might be helpful for you in case you have significant performance problems or your
+                    application runs in a restricted environment.</p>
+                <p> </p>
+                <h2 id="CoverageRecorders-Instrumentingcode">Instrumenting code</h2>
+                <p>Every time Clover instruments the code (via &lt;clover-instr/&gt; or &lt;clover-setup/&gt; - both
+                    Java and Groovy) it records information about the code structure (packages, files, classes, method,
+                    statements, branches, test methods etc) into the Clover database. Because of fact that the same
+                    database can be used multiple times (for instance in case of incremental compilation; or when
+                    project has several modules compiled separately), it maintains history of changes in blocks named
+                    'instrumentation session'.</p>
+                <p>Every instrumented class is enhanced by adding code which requests a Clover's coverage recorder
+                    instance. Such coverage recorder getter is called with some arguments, which allows to determine
+                    which Clover database file and which instrumentation session in this file contains information about
+                    the class structure (like indexes of statements, methods, branches etc).</p>
+                <p>As project contains many classes, Clover has an optimization so that some of these classes will share
+                    the same coverage recorder instance - exact strategy depends on selected recorder type - see
+                    below.</p>
+                <p> </p>
+                <p><em>Diagram: code instrumentation process</em></p>
+                <p><em>Information about code structured is stored in Clover database. Every instrumented class contains
+                    information about database (initstring) and the instrumentation session time stamp. Thanks to this
+                    it's possible to map compiled class file to a corresponding source file (also in correct version -
+                    see C.java).<br/></em></p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/321855703/321982146.png"
+                                                                       data-image-src="attachments/321855703/321982146.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="321982146"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="clover-how-instrumentation-works.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="321855703"
+                                                                       data-linked-resource-container-version="8"></span>
+                </p>
+                <h2 id="CoverageRecorders-Executingcode">Executing code</h2>
+                <h3 id="CoverageRecorders-FixedCoverageRecorder">Fixed Coverage Recorder</h3>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>This is a default coverage recorder and we
+                        strongly recommend using it. </p></div>
+                </div>
+                <p>It's using an in-memory fixed-size <em><strong>long[]</strong></em> array for recording hit counts
+                    for methods, statements and branches. Calculation of the long[] array size requires access to the
+                    Clover Database (clover.db) at runtime, however. All classes which were compiled in the same
+                    instrumentation session (i.e. within the same &lt;clover-instr&gt; or javac or groovyc call) will
+                    share the same instance of the coverage recorder.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/321855703/321982148.png"
+                                                                       data-image-src="attachments/321855703/321982148.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="321982148"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="clover-fixed-size-coverage-recorder.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="321855703"
+                                                                       data-linked-resource-container-version="8"></span>
+                </p>
+                <h3 id="CoverageRecorders-GrowableCoverageRecorder">Growable Coverage Recorder</h3>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>This recorder simplifies a deployment and test
+                        process as clover.db is not required at runtime. It's useful for cases like in-container tests,
+                        tests executed on application server, builds on remote agents or for Android applications.</p>
+                    </div>
+                </div>
+                <p>It's using a dynamically resizeable two-dimensional <em><strong>long[][1000000]</strong></em> array
+                    for recording hit counts for methods. Thanks to this it does not require access to the Clover
+                    Database at runtime and this is its main advantage. It's performance is slightly lower than the
+                    Fixed Coverage Recorder due to memory allocation and two-level indexing. All classes which were
+                    compiled in the same instrumentation session (i.e. within the same &lt;clover-instr&gt; or javac or
+                    groovyc call) will share the same instance of the coverage recorder.</p>
+                <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
+                                                                       src="attachments/321855703/321982149.png"
+                                                                       data-image-src="attachments/321855703/321982149.png"
+                                                                       data-unresolved-comment-count="0"
+                                                                       data-linked-resource-id="321982149"
+                                                                       data-linked-resource-version="1"
+                                                                       data-linked-resource-type="attachment"
+                                                                       data-linked-resource-default-alias="clover-growable-coverage-recorder.png"
+                                                                       data-base-url="https://confluence.atlassian.com"
+                                                                       data-linked-resource-content-type="image/png"
+                                                                       data-linked-resource-container-id="321855703"
+                                                                       data-linked-resource-container-version="8"></span>
+                </p>
+                <h3 id="CoverageRecorders-SharedCoverageRecorder">Shared Coverage Recorder</h3>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Use this coverage recorder only in case when:</p>
+                        <ul>
+                            <li>you have a large Grails project with hundreds of Domain Classes or Services
+                                <strong>and</strong></li>
+                            <li>you instrument and run test classes <strong>and</strong></li>
+                            <li>you have a significant performance problem related with coverage data writing and/or
+                                generating Clover reports
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <p> </p>
+                <p>It's a modification of the Growable Coverage Recorder designed specially for Grails-based projects.
+                    It shares the same coverage recorder instance for every instrumented class which was compiled with
+                    the same database initstring and configuration settings (like flush policy). It means that it
+                    ignores instrumentation session timestamps.</p>
+                <p>Grails build system works in such way that it compiles every domain class and service class
+                    separately. As a consequence, Clover &quot;sees&quot; this as a separate instrumentation session. It
+                    means that in case of the fixed or growable coverage recorder it creates a separate instance of the
+                    recorder for every domain or service class.</p>
+                <p>It might become a performance problem if you have many such classes <strong>and</strong> you execute
+                    test methods, because end of <em><strong>every</strong> </em>test method will force creation of the
+                    per-test coverage file (<em>clover.db*.s</em>) from <em><strong>all</strong> </em>coverage recorder
+                    instances. For example:</p>
+                <ul>
+                    <li>500 domain classes * 1000 unit tests = 500 coverage recorders * 1000 snapshots = 500'000 files
+                        on disk <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
+                                     data-emoticon-name="warning" alt="(warning)"/></li>
+                </ul>
+                <p>Note that the performance problem does not occur during normal application run or when test code is
+                    not instrumented. For example:</p>
+                <ul>
+                    <li>500 domain classes (normal app execution) = 500 coverage recorders * 1-2 snapshots (depends on
+                        flush policy) = 500-1000 files on disk
+                    </li>
+                </ul>
+                <p> </p>
+                <p>If you decide to use a Shared Coverage Recorder, you must keep in mind that:</p>
+                <ul>
+                    <li>you <em><strong>cannot</strong> </em>have multiple modules which have the same initstring value,
+                        but they actually point to different files (it's a typical case if you have a multi-module Maven
+                        project and you use the same relative initstring for each module)
+                        <ul>
+                            <li>TIP: use an absolute path for initstrings or share a same database among modules</li>
+                        </ul>
+                    </li>
+                    <li>you <em><strong>cannot</strong> </em>deploy outdated class files, for which information in the
+                        Clover database is not longer valid (as instrumentation timestamp is ignored); <br/>
+                        <ul>
+                            <li>TIP: perform a full project build, deleting all old classes as well as Clover database
+                                and coverage recording files (see <a href="grails--advanced-setup-configuration.html">&quot;Using
+                                    shared coverage recorder&quot;</a> example for Grails)
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
+                        class="confluence-embedded-image" height="557" width="678"
+                        src="attachments/321855703/321982150.png" data-image-src="attachments/321855703/321982150.png"
+                        data-unresolved-comment-count="0" data-linked-resource-id="321982150"
+                        data-linked-resource-version="1" data-linked-resource-type="attachment"
+                        data-linked-resource-default-alias="clover-shared-coverage-recorder.png"
+                        data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
+                        data-linked-resource-container-id="321855703" data-linked-resource-container-version="8"></span>
+                </p>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

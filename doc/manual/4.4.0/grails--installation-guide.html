@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.4 : Clover-for-Grails Installation Guide</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.4</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="grails--overview.html">Clover-for-Grails</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Clover-for-Grails Installation Guide
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+
+                <div class="alert alert-warning">
+                    This plugin integrates with Grails 2.x and is no longer maintained.
+                    Consider using a Gradle Clover Plugin for Grails 3.0 and newer.
+                </div>
+
+                <p>This page provides instructions for all available Clover-for-Grails plug-in installation options.</p>
+                <p>
+                    <style type='text/css'>/*<![CDATA[*/
+                    div.rbtoc1491813731511 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813731511 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813731511 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/</style>
+                <div class='toc-macro rbtoc1491813731511'>
+                    <ul class='toc-indentation'>
+                        <li><a href='#Clover-for-GrailsInstallationGuide-Overview'>Overview</a></li>
+                        <li><a href='#Clover-for-GrailsInstallationGuide-InstallationofCloverforGrailsplug-in'>Installation
+                            of Clover for Grails plug-in</a>
+                            <ul class='toc-indentation'>
+                                <li><a href='#Clover-for-GrailsInstallationGuide-UsingtheBuildConfig.groovy'>Using the
+                                    BuildConfig.groovy</a></li>
+                                <li><a href='#Clover-for-GrailsInstallationGuide-Usingthepom.xml'>Using the pom.xml</a>
+                                </li>
+                                <li>
+                                    <a href='#Clover-for-GrailsInstallationGuide-Usingthe&#39;install-plugin&#39;command'>Using
+                                        the &#39;install-plugin&#39; command</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='#Clover-for-GrailsInstallationGuide-RelatedTopics'>Related Topics</a></li>
+                    </ul>
+                </div>
+                </p><h1 id="Clover-for-GrailsInstallationGuide-Overview">Overview</h1>
+                <p>The documentation below assumes that you have already <a
+                                                                            href="http://www.grails.org/Installation"
+                                                                            rel="nofollow">installed Grails</a> and have
+                    configured your <code>PATH</code> environment variable to point to the <code>bin</code> directory of
+                    your Grails installation.</p>
+                <p><strong>Installing Clover-for-Grails</strong></p>
+                <p>There are several ways to install Clover-for-Grails:</p>
+                <ul>
+                    <li><span class="confluence-link">Declaring dependency in BuildConfig.groovy</span></li>
+                    <li><span class="confluence-link">Declaring dependency in pom.xml</span></li>
+                    <li><span class="confluence-link">Using the 'install-plugin' command</span>
+                        <ul>
+                            <li><span class="confluence-link">installing from the grails central repository</span></li>
+                            <li><span class="confluence-link">installing from the given web address</span></li>
+                            <li><span class="confluence-link">installing from the downloaded installation file</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>Upgrading Clover-for-Grails</strong></p>
+                <p>Upgrading the Clover-for-Grails plugin is also very easy, as <a
+                        href="grails--upgrade-guide.html">indicated here</a>.</p>
+                <h1 class="paragraph" id="Clover-for-GrailsInstallationGuide-InstallationofCloverforGrailsplug-in">
+                    Installation of Clover for Grails plug-in</h1>
+                <h2 class="paragraph" id="Clover-for-GrailsInstallationGuide-UsingtheBuildConfig.groovy">Using the
+                    BuildConfig.groovy</h2>
+                <p>Edit your grails-app/conf/BuildConfig.groovy file and add a section like below:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>grails-app/conf/BuildConfig.groovy</b>
+                    </div>
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
+     data-theme="Confluence">grails.project.dependency.resolution = {
+    plugins {
+        compile &quot;org.grails.plugins:clover:4.0.0&quot;
+    }
+    // For Grails 2.2 and later you have to add a dependency to a Clover core:
+    dependencies { 
+        compile &quot;org.openclover:clover:4.0.0&quot;
+    }
+    // or use a legacy dependency resolution mechanism:
+    // legacyResolve true
+}</pre>
+                    </div>
+                </div>
+                <h2 class="paragraph" id="Clover-for-GrailsInstallationGuide-Usingthepom.xml">Using the pom.xml</h2>
+                <p><strong>Grails 2.1</strong> has introduced new dependency management based on Maven's pom.xml instead
+                    of BuildConfig.groovy file. In order to use this, declare <em>&quot;pom true&quot;</em> in
+                    BuildConfig.groovy:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>grails-app/conf/BuildConfig.groovy</b>
+                    </div>
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
+     data-theme="Confluence">grails.project.dependency.resolution = {
+    pom true
+}</pre>
+                    </div>
+                </div>
+                <p>and add dependencies to <em>org.grails.plugins:clover</em> (and <em>org.openclover:clover</em>)
+                    in pom.xml:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>pom.xml</b></div>
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+     data-theme="Confluence">&lt;dependency&gt;
+    &lt;groupId&gt;org.grails.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;clover&lt;/artifactId&gt;
+    &lt;version&gt;4.4.0&lt;/version&gt;
+    &lt;scope&gt;compile&lt;/scope&gt;
+    &lt;type&gt;zip&lt;/type&gt;
+&lt;/dependency&gt;
+&lt;!-- For *Grails 2.2* or later you must also add a dependency to the Clover Core --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
+    &lt;artifactId&gt;clover&lt;/artifactId&gt;
+    &lt;version&gt;4.4.0&lt;/version&gt;
+    &lt;scope&gt;compile&lt;/scope&gt;
+    &lt;type&gt;jar&lt;/type&gt;
+&lt;/dependency&gt;</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <h2 class="paragraph" id="Clover-for-GrailsInstallationGuide-Usingthe&#39;install-plugin&#39;command">
+                    Using the 'install-plugin' command</h2>
+                <div class="preformatted panel" style="border-width: 1px;">
+                    <div class="preformattedContent panelContent">
+                        <pre>grails install-plugin clover 4.0.0</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
+                        data-emoticon-name="warning" alt="(warning)"/> The 'install-plugin' command has been deprecated
+                    in Grails 2.1. It's recommended to use BuildConfig.groovy or pom.xml.</p>
+                <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
+                        data-emoticon-name="warning" alt="(warning)"/> If you experience problems using this method, try
+                    installing the plugin directly from its <span class="confluence-link">web address</span>:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">grails install-plugin http://plugins.grails.org/grails-clover/tags/RELEASE_x_y_z/grails-clover-x.y.z.zip
+</pre>
+                    </div>
+                </div>
+                <p>Where <code>x</code>, <code>y</code> and <code>z</code> (optional) refer to the latest version of the
+                    Clover-for-Grails plugin to be installed.</p>
+                <p> </p>
+                <p>It's also possible to install it from a downloaded file:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">grails install-plugin /path/to/grails-clover-x.y.zip
+</pre>
+                    </div>
+                </div>
+                <div class="confluence-information-macro confluence-information-macro-information"><span
+                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div class="confluence-information-macro-body"><p>Due to the nature of Grails' plugin installation
+                        architecture, you will need to install the Clover-for-Grails plugin into each Grails project
+                        whose source code you wish to test with Clover.</p></div>
+                </div>
+                <h1 id="Clover-for-GrailsInstallationGuide-RelatedTopics">Related Topics</h1>
+                <ul>
+                    <li><a href="grails--quick-start-guide.html">Clover-for-Grails Quick Start
+                        Guide</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>

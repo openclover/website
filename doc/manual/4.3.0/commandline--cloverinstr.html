@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.3 : CloverInstr</title>
+    <link rel="stylesheet" href="styles/site.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body class="theme-default aui-theme-default">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="../../../index">Overview</a></li>
+                <li><a href="../../../features">Features</a></li>
+                <li><a href="../../../downloads">Downloads</a></li>
+                <li class="active"><a href="../../../documentation">Documentation</a></li>
+                <li><a href="../../../support">Support</a></li>
+                <li><a href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li><a href="../../../about-us">About us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main" class="aui-page-panel">
+        <div id="main-header">
+            <div id="breadcrumb-section">
+                <ol id="breadcrumbs">
+                    <li class="first">
+                        <span><a href="index.html">OpenClover 4.3</a></span>
+                    </li>
+                    <li>
+                        <span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li>
+                        <span><a href="commandline--command-line-tools.html">Clover Command Line Tools</a></span>
+                    </li>
+                </ol>
+            </div>
+            <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            CloverInstr
+                        </span>
+            </h1>
+        </div>
+
+        <div id="content" class="view">
+
+            <div id="main-content" class="wiki-content group">
+                <p>This tool copies and instruments a set of Java source files specified on the command line. The output
+                    of the instrumentation process is <strong>instrumented java source</strong>; you will then need to
+                    compile the instrumented source using a standard Java compiler.</p>
+                <h3 id="CloverInstr-Usage">Usage</h3>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">java com.atlassian.clover.CloverInstr [OPTIONS] PARAMS [FILES...]
+</pre>
+                    </div>
+                </div>
+                <h3 id="CloverInstr-Params">Params</h3>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <td class="confluenceTd"><p>-i, --initstring &lt;file&gt;</p></td>
+                            <td class="confluenceTd"><p>Clover initstring. This is the full path to the dbfile that will
+                                be used to construct/update to store coverage data.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-s, --srcdir &lt;dir&gt;</p></td>
+                            <td class="confluenceTd"><p>Directory containing source files to be instrumented. If omitted
+                                individual source files should be specified on the command line.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-d, --destdir &lt;dir&gt;</p></td>
+                            <td class="confluenceTd"><p>Directory where Clover should place the instrumented sources.
+                                <strong>Note that files will be overwritten in the destination directory.</strong></p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3 id="CloverInstr-Options">Options</h3>
+                <div class="table-wrap">
+                    <table class="confluenceTable">
+                        <tbody>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">-dc, --distributedCoverage &lt;string&gt;</td>
+                            <td colspan="1" class="confluenceTd">Configuration for recording distributed pre-test
+                                coverage.<p>Valid keys and default values are: ON | OFF |</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">--dontFullyQualifyJavaLang</td>
+                            <td colspan="1" class="confluenceTd">If set, then java.lang will not be used in instrumented
+                                source.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-e, --encoding &lt;encoding&gt;</p></td>
+                            <td class="confluenceTd"><p>Specify the file encoding for source files. If not specified,
+                                the platform default encoding is used.</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-f, --flushinterval &lt;int&gt;</p></td>
+                            <td class="confluenceTd"><p>Tell Clover how often to flush coverage data when using either
+                                &quot;interval&quot; or &quot;threaded&quot; flushpolicy. Value in milliseconds.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>--instrumentation &lt;policy&gt;</p></td>
+                            <td class="confluenceTd"><p>Set the instrumentation strategy. Valid values are &quot;field&quot;
+                                and &quot;class&quot;. Default is &quot;class&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">--instrlevel &lt;string&gt;</td>
+                            <td colspan="1" class="confluenceTd">Set the instrumentation level. Valid values are &quot;statement&quot;
+                                and &quot;method&quot;. Default is &quot;statement&quot;.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">--instrlambda &lt;string&gt;</td>
+                            <td colspan="1" class="confluenceTd"><p>Whether to instrument lambda functions. Valid values
+                                are:</p>
+                                <ul>
+                                    <li>&quot;none&quot;  - lambda functions will not be visible as &quot;methods&quot;,
+                                        code statements from a lambda body will become a part of an enclosing method
+                                    </li>
+                                    <li>&quot;expression&quot; - only lambda functions in an expression-like form (e.g.
+                                        <em>&quot;(a, b) -&gt; a + b&quot;</em>) are instrumented
+                                    </li>
+                                    <li>&quot;block&quot; - only lambda functions written as code blocks (e.g. <em>&quot;()
+                                        -&gt; { return 123; }&quot;</em>) are instrumented 
+                                    </li>
+                                    <li>&quot;all&quot; - instrument all lambda functions</li>
+                                </ul>
+                                <p><em>Since Clover 3.2.2. Default is &quot;all&quot; in 3.2.2-4.0.2 and &quot;none&quot; since
+                                    4.0.3. </em></p>
+                                <p><em>See also <a
+                                        href="kb--java-8-code-instrumented-by-clover-fails-to-compile.html">Java
+                                    8 code instrumented by Clover fails to compile</a> bug.<br/></em></p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-p, --flushpolicy &lt;policy&gt;</p></td>
+                            <td class="confluenceTd"><p>Tell Clover which flushpolicy to use when flushing coverage data
+                                to disk. Valid values are &quot;directed&quot;, &quot;interval&quot; and &quot;threaded&quot;.
+                                With &quot;interval&quot; or &quot;threaded&quot;, you must also specify a flushinterval
+                                using -f. The default value is &quot;directed&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">-mc --methodContext &lt;name&gt;=&lt;regexp&gt;</td>
+                            <td colspan="1" class="confluenceTd">Defines a single custom method context. May be supplied
+                                more than once. (The \ may be needed to prevent shell expansion)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">-sc --statementContext &lt;name&gt;=&lt;regexp&gt;</td>
+                            <td colspan="1" class="confluenceTd">Defines a single custom statement context. May be
+                                supplied more than once. (The \ may be needed to prevent shell expansion)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">-r, --relative</td>
+                            <td colspan="1" class="confluenceTd">If specified, the initstring is treated as a relative
+                                path, rather than being converted to an absolute path. This is useful for distributed
+                                testing environments.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>--recordTestResults &lt;true|false&gt;        </p></td>
+                            <td class="confluenceTd"><p>If set to &quot;<code>false</code>&quot;, test results will not
+                                be recorded; instead, results can be added via the <code>&lt;testResults&gt;</code>
+                                fileset at report time. For more details please see '<a
+                                        href="ant--test-results-and-per-test-coverage.html">Advanced Usage</a>'.
+                            </p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1" class="confluenceTd">--source &lt;level&gt;</td>
+                            <td colspan="1" class="confluenceTd">Set the language level for Clover to use when parsing
+                                files.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>--sourceRoot &lt;string&gt;</p></td>
+                            <td class="confluenceTd"><p>Source root path prefix that will be ignored when evaluating the
+                                test inclusion patterns. This parameter is optional; it specifies what is trimmed from
+                                the beginning of the file path before the tests Include/Exclude Pattern is evaluated
+                                (see parameters below). For example, if you specify <code>--sourceRoot
+                                    /home/user/project/src</code>, then pattern <code>'test/*.'</code> would match a
+                                file in this location: '<code>/home/user/project/src/test/Test.java</code>'.<br/> If you
+                                leave the <code>--sourceRoot</code> option out, the pattern would need to start with
+                                <code>*</code><strong> or specify the full path
+                                    '<code>/home/user/project/src/test/</code></strong><code>.</code>'</p></td>
+                        </tr>
+                        <tr>
+                            <td class="confluenceTd"><p>-v, --verbose</p></td>
+                            <td class="confluenceTd"><p>Enable verbose logging.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3 id="CloverInstr-APIUsage">API Usage</h3>
+                <p>CloverInstr provides a simple API that accepts an array of strings representing the command line
+                    arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">import com.atlassian.clover.CloverInstr;
+
+...
+
+String [] cliArgs =
+    { &quot;-jdk14&quot;, &quot;-i&quot;, &quot;clover.db&quot;, &quot;-d&quot;, &quot;build/instr&quot;, &quot;Money.java&quot; }
+    ;
+    int result = CloverInstr.mainImpl(cliArgs);
+    if (result != 0)    {
+            // problem during instrumentation
+     }
+</pre>
+                    </div>
+                </div>
+                <h3 id="CloverInstr-Examples">Examples</h3>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">java com.atlassian.clover.CloverInstr -i clover.db -s src -d build/instr
+</pre>
+                    </div>
+                </div>
+                <p>Find all java source files in the directory &quot;src&quot;, copy and instrument them into the
+                    directory &quot;build/instr&quot;, which will be constructed if it does not exist. Coverage database
+                    &quot;clover.db&quot; is initialized.</p>
+                <p> </p>
+                <div class="code panel pdl" style="border-width: 1px;">
+                    <div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+     data-theme="Confluence">java com.atlassian.clover.CloverInstr --source 1.4 -i clover.db -d ../../build/instr \
+    Money.java IMoney.java
+</pre>
+                    </div>
+                </div>
+                <p>Copy and instrument the source files &quot;Money.java&quot; and &quot;IMoney.java&quot; into the
+                    directory <code>&quot;../../build/instr&quot;</code>. Use the JDK1.4 grammar (i.e. support the
+                    'assert' keyword).</p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+        </p>
+    </footer>
+</div>
+</body>
+</html>
