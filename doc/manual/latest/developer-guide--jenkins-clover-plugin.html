@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.5 : Jenkins Clover Plugin Developer Guide</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,19 +39,21 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.5</a>
-</li>
+                        <a href="index.html">OpenClover 4.5</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="developer-guide.html">Clover Development Hub</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Jenkins Clover Plugin Developer Guide
-                        </span>
+                <span id="title-text">
+                    Jenkins Clover Plugin Developer Guide
+                </span>
             </h1>
         </div>
 
@@ -69,8 +70,7 @@
                             <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
                                 <b>settings.xml</b></div>
                             <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-    >&lt;!-- user/password of your Jenkins account http://jenkins-ci.org/account --&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;!-- user/password of your Jenkins account http://jenkins-ci.org/account --&gt;
 &lt;server&gt;
     &lt;id&gt;maven.jenkins-ci.org&lt;/id&gt;
     &lt;username&gt;xxxxxx&lt;/username&gt; 
@@ -93,23 +93,19 @@
                 <ol>
                     <li><p>If you have already cloned jenkinsci/clover-plugin then ensure you <strong><em>git pull</em>
                     </strong>upstream</p></li>
-                    <li>Create a JIRA on <a  href="https://issues.jenkins-ci.org/" rel="nofollow">https://issues.jenkins-ci.org/</a> for
+                    <li>Create a JIRA on <a href="https://issues.jenkins-ci.org/" rel="nofollow">https://issues.jenkins-ci.org/</a> for
                         the issue you are fixing.
                     </li>
                     <li>Make changes necessary. Use issue key in commit messages.</li>
                     <li>Bump the dependency version of Clover Core if necessary (in pom.xml)</li>
-                    <li>Test by running Jenkins with the Clover plugin installed and setting up a &quot;Clovered&quot;
-                        project for CI. This can be achieved via:<br/><strong>mvn clean hpi:run</strong><br/>
+                    <li>Test by running Jenkins with the Clover plugin installed and setting up a &quot;Clovered&quot; project for CI. This can be achieved via:<br/><strong>mvn clean hpi:run</strong><br/>
                         <ol>
                             <li>it will start Jenkins on localhost:8080 by default, open it in web browser</li>
-                            <li>open &quot;Manage Jenkins&quot; &gt; &quot;Manage plugins&quot; &gt; &quot;Installed&quot;
-                                and check if new &quot;Jenkins Clover Plugin&quot; is listed
+                            <li>open &quot;Manage Jenkins&quot; &gt; &quot;Manage plugins&quot; &gt; &quot;Installed&quot; and check if new &quot;Jenkins Clover Plugin&quot; is listed
                             </li>
-                            <li>configure new project (you can use MoneyBags as a test case) and a build job (e.g.
-                                &quot;freestyle project&quot; with &quot;ant task&quot;)
+                            <li>configure new project (you can use MoneyBags as a test case) and a build job (e.g. &quot;freestyle project&quot; with &quot;ant task&quot;)
                             </li>
-                            <li>configure &quot;Post-build actions&quot; &gt; &quot;Publish Clover Coverage Report&quot;
-                                in the build job
+                            <li>configure &quot;Post-build actions&quot; &gt; &quot;Publish Clover Coverage Report&quot; in the build job
                             </li>
                             <li>run &quot;Build now&quot; and check if Clover summary report is available</li>
                         </ol>
@@ -117,9 +113,8 @@
                     <li>Commit changes and push to GitHub. Include your JIRA issue from above.</li>
                 </ol>
                 <h2>Release and publish</h2>
-                <p><span>Run release:prepare and release:perform in </span><a
-                                                                              href="https://wiki.jenkins-ci.org/display/JENKINS/Hosting+Plugins#HostingPlugins-Releasingtojenkinsci.org"
-                                                                              rel="nofollow">one
+                <p>
+                    <span>Run release:prepare and release:perform in </span><a href="https://wiki.jenkins-ci.org/display/JENKINS/Hosting+Plugins#HostingPlugins-Releasingtojenkinsci.org" rel="nofollow">one
                     command</a><span>:</span></p>
                 <div style="border-width: 1px;">
                     <div>
@@ -128,11 +123,11 @@
                 </div>
                 <p>Verify that the plugin has been deployed:</p>
                 <ul>
-                    <li>visit <a
-                                 href="http://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/" rel="nofollow">http://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/</a>
+                    <li>visit
+                        <a href="http://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/" rel="nofollow">http://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/</a>
                     </li>
-                    <li>check <a  href="http://updates.jenkins-ci.org/update-center.json"
-                                 rel="nofollow">http://updates.jenkins-ci.org/update-center.json</a> (file is updated
+                    <li>check
+                        <a href="http://updates.jenkins-ci.org/update-center.json" rel="nofollow">http://updates.jenkins-ci.org/update-center.json</a> (file is updated
                         every 6 hours)
                     </li>
                     <li>run your local Jenkins and open Administration page, check if you see the latest version
@@ -140,16 +135,12 @@
                     </li>
                 </ul>
                 <h2>Documentation</h2>
-                <p>Update the <span class="nt"> </span><a
-                                                          href="http://wiki.jenkins-ci.org/display/JENKINS/Clover+Plugin"
-                                                          rel="nofollow">http://wiki.jenkins-ci.org/display/JENKINS/Clover+Plugin</a>
+                <p>Update the
+                    <span class="nt"> </span><a href="http://wiki.jenkins-ci.org/display/JENKINS/Clover+Plugin" rel="nofollow">http://wiki.jenkins-ci.org/display/JENKINS/Clover+Plugin</a>
                     page.</p>
                 <h2>Troubleshooting</h2>
                 <p><strong>Problem with 'git clone' on Windows</strong></p>
-                <p>See <a  href="https://help.github.com/articles/generating-ssh-keys"
-                          rel="nofollow">https://help.github.com/articles/generating-ssh-keys</a> and <a
-                         href="https://help.github.com/articles/error-permission-denied-publickey"
-                        rel="nofollow" style="background-color: transparent;">https://help.github.com/articles/error-permission-denied-publickey</a> how
+                <p>See <a href="https://help.github.com/articles/generating-ssh-keys" rel="nofollow">https://help.github.com/articles/generating-ssh-keys</a> and <a href="https://help.github.com/articles/error-permission-denied-publickey" rel="nofollow" style="background-color: transparent;">https://help.github.com/articles/error-permission-denied-publickey</a> how
                     to set it up.</p>
                 <p class="emoticon emoticon-warning" title="Warning (!)"><strong>The 'git push' during mvn
                     'release:prepare' hangs</strong></p>
@@ -170,8 +161,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

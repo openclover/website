@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.5 : &lt;added&gt; element</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -56,9 +55,9 @@
                 </ol>
             </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            &lt;added&gt; element
-                        </span>
+                <span id="title-text">
+                    &lt;added&gt; element
+                </span>
             </h1>
         </div>
 
@@ -85,23 +84,21 @@
                             <td><p>interval</p></td>
                             <td><p>The time interval over which the delta should be calculated
                                 (from the last history point). Uses the <a href="ant--using-spans-specifying-an-interval.html">Interval</a>
-                                format. The range is automatically adjusted to the closest smaller interval available.
-                            </p></td>
+                                format. The range is automatically adjusted to the closest smaller interval available. </p></td>
                             <td><p>No; the default is to take the delta of the last two history
                                 points.</p></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <p> <strong>Nested elements of &lt;added&gt;</strong></p>
+                <p><strong>Nested elements of &lt;added&gt;</strong></p>
                 <p>The &lt;added&gt; element can take a single <a href="ant--clover-report.html">column</a> element,
                     allowing you to add one additional metric to the data shown in &lt;added&gt;.</p>
                 <p><strong> Example: &lt;totalStatements&gt;</strong></p>
                 <p>You could add totalStatements to &lt;added&gt; with the following code.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;added&gt;
+<pre>&lt;added&gt;
          &lt;columns&gt;
                    &lt;totalStatements/&gt;
          &lt;/columns&gt;
@@ -109,8 +106,7 @@
 </pre>
                     </div>
                 </div>
-                <p><img src="images/icons/emoticons/information.png"
-                        data-emoticon-name="information" alt="(info)"/> No more than one additional column can be
+                <p><img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> No more than one additional column can be
                     attached to &lt;added&gt;. The 'added' classes table will always appear above the Movers section in
                     the report - regardless of its order in the XML.</p>
                 <p> </p>
@@ -128,8 +124,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

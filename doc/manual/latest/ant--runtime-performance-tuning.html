@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.5 : Clover Performance Tuning</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,10 +39,11 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.5</a>
-</li>
+                        <a href="index.html">OpenClover 4.5</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
@@ -51,14 +51,14 @@
                     <li class="breadcrumb-item"><span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
                     </li>
                     <li>
-                        <span><a
-                                href="8.-Controlling-Clover-at-Runtime_71599101.html">8. Controlling Clover at Runtime</a></span>
+                        <span><a href="8.-Controlling-Clover-at-Runtime_71599101.html">8. Controlling Clover at Runtime</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Clover Performance Tuning
-                        </span>
+                <span id="title-text">
+                    Clover Performance Tuning
+                </span>
             </h1>
         </div>
 
@@ -69,7 +69,7 @@
                     measuring code coverage.</em></p>
                 <p><em>On this page</em>:</p>
                 <p>
-                    <style type='text/css'>/*<![CDATA[*/
+                    <style type="text/css">/*<![CDATA[*/
                     div.rbtoc1491813709818 {
                         padding: 0px;
                     }
@@ -84,32 +84,33 @@
                         padding-left: 0px;
                     }
 
-                    /*]]>*/</style>
-                <div class='toc-macro rbtoc1491813709818'>
-                    <ul class='toc-indentation'>
-                        <li><a href='#CloverPerformanceTuning-Tipsforimprovingperformance'>Tips for improving
+                    /*]]>*/
+                    </style>
+                <div class="toc-macro rbtoc1491813709818">
+                    <ul class="toc-indentation">
+                        <li><a href="#CloverPerformanceTuning-Tipsforimprovingperformance">Tips for improving
                             performance</a>
-                            <ul class='toc-indentation'>
+                            <ul class="toc-indentation">
                                 <li>
-                                    <a href='#CloverPerformanceTuning-Configure&#39;Uniqueper-testcoverage&#39;trackinginHTMLreport'>Configure
-                                        &#39;Unique per-test coverage&#39; tracking in HTML report</a></li>
+                                    <a href="#CloverPerformanceTuning-Configure&#39;Uniqueper-testcoverage&#39;trackinginHTMLreport">Configure &#39;Unique per-test coverage&#39; tracking in HTML report</a>
+                                </li>
                                 <li>
-                                    <a href='#CloverPerformanceTuning-SetInstrumentationto&quot;methodlevel&quot;(whenusingTestOptimization)'>Set
+                                    <a href="#CloverPerformanceTuning-SetInstrumentationto&quot;methodlevel&quot;(whenusingTestOptimization)">Set
                                         Instrumentation to &quot;method level&quot; (when using Test Optimization)</a>
                                 </li>
-                                <li><a href='#CloverPerformanceTuning-Selectper-testcoveragerecordingstrategy'>Select
+                                <li><a href="#CloverPerformanceTuning-Selectper-testcoveragerecordingstrategy">Select
                                     per-test coverage recording strategy</a></li>
-                                <li><a href='#CloverPerformanceTuning-RelatedLinks'>Related Links</a></li>
+                                <li><a href="#CloverPerformanceTuning-RelatedLinks">Related Links</a></li>
                             </ul>
                         </li>
-                        <li><a href='#CloverPerformanceTuning-Appendix-sampleperformancedata'>Appendix - sample
+                        <li><a href="#CloverPerformanceTuning-Appendix-sampleperformancedata">Appendix - sample
                             performance data</a>
-                            <ul class='toc-indentation'>
+                            <ul class="toc-indentation">
                                 <li>
-                                    <a href='#CloverPerformanceTuning-Comparisonofstatementandmethodinstrumentationlevel'>Comparison
+                                    <a href="#CloverPerformanceTuning-Comparisonofstatementandmethodinstrumentationlevel">Comparison
                                         of statement and method instrumentation level</a></li>
                                 <li>
-                                    <a href='#CloverPerformanceTuning-Comparisonofdifferentper-testcoveragerecordingstrategies'>Comparison
+                                    <a href="#CloverPerformanceTuning-Comparisonofdifferentper-testcoveragerecordingstrategies">Comparison
                                         of different per-test coverage recording strategies</a></li>
                             </ul>
                         </li>
@@ -122,8 +123,7 @@
                     be switched off to reduce CPU &amp; memory usage when running Clover. You can configure unique
                     coverage reporting in the following Clover components:</p>
                 <ul>
-                    <li><a  href="commandline--htmlreporter.html"
-                           rel="nofollow">Clover Command-Line Interface HTML Reporter'</a></li>
+                    <li><a href="commandline--htmlreporter.html" rel="nofollow">Clover Command-Line Interface HTML Reporter'</a></li>
                     <li><a href="ant--clover-html-report.html">The
                         HTML report in Clover-for-Ant</a></li>
                     <li><a href="ant--clover-report.html">The Current report in Clover-for-Ant</a></li>
@@ -132,8 +132,7 @@
                     Set Instrumentation to &quot;method level&quot; (when using Test Optimization)</h2>
                 <p>If you use Clover in your build purely for Test Optimization purposes and not for coverage reporting,
                     you can reduce the granularity of Clover instrumentation from statement to method level. The '<code>instrumentationLevel</code>'
-                    attribute set to method level allows for speedier instrumentation, compilation &amp; test execution.
-                </p>
+                    attribute set to method level allows for speedier instrumentation, compilation &amp; test execution. </p>
                 <p>This speeds up the build at the loss of some accuracy. This is the setting to use if you want to
                     improve Clover's performance. When this attribute is set to '<strong>statement</strong>' (the
                     default), the builds will take longer but the optimization intelligence will also be stronger.</p>
@@ -153,8 +152,7 @@
                     <li><p>Supply this option to the JVM running your tests:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >-Dclover.pertest.coverage=diff
+<pre>-Dclover.pertest.coverage=diff
 </pre>
                             </div>
                         </div>
@@ -165,8 +163,7 @@
                     <li><p>Supply this option to the JVM running your tests:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >-Dclover.pertest.coverage=off
+<pre>-Dclover.pertest.coverage=off
 </pre>
                             </div>
                         </div>
@@ -196,33 +193,23 @@
                 code</h4>
                 <p>A following open source libraries were tested using statement- and method-level instrumentation.</p>
                 <ul>
-                    <li><a  href="http://commons.apache.org/proper/commons-io/" rel="nofollow">Apache
+                    <li><a href="http://commons.apache.org/proper/commons-io/" rel="nofollow">Apache
                         Commons IO</a> version 2.4 (I/O operations)
                     </li>
-                    <li><a  href="http://commons.apache.org/proper/commons-math/index.html"
-                           rel="nofollow">Apache Commons Math</a> version 3.2 (CPU-intensive calculations)
+                    <li>
+                        <a href="http://commons.apache.org/proper/commons-math/index.html" rel="nofollow">Apache Commons Math</a> version 3.2 (CPU-intensive calculations)
                     </li>
-                    <li><a  href="http://code.google.com/p/guava-libraries/"
-                           rel="nofollow">Guava</a> version 14.0.1 (data collections)
+                    <li><a href="http://code.google.com/p/guava-libraries/" rel="nofollow">Guava</a> version 14.0.1 (data collections)
                     </li>
                 </ul>
-                <p>Standard test of unit tests was executed and a total time of test execution was measured.</p><h4
-                    id="CloverPerformanceTuning-Results">Results</h4>
-                <p><span><img
-                                                                       src="attachments/184549844/420807925.png"
+                <p>Standard test of unit tests was executed and a total time of test execution was measured.</p>
+                <h4 id="CloverPerformanceTuning-Results">Results</h4>
+                <p><span><img src="attachments/184549844/420807925.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
-                <p><em>(*) only 200 test classes were executed</em> <em>for Commons Math</em></p><h4
-                    id="CloverPerformanceTuning-Conclusion">Conclusion</h4>
+                <p><em>(*) only 200 test classes were executed</em> <em>for Commons Math</em></p><h4 id="CloverPerformanceTuning-Conclusion">Conclusion</h4>
                 <p>Performance penalty for a method and statement instrumentation level may vary significantly,
                     especially for CPU-intensive applications.</p>
                 <h2>Comparison of
@@ -278,8 +265,7 @@
                 <p>The following class:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >import junit.framework.TestCase;
+<pre>import junit.framework.TestCase;
 public class PerformanceTest extends TestCase {
     static int hitsPerTest;
     static int numberOfTests;
@@ -306,18 +292,10 @@ public class PerformanceTest extends TestCase {
                 <p>PerformanceTest 10 1000000<br/>PerformanceTest 20 500000<br/>PerformanceTest 50 200000<br/>PerformanceTest
                     100 100000<br/>PerformanceTest 200 500000<br/>PerformanceTest 500 200000<br/>PerformanceTest 1000
                     10000<br/>PerformanceTest 10000 1000</p><h4>Results</h4>
-                <p><span><img
-                                                                       src="attachments/184549844/420807924.png"
+                <p><span><img src="attachments/184549844/420807924.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <p><em>Test environment: JDK 1.5, Windows 7; Core i7 2670QM 2.2 GHz; 8GB RAM; HDD 750GB 7200RPM.</em>
                 </p><h4>Conclusion</h4>
@@ -340,8 +318,7 @@ public class PerformanceTest extends TestCase {
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

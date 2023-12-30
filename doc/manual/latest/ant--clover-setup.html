@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.5 : clover-setup</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,10 +39,11 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.5</a>
-</li>
+                        <a href="index.html">OpenClover 4.5</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
@@ -52,11 +52,12 @@
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            clover-setup
-                        </span>
+                <span id="title-text">
+                    clover-setup
+                </span>
             </h1>
         </div>
 
@@ -65,7 +66,7 @@
             <div id="main-content">
                 <p>On this page:</p>
                 <p>
-                    <style type='text/css'>/*<![CDATA[*/
+                    <style type="text/css">/*<![CDATA[*/
                     div.rbtoc1491813709541 {
                         padding: 0px;
                     }
@@ -80,25 +81,26 @@
                         padding-left: 0px;
                     }
 
-                    /*]]>*/</style>
-                <div class='toc-macro rbtoc1491813709541'>
-                    <ul class='toc-indentation'>
-                        <li><a href='#clover-setup-Description'>Description</a></li>
-                        <li><a href='#clover-setup-parametersParameters'>Parameters</a></li>
-                        <li><a href='#clover-setup-NestedElements'>Nested Elements</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#clover-setup-&lt;distributedCoverage&gt;'>&lt;distributedCoverage&gt;</a>
+                    /*]]>*/
+                    </style>
+                <div class="toc-macro rbtoc1491813709541">
+                    <ul class="toc-indentation">
+                        <li><a href="#clover-setup-Description">Description</a></li>
+                        <li><a href="#clover-setup-parametersParameters">Parameters</a></li>
+                        <li><a href="#clover-setup-NestedElements">Nested Elements</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#clover-setup-&lt;distributedCoverage&gt;">&lt;distributedCoverage&gt;</a>
                                 </li>
-                                <li><a href='#clover-setup-&lt;files&gt;'>&lt;files&gt;</a></li>
-                                <li><a href='#clover-setup-&lt;fileset&gt;'>&lt;fileset&gt;</a></li>
-                                <li><a href='#clover-setup-&lt;methodContext&gt;'>&lt;methodContext&gt;</a></li>
-                                <li><a href='#clover-setup-&lt;statementContext&gt;'>&lt;statementContext&gt;</a></li>
-                                <li><a href='#clover-setup-&lt;profiles&gt;'>&lt;profiles&gt;</a></li>
-                                <li><a href='#clover-setup-&lt;testsources&gt;'>&lt;testsources&gt;</a></li>
+                                <li><a href="#clover-setup-&lt;files&gt;">&lt;files&gt;</a></li>
+                                <li><a href="#clover-setup-&lt;fileset&gt;">&lt;fileset&gt;</a></li>
+                                <li><a href="#clover-setup-&lt;methodContext&gt;">&lt;methodContext&gt;</a></li>
+                                <li><a href="#clover-setup-&lt;statementContext&gt;">&lt;statementContext&gt;</a></li>
+                                <li><a href="#clover-setup-&lt;profiles&gt;">&lt;profiles&gt;</a></li>
+                                <li><a href="#clover-setup-&lt;testsources&gt;">&lt;testsources&gt;</a></li>
                             </ul>
                         </li>
-                        <li><a href='#clover-setup-Examples'>Examples</a></li>
-                        <li><a href='#clover-setup-Troubleshooting'>Troubleshooting</a></li>
+                        <li><a href="#clover-setup-Examples">Examples</a></li>
+                        <li><a href="#clover-setup-Troubleshooting">Troubleshooting</a></li>
                     </ul>
                 </div>
                 </p><p> </p>
@@ -107,21 +109,14 @@
                 <p>The basic nesting of elements within the <code>&lt;clover-setup&gt;</code> task is as follows:</p>
                 <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
                     <div class="panelContent" style="background-color: white;">
-                        <p>&lt;<span class="confluence-link">clover-setup</span>&gt;<br/>     &lt;<a
-                                href="#clover-setup-distributedCoverage">distributedCoverage</a>/&gt;<br/>     &lt;<a
-                                href="#clover-setup-Files">files</a>/&gt;<br/>     &lt;<a href="#clover-setup-Fileset">fileset</a>/&gt;<br/>
-                                &lt;<a href="#clover-setup-MethodContext">methodcontext</a>/&gt;<br/>     &lt;<a
-                                    href="#clover-setup-StatementContext">statementcontext</a>/&gt;<br/>    &lt;<a
-                                    href="#clover-setup-profiles">profiles</a>/&gt;<br/>     &lt;<a
-                                    href="#clover-setup-Testsources">testsources</a>&gt; <em>advanced users only</em>
-                            <br/>         &lt;<a href="#clover-setup-Testclass">testclass</a>&gt;<br/>            
-                            &lt;<a href="#clover-setup-Testmethod">testmethod</a>/&gt;<br/>         &lt;/<a
-                                    href="#clover-setup-Testclass">testclass</a>&gt;<br/>     &lt;/<a
-                                    href="#clover-setup-Testsources">testsources</a>&gt;<br/> &lt;/clover-setup&gt;</p>
+                        <p>&lt;<span class="confluence-link">clover-setup</span>&gt;<br/>     &lt;<a href="#clover-setup-distributedCoverage">distributedCoverage</a>/&gt;<br/>     &lt;<a href="#clover-setup-Files">files</a>/&gt;<br/>     &lt;<a href="#clover-setup-Fileset">fileset</a>/&gt;<br/>
+                                &lt;<a href="#clover-setup-MethodContext">methodcontext</a>/&gt;<br/>     &lt;<a href="#clover-setup-StatementContext">statementcontext</a>/&gt;<br/>    &lt;<a href="#clover-setup-profiles">profiles</a>/&gt;<br/>     &lt;<a href="#clover-setup-Testsources">testsources</a>&gt;
+                            <em>advanced users only</em>
+                            <br/>         &lt;<a href="#clover-setup-Testclass">testclass</a>&gt;<br/>             &lt;<a href="#clover-setup-Testmethod">testmethod</a>/&gt;<br/>         &lt;/<a href="#clover-setup-Testclass">testclass</a>&gt;<br/>     &lt;/<a href="#clover-setup-Testsources">testsources</a>&gt;<br/> &lt;/clover-setup&gt;
+                        </p>
                     </div>
                 </div>
-                <h1 id="clover-setup-parametersParameters"><span
-                                                                 id="clover-setup-parameters"></span>Parameters</h1>
+                <h1 id="clover-setup-parametersParameters"><span id="clover-setup-parameters"></span>Parameters</h1>
                 <p>All attributes of the <code>&lt;clover-setup&gt;</code> element support Java. However, as indicated
                     in the last column of the following table, some of these attributes do not support Groovy.</p>
                 <div class="table-wrap">
@@ -142,9 +137,8 @@
                                 you wish to specify an alternative compiler, you can either set the
                                 <code>build.compiler</code> property or use this attribute.</p></td>
                             <td><p>No.</p></td>
-                            <td><p><img class="emoticon emoticon-cross"
-                                                             src="images/icons/emoticons/error.png"
-                                                             data-emoticon-name="cross" alt="(error)"/></p></td>
+                            <td><p><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)"/></p>
+                            </td>
                         </tr>
                         <tr>
                             <td><p>enabled</p></td>
@@ -152,40 +146,33 @@
                                 compilation. This attribute provides a convenient control point to enable or disable
                                 Clover from the command line.</p></td>
                             <td><p>No; defaults to '<code>true</code>'.</p></td>
-                            <td><p><img class="emoticon emoticon-tick"
-                                                             src="images/icons/emoticons/check.png"
-                                                             data-emoticon-name="tick" alt="(tick)"/></p></td>
+                            <td><p><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/></p></td>
                         </tr>
                         <tr>
                             <td><p>flushinterval</p></td>
                             <td><p>When the flushpolicy is set to <code>interval</code> or <code>threaded</code>
                                 this value is the minimum period between flush operations (in milliseconds)</p></td>
                             <td><p>No.</p></td>
-                            <td><p><img class="emoticon emoticon-tick"
-                                                             src="images/icons/emoticons/check.png"
-                                                             data-emoticon-name="tick" alt="(tick)"/></p></td>
+                            <td><p><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/></p></td>
                         </tr>
                         <tr>
                             <td><p>flushpolicy</p></td>
                             <td><p>This attribute controls how Clover flushes coverage data during
                                 a test run. Valid values are <code>directed</code>, <code>interval</code>, or <code>threaded</code>.
-                                  <code>directed</code>
-                                — Coverage data is flushed at JVM shutdown, and after an inline flush directive. <br
-                                        class="atl-forced-newline"/>
+                                <code>directed</code>
+                                — Coverage data is flushed at JVM shutdown, and after an inline flush directive. <br class="atl-forced-newline"/>
                                 <code>interval</code> — Coverage data is flushed as fordirected, as well as periodically
                                 at a <em>maximum rate</em> based on the value of <code>flushinterval</code>. This is a
                                 'passive' mode in that flushing potentially occurs as long as instrumented code is being
-                                executed.   <code>threaded</code>
+                                executed. <code>threaded</code>
                                 — Coverage data is flushed as for <code>directed</code>, as well as periodically at a
                                 rate based on the value of <code>flushinterval</code>. This is an 'active' mode in that
                                 flushing occurs on a separate thread and is not dependent on the execution of
-                                instrumented code.   For
+                                instrumented code. For
                                 more information, see <a href="ant--flush-policy.html">Using a Flush
                                     Policy</a>.</p></td>
                             <td><p>No; defaults to '<code>directed</code>'.</p></td>
-                            <td><p><img class="emoticon emoticon-tick"
-                                                             src="images/icons/emoticons/check.png"
-                                                             data-emoticon-name="tick" alt="(tick)"/></p></td>
+                            <td><p><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/></p></td>
                         </tr>
                         <tr>
                             <td><p>fullyQualifyJavaLang</p></td>
@@ -193,21 +180,18 @@
                                 defined a variable called 'java' in your source files. If false, Clover will instrument
                                 source files without using fully qualified <code>java.lang</code> names.</p></td>
                             <td><p>No; defaults to '<code>true</code>'.</p></td>
-                            <td><p><img class="emoticon emoticon-cross"
-                                                             src="images/icons/emoticons/error.png"
-                                                             data-emoticon-name="cross" alt="(error)"/></p></td>
+                            <td><p><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)"/></p>
+                            </td>
                         </tr>
                         <tr>
                             <td><p>initstring</p></td>
-                            <td><p>The Clover initString describes the location of the <a
-                                    href="ant--managing-the-coverage-database.html">Clover coverage database</a>.
+                            <td><p>The Clover initString describes the location of the
+                                <a href="ant--managing-the-coverage-database.html">Clover coverage database</a>.
                                 Typically this is a relative or absolute file reference, e.g. <code>${basedir}/build/clover.db</code>.
                                 If not specified it defaults to <code>.clover/clover.db</code>, relative to the
                                 project's base directory.</p></td>
                             <td><p>No.</p></td>
-                            <td><p><img class="emoticon emoticon-tick"
-                                                             src="images/icons/emoticons/check.png"
-                                                             data-emoticon-name="tick" alt="(tick)"/></p></td>
+                            <td><p><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/></p></td>
                         </tr>
                         <tr>
                             <td><p>instrumentationLevel</p></td>
@@ -215,9 +199,7 @@
                                 speed of instrumentation, compilation &amp; test execution. Valid values are '<code>method</code>'
                                 and '<code>statement</code>'.</p></td>
                             <td><p>No; defaults to <code>statement</code>.</p></td>
-                            <td><p><img class="emoticon emoticon-tick"
-                                                             src="images/icons/emoticons/check.png"
-                                                             data-emoticon-name="tick" alt="(tick)"/></p></td>
+                            <td><p><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/></p></td>
                         </tr>
                         <tr>
                             <td colspan="1"><p>instrumentLambda</p>
@@ -240,8 +222,8 @@
                                         4.0.5)</p></li>
                                     <li><em>all</em> - instrument all lambda functions.</li>
                                 </ul>
-                                <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
-                                        data-emoticon-name="warning" alt="(warning)"/> Due to Clover's restrictions
+                                <p>
+                                    <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> Due to Clover's restrictions
                                     related with code instrumentation and javac compiler's type inference
                                     capabilities, you may get compilation errors when expression-like lambda functions
                                     are passed to generic methods or types. In such case disable instrumentation of
@@ -249,42 +231,34 @@
                                     <a href="kb--java-8-code-instrumented-by-clover-fails-to-compile.html">Java
                                         8 code instrumented by Clover fails to compile</a> Knowledge Base article for
                                     more details.</p></td>
-                            <td colspan="1">No; defaults to &quot;all&quot; in 3.2.2-4.0.2 and to
-                                &quot;none&quot; since 4.0.3.
+                            <td colspan="1">No; defaults to &quot;all&quot; in 3.2.2-4.0.2 and to &quot;none&quot; since 4.0.3.
                             </td>
-                            <td colspan="1"><img class="emoticon emoticon-cross"
-                                                                      src="images/icons/emoticons/error.png"
-                                                                      data-emoticon-name="cross" alt="(error)"/></td>
+                            <td colspan="1">
+                                <img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)"/></td>
                         </tr>
                         <tr>
                             <td><p>preserve</p></td>
                             <td><p>A boolean attribute which controls whether the instrumented
                                 source will be retained after compilation.</p></td>
                             <td><p>No; defaults to '<code>false</code>'.</p></td>
-                            <td><p><img class="emoticon emoticon-cross"
-                                                             src="images/icons/emoticons/error.png"
-                                                             data-emoticon-name="cross" alt="(error)"/></p></td>
+                            <td><p><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)"/></p>
+                            </td>
                         </tr>
                         <tr>
                             <td><p>recordTestResults</p></td>
                             <td><p>If set to '<code>false</code>', test results will not be
                                 recorded; instead, results can be added via the <code>&lt;testResults&gt;</code> fileset
-                                at report time. For more details please see '<a
-                                        href="ant--test-results-and-per-test-coverage.html">Advanced Usage</a>'.
-                            </p></td>
+                                at report time. For more details please see '<a href="ant--test-results-and-per-test-coverage.html">Advanced Usage</a>'. </p>
+                            </td>
                             <td><p>No; defaults to '<code>true</code>'. </p></td>
-                            <td><p><img class="emoticon emoticon-tick"
-                                                             src="images/icons/emoticons/check.png"
-                                                             data-emoticon-name="tick" alt="(tick)"/></p></td>
+                            <td><p><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/></p></td>
                         </tr>
                         <tr>
                             <td><p>relative</p></td>
                             <td><p>This controls whether the initstring parameter is treated as a
                                 relative path or not.</p></td>
                             <td><p>No; defaults to '<code>false</code>'.</p></td>
-                            <td><p><img class="emoticon emoticon-tick"
-                                                             src="images/icons/emoticons/check.png"
-                                                             data-emoticon-name="tick" alt="(tick)"/></p></td>
+                            <td><p><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/></p></td>
                         </tr>
                         <tr>
                             <td><p>source</p></td>
@@ -292,18 +266,15 @@
                                 setting the source attribute on the <code>&lt;javac&gt;</code> target will override this
                                 setting.</p></td>
                             <td><p>No.</p></td>
-                            <td><p><img class="emoticon emoticon-cross"
-                                                             src="images/icons/emoticons/error.png"
-                                                             data-emoticon-name="cross" alt="(error)"/></p></td>
+                            <td><p><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)"/></p>
+                            </td>
                         </tr>
                         <tr>
                             <td><p>tmpdir</p></td>
                             <td><p>The directory into which Clover will write an instrumented copy
                                 of the source code.</p></td>
                             <td><p>No.</p></td>
-                            <td><p><img class="emoticon emoticon-tick"
-                                                             src="images/icons/emoticons/check.png"
-                                                             data-emoticon-name="tick" alt="(tick)"/></p></td>
+                            <td><p><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/></p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -311,9 +282,8 @@
                 <p>It is important to note that the Clover compiler adapter still picks up its settings from the set of
                     Clover Ant properties. The <code>&lt;clover-setup&gt;</code> task provides a convenient method to
                     set these properties. This means that builds that use the Clover 1.0 property set will continue to
-                    operate as expected.<br/> <img class="emoticon emoticon-warning"
-                                                   src="images/icons/emoticons/warning.png" data-emoticon-name="warning"
-                                                   alt="(warning)"/> Do not set the '<code>compiler</code>' attribute on
+                    operate as expected.<br/>
+                    <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> Do not set the '<code>compiler</code>' attribute on
                     the <code>&lt;javac/&gt;</code> task as this overrides the Clover compiler set up by <code>&lt;clover-setup&gt;</code>.
                     Use the '<code>clovercompiler</code>' attribute instead.</p>
                 <h1 id="clover-setup-NestedElements">Nested Elements</h1>
@@ -321,7 +291,7 @@
                 <h2>&lt;distributedCoverage&gt;</h2>
                 <p>This element, which supports both Java and Groovy, turns on Clover's distributed coverage feature,
                     enabling the collection of per-test coverage data, when your test environment requires more than one
-                    JVM (<a  href="http://en.wikipedia.org/wiki/Jvm" rel="nofollow">Java Virtual
+                    JVM (<a href="http://en.wikipedia.org/wiki/Jvm" rel="nofollow">Java Virtual
                         Machine</a>).</p><h5>Parameters</h5>
                 <div class="table-wrap">
                     <table>
@@ -367,15 +337,14 @@
                         </tbody>
                     </table>
                 </div>
-                <p><img src="images/icons/emoticons/information.png"
-                        data-emoticon-name="information" alt="(info)"/> All attributes are optional.</p>
+                <p><img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> All attributes are optional.</p>
                 <p><span id="clover-setup-Files"></span></p>
                 <h2>&lt;files&gt;</h2>
                 <p>An Ant patternset, relative to the top level package (e.g. com/atlassian/clovertest), element which
                     controls which files are included or excluded from Clover instrumentation. Use this when you wish to
                     exclude files based on packages.</p>
                 <div><p class="title">Note</p>
-                    <span ></span>
+                    <span></span>
                     <div><p>The <code>&lt;useclass&gt;</code> sub-element has
                         been deprecated and has no effect.</p></div>
                 </div>
@@ -387,18 +356,17 @@
                     be instrumented. This can be difficult to setup with patterns. Filesets also allow much greater
                     flexibility in specifying which files to instrument by facilitating the use of Ant's fileset
                     selectors. Use this when you wish to exclude files based on directory structure.</p>
-                <div class="confluence-information-macro confluence-information-macro-information"><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-                    <div><p>The &lt;fileset&gt; tag has a &quot;dir&quot;
-                        attribute and uses standard Ant directory scanner to find sources for exclusion. It means that
-                        at the time when &lt;clover-setup&gt; is called the directory must be present and files to be
-                        excluded/included too.</p></div>
+                <div class="confluence-information-macro confluence-information-macro-information">
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div>
+                        <p>The &lt;fileset&gt; tag has a &quot;dir&quot; attribute and uses standard Ant directory scanner to find sources for exclusion. It means that
+                            at the time when &lt;clover-setup&gt; is called the directory must be present and files to be
+                            excluded/included too.</p></div>
                 </div>
                 <p><span id="clover-setup-MethodContext"></span></p>
                 <p>
                 <h2>&lt;methodContext&gt;</h2>
-                <p>Specifies a method Context definition. See <a
-                        href="ant--using-coverage-contexts.html">Using Coverage
+                <p>Specifies a method Context definition. See <a href="ant--using-coverage-contexts.html">Using Coverage
                     Contexts</a> for more information.</p><h5>Parameters</h5>
                 <div class="table-wrap">
                     <table>
@@ -411,8 +379,7 @@
                         <tr>
                             <td><p>name</p></td>
                             <td><p>The name for this context. Must be unique, and not be one of the
-                                reserved context names (see <a
-                                        href="ant--using-coverage-contexts.html">Using
+                                reserved context names (see <a href="ant--using-coverage-contexts.html">Using
                                     Coverage Contexts</a>).</p></td>
                             <td><p>Yes.</p></td>
                         </tr>
@@ -472,8 +439,7 @@
                     single-statement method like:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >int getNumber() {
+<pre>int getNumber() {
    return number;
 }</pre>
                     </div>
@@ -481,8 +447,7 @@
                 <p>and a single-statement method which actually returns more complex data, like:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >ActionListener getListener() {
+<pre>ActionListener getListener() {
    return new ActionListener() {
        public void actionPerformed(ActionEvent e) {
            System.out.println(&quot;statement #1&quot;);
@@ -494,13 +459,10 @@
                     </div>
                 </div>
                 <p> </p>
-                <p>If you would use a method context filter with <em>maxStatements</em> attribute, like the following:
-                </p>
+                <p>If you would use a method context filter with <em>maxStatements</em> attribute, like the following: </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre
-                             data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-                            >&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxStatements=&quot;1&quot;&gt;</pre>
+                        <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxStatements=&quot;1&quot;&gt;</pre>
                     </div>
                 </div>
                 <p>then both <em>getNumber()</em> and <em>getListener()</em> methods would be filtered-out, because each
@@ -509,26 +471,21 @@
                 <p>If you would use new <em>maxAggregatedStatements</em>, for instance:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre
-                             data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-                            >&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxAggregatedStatements=&quot;1&quot;&gt;</pre>
+                        <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxAggregatedStatements=&quot;1&quot;&gt;</pre>
                     </div>
                 </div>
                 <p>then the <em>getNumber()</em> would be filtered-out and the <em>getListener()</em> method would
-                    <strong>not</strong> be filtered out (because it contains 4 statements in total - 1 &quot;return&quot;
-                    statement from the method itself and 3 &quot;System.out.println()&quot; statements from anonymous
+                    <strong>not</strong> be filtered out (because it contains 4 statements in total - 1 &quot;return&quot; statement from the method itself and 3 &quot;System.out.println()&quot; statements from anonymous
                     class).</p>
                 <p> </p>
                 <p><strong>Regular expression tip:</strong></p>
-                <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
-                        data-emoticon-name="light-on" alt="(lightbulb)"/> If you would like to filter-out all methods,
+                <p>
+                    <img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)"/> If you would like to filter-out all methods,
                     except those having a specific name, you could write a negative-look-ahead regular expression. For
                     example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre
-                             data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-                            >&lt;methodContext name=&quot;trivial&quot; regexp=&quot;^(?!.*(getRunnable|getListener)).*$&quot; maxStatements=&quot;1&quot;/&gt;</pre>
+                        <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;^(?!.*(getRunnable|getListener)).*$&quot; maxStatements=&quot;1&quot;/&gt;</pre>
                     </div>
                 </div>
                 <p>will filter-out all methods having not more than one statement, except those which are named <em>getRunnable</em>
@@ -537,11 +494,9 @@
                 <p><span id="clover-setup-StatementContext"></span></p>
                 <p>
                 <h2>&lt;statementContext&gt;</h2>
-                <p>Specifies a statement Context definition. See <a
-                        href="ant--using-coverage-contexts.html">Using Coverage
+                <p>Specifies a statement Context definition. See <a href="ant--using-coverage-contexts.html">Using Coverage
                     Contexts</a> for more information.</p>
-                <div><span
-                       ></span>
+                <div><span></span>
                     <div><p>This element does not support Groovy.</p></div>
                 </div>
                 <h5>Parameters</h5>
@@ -556,8 +511,7 @@
                         <tr>
                             <td><p>name</p></td>
                             <td><p>The name for this context. Must be unique, and not be one of the
-                                reserved context names (see <a
-                                        href="ant--using-coverage-contexts.html">Using
+                                reserved context names (see <a href="ant--using-coverage-contexts.html">Using
                                     Coverage Contexts</a>).</p></td>
                             <td><p>Yes.</p></td>
                         </tr>
@@ -580,8 +534,7 @@
                     Thanks to this you can change some of Clover's behavior without code recompilation.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-    >&lt;profiles&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;profiles&gt;
   &lt;profile name=&quot;default&quot; coverageRecorder=&quot;FIXED|GROWABLE|SHARED&quot;&gt;
     &lt;distributedCoverage/&gt; &lt;!-- optional --&gt;
   &lt;/profile&gt;
@@ -593,8 +546,7 @@
                     </div>
                 </div>
                 <p> </p><h4>&lt;profile&gt;</h4>
-                <p><strong>Since 3.1.11.</strong> Contains a definition of a single runtime profile.</p><h5
-                    id="clover-setup-Parameters.3">Parameters</h5>
+                <p><strong>Since 3.1.11.</strong> Contains a definition of a single runtime profile.</p><h5 id="clover-setup-Parameters.3">Parameters</h5>
                 <div class="table-wrap">
                     <table>
                         <tbody>
@@ -614,11 +566,10 @@
                             <td><p>Type of coverage recorder which will be used for gathering
                                 coverage data at runtime. Possible values: FIXED, GROWABLE, SHARED (case
                                 insensitive).</p>
-                                <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
-                                        data-emoticon-name="warning" alt="(warning)"/> Warning: we strongly recommend
-                                    using the default setting. Do not change until you deeply understand <a
-                                            href="ant--coverage-recorders.html">how
-                                        it works</a>.</p></td>
+                                <p>
+                                    <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> Warning: we strongly recommend
+                                    using the default setting. Do not change until you deeply understand <a href="ant--coverage-recorders.html">how
+                                    it works</a>.</p></td>
                             <td><p>No. Defaults to &quot;FIXED&quot;.</p></td>
                         </tr>
                         </tbody>
@@ -626,8 +577,9 @@
                 </div>
                 <h5>Nested elements</h5>
                 <p><strong>&lt;distributedCoverage/&gt;</strong></p>
-                <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
-                        data-emoticon-name="light-on" alt="(lightbulb)"/>Note: a definition in <em><strong>&lt;profile&gt;/&lt;distributedCoverage&gt;</strong></em>
+                <p>
+                    <img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)"/>Note: a definition in
+                    <em><strong>&lt;profile&gt;/&lt;distributedCoverage&gt;</strong></em>
                     element has priority over the <em><strong>&lt;clover-setup|clover-instr&gt;/&lt;distributedCoverage&gt;</strong></em>
                     element.</p><h5>Selecting clover.profile at
                 runtime</h5>
@@ -663,23 +615,20 @@
                 <p>So it fall-backs to default system settings in case of missing profile.</p>
                 <p> </p></p><p> <span id="clover-setup-Testsources"></span></p>
                 <h2>&lt;testsources&gt;</h2>
-                <p><code>&lt;testsources&gt;</code> is an <a
-                                                             href="https://ant.apache.org/manual/Types/fileset.html"
-                                                             rel="nofollow">Ant fileset</a> which should only be used if
+                <p><code>&lt;testsources&gt;</code> is an
+                    <a href="https://ant.apache.org/manual/Types/fileset.html" rel="nofollow">Ant fileset</a> which should only be used if
                     Clover's <a href="ant--clover-test-detection.html">default test detection</a> is not adequate.
                     Clover's default test detection algorithm is used to distinguish test cases if this element is
                     omitted.</p>
-                <div><span
-                        ></span>
+                <div><span></span>
                     <div><p>To have test sources reported in a separate tree
-                        to your application code, use the <a href="ant--clover-report.html">&lt;testsources/&gt;</a> element in the <a
-                                href="ant--clover-report.html">&lt;clover-report/&gt;</a> task.</p></div>
+                        to your application code, use the <a href="ant--clover-report.html">&lt;testsources/&gt;</a> element in the
+                        <a href="ant--clover-report.html">&lt;clover-report/&gt;</a> task.</p></div>
                 </div>
-                <p><span id="clover-setup-Testclass"></span></p><h5
-                    id="clover-setup-Nestedelementsof&lt;testsources&gt;">Nested elements of &lt;testsources&gt;</h5><h6
-                    id="clover-setup-&lt;testclass&gt;">&lt;testclass&gt;</h6>
-                <p>&lt;testclass&gt; can be used to include only specific test classes.</p><h6
-                    id="clover-setup-Parameters.4">Parameters</h6>
+                <p><span id="clover-setup-Testclass"></span></p>
+                <h5 id="clover-setup-Nestedelementsof&lt;testsources&gt;">Nested elements of &lt;testsources&gt;</h5>
+                <h6 id="clover-setup-&lt;testclass&gt;">&lt;testclass&gt;</h6>
+                <p>&lt;testclass&gt; can be used to include only specific test classes.</p><h6 id="clover-setup-Parameters.4">Parameters</h6>
                 <div class="table-wrap">
                     <table>
                         <tbody>
@@ -717,16 +666,14 @@
                         </tbody>
                     </table>
                 </div>
-                <p><img src="images/icons/emoticons/information.png"
-                        data-emoticon-name="information" alt="(info)"/> For more information about regular expressions,
-                    please check java.util.regex.Pattern documentation.
-                </p><h6>&lt;and&gt;</h6>
+                <p>
+                    <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> For more information about regular expressions,
+                    please check java.util.regex.Pattern documentation. </p><h6>&lt;and&gt;</h6>
                 <p>&lt;and&gt; can be used to specify multiple instances of &lt;testclass&gt;, all of which must be
                     matched for a class to be detected as a test, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;testsources dir=&quot;tests&quot;&gt;
+<pre>&lt;testsources dir=&quot;tests&quot;&gt;
 &lt;and&gt;
   &lt;testclass annotation=&quot;Specification&quot;/&gt;
   &lt;testclass annotation=&quot;Test&quot;/&gt;
@@ -742,8 +689,7 @@
                     matched for a class to be detected as a test, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;testsources dir=&quot;tests&quot;&gt;
+<pre>&lt;testsources dir=&quot;tests&quot;&gt;
 &lt;or&gt;
   &lt;testclass name=&quot;.*Spec&quot;/&gt;
   &lt;testclass name=&quot;.*Test&quot;/&gt;
@@ -754,14 +700,13 @@
                 </div>
                 <p>In this example, a class will be recognized as a test if its name matches &quot;<code>.*Spec</code>&quot;,
                     <strong>or</strong> its name matches &quot;<code>.*Test</code>&quot;.</p>
-                <p><span id="clover-setup-Testmethod"></span></p><h5
-                    id="clover-setup-Nestedelementsof&lt;testclass&gt;">Nested elements of &lt;testclass&gt;</h5><h6
-                    id="clover-setup-&lt;testmethod&gt;">&lt;testmethod&gt;</h6>
+                <p><span id="clover-setup-Testmethod"></span></p>
+                <h5 id="clover-setup-Nestedelementsof&lt;testclass&gt;">Nested elements of &lt;testclass&gt;</h5>
+                <h6 id="clover-setup-&lt;testmethod&gt;">&lt;testmethod&gt;</h6>
                 <p>&lt;testmethod&gt; can be used to perform more fine grained detection of test methods.</p>
-                <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
-                        data-emoticon-name="warning" alt="(warning)"/> Clover matches methods only; it does not match
-                    constructors (<a  href="https://jira.atlassian.com/browse/CLOV-1339"
-                                     rel="nofollow">CLOV-1339</a>).</p><h6>
+                <p>
+                    <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> Clover matches methods only; it does not match
+                    constructors (<a href="https://jira.atlassian.com/browse/CLOV-1339" rel="nofollow">CLOV-1339</a>).</p><h6>
                 Parameters</h6>
                 <div class="table-wrap">
                     <table>
@@ -805,8 +750,7 @@
                     treated as 'or' clauses, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;testsources dir=&quot;tests&quot;&gt;
+<pre>&lt;testsources dir=&quot;tests&quot;&gt;
   &lt;testclass&gt;
     &lt;testmethod annotation=&quot;Specification&quot;/&gt;
     &lt;testmethod name=&quot;^should.*&quot;/&gt;
@@ -816,25 +760,22 @@
 </pre>
                     </div>
                 </div>
-                <p>In this example, a method will be recognized as a test if its annotation is
-                    &quot;<code>Specification</code>&quot;, <strong>or</strong> its name matches
-                    &quot;<code>^should*</code>&quot;, <strong>or</strong> its name matches &quot;<code>^must*</code>&quot;.
+                <p>In this example, a method will be recognized as a test if its annotation is &quot;<code>Specification</code>&quot;,
+                    <strong>or</strong> its name matches &quot;<code>^should*</code>&quot;, <strong>or</strong> its name matches &quot;<code>^must*</code>&quot;.
                 </p>
                 <h1 id="clover-setup-Examples">Examples</h1>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-setup/&gt;
+<pre>&lt;clover-setup/&gt;
 </pre>
                     </div>
                 </div>
-                <p>This example is the minimal setup to use Clover. In this case, the <a
-                        href="ant--managing-the-coverage-database.html">Clover coverage database</a> is located in
+                <p>This example is the minimal setup to use Clover. In this case, the
+                    <a href="ant--managing-the-coverage-database.html">Clover coverage database</a> is located in
                     the .clover relative directory.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-setup enabled=&quot;${enable}&quot;&gt;
+<pre>&lt;clover-setup enabled=&quot;${enable}&quot;&gt;
      &lt;files&gt;
        &lt;exclude name=&quot;**/atlassian/clover/**/*.java&quot;/&gt;
      &lt;/files&gt;
@@ -851,8 +792,7 @@
                     attribute.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-setup enabled=&quot;${coverage.enable}&quot;&gt;
+<pre>&lt;clover-setup enabled=&quot;${coverage.enable}&quot;&gt;
      &lt;fileset dir=&quot;src/main&quot;&gt;
        &lt;contains text=&quot;Joe Bloggs&quot;/&gt;
      &lt;/fileset&gt;
@@ -860,18 +800,15 @@
 </pre>
                     </div>
                 </div>
-                <p>This example instruments all source files in the src/main directory tree that contain the string
-                    &quot;Joe Bloggs&quot;. Ant's filesets supports a number of these selectors. Please refer to the Ant
+                <p>This example instruments all source files in the src/main directory tree that contain the string &quot;Joe Bloggs&quot;. Ant's filesets supports a number of these selectors. Please refer to the Ant
                     manual for information on these selectors.</p><h4>Interval
                 Flushing</h4>
                 <p>By default Clover will write coverage data to disk when the hosting JVM exits, via a shutdown hook.
                     This is not always practical, particularly when the application you are testing runs in an
-                    Application Server. In this situation, you can configure Clover to use &quot;interval&quot;
-                    flushing, where coverage data is written out periodically during execution:</p>
+                    Application Server. In this situation, you can configure Clover to use &quot;interval&quot; flushing, where coverage data is written out periodically during execution:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-setup flushpolicy=&quot;interval&quot;
+<pre>&lt;clover-setup flushpolicy=&quot;interval&quot;
                 flushinterval=&quot;5000&quot;/&gt;
 </pre>
                     </div>
@@ -879,14 +816,11 @@
                 <p>The &quot;flushinterval&quot; defines in milliseconds the minimum interval between coverage data
                     writes.</p><h4>Specifying a delegate compiler</h4>
                 <p>Clover provides the optional &quot;clovercompiler&quot; attribute to allow specification of the java
-                    compiler to delegate to once instrumentation is completed. The attribute accepts the same values
-                    &quot;compiler&quot; attribute of the <a
-                                                             href="https://ant.apache.org/manual/Tasks/javac.html"
-                                                             rel="nofollow">Ant Javac Task</a>.</p>
+                    compiler to delegate to once instrumentation is completed. The attribute accepts the same values &quot;compiler&quot; attribute of the
+                    <a href="https://ant.apache.org/manual/Tasks/javac.html" rel="nofollow">Ant Javac Task</a>.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-setup clovercompiler=&quot;jikes&quot;/&gt;
+<pre>&lt;clover-setup clovercompiler=&quot;jikes&quot;/&gt;
 </pre>
                     </div>
                 </div>
@@ -898,21 +832,19 @@
                     override this location, use the <code>initstring</code> attribute, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-setup initstring=&quot;clover-db/coverage.db&quot; /&gt;
+<pre>&lt;clover-setup initstring=&quot;clover-db/coverage.db&quot; /&gt;
 </pre>
                     </div>
                 </div>
-                <p>This example will use <code>clover-db/coverage.db</code> as the location for the <a
-                        href="ant--managing-the-coverage-database.html">Clover database</a>. Note that the directory
-                    <code>clover-db</code> should exist before running this task.</p><h4
-                    id="clover-setup-Specifyingacustomtestmatcher">Specifying a custom test matcher</h4>
+                <p>This example will use <code>clover-db/coverage.db</code> as the location for the
+                    <a href="ant--managing-the-coverage-database.html">Clover database</a>. Note that the directory
+                    <code>clover-db</code> should exist before running this task.</p>
+                <h4 id="clover-setup-Specifyingacustomtestmatcher">Specifying a custom test matcher</h4>
                 <p>By default, Clover attempts to detect your test classes and methods. Clover's default behavior may be
                     overridden via the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-setup&gt;
+<pre>&lt;clover-setup&gt;
      &lt;testsources dir=&quot;src&quot;&gt;
          &lt;include name=&quot;**/*Test.java&quot;/&gt;
          &lt;testclass name=&quot;.*Test&quot;&gt;
@@ -926,14 +858,13 @@
                 <p>This example tells Clover to recognize all of the following as tests: classes in the directory &quot;src&quot;;
                     classes in files whose names end with &quot;Test&quot;; methods whose names contain with &quot;Bag&quot;.</p>
                 <p> </p>
-                <h1 id="clover-setup-Troubleshooting">Troubleshooting</h1><h4
-                    id="clover-setup-Cloverdoesnotsupportparallelcompilation">Clover does not support parallel
-                compilation</h4>
+                <h1 id="clover-setup-Troubleshooting">Troubleshooting</h1>
+                <h4 id="clover-setup-Cloverdoesnotsupportparallelcompilation">Clover does not support parallel
+                    compilation</h4>
                 <p>You cannot use &lt;parallel/&gt; task for code compilation, for instance:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-    >&lt;target name=&quot;init&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;target name=&quot;init&quot;&gt;
   &lt;clover-setup/&gt; 
 &lt;/target&gt;
 
@@ -967,8 +898,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

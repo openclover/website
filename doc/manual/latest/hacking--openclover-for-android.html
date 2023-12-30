@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.5 : Clover-for-Android</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,28 +39,31 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.5</a>
-</li>
+                        <a href="index.html">OpenClover 4.5</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="hacking--hacking-openclover.html">Hacking Clover</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Clover-for-Android
-                        </span>
+                <span id="title-text">
+                    Clover-for-Android
+                </span>
             </h1>
         </div>
 
         <div id="content" class="view">
 
             <div id="main-content">
-                <div><span
-                       ></span>
-                    <div><p><span style="color: rgb(0,0,0);">It's always hard for us to say <strong>no</strong> to our customers. However, design decisions are not only about <em>&quot;Do we want to have this feature?&quot; </em>but also <em>&quot;Is this a best feature we can implement using our available resources?&quot;</em>. We want to invest our time in making your lives (and code!) better. The fact that Google are building their Android IDE based on IntelliJ IDEA, which has a built-in coverage tool, means that you can measure code coverage for your Android apps, in an environment supported by Google. Therefore, we <span>decided to not </span><span>implement Clover for Android in the near future</span><span>. </span></span>
+                <div><span></span>
+                    <div><p>
+                        <span style="color: rgb(0,0,0);">It's always hard for us to say <strong>no</strong> to our customers. However, design decisions are not only about <em>&quot;Do we want to have this feature?&quot; </em>but also <em>&quot;Is this a best feature we can implement using our available resources?&quot;</em>. We want to invest our time in making your lives (and code!) better. The fact that Google are building their Android IDE based on IntelliJ IDEA, which has a built-in coverage tool, means that you can measure code coverage for your Android apps, in an environment supported by Google. Therefore, we
+                            <span>decided to not </span><span>implement Clover for Android in the near future</span><span>. </span></span>
                     </p></div>
                 </div>
                 <p> </p>
@@ -98,8 +100,7 @@
                     </li>
                     <li>Compile these instrumented sources instead of the original ones and package the application</li>
                     <li>Copy clover.db to /data/data/&lt;your_application_id&gt;... folder - you can use 'adb copy'
-                        command for this purpose; an alternative is to use the '<a
-                                href="ant--coverage-recorders.html">growable coverage recorder</a>'
+                        command for this purpose; an alternative is to use the '<a href="ant--coverage-recorders.html">growable coverage recorder</a>'
                     </li>
                     <li>Run the application and/or tests</li>
                     <li>As soon as application terminates, copy coverage recording files back from the device - again,
@@ -118,8 +119,7 @@
                     force writing coverage data to disk):</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >public void tearDown() throws Exception {
+<pre>public void tearDown() throws Exception {
     super.tearDown();
     ///CLOVER:FLUSH
 }</pre>
@@ -136,14 +136,12 @@
                 <p>Known bugs</p>
                 <ul>
                     <li>
-    <span class="jira-issue" data-issue-key="CLOV-1194">
-                <a href="https://jira.atlassian.com/browse/CLOV-1194?src=confmacro" class="jira-issue-key"><img
-                        class="icon"
-                        src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51493&amp;avatarType=issuetype"/>CLOV-1194</a>
-                    -
-            <span class="summary">Implement GrowablePerTestRecorder and use it for Android instrumentation</span>
-                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-complete jira-macro-single-issue-export-pdf">Open</span>
-            </span>
+                        <span class="jira-issue" data-issue-key="CLOV-1194">
+                            <a href="https://jira.atlassian.com/browse/CLOV-1194?src=confmacro" class="jira-issue-key"><img class="icon" src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51493&amp;avatarType=issuetype"/>CLOV-1194</a>
+                            -
+                            <span class="summary">Implement GrowablePerTestRecorder and use it for Android instrumentation</span>
+                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-complete jira-macro-single-issue-export-pdf">Open</span>
+                        </span>
                     </li>
                 </ul>
                 <p> </p>
@@ -160,8 +158,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

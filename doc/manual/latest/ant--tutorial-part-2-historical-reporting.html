@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.5 : Part 2 - Historical Reporting</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,21 +39,23 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.5</a>
-</li>
+                        <a href="index.html">OpenClover 4.5</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="tutorials--index.html">Clover Tutorials</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="tutorials--ant-tutorial.html">Clover-for-Ant tutorial</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Part 2 - Historical Reporting
-                        </span>
+                <span id="title-text">
+                    Part 2 - Historical Reporting
+                </span>
             </h1>
         </div>
 
@@ -65,7 +66,7 @@
                     reports.</p>
                 <p><em>On this page:</em></p>
                 <p>
-                    <style type='text/css'>/*<![CDATA[*/
+                    <style type="text/css">/*<![CDATA[*/
                     div.rbtoc1491813745097 {
                         padding: 0px;
                     }
@@ -80,41 +81,41 @@
                         padding-left: 0px;
                     }
 
-                    /*]]>*/</style>
-                <div class='toc-macro rbtoc1491813745097'>
-                    <ul class='toc-indentation'>
-                        <li><a href='#Part2-HistoricalReporting-Step1-Creatinghistorypoints'>Step 1 - Creating history
+                    /*]]>*/
+                    </style>
+                <div class="toc-macro rbtoc1491813745097">
+                    <ul class="toc-indentation">
+                        <li><a href="#Part2-HistoricalReporting-Step1-Creatinghistorypoints">Step 1 - Creating history
                             points</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#Part2-HistoricalReporting-Addingahistorypointtarget'>Adding a history
+                            <ul class="toc-indentation">
+                                <li><a href="#Part2-HistoricalReporting-Addingahistorypointtarget">Adding a history
                                     point target</a></li>
-                                <li><a href='#Part2-HistoricalReporting-Recordingahistorypoint'>Recording a history
+                                <li><a href="#Part2-HistoricalReporting-Recordingahistorypoint">Recording a history
                                     point</a></li>
                             </ul>
                         </li>
-                        <li><a href='#Part2-HistoricalReporting-Step2-Generatinghistoricaldata'>Step 2 - Generating
+                        <li><a href="#Part2-HistoricalReporting-Step2-Generatinghistoricaldata">Step 2 - Generating
                             historical data</a></li>
-                        <li><a href='#Part2-HistoricalReporting-Step3-Creatinghistoricalreports'>Step 3 - Creating
+                        <li><a href="#Part2-HistoricalReporting-Step3-Creatinghistoricalreports">Step 3 - Creating
                             historical reports</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#Part2-HistoricalReporting-Addahistoricalreporttarget'>Add a historical
+                            <ul class="toc-indentation">
+                                <li><a href="#Part2-HistoricalReporting-Addahistoricalreporttarget">Add a historical
                                     report target</a></li>
-                                <li><a href='#Part2-HistoricalReporting-Generatingahistoricalreport'>Generating a
+                                <li><a href="#Part2-HistoricalReporting-Generatingahistoricalreport">Generating a
                                     historical report</a></li>
                             </ul>
                         </li>
-                        <li><a href='#Part2-HistoricalReporting-Step4-Customizinghistoricalreports'>Step 4 - Customizing
+                        <li><a href="#Part2-HistoricalReporting-Step4-Customizinghistoricalreports">Step 4 - Customizing
                             historical reports</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#Part2-HistoricalReporting-Changingoutputformat'>Changing output format</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#Part2-HistoricalReporting-Changingoutputformat">Changing output format</a>
                                 </li>
-                                <li><a href='#Part2-HistoricalReporting-Chartselection'>Chart selection</a></li>
-                                <li><a href='#Part2-HistoricalReporting-Chartconfiguration'>Chart configuration</a></li>
-                                <li><a href='#Part2-HistoricalReporting-&#39;Movers&#39;configuration'>&#39;Movers&#39;
-                                    configuration</a></li>
+                                <li><a href="#Part2-HistoricalReporting-Chartselection">Chart selection</a></li>
+                                <li><a href="#Part2-HistoricalReporting-Chartconfiguration">Chart configuration</a></li>
+                                <li><a href="#Part2-HistoricalReporting-&#39;Movers&#39;configuration">&#39;Movers&#39; configuration</a></li>
                             </ul>
                         </li>
-                        <li><a href='#Part2-HistoricalReporting-Nextsteps'>Next steps</a></li>
+                        <li><a href="#Part2-HistoricalReporting-Nextsteps">Next steps</a></li>
                     </ul>
                 </div>
                 </p><p>Historical reports display graphical and numerical data relating to sets of coverage data
@@ -133,8 +134,7 @@
                 <p>Add the following target to your <code>build.xml</code> file:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;target name=&quot;record.point&quot;&gt;
+<pre>&lt;target name=&quot;record.point&quot;&gt;
     &lt;clover-historypoint historyDir=&quot;clover_history&quot;/&gt;
 &lt;/target&gt;
 </pre>
@@ -144,13 +144,11 @@
                     run.</p>
                 <p>The value of the <code>historyDir</code> parameter is the directory where the history points will be
                     stored. You should create this directory before executing this target.</p>
-                <div><span
-                        ></span>
+                <div><span></span>
                     <div><p>By default, Clover records the history point with
                         a timestamp of the coverage run. If you wish to override the timestamp value of a history point,
                         you can add <code>date</code> and <code>dateformat</code> attributes to the task allowing you to
-                        reconstruct coverage history. See documentation for the &lt;<a
-                                href="ant--clover-historypoint.html">clover-historypoint</a>&gt; task for details.
+                        reconstruct coverage history. See documentation for the &lt;<a href="ant--clover-historypoint.html">clover-historypoint</a>&gt; task for details.
                     </p></div>
                 </div>
                 <h2>Recording a history point</h2>
@@ -159,8 +157,7 @@
                 <p>Run the command <code>ant record.point</code>. Output should be similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >$ ant record.point
+<pre>$ ant record.point
 Buildfile: .../tutorial/build.xml
 
 
@@ -184,8 +181,7 @@ BUILD SUCCESSFUL</pre>
                     code coverage and metrics data by the historical reporter.</p>
                 <p>The <code>Money.java</code> file is at 100% coverage, but there are several sections of code that
                     remain untested in the <code>MoneyBag.java</code> file. This step will focus on bringing the
-                    coverage of this class to 100%, as well as creating historical data in the form of history points.
-                </p>
+                    coverage of this class to 100%, as well as creating historical data in the form of history points. </p>
                 <p>Open the source file <code>MoneyBagTest.java</code> in your favorite text editor and make the
                     following additions shown in bold:</p>
                 <p>Declare the variables <code>f0CHF</code> and <code>fMB3</code>:</p>
@@ -202,13 +198,11 @@ BUILD SUCCESSFUL</pre>
                 <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
                     <div class="panelContent" style="background-color: white;">
                         <p>protected void setUp()     {<br/>     f12CHF = new Money(12, &quot;CHF&quot;);<br/>    
-                            f14CHF = new Money(14, &quot;CHF&quot;);<br/>     f7USD = new Money( 7,
-                            &quot;USD&quot;);<br/>     f21USD = new Money(21, &quot;USD&quot;);<br/>     f0USD = new
+                            f14CHF = new Money(14, &quot;CHF&quot;);<br/>     f7USD = new Money( 7, &quot;USD&quot;);<br/>     f21USD = new Money(21, &quot;USD&quot;);<br/>     f0USD = new
                             Money(0, &quot;USD&quot;);<br/>     <strong>f0CHF = new Money(0, &quot;CHF&quot;);</strong>
                         </p>
                         <p>    fMB1 = MoneyBag.create(f12CHF, f7USD);<br/>     fMB2 = MoneyBag.create(f14CHF,
-                            f21USD);<br/>     <strong>fMB3 = MoneyBag.create(f0CHF, f0USD);</strong><br/>         ...
-                        </p>
+                            f21USD);<br/>     <strong>fMB3 = MoneyBag.create(f0CHF, f0USD);</strong><br/>         ... </p>
                     </div>
                 </div>
                 <p>Add the following test:</p>
@@ -230,9 +224,9 @@ BUILD SUCCESSFUL</pre>
                         <p><strong>public void testToString()    {</strong><br/> <strong>    String expected=&quot;{[12
                             CHF][7 USD]</strong><strong>}&quot;;</strong><br/> <strong>    assertEquals(expected,
                             fMB1.toString());</strong><br/> <strong>}</strong><br/> <strong>public void
-                            testVectorSize()   {</strong><br/> <strong>    IMoney other = MoneyBag.create(new Money(2,
-                            &quot;CHF&quot;), new Money(2, &quot;USD&quot;));</strong><br/> <strong>   
-                            assertTrue(!other.equals(fMB3));</strong><br/> <strong>}</strong></p>
+                            testVectorSize()   {</strong><br/>
+                            <strong>    IMoney other = MoneyBag.create(new Money(2, &quot;CHF&quot;), new Money(2, &quot;USD&quot;));</strong><br/> <strong>   
+                                assertTrue(!other.equals(fMB3));</strong><br/> <strong>}</strong></p>
                     </div>
                 </div>
                 <p>Once again, re-instrument your code, test and record a new history point.</p>
@@ -247,8 +241,7 @@ BUILD SUCCESSFUL</pre>
                 <p>Add the following target to <code>build.xml</code>:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;target name=&quot;hist.report&quot;&gt;
+<pre>&lt;target name=&quot;hist.report&quot;&gt;
      &lt;clover-report&gt;
            &lt;historical outfile=&quot;historical.pdf&quot;
                   historyDir=&quot;clover_history&quot;&gt;
@@ -266,8 +259,7 @@ BUILD SUCCESSFUL</pre>
                 <p>The historical reporter needs to be able to find the coverage history files in order to create the
                     report; so the <code>historyDir</code> value must be the same as the <code>historyDir</code> defined
                     for the history points. The format of the report can be either PDF or HTML, as specified by the
-                    <code>&lt;format&gt;</code> element <code>&lt;<a
-                            href="ant--clover-report.html">clover-report</a>&gt;</code>. The
+                    <code>&lt;format&gt;</code> element <code>&lt;<a href="ant--clover-report.html">clover-report</a>&gt;</code>. The
                     <code>&lt;format&gt;</code> element is optional and is not included in the example above. When the
                     <code>&lt;format&gt;</code> element is omitted, a PDF report is produced by default. Depending on
                     the chosen format, the <code>outfile</code> value may represent a single file as in the case of the
@@ -277,8 +269,7 @@ BUILD SUCCESSFUL</pre>
                     similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >$ ant hist.report
+<pre>$ ant hist.report
 Buildfile: /Users/mparfianowicz/Work/clover-hg/tutorial/build.xml
 
 
@@ -296,25 +287,23 @@ BUILD SUCCESSFUL </pre>
                     </div>
                 </div>
                 <p>The report can now be viewed by opening the file <code>tutorial/historical.pdf</code> in a PDF viewer
-                    such as <a  href="http://www.adobe.com/" rel="nofollow">Adobe Acrobat
+                    such as <a href="http://www.adobe.com/" rel="nofollow">Adobe Acrobat
                         Reader</a>.</p>
-                <div class="confluence-information-macro confluence-information-macro-tip"><span
-                        class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span>
-                    <div><p>To interpret this history report, see <a
-                            href="general--understanding-reports-historical.html">Understanding a Historical Report</a></p></div>
+                <div class="confluence-information-macro confluence-information-macro-tip">
+                    <span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span>
+                    <div><p>To interpret this history report, see <a href="general--understanding-reports-historical.html">Understanding a Historical Report</a>
+                    </p></div>
                 </div>
                 <h1 id="Part2-HistoricalReporting-Step4-Customizinghistoricalreports">Step 4 - Customizing historical
                     reports</h1>
                 <p>In the previous sections of this tutorial we have looked at how to create and interpret a basic
                     historical report. In addition to basic reporting, the historical reporter is highly configurable
                     and this section will detail some of the options you can use. For a full list of the report
-                    configuration options, see the documentation for the <code>&lt;<a
-                            href="ant--clover-report.html">clover-report</a>&gt;</code> task.</p>
+                    configuration options, see the documentation for the <code>&lt;<a href="ant--clover-report.html">clover-report</a>&gt;</code> task.</p>
                 <h2>Changing output format</h2>
                 <p>The default historical report type is PDF, although an HTML report can also be produced. To create an
                     HTML report, add a nested <code>&lt;format&gt;</code> element with type specified as
-                    <code>html</code> to your <code>&lt;<a
-                            href="ant--clover-report.html">clover-report</a>&gt;</code> element. Try adding the
+                    <code>html</code> to your <code>&lt;<a href="ant--clover-report.html">clover-report</a>&gt;</code> element. Try adding the
                     following target to your <code>build.xml</code> file and executing the command <code>ant
                         hist.report.html</code>:</p>
                 <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
@@ -343,8 +332,7 @@ BUILD SUCCESSFUL </pre>
                             Project&quot;<br/>                 historyDir=&quot;clover_history&quot;&gt;<br/>        
                                 <strong>&lt;overview/&gt;</strong><br/>            
                             <strong>&lt;coverage/&gt;</strong><br/>             &lt;format
-                            type=&quot;pdf&quot;/&gt;<br/>         &lt;/historical&gt;<br/>    
-                            &lt;/clover-report&gt;<br/> &lt;/target&gt;</p>
+                            type=&quot;pdf&quot;/&gt;<br/>         &lt;/historical&gt;<br/>     &lt;/clover-report&gt;<br/> &lt;/target&gt;</p>
                     </div>
                 </div>
                 <p>The above code will produce a historical PDF report with the title '<code>My Project</code>' which
@@ -359,8 +347,8 @@ BUILD SUCCESSFUL </pre>
                                 &lt;historical outfile=&quot;histSelect.pdf&quot;<br/>                 title=&quot;My
                             Project&quot;<br/>                 historyDir=&quot;clover_history&quot;&gt;<br/>        
                                 <strong>&lt;chart/&gt;</strong><br/>             <strong>&lt;metrics/&gt;</strong><br/>
-                                        &lt;format type=&quot;pdf&quot;/&gt;<br/>         &lt;/historical&gt;<br/>    
-                            &lt;/clover-report&gt;<br/> &lt;/target&gt;</p>
+                                        &lt;format type=&quot;pdf&quot;/&gt;<br/>         &lt;/historical&gt;<br/>     &lt;/clover-report&gt;<br/> &lt;/target&gt;
+                        </p>
                     </div>
                 </div>
                 <p>This will produce a PDF file with the filename '<code>histSelect.pdf</code>' with two sections: the a
@@ -368,8 +356,7 @@ BUILD SUCCESSFUL </pre>
                     specify whether or not a chart uses a log scale by adding the <code>logscale</code> attribute:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;metrics logscale=&quot;false&quot;/&gt;
+<pre>&lt;metrics logscale=&quot;false&quot;/&gt;
 </pre>
                     </div>
                 </div>
@@ -387,8 +374,8 @@ BUILD SUCCESSFUL </pre>
                                 &lt;historical outfile=&quot;histMovers.pdf&quot;<br/>                 title=&quot;My
                             Project&quot;<br/>                 historyDir=&quot;clover_history&quot;&gt;<br/>        
                                 <strong>&lt;movers threshold=&quot;5%&quot; range=&quot;20&quot; interval=&quot;2w&quot;/&gt;</strong><br/>
-                                        &lt;format type=&quot;pdf&quot;/&gt;<br/>         &lt;/historical&gt;<br/>    
-                            &lt;/clover-report&gt;<br/> &lt;/target&gt;</p>
+                                        &lt;format type=&quot;pdf&quot;/&gt;<br/>         &lt;/historical&gt;<br/>     &lt;/clover-report&gt;<br/> &lt;/target&gt;
+                        </p>
                     </div>
                 </div>
                 <p>In this case, the configuration values selected state that classes must have a change in coverage of
@@ -417,8 +404,7 @@ BUILD SUCCESSFUL </pre>
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.5 : &lt;columns&gt; element</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,10 +39,11 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.5</a>
-</li>
+                        <a href="index.html">OpenClover 4.5</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
@@ -54,11 +54,12 @@
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--clover-report.html">clover-report</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            &lt;columns&gt; element
-                        </span>
+                <span id="title-text">
+                    &lt;columns&gt; element
+                </span>
             </h1>
         </div>
 
@@ -67,10 +68,10 @@
             <div id="main-content">
                 <p>Specifies the data columns to be included on summary pages. If not specified, default columns will be
                     output.</p>
-                <p>Specific columns are defined as sub-elements to this one. See the <a
-                        href="ant--clover-report.html"><span class="confluence-link">clover-report</span></a>.</p>
-                <p>Columns can be defined in a &lt;<a href="ant--clover-columns.html">clover-columns</a>/&gt; Ant type for <a
-                         href="http://ant.apache.org/manual/using.html#references" rel="nofollow">referencing</a>
+                <p>Specific columns are defined as sub-elements to this one. See the
+                    <a href="ant--clover-report.html"><span class="confluence-link">clover-report</span></a>.</p>
+                <p>Columns can be defined in a &lt;<a href="ant--clover-columns.html">clover-columns</a>/&gt; Ant type for
+                    <a href="http://ant.apache.org/manual/using.html#references" rel="nofollow">referencing</a>
                     elsewhere in the build file.</p>
                 <p>Each column element takes an optional <code>format</code> attribute which determines how the column's
                     value is rendered. The <code>format</code> attribute may be one of the following:</p>
@@ -165,9 +166,8 @@
                         </tr>
                         <tr>
                             <td><p>ncLineCount</p></td>
-                            <td><p>The total number of non-comment lines. <br/> <img
-                                    src="images/icons/emoticons/information.png"
-                                    data-emoticon-name="information" alt="(info)"/> When using Clover on Groovy source
+                            <td><p>The total number of non-comment lines. <br/>
+                                <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> When using Clover on Groovy source
                                 code, this column consistently reports '0' at the moment.</p></td>
                             <td><p><code>raw</code></p></td>
                         </tr>
@@ -182,8 +182,7 @@
                                 and is defined by this expression:</p>
                                 <div class="code panel pdl" style="border-width: 1px;">
                                     <div class="codeContent panelContent pdl">
-<pre
-    >complexity^2 * ((1 - %coveredElements/100)^3) + complexity
+<pre>complexity^2 * ((1 - %coveredElements/100)^3) + complexity
 </pre>
                                     </div>
                                 </div>
@@ -314,8 +313,7 @@
                         </tbody>
                     </table>
                 </div>
-                <p>  <span
-                        id="id-&lt;columns&gt;element-CloverEL"></span><br/> <strong>Clover
+                <p><span id="id-&lt;columns&gt;element-CloverEL"></span><br/> <strong>Clover
                     Expression Language</strong><br/> Clover Expression Language enables you to combine any of Clover's
                     built-in column types to produce a custom column. The following arithmetic operators are available:
                     +, - , *, /, ^, (). Any of Clover's columns may be referenced.<br/> A percentage sign, '%', before a
@@ -324,8 +322,7 @@
                 <p><em>Example</em>:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;columns&gt;
+<pre>&lt;columns&gt;
   &lt;expression title=&quot;SUM&quot;&gt;complexity^2 * ((1 - %coveredElements/100)^3) + complexity&lt;/expression&gt;
 &lt;/columns&gt;
 </pre>
@@ -345,8 +342,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>
