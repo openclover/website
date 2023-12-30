@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.3 : clover-html-report</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,10 +39,11 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.3</a>
-</li>
+                        <a href="index.html">OpenClover 4.3</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
@@ -52,17 +52,19 @@
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            clover-html-report
-                        </span>
+                <span id="title-text">
+                    clover-html-report
+                </span>
             </h1>
         </div>
 
         <div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.3.x. Check the <a href="../latest/ant--clover-html-report.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+            You are reading documentation for version 4.3.x. Check the <a href="../latest/ant--clover-html-report.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <h3>Description</h3>
@@ -70,10 +72,10 @@
                     settings. If configured, a <a href="ant--clover-historypoint.html">history point</a> is also
                     generated prior to generation of the full report. </p>
                 <p> </p>
-                <div class="confluence-information-macro confluence-information-macro-information"><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-                    <div><p>If you need more options, please use the <code>&lt;</code><code><a
-                            href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> task, which
+                <div class="confluence-information-macro confluence-information-macro-information">
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div><p>If you need more options, please use the
+                        <code>&lt;</code><code><a href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> task, which
                         provides more functionality, such as:</p>
                         <ul>
                             <li>generating reports in HTML, PDF, JSON, XML formats</li>
@@ -106,24 +108,21 @@
                             <td><p>historydir</p></td>
                             <td><p>The directory for Clover history points. <strong>If this
                                 attribute is set, a new history point will be generated prior to the generation of the
-                                full report.</strong> For more information, see <code>&lt;</code><code><a
-                                    href="ant--clover-historypoint.html">clover-historypoint</a></code><code>&gt;</code>.
-                            </p></td>
+                                full report.</strong> For more information, see
+                                <code>&lt;</code><code><a href="ant--clover-historypoint.html">clover-historypoint</a></code><code>&gt;</code>. </p></td>
                             <td><p>No.</p></td>
                         </tr>
                         <tr>
                             <td><p>historyIncludes</p></td>
-                            <td><p>An <a
-                                                              href="http://ant.apache.org/manual/dirtasks.html#patterns"
-                                                              rel="nofollow">Ant GLOB</a> to select specific history
+                            <td><p>An <a href="http://ant.apache.org/manual/dirtasks.html#patterns" rel="nofollow">Ant GLOB</a> to select specific history
                                 point files within the <code>historyDir</code> directory</p></td>
                             <td><p>No. Default is <code>clover-*.xml.gz</code></p></td>
                         </tr>
                         <tr>
                             <td><p>initstring</p></td>
                             <td><p>The path to the Clover database. If not specified, Clover will
-                                use the initstring set by a previous execution of <code>&lt;</code><code><a
-                                        href="ant--clover-setup.html">clover-setup</a></code><code>/&gt;</code> in
+                                use the initstring set by a previous execution of
+                                <code>&lt;</code><code><a href="ant--clover-setup.html">clover-setup</a></code><code>/&gt;</code> in
                                 the current build sequence. Otherwise, the default database location will be used.</p>
                             </td>
                             <td><p>No.</p></td>
@@ -180,18 +179,15 @@
                 <h3>Examples</h3>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-html-report outdir=&quot;clover/report&quot;/&gt;
+<pre>&lt;clover-html-report outdir=&quot;clover/report&quot;/&gt;
 </pre>
                     </div>
                 </div>
-                <p>This is the simplest way to generate an HTML report. It will be written to the directory &quot;<code>clover/report</code>&quot;.
-                </p>
+                <p>This is the simplest way to generate an HTML report. It will be written to the directory &quot;<code>clover/report</code>&quot;. </p>
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-html-report outdir=&quot;build/clover/report&quot;
+<pre>&lt;clover-html-report outdir=&quot;build/clover/report&quot;
                     historydir=&quot;clover/historypoints&quot;
                     title=&quot;MyProject Coverage&quot;/&gt;
 </pre>
@@ -215,8 +211,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

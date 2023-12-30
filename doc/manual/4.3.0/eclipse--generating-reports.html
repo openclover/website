@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.3 : 6. Generating reports in Eclipse</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,31 +39,35 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.3</a>
-</li>
+                        <a href="index.html">OpenClover 4.3</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="eclipse--overview.html">Clover-for-Eclipse</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="eclipse--user-guide.html">Clover-for-Eclipse User&#39;s Guide</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            6. Generating reports in Eclipse
-                        </span>
+                <span id="title-text">
+                    6. Generating reports in Eclipse
+                </span>
             </h1>
         </div>
 
         <div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.3.x. Check the <a href="../latest/eclipse--generating-reports.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+            You are reading documentation for version 4.3.x. Check the
+            <a href="../latest/eclipse--generating-reports.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <p>
-                    <style type='text/css'>/*<![CDATA[*/
+                    <style type="text/css">/*<![CDATA[*/
                     div.rbtoc1491813720770 {
                         padding: 0px;
                     }
@@ -79,27 +82,28 @@
                         padding-left: 0px;
                     }
 
-                    /*]]>*/</style>
-                <div class='toc-macro rbtoc1491813720770'>
-                    <ul class='toc-indentation'>
-                        <li><a href='#id-6.GeneratingreportsinEclipse-Introduction'>Introduction</a></li>
-                        <li><a href='#id-6.GeneratingreportsinEclipse-GeneratingaReport'>Generating a Report</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#id-6.GeneratingreportsinEclipse-SelectanOutputFormat'>Select an Output
+                    /*]]>*/
+                    </style>
+                <div class="toc-macro rbtoc1491813720770">
+                    <ul class="toc-indentation">
+                        <li><a href="#id-6.GeneratingreportsinEclipse-Introduction">Introduction</a></li>
+                        <li><a href="#id-6.GeneratingreportsinEclipse-GeneratingaReport">Generating a Report</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#id-6.GeneratingreportsinEclipse-SelectanOutputFormat">Select an Output
                                     Format</a></li>
-                                <li><a href='#id-6.GeneratingreportsinEclipse-SelecttheSourceProject'>Select the Source
+                                <li><a href="#id-6.GeneratingreportsinEclipse-SelecttheSourceProject">Select the Source
                                     Project</a></li>
-                                <li><a href='#id-6.GeneratingreportsinEclipse-ConfigureGeneralSettingsfortheReport'>Configure
+                                <li><a href="#id-6.GeneratingreportsinEclipse-ConfigureGeneralSettingsfortheReport">Configure
                                     General Settings for the Report</a></li>
-                                <li><a href='#id-6.GeneratingreportsinEclipse-ConfiguringaReportFilter'>Configuring a
+                                <li><a href="#id-6.GeneratingreportsinEclipse-ConfiguringaReportFilter">Configuring a
                                     Report Filter</a></li>
-                                <li><a href='#id-6.GeneratingreportsinEclipse-ConfiguringYourReportJVM'>Configuring Your
+                                <li><a href="#id-6.GeneratingreportsinEclipse-ConfiguringYourReportJVM">Configuring Your
                                     Report JVM</a></li>
-                                <li><a href='#id-6.GeneratingreportsinEclipse-FinalizetheReport'>Finalize the Report</a>
+                                <li><a href="#id-6.GeneratingreportsinEclipse-FinalizetheReport">Finalize the Report</a>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href='#id-6.GeneratingreportsinEclipse-OpeningtheGeneratedReport'>Opening the Generated
+                        <li><a href="#id-6.GeneratingreportsinEclipse-OpeningtheGeneratedReport">Opening the Generated
                             Report</a></li>
                     </ul>
                 </div>
@@ -109,59 +113,34 @@
                 <h2>Generating a Report</h2>
                 <p>To create a report, select a project or source file then click the left-hand side of the Report
                     Button in Eclipse. The '<strong>Generate Report: Report Format</strong>' dialog opens.</p>
-                <p><img src="images/icons/emoticons/information.png"
-                        data-emoticon-name="information" alt="(info)"/> It doesn't matter whether you select a project
+                <p>
+                    <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> It doesn't matter whether you select a project
                     or an element of a project — the reports operate at the project level. Currently, Clover doesn't
                     support reporting on the sub-sets of a project.</p>
-                <p><span><img
-                                                                       src="attachments/180294939/301007777.png"
+                <p><span><img src="attachments/180294939/301007777.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p><h4>Select an Output Format</h4>
                 <p>For your report, you can select an output format of HTML, PDF or XML.</p>
                 <p>To select the desired output format, click the corresponding radio button in the '<strong>Generate
                     Report: Report Format</strong>' dialog and click '<strong>Next</strong>'. The '<strong>Generate
                     Report: Project Selection</strong>' dialog opens.</p>
-                <p><span><img
-                                                                       src="attachments/180294939/301007778.png"
+                <p><span><img src="attachments/180294939/301007778.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p><h4>Select the Source Project</h4>
                 <p>A list of available projects will be displayed. To choose one, click the tick box shown next to the
                     desired project and click '<strong>Next</strong>'. A dialog box with specific settings for the
                     chosen report type opens.</p>
-                <p><img src="images/icons/emoticons/information.png"
-                        data-emoticon-name="information" alt="(info)"/> More than one project can be selected (this
+                <p><img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> More than one project can be selected (this
                     would be used for instance if the user has multiple related projects or has application code in one
                     project, with test code in another).</p>
-                <p><em><span><img
-                                                                           src="attachments/180294939/301007779.png"
+                <p><em><span><img src="attachments/180294939/301007779.png"
 
 
-
-
-
-
-
-
-
-                                                                           ></span></em>
+                ></span></em>
                 </p><h4>Configure General
                 Settings for the Report</h4>
                 <p>Your report can make use of the following settings:</p>
@@ -221,48 +200,24 @@
                         </tbody>
                     </table>
                 </div>
-                <p><span><img
-                                                                       src="attachments/180294939/301007780.png"
+                <p><span><img src="attachments/180294939/301007780.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p><h4>Configuring a Report Filter</h4>
                 <p>Report Filter Configuration is only shown if you choose not to accept default filter settings. This
                     lets you select any of the predefined pre-defined filters or any of the custom method or statement
                     filters you have previously configured.</p>
-                <p><span><img
-                                                                       src="attachments/180294939/301007781.png"
+                <p><span><img src="attachments/180294939/301007781.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p><h4>Configuring Your Report JVM</h4>
                 <p>On this page you can set maximum heap size (default: 512 MB) and additional JVM arguments.</p>
-                <p><span><img
-                                                                       src="attachments/180294939/301007782.png"
+                <p><span><img src="attachments/180294939/301007782.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p><h4>Finalize the Report</h4>
                 <p>Clicking '<strong>Finish</strong>' will start the report generation process. Log output will appear
                     in the Eclipse console area. </p>
@@ -278,45 +233,25 @@
                     </li>
                     <li><strong>PDF report</strong><br/> PDF files will be viewed in the External PDF Viewer.</li>
                 </ul>
-                <p><span><img
-                                                                       src="attachments/180294939/301007783.png"
+                <p><span><img src="attachments/180294939/301007783.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <p> </p>
                 <p>After a report is generated, an entry is added to the drop-down on the right-hand side of the report
                     button in the Clover views which allow users to quickly re-open the report.</p>
-                <p><span><img
-                                                                       src="attachments/180294939/301007784.png"
+                <p><span><img src="attachments/180294939/301007784.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <p> </p>
-                <p><em>Sample PDF Report</em><br/> <span><img
-                        class="confluence-embedded-image confluence-content-image-border"
-                        src="attachments/180294939/187826188.png"
+                <p><em>Sample PDF Report</em><br/>
+                    <span><img class="confluence-embedded-image confluence-content-image-border" src="attachments/180294939/187826188.png"
 
 
-
-
-
-                        ></span></p>
+                    ></span></p>
                 <p> </p>
                 <hr/>
                 <p>Next chapter: <a href="eclipse--test-optimization.html">7. Test Optimization for
@@ -335,8 +270,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

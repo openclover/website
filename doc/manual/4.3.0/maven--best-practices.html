@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.3 : Best Practices for Maven</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,33 +39,36 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.3</a>
-</li>
+                        <a href="index.html">OpenClover 4.3</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Best Practices for Maven
-                        </span>
+                <span id="title-text">
+                    Best Practices for Maven
+                </span>
             </h1>
         </div>
 
         <div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.3.x. Check the <a href="../latest/maven--best-practices.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+            You are reading documentation for version 4.3.x. Check the <a href="../latest/maven--best-practices.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <p>This page contains best practices for using Clover for Maven 2 and 3.</p>
                 <p><strong>On this page:</strong></p>
                 <p>
-                    <style type='text/css'>/*<![CDATA[*/
+                    <style type="text/css">/*<![CDATA[*/
                     div.rbtoc1491813715104 {
                         padding: 0px;
                     }
@@ -81,39 +83,40 @@
                         padding-left: 0px;
                     }
 
-                    /*]]>*/</style>
-                <div class='toc-macro rbtoc1491813715104'>
-                    <ul class='toc-indentation'>
-                        <li><a href='#BestPracticesforMaven-TestOptimizationinaCIenvironment'>Test Optimization in a CI
+                    /*]]>*/
+                    </style>
+                <div class="toc-macro rbtoc1491813715104">
+                    <ul class="toc-indentation">
+                        <li><a href="#BestPracticesforMaven-TestOptimizationinaCIenvironment">Test Optimization in a CI
                             environment</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#BestPracticesforMaven-SettingupaCIprofile'>Setting up a CI profile</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#BestPracticesforMaven-SettingupaCIprofile">Setting up a CI profile</a>
                                 </li>
-                                <li><a href='#BestPracticesforMaven-RunningtheClovergoalsdirectly'>Running the Clover
+                                <li><a href="#BestPracticesforMaven-RunningtheClovergoalsdirectly">Running the Clover
                                     goals directly</a></li>
                             </ul>
                         </li>
-                        <li><a href='#BestPracticesforMaven-Testoptimizationonthedesktop'>Test optimization on the
+                        <li><a href="#BestPracticesforMaven-Testoptimizationonthedesktop">Test optimization on the
                             desktop</a></li>
-                        <li><a href='#BestPracticesforMaven-Combiningbuildoptimizationwithsitecoveragereporting'>Combining
+                        <li><a href="#BestPracticesforMaven-Combiningbuildoptimizationwithsitecoveragereporting">Combining
                             build optimization with site coverage reporting</a></li>
-                        <li><a href='#BestPracticesforMaven-Testoptimizationacrossamulti-moduleproject'>Test
+                        <li><a href="#BestPracticesforMaven-Testoptimizationacrossamulti-moduleproject">Test
                             optimization across a multi-module project</a></li>
-                        <li><a href='#BestPracticesforMaven-Usingclover:setupfornon-forkedlifecycle'>Using clover:setup
+                        <li><a href="#BestPracticesforMaven-Usingclover:setupfornon-forkedlifecycle">Using clover:setup
                             for non-forked life cycle</a></li>
-                        <li><a href='#BestPracticesforMaven-CrosscompilationusingGroovy'>Cross compilation using
+                        <li><a href="#BestPracticesforMaven-CrosscompilationusingGroovy">Cross compilation using
                             Groovy</a></li>
-                        <li><a href='#BestPracticesforMaven-Coloringtestoptimization'>Coloring test optimization</a>
+                        <li><a href="#BestPracticesforMaven-Coloringtestoptimization">Coloring test optimization</a>
                         </li>
-                        <li><a href='#BestPracticesforMaven-BuildProfiles'>Build Profiles</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#BestPracticesforMaven-clover.reportProfile'>clover.report Profile</a></li>
-                                <li><a href='#BestPracticesforMaven-CloverOptimizeProfile'>Clover Optimize Profile</a>
+                        <li><a href="#BestPracticesforMaven-BuildProfiles">Build Profiles</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#BestPracticesforMaven-clover.reportProfile">clover.report Profile</a></li>
+                                <li><a href="#BestPracticesforMaven-CloverOptimizeProfile">Clover Optimize Profile</a>
                                 </li>
-                                <li><a href='#BestPracticesforMaven-CloverOptimize,Report,LogandCheckProfile'>Clover
+                                <li><a href="#BestPracticesforMaven-CloverOptimize,Report,LogandCheckProfile">Clover
                                     Optimize, Report, Log and Check Profile</a>
-                                    <ul class='toc-indentation'>
-                                        <li><a href='#BestPracticesforMaven-RelatedLinks'>Related Links</a></li>
+                                    <ul class="toc-indentation">
+                                        <li><a href="#BestPracticesforMaven-RelatedLinks">Related Links</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -122,8 +125,7 @@
                 </div>
                 </p><h1>Test Optimization in a CI
                 environment</h1>
-                <p>There are two recommended ways to utilize Clover's test optimization in a CI (<a
-                         href="http://en.wikipedia.org/wiki/Continuous_integration" rel="nofollow">Continuous
+                <p>There are two recommended ways to utilize Clover's test optimization in a CI (<a href="http://en.wikipedia.org/wiki/Continuous_integration" rel="nofollow">Continuous
                     Integration</a>) environment, either using a Profile, or to run the goals directly.<br/> NB. Clover
                     Test Optimization will not work if you have added the <code>clover-maven-plugin</code> to the
                     default build section of the pom with an execution binding the 'instrument' goal.</p>
@@ -134,13 +136,12 @@
                     <li>Create a new '<strong>Gateway</strong>' build plan in your CI server. A 'Gateway' build plan is
                         one that gets run before any others and if successful, triggers any subsequent builds.
                     </li>
-                    <li><p>The gateway plan should execute the <strong>verify</strong> phase, with the <a
-                            href="maven--best-practices.html">'clover.optimize'</a> profile activated.
+                    <li><p>The gateway plan should execute the <strong>verify</strong> phase, with the
+                        <a href="maven--best-practices.html">'clover.optimize'</a> profile activated.
                         Example:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >mvn verify -Pclover.optimize
+<pre>mvn verify -Pclover.optimize
 </pre>
                             </div>
                         </div>
@@ -150,8 +151,7 @@
                         builds. The following configuration added to the <code>pom.xml</code> is one option:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >&lt;configuration&gt;
+<pre>&lt;configuration&gt;
   &lt;snapshot&gt;${user.home}/.clover/${groupId}-${artifactId}/clover.snapshot&lt;/snapshot&gt;
 &lt;/configuration&gt;
 </pre>
@@ -162,14 +162,13 @@
                         to the usual Maven output location. If you run this command:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >mvn deploy -Pclover.optimize
+<pre>mvn deploy -Pclover.optimize
 </pre>
                             </div>
                         </div>
-                        <p>then you will be deploying class files that have been instrumented by Clover <img
-                                class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
-                                data-emoticon-name="warning" alt="(warning)"/>.</p></li>
+                        <p>then you will be deploying class files that have been instrumented by Clover
+                            <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/>.</p>
+                    </li>
                 </ol>
                 <h2>Running the Clover goals directly</h2>
                 <p>Add a new build plan with the following command line:</p>
@@ -177,16 +176,15 @@
                     <div class="codeContent panelContent pdl">
                         <pre
 
-                            >mvn clover:setup verify clover:snapshot</pre>
+                        >mvn clover:setup verify clover:snapshot</pre>
                     </div>
                 </div>
                 <h1>Test optimization on the desktop</h1>
-                <p>Running Clover's test optimization locally is very advantageous. This is achieved using the <span
-                        class="confluence-link">'clover.optimize'</span> profile that can be activated like so:</p>
+                <p>Running Clover's test optimization locally is very advantageous. This is achieved using the
+                    <span class="confluence-link">'clover.optimize'</span> profile that can be activated like so:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >mvn verify -Pclover.optimize
+<pre>mvn verify -Pclover.optimize
 </pre>
                     </div>
                 </div>
@@ -202,14 +200,12 @@
                     profile is an example of a build profile to activate when running this command:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >mvn site -Pclover.report
+<pre>mvn site -Pclover.report
 </pre>
                     </div>
                 </div>
                 <p>Using separate profiles for site generation and Test Optimization is currently the recommended way to
-                    have both a site and a Test Optimization Clover build configured in the same <code>pom.xml</code>.
-                </p>
+                    have both a site and a Test Optimization Clover build configured in the same <code>pom.xml</code>. </p>
                 <h1>Test optimization across a
                     multi-module project</h1>
                 <p>By default, Clover will generate a new <code>clover.db</code> and <code>clover.snapshot</code> file
@@ -219,28 +215,23 @@
                     <code>clover.snapshot</code> for the entire project:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;configuration&gt;
+<pre>&lt;configuration&gt;
     &lt;snapshot&gt;${user.home}/.clover/atlassian-plugins-clover.snapshot&lt;/snapshot&gt;
     &lt;singleCloverDatabase&gt;true&lt;/singleCloverDatabase&gt;
 &lt;/configuration&gt;
 </pre>
                     </div>
                 </div>
-                <p>If you have many modules, you may need to set <a
-                                                                    href="../../maven/4.3.0/optimize-mojo.html#fullRunEvery"
-                                                                    rel="nofollow">fullBuildEvery</a> to a value higher
-                    than the default of 10. See also <a
-                                                        href="../../maven/4.3.0/snapshot-mojo.html#singleCloverDatabase"
-                                                        rel="nofollow">singleCloverDatabase</a>.</p>
+                <p>If you have many modules, you may need to set
+                    <a href="../../maven/4.3.0/optimize-mojo.html#fullRunEvery" rel="nofollow">fullBuildEvery</a> to a value higher
+                    than the default of 10. See also <a href="../../maven/4.3.0/snapshot-mojo.html#singleCloverDatabase" rel="nofollow">singleCloverDatabase</a>.
+                </p>
                 <h1>Using clover:setup for non-forked
                     life cycle</h1>
-                <p>The <a
-                          href="../../maven/4.3.0/setup-mojo.html" rel="nofollow">clover:setup</a>
+                <p>The <a href="../../maven/4.3.0/setup-mojo.html" rel="nofollow">clover:setup</a>
                     is designed to make integration with integration and functional tests a lot simpler than using the
-                    forked lifecycle that comes with <a
-                                                        href="../../maven/4.3.0/instrument-mojo.html"
-                                                        rel="nofollow">clover:instrument</a>. It also has the added
+                    forked lifecycle that comes with
+                    <a href="../../maven/4.3.0/instrument-mojo.html" rel="nofollow">clover:instrument</a>. It also has the added
                     advantage of not having to run your tests twice.</p>
                 <p>Executing clover:setup does the following:</p>
                 <ul>
@@ -258,8 +249,7 @@
                     <strong>instrumented</strong> classes.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >mvn clover:setup install clover:clover
+<pre>mvn clover:setup install clover:clover
 </pre>
                     </div>
                 </div>
@@ -280,18 +270,10 @@
                 <p>If your terminal supports ANSI escape codes, run your Maven build with the <code>-Dansi.color</code>
                     flag. Currently a few important log messages dealing with Clover's Test Optimization will be logged
                     in color:</p>
-                <p><em><span><img
-                                                                           src="attachments/171180506/317165321.png"
+                <p><em><span><img src="attachments/171180506/317165321.png"
 
 
-
-
-
-
-
-
-
-                                                                           ></span><br/></em>
+                ></span><br/></em>
                 </p>
                 <p> </p>
                 <h1>Build Profiles</h1>
@@ -301,8 +283,7 @@
                 <p><span id="BestPracticesforMaven-clover.report"></span></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;profile&gt;
+<pre>&lt;profile&gt;
             &lt;id&gt;clover.report&lt;/id&gt;
             &lt;build&gt;
                 &lt;plugins&gt;
@@ -342,8 +323,7 @@
                 <p><span id="BestPracticesforMaven-clover.optimize"></span></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;profile&gt;
+<pre>&lt;profile&gt;
             &lt;id&gt;clover.optimize&lt;/id&gt;
             &lt;build&gt;
                 &lt;plugins&gt;
@@ -378,8 +358,7 @@
                 <p><span id="BestPracticesforMaven-clover.all"></span></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;profile&gt;
+<pre>&lt;profile&gt;
             &lt;id&gt;clover.all&lt;/id&gt;
             &lt;build&gt;
                 &lt;plugins&gt;
@@ -441,8 +420,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

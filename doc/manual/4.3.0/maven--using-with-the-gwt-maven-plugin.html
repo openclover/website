@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.3 : Using Clover with the GWT-maven plugin</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,40 +39,41 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.3</a>
-</li>
+                        <a href="index.html">OpenClover 4.3</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Using Clover with the GWT-maven plugin
-                        </span>
+                <span id="title-text">
+                    Using Clover with the GWT-maven plugin
+                </span>
             </h1>
         </div>
 
         <div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.3.x. Check the <a href="../latest/maven--using-with-the-gwt-maven-plugin.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+            You are reading documentation for version 4.3.x. Check the
+            <a href="../latest/maven--using-with-the-gwt-maven-plugin.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <p>For developers working with the Google Web Toolkit (GWT) software development kit and Clover for
-                    Maven 2, the <code>clover-maven-plugin</code> works best with the <a
-                                                                                         href="https://gwt-maven-plugin.github.io/gwt-maven-plugin/"
-                                                                                         rel="nofollow">gwt-maven-plugin</a>.
-                </p>
+                    Maven 2, the <code>clover-maven-plugin</code> works best with the
+                    <a href="https://gwt-maven-plugin.github.io/gwt-maven-plugin/" rel="nofollow">gwt-maven-plugin</a>. </p>
                 <p>The maven-googlewebtoolkit2-plugin has known issues that can cause the build to fail if you are
                     building with Clover. As such, the gwt-maven-plugin is recommended.</p>
                 <p>For further background reading on the gwt-maven-plugin and interoperability with the <code>clover-maven-plugin</code>,
-                    please also read this <a
-                                             href="http://www.mail-archive.com/gwt-maven@googlegroups.com/msg00663.html"
-                                             rel="nofollow">Google Groups discussion</a>.</p>
+                    please also read this
+                    <a href="http://www.mail-archive.com/gwt-maven@googlegroups.com/msg00663.html" rel="nofollow">Google Groups discussion</a>.</p>
                 <p> </p>
                 <h2>Instrumentation of source
                     code</h2>
@@ -85,18 +85,16 @@
                     server-side code only</h3>
                 <p>This is a simpler case, as server-side Java sources are being complied to classes and executed
                     directly in JVM. Therefore the only thing which has to be set up is to enable Clover and limit
-                    instrumentation to server-side code packages.</p><h4
-                    id="UsingCloverwiththeGWT-mavenplugin-Testframeworks">Test frameworks</h4>
+                    instrumentation to server-side code packages.</p><h4 id="UsingCloverwiththeGWT-mavenplugin-Testframeworks">Test frameworks</h4>
                 <p>The gwt-maven-plugin provides a JUnit-compatible GWTTestCase which allows to run unit tests using a
                     web browser or htmlunit.</p><h4>
                 How to configure Maven project</h4>
                 <ol>
-                    <li><p>Add GWT Maven Plugin to <strong>pom.xml</strong> and set desired test mode in &lt;configuration&gt;
-                        tag - for example htmlunit allows headless run. Example:</p>
+                    <li><p>Add GWT Maven Plugin to
+                        <strong>pom.xml</strong> and set desired test mode in &lt;configuration&gt; tag - for example htmlunit allows headless run. Example:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-    >&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;plugin&gt;
     &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
     &lt;artifactId&gt;gwt-maven-plugin&lt;/artifactId&gt;
     &lt;version&gt;2.4.0&lt;/version&gt;
@@ -125,8 +123,7 @@
                         be instrumented with Clover - instrument only server-side code. Example:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-    >&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;version&gt;${clover.version}&lt;/version&gt;
@@ -139,8 +136,8 @@
 &lt;/plugin&gt;</pre>
                             </div>
                         </div>
-                        <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
-                                data-emoticon-name="warning" alt="(warning)"/> Please note that includes/excludes are
+                        <p>
+                            <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> Please note that includes/excludes are
                             supported by the <em>clover:setup</em> goal (i.e. <em>clover:instrument</em> will instrument
                             all sources).<br/><br/><br/></p></li>
                     <li><p>By default, the <em>gwt:test</em> goal is bound to integration-test phase (and not test), so
@@ -162,17 +159,16 @@
                 Test frameworks</h4>
                 <p>The gwt-test-utils framework provides means to simulate GWT inside JVM, it can intercept all
                     GWT.xyz() method calls, prepare mocks using Mockito or EasyMock etc. The JUnit-compatible GwtTest
-                    allows to run unit tests without a web browser.</p><h4
-                    id="UsingCloverwiththeGWT-mavenplugin-HowtoconfigureMavenproject.1">How to configure Maven
-                project</h4>
+                    allows to run unit tests without a web browser.</p>
+                <h4 id="UsingCloverwiththeGWT-mavenplugin-HowtoconfigureMavenproject.1">How to configure Maven
+                    project</h4>
                 <ol>
                     <li><p>Add gwt-test-utils dependency to <strong>pom.xml</strong>. Disable
                         <em><strong>compile</strong> </em>and <em><strong>test</strong> </em>goals in gwt-maven-plugin.
                         Increase memory for maven-surefire-plugin, if necessary. Example:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-    >&lt;dependency&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;dependency&gt;
     &lt;groupId&gt;com.googlecode.gwt-test-utils&lt;/groupId&gt;
     &lt;artifactId&gt;gwt-test-utils&lt;/artifactId&gt;
     &lt;version&gt;0.38&lt;/version&gt;
@@ -217,8 +213,7 @@
                         be instrumented as well. Example:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-    >&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;executions&gt;
@@ -252,9 +247,7 @@
                 </ol>
                 <h2>Example project</h2>
                 <ol>
-                    <li>Checkout GwtCloverExample sources: <a
-                                                                             href="https://github.com/openclover/clover-maven-plugin"
-                                                                             rel="nofollow">https://github.com/openclover/clover-maven-plugin</a>
+                    <li>Checkout GwtCloverExample sources: <a href="https://github.com/openclover/clover-maven-plugin" rel="nofollow">https://github.com/openclover/clover-maven-plugin</a>
                     </li>
                     <li>Go to <em>src/it/gwt</em> directory</li>
                     <li>Use at least Java6 and Maven 2.x.<br/><br/></li>
@@ -285,8 +278,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

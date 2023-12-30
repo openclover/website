@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.3 : Using with Surefire and Failsafe Plugins</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,27 +39,31 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.3</a>
-</li>
+                        <a href="index.html">OpenClover 4.3</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Using with Surefire and Failsafe Plugins
-                        </span>
+                <span id="title-text">
+                    Using with Surefire and Failsafe Plugins
+                </span>
             </h1>
         </div>
 
         <div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.3.x. Check the <a href="../latest/maven--using-with-surefire-and-failsafe-plugins.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+            You are reading documentation for version 4.3.x. Check the
+            <a href="../latest/maven--using-with-surefire-and-failsafe-plugins.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <h2>Introduction</h2>
@@ -139,19 +142,16 @@
                             </li>
                         </ol>
                     </li>
-                    <li>Tell Clover to use target/failsafe-reports as report directory - use the &lt;reportDescriptor&gt;
-                        for this.
+                    <li>Tell Clover to use target/failsafe-reports as report directory - use the &lt;reportDescriptor&gt; for this.
                     </li>
-                    <li>Tell Clover to use test case wildcard pattern for both plugins - use the &lt;reportDescriptor&gt;
-                        for this.
+                    <li>Tell Clover to use test case wildcard pattern for both plugins - use the &lt;reportDescriptor&gt; for this.
                     </li>
                     <li>Instrument sources, execute tests and generate reports<br/>
                         <ol>
                             <li>we recommend calling clover goals from command line (as typically projects are
                                 multi-module and we have to call clover:aggregate)
                             </li>
-                            <li>we recommend calling &quot;verify&quot; target instead of &quot;integration-test&quot;
-                                (because when you call &quot;integration-test&quot;, the Failsafe plugin will not
+                            <li>we recommend calling &quot;verify&quot; target instead of &quot;integration-test&quot; (because when you call &quot;integration-test&quot;, the Failsafe plugin will not
                                 perform post-integration-test cleanup)
                             </li>
                         </ol>
@@ -160,8 +160,7 @@
                 <p> </p><h4>Content of pom.xml</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-    >&lt;dependencies&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;dependencies&gt;
     &lt;!-- Test framework which will be used by Failsafe plugin. Version number is mandatory --&gt;
     &lt;dependency&gt;
         &lt;groupId&gt;junit&lt;/groupId&gt;
@@ -208,8 +207,7 @@
                 clover-report.xml</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-    >&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
     &lt;!-- Initialize Clover --&gt;
     &lt;clover-setup initString=&quot;${cloverdb}&quot;/&gt;
     &lt;target name=&quot;historical&quot;&gt;
@@ -242,9 +240,7 @@
                 <p> </p><h4>Maven command</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre
-                             data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
-                            >mvn clean clover:setup verify clover:aggregate clover:clover</pre>
+                        <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clean clover:setup verify clover:aggregate clover:clover</pre>
                     </div>
                 </div>
                 <p> </p>
@@ -263,19 +259,16 @@
                             </li>
                         </ol>
                     </li>
-                    <li>Tell Clover to use location from point 1 as report directory - use the &lt;reportDescriptor&gt;
-                        for this.
+                    <li>Tell Clover to use location from point 1 as report directory - use the &lt;reportDescriptor&gt; for this.
                     </li>
-                    <li>Tell Clover to use test case wildcard pattern for both plugins - use the &lt;reportDescriptor&gt;
-                        for this.
+                    <li>Tell Clover to use test case wildcard pattern for both plugins - use the &lt;reportDescriptor&gt; for this.
                     </li>
                     <li>Instrument sources, execute tests and generate reports<br/>
                         <ol>
                             <li>we recommend calling clover goals from command line (as typically projects are
                                 multi-module and we have to call clover:aggregate)
                             </li>
-                            <li>we recommend calling &quot;verify&quot; target instead of &quot;integration-test&quot;
-                                (because when you call &quot;integration-test&quot;, the Failsafe plugin will not
+                            <li>we recommend calling &quot;verify&quot; target instead of &quot;integration-test&quot; (because when you call &quot;integration-test&quot;, the Failsafe plugin will not
                                 perform post-integration-test cleanup)
                             </li>
                         </ol>
@@ -284,8 +277,7 @@
                 <p> </p><h4>Content of pom.xml</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-    >&lt;properties&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;properties&gt;
     &lt;!-- A common location in which a surefire report from &#39;test&#39; and failsafe report from
     &#39;integration-test&#39; phase will be stored. See also the clover-report.xml file which refers
     to this location --&gt;
@@ -340,8 +332,7 @@
                 clover-report.xml</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-    >&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
     &lt;!-- Initialize Clover --&gt;
     &lt;clover-setup initString=&quot;${cloverdb}&quot;/&gt;
     &lt;target name=&quot;historical&quot;&gt;
@@ -373,52 +364,39 @@
                 <p> </p><h4>Maven command</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre
-                             data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
-                            >mvn clean clover:setup verify clover:aggregate clover:clover</pre>
+                        <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clean clover:setup verify clover:aggregate clover:clover</pre>
                     </div>
                 </div>
                 <p> </p>
                 <h2>Test optimization</h2>
                 <p>Test Optimization feature is available for Surefire plugin. You you have to use:</p>
                 <ul>
-                    <li><a
-                           href="../../maven/4.3.0/optimize-mojo.html"
-                           rel="nofollow">clover:optimize</a> goal for maven-surefire-plugin used in 'test' phase
+                    <li><a href="../../maven/4.3.0/optimize-mojo.html" rel="nofollow">clover:optimize</a> goal for maven-surefire-plugin used in 'test' phase
                     </li>
-                    <li><a
-                           href="../../maven/4.3.0/optimizeIntegration-mojo.html"
-                           rel="nofollow">clover:optimizeIntegration</a> goal for maven-surefire-plugin used in
+                    <li>
+                        <a href="../../maven/4.3.0/optimizeIntegration-mojo.html" rel="nofollow">clover:optimizeIntegration</a> goal for maven-surefire-plugin used in
                         'integration-test' phase
                     </li>
                 </ul>
-                <p><strong><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
-                                data-emoticon-name="warning" alt="(warning)"/> Test Optimization feature for
-                    maven-failsafe-plugin is not available yet. See <a
-                            href="hacking--updating-optimization-snapshot-file.html">Hacking Clover / Updating
-                        optimization snapshot file</a> if you need a workaround. <br/></strong></p>
+                <p>
+                    <strong><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> Test Optimization feature for
+                        maven-failsafe-plugin is not available yet. See <a href="hacking--updating-optimization-snapshot-file.html">Hacking Clover / Updating
+                            optimization snapshot file</a> if you need a workaround. <br/></strong></p>
                 <h2>Sample project</h2>
                 <p>A sample project shows usage of Surefire and Failsafe plugins together.</p>
-                <p>Checkout code: <a
-                                                    href="https://github.com/openclover/clover-maven-plugin"
-                                                    rel="nofollow">https://github.com/openclover/clover-maven-plugin</a> 
-                </p>
+                <p>Checkout code:
+                    <a href="https://github.com/openclover/clover-maven-plugin" rel="nofollow">https://github.com/openclover/clover-maven-plugin</a>  </p>
                 <p>Go to: <strong>src/it/surefire-and-failsafe-plugins</strong></p>
                 <p>Run mvn command with goals as specified in <em>goals.txt</em> file in this project.</p>
                 <h2>References</h2>
                 <p>See also:</p>
                 <ul>
-                    <li><a  href="http://maven.apache.org/plugins/maven-surefire-plugin/"
-                           rel="nofollow">maven-surefire-plugin</a></li>
-                    <li><a  href="http://maven.apache.org/plugins/maven-failsafe-plugin/"
-                           rel="nofollow">maven-failsafe-plugin</a></li>
-                    <li><a
-                           href="../../maven/4.3.0/clover-mojo.html#reportDescriptor"
-                           rel="nofollow">clover-mojo#reportDescriptor</a></li>
+                    <li><a href="http://maven.apache.org/plugins/maven-surefire-plugin/" rel="nofollow">maven-surefire-plugin</a></li>
+                    <li><a href="http://maven.apache.org/plugins/maven-failsafe-plugin/" rel="nofollow">maven-failsafe-plugin</a></li>
+                    <li><a href="../../maven/4.3.0/clover-mojo.html#reportDescriptor" rel="nofollow">clover-mojo#reportDescriptor</a></li>
                     <li><a href="ant--clover-report.html" rel="nofollow">clover-report</a>
                         - <em>Ant task reference</em></li>
-                    <li><a  href="https://github.com/openclover/clover-maven-plugin"
-                           rel="nofollow">clover-maven-plugin</a>, file
+                    <li><a href="https://github.com/openclover/clover-maven-plugin" rel="nofollow">clover-maven-plugin</a>, file
                         src/main/resources/default-clover-report.xml <em>- default report configuration used by
                             clover:clover</em></li>
                     <li><a href="ant--test-results-and-per-test-coverage.html">Unit Test Results and Per-Test
@@ -439,8 +417,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

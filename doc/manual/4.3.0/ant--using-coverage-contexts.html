@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.3 : Using Coverage Contexts</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,10 +39,11 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.3</a>
-</li>
+                        <a href="index.html">OpenClover 4.3</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
@@ -52,17 +52,20 @@
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--configuring-reports.html">5. Configuring Reports</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Using Coverage Contexts
-                        </span>
+                <span id="title-text">
+                    Using Coverage Contexts
+                </span>
             </h1>
         </div>
 
         <div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.3.x. Check the <a href="../latest/ant--using-coverage-contexts.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+            You are reading documentation for version 4.3.x. Check the
+            <a href="../latest/ant--using-coverage-contexts.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <p>Clover defines a <em>Context</em> as a part of source code that matches a specified structure or
@@ -73,8 +76,8 @@
                 <h2>Block Contexts</h2>
                 <p>Block Contexts are pre-defined by Clover. They represent 'block' syntactic constructs in the Java
                     language. A full list of supported Block Contexts is shown below.</p>
-                <div class="confluence-information-macro confluence-information-macro-information"><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                <div class="confluence-information-macro confluence-information-macro-information">
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div><p>Clover's block context feature currently does not
                         support Groovy.</p></div>
                 </div>
@@ -179,7 +182,7 @@
                 <p>A method signature includes all annotations, modifiers (public, static, final etc), the return type,
                     the method name, parameter types and names, the throws clause and exceptions.</p>
                 <div><p class="title">Note</p>
-                    <span ></span>
+                    <span></span>
                     <div><p>When matching method signatures against context
                         regexps, whitespace is normalized and comments are ignored.</p></div>
                 </div>
@@ -187,13 +190,13 @@
                     <code>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;</code>, or via the configuration
                     panel of your Clover IDE Plugin.</p>
                 <div><p class="title">Note</p>
-                    <span ></span>
+                    <span></span>
                     <div><p>Contexts are matched against your source at
                         <strong>instrumentation-time</strong>. This means you need to <strong>re-instrument your
                             code</strong> after defining a new context.</p></div>
                 </div>
                 <h4>Method Contexts with Groovy code</h4>
-                <p>While <a  href="http://groovy-lang.org/" rel="nofollow">Groovy syntax</a> is
+                <p>While <a href="http://groovy-lang.org/" rel="nofollow">Groovy syntax</a> is
                     flexible in nature, the regular expressions defined in the <code>regexp</code> parameters of <code>&lt;methodContext&gt;</code>
                     elements must match a 'normalized' method signature.</p>
                 <p>Bear in mind that this is not necessarily how you would define the method in your Groovy source
@@ -203,23 +206,20 @@
                     wanted to create a <code>regexp</code> that matched the following Groovy method:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >def void foo()
+<pre>def void foo()
 </pre>
                     </div>
                 </div>
                 <p>Your <code>regexp</code> must assume a match against:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >public def void foo()
+<pre>public def void foo()
 </pre>
                     </div>
                 </div>
                 <p><strong>Normalized method signature rules for defining <code>regexp</code> parameters:</strong></p>
                 <p>The following list illustrates the normalized form of the method signature (and hence, order) in
-                    which your <code>regexp</code> must be defined to match specific methods in your Groovy source code:
-                </p>
+                    which your <code>regexp</code> must be defined to match specific methods in your Groovy source code: </p>
                 <ol>
                     <li><strong>Modifiers</strong>– in the following order:
                         <ol>
@@ -234,9 +234,8 @@
                             <li><code>synchronized</code></li>
                             <li><code>native</code></li>
                             <li><code>strictfp</code></li>
-                            <li><code>interface</code><br/> (Refer to <a
-                                                                         href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/reflect/Modifier.html#toString%28int%29"
-                                                                         rel="nofollow">Sun Java's documentation</a> for
+                            <li><code>interface</code><br/> (Refer to
+                                <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/lang/reflect/Modifier.html#toString%28int%29" rel="nofollow">Sun Java's documentation</a> for
                                 more information.)
                             </li>
                         </ol>
@@ -253,8 +252,7 @@
                 <p><strong>Examples of normalized signatures for Groovy</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >// normalized signature is: &quot;private void &lt;init&gt;()&quot;
+<pre>// normalized signature is: &quot;private void &lt;init&gt;()&quot;
 private PrivateConstructor() {
         
 }
@@ -287,8 +285,8 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                 </div>
                 <p> </p>
                 <h2>Statement Contexts</h2>
-                <div class="confluence-information-macro confluence-information-macro-information"><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                <div class="confluence-information-macro confluence-information-macro-information">
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div><p>Clover's statement context feature currently does
                         not support Groovy.</p></div>
                 </div>
@@ -306,8 +304,7 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     outer statement will contain inner statements as well. Consider the following example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >void testStatementContext() {
+<pre>void testStatementContext() {
     while (true) {
         if (logger.isDebugEnabled()) {
             logger.debug(&quot;abc&quot;);			
@@ -322,7 +319,7 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     <div class="codeContent panelContent pdl">
                         <pre
 
-                            >while (true) {{ if (logger.isDebugEnabled()) {{ logger.debug(&quot;abc&quot;); } }}</pre>
+                        >while (true) {{ if (logger.isDebugEnabled()) {{ logger.debug(&quot;abc&quot;); } }}</pre>
                     </div>
                 </div>
                 <p>b) the if condition</p>
@@ -330,7 +327,7 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     <div class="codeContent panelContent pdl">
                         <pre
 
-                            >if (logger.isDebugEnabled()) {{ logger.debug(&quot;abc&quot;); }</pre>
+                        >if (logger.isDebugEnabled()) {{ logger.debug(&quot;abc&quot;); }</pre>
                     </div>
                 </div>
                 <p>c) the logger.debug() method call</p>
@@ -338,7 +335,7 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     <div class="codeContent panelContent pdl">
                         <pre
 
-                            >logger.debug(&quot;abc&quot;);</pre>
+                        >logger.debug(&quot;abc&quot;);</pre>
                     </div>
                 </div>
                 <p> </p>
@@ -346,17 +343,14 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     look like this:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre
-                             data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-                            >&lt;statementcontext name=&quot;logger&quot; regexp=&quot;^logger\.debug.*&quot;/&gt;</pre>
+                        <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;statementcontext name=&quot;logger&quot; regexp=&quot;^logger\.debug.*&quot;/&gt;</pre>
                     </div>
                 </div>
-                <p>Note that if the expression would be written as &quot;^<strong><span
-                        style="color: rgb(0,0,255);">.*</span></strong>logger\.debug.*&quot;, then it would match also
+                <p>Note that if the expression would be written as &quot;^<strong><span style="color: rgb(0,0,255);">.*</span></strong>logger\.debug.*&quot;, then it would match also
                     outer statements.</p>
                 <h2>Using Context Filters</h2>
                 <div><p class="title">Note</p>
-                    <span ></span>
+                    <span></span>
                     <div><p>This section describes using context filters with
                         Ant. For details of using filters with the IDE plugins, see the individual documentation for the
                         plugin.</p></div>
@@ -367,8 +361,7 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     blocks from a coverage report:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-report&gt;
+<pre>&lt;clover-report&gt;
        &lt;current outfile=&quot;clover_html&quot;&gt;
          &lt;format type=&quot;html&quot; filter=&quot;catch&quot;/&gt;
        &lt;/current&gt;
@@ -384,8 +377,7 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-    >&lt;clover-setup ...&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-setup ...&gt;
     &lt;!-- Don&#39;t instrument methods which have cyclomatic complexity &lt;= 1 or &lt;= 3 statements --&gt;
     &lt;methodContext name=&quot;simple_method&quot; regexp=&quot;.*&quot; maxComplexity=&quot;1&quot; maxStatements=&quot;3&quot;/&gt;
 &lt;/clover-setup&gt;</pre>
@@ -396,8 +388,7 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     contexts that match logging statements in your source:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-setup ...&gt;
+<pre>&lt;clover-setup ...&gt;
     &lt;statementContext name=&quot;log&quot; regexp=&quot;^LOG\..*&quot;/&gt;
     &lt;statementContext name=&quot;iflog&quot; regexp=&quot;^if \(LOG\.is.*&quot;/&gt;
     &lt;methodContext name=&quot;main&quot; regexp=&quot;public static void main\(String args\[\]\).*&quot;/&gt;
@@ -411,8 +402,7 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     which is designed to match conditional logging statements such as:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >if (LOG.isDebugEnabled()) {
+<pre>if (LOG.isDebugEnabled()) {
     // do some expensive debug logging
 }
 </pre>
@@ -421,8 +411,7 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                 <p>The third matches all 'main' methods that have a String Array named 'args' in the constructor:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >public static void main(String args[]) throws Exception
+<pre>public static void main(String args[]) throws Exception
 </pre>
                     </div>
                 </div>
@@ -430,8 +419,7 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     can then generate a report that excludes logging statements:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-report&gt;
+<pre>&lt;clover-report&gt;
     &lt;current outfile=&quot;clover_html&quot; title=&quot;My Coverage&quot;&gt;
         &lt;format type=&quot;html&quot; filter=&quot;log,iflog&quot;/&gt;
     &lt;/current&gt;
@@ -454,8 +442,7 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

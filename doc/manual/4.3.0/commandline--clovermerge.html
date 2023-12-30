@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.3 : CloverMerge</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,33 +39,35 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.3</a>
-</li>
+                        <a href="index.html">OpenClover 4.3</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="commandline--command-line-tools.html">Clover Command Line Tools</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            CloverMerge
-                        </span>
+                <span id="title-text">
+                    CloverMerge
+                </span>
             </h1>
         </div>
 
         <div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.3.x. Check the <a href="../latest/commandline--clovermerge.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+            You are reading documentation for version 4.3.x. Check the <a href="../latest/commandline--clovermerge.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <p>This tool merges existing Clover databases to allow for combined reports to be generated.</p>
                 <h3>Usage</h3>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >java com.atlassian.clover.CloverMerge [OPTIONS] PARAMS [DBFILES...]
+<pre>java com.atlassian.clover.CloverMerge [OPTIONS] PARAMS [DBFILES...]
 </pre>
                     </div>
                 </div>
@@ -127,8 +128,7 @@
                     the API:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >import com.atlassian.clover.CloverMerge;
+<pre>import com.atlassian.clover.CloverMerge;
 
 ...
 
@@ -143,27 +143,22 @@ if (result != 0) {
                 <h3>Examples</h3>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >java com.atlassian.clover.CloverMerge -i new.db proj1.db proj2.db
+<pre>java com.atlassian.clover.CloverMerge -i new.db proj1.db proj2.db
 </pre>
                     </div>
                 </div>
                 <p>Merges proj1.db and proj2.db into the new database new.db. A span of zero seconds is used.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >java com.atlassian.clover.CloverMerge -i new.db proj1.db -s 30s proj2.db proj3.db
+<pre>java com.atlassian.clover.CloverMerge -i new.db proj1.db -s 30s proj2.db proj3.db
 </pre>
                     </div>
                 </div>
                 <p>Merges proj1.db, proj2.db and proj3.db into the new database new.db. A span of zero seconds is used
                     for proj1.db, and a span of 30 seconds is used for proj2.db and proj3.db.</p>
-                <div><span
-                        ></span>
+                <div><span></span>
                     <div><p>The files named coverage.dbxxxx_xxx_xxx are not db
-                        files. Please see the clover <a
-                                                        href="faq--what-is-coverage-db-file.html"
-                                                        rel="nofollow">FAQ question</a>. <br/> You only need to merge
+                        files. Please see the clover <a href="faq--what-is-coverage-db-file.html" rel="nofollow">FAQ question</a>. <br/> You only need to merge
                         files called coverage.db (there should be one per a directory) and not the recording files
                         coverage.dbxxxx_xxx_xxx (there could be hundreds of these)</p></div>
                 </div>
@@ -181,8 +176,7 @@ if (result != 0) {
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.3 : Test Optimization Quick Start Guide for Ant</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,10 +39,11 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.3</a>
-</li>
+                        <a href="index.html">OpenClover 4.3</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
@@ -52,17 +52,20 @@
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--quick-start-guide.html">1. QuickStart Guide</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Test Optimization Quick Start Guide for Ant
-                        </span>
+                <span id="title-text">
+                    Test Optimization Quick Start Guide for Ant
+                </span>
             </h1>
         </div>
 
         <div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.3.x. Check the <a href="../latest/ant--test-optimization-quick-start-guide.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+            You are reading documentation for version 4.3.x. Check the
+            <a href="../latest/ant--test-optimization-quick-start-guide.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <h4>
@@ -72,8 +75,8 @@
                     of only the code which has changed since the last build.</p>
                 <p>These steps assume your build is Clover-enabled already (in particular it has a
                     <code>with.clover</code> task already set up and has a taskdef established for the Clover Ant
-                    tasks). You will have to complement this quick start guide with <a
-                            href="ant--quick-start-guide.html">basic Clover configuration information</a>.</p>
+                    tasks). You will have to complement this quick start guide with
+                    <a href="ant--quick-start-guide.html">basic Clover configuration information</a>.</p>
                 <p>These steps also assume that your build file is currently used for a CI (Continuous Integration)
                     build and possibly for general builds (e.g. On a developer's own machine). Below, we describe how
                     you can take that build file and add sections to bake in Test Optimization. Adding optional support
@@ -81,12 +84,11 @@
                     test reordering other than the default '<strong>failfast</strong>' are advanced options which are
                     covered elsewhere.</p>
                 <p> </p>
-                <div class="confluence-information-macro confluence-information-macro-information"><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                <div class="confluence-information-macro confluence-information-macro-information">
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div><p>Clover's Test Optimization feature currently do
-                        not support optimization for test cases written in Groovy <a
-                                                                                     href="https://jira.atlassian.com/browse/CLOV-1152"
-                                                                                     rel="nofollow">(CLOV-1152)</a>:</p>
+                        not support optimization for test cases written in Groovy
+                        <a href="https://jira.atlassian.com/browse/CLOV-1152" rel="nofollow">(CLOV-1152)</a>:</p>
                         <ul>
                             <li>test cases written in Groovy will be executed in each test run</li>
                             <li>test cases written in Java will be optimized</li>
@@ -94,13 +96,10 @@
                         </ul>
                     </div>
                 </div>
-                <div class="confluence-information-macro confluence-information-macro-information"><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                <div class="confluence-information-macro confluence-information-macro-information">
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div><p>Clover's Test Optimization does not optimize
-                        execution of JUnit TestSuites (<a
-                                                          href="https://jira.atlassian.com/browse/CLOV-616"
-                                                          rel="nofollow">CLOV-616</a>) and TestNG (<a
-                                 href="https://jira.atlassian.com/browse/CLOV-373" rel="nofollow">CLOV-373</a>).
+                        execution of JUnit TestSuites (<a href="https://jira.atlassian.com/browse/CLOV-616" rel="nofollow">CLOV-616</a>) and TestNG (<a href="https://jira.atlassian.com/browse/CLOV-373" rel="nofollow">CLOV-373</a>).
                     </p>
                         <ul>
                             <li>&lt;batchtest&gt; resource collection shall contain JUnit TestCases</li>
@@ -109,14 +108,12 @@
                 </div>
                 <p> </p><h4>BEFORE YOU START</h4>
                 <p>Try to ensure your unit tests do not have dependencies between them as this may cause optimized
-                    builds to fail more frequently than usual.</p><h4
-                    id="TestOptimizationQuickStartGuideforAnt-BASICSTEPS">BASIC STEPS</h4>
+                    builds to fail more frequently than usual.</p><h4 id="TestOptimizationQuickStartGuideforAnt-BASICSTEPS">BASIC STEPS</h4>
                 <ol>
                     <li><p>You will need to use this:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
+<pre>&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
 </pre>
                             </div>
                         </div>
@@ -125,8 +122,7 @@
                         location:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >&lt;PROJECT_DIR&gt;/.clover/coverage.db.snapshot
+<pre>&lt;PROJECT_DIR&gt;/.clover/coverage.db.snapshot
 </pre>
                             </div>
                         </div>
@@ -135,8 +131,7 @@
                             Add a property for this, as in the following example:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >&lt;property name=&quot;clover.snapshot.file&quot; value=&quot;/path/to/clover.snapshot&quot;/&gt;
+<pre>&lt;property name=&quot;clover.snapshot.file&quot; value=&quot;/path/to/clover.snapshot&quot;/&gt;
 </pre>
                             </div>
                         </div>
@@ -144,8 +139,7 @@
                     <li><p>Add a target to generate the test <a href="ant--clover-snapshot.html">snapshot</a>:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >&lt;target name=&quot;clover.snapshot&quot; depends=&quot;with.clover&quot;&gt;
+<pre>&lt;target name=&quot;clover.snapshot&quot; depends=&quot;with.clover&quot;&gt;
      &lt;clover-snapshot file=&quot;${clover.snapshot.file}&quot;/&gt;
  &lt;/target&gt;
 </pre>
@@ -153,13 +147,12 @@
                         </div>
                     </li>
                     <li><p>Modify the <code>&lt;batchtest</code>&gt; element of the <code>&lt;junit/&gt;</code> task
-                        used to test your application, so that the filesets are wrapped in the <code><a
-                                href="ant--clover-optimized-testset.html">clover-optimized-testset</a></code>
+                        used to test your application, so that the filesets are wrapped in the
+                        <code><a href="ant--clover-optimized-testset.html">clover-optimized-testset</a></code>
                         element. See the following example:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >&lt;junit ...&gt;
+<pre>&lt;junit ...&gt;
 &lt;batchtest fork=&quot;true&quot; todir=&quot;${test.results.dir}/results&quot;&gt;
     &lt;fileset dir=&quot;src/tests&quot; includes=&quot;${test.includes}&quot; excludes=&quot;${test.excludes}&quot;/&gt;
 &lt;/batchtest&gt;
@@ -170,8 +163,7 @@
                         <p>This becomes the following:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >&lt;junit ...&gt;
+<pre>&lt;junit ...&gt;
 &lt;batchtest fork=&quot;true&quot; todir=&quot;${test.results.dir}/results&quot;&gt;
     &lt;clover-optimized-testset snapshotfile=&quot;${clover.snapshot.file}&quot;&gt;
         &lt;fileset dir=&quot;src/tests&quot; includes=&quot;${test.includes}&quot; excludes=&quot;${test.excludes}&quot;/&gt;
@@ -182,12 +174,11 @@
                             </div>
                         </div>
                     </li>
-                    <li><p>Run the optimized build (this will typically be run by their CI plan). Assuming a &quot;test&quot;
-                        target (with appropriate dependencies so that the code is instrumented/compiled):</p>
+                    <li>
+                        <p>Run the optimized build (this will typically be run by their CI plan). Assuming a &quot;test&quot; target (with appropriate dependencies so that the code is instrumented/compiled):</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >ant with.clover clean test clover.snapshot
+<pre>ant with.clover clean test clover.snapshot
 </pre>
                             </div>
                         </div>
@@ -203,8 +194,7 @@
                     example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;junit ...&gt;
+<pre>&lt;junit ...&gt;
     &lt;classpath refid=&quot;build.classpath&quot;/&gt;
     &lt;batchtest fork=&quot;yes&quot; todir=&quot;${test.result}&quot;&gt;
         &lt;clover-optimized-testset snapshotfile=&quot;${clover.snapshot.file}&quot;&gt;
@@ -248,8 +238,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

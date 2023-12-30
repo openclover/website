@@ -3,7 +3,7 @@
 <head>
     <title>OutOfMemoryError: PermGen space</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,35 +39,37 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="kb--index.html">Clover Knowledge Base</a>
-</li>
+                        <a href="kb--index.html">Clover Knowledge Base</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
                     </li>
                     <li>
-                        <span><a
-                                href="kb--troubleshooting-performance.html">Troubleshooting Performance</a></span>
+                        <span><a href="kb--troubleshooting-performance.html">Troubleshooting Performance</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            OutOfMemoryError: PermGen space
-                        </span>
+                <span id="title-text">
+                    OutOfMemoryError: PermGen space
+                </span>
             </h1>
         </div>
 
         <div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.3.x. Check the <a href="../latest/kb--outofmemoryerror-permgen-space.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+            You are reading documentation for version 4.3.x. Check the
+            <a href="../latest/kb--outofmemoryerror-permgen-space.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <h4>Symptoms</h4>
                 <p>Running a build with Clover results in OutOfMemory error (usually during test execution):</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >java.lang.OutOfMemoryError: PermGen space
+<pre>java.lang.OutOfMemoryError: PermGen space
 </pre>
                     </div>
                 </div>
@@ -91,14 +92,13 @@
                 <p>This can happen when you have a long running process (such us an application server) and you deploy
                     multiple times a new version of an application into it (without restarting the process). It can
                     happen that classes from old application will not be deallocated. See this article for more details:
-                    <a  href="http://plumbr.eu/blog/what-is-a-permgen-leak" rel="nofollow">http://plumbr.eu/blog/what-is-a-permgen-leak</a>.
-                </p><h4>Resolution</h4>
+                    <a href="http://plumbr.eu/blog/what-is-a-permgen-leak" rel="nofollow">http://plumbr.eu/blog/what-is-a-permgen-leak</a>. </p>
+                <h4>Resolution</h4>
                 <p>The required memory can be increased by setting the <code>-XX:MaxPermSize</code> setting on the JVM.
                     Add proper toggle for 'java' command call or set JAVA_OPTS, ANT_OPTS, MAVEN_OPTS depending on the
                     build tool you use.</p>
                 <div><p class="title">Forking
-                    Processes</p><span
-                        ></span>
+                    Processes</p><span></span>
                     <div><p>It's important to note that some Maven plugins
                         (such as Surefire or Failsafe) will fork the JVM process and <code>MAVEN_OPTS</code> may not
                         take effect. If you are experiencing issues using Maven plugins even after you've set <code>MAVEN_OPTS</code>
@@ -109,8 +109,7 @@
                 <p><strong>Example for maven-surefire-plugin</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-    >&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;plugin&gt;
   &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
   &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
   &lt;configuration&gt;
@@ -122,13 +121,12 @@
                 </div>
                 <p> </p><h4>Example for
                 maven-cargo-plugin</h4>
-                <p>If you are using the <a  href="http://cargo.codehaus.org/Maven2+plugin"
-                                           rel="nofollow">Maven Cargo plugin</a>, add the following in the <code>&lt;systemProperties/&gt;</code>
+                <p>If you are using the <a href="http://cargo.codehaus.org/Maven2+plugin" rel="nofollow">Maven Cargo plugin</a>, add the following in the
+                    <code>&lt;systemProperties/&gt;</code>
                     element of the Maven Cargo plugin:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;cargo.jvmargs&gt;-Xmx512m -XX:MaxPermSize=256m&lt;/cargo.jvmargs&gt;
+<pre>&lt;cargo.jvmargs&gt;-Xmx512m -XX:MaxPermSize=256m&lt;/cargo.jvmargs&gt;
 </pre>
                     </div>
                 </div>
@@ -148,8 +146,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

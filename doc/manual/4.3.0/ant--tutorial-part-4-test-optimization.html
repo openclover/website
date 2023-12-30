@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.3 : Part 4 - Test Optimization Tutorial</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,27 +39,31 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.3</a>
-</li>
+                        <a href="index.html">OpenClover 4.3</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="tutorials--index.html">Clover Tutorials</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="tutorials--ant-tutorial.html">Clover-for-Ant tutorial</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Part 4 - Test Optimization Tutorial
-                        </span>
+                <span id="title-text">
+                    Part 4 - Test Optimization Tutorial
+                </span>
             </h1>
         </div>
 
         <div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.3.x. Check the <a href="../latest/ant--tutorial-part-4-test-optimization.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+            You are reading documentation for version 4.3.x. Check the
+            <a href="../latest/ant--tutorial-part-4-test-optimization.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <p>This section of the tutorial walks through the process of setting up Clover
@@ -68,7 +71,7 @@
                     build.</p>
                 <p><em>On this page:</em></p>
                 <p>
-                    <style type='text/css'>/*<![CDATA[*/
+                    <style type="text/css">/*<![CDATA[*/
                     div.rbtoc1491813745156 {
                         padding: 0px;
                     }
@@ -83,45 +86,46 @@
                         padding-left: 0px;
                     }
 
-                    /*]]>*/</style>
-                <div class='toc-macro rbtoc1491813745156'>
-                    <ul class='toc-indentation'>
-                        <li><a href='#Part4-TestOptimizationTutorial-AddingTestOptimizationtaskstobuild.xml'>Adding Test
+                    /*]]>*/
+                    </style>
+                <div class="toc-macro rbtoc1491813745156">
+                    <ul class="toc-indentation">
+                        <li><a href="#Part4-TestOptimizationTutorial-AddingTestOptimizationtaskstobuild.xml">Adding Test
                             Optimization tasks to build.xml</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#Part4-TestOptimizationTutorial-1.Addingpathstoresources'>1. Adding paths
+                            <ul class="toc-indentation">
+                                <li><a href="#Part4-TestOptimizationTutorial-1.Addingpathstoresources">1. Adding paths
                                     to resources</a></li>
-                                <li><a href='#Part4-TestOptimizationTutorial-2.Choosingalocationforthesnapshotfile'>2.
+                                <li><a href="#Part4-TestOptimizationTutorial-2.Choosingalocationforthesnapshotfile">2.
                                     Choosing a location for the snapshot file</a></li>
                                 <li>
-                                    <a href='#Part4-TestOptimizationTutorial-3.AddinganewAnttargettogeneratetheoptimizedtest&#39;snapshot&#39;'>3.
+                                    <a href="#Part4-TestOptimizationTutorial-3.AddinganewAnttargettogeneratetheoptimizedtest&#39;snapshot&#39;">3.
                                         Adding a new Ant target to generate the optimized test &#39;snapshot&#39;</a>
                                 </li>
                                 <li>
-                                    <a href='#Part4-TestOptimizationTutorial-4.EditingtheJUnittasktoaddthe&#39;clover-optimized-testset&#39;element'>4.
+                                    <a href="#Part4-TestOptimizationTutorial-4.EditingtheJUnittasktoaddthe&#39;clover-optimized-testset&#39;element">4.
                                         Editing the JUnit task to add the &#39;clover-optimized-testset&#39; element</a>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href='#Part4-TestOptimizationTutorial-Demonstratingthattestoptimizationisworking'>Demonstrating
+                        <li><a href="#Part4-TestOptimizationTutorial-Demonstratingthattestoptimizationisworking">Demonstrating
                             that test optimization is working</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#Part4-TestOptimizationTutorial-5.Runningthetestoptimizedbuild'>5. Running
+                            <ul class="toc-indentation">
+                                <li><a href="#Part4-TestOptimizationTutorial-5.Runningthetestoptimizedbuild">5. Running
                                     the test optimized build</a></li>
-                                <li><a href='#Part4-TestOptimizationTutorial-6.Runningan&#39;empty&#39;optimizedbuild'>6.
+                                <li><a href="#Part4-TestOptimizationTutorial-6.Runningan&#39;empty&#39;optimizedbuild">6.
                                     Running an &#39;empty&#39; optimized build</a></li>
-                                <li><a href='#Part4-TestOptimizationTutorial-7.Editingafileintheproject'>7. Editing a
+                                <li><a href="#Part4-TestOptimizationTutorial-7.Editingafileintheproject">7. Editing a
                                     file in the project</a></li>
                                 <li>
-                                    <a href='#Part4-TestOptimizationTutorial-8.Rebuildingtheprojectwithtestoptimization'>8.
+                                    <a href="#Part4-TestOptimizationTutorial-8.Rebuildingtheprojectwithtestoptimization">8.
                                         Rebuilding the project with test optimization</a></li>
                             </ul>
                         </li>
-                        <li><a href='#Part4-TestOptimizationTutorial-RelatedLinks'>Related Links</a></li>
+                        <li><a href="#Part4-TestOptimizationTutorial-RelatedLinks">Related Links</a></li>
                     </ul>
                 </div>
-                </p><p>This tutorial assumes you have completed the other <a
-                    href="tutorials--ant-tutorial.html">Clover Tutorial</a> steps and have fully set up Ant in
+                </p><p>This tutorial assumes you have completed the other
+                <a href="tutorials--ant-tutorial.html">Clover Tutorial</a> steps and have fully set up Ant in
                 those steps to build and test the MoneyBag Java project, with Clover testing the JUnit code coverage. We
                 will make use of the Ant tasks set up in <code>build.xml</code> from the previous tutorial chapters,
                 here. Knowing that, read on.</p>
@@ -132,8 +136,7 @@
                 <p>Open your <code>build.xml</code> file. You should already have this line included:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
+<pre>&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
 </pre>
                     </div>
                 </div>
@@ -141,8 +144,7 @@
                     of code, as shown below:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
+<pre>&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
 &lt;clover-env/&gt;</pre>
                     </div>
                 </div>
@@ -158,17 +160,15 @@
                     <div class="codeContent panelContent pdl">
                         <pre
 
-                            >&lt;PROJECT_DIR&gt;/.clover/coverage.db.snapshot</pre>
+                        >&lt;PROJECT_DIR&gt;/.clover/coverage.db.snapshot</pre>
                     </div>
                 </div>
                 <h2>
                     3. Adding a new Ant target to generate the optimized test 'snapshot'</h2>
-                <p>Now' we'll and a new Ant target to generate the test <a href="ant--clover-snapshot.html">snapshot</a>:
-                </p>
+                <p>Now' we'll and a new Ant target to generate the test <a href="ant--clover-snapshot.html">snapshot</a>: </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;target name=&quot;clover.snapshot&quot; depends=&quot;with.clover&quot;&gt;
+<pre>&lt;target name=&quot;clover.snapshot&quot; depends=&quot;with.clover&quot;&gt;
     &lt;clover-snapshot file=&quot;${clover.snapshot.file}&quot;/&gt;
 &lt;/target&gt;</pre>
                     </div>
@@ -176,12 +176,11 @@
                 <h2>
                     4. Editing the JUnit task to add the 'clover-optimized-testset' element</h2>
                 <p>In your <code>build.xml</code> file, edit the <code>test</code> target ,specifically the
-                    <code>junit</code> portion and its sub-element, <code>batchtest</code>. Your code inside <code
-                            style="background-color: transparent;">batchtest</code> will look like so:</p>
+                    <code>junit</code> portion and its sub-element, <code>batchtest</code>. Your code inside
+                    <code style="background-color: transparent;">batchtest</code> will look like so:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;junit fork=&quot;yes&quot; printsummary=&quot;true&quot;&gt;
+<pre>&lt;junit fork=&quot;yes&quot; printsummary=&quot;true&quot;&gt;
     &lt;classpath refid=&quot;testbuild.classpath&quot;/&gt;
     &lt;formatter type=&quot;xml&quot;/&gt;
     &lt;batchtest fork=&quot;yes&quot; todir=&quot;${build.testresults}&quot;&gt;
@@ -191,15 +190,14 @@
 </pre>
                     </div>
                 </div>
-                <p>To add Test Optimization to the build: add a new element, <code><a
-                        href="ant--clover-optimized-testset.html">clover-optimized-testset</a></code>, move the
+                <p>To add Test Optimization to the build: add a new element,
+                    <code><a href="ant--clover-optimized-testset.html">clover-optimized-testset</a></code>, move the
                     <code>fileset</code> element inside the new <code>clover-optimized-testset</code> element. Edit your
                     new <code style="background-color: transparent;">batchtest</code> code block until it is the same as
                     the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;junit fork=&quot;yes&quot; printsummary=&quot;true&quot;&gt;
+<pre>&lt;junit fork=&quot;yes&quot; printsummary=&quot;true&quot;&gt;
     &lt;classpath refid=&quot;testbuild.classpath&quot;/&gt;
     &lt;formatter type=&quot;xml&quot;/&gt;
     &lt;batchtest fork=&quot;yes&quot; todir=&quot;${build.testresults}&quot;&gt;
@@ -229,22 +227,18 @@
                 <p>Run your build with the following command:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >ant with.clover clean test clover.snapshot
+<pre>ant with.clover clean test clover.snapshot
 </pre>
                     </div>
                 </div>
                 <p>Adding the <code>clover.snapshot</code> target here will create the additional snapshot database,
-                    which is used as a point of comparison for the Test Optimization.  <img
-                            class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
-                            data-emoticon-name="warning" alt="(warning)"/> This is essential for enabling Test
+                    which is used as a point of comparison for the Test Optimization.  <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> This is essential for enabling Test
                     Optimization of future builds.</p>
                 <p>Clover will output this text to the console, showing that it has created the all-important snapshot
                     file:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >test:
+<pre>test:
     [mkdir] Created dir: /tutorial/build/testresult
     [junit] Running com.atlassian.samples.money.MoneyBagTest
     [junit] Tests run: 26, Failures: 0, Errors: 0, Time elapsed: 0.141 sec
@@ -270,8 +264,7 @@ clover.snapshot:
                     build:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >test:
+<pre>test:
     [junit] Clover estimates saving around 3 seconds on this optimized test run.
     [junit] Clover is including 0 test classes in this run (total test classes: 2)
 </pre>
@@ -284,12 +277,10 @@ clover.snapshot:
                     Test Optimized build, Clover will detect that this file has changed and build it exclusively (rather
                     than rebuilding everything).</p>
                 <p>Edit the file <code>MoneyBag.java</code> from the tutorial project. For the purposes of this
-                    demonstration, add a <code>System.out.println()</code> in the <code>add</code> method on line #27:
-                </p>
+                    demonstration, add a <code>System.out.println()</code> in the <code>add</code> method on line #27: </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >public IMoney add(IMoney m) {
+<pre>public IMoney add(IMoney m) {
     System.out.println(&quot;Adding: &quot; + m);
     return m.addMoneyBag(this);
 }
@@ -302,8 +293,7 @@ clover.snapshot:
                 <p>Now having changed a file in the project, we will run the same Ant tasks again.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >ant with.clover test clover.snapshot
+<pre>ant with.clover test clover.snapshot
 </pre>
                     </div>
                 </div>
@@ -311,8 +301,7 @@ clover.snapshot:
                     file specifically. We can see this illustrated in the console output:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >test:
+<pre>test:
     [junit] Clover estimates saving around 3 seconds on this optimized test run.
     [junit] Clover is including 1 test class in this run (total test classes: 2)
     [junit] Running com.atlassian.samples.money.MoneyBagTest
@@ -328,8 +317,7 @@ clover.snapshot:
                     Test Optimization, see the related links below.</p>
                 <h1>Related Links</h1>
                 <ul>
-                    <li><a href="ant--test-optimization-quick-start-guide.html"
-                           rel="nofollow">Test Optimization Quick Start Guide</a></li>
+                    <li><a href="ant--test-optimization-quick-start-guide.html" rel="nofollow">Test Optimization Quick Start Guide</a></li>
                 </ul>
                 <ul>
                     <li><a href="general--what-is-test-optimization.html">Test Optimization Technical Details</a></li>
@@ -356,8 +344,7 @@ clover.snapshot:
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>
