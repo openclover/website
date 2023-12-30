@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.5 : Coverage Recorders</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,10 +39,11 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.5</a>
-</li>
+                        <a href="index.html">OpenClover 4.5</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
@@ -51,14 +51,14 @@
                     <li class="breadcrumb-item"><span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
                     </li>
                     <li>
-                        <span><a
-                                href="8.-Controlling-Clover-at-Runtime_71599101.html">8. Controlling Clover at Runtime</a></span>
+                        <span><a href="8.-Controlling-Clover-at-Runtime_71599101.html">8. Controlling Clover at Runtime</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Coverage Recorders
-                        </span>
+                <span id="title-text">
+                    Coverage Recorders
+                </span>
             </h1>
         </div>
 
@@ -90,23 +90,15 @@
                     information about database (initstring) and the instrumentation session time stamp. Thanks to this
                     it's possible to map compiled class file to a corresponding source file (also in correct version -
                     see C.java).<br/></em></p>
-                <p><span><img
-                                                                       src="attachments/321855703/321982146.png"
+                <p><span><img src="attachments/321855703/321982146.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <h2>Executing code</h2>
                 <h3>Fixed Coverage Recorder</h3>
-                <div class="confluence-information-macro confluence-information-macro-information"><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                <div class="confluence-information-macro confluence-information-macro-information">
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div><p>This is a default coverage recorder and we
                         strongly recommend using it. </p></div>
                 </div>
@@ -115,22 +107,14 @@
                     Clover Database (clover.db) at runtime, however. All classes which were compiled in the same
                     instrumentation session (i.e. within the same &lt;clover-instr&gt; or javac or groovyc call) will
                     share the same instance of the coverage recorder.</p>
-                <p><span><img
-                                                                       src="attachments/321855703/321982148.png"
+                <p><span><img src="attachments/321855703/321982148.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <h3>Growable Coverage Recorder</h3>
-                <div class="confluence-information-macro confluence-information-macro-information"><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                <div class="confluence-information-macro confluence-information-macro-information">
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div><p>This recorder simplifies a deployment and test
                         process as clover.db is not required at runtime. It's useful for cases like in-container tests,
                         tests executed on application server, builds on remote agents or for Android applications.</p>
@@ -142,22 +126,14 @@
                     Fixed Coverage Recorder due to memory allocation and two-level indexing. All classes which were
                     compiled in the same instrumentation session (i.e. within the same &lt;clover-instr&gt; or javac or
                     groovyc call) will share the same instance of the coverage recorder.</p>
-                <p><span><img
-                                                                       src="attachments/321855703/321982149.png"
+                <p><span><img src="attachments/321855703/321982149.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <h3>Shared Coverage Recorder</h3>
-                <div class="confluence-information-macro confluence-information-macro-information"><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                <div class="confluence-information-macro confluence-information-macro-information">
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div><p>Use this coverage recorder only in case when:</p>
                         <ul>
                             <li>you have a large Grails project with hundreds of Domain Classes or Services
@@ -184,8 +160,8 @@
                     instances. For example:</p>
                 <ul>
                     <li>500 domain classes * 1000 unit tests = 500 coverage recorders * 1000 snapshots = 500'000 files
-                        on disk <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
-                                     data-emoticon-name="warning" alt="(warning)"/></li>
+                        on disk <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/>
+                    </li>
                 </ul>
                 <p>Note that the performance problem does not occur during normal application run or when test code is
                     not instrumented. For example:</p>
@@ -214,14 +190,11 @@
                         </ul>
                     </li>
                 </ul>
-                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
-                        height="557" width="678"
-                        src="attachments/321855703/321982150.png"
+                <p>
+                    <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img height="557" width="678" src="attachments/321855703/321982150.png"
 
 
-
-
-                         ></span>
+                    ></span>
                 </p>
                 <p> </p>
             </div>
@@ -237,8 +210,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

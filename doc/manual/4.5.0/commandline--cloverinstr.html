@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.5 : CloverInstr</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,19 +39,21 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.5</a>
-</li>
+                        <a href="index.html">OpenClover 4.5</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="commandline--command-line-tools.html">Clover Command Line Tools</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            CloverInstr
-                        </span>
+                <span id="title-text">
+                    CloverInstr
+                </span>
             </h1>
         </div>
 
@@ -65,8 +66,7 @@
                 <h3>Usage</h3>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >java com.atlassian.clover.CloverInstr [OPTIONS] PARAMS [FILES...]
+<pre>java com.atlassian.clover.CloverInstr [OPTIONS] PARAMS [FILES...]
 </pre>
                     </div>
                 </div>
@@ -115,19 +115,18 @@
                         </tr>
                         <tr>
                             <td><p>-f, --flushinterval &lt;int&gt;</p></td>
-                            <td><p>Tell Clover how often to flush coverage data when using either
-                                &quot;interval&quot; or &quot;threaded&quot; flushpolicy. Value in milliseconds.</p>
+                            <td>
+                                <p>Tell Clover how often to flush coverage data when using either &quot;interval&quot; or &quot;threaded&quot; flushpolicy. Value in milliseconds.</p>
                             </td>
                         </tr>
                         <tr>
                             <td><p>--instrumentation &lt;policy&gt;</p></td>
-                            <td><p>Set the instrumentation strategy. Valid values are &quot;field&quot;
-                                and &quot;class&quot;. Default is &quot;class&quot;.</p></td>
+                            <td><p>Set the instrumentation strategy. Valid values are &quot;field&quot; and &quot;class&quot;. Default is &quot;class&quot;.</p>
+                            </td>
                         </tr>
                         <tr>
                             <td colspan="1">--instrlevel &lt;string&gt;</td>
-                            <td colspan="1">Set the instrumentation level. Valid values are &quot;statement&quot;
-                                and &quot;method&quot;. Default is &quot;statement&quot;.
+                            <td colspan="1">Set the instrumentation level. Valid values are &quot;statement&quot; and &quot;method&quot;. Default is &quot;statement&quot;.
                             </td>
                         </tr>
                         <tr>
@@ -148,8 +147,7 @@
                                 </ul>
                                 <p><em>Since Clover 3.2.2. Default is &quot;all&quot; in 3.2.2-4.0.2 and &quot;none&quot; since
                                     4.0.3. </em></p>
-                                <p><em>See also <a
-                                        href="kb--java-8-code-instrumented-by-clover-fails-to-compile.html">Java
+                                <p><em>See also <a href="kb--java-8-code-instrumented-by-clover-fails-to-compile.html">Java
                                     8 code instrumented by Clover fails to compile</a> bug.<br/></em></p></td>
                         </tr>
                         <tr>
@@ -182,8 +180,7 @@
                             <td><p>--recordTestResults &lt;true|false&gt;        </p></td>
                             <td><p>If set to &quot;<code>false</code>&quot;, test results will not
                                 be recorded; instead, results can be added via the <code>&lt;testResults&gt;</code>
-                                fileset at report time. For more details please see '<a
-                                        href="ant--test-results-and-per-test-coverage.html">Advanced Usage</a>'.
+                                fileset at report time. For more details please see '<a href="ant--test-results-and-per-test-coverage.html">Advanced Usage</a>'.
                             </p></td>
                         </tr>
                         <tr>
@@ -216,8 +213,7 @@
                     arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >import com.atlassian.clover.CloverInstr;
+<pre>import com.atlassian.clover.CloverInstr;
 
 ...
 
@@ -234,19 +230,16 @@ String [] cliArgs =
                 <h3>Examples</h3>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >java com.atlassian.clover.CloverInstr -i clover.db -s src -d build/instr
+<pre>java com.atlassian.clover.CloverInstr -i clover.db -s src -d build/instr
 </pre>
                     </div>
                 </div>
                 <p>Find all java source files in the directory &quot;src&quot;, copy and instrument them into the
-                    directory &quot;build/instr&quot;, which will be constructed if it does not exist. Coverage database
-                    &quot;clover.db&quot; is initialized.</p>
+                    directory &quot;build/instr&quot;, which will be constructed if it does not exist. Coverage database &quot;clover.db&quot; is initialized.</p>
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >java com.atlassian.clover.CloverInstr --source 1.8 -i clover.db -d ../../build/instr \
+<pre>java com.atlassian.clover.CloverInstr --source 1.8 -i clover.db -d ../../build/instr \
     Money.java IMoney.java
 </pre>
                     </div>
@@ -267,8 +260,7 @@ String [] cliArgs =
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

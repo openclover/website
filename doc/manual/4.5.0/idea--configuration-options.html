@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.5 : 5. IDEA configuration options</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,34 +39,34 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.5</a>
-</li>
+                        <a href="index.html">OpenClover 4.5</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="idea--overview.html">Clover-for-IDEA</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="idea--user-guide.html">Clover-for-IDEA User&#39;s Guide</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            5. IDEA configuration options
-                        </span>
+                <span id="title-text">
+                    5. IDEA configuration options
+                </span>
             </h1>
         </div>
 
         <div id="content" class="view">
 
             <div id="main-content">
-                <h3>Configuration Options</h3><h4
-                    id="id-5.IDEAconfigurationoptions-CompilationOptions">Compilation Options</h4>
+                <h3>Configuration Options</h3><h4 id="id-5.IDEAconfigurationoptions-CompilationOptions">Compilation Options</h4>
                 <p>Configuration options for Clover are accessible on the Clover panel of the Project's settings dialog.
                     In order to open it:</p>
                 <ul>
-                    <li>navigate to <strong>File &gt; Settings</strong> (Linux, Windows) or <strong>IDEA &gt;
-                        Preferences</strong> (OS X), next
+                    <li>navigate to <strong>File &gt; Settings</strong> (Linux, Windows) or <strong>IDEA &gt; Preferences</strong> (OS X), next
                     </li>
                     <li>open the <strong>Build, Execution, Deployment</strong> group (IDEA 14 or newer)
                         or
@@ -75,36 +74,29 @@
                     </li>
                     <li>open the <strong>Clover (project settings)</strong> panel.</li>
                 </ul>
-                <p><em><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
-                            data-emoticon-name="light-on" alt="(lightbulb)"/> The project settings dialog is not
-                    available for IDEA's 'template project' - open an actual project to access it.</em></p>
+                <p>
+                    <em><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)"/> The project settings dialog is not
+                        available for IDEA's 'template project' - open an actual project to access it.</em></p>
                 <p> </p>
                 <p>The first Tab on this panel provides compilation options:</p>
                 <p><em>Screenshot: Clover for IDEA Compilation Options</em></p>
-                <p><em><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
-                        width="700" src="attachments/300814882/857059019.png"
+                <p><em><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img width="700" src="attachments/300814882/857059019.png"
 
 
-
-
-
-
-                        ></span><br/></em></p><h5
-                    id="id-5.IDEAconfigurationoptions-Initstring">Initstring</h5>
+                ></span><br/></em></p><h5 id="id-5.IDEAconfigurationoptions-Initstring">Initstring</h5>
                 <p>This section controls where the Clover coverage database will be stored. Select 'Automatic' to have
                     Clover manage this location for you (relative to your project directory). Select 'User Specified' to
                     nominate the path to the Clover coverage database. This is useful if you want to use the plugin in
-                    conjunction with an Ant build that already sets the location of the Clover coverage database.</p><h5
-                    id="id-5.IDEAconfigurationoptions-FlushPolicy">Flush Policy</h5>
-                <p>The Flush Policy controls how Clover writes coverage data to disk at runtime. See <a
-                        href="ant--flush-policy.html">Flush Policies</a>.</p><h5
-                    id="id-5.IDEAconfigurationoptions-Instrumentation">Instrumentation</h5>
+                    conjunction with an Ant build that already sets the location of the Clover coverage database.</p>
+                <h5 id="id-5.IDEAconfigurationoptions-FlushPolicy">Flush Policy</h5>
+                <p>The Flush Policy controls how Clover writes coverage data to disk at runtime. See <a href="ant--flush-policy.html">Flush Policies</a>.</p>
+                <h5 id="id-5.IDEAconfigurationoptions-Instrumentation">Instrumentation</h5>
                 <ul>
                     <li><strong>Includes / Excludes</strong></li>
                 </ul>
                 <p>Allows you to specify a comma separated list of set of Ant Patternsets that describe which files to
-                    include and exclude in instrumentation. These options are the same as those described in the <a
-                            href="ant--clover-setup.html">&lt;clover-setup&gt;</a> task. You can also specify
+                    include and exclude in instrumentation. These options are the same as those described in the
+                    <a href="ant--clover-setup.html">&lt;clover-setup&gt;</a> task. You can also specify
                     whether source in test folders should be also instrumented.</p>
                 <p>For example, by using an &quot;Excludes&quot; value of <em>**/remote/*.java</em> you will stop
                     instrumentation of files in the &quot;remote&quot; folder of your project.</p>
@@ -115,26 +107,19 @@
                 <p>Files in the Project Explorer are annotated by gray or green clover when they are currently excluded
                     or included by the current Clover configuration. A package is annotated when it is explicitly
                     excluded or included.</p>
-                <div class="confluence-information-macro confluence-information-macro-information"><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                <div class="confluence-information-macro confluence-information-macro-information">
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div><p>When your Includes/Excludes are edited manually
                         via the settings, the package annotation may not work correctly (manual pattern may be not
                         recognised), but the file annotation always reflects what the Clover instrumenter will use.</p>
                     </div>
                 </div>
-                <p><em>Screenshot: Right-Click Context Menu for Setting Includes and Excludes</em><br/> <span
-                       ><img
-                                                                      src="attachments/300814882/301008077.jpg"
+                <p><em>Screenshot: Right-Click Context Menu for Setting Includes and Excludes</em><br/> <span><img src="attachments/300814882/301008077.jpg"
 
 
+                        data-linked-resource-content-type="image/jpeg"
 
-
-
-
-
-                                                                      data-linked-resource-content-type="image/jpeg"
-
-                                                                      ></span>
+                ></span>
                 </p>
                 <p> </p>
                 <ul>
@@ -148,8 +133,7 @@
                         HTML report and considered in code metrics, for example). Possible values:
                         <ul>
                             <li><em>none</em> - do not instrument lambda functions,</li>
-                            <li><em>expression</em> - instrument lambdas in expression-like form, e.g. &quot;(a, b) -&gt;
-                                a + b&quot;,
+                            <li><em>expression</em> - instrument lambdas in expression-like form, e.g. &quot;(a, b) -&gt; a + b&quot;,
                             </li>
                             <li><em>block</em> - instrument lambdas in code blocks, e.g. &quot;(a, b) -&gt; { return a +
                                 b; }&quot;
@@ -159,8 +143,8 @@
                             </li>
                             <li><em>all</em> - instrument all lambda functions.</li>
                         </ul>
-                        <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
-                                data-emoticon-name="warning" alt="(warning)"/> Due to Clover's restrictions related with
+                        <p>
+                            <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> Due to Clover's restrictions related with
                             code instrumentation and javac compiler's type inference capabilities, you may get
                             compilation errors when expression-like lambda functions are passed to generic methods or
                             types. In such case disable instrumentation of expression-like form (i.e. use the
@@ -184,32 +168,22 @@
                 <h4>View Options</h4>
                 <p>The second Tab on the configuration panel provides view options;</p>
                 <p><em>Screenshot: Clover for IDEA View Options</em></p>
-                <p><em><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
-                        width="700" src="attachments/300814882/857059013.png"
+                <p><em><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img width="700" src="attachments/300814882/857059013.png"
 
 
-
-
-
-
-                        ></span><br/></em></p>
+                ></span><br/></em></p>
                 <p> </p>
-                <div class="confluence-information-macro confluence-information-macro-information"><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                <div class="confluence-information-macro confluence-information-macro-information">
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div><p>TIP: You can click on the colour to customise it.
                         It's useful in case you use the Darcula scheme. Since Clover 4.0.3 both light and dark schemes
                         are supported, but you may need to restart IDEA to refresh colours.</p></div>
                 </div>
                 <p> </p><h5>Refresh Policy</h5>
-                <p>The Refresh Policy controls how the Clover Plugin monitors the Coverage Database for new data.<br/>
-                    &quot;Manual&quot; means that you have to click <span><img
-                            src="attachments/300814882/301008079.gif"
+                <p>The Refresh Policy controls how the Clover Plugin monitors the Coverage Database for new data.<br/> &quot;Manual&quot; means that you have to click <span><img src="attachments/300814882/301008079.gif"
 
 
-
-
-                            data-linked-resource-content-type="image/gif"
-                            ></span> button to refresh the coverage
+                        data-linked-resource-content-type="image/gif"></span> button to refresh the coverage
                     data.<br/> &quot;Automatic&quot; means that the Clover Plugin will refresh the database on:</p>
                 <ul>
                     <li>project open,</li>
@@ -222,8 +196,8 @@
                     in the left hand gutter of the Java Source Editor. Source highlights appear directly over your
                     source code. Shortcut marks appear in the right hand gutter and allow you to navigate directly to
                     uncovered regions of code.</p><h5>Span</h5>
-                <p>See <a href="ant--using-spans.html">Using Spans</a>.</p><h5
-                    id="id-5.IDEAconfigurationoptions-Per-testCoverageData">Per-test Coverage Data</h5>
+                <p>See <a href="ant--using-spans.html">Using Spans</a>.</p>
+                <h5 id="id-5.IDEAconfigurationoptions-Per-testCoverageData">Per-test Coverage Data</h5>
                 <p>Per-test coverage can be disabled to boost performance. If you disable this feature, the following
                     information will not be available:</p>
                 <ul>
@@ -231,93 +205,57 @@
                     <li>Code has been uniquely covered by specific tests.</li>
                     <li>Code has been covered by failed tests only.</li>
                 </ul>
-                <p>However, the coverage data will load load faster as a result.</p><h5
-                    id="id-5.IDEAconfigurationoptions-SourceHighlighting">Source Highlighting</h5>
+                <p>However, the coverage data will load load faster as a result.</p>
+                <h5 id="id-5.IDEAconfigurationoptions-SourceHighlighting">Source Highlighting</h5>
                 <p>Allows you to fine tune the colours used Clover in its coverage reporting. The 'highlight colour' for
                     each item is used for Source Highlights and the 'stripe colour' for each item is used for Gutter and
-                    Shortcut marks. You can click on a given colour to change it.</p><h4
-                    id="id-5.IDEAconfigurationoptions-FilterOptions">Filter Options</h4>
+                    Shortcut marks. You can click on a given colour to change it.</p><h4 id="id-5.IDEAconfigurationoptions-FilterOptions">Filter Options</h4>
                 <p>The third Tab on the configuration panel provides filter options;</p>
                 <p><em>Screenshot: Clover for IDEA Filter Options</em></p>
-                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
-                        width="700" src="attachments/300814882/857059027.png"
+                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img width="700" src="attachments/300814882/857059027.png"
 
 
-
-
-
-
-                        ></span><br/><br/></p><h5
-                    id="id-5.IDEAconfigurationoptions-Built-inContextFilters">Built-in Context Filters</h5>
+                ></span><br/><br/></p><h5 id="id-5.IDEAconfigurationoptions-Built-inContextFilters">Built-in Context Filters</h5>
                 <p>Allows you to specify contexts to <em>ignore</em> when viewing coverage information. For example,
                     selecting the <em>finally body</em> context will remove 'finally' block bodies ('block' syntactic
-                    constructs in the Java language) from the reported coverage. For more information, see <a
-                            href="ant--using-coverage-contexts.html">Coverage Contexts</a> in the Clover Core
+                    constructs in the Java language) from the reported coverage. For more information, see
+                    <a href="ant--using-coverage-contexts.html">Coverage Contexts</a> in the Clover Core
                     documentation.</p><h5>Custom Contexts</h5>
                 <p>This allow you to define custom contexts to <em>ignore</em> when viewing coverage information.</p>
                 <p><strong>Working with regexp filters:</strong></p>
                 <ul>
-                    <li>Use <span><img
-                                                                                src="attachments/300814882/301008081.gif"
+                    <li>Use <span><img src="attachments/300814882/301008081.gif"
 
 
+                            data-linked-resource-content-type="image/gif"
+
+                    ></span>, <span><img src="attachments/300814882/301008082.gif"
 
 
+                            data-linked-resource-content-type="image/gif"
+
+                    ></span>
+                        or <span><img src="attachments/300814882/301008083.gif"
 
 
+                                data-linked-resource-content-type="image/gif"
 
-                                                                                data-linked-resource-content-type="image/gif"
-
-                                                                                ></span>, <span
-                           ><img
-                                                                          src="attachments/300814882/301008082.gif"
-
-
-
-
-
-
-
-                                                                          data-linked-resource-content-type="image/gif"
-
-                                                                          ></span>
-                        or <span><img
-                                                                               src="attachments/300814882/301008083.gif"
-
-
-
-
-
-
-
-                                                                               data-linked-resource-content-type="image/gif"
-
-                                                                               ></span>
+                        ></span>
                         to Create, Delete or Copy respectively the selected filter.
                     </li>
                     <li>All new and edited regexp filters will be shown in 'blue', indicating that they are currently
                         unavailable.
                     </li>
                     <li><p>To make a new/edited filter active, you need to delete the existing coverage database using
-                        the <span><img
-                                                                                src="attachments/300814882/648609836.png"
+                        the <span><img src="attachments/300814882/648609836.png"
 
 
-
-
-
-
-
-
-
-                                                                                ></span>
+                        ></span>
                         button and rebuild your project/module.</p></li>
                 </ul>
                 <p> </p>
-                <div><span
-                        ></span>
-                    <div><p>See <a
-                            href="ant--using-coverage-contexts.html">Coverage Contexts</a> for more information.</p>
+                <div><span></span>
+                    <div><p>See <a href="ant--using-coverage-contexts.html">Coverage Contexts</a> for more information.</p>
                     </div>
                 </div>
                 <p> </p>
@@ -327,18 +265,12 @@
                     coverage reports. How would we go about this?</p>
                 <ul>
                     <li>Open the configuration panel &quot;Settings | Clover | Filters&quot;.</li>
-                    <li>Select <span><img
-                                                                                   src="attachments/300814882/301008081.gif"
+                    <li>Select <span><img src="attachments/300814882/301008081.gif"
 
 
+                            data-linked-resource-content-type="image/gif"
 
-
-
-
-
-                                                                                   data-linked-resource-content-type="image/gif"
-
-                                                                                   ></span>
+                    ></span>
                         to create a new Regexp Context Filter.
                     </li>
                     <li>Set the name to private.</li>
@@ -349,15 +281,10 @@
                     </li>
                     <li>You will notice that the name of this new filter appears in blue. Blue is used to indicate that
                         the filter is either new or recently edited and therefore 'unavailable'. To make this new filter
-                        available, select <span><img
-                                src="attachments/300814882/648609836.png"
+                        available, select <span><img src="attachments/300814882/648609836.png"
 
 
-
-
-
-
-                                ></span> from the Main Toolbar and recompile
+                        ></span> from the Main Toolbar and recompile
                         your project. Once active, you will notice the private filter appear in the Context Filter
                         Dialog. You will now be able to filter private methods out of your Clover coverage calculations
                         and reports.
@@ -367,8 +294,7 @@
                 <hr/>
                 <p>Now you have tweaked and hacked Clover according to your developer needs. But you would like to share
                     information about code coverage with you colleagues or present it to management? If yes, read next
-                    chapter: <a href="idea--generating-reports.html">6. Generating reports in IDEA</a>.
-                </p>
+                    chapter: <a href="idea--generating-reports.html">6. Generating reports in IDEA</a>. </p>
                 <p> </p>
             </div>
 
@@ -383,8 +309,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

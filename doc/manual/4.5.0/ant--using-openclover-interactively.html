@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.5 : 2. Using Clover Interactively</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,21 +39,23 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.5</a>
-</li>
+                        <a href="index.html">OpenClover 4.5</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            2. Using Clover Interactively
-                        </span>
+                <span id="title-text">
+                    2. Using Clover Interactively
+                </span>
             </h1>
         </div>
 
@@ -73,18 +74,10 @@
                 <p class="confluence-link">Clover provides the following features to support this development
                     pattern:</p>
                 <ul>
-                    <li><a
-                           href="ant--using-openclover-interactively.html"
-                           rel="nofollow">Measuring coverage on a subset of source files</a></li>
-                    <li><a
-                           href="ant--using-openclover-interactively.html"
-                           rel="nofollow">Viewing source-level code coverage quickly</a></li>
-                    <li><a
-                           href="ant--using-openclover-interactively.html"
-                           rel="nofollow">Viewing summary coverage results quickly</a></li>
-                    <li><a
-                           href="ant--using-openclover-interactively.html"
-                           rel="nofollow">Incrementally building coverage results</a></li>
+                    <li><a href="ant--using-openclover-interactively.html" rel="nofollow">Measuring coverage on a subset of source files</a></li>
+                    <li><a href="ant--using-openclover-interactively.html" rel="nofollow">Viewing source-level code coverage quickly</a></li>
+                    <li><a href="ant--using-openclover-interactively.html" rel="nofollow">Viewing summary coverage results quickly</a></li>
+                    <li><a href="ant--using-openclover-interactively.html" rel="nofollow">Incrementally building coverage results</a></li>
                 </ul>
                 <h3>Measuring coverage on a
                     subset of source files</h3>
@@ -93,8 +86,7 @@
                     analysis:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-setup&gt;
+<pre>&lt;clover-setup&gt;
      &lt;files includes=&quot;**/plugins/cruncher/**, **/plugins/muncher/**&quot;/&gt;
 &lt;/clover-setup&gt;
 </pre>
@@ -104,8 +96,7 @@
                     the command line:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;property name=&quot;coverage.includes&quot; value=&quot;**&quot;/&gt;
+<pre>&lt;property name=&quot;coverage.includes&quot; value=&quot;**&quot;/&gt;
   &lt;clover-setup&gt;
      &lt;files includes=&quot;${coverage.includes}&quot;/&gt;
   &lt;/clover-setup&gt;
@@ -115,28 +106,25 @@
                 <p>Developers can then use a command line like the following for Java code:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >ant build -Dcoverage.includes=java/**/foo/*.java
+<pre>ant build -Dcoverage.includes=java/**/foo/*.java
 </pre>
                     </div>
                 </div>
                 <p>And for Groovy code:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >ant build -Dcoverage.includes=groovy/**/foo/*.groovy
+<pre>ant build -Dcoverage.includes=groovy/**/foo/*.groovy
 </pre>
                     </div>
                 </div>
                 <h3>Viewing source-level code
                     coverage quickly</h3>
-                <p>Clover provides two ways of quickly viewing coverage results. The <code>&lt;<a
-                        href="ant--clover-log.html">clover-log</a>&gt;</code> task provides quick reporting to the
+                <p>Clover provides two ways of quickly viewing coverage results. The
+                    <code>&lt;<a href="ant--clover-log.html">clover-log</a>&gt;</code> task provides quick reporting to the
                     console:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-log/&gt;
+<pre>&lt;clover-log/&gt;
 </pre>
                     </div>
                 </div>
@@ -148,8 +136,7 @@
                     that will print a summary of coverage results to the console:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-log level=&quot;summary&quot;/&gt;
+<pre>&lt;clover-log level=&quot;summary&quot;/&gt;
 </pre>
                     </div>
                 </div>
@@ -162,8 +149,7 @@
                     of the last Clover build). To include results gathered over the last hour use:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-log span=&quot;1h&quot;/&gt;
+<pre>&lt;clover-log span=&quot;1h&quot;/&gt;
 </pre>
                     </div>
                 </div>
@@ -181,8 +167,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.5 : Unit Test Results and Per-Test Coverage</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,10 +39,11 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.5</a>
-</li>
+                        <a href="index.html">OpenClover 4.5</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
@@ -52,11 +52,12 @@
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--configuring-reports.html">5. Configuring Reports</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Unit Test Results and Per-Test Coverage
-                        </span>
+                <span id="title-text">
+                    Unit Test Results and Per-Test Coverage
+                </span>
             </h1>
         </div>
 
@@ -70,10 +71,9 @@
                 you need to do is:</p>
                 <ul>
                     <li><strong>Allow Clover to instrument your test classes.</strong>
-                         You must ensure that all your test classes are included for
+                        You must ensure that all your test classes are included for
                         Clover instrumentation. To enable Clover instrumentation of your source code, use the
-                        <code>&lt;</code><code><a
-                                href="ant--clover-setup.html">clover-setup</a></code><code>&gt;</code> task.<br/>
+                        <code>&lt;</code><code><a href="ant--clover-setup.html">clover-setup</a></code><code>&gt;</code> task.<br/>
                         This allows Clover to specially mark test methods to enable per-test coverage reporting. The
                         Clover instrumenter <a href="ant--clover-test-detection.html">automatically detects test
                             methods</a> for Junit 3.x, Junit 4.x and TestNG. If you are using another testing framework,
@@ -82,16 +82,15 @@
                 </ul>
                 <h3>Advanced Test Case Detection</h3>
                 <p>If you are using a testing framework which does not use Junit or TestNG conventions for determining
-                    test methods, the nested <code>&lt;testsources/&gt;</code> element of <code>&lt;</code><code><a
-                            href="ant--clover-setup.html">clover-setup</a></code><code>&gt;</code> and
+                    test methods, the nested <code>&lt;testsources/&gt;</code> element of
+                    <code>&lt;</code><code><a href="ant--clover-setup.html">clover-setup</a></code><code>&gt;</code> and
                     <code>&lt;</code><code><a href="ant--clover-instr.html">clover-instr</a></code><code>&gt;</code>
                     will allow you to specify the convention used by your framework.</p>
-                <p>The <a  href="http://code.google.com/p/instinct/" rel="nofollow">Instinct</a>
+                <p>The <a href="http://code.google.com/p/instinct/" rel="nofollow">Instinct</a>
                     framework for example uses the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-setup&gt;
+<pre>&lt;clover-setup&gt;
   &lt;testsources dir=&quot;tests&quot;&gt;
     &lt;testclass&gt;
       &lt;testmethod annotation=&quot;Specification&quot;/&gt;
@@ -108,8 +107,7 @@
                     grouped by an OR.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-setup&gt;
+<pre>&lt;clover-setup&gt;
   &lt;testsources dir=&quot;tests&quot;&gt;
     &lt;or&gt;
       &lt;testclass name=&quot;.*Context&quot;&gt;
@@ -124,8 +122,8 @@
 </pre>
                     </div>
                 </div>
-                <div class="confluence-information-macro confluence-information-macro-information"><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                <div class="confluence-information-macro confluence-information-macro-information">
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div><p><strong>Differences between Groovy and Java with
                         respect to <a href="ant--clover-setup.html">&lt;clover-setup&gt;</a> tasks.</strong></p>
                         <ul>
@@ -144,9 +142,8 @@
                     Configuration</h3>
                 <p>Clover does its best to record your test results in the Clover database. In some instances however,
                     Clover can not always do so. Although unit tests using <code>@Test(expected=Exception.class)</code>
-                    annotations will be marked as passed, more novel JUnit constructs such as <a
-                                                                                                 href="http://blog.mycila.com/2009/11/writing-your-own-junit-extensions-using.html"
-                                                                                                 rel="nofollow">rules</a>
+                    annotations will be marked as passed, more novel JUnit constructs such as
+                    <a href="http://blog.mycila.com/2009/11/writing-your-own-junit-extensions-using.html" rel="nofollow">rules</a>
                     may not be recognized and Clover will flag those tests as failed when in fact they passed. To
                     integrate these test results into your Clover reports follow these steps:</p>
                 <ul>
@@ -154,8 +151,7 @@
                         using the <code>&lt;junit&gt;</code>task, you need to add an XML result formatter:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >&lt;property name=&quot;testreport.dir&quot; value=&quot;build/test-reports&quot;&gt;
+<pre>&lt;property name=&quot;testreport.dir&quot; value=&quot;build/test-reports&quot;&gt;
 
  &lt;junit ...&gt;
      ...
@@ -171,21 +167,18 @@
                 </ul>
                 <ul>
                     <li><strong>Supply the</strong> <code><strong>&lt;testresults&gt;</strong></code> <strong>element at
-                        report time.</strong><br/> If the <code>&lt;testresults&gt;</code> element is specified, <code>&lt;</code><code><a
-                            href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> and similar
+                        report time.</strong><br/> If the <code>&lt;testresults&gt;</code> element is specified,
+                        <code>&lt;</code><code><a href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> and similar
                         tasks will use these results instead of those collected by Clover. Clover's test result
                         collection may also be switched off via the <code>dontRecordTestResults</code> attribute on
-                        <code>&lt;</code><code><a
-                                href="ant--clover-setup.html">clover-setup</a></code><code>&gt;</code> or
-                        <code>&lt;</code><code><a
-                                href="ant--clover-instr.html">clover-instr</a></code><code>&gt;</code>.
+                        <code>&lt;</code><code><a href="ant--clover-setup.html">clover-setup</a></code><code>&gt;</code> or
+                        <code>&lt;</code><code><a href="ant--clover-instr.html">clover-instr</a></code><code>&gt;</code>.
                     </li>
                 </ul>
                 <p>e.g.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >      &lt;testresults dir=&quot;test-results&quot; include=&quot;TEST-*.xml&quot;/&gt;
+<pre>      &lt;testresults dir=&quot;test-results&quot; include=&quot;TEST-*.xml&quot;/&gt;
 </pre>
                     </div>
                 </div>
@@ -207,8 +200,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

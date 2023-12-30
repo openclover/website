@@ -3,7 +3,7 @@
 <head>
     <title>Java 8 code instrumented by Clover fails to compile</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,21 +39,22 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="kb--index.html">Clover Knowledge Base</a>
-</li>
+                        <a href="kb--index.html">Clover Knowledge Base</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
                     </li>
                     <li>
-                        <span><a
-                                href="kb--troubleshooting-compilation.html">Troubleshooting Compilation</a></span>
+                        <span><a href="kb--troubleshooting-compilation.html">Troubleshooting Compilation</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Java 8 code instrumented by Clover fails to compile
-                        </span>
+                <span id="title-text">
+                    Java 8 code instrumented by Clover fails to compile
+                </span>
             </h1>
         </div>
 
@@ -69,8 +69,7 @@
                 <p>For the following code</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >public class LambdaAndGenerics {
+<pre>public class LambdaAndGenerics {
     static interface Predicate&lt;T&gt; {
         boolean test(T t);
     }
@@ -107,8 +106,7 @@ java: incompatible types: cannot infer type-variable(s) I,T
                 <p>The following code:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >public static List&lt;String&gt; testMapAndCollectBounds(List&lt;String&gt; input) {
+<pre>public static List&lt;String&gt; testMapAndCollectBounds(List&lt;String&gt; input) {
     return input.stream()
             .map(e -&gt; e.toUpperCase())
             .collect(Collectors.toList());
@@ -127,8 +125,7 @@ lower bounds: java.lang.Object</pre>
                 <p>The following code:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >public static Stream&lt;String&gt; testMapAndFilterBounds(List&lt;String&gt; input) {
+<pre>public static Stream&lt;String&gt; testMapAndFilterBounds(List&lt;String&gt; input) {
     return input.stream()
             .map(e -&gt; e.toUpperCase())
             .filter(e -&gt; !e.isEmpty());
@@ -157,24 +154,20 @@ lower bounds: java.lang.Object</pre>
                     does have a functional interface argument, while others don't have.</p>
                 <p> </p>
                 <p>In case of example #2 this relates with a fact how type of a lambda expression or type of a method
-                    reference are being resolved by the compiler. See <a
-                                                                         href="http://docs.oracle.com/javase/specs/jls/se8/jls8.pdf"
-                                                                         rel="nofollow">Java Language Specification</a>,
+                    reference are being resolved by the compiler. See <a href="http://docs.oracle.com/javase/specs/jls/se8/jls8.pdf" rel="nofollow">Java Language Specification</a>,
                     chapters <em>&quot;15.13 Method Reference Expressions&quot;</em> and <em>&quot;15.27 Lambda
                         Expressions&quot;</em> for more details. Due to a fact that an original lambda is being wrapped
                     into Clover's helper method having a signature like this:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;I, T extends I&gt; I lambdaInc(int index, T lambda, int stmtIndex)
+<pre>&lt;I, T extends I&gt; I lambdaInc(int index, T lambda, int stmtIndex)
 </pre>
                     </div>
                 </div>
                 <p>this may cause problems when used with generic method having wildcards, such as:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >stream()
+<pre>stream()
     .map(...)       // &lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper)
     .collect(...)   // &lt;R&gt; R collect(Supplier&lt;R&gt; supplier, BiConsumer&lt;R, ? super T&gt; accumulator, BiConsumer&lt;R, R&gt; combiner)</pre>
                     </div>
@@ -183,8 +176,7 @@ lower bounds: java.lang.Object</pre>
                 <p>1) Change a lambda function from an expression to a code block, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >// expression lambda
+<pre>// expression lambda
 System.out.println(goo(e -&gt; false));
 // block lambda
 System.out.println(goo(e -&gt; { return false; }));</pre>
@@ -200,17 +192,14 @@ System.out.println(goo(e -&gt; { return false; }));</pre>
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Ant - build.xml</b>
                     </div>
                     <div class="codeContent panelContent pdl">
-                        <pre
-                             data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-                            > &lt;clover-setup instrumentLambda=&quot;block&quot;/&gt;</pre>
+                        <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"> &lt;clover-setup instrumentLambda=&quot;block&quot;/&gt;</pre>
                     </div>
                 </div>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Maven - pom.xml</b>
                     </div>
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-    >&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
    &lt;instrumentLambda&gt;block&lt;/instrumentLambda&gt;
 &lt;/configuration&gt;</pre>
                     </div>
@@ -219,28 +208,22 @@ System.out.println(goo(e -&gt; { return false; }));</pre>
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Grails -
                         BuildConfig.groovy</b></div>
                     <div class="codeContent panelContent pdl">
-<pre
-    >clover {
+<pre>clover {
    instrumentLambda = &quot;block&quot;
 } </pre>
                     </div>
                 </div>
                 <p> </p>
                 <p>Eclipse:</p>
-                <p>Open &quot;Project Properties &quot;&gt; &quot;Clover&quot; page &gt; &quot;Instrumentation&quot;
-                    tab. In the &quot;Miscellaneous&quot; box select proper value in &quot;Instrument lambda functions&quot;
-                    drop-down.</p>
+                <p>Open &quot;Project Properties &quot;&gt; &quot;Clover&quot; page &gt; &quot;Instrumentation&quot; tab. In the &quot;Miscellaneous&quot; box select proper value in &quot;Instrument lambda functions&quot; drop-down.</p>
                 <p> </p>
                 <p>IntelliJ IDEA:</p>
-                <p>Open &quot;File&quot; &gt; &quot;Settings&quot; &gt; &quot;Project Settings&quot; &gt; &quot;Clover&quot;
-                    page &gt; &quot;Compilation&quot; tab. In the &quot;Miscellaneous&quot; box select proper value in
-                    &quot;Instrument lambda functions&quot; drop-down. </p>
+                <p>Open &quot;File&quot; &gt; &quot;Settings&quot; &gt; &quot;Project Settings&quot; &gt; &quot;Clover&quot; page &gt; &quot;Compilation&quot; tab. In the &quot;Miscellaneous&quot; box select proper value in &quot;Instrument lambda functions&quot; drop-down. </p>
                 <p> </p>
                 <p>3) Or surround a lambda by ///CLOVER:OFF and ///CLOVER:ON comments, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >... some code ...
+<pre>... some code ...
 ///CLOVER:OFF
 System.out.println(goo(e -&gt; false));
 ///CLOVER:ON 
@@ -252,8 +235,7 @@ System.out.println(goo(e -&gt; false));
                     e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >static class Works {
+<pre>static class Works {
     void start() {
         System.out.println(goo(e -&gt; false));
     }
@@ -270,39 +252,32 @@ System.out.println(goo(e -&gt; false));
                     </div>
                 </div>
                 <p>5) Since Clover 4.0.5 heuristics are applied to rewrite lambda expressions in <em>JDK Stream's</em> and <em>Guava
-                    classes'</em> methods into a block form. More details here: <a
-                        href="ant--lambda-rewriting-heuristics.html">Lambda
+                    classes'</em> methods into a block form. More details here: <a href="ant--lambda-rewriting-heuristics.html">Lambda
                     rewriting heuristics</a>. Try upgrading to Clover 4.0.5 and/or use <code>instrumentLambda=&quot;expression&quot;</code> or <code>instrumentLambda=&quot;all_but_references&quot;</code>.
                 </p><h4>Bug tracker</h4>
                 <p>
-    <span class="jira-issue" data-issue-key="CLOV-1465">
-                <a href="https://jira.atlassian.com/browse/CLOV-1465?src=confmacro" class="jira-issue-key"><img
-                        class="icon"
-                        src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51500&amp;avatarType=issuetype"/>CLOV-1465</a>
-                    -
-            <span class="summary">Instrumentation of expression-like lambdas with no compilation errors in all cases</span>
-                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-complete jira-macro-single-issue-export-pdf">Open</span>
-            </span>
+                    <span class="jira-issue" data-issue-key="CLOV-1465">
+                        <a href="https://jira.atlassian.com/browse/CLOV-1465?src=confmacro" class="jira-issue-key"><img class="icon" src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51500&amp;avatarType=issuetype"/>CLOV-1465</a>
+                        -
+                        <span class="summary">Instrumentation of expression-like lambdas with no compilation errors in all cases</span>
+                        <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-complete jira-macro-single-issue-export-pdf">Open</span>
+                    </span>
                 </p>
                 <p>
-    <span class="jira-issue resolved" data-issue-key="CLOV-1596">
-                <a href="https://jira.atlassian.com/browse/CLOV-1596?src=confmacro" class="jira-issue-key"><img
-                        class="icon"
-                        src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51493&amp;avatarType=issuetype"/>CLOV-1596</a>
-                    -
-            <span class="summary">Use heuristics to solve JDK8 Stream compilation errors</span>
-                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-success jira-macro-single-issue-export-pdf">Closed</span>
-            </span>
+                    <span class="jira-issue resolved" data-issue-key="CLOV-1596">
+                        <a href="https://jira.atlassian.com/browse/CLOV-1596?src=confmacro" class="jira-issue-key"><img class="icon" src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51493&amp;avatarType=issuetype"/>CLOV-1596</a>
+                        -
+                        <span class="summary">Use heuristics to solve JDK8 Stream compilation errors</span>
+                        <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-success jira-macro-single-issue-export-pdf">Closed</span>
+                    </span>
                 </p>
                 <p>
-    <span class="jira-issue" data-issue-key="CLOV-1762">
-                <a href="https://jira.atlassian.com/browse/CLOV-1762?src=confmacro" class="jira-issue-key"><img
-                        class="icon"
-                        src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51493&amp;avatarType=issuetype"/>CLOV-1762</a>
-                    -
-            <span class="summary">Instrumentation of method references with no compilation errors</span>
-                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-complete jira-macro-single-issue-export-pdf">Open</span>
-            </span>
+                    <span class="jira-issue" data-issue-key="CLOV-1762">
+                        <a href="https://jira.atlassian.com/browse/CLOV-1762?src=confmacro" class="jira-issue-key"><img class="icon" src="https://jira.atlassian.com/secure/viewavatar?size=xsmall&amp;avatarId=51493&amp;avatarType=issuetype"/>CLOV-1762</a>
+                        -
+                        <span class="summary">Instrumentation of method references with no compilation errors</span>
+                        <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-complete jira-macro-single-issue-export-pdf">Open</span>
+                    </span>
                 </p>
                 <p> </p><!--$body-->
             </div>
@@ -319,8 +294,7 @@ System.out.println(goo(e -&gt; false));
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>
