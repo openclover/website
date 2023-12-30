@@ -15,33 +15,35 @@
     <link href="../resources/css/style.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="../index"><img
-                    src="../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="../index">Overview</a></li>
-                <li><a href="../features">Features</a></li>
-                <li><a href="../downloads">Downloads</a></li>
-                <li class="active"><a href="../documentation">Documentation</a></li>
-                <li><a href="../support">Support</a></li>
-                <li><a href="../blog">Blog</a></li>
+        <a class="navbar-brand" href="../index"><img src="../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../index">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="../features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="../downloads">Downloads</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="../documentation">Documentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="../support">Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="../blog">Blog</a></li>
                 <!--<li><a href="../faq">FAQ</a></li>-->
-                <li><a href="../about-us">About us</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../about-us">Development team</a></li>
+                        <li><a class="dropdown-item" href="../privacy-policy">Privacy policy</a></li>
+                        <li><a class="dropdown-item" href="../license">License information</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
+
 <div class="container">
     <h1>OpenClover 4.4.0 Release Notes</h1>
 
@@ -108,7 +110,7 @@
     <div>
         Example:
 
-<pre>&lt;testSources&gt;
+        <pre>&lt;testSources&gt;
     &lt;includes&gt;
         &lt;include&gt;**&#47;*&lt;/include&gt;
         &lt;include&gt;*WebTest.java&lt;/include&gt;
@@ -187,7 +189,8 @@
     <div>&nbsp;</div>
 
     <div>Read the <a href="https://confluence.atlassian.com/bamboo/bamboo-6-9-release-notes-969521942.html">Bamboo 6.9
-        Release Notes</a> to learn more.</div>
+        Release Notes</a> to learn more.
+    </div>
 
     <h3>New options for CloverInstr</h3>
 
@@ -196,9 +199,11 @@
         options as well:
 
         <ul>
-            <li><code>-mmc --methodWithMetricsContext 'name;regexp;maxstmt;maxcplx;maxaggrstmt;maxaggrcplx'</code> Defines a single custom method context with code metrics.</li>
+            <li>
+                <code>-mmc --methodWithMetricsContext 'name;regexp;maxstmt;maxcplx;maxaggrstmt;maxaggrcplx'</code> Defines a single custom method context with code metrics.
+            </li>
             <li><code>-tsr --testSourceRoot path</code> Root folder for test sources against which includes/excludes are checked.</li>
-            <li><code>-tsi --testSourceIncludes ant_pattern</code> Which files shall be treated as test sources. </li>
+            <li><code>-tsi --testSourceIncludes ant_pattern</code> Which files shall be treated as test sources.</li>
             <li><code>-tse --testSourceExcludes ant_pattern</code> Which files shall not be treated as test sources.</li>
             <li><code>-tsc --testSourceClass 'name;package;annotation;superclass;javadoc tag'</code> Which classes shall be treated as test code.</li>
             <li><code>-tsm --testSourceMethod 'name;annotation;return_type;javadoc_tag'</code> Which methods shall be treated as test ones.</li>
@@ -270,29 +275,51 @@
     <h4>2019.09.26 OpenClover 4.4.0</h4>
 
     <ul>
-        <li><a href="https://github.com/openclover/clover/issues/18/440-upgrade-clover-maven-plugin-to-maven-3">#18: Upgrade clover-maven-plugin to Maven 3. Drop support for Maven 2.</a></li>
-        <li><a href="https://github.com/openclover/clover/issues/19/440-add-maxcomplexity-maxstatements-for">#19: Add maxComplexity / maxStatements for Clover-for-Maven</a></li>
-        <li><a href="https://github.com/openclover/clover/issues/71/440-package-private-junit-5-tests-are-not">#71: Package Private JUnit 5 Tests are not detected by Clover</a></li>
-        <li><a href="https://github.com/openclover/clover/issues/82/440-add-includefailedtestcoverage-for">#82: Add includeFailedTestCoverage for clover:check and clover:clover goals</a></li>
-        <li><a href="https://github.com/openclover/clover/issues/84/440-add-custom-test-detector-pattern-for">#84: Add custom test detector pattern for clover:setup</a></li>
-        <li><a href="https://github.com/openclover/clover/issues/85/440-integrate-openclover-with-atlassian">#85: Integrate OpenClover with Atlassian Bamboo</a></li>
-        <li><a href="https://github.com/openclover/clover/issues/86/440-add-showuniquecoverage-for-clover">#86: Add showUniqueCoverage for clover:clover goal</a></li>
-        <li><a href="https://github.com/openclover/clover/issues/90/440-do-not-read-a-license-file-in-maven">#90: Do not read a license file in Maven plugin</a></li>
-        <li><a href="https://github.com/openclover/clover/issues/92/440-integrating-clover-with-junit-5">#92: Integrating Clover with JUnit 5 Parameterized Tests</a></li>
+        <li>
+            <a href="https://github.com/openclover/clover/issues/18/440-upgrade-clover-maven-plugin-to-maven-3">#18: Upgrade clover-maven-plugin to Maven 3. Drop support for Maven 2.</a>
+        </li>
+        <li>
+            <a href="https://github.com/openclover/clover/issues/19/440-add-maxcomplexity-maxstatements-for">#19: Add maxComplexity / maxStatements for Clover-for-Maven</a>
+        </li>
+        <li>
+            <a href="https://github.com/openclover/clover/issues/71/440-package-private-junit-5-tests-are-not">#71: Package Private JUnit 5 Tests are not detected by Clover</a>
+        </li>
+        <li>
+            <a href="https://github.com/openclover/clover/issues/82/440-add-includefailedtestcoverage-for">#82: Add includeFailedTestCoverage for clover:check and clover:clover goals</a>
+        </li>
+        <li>
+            <a href="https://github.com/openclover/clover/issues/84/440-add-custom-test-detector-pattern-for">#84: Add custom test detector pattern for clover:setup</a>
+        </li>
+        <li><a href="https://github.com/openclover/clover/issues/85/440-integrate-openclover-with-atlassian">#85: Integrate OpenClover with Atlassian Bamboo</a>
+        </li>
+        <li>
+            <a href="https://github.com/openclover/clover/issues/86/440-add-showuniquecoverage-for-clover">#86: Add showUniqueCoverage for clover:clover goal</a>
+        </li>
+        <li><a href="https://github.com/openclover/clover/issues/90/440-do-not-read-a-license-file-in-maven">#90: Do not read a license file in Maven plugin</a>
+        </li>
+        <li>
+            <a href="https://github.com/openclover/clover/issues/92/440-integrating-clover-with-junit-5">#92: Integrating Clover with JUnit 5 Parameterized Tests</a>
+        </li>
     </ul>
 
     <h4>2019.10.11 OpenClover 4.4.1</h4>
 
     <ul>
-        <li><a href="https://github.com/openclover/clover/issues/103/441-upgrade-from-431-to-440-failure">#103: Resolution of artifacts with 'clover' classifier looks up in external repositories</a></li>
-        <li><a href="https://github.com/openclover/clover/issues/104/441-code-generated-by-openclover-440-has">#104: Code generated by OpenClover 4.4.0 has dependency on JUnit4 when running with JUnit5</a></li>
-        <li><a href="https://github.com/openclover/clover/issues/107/441-the-clover-instrument-test-goal-is">#107: The clover:instrument-test goal is missing in 4.4.0</a></li>
+        <li>
+            <a href="https://github.com/openclover/clover/issues/103/441-upgrade-from-431-to-440-failure">#103: Resolution of artifacts with 'clover' classifier looks up in external repositories</a>
+        </li>
+        <li>
+            <a href="https://github.com/openclover/clover/issues/104/441-code-generated-by-openclover-440-has">#104: Code generated by OpenClover 4.4.0 has dependency on JUnit4 when running with JUnit5</a>
+        </li>
+        <li>
+            <a href="https://github.com/openclover/clover/issues/107/441-the-clover-instrument-test-goal-is">#107: The clover:instrument-test goal is missing in 4.4.0</a>
+        </li>
     </ul>
 
 </div>
 
 
 <script src="../resources/js/jquery-3.7.1.min.js"></script>
-<script src="../resources/js/bootstrap.min.js"></script>
+<script src="../resources/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
