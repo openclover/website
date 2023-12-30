@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.4 : Deploying Instrumented Jars</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,10 +39,11 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.4</a>
-</li>
+                        <a href="index.html">OpenClover 4.4</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="faq--openclover.html">Clover FAQ</a></span>
@@ -51,11 +51,12 @@
                     <li>
                         <span>Maven Plugin FAQ</span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Deploying Instrumented Jars
-                        </span>
+                <span id="title-text">
+                    Deploying Instrumented Jars
+                </span>
             </h1>
         </div>
 
@@ -63,8 +64,7 @@
 
             <div id="main-content">
                 <p>When the <code>deploy</code> target is run, the Clover lifecycle doesn't deploy its artifacts. There
-                    is a <a  href="http://developer.atlassian.com/jira/browse/CLMVN-9"
-                            rel="nofollow">JIRA issue CLMVN-9</a> open for this limitation.</p>
+                    is a <a href="http://developer.atlassian.com/jira/browse/CLMVN-9" rel="nofollow">JIRA issue CLMVN-9</a> open for this limitation.</p>
 
                 <p>As a work around, you can use the <code>build-helper-maven-plugin</code> as follows:</p>
                 <ul>
@@ -85,8 +85,7 @@
 
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >
+<pre>
 &lt;plugin&gt;
   &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
   &lt;artifactId&gt;build-helper-maven-plugin&lt;/artifactId&gt;
@@ -130,8 +129,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

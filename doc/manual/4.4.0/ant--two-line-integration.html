@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.4 : Clover-for-Ant Two Line Integration</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,10 +39,11 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.4</a>
-</li>
+                        <a href="index.html">OpenClover 4.4</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
@@ -52,11 +52,12 @@
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--quick-start-guide.html">1. QuickStart Guide</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Clover-for-Ant Two Line Integration
-                        </span>
+                <span id="title-text">
+                    Clover-for-Ant Two Line Integration
+                </span>
             </h1>
         </div>
 
@@ -65,25 +66,22 @@
             <div id="main-content">
                 <p>To get Clover integrated into your build as quickly as possible, follow these simple steps.</p>
                 <ol>
-                    <li><a  href="ant--installation-guide.html">Install Clover-for-Ant</a> in Ant classpath.</li>
+                    <li><a href="ant--installation-guide.html">Install Clover-for-Ant</a> in Ant classpath.</li>
                     <li><p>Import Clover targets in your build.xml file:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >&lt;taskdef resource=&quot;cloverlib.xml&quot;/&gt;
+<pre>&lt;taskdef resource=&quot;cloverlib.xml&quot;/&gt;
 &lt;clover-env/&gt;
 </pre>
                             </div>
                         </div>
-                        <p><img src="images/icons/emoticons/information.png"
-                                data-emoticon-name="information" alt="(info)"/> Note that this will not work within an
-                            Ant target. It must be at the top level of the build file. <br
-                                    class="atl-forced-newline"/></p></li>
+                        <p>
+                            <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> Note that this will not work within an
+                            Ant target. It must be at the top level of the build file. <br class="atl-forced-newline"/></p></li>
                     <li><p>Add the clover.jar to your test classpath:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot;&gt;
+<pre>&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot;&gt;
   &lt;classpath&gt;
     &lt;pathelement location=&quot;${user.home}/.ant/lib/clover.jar&quot;/&gt;
   &lt;/classpath&gt;
@@ -95,16 +93,14 @@
                     <li><p>If you have a target already called &quot;test&quot; you can simply run</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >ant clover.all
+<pre>ant clover.all
 </pre>
                             </div>
                         </div>
                         <p> Otherwise, run the following:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >ant with.clover your.test.target clover.report
+<pre>ant with.clover your.test.target clover.report
 </pre>
                             </div>
                         </div>
@@ -137,7 +133,7 @@
                                     <div class="codeContent panelContent pdl">
                                         <pre
 
-                                            >${clover.dest}</pre>
+                                        >${clover.dest}</pre>
                                     </div>
                                 </div>
                                 <p>directory.</p></td>
@@ -149,7 +145,7 @@
                                     <div class="codeContent panelContent pdl">
                                         <pre
 
-                                            >${clover.dest}</pre>
+                                        >${clover.dest}</pre>
                                     </div>
                                 </div>
                                 <p>using</p>
@@ -157,7 +153,7 @@
                                     <div class="codeContent panelContent pdl">
                                         <pre
 
-                                            >${project.title}</pre>
+                                        >${project.title}</pre>
                                     </div>
                                 </div>
                                 <p>.</p></td>
@@ -170,7 +166,7 @@
                                     <div class="codeContent panelContent pdl">
                                         <pre
 
-                                            >${clover.project.historydir}</pre>
+                                        >${clover.project.historydir}</pre>
                                     </div>
                                 </div>
                                 <p>.</p></td>
@@ -182,7 +178,7 @@
                                     <div class="codeContent panelContent pdl">
                                         <pre
 
-                                            >${clover.project.historydir}</pre>
+                                        >${clover.project.historydir}</pre>
                                     </div>
                                 </div>
                             </td>
@@ -199,20 +195,18 @@
                         </tbody>
                     </table>
                 </div>
-                <p><img src="images/icons/emoticons/information.png"
-                        data-emoticon-name="information" alt="(info)"/> These are available also by running `ant
+                <p><img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> These are available also by running `ant
                     -projecthelp`.</p>
                 <p> </p>
-                <p>For more instructions about using targets, see the <a
-                        href="9.-Clover-Target-Reference_179445247.html">Clover Target Reference</a>. Any <em>${}</em>
+                <p>For more instructions about using targets, see the <a href="9.-Clover-Target-Reference_179445247.html">Clover Target Reference</a>. Any
+                    <em>${}</em>
                     properties may be defined on the command line, for example:<em>
                         -Dclover.project.historydir=/home/clover/historydir</em></p>
                 <p> </p>
                 <p> </p>
-                <div class="confluence-information-macro confluence-information-macro-information"><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-                    <div><p>Need more information? Find it in the <a
-                            href="ant--quick-start-guide.html">Clover QuickStart Guide</a>.</p></div>
+                <div class="confluence-information-macro confluence-information-macro-information">
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div><p>Need more information? Find it in the <a href="ant--quick-start-guide.html">Clover QuickStart Guide</a>.</p></div>
                 </div>
             </div>
 
@@ -228,8 +222,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

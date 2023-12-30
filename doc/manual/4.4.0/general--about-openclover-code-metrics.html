@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.4 : About Clover code metrics</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,29 +39,30 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.4</a>
-</li>
+                        <a href="index.html">OpenClover 4.4</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="general--about-openclover.html">About Clover</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            About Clover code metrics
-                        </span>
+                <span id="title-text">
+                    About Clover code metrics
+                </span>
             </h1>
         </div>
 
         <div id="content" class="view">
 
             <div id="main-content">
-                <h1 id="AboutClovercodemetrics-Codecoveragemetrics">Code coverage metrics</h1><h4
-                    id="AboutClovercodemetrics-Branchcoverage">Branch coverage</h4>
-                <p>Branch coverage (or 'decision coverage') is a <a
-                        href="glossary--code-coverage.html">code coverage</a> metric
+                <h1 id="AboutClovercodemetrics-Codecoveragemetrics">Code coverage metrics</h1>
+                <h4 id="AboutClovercodemetrics-Branchcoverage">Branch coverage</h4>
+                <p>Branch coverage (or 'decision coverage') is a <a href="glossary--code-coverage.html">code coverage</a> metric
                     that measures which possible branches in flow control structures are followed. Clover does this by
                     recording if the boolean expression in the control structure evaluated to both true and false during
                     execution.</p><h4>Statement coverage</h4>
@@ -71,9 +71,9 @@
                     test run, and which statements have not. </p><h4>Method
                 coverage</h4>
                 <p>Method coverage is a <a href="glossary--code-coverage.html">code
-                    coverage</a> metric that measures whether a method was entered at all during execution.</p><h4
-                    id="AboutClovercodemetrics-TotalCoveragePercentage(Coverage%,TPC)">Total Coverage Percentage
-                (Coverage %, TPC)</h4>
+                    coverage</a> metric that measures whether a method was entered at all during execution.</p>
+                <h4 id="AboutClovercodemetrics-TotalCoveragePercentage(Coverage%,TPC)">Total Coverage Percentage
+                    (Coverage %, TPC)</h4>
                 <p>The Total Coverage Percentage is calculated as follows:</p>
                 <div style="border-width: 1px;">
                     <div>
@@ -92,9 +92,9 @@ M - total number of methods</pre>
                     </div>
                 </div>
                 <p> </p>
-                <h1 id="AboutClovercodemetrics-Codecomplexitymetrics">Code complexity metrics</h1><h4
-                    id="AboutClovercodemetrics-AverageMethodComplexity(AvgMethodCmp)">Average Method Complexity (Avg
-                Method Cmp)</h4>
+                <h1 id="AboutClovercodemetrics-Codecomplexitymetrics">Code complexity metrics</h1>
+                <h4 id="AboutClovercodemetrics-AverageMethodComplexity(AvgMethodCmp)">Average Method Complexity (Avg
+                    Method Cmp)</h4>
                 <p>The average method complexity of code in the given context. In case of:</p>
                 <ul>
                     <li>classes: Average Method Complexity = sum of Method Complexity of all class' methods / number of
@@ -108,8 +108,7 @@ M - total number of methods</pre>
                     </li>
                 </ul>
                 <h4>Complexity (Cmp, Total Cmp)</h4>
-                <p>Cyclomatic complexity of code in the given context.</p><h4
-                    id="AboutClovercodemetrics-MethodComplexity">Method Complexity</h4>
+                <p>Cyclomatic complexity of code in the given context.</p><h4 id="AboutClovercodemetrics-MethodComplexity">Method Complexity</h4>
                 <p>Cyclomatic complexity of a single method. It's calculated as follows:</p>
                 <ul>
                     <li>empty method complexity == 1</li>
@@ -122,20 +121,17 @@ M - total number of methods</pre>
                 <h4>Complexity Density (Cmp Density)</h4>
                 <p>Complexity Density is the average number of paths in your code per statement in given context
                     (method, class, package). It's calculated as follows:</p>
-                <p style="margin-left: 30.0px;">Cmp Density = Complexity / number of statements</p><h4
-                    id="AboutClovercodemetrics-LOC">LOC</h4>
+                <p style="margin-left: 30.0px;">Cmp Density = Complexity / number of statements</p><h4 id="AboutClovercodemetrics-LOC">LOC</h4>
                 <p>Lines Of Code (including comment lines).</p><h4>NCLOC</h4>
                 <p>Non-Commented Lines Of Code. Lines of code that contain comments are not counted in this metric,
                     leaving only the actual functioning code itself.</p>
-                <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
-                        data-emoticon-name="warning" alt="(warning)"/> Clover currently does not calculate NCLOC for
-                    Groovy code (<a  href="https://jira.atlassian.com/browse/CLOV-1805"
-                                    rel="nofollow">CLOV-1805</a>). </p>
+                <p>
+                    <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> Clover currently does not calculate NCLOC for
+                    Groovy code (<a href="https://jira.atlassian.com/browse/CLOV-1805" rel="nofollow">CLOV-1805</a>). </p>
                 <h1 id="AboutClovercodemetrics-Examples">Examples</h1>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >// # of statements, # of branches, Method Cyclomatic Complexity
+<pre>// # of statements, # of branches, Method Cyclomatic Complexity
 
 // 0, 0, 1
 void A() {}
@@ -215,8 +211,7 @@ void A() { a() ? b() ? c()? 1 : 2 : 3 : 4; }</pre>
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

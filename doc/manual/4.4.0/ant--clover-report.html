@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.4 : clover-report</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,10 +39,11 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.4</a>
-</li>
+                        <a href="index.html">OpenClover 4.4</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
@@ -52,11 +52,12 @@
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            clover-report
-                        </span>
+                <span id="title-text">
+                    clover-report
+                </span>
             </h1>
         </div>
 
@@ -64,17 +65,16 @@
 
             <div id="main-content">
                 <h1 id="clover-report-Introduction">Introduction</h1>
-                <p>The <code>&lt;clover-report&gt;</code> task generates <a href="general--understanding-reports-current.html">current</a> and <a
-                        href="general--understanding-reports-historical.html">historical</a> reports in multiple formats.</p>
-                <p><img src="images/icons/emoticons/information.png"
-                        data-emoticon-name="information" alt="(info)"/> If you do not require fine-grained control over
-                    your Clover reports, use the <code>&lt;<a
-                            href="ant--clover-html-report.html">clover-html-report</a>&gt;</code> or <code>&lt;<a
-                            href="ant--clover-pdf-report.html">clover-pdf-report</a>&gt;</code> tasks.</p>
+                <p>The <code>&lt;clover-report&gt;</code> task generates <a href="general--understanding-reports-current.html">current</a> and
+                    <a href="general--understanding-reports-historical.html">historical</a> reports in multiple formats.</p>
+                <p>
+                    <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> If you do not require fine-grained control over
+                    your Clover reports, use the <code>&lt;<a href="ant--clover-html-report.html">clover-html-report</a>&gt;</code> or
+                    <code>&lt;<a href="ant--clover-pdf-report.html">clover-pdf-report</a>&gt;</code> tasks.</p>
                 <p> </p>
                 <p>On this page:</p>
                 <p>
-                    <style type='text/css'>/*<![CDATA[*/
+                    <style type="text/css">/*<![CDATA[*/
                     div.rbtoc1491813709018 {
                         padding: 0px;
                     }
@@ -89,34 +89,35 @@
                         padding-left: 0px;
                     }
 
-                    /*]]>*/</style>
-                <div class='toc-macro rbtoc1491813709018'>
-                    <ul class='toc-indentation'>
-                        <li><a href='#clover-report-Introduction'>Introduction</a></li>
-                        <li><a href='#clover-report-Overview'>Overview</a></li>
-                        <li><a href='#clover-report-Parameters'>Parameters</a></li>
-                        <li><a href='#clover-report-Nestedelements'>Nested elements</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#clover-report-&lt;current&gt;'>&lt;current&gt;</a></li>
-                                <li><a href='#clover-report-&lt;historical&gt;'>&lt;historical&gt;</a></li>
+                    /*]]>*/
+                    </style>
+                <div class="toc-macro rbtoc1491813709018">
+                    <ul class="toc-indentation">
+                        <li><a href="#clover-report-Introduction">Introduction</a></li>
+                        <li><a href="#clover-report-Overview">Overview</a></li>
+                        <li><a href="#clover-report-Parameters">Parameters</a></li>
+                        <li><a href="#clover-report-Nestedelements">Nested elements</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#clover-report-&lt;current&gt;">&lt;current&gt;</a></li>
+                                <li><a href="#clover-report-&lt;historical&gt;">&lt;historical&gt;</a></li>
                             </ul>
                         </li>
-                        <li><a href='#clover-report-Examples'>Examples</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#clover-report-ExamplesofCurrentReportconfigurations'>Examples of Current
+                        <li><a href="#clover-report-Examples">Examples</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#clover-report-ExamplesofCurrentReportconfigurations">Examples of Current
                                     Report configurations</a></li>
-                                <li><a href='#clover-report-Exampleofcustomizingcolumns'>Example of customizing
+                                <li><a href="#clover-report-Exampleofcustomizingcolumns">Example of customizing
                                     columns</a></li>
-                                <li><a href='#clover-report-Exampleoflinkedreports'>Example of linked reports</a></li>
-                                <li><a href='#clover-report-ExamplesofHistoricalReportConfigurations'>Examples of
+                                <li><a href="#clover-report-Exampleoflinkedreports">Example of linked reports</a></li>
+                                <li><a href="#clover-report-ExamplesofHistoricalReportConfigurations">Examples of
                                     Historical Report Configurations</a></li>
                             </ul>
                         </li>
-                        <li><a href='#clover-report-References'>References</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#clover-report-ColumnNameReferenceTable'>Column Name Reference Table</a>
+                        <li><a href="#clover-report-References">References</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#clover-report-ColumnNameReferenceTable">Column Name Reference Table</a>
                                 </li>
-                                <li><a href='#clover-report-CloverExpressionLanguage'>Clover Expression Language</a>
+                                <li><a href="#clover-report-CloverExpressionLanguage">Clover Expression Language</a>
                                 </li>
                             </ul>
                         </li>
@@ -127,43 +128,18 @@
                     (click any item for detailed user documentation).</p>
                 <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
                     <div class="panelContent" style="background-color: white;">
-                        <p>&lt;<a href="#clover-report-clover-report">clover-report</a>&gt;<br/>     &lt;<a
-                                href="#clover-report-Current">current</a>&gt;<br/>         &lt;<a
-                                href="#clover-report-Columns">columns</a>&gt;<br/>              (one or more <a
-                                href="#clover-report-Columns">columns</a>)<br/>         &lt;/<a
-                                href="#clover-report-Columns">columns</a>/&gt;<br/>         &lt;<a
-                                href="#clover-report-Fileset">fileset</a>/&gt;<br/>         &lt;<a
-                                href="#clover-report-Format">format</a>/&gt;<br/>         &lt;<a
-                                href="#clover-report-Sourcepath">sourcepath</a>/&gt;<br/>         &lt;<a
-                                href="#clover-report-Testsources">testsources</a>/&gt;<br/>         &lt;<a
-                                href="#clover-report-Testresults">testresults</a>/&gt;<br/>     &lt;/<a
-                                href="#clover-report-Current">current</a>&gt;<br/>     &lt;<a
-                                href="#clover-report-Historical">historical</a>&gt;<br/>        &lt;<a
-                                href="#clover-report-added">added</a>&gt;<br/>           &lt;<a
-                                href="#clover-report-Columns">columns</a>&gt;<br/>                 (a single <a
-                                href="#clover-report-Columns">column</a>)<br/>           &lt;/<a
-                                href="#clover-report-Columns">columns</a>/&gt;<br/>        &lt;/<a
-                                href="#clover-report-added">added</a>&gt;<br/>         &lt;<a
-                                href="#clover-report-Chart">chart</a>&gt;<br/>               (one or more <a
-                                href="#clover-report-Columns">columns</a>)<br/>         &lt;/<a
-                                href="#clover-report-Chart">chart</a>/&gt;<br/>         &lt;<a
-                                href="#clover-report-Coverage">coverage</a>/&gt;<br/>         &lt;<a
-                                href="#clover-report-Format">format</a>/&gt;<br/>         &lt;<a
-                                href="#clover-report-Metrics">metrics</a>/&gt;<br/>         &lt;<a
-                                href="#clover-report-Movers">movers</a>&gt;<br/>           &lt;<a
-                                href="#clover-report-Columns">columns</a>&gt;<br/>                 (a single <a
-                                href="#clover-report-Columns">column</a>)<br/>           &lt;/<a
-                                href="#clover-report-Columns">columns</a>/&gt;<br/>         &lt;/<a
-                                href="#clover-report-Movers">movers</a>&gt;<br/>         &lt;<a
-                                href="#clover-report-historical-overview">overview</a>/&gt;<br/>     &lt;/<a
-                                href="#clover-report-Historical">historical</a>&gt;<br/> &lt;/<a
-                                href="#clover-report-clover-report">clover-report</a>&gt;</p>
+                        <p>&lt;<a href="#clover-report-clover-report">clover-report</a>&gt;<br/>     &lt;<a href="#clover-report-Current">current</a>&gt;<br/>         &lt;<a href="#clover-report-Columns">columns</a>&gt;<br/>              (one or more
+                            <a href="#clover-report-Columns">columns</a>)<br/>         &lt;/<a href="#clover-report-Columns">columns</a>/&gt;<br/>         &lt;<a href="#clover-report-Fileset">fileset</a>/&gt;<br/>         &lt;<a href="#clover-report-Format">format</a>/&gt;<br/>         &lt;<a href="#clover-report-Sourcepath">sourcepath</a>/&gt;<br/>         &lt;<a href="#clover-report-Testsources">testsources</a>/&gt;<br/>         &lt;<a href="#clover-report-Testresults">testresults</a>/&gt;<br/>     &lt;/<a href="#clover-report-Current">current</a>&gt;<br/>     &lt;<a href="#clover-report-Historical">historical</a>&gt;<br/>        &lt;<a href="#clover-report-added">added</a>&gt;<br/>           &lt;<a href="#clover-report-Columns">columns</a>&gt;<br/>                 (a single
+                            <a href="#clover-report-Columns">column</a>)<br/>           &lt;/<a href="#clover-report-Columns">columns</a>/&gt;<br/>        &lt;/<a href="#clover-report-added">added</a>&gt;<br/>         &lt;<a href="#clover-report-Chart">chart</a>&gt;<br/>               (one or more
+                            <a href="#clover-report-Columns">columns</a>)<br/>         &lt;/<a href="#clover-report-Chart">chart</a>/&gt;<br/>         &lt;<a href="#clover-report-Coverage">coverage</a>/&gt;<br/>         &lt;<a href="#clover-report-Format">format</a>/&gt;<br/>         &lt;<a href="#clover-report-Metrics">metrics</a>/&gt;<br/>         &lt;<a href="#clover-report-Movers">movers</a>&gt;<br/>           &lt;<a href="#clover-report-Columns">columns</a>&gt;<br/>                 (a single
+                            <a href="#clover-report-Columns">column</a>)<br/>           &lt;/<a href="#clover-report-Columns">columns</a>/&gt;<br/>         &lt;/<a href="#clover-report-Movers">movers</a>&gt;<br/>         &lt;<a href="#clover-report-historical-overview">overview</a>/&gt;<br/>     &lt;/<a href="#clover-report-Historical">historical</a>&gt;<br/> &lt;/<a href="#clover-report-clover-report">clover-report</a>&gt;
+                        </p>
                     </div>
                 </div>
                 <p><span id="clover-report-clover-report"></span></p>
                 <h1 id="clover-report-Parameters">Parameters</h1>
-                <p>The <code>&lt;clover-report&gt;</code> task generates <a href="general--understanding-reports-current.html">current</a> and <a
-                        href="general--understanding-reports-historical.html">historical</a> reports in multiple formats. Parameters for &lt;clover-report&gt;:
+                <p>The <code>&lt;clover-report&gt;</code> task generates <a href="general--understanding-reports-current.html">current</a> and
+                    <a href="general--understanding-reports-historical.html">historical</a> reports in multiple formats. Parameters for &lt;clover-report&gt;:
                 </p>
                 <div class="table-wrap">
                     <table>
@@ -177,8 +153,8 @@
                             <td><p>coverageCacheSize</p></td>
                             <td><p>This is a performance tuning option, which is used to specify
                                 the maximum size of coverage data kept in memory when generating a report. Accepts
-                                storage values such as 256m (256 megabytes) or 1g (1 gigabyte). Also accepts the value
-                                &quot;nocache&quot; to force all coverage data to be loaded into memory.</p></td>
+                                storage values such as 256m (256 megabytes) or 1g (1 gigabyte). Also accepts the value &quot;nocache&quot; to force all coverage data to be loaded into memory.</p>
+                            </td>
                             <td><p>No. Default is 256m.</p></td>
                         </tr>
                         <tr>
@@ -209,11 +185,10 @@
                 <p>These elements represent the actual reports to be generated. You can generate multiple reports by
                     specifying more than one of these inside a <code>&lt;clover-report&gt;</code> element. Each report
                     will contain links to the other reports. See <a href="ant--clover-report.html">clover-report</a>.
-                      <span
-                            id="clover-report-Current"></span></p>
+                    <span id="clover-report-Current"></span></p>
                 <h2>&lt;current&gt;</h2>
-                <p>Generates a current coverage report. Specify the report format using a nested <a
-                        href="#clover-report-Format">Format</a> element. Valid formats are XML, HTML, PDF and JSON,
+                <p>Generates a current coverage report. Specify the report format using a nested
+                    <a href="#clover-report-Format">Format</a> element. Valid formats are XML, HTML, PDF and JSON,
                     although not all configurations support all formats. The default format is PDF if summary=&quot;true&quot;,
                     or XML if not. See <a href="ant--clover-report.html">clover-report</a>.</p>
                 <p><strong>Parameters for &lt;current&gt;</strong></p>
@@ -310,8 +285,7 @@
                         <tr>
                             <td><p>timeout</p></td>
                             <td><p>The amount of time to wait for report generation to finish
-                                before failing the build. This value must be an <a
-                                        href="ant--using-spans-specifying-an-interval.html">Interval</a>.</p></td>
+                                before failing the build. This value must be an <a href="ant--using-spans-specifying-an-interval.html">Interval</a>.</p></td>
                             <td><p>No. Default is no timeout.</p></td>
                         </tr>
                         <tr>
@@ -340,25 +314,20 @@
                 <p>These elements represent individual sections of the 'current' report. If you do not specify any of
                     these elements, all the sections will be included in the report. If you specify more one or more of
                     these elements, only the specified sections will be included.</p>
-                <div><span
-                        ></span>
-                    <div><p>You may specify multiple &lt;overview&gt; and &lt;coverage&gt;
-                        elements in the 'current' report. These may have different properties and include different
-                        elements. The charts will appear in the report in the same order they appear in the &lt;current&gt;
-                        element. The &lt;movers&gt; element always appears at the end of the report following these
-                        charts regardless of its location in the &lt;current&gt; element.</p></div>
+                <div><span></span>
+                    <div>
+                        <p>You may specify multiple &lt;overview&gt; and &lt;coverage&gt; elements in the 'current' report. These may have different properties and include different
+                            elements. The charts will appear in the report in the same order they appear in the &lt;current&gt; element. The &lt;movers&gt; element always appears at the end of the report following these
+                            charts regardless of its location in the &lt;current&gt; element.</p></div>
                 </div>
                 <p> </p>
-                <h3><span
-                                                                    id="clover-report-Columns"></span> &lt;columns&gt;
-                </h3>
+                <h3><span id="clover-report-Columns"></span> &lt;columns&gt; </h3>
                 <p>Specifies the data columns to be included on summary pages. If not specified, default columns will be
                     output.
-                <p>Specific columns are defined as sub-elements to this one. See the <a
-                        href="ant--clover-report.html"><span
-                        class="confluence-link">clover-report</span></a>.</p>
-                <p>Columns can be defined in a &lt;<a href="ant--clover-columns.html">clover-columns</a>/&gt; Ant type for <a
-                         href="http://ant.apache.org/manual/using.html#references" rel="nofollow">referencing</a>
+                <p>Specific columns are defined as sub-elements to this one. See the
+                    <a href="ant--clover-report.html"><span class="confluence-link">clover-report</span></a>.</p>
+                <p>Columns can be defined in a &lt;<a href="ant--clover-columns.html">clover-columns</a>/&gt; Ant type for
+                    <a href="http://ant.apache.org/manual/using.html#references" rel="nofollow">referencing</a>
                     elsewhere in the build file.</p>
                 <p>Each column element takes an optional <code>format</code> attribute which determines how the column's
                     value is rendered. The <code>format</code> attribute may be one of the following:</p>
@@ -453,9 +422,8 @@
                         </tr>
                         <tr>
                             <td><p>ncLineCount</p></td>
-                            <td><p>The total number of non-comment lines. <br/> <img
-                                    src="images/icons/emoticons/information.png"
-                                    data-emoticon-name="information" alt="(info)"/> When using Clover on Groovy source
+                            <td><p>The total number of non-comment lines. <br/>
+                                <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> When using Clover on Groovy source
                                 code, this column consistently reports '0' at the moment.</p></td>
                             <td><p><code>raw</code></p></td>
                         </tr>
@@ -470,8 +438,7 @@
                                 and is defined by this expression:</p>
                                 <div class="code panel pdl" style="border-width: 1px;">
                                     <div class="codeContent panelContent pdl">
-<pre
-    >complexity^2 * ((1 - %coveredElements/100)^3) + complexity
+<pre>complexity^2 * ((1 - %coveredElements/100)^3) + complexity
 </pre>
                                     </div>
                                 </div>
@@ -602,8 +569,7 @@
                         </tbody>
                     </table>
                 </div>
-                <p>  <span
-                        id="clover-report-CloverEL"></span><br/> <strong>Clover
+                <p><span id="clover-report-CloverEL"></span><br/> <strong>Clover
                     Expression Language</strong><br/> Clover Expression Language enables you to combine any of Clover's
                     built-in column types to produce a custom column. The following arithmetic operators are available:
                     +, - , *, /, ^, (). Any of Clover's columns may be referenced.<br/> A percentage sign, '%', before a
@@ -612,25 +578,20 @@
                 <p><em>Example</em>:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;columns&gt;
+<pre>&lt;columns&gt;
   &lt;expression title=&quot;SUM&quot;&gt;complexity^2 * ((1 - %coveredElements/100)^3) + complexity&lt;/expression&gt;
 &lt;/columns&gt;
 </pre>
                     </div>
                 </div>
-                </p><h3> <span
-                    id="clover-report-Fileset"></span> &lt;fileset&gt;</h3>
+                </p><h3><span id="clover-report-Fileset"></span> &lt;fileset&gt;</h3>
                 <p>&lt;current&gt; supports nested filesets which control which source files are to be included in a
                     report. Only classes which are from the source files in the fileset are included in the report. This
-                    allows reports to focus on certain packages or particular classes. By using <a
-                                                                                                   href="https://ant.apache.org/manual/Types/fileset.html"
-                                                                                                   rel="nofollow">Ant
+                    allows reports to focus on certain packages or particular classes. By using
+                    <a href="https://ant.apache.org/manual/Types/fileset.html" rel="nofollow">Ant
                         fileset</a> selectors, more complicated selections are possible, such as the files which have
                     recently changed, or files written by a particular author.</p>
-                <h3><span
-                                                                          id="clover-report-current-format"></span> &lt;format&gt;
-                </h3>
+                <h3><span id="clover-report-current-format"></span> &lt;format&gt; </h3>
                 <p>Specifies the output format and various options controlling the rendering of a report.
                 <p><strong>Parameters for &lt;format&gt;</strong></p>
                 <div class="table-wrap">
@@ -651,8 +612,7 @@
                         <tr>
                             <td><p>refid</p></td>
                             <td><p>The id of another format element that will be used for this
-                                report. See <a
-                                        href="ant--sharing-report-formats.html">Sharing
+                                report. See <a href="ant--sharing-report-formats.html">Sharing
                                     Report Formats</a>.</p></td>
                             <td><p>No.</p></td>
                         </tr>
@@ -670,14 +630,13 @@
                         <tr>
                             <td><p>orderBy</p></td>
                             <td><p>Specify how to order coverage tables. This attribute has no
-                                effect on XML format. Valid values are:  <br
-                                        class="atl-forced-newline"/> <code>Alpha</code> — Alpabetical. <br
-                                        class="atl-forced-newline"/> <code>PcCoveredAsc</code> — Percent total coverage,
-                                ascending.  <code>PcCoveredDesc</code> — Percent total
-                                coverage, descending.  <code>ElementsCoveredAsc</code> —
-                                Total elements covered, ascending.  <code>ElementsCoveredDesc</code>
-                                — Total elements covered, descending.  <code>ElementsUncoveredAsc</code>
-                                — Total elements uncovered, ascending.  <code>ElementsUncoveredDesc</code>
+                                effect on XML format. Valid values are: <br class="atl-forced-newline"/> <code>Alpha</code> — Alpabetical.
+                                <br class="atl-forced-newline"/> <code>PcCoveredAsc</code> — Percent total coverage,
+                                ascending. <code>PcCoveredDesc</code> — Percent total
+                                coverage, descending. <code>ElementsCoveredAsc</code> —
+                                Total elements covered, ascending. <code>ElementsCoveredDesc</code>
+                                — Total elements covered, descending. <code>ElementsUncoveredAsc</code>
+                                — Total elements uncovered, ascending. <code>ElementsUncoveredDesc</code>
                                 — Total elements uncovered, descending.</p></td>
                             <td><p>No; defaults to <code>PcCoveredAsc.</code></p></td>
                         </tr>
@@ -696,8 +655,7 @@
                         <tr>
                             <td><p>filter</p></td>
                             <td><p>comma or space separated list of contexts to exclude when
-                                generating coverage reports. See <a
-                                        href="ant--using-coverage-contexts.html">Using
+                                generating coverage reports. See <a href="ant--using-coverage-contexts.html">Using
                                     Coverage Contexts</a>.</p></td>
                             <td><p>No.</p></td>
                         </tr>
@@ -735,17 +693,13 @@
                         </tbody>
                     </table>
                 </div>
-                <p><strong><br/></strong></p></p><h3><br
-                    class="atl-forced-newline"/> <span
-                                                       id="clover-report-Sourcepath"></span> &lt;sourcepath&gt;</h3>
+                <p><strong><br/></strong></p></p><h3><br class="atl-forced-newline"/> <span id="clover-report-Sourcepath"></span> &lt;sourcepath&gt;</h3>
                 <p>Specifies an Ant path that Clover should use when looking for source files. This option is useful
                     when sources are located in a different directory than during compilation.</p>
-                <p>Note that you have to list <strong>all</strong> source roots (and not just a workspace root), e.g.:
-                </p>
+                <p>Note that you have to list <strong>all</strong> source roots (and not just a workspace root), e.g.: </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-    >&lt;sourcepath&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;sourcepath&gt;
     &lt;pathelement location=&quot;moduleA/src&quot;/&gt;
     &lt;pathelement location=&quot;moduleA/test&quot;/&gt;
 &lt;/sourcepath&gt;</pre>
@@ -755,8 +709,7 @@
                     e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-    >&lt;sourcepath&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;sourcepath&gt;
     &lt;dirset dir=&quot;.&quot;&gt;
         &lt;include name=&quot;**/src/main/java&quot;/&gt;
         &lt;include name=&quot;**/src/main/groovy&quot;/&gt;                    
@@ -766,33 +719,28 @@
 &lt;/sourcepath&gt;</pre>
                     </div>
                 </div>
-                <h3> <span
-                        id="clover-report-Testsources"></span> &lt;testsources&gt;</h3>
-                <p><code>&lt;testsources&gt;</code> is an <a
-                                                             href="https://ant.apache.org/manual/Types/fileset.html"
-                                                             rel="nofollow">Ant fileset</a> that can be used to
+                <h3><span id="clover-report-Testsources"></span> &lt;testsources&gt;</h3>
+                <p><code>&lt;testsources&gt;</code> is an
+                    <a href="https://ant.apache.org/manual/Types/fileset.html" rel="nofollow">Ant fileset</a> that can be used to
                     distinguish test source code from application source code. All files included in the fileset will be
-                    displayed in the separate 'Test' node of the coverage tree. If omitted, Clover's <a
-                            href="ant--clover-test-detection.html">default test detection algorithm</a> will be
+                    displayed in the separate 'Test' node of the coverage tree. If omitted, Clover's
+                    <a href="ant--clover-test-detection.html">default test detection algorithm</a> will be
                     used to distinguish test sources.</p>
-                <h3> <span
-                        id="clover-report-Testresults"></span> &lt;testresults&gt;</h3>
-                <p><code>&lt;testresults&gt;</code> is an optional <a
-                                                                      href="https://ant.apache.org/manual/Types/fileset.html"
-                                                                      rel="nofollow">Ant fileset</a> that Clover uses to
+                <h3><span id="clover-report-Testresults"></span> &lt;testresults&gt;</h3>
+                <p><code>&lt;testresults&gt;</code> is an optional
+                    <a href="https://ant.apache.org/manual/Types/fileset.html" rel="nofollow">Ant fileset</a> that Clover uses to
                     integrate the results of your unit tests into the report. The results should be generated using the
-                    <a  href="https://ant.apache.org/manual/Tasks/junit.html" rel="nofollow">Ant
+                    <a href="https://ant.apache.org/manual/Tasks/junit.html" rel="nofollow">Ant
                         junit</a> task with an XML formatter.</p>
                 <p><code>&lt;testresults&gt;</code> is generally not required by most users, as the built-in test
                     results will provide all required information in the majority of cases. For more details please see
-                    '<a href="ant--test-results-and-per-test-coverage.html">Advanced Usage</a>'. <br
-                            class="atl-forced-newline"/>  <span
-                            id="clover-report-Historical"></span></p>
+                    '<a href="ant--test-results-and-per-test-coverage.html">Advanced Usage</a>'. <br class="atl-forced-newline"/>
+                    <span id="clover-report-Historical"></span></p>
                 <h2>&lt;historical&gt;</h2>
                 <p>Generates a historical coverage report. Specify the report format using a nested Format element (see
                     below). Valid formats are HTML or PDF. The default format is HTML. Contents of the historical report
-                    are optionally controlled by nested elements. See <a href="ant--clover-report.html">clover-report</a>.
-                </p><h5>Parameters for &lt;historical&gt;</h5>
+                    are optionally controlled by nested elements. See <a href="ant--clover-report.html">clover-report</a>. </p>
+                <h5>Parameters for &lt;historical&gt;</h5>
                 <div class="table-wrap">
                     <table>
                         <tbody>
@@ -826,53 +774,42 @@
                         </tr>
                         <tr>
                             <td><p>dateFormat</p></td>
-                            <td><p>Specifies a date format string for parsing the &quot;from&quot;
-                                and &quot;to&quot; fields. The string must contain a valid <a
-                                                                                              href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html"
-                                                                                              rel="nofollow">java.text.SimpleDateFormat</a>
+                            <td><p>Specifies a date format string for parsing the &quot;from&quot; and &quot;to&quot; fields. The string must contain a valid
+                                <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html" rel="nofollow">java.text.SimpleDateFormat</a>
                                 pattern.</p></td>
-                            <td><p>No; default is set to <a
-                                                                                 href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html"
-                                                                                 rel="nofollow">java.text.SimpleDateFormat</a>
+                            <td><p>No; default is set to
+                                <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html" rel="nofollow">java.text.SimpleDateFormat</a>
                                 using the default pattern and date format symbols for the default locale.</p></td>
                         </tr>
                         <tr>
                             <td><p>from</p></td>
                             <td><p>Specifies the date before which data points will be ignored. The
-                                date must be specified either using the default <a
-                                                                                   href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html"
-                                                                                   rel="nofollow">java.text.SimpleDateFormat</a>
-                                for your locale or using the pattern defined in the &quot;dateFormat&quot; attribute.
-                            </p></td>
+                                date must be specified either using the default
+                                <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html" rel="nofollow">java.text.SimpleDateFormat</a>
+                                for your locale or using the pattern defined in the &quot;dateFormat&quot; attribute. </p></td>
                             <td><p>No.</p></td>
                         </tr>
                         <tr>
                             <td><p>historyDir</p></td>
                             <td><p>The directory containing Clover historical data as produced by
-                                the &lt;<a href="ant--clover-historypoint.html">clover-historypoint</a>&gt; task.
-                            </p></td>
+                                the &lt;<a href="ant--clover-historypoint.html">clover-historypoint</a>&gt; task. </p></td>
                             <td><p>Yes.</p></td>
                         </tr>
                         <tr>
                             <td><p>historyIncludes</p></td>
-                            <td><p>An <a
-                                                              href="http://ant.apache.org/manual/dirtasks.html#patterns"
-                                                              rel="nofollow">Ant GLOB</a> to select specific history
+                            <td><p>An <a href="http://ant.apache.org/manual/dirtasks.html#patterns" rel="nofollow">Ant GLOB</a> to select specific history
                                 point files within the <code>historyDir</code> directory</p></td>
                             <td><p>No; default is <code>clover-*.xml.gz</code></p></td>
                         </tr>
                         <tr>
                             <td><p>json</p></td>
                             <td><p>A true or false value. If set to true, then a file called <code>historical-json.js</code>
-                                will be created in the top level directory containing some <a
-                                                                                              href="http://en.wikipedia.org/wiki/Json#JSONP"
-                                                                                              rel="nofollow">JSONP</a>.
+                                will be created in the top level directory containing some
+                                <a href="http://en.wikipedia.org/wiki/Json#JSONP" rel="nofollow">JSONP</a>.
                                 The callback method will be: <code>processHistoricalCloverData</code> and takes a single
-                                <a  href="http://en.wikipedia.org/wiki/Json"
-                                   rel="nofollow">JSON</a> object parameter. The structure of the JSON is the same as
-                                used by the <a
-                                               href="http://code.google.com/apis/visualization/documentation/reference.html#DataTable"
-                                               rel="nofollow">Google Visualization API</a>.
+                                <a href="http://en.wikipedia.org/wiki/Json" rel="nofollow">JSON</a> object parameter. The structure of the JSON is the same as
+                                used by the
+                                <a href="http://code.google.com/apis/visualization/documentation/reference.html#DataTable" rel="nofollow">Google Visualization API</a>.
                                 <a href="ant--json-reference.html">More information.</a></p></td>
                             <td><p>No. Default is &quot;false&quot;.</p></td>
                         </tr>
@@ -891,18 +828,15 @@
                         <tr>
                             <td><p>to</p></td>
                             <td><p>Specifies the date after which data points will be ignored. The
-                                date must be specified either using the default <a
-                                                                                   href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html"
-                                                                                   rel="nofollow">java.text.SimpleDateFormat</a>
-                                for your locale or using the pattern defined in the &quot;dateFormat&quot; attribute.
-                            </p></td>
+                                date must be specified either using the default
+                                <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html" rel="nofollow">java.text.SimpleDateFormat</a>
+                                for your locale or using the pattern defined in the &quot;dateFormat&quot; attribute. </p></td>
                             <td><p>No.</p></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <p> </p><h5>Nested elements of
-                &lt;historical&gt;</h5>
+                <p> </p><h5>Nested elements of &lt;historical&gt;</h5>
                 <p>These elements represent individual sections of the historical report. If you do not specify any of
                     these elements, all the sections will be included in the report. If you specify more one or more of
                     these elements, only the specified sections will be included. You may specify multiple <code>&lt;overview&gt;</code>
@@ -912,8 +846,7 @@
                     always appears at the end of the report following these charts regardless of its location in the
                     <code>&lt;historical&gt;</code> element.</p>
                 <p> </p>
-                <h3><span
-                                                                id="clover-report-added"></span> &lt;added&gt;</h3>
+                <h3><span id="clover-report-added"></span> &lt;added&gt;</h3>
                 <p><code>&lt;added&gt;</code> displays new classes for the given column.
                 <p> </p>
                 <p><strong>Parameters for &lt;added&gt;</strong></p>
@@ -934,25 +867,22 @@
                         <tr>
                             <td><p>interval</p></td>
                             <td><p>The time interval over which the delta should be calculated
-                                (from the last history point). Uses the <a
-                                        href="ant--using-spans-specifying-an-interval.html">Interval</a>
-                                format. The range is automatically adjusted to the closest smaller interval available.
-                            </p></td>
+                                (from the last history point). Uses the <a href="ant--using-spans-specifying-an-interval.html">Interval</a>
+                                format. The range is automatically adjusted to the closest smaller interval available. </p></td>
                             <td><p>No; the default is to take the delta of the last two history
                                 points.</p></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <p> <strong>Nested elements of &lt;added&gt;</strong></p>
+                <p><strong>Nested elements of &lt;added&gt;</strong></p>
                 <p>The &lt;added&gt; element can take a single <a href="ant--clover-report.html">column</a> element, allowing you to add
                     one additional metric to the data shown in &lt;added&gt;.</p>
                 <p><strong> Example: &lt;totalStatements&gt;</strong></p>
                 <p>You could add totalStatements to &lt;added&gt; with the following code.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;added&gt;
+<pre>&lt;added&gt;
          &lt;columns&gt;
                    &lt;totalStatements/&gt;
          &lt;/columns&gt;
@@ -960,13 +890,10 @@
 </pre>
                     </div>
                 </div>
-                <p><img src="images/icons/emoticons/information.png"
-                        data-emoticon-name="information" alt="(info)"/> No more than one additional column can be
+                <p><img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> No more than one additional column can be
                     attached to &lt;added&gt;. The 'added' classes table will always appear above the Movers section in
                     the report - regardless of its order in the XML.</p>
-                <p> </p></p><h3><span
-                                                                            id="clover-report-Chart"></span> &lt;chart&gt;
-            </h3>
+                <p> </p></p><h3><span id="clover-report-Chart"></span> &lt;chart&gt; </h3>
                 <p>A custom chart.
                 <p><strong>Parameters for &lt;chart&gt;</strong></p>
                 <div class="table-wrap">
@@ -1026,18 +953,15 @@
                 <p>The &lt;chart&gt; element can take arbitrary columns, but the format of each column can be only
                     'raw', or '%'. The supported columns are identical to <a href="ant--clover-report.html">columns in the &lt;current&gt;element</a>.
                     If no columns nested element is supplied, then the default columns from the &lt;coverage&gt; element
-                    are used.</p></p><h3><span
-                    id="clover-report-Coverage"></span> &lt;coverage&gt;</h3>
+                    are used.</p></p><h3><span id="clover-report-Coverage"></span> &lt;coverage&gt;</h3>
                 <ul>
-                    <li>Note that the 'include' attribute from Clover 2.0 has been replaced by the &lt;columns&gt;
-                        element.
+                    <li>Note that the 'include' attribute from Clover 2.0 has been replaced by the &lt;columns&gt; element.
                     </li>
                 </ul>
                 <p>Specifies a chart showing percentage coverage over time.</p>
                 <p>This element does not support any attributes. The default behavior is that everything is
                     included.</p>
-                <h3><span
-                                                                  id="clover-report-Format"></span> &lt;format&gt;</h3>
+                <h3><span id="clover-report-Format"></span> &lt;format&gt;</h3>
                 <p>Specifies the output format and various options controlling the rendering of a report.
                 <p><strong>Parameters for &lt;format&gt;</strong></p>
                 <div class="table-wrap">
@@ -1058,8 +982,7 @@
                         <tr>
                             <td><p>refid</p></td>
                             <td><p>The id of another format element that will be used for this
-                                report. See <a
-                                        href="ant--sharing-report-formats.html">Sharing
+                                report. See <a href="ant--sharing-report-formats.html">Sharing
                                     Report Formats</a>.</p></td>
                             <td><p>No.</p></td>
                         </tr>
@@ -1077,14 +1000,13 @@
                         <tr>
                             <td><p>orderBy</p></td>
                             <td><p>Specify how to order coverage tables. This attribute has no
-                                effect on XML format. Valid values are:  <br
-                                        class="atl-forced-newline"/> <code>Alpha</code> — Alpabetical. <br
-                                        class="atl-forced-newline"/> <code>PcCoveredAsc</code> — Percent total coverage,
-                                ascending.  <code>PcCoveredDesc</code> — Percent total
-                                coverage, descending.  <code>ElementsCoveredAsc</code> —
-                                Total elements covered, ascending.  <code>ElementsCoveredDesc</code>
-                                — Total elements covered, descending.  <code>ElementsUncoveredAsc</code>
-                                — Total elements uncovered, ascending.  <code>ElementsUncoveredDesc</code>
+                                effect on XML format. Valid values are: <br class="atl-forced-newline"/> <code>Alpha</code> — Alpabetical.
+                                <br class="atl-forced-newline"/> <code>PcCoveredAsc</code> — Percent total coverage,
+                                ascending. <code>PcCoveredDesc</code> — Percent total
+                                coverage, descending. <code>ElementsCoveredAsc</code> —
+                                Total elements covered, ascending. <code>ElementsCoveredDesc</code>
+                                — Total elements covered, descending. <code>ElementsUncoveredAsc</code>
+                                — Total elements uncovered, ascending. <code>ElementsUncoveredDesc</code>
                                 — Total elements uncovered, descending.</p></td>
                             <td><p>No; defaults to <code>PcCoveredAsc.</code></p></td>
                         </tr>
@@ -1103,8 +1025,7 @@
                         <tr>
                             <td><p>filter</p></td>
                             <td><p>comma or space separated list of contexts to exclude when
-                                generating coverage reports. See <a
-                                        href="ant--using-coverage-contexts.html">Using
+                                generating coverage reports. See <a href="ant--using-coverage-contexts.html">Using
                                     Coverage Contexts</a>.</p></td>
                             <td><p>No.</p></td>
                         </tr>
@@ -1142,11 +1063,9 @@
                         </tbody>
                     </table>
                 </div>
-                <p><strong><br/></strong></p></p><h3><span
-                    id="clover-report-Metrics"></span> &lt;metrics&gt;</h3>
+                <p><strong><br/></strong></p></p><h3><span id="clover-report-Metrics"></span> &lt;metrics&gt;</h3>
                 <ul>
-                    <li>Note that the 'include' attribute from Clover 2.0 has been replaced by the &lt;columns&gt;
-                        element.
+                    <li>Note that the 'include' attribute from Clover 2.0 has been replaced by the &lt;columns&gt; element.
                     </li>
                 </ul>
                 <p>Specifies a chart showing other metrics over time.</p>
@@ -1170,8 +1089,7 @@
                     </table>
                 </div>
                 <p>The default metrics included in the chart are <code>loc, ncloc, methods and classes.</code></p>
-                <h3><span
-                                                                  id="clover-report-Movers"></span> &lt;movers&gt;</h3>
+                <h3><span id="clover-report-Movers"></span> &lt;movers&gt;</h3>
                 <p>Specifies a table that shows those classes that have a coverage delta higher than a specified
                     threshold over a specified time period. This can be specified multiple times, to track project
                     movers over a given time frame, for example, weeks and months.
@@ -1199,10 +1117,8 @@
                         <tr>
                             <td><p>interval</p></td>
                             <td><p>The time interval over which the delta should be calculated
-                                (from the last history point). Uses the <a
-                                        href="ant--using-spans-specifying-an-interval.html">Interval</a>
-                                format. The range is automatically adjusted to the closest smaller interval available.
-                            </p></td>
+                                (from the last history point). Uses the <a href="ant--using-spans-specifying-an-interval.html">Interval</a>
+                                format. The range is automatically adjusted to the closest smaller interval available. </p></td>
                             <td><p>No; the default is to take the delta of the last two history
                                 points.</p></td>
                         </tr>
@@ -1213,13 +1129,11 @@
                     of &lt;movers&gt;</strong></p>
                 <p>The &lt;movers&gt; element can take a single <a href="ant--clover-report.html">column</a> element, allowing you to
                     add one additional metric to the data shown in &lt;movers&gt;.</p>
-                <p><span id="clover-report-movers-totalStatements"></span><br/> <strong>Example:
-                    &lt;totalStatements&gt;</strong></p>
+                <p><span id="clover-report-movers-totalStatements"></span><br/> <strong>Example: &lt;totalStatements&gt;</strong></p>
                 <p>You could add totalStatements to &lt;movers&gt; with the following code.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;movers&gt;
+<pre>&lt;movers&gt;
          &lt;columns&gt;
                    &lt;totalStatements/&gt;
          &lt;/columns&gt;
@@ -1227,10 +1141,9 @@
 </pre>
                     </div>
                 </div>
-                <p><img src="images/icons/emoticons/information.png"
-                        data-emoticon-name="information" alt="(info)"/> No more than one additional column can be added
-                    to &lt;movers&gt;.</p></p><h3><span
-                    id="clover-report-historical-overview"></span> &lt;overview&gt;</h3>
+                <p>
+                    <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> No more than one additional column can be added
+                    to &lt;movers&gt;.</p></p><h3><span id="clover-report-historical-overview"></span> &lt;overview&gt;</h3>
                 <p>Specifies a section that provides summary of the total percentage coverage at the last history point.
                     This element does not support any attributes.</p>
                 <h1 id="clover-report-Examples">Examples</h1>
@@ -1238,8 +1151,7 @@
                     configurations</h2>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-report&gt;
+<pre>&lt;clover-report&gt;
    &lt;current outfile=&quot;current.xml&quot;/&gt;
 &lt;/clover-report&gt;
 </pre>
@@ -1249,8 +1161,7 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-report&gt;
+<pre>&lt;clover-report&gt;
    &lt;current outfile=&quot;current.pdf&quot; summary=&quot;true&quot;&gt;
       &lt;format type=&quot;pdf&quot;/&gt;
    &lt;/current&gt;
@@ -1262,8 +1173,7 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;target name=&quot;report.json&quot; depends=&quot;with.clover&quot;&gt;
+<pre>&lt;target name=&quot;report.json&quot; depends=&quot;with.clover&quot;&gt;
 &lt;clover-report&gt;
    &lt;current outfile=&quot;clover_json&quot;&gt;
     &lt;format type=&quot;json&quot;/&gt;
@@ -1282,8 +1192,7 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-report&gt;
+<pre>&lt;clover-report&gt;
    &lt;current outfile=&quot;clover_html&quot; title=&quot;My Project&quot; summary=&quot;true&quot;&gt;
       &lt;format type=&quot;html&quot;/&gt;
    &lt;/current&gt;
@@ -1296,8 +1205,7 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >		&lt;clover-report&gt;
+<pre>		&lt;clover-report&gt;
 		  &lt;current outfile=&quot;report-current&quot; title=&quot;Coverage&quot;&gt;
 			&lt;fileset dir=&quot;src/main/java&quot;&gt;
 			  &lt;exclude name=&quot;**/*Blah.java&quot;/&gt;
@@ -1312,8 +1220,7 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-report&gt;
+<pre>&lt;clover-report&gt;
    &lt;current outfile=&quot;clover_html&quot; title=&quot;Util Coverage&quot;&gt;
       &lt;format type=&quot;html&quot; orderBy=&quot;ElementsCoveredAsc&quot;/&gt;
       &lt;testsources dir=&quot;src/test&quot; includes=&quot;\**/*.java&quot;/&gt;
@@ -1328,8 +1235,7 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-report&gt;
+<pre>&lt;clover-report&gt;
    &lt;current outfile=&quot;clover_html&quot; title=&quot;My Project&quot;&gt;
       &lt;format type=&quot;html&quot;/&gt;
       &lt;sourcepath&gt;
@@ -1340,13 +1246,11 @@
 </pre>
                     </div>
                 </div>
-                <p>Generates a source-level report in HTML. Clover will search for source files in the directory <code>/some/other/location</code>.
-                </p>
+                <p>Generates a source-level report in HTML. Clover will search for source files in the directory <code>/some/other/location</code>. </p>
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;tstamp&gt;
+<pre>&lt;tstamp&gt;
    &lt;format property=&quot;report.limit&quot; pattern=&quot;MM/dd/yyyy hh:mm aa&quot;
        offset=&quot;-1&quot; unit=&quot;month&quot;/&gt;
 &lt;/tstamp&gt;
@@ -1369,8 +1273,7 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-report&gt;
+<pre>&lt;clover-report&gt;
   &lt;current outfile=&quot;report-current&quot; title=&quot;Coverage&quot;&gt;
     &lt;fileset dir=&quot;src&quot;&gt;
       &lt;patternset refid=&quot;clover.files&quot;/&gt;
@@ -1387,13 +1290,11 @@
                     not removed the coverage database. It will prevent classes, currently in the database but now
                     excluded, from being included in the report. It is prudent, however, to delete the coverage
                     database, coverage information and recompile when you change these settings.</p>
-                <p>  <span
-                        id="clover-report-customisedColumnsExample"></span></p>
+                <p><span id="clover-report-customisedColumnsExample"></span></p>
                 <h2>Example of customizing columns</h2>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-report&gt;
+<pre>&lt;clover-report&gt;
    &lt;current outfile=&quot;report-current&quot; title=&quot;Coverage&quot;&gt;
       &lt;format type=&quot;html&quot;/&gt;
       &lt;columns&gt;
@@ -1408,14 +1309,12 @@
                 </div>
                 <p>Generates a HTML report that will only include a bar chart showing the percentage of methods covered,
                     the actual percentage of statements covered and the actual number of branches covered. If less than
-                    75% of methods are covered, those values will be highlighted.  <br
-                            class="atl-forced-newline"/> <span
-                                                               id="clover-report-linkedReportExample"></span></p>
+                    75% of methods are covered, those values will be highlighted. <br class="atl-forced-newline"/>
+                    <span id="clover-report-linkedReportExample"></span></p>
                 <h2>Example of linked reports</h2>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-report&gt;
+<pre>&lt;clover-report&gt;
       &lt;current outfile=&quot;report1&quot; title=&quot;Coverage Report 1&quot;&gt;
         &lt;format type=&quot;html&quot;/&gt;
         &lt;fileset dir=&quot;src&quot;&gt;
@@ -1433,15 +1332,13 @@
 </pre>
                     </div>
                 </div>
-                <p>Generates two HTML reports. Each of these reports will contain a link to the other. <br
-                        class="atl-forced-newline"/>  <span
-                        id="clover-report-historyReportExamples"></span></p>
+                <p>Generates two HTML reports. Each of these reports will contain a link to the other. <br class="atl-forced-newline"/>
+                    <span id="clover-report-historyReportExamples"></span></p>
                 <h2>Examples of Historical Report
                     Configurations</h2>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-report&gt;
+<pre>&lt;clover-report&gt;
    &lt;historical outfile=&quot;historical.pdf&quot;
                historyDir=&quot;clover_history&quot;&gt;
        &lt;format type=&quot;pdf&quot;/&gt;
@@ -1450,14 +1347,12 @@
 </pre>
                     </div>
                 </div>
-                <p>Generates a historical report in PDF. Assumes that &lt;<a href="ant--clover-historypoint.html">clover-historypoint</a>&gt;
-                    has generated more than one history file in the directory &quot;<code>clover_history</code>&quot;.
+                <p>Generates a historical report in PDF. Assumes that &lt;<a href="ant--clover-historypoint.html">clover-historypoint</a>&gt; has generated more than one history file in the directory &quot;<code>clover_history</code>&quot;.
                     Writes the output to the file specified in the <code>outfile</code> parameter.</p>
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-report&gt;
+<pre>&lt;clover-report&gt;
    &lt;historical outfile=&quot;two_months&quot; title=&quot;My Project&quot;
                from=&quot;020101&quot; to=&quot;020301&quot; dateFormat=&quot;yyMMdd&quot;
                historyDir=&quot;clover_history&quot;&gt;
@@ -1474,8 +1369,7 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-report&gt;
+<pre>&lt;clover-report&gt;
    &lt;historical outfile=&quot;report.pdf&quot; title=&quot;My Project&quot;
                historyDir=&quot;clover_history&quot;&gt;
       &lt;overview/&gt;
@@ -1492,10 +1386,10 @@
                     gainers and 20 losers.</p>
                 <p> </p>
                 <h1 id="clover-report-References">References</h1>
-                <h2 style="margin-left: 30.0px;" id="clover-report-ColumnNameReferenceTable"><a
-                        href="#clover-report-columnNames">Column Name Reference Table</a></h2>
-                <h2 style="margin-left: 30.0px;" id="clover-report-CloverExpressionLanguage"><a
-                        href="#clover-report-CloverEL">Clover Expression Language</a></h2>
+                <h2 style="margin-left: 30.0px;" id="clover-report-ColumnNameReferenceTable">
+                    <a href="#clover-report-columnNames">Column Name Reference Table</a></h2>
+                <h2 style="margin-left: 30.0px;" id="clover-report-CloverExpressionLanguage"><a href="#clover-report-CloverEL">Clover Expression Language</a>
+                </h2>
             </div>
 
 
@@ -1510,8 +1404,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

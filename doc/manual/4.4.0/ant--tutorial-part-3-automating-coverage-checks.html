@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.4 : Part 3 - Automating Coverage Checks</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,21 +39,23 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.4</a>
-</li>
+                        <a href="index.html">OpenClover 4.4</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="tutorials--index.html">Clover Tutorials</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="tutorials--ant-tutorial.html">Clover-for-Ant tutorial</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Part 3 - Automating Coverage Checks
-                        </span>
+                <span id="title-text">
+                    Part 3 - Automating Coverage Checks
+                </span>
             </h1>
         </div>
 
@@ -67,7 +68,7 @@
                     the specified coverage percentage is not met. It is easily integrated into your build system.</p>
                 <p><em>On this page:</em></p>
                 <p>
-                    <style type='text/css'>/*<![CDATA[*/
+                    <style type="text/css">/*<![CDATA[*/
                     div.rbtoc1491813745134 {
                         padding: 0px;
                     }
@@ -82,37 +83,37 @@
                         padding-left: 0px;
                     }
 
-                    /*]]>*/</style>
-                <div class='toc-macro rbtoc1491813745134'>
-                    <ul class='toc-indentation'>
-                        <li><a href='#Part3-AutomatingCoverageChecks-Validatingbuildsagainstcodecoverage'>Validating
+                    /*]]>*/
+                    </style>
+                <div class="toc-macro rbtoc1491813745134">
+                    <ul class="toc-indentation">
+                        <li><a href="#Part3-AutomatingCoverageChecks-Validatingbuildsagainstcodecoverage">Validating
                             builds against code coverage</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#Part3-AutomatingCoverageChecks-Addingcoveragechecking'>Adding coverage
+                            <ul class="toc-indentation">
+                                <li><a href="#Part3-AutomatingCoverageChecks-Addingcoveragechecking">Adding coverage
                                     checking</a></li>
-                                <li><a href='#Part3-AutomatingCoverageChecks-Failingthebuildifcoveragecriterianotmet'>Failing
+                                <li><a href="#Part3-AutomatingCoverageChecks-Failingthebuildifcoveragecriterianotmet">Failing
                                     the build if coverage criteria not met</a></li>
-                                <li><a href='#Part3-AutomatingCoverageChecks-Addingpackage-levelcoveragecriteria'>Adding
+                                <li><a href="#Part3-AutomatingCoverageChecks-Addingpackage-levelcoveragecriteria">Adding
                                     package-level coverage criteria</a></li>
-                                <li><a href='#Part3-AutomatingCoverageChecks-Contextfiltering'>Context filtering</a>
+                                <li><a href="#Part3-AutomatingCoverageChecks-Contextfiltering">Context filtering</a>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href='#Part3-AutomatingCoverageChecks-Nextsteps'>Next steps</a></li>
+                        <li><a href="#Part3-AutomatingCoverageChecks-Nextsteps">Next steps</a></li>
                     </ul>
                 </div>
                 </p><h1 id="Part3-AutomatingCoverageChecks-Validatingbuildsagainstcodecoverage">Validating builds
                 against code coverage</h1>
                 <h2>Adding coverage checking</h2>
                 <p>Ensure that you have current Clover coverage data so that you can check the coverage percentage for
-                    your project. Clover coverage data is generated as described in <a
-                            href="ant--tutorial-part-1-measuring-coverage.html">Part 1</a> of the Tutorial.</p>
+                    your project. Clover coverage data is generated as described in
+                    <a href="ant--tutorial-part-1-measuring-coverage.html">Part 1</a> of the Tutorial.</p>
                 <p>Add the <code>&lt;<a href="ant--clover-check.html">clover-check</a>&gt;</code> task to your build
                     by specifying a target similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;target name=&quot;clover.check&quot; depends=&quot;with.clover&quot;&gt;
+<pre>&lt;target name=&quot;clover.check&quot; depends=&quot;with.clover&quot;&gt;
     &lt;clover-check target=&quot;80%&quot;/&gt;
 &lt;/target&gt;
 </pre>
@@ -123,8 +124,7 @@
                     target coverage percentage, output will be similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >$ ant clover.check
+<pre>$ ant clover.check
 Buildfile: build.xml
 
 with.clover:
@@ -141,8 +141,7 @@ BUILD SUCCESSFUL
                     instead:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >$ ant clover.check
+<pre>$ ant clover.check
 Buildfile: build.xml
 
 with.clover:
@@ -168,8 +167,7 @@ BUILD SUCCESSFUL
                     <code>haltOnFailure</code> is <code>false</code>.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;target name=&quot;clover.check.haltonfail&quot; depends=&quot;with.clover&quot;&gt;
+<pre>&lt;target name=&quot;clover.check.haltonfail&quot; depends=&quot;with.clover&quot;&gt;
     &lt;clover-check target=&quot;80%&quot; haltOnFailure=&quot;true&quot;/&gt;
  &lt;/target&gt;
 </pre>
@@ -179,8 +177,7 @@ BUILD SUCCESSFUL
                     task allows you to set a specified property if the target of the project is not met:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;target name=&quot;clover.check.setproperty&quot; depends=&quot;with.clover&quot;&gt;
+<pre>&lt;target name=&quot;clover.check.setproperty&quot; depends=&quot;with.clover&quot;&gt;
     &lt;clover-check target=&quot;80%&quot; failureProperty=&quot;coverageFailed&quot;/&gt;
  &lt;/target&gt;
 </pre>
@@ -200,8 +197,7 @@ BUILD SUCCESSFUL
                     project. This is done by adding nested '<code>package</code>' elements like the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;target name=&quot;clover.check.packages&quot; depends=&quot;with.clover&quot;&gt;
+<pre>&lt;target name=&quot;clover.check.packages&quot; depends=&quot;with.clover&quot;&gt;
     &lt;clover-check target=&quot;80%&quot;&gt;
         &lt;package name=&quot;com.clover.example.one&quot; target=&quot;70%&quot;/&gt;
         &lt;package name=&quot;com.clover.example.two&quot; target=&quot;40%&quot;/&gt;
@@ -218,8 +214,7 @@ BUILD SUCCESSFUL
                     coverage calculations.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;target name=&quot;clover.check.nocatch&quot; depends &quot;with.clover&quot;&gt;
+<pre>&lt;target name=&quot;clover.check.nocatch&quot; depends &quot;with.clover&quot;&gt;
     &lt;clover-check target=&quot;80%&quot; filter=&quot;catch&quot;/&gt;
 &lt;/target&gt;
 </pre>
@@ -244,8 +239,7 @@ BUILD SUCCESSFUL
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

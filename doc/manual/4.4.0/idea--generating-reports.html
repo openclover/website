@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.4 : 6. Generating reports in IDEA</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,21 +39,23 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.4</a>
-</li>
+                        <a href="index.html">OpenClover 4.4</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="idea--overview.html">Clover-for-IDEA</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="idea--user-guide.html">Clover-for-IDEA User&#39;s Guide</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            6. Generating reports in IDEA
-                        </span>
+                <span id="title-text">
+                    6. Generating reports in IDEA
+                </span>
             </h1>
         </div>
 
@@ -62,7 +63,7 @@
 
             <div id="main-content">
                 <p>
-                    <style type='text/css'>/*<![CDATA[*/
+                    <style type="text/css">/*<![CDATA[*/
                     div.rbtoc1491813727836 {
                         padding: 0px;
                     }
@@ -77,23 +78,24 @@
                         padding-left: 0px;
                     }
 
-                    /*]]>*/</style>
-                <div class='toc-macro rbtoc1491813727836'>
-                    <ul class='toc-indentation'>
-                        <li><a href='#id-6.GeneratingreportsinIDEA-Introduction'>Introduction</a></li>
-                        <li><a href='#id-6.GeneratingreportsinIDEA-GeneratingaReport'>Generating a Report</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#id-6.GeneratingreportsinIDEA-SelectanOutputFormat'>Select an Output
+                    /*]]>*/
+                    </style>
+                <div class="toc-macro rbtoc1491813727836">
+                    <ul class="toc-indentation">
+                        <li><a href="#id-6.GeneratingreportsinIDEA-Introduction">Introduction</a></li>
+                        <li><a href="#id-6.GeneratingreportsinIDEA-GeneratingaReport">Generating a Report</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#id-6.GeneratingreportsinIDEA-SelectanOutputFormat">Select an Output
                                     Format</a></li>
-                                <li><a href='#id-6.GeneratingreportsinIDEA-ConfigureGeneralSettingsfortheReport'>Configure
+                                <li><a href="#id-6.GeneratingreportsinIDEA-ConfigureGeneralSettingsfortheReport">Configure
                                     General Settings for the Report</a></li>
-                                <li><a href='#id-6.GeneratingreportsinIDEA-Configurecontextfilters'>Configure context
+                                <li><a href="#id-6.GeneratingreportsinIDEA-Configurecontextfilters">Configure context
                                     filters</a></li>
-                                <li><a href='#id-6.GeneratingreportsinIDEA-FinalizetheReport'>Finalize the Report</a>
+                                <li><a href="#id-6.GeneratingreportsinIDEA-FinalizetheReport">Finalize the Report</a>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href='#id-6.GeneratingreportsinIDEA-OpeningtheGeneratedReport'>Opening the Generated
+                        <li><a href="#id-6.GeneratingreportsinIDEA-OpeningtheGeneratedReport">Opening the Generated
                             Report</a></li>
                     </ul>
                 </div>
@@ -106,18 +108,10 @@
                 <p>For your report, you can select an output format of HTML, PDF or XML. To select the desired output
                     format, click the corresponding radio button in the '<strong>Generate Coverage Report</strong>'
                     dialog and click '<strong>Next</strong>'. </p>
-                <p><span><img
-                                                                       src="attachments/300814884/301008097.png"
+                <p><span><img src="attachments/300814884/301008097.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <p> </p><h4>Configure General
                 Settings for the Report</h4>
@@ -172,34 +166,18 @@
                         </tbody>
                     </table>
                 </div>
-                <p><span><img
-                                                                       src="attachments/300814884/301008098.png"
+                <p><span><img src="attachments/300814884/301008098.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <p> </p><h4>Configure context filters</h4>
                 <p>Filter configuration page is only shown if you choose not to accept default filter settings. This
                     lets you select any of the predefined pre-defined filters.</p>
-                <p><span><img
-                                                                       src="attachments/300814884/301008099.png"
+                <p><span><img src="attachments/300814884/301008099.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <p> </p><h4>Finalize the Report</h4>
                 <p>Clicking '<strong>Finish</strong>' will start the report generation process. Progress will be
@@ -207,28 +185,16 @@
                 <h2>Opening the Generated Report</h2>
                 <p>When report generation is complete, a pop-up will display a location of generated report. You have to
                     open this report manually.</p>
-                <p><span><img
-                                                                       src="attachments/300814884/301008096.png"
+                <p><span><img src="attachments/300814884/301008096.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
-                <p><em>Sample PDF Report</em><br/> <span><img
-                        class="confluence-embedded-image confluence-content-image-border"
-                        src="attachments/180294939/187826188.png"
+                <p><em>Sample PDF Report</em><br/>
+                    <span><img class="confluence-embedded-image confluence-content-image-border" src="attachments/180294939/187826188.png"
 
 
-
-
-
-                        ></span></p>
+                    ></span></p>
                 <p> </p>
                 <hr/>
                 <p>Next chapter: <a href="idea--test-optimization.html">7. Test Optimization for
@@ -247,8 +213,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

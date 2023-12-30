@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.4 : Basic usage</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,21 +39,23 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.4</a>
-</li>
+                        <a href="index.html">OpenClover 4.4</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Basic usage
-                        </span>
+                <span id="title-text">
+                    Basic usage
+                </span>
             </h1>
         </div>
 
@@ -67,8 +68,7 @@
                     Clover by its short name <code>clover</code>.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;pluginGroups&gt;
+<pre>&lt;pluginGroups&gt;
     &lt;pluginGroup&gt;org.openclover&lt;/pluginGroup&gt;
 &lt;/pluginGroups&gt;</pre>
                     </div>
@@ -80,21 +80,19 @@
                     <div class="codeContent panelContent pdl">
                         <pre
 
-                            >mvn clean clover:setup test clover:aggregate clover:clover</pre>
+                        >mvn clean clover:setup test clover:aggregate clover:clover</pre>
                     </div>
                 </div>
                 <p> </p>
                 <h2>Installing Clover in pom.xml</h2>
-                <p>Install Clover-for-Maven by adding it to your Maven build file (<strong>pom.xml</strong>):
-                </p>
+                <p>Install Clover-for-Maven by adding it to your Maven build file (<strong>pom.xml</strong>): </p>
                 <ol>
                     <li><p>Set up your <strong>pom.xml</strong> by adding:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>pom.xml</b>
                             </div>
                             <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-    >&lt;build&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;build&gt;
     &lt;plugins&gt;
         &lt;plugin&gt;
             &lt;groupId&gt;org.openclover&lt;/groupId&gt;
@@ -106,17 +104,15 @@
 </pre>
                             </div>
                         </div>
-                        <p><img src="images/icons/emoticons/information.png"
-                                data-emoticon-name="information" alt="(info)"/> Either change
+                        <p><img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> Either change
                             <code>${clover.version}</code> to the current Clover version, or define a property in your
-                            pom.xml that sets this value.  <br
-                                    class="atl-forced-newline"/> </p></li>
+                            pom.xml that sets this value. <br class="atl-forced-newline"/></p></li>
                     <li><p>Now, simply <strong>invoke Clover with Maven</strong> on the command line.</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
                                 <pre
 
-                                    >mvn clean clover:setup test clover:aggregate clover:clover</pre>
+                                >mvn clean clover:setup test clover:aggregate clover:clover</pre>
                             </div>
                         </div>
                         <p>This will instrument your sources, build your project, run your tests and create a Clover
@@ -142,8 +138,7 @@
                 <p>To generate a Clover report when you run the <code>site</code> goal:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-    >&lt;project&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;project&gt;
   &lt;reporting&gt;
     &lt;plugins&gt;
       &lt;plugin&gt;
@@ -159,8 +154,7 @@
                 <p>To instrument your sources whenever you build:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-    >&lt;project&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;project&gt;
   &lt;build&gt;
     &lt;plugins&gt;
       &lt;plugin&gt;
@@ -184,8 +178,7 @@
                 <p>To include aggregation of child modules:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-    >&lt;project&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;project&gt;
 ...
   &lt;build&gt;
         &lt;plugins&gt;
@@ -219,8 +212,8 @@
                 <p> </p>
                 <h2>Using clover:setup vs
                     clover:instrument vs clover:instrument-test</h2>
-                <div class="confluence-information-macro confluence-information-macro-information"><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                <div class="confluence-information-macro confluence-information-macro-information">
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div><p>The <strong>clover:setup</strong> goal performs
                         instrumentation in the main build life cycle, therefore it's not recommended to use it together
                         with 'install' or 'deploy' goals (unless this is your intention). The benefit of this approach
@@ -232,8 +225,8 @@
                             fork a custom build life cycle and run it till the <em>&quot;verify&quot;</em> phase and
                             cause each Clover artifact to contain the <code>-clover</code> classifier. A drawback of
                             this approach is that the build and tests are performed twice.</p>
-                        <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
-                                data-emoticon-name="warning" alt="(warning)"/> This goal has one limitation - due to a
+                        <p>
+                            <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> This goal has one limitation - due to a
                             fact that Maven allows to have only one classifier for an artifact, the 'clover' suffix may
                             not be added if you use own classifiers. It means that it can happen that instrumented code
                             (e.g. myapp-1.0-tests-clover.jar) will be installed using its original name (e.g.
@@ -241,12 +234,10 @@
                             may help as it re-installs non-instrumented JARs at the end of the build.</p>
                         <p> </p>
                         <p>The <strong>clover:instrument-test</strong> goal also forks a custom build cycle, but runs it
-                            till the &quot;test&quot; phase. Thanks to this, instrumented artifacts are not installed.
-                        </p></div>
+                            till the &quot;test&quot; phase. Thanks to this, instrumented artifacts are not installed. </p></div>
                 </div>
                 <h2>How to manage instrumented code</h2>
-                <div><span
-                       ></span>
+                <div><span></span>
                     <div><p>As Clover integration produces instrumented
                         classes, we recommend to ensure that you do not install them to production (for instance: <em>'mvn
                             deploy'</em> to public repository, <em>'scp'</em> to an application server running on
@@ -291,8 +282,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>
