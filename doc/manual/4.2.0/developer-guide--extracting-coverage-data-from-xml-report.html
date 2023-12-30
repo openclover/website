@@ -64,7 +64,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h3 id="ExtractingCoverageDataprogrammatically-UsingXPathwithClover&#39;sXMLreports">Using XPath with
                     Clover's XML reports</h3>
                 <p>Clover's XML reports provide detailed coverage data in a format that is easy to access
@@ -74,32 +74,32 @@
                     following example XPath expressions show how to extract data from a Clover XML coverage report:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">/coverage/project/metrics[@statements]
+<pre
+    >/coverage/project/metrics[@statements]
 </pre>
                     </div>
                 </div>
                 <p>The above statement extracts the total number of statements in the project.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">/coverage/project/metrics[@coveredstatements]
+<pre
+    >/coverage/project/metrics[@coveredstatements]
 </pre>
                     </div>
                 </div>
                 <p>The above extracts the total number of covered statements in the project.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">/coverage/project/package[name=&#39;com.foo.bar&#39;]/metrics[@statements]
+<pre
+    >/coverage/project/package[name=&#39;com.foo.bar&#39;]/metrics[@statements]
 </pre>
                     </div>
                 </div>
                 <p>The above extracts the total number of statements in the package <code>com.foo.bar</code>.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">/coverage/project/package[name=&#39;com.foo.bar&#39;]/metrics[@coveredstatements]
+<pre
+    >/coverage/project/package[name=&#39;com.foo.bar&#39;]/metrics[@coveredstatements]
 </pre>
                     </div>
                 </div>
@@ -109,8 +109,8 @@
                     report: </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">import javax.xml.xpath.*;
+<pre
+    >import javax.xml.xpath.*;
 
 XPath xpath = XPathFactory.newInstance().newXPath();
 String stmtExpr = &quot;/coverage/project/metrics[@statements]&quot;;

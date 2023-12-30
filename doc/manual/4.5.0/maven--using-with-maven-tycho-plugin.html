@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h1 id="UsingCloverwithMavenTychoPlugin-Introduction">Introduction</h1>
                 <p>You cannot use direct integration of Tycho plugin with Clover using standard 'clover:setup' or
                     'clover:instrument' goals. The reason is Maven Tycho Plugin ignores Maven's source folders
@@ -161,8 +161,8 @@
                     non-java files as well.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;project default=&quot;instrument&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;project default=&quot;instrument&quot;&gt;
     &lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/clover.jar&quot;/&gt;
     &lt;property name=&quot;ant-contrib.jar&quot; location=&quot;${user.home}/ant-contrib-1.0b3.jar&quot;/&gt;
     &lt;property name=&quot;project.original.dir&quot; location=&quot;original_project&quot;/&gt;
@@ -236,8 +236,8 @@
                 <p>If necessary, add also Clover dependency to <em>tycho-surefire-plugin</em> as JVM argument.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;build&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;build&gt;
   &lt;plugins&gt;
     &lt;plugin&gt;
       &lt;groupId&gt;org.eclipse.tycho&lt;/groupId&gt;
@@ -271,8 +271,8 @@
                 </div>
                 <p> </p><h4 id="UsingCloverwithMavenTychoPlugin-Usage">Usage</h4>
                 <p>Directory layout:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>/original_project - Tycho project
     /pom.xml      - must contain &#39;org.openclover:clover&#39; dependency for build and runtime/test
     /module1
@@ -289,8 +289,8 @@
                     </div>
                 </div>
                 <p>Commands:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>ant instrument
 cd instr_project
 mvn install

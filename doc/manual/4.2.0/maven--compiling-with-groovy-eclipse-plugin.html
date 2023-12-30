@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h1 id="CompilingGroovywithGroovyEclipsePlugin-CompilingGroovywithGroovyEclipsePlugin">Compiling Groovy
                     with Groovy Eclipse Plugin</h1>
                 <p>There are several possible ways to configure Groovy Eclipse Plugin - see official <a
@@ -89,8 +89,8 @@
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Maven 3 pom.xml</b>
                     </div>
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
          xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
     &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
     &lt;groupId&gt;com.atlassian.samples&lt;/groupId&gt;
@@ -165,8 +165,8 @@
                 </div>
                 <p> </p>
                 <p>In the build log you'll find messages like:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>[INFO] --- groovy-eclipse-compiler:2.7.0-01:add-groovy-build-paths (default-add-groovy-build-paths)
 @ groovy-eclipse-plugin-maven3-sample ---
 [INFO] Adding /src/main/groovy to the list of source folders
@@ -180,8 +180,8 @@
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Maven 2 pom.xml</b>
                     </div>
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence"> &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    > &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
          xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
     &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
 
@@ -281,8 +281,8 @@
                 </div>
                 <p> </p>
                 <p>In the build log you'll find messages like:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>[INFO] [build-helper:add-source {execution: add-source}]
 [INFO] Source directory: c:\MyProject\src\main\groovy added.
 ...
@@ -299,8 +299,8 @@
                 </div>
                 <p> </p><h4 id="CompilingGroovywithGroovyEclipsePlugin-BuildCommand">Build Command</h4>
                 <p>Run your build with Clover using a following command (Maven 2 &amp; 3):</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>mvn clean clover:setup install clover:aggregate clover:clover</pre>
                     </div>
                 </div>
@@ -359,8 +359,8 @@
                 </ul>
                 <h2 id="CompilingGroovywithGroovyEclipsePlugin-Codesamples">Code samples</h2>
                 <p>Checkout sources of the clover-maven-plugin:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>git clone https://github.com/openclover/clover-maven-plugin.git</pre>
                     </div>
                 </div>

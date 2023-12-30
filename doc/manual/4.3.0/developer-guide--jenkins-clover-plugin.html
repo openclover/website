@@ -58,7 +58,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h2 style="margin-left: 0.0px;" id="JenkinsCloverPluginDeveloperGuide-Preconditions">Preconditions</h2>
                 <ul style="margin-left: 0.0px;">
                     <li style="margin-left: 0.0px;">You have GitHub account with SSH keys configured and the local SSH
@@ -69,8 +69,8 @@
                             <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
                                 <b>settings.xml</b></div>
                             <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;!-- user/password of your Jenkins account http://jenkins-ci.org/account --&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;!-- user/password of your Jenkins account http://jenkins-ci.org/account --&gt;
 &lt;server&gt;
     &lt;id&gt;maven.jenkins-ci.org&lt;/id&gt;
     &lt;username&gt;xxxxxx&lt;/username&gt; 
@@ -80,8 +80,8 @@
                         </div>
                     </li>
                     <li><p>Clone the repository from GitHub using SSH:</p>
-                        <div class="preformatted panel" style="border-width: 1px;">
-                            <div class="preformattedContent panelContent">
+                        <div style="border-width: 1px;">
+                            <div>
                                 <pre>git clone git@github.com:jenkinsci/clover-plugin.git jenkins-clover-plugin</pre>
                             </div>
                         </div>
@@ -121,8 +121,8 @@
                                                                               href="https://wiki.jenkins-ci.org/display/JENKINS/Hosting+Plugins#HostingPlugins-Releasingtojenkinsci.org"
                                                                               rel="nofollow">one
                     command</a><span>:</span></p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>mvn release:prepare release:perform</pre>
                     </div>
                 </div>

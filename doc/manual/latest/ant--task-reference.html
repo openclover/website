@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h1 id="id-6.AntTaskReference-InstallingtheCloverAntTasks">Installing the Clover Ant Tasks</h1>
                 <p>Clover provides a set of Ant tasks to make project integration easy. To make these tasks available in
                     your project build file, you need to:</p>
@@ -70,8 +70,8 @@
                     </p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;/path/to/clover.jar&quot;/&gt;
+<pre
+    >&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;/path/to/clover.jar&quot;/&gt;
 </pre>
                             </div>
                         </div>
@@ -83,78 +83,78 @@
                     Installation Options</a>.</p>
                 <h1 id="id-6.AntTaskReference-Thetasks">The tasks</h1>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;
+                            <td><p>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;
                             </p></td>
-                            <td class="confluenceTd"><p>Installs Clover as the Ant <code>build.compiler</code>. This
+                            <td><p>Installs Clover as the Ant <code>build.compiler</code>. This
                                 means that Clover will be invoked whenever the Ant <code>&lt;javac&gt;</code> is used,
                                 resulting in instrumented compilation.</p></td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd"><p>&lt;<a href="ant--clover-instr.html">clover-instr</a>&gt;
+                            <td colspan="1"><p>&lt;<a href="ant--clover-instr.html">clover-instr</a>&gt;
                             </p></td>
-                            <td colspan="1" class="confluenceTd"><p>Allows manual instrumentation of source files, for
+                            <td colspan="1"><p>Allows manual instrumentation of source files, for
                                 cases where the normal &lt;<code>clover-setup</code>&gt; integration approach can't be
                                 used.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-report.html">clover-report</a>&gt;
+                            <td><p>&lt;<a href="ant--clover-report.html">clover-report</a>&gt;
                             </p></td>
-                            <td class="confluenceTd"><p>Produces coverage reports in different formats.</p></td>
+                            <td><p>Produces coverage reports in different formats.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-html-report.html">clover-html-report</a>&gt;
+                            <td><p>&lt;<a href="ant--clover-html-report.html">clover-html-report</a>&gt;
                             </p></td>
-                            <td class="confluenceTd"><p>Generates a HTML report with default settings.</p></td>
+                            <td><p>Generates a HTML report with default settings.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>&lt;<a
+                            <td><p>&lt;<a
                                     href="ant--clover-pdf-report.html">clover-pdf-report</a>&gt;</p></td>
-                            <td class="confluenceTd"><p>Generates a PDF report with default settings.</p></td>
+                            <td><p>Generates a PDF report with default settings.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-historypoint.html">clover-historypoint</a>&gt;
+                            <td><p>&lt;<a href="ant--clover-historypoint.html">clover-historypoint</a>&gt;
                             </p></td>
-                            <td class="confluenceTd"><p>Records a coverage history point for use in historical coverage
+                            <td><p>Records a coverage history point for use in historical coverage
                                 reports.</p></td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">&lt;<a href="ant--clover-snapshot.html">clover-snapshot</a>&gt;
+                            <td colspan="1">&lt;<a href="ant--clover-snapshot.html">clover-snapshot</a>&gt;
                             </td>
-                            <td colspan="1" class="confluenceTd">Generates a snapshot file used to assist Clover in
+                            <td colspan="1">Generates a snapshot file used to assist Clover in
                                 optimizing the tests run in subsequent build.
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-merge.html">clover-merge</a>&gt;
+                            <td><p>&lt;<a href="ant--clover-merge.html">clover-merge</a>&gt;
                             </p></td>
-                            <td class="confluenceTd"><p>Merges several Clover databases into one, to allow for combined
+                            <td><p>Merges several Clover databases into one, to allow for combined
                                 reports to be generated.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-check.html">clover-check</a>&gt;
+                            <td><p>&lt;<a href="ant--clover-check.html">clover-check</a>&gt;
                             </p></td>
-                            <td class="confluenceTd"><p>Tests project/package code coverage against criteria, optionally
+                            <td><p>Tests project/package code coverage against criteria, optionally
                                 failing the build if the criteria are not met.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-log.html">clover-log</a>&gt;</p>
+                            <td><p>&lt;<a href="ant--clover-log.html">clover-log</a>&gt;</p>
                             </td>
-                            <td class="confluenceTd"><p>Reports coverage results to the console at various levels.</p>
+                            <td><p>Reports coverage results to the console at various levels.</p>
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-clean.html">clover-clean</a>&gt;
+                            <td><p>&lt;<a href="ant--clover-clean.html">clover-clean</a>&gt;
                             </p></td>
-                            <td class="confluenceTd"><p>Deletes the coverage database and/or associated coverage
+                            <td><p>Deletes the coverage database and/or associated coverage
                                 records.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>&lt;<a href="ant--clover-env.html">clover-env</a>&gt;</p>
+                            <td><p>&lt;<a href="ant--clover-env.html">clover-env</a>&gt;</p>
                             </td>
-                            <td class="confluenceTd"><p>This task imports several useful Ant targets that can help you
+                            <td><p>This task imports several useful Ant targets that can help you
                                 quickly integrate Clover into many common Ant builds.</p></td>
                         </tr>
                         </tbody>

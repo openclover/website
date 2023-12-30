@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h1 id="Configuringreports-ChoosingReportFormats">Choosing Report Formats</h1>
                 <p>The <code><a
                                 href="../../maven/4.3.0/clover-mojo.html"
@@ -79,8 +79,8 @@
                     to choose which report formats should be produced:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
   ...
   &lt;generatePdf&gt;true&lt;/generatePdf&gt;
   &lt;generateXml&gt;true&lt;/generateXml&gt;
@@ -105,8 +105,8 @@
                     <code>generateHistorical</code> element to your Clover plugin configuration:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
   ...
   &lt;generateHistorical&gt;true&lt;/generateHistorical&gt;
 &lt;/configuration&gt;
@@ -122,8 +122,8 @@
                     example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
   &lt;historyDir&gt;${user.home}/.clover/${project.groupId}-${project.artifactId}&lt;/historyDir&gt;
 &lt;/configuration&gt;
 </pre>
@@ -140,8 +140,8 @@
                     followed by the <a
                                        href="../../maven/4.3.0/clover-mojo.html"
                                        rel="nofollow">clover:clover</a> one. Example:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>mvn clean clover:setup test clover:aggregate clover:clover</pre>
                     </div>
                 </div>
@@ -154,8 +154,8 @@
                     be specified. The default report descriptor used by the <code>clover-maven-plugin</code> is:
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
 
     &lt;clover-format id=&quot;clover.format&quot; type=&quot;${type}&quot; orderBy=&quot;${orderBy}&quot; filter=&quot;${filter}&quot;/&gt;
     &lt;clover-setup initString=&quot;${cloverdb}&quot;/&gt;
@@ -211,16 +211,16 @@
                 <p>If stored on the file system, set this system property:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">-Dmaven.clover.reportDescriptor=/path/to/clover-report.xml
+<pre
+    >-Dmaven.clover.reportDescriptor=/path/to/clover-report.xml
 </pre>
                     </div>
                 </div>
                 <p>or specify this element:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;reportDescriptor&gt;/path/to/clover-report.xml&lt;/reportDescriptor&gt;
+<pre
+    >&lt;reportDescriptor&gt;/path/to/clover-report.xml&lt;/reportDescriptor&gt;
 </pre>
                     </div>
                 </div>
@@ -230,16 +230,16 @@
                     property:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">-Dmaven.clover.resolveReportDescriptor=true
+<pre
+    >-Dmaven.clover.resolveReportDescriptor=true
 </pre>
                     </div>
                 </div>
                 <p>or set this element:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;resolveReportDescriptor&gt;true&lt;/resolveReportDescriptor&gt;
+<pre
+    >&lt;resolveReportDescriptor&gt;true&lt;/resolveReportDescriptor&gt;
 </pre>
                     </div>
                 </div>
@@ -248,8 +248,8 @@
                     classifier. For example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">mvn deploy:deploy-file -DgroupId=my.group.id -DartifactId=my-artifact-id -Dversion=X.X -Dclassifier=clover-report \
+<pre
+    >mvn deploy:deploy-file -DgroupId=my.group.id -DartifactId=my-artifact-id -Dversion=X.X -Dclassifier=clover-report \
  -Dpackaging=xml -Dfile=/path/to/file -Durl=[url] -DrepositoryId=[id]
 </pre>
                     </div>

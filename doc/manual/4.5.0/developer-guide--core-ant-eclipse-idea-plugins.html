@@ -58,7 +58,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h2 id="CloverCore,Ant,EclipseandIDEAPluginsDeveloperGuide-Prerequisites">Prerequisites</h2>
                 <p>1. Install tools. Mandatory tools are:</p>
                 <ul>
@@ -84,8 +84,8 @@
                 </ul>
                 <p> </p>
                 <p>3. <span>Check out main Clover repository:</span></p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>git clone ssh://git@github.com/openclover/clover.git</pre>
                     </div>
                 </div>
@@ -94,8 +94,8 @@
                 <p><span>Open &lt;clover&gt;/build.properties and put proper paths.</span></p>
                 <p><span><br/></span></p>
                 <p><span>5. Download, repack and install third party libraries:</span></p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre># cd clover
 mvn install -f clover-core-libs/jarjar/pom.xml
 mvn install -Prepack -f clover-core-libs/pom.xml
@@ -104,8 +104,8 @@ mvn install -Prepack -f clover-idea/clover-jtreemap/pom.xml</pre>
                 </div>
                 <p> </p>
                 <p><span>6. Install Atlassian fork of KTreeMap library:</span></p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>git clone https://bitbucket.org/atlassian/ktreemap
 git checkout ktreemap-1.1.0-atlassian-01
 mvn install</pre>
@@ -115,26 +115,26 @@ mvn install</pre>
                 <h3 id="CloverCore,Ant,EclipseandIDEAPluginsDeveloperGuide-Buildingfromacommandline">Building from a
                     command line</h3>
                 <p>To compile application code:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>ant global.build</pre>
                     </div>
                 </div>
                 <p>To run tests:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>ant global.test</pre>
                     </div>
                 </div>
                 <p>To create Clover-for-Ant, Clover-for-IDEA and Clover-for-Eclipse packages:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>ant clover-ant.pkg clover-idea.pkg clover-eclipse.pkg</pre>
                     </div>
                 </div>
                 <p>To install Clover Core in .m2/repository:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>ant clover-ant.mvn.install</pre>
                     </div>
                 </div>
@@ -166,8 +166,8 @@ mvn install</pre>
                 </ol>
                 <h2 id="CloverCore,Ant,EclipseandIDEAPluginsDeveloperGuide-Releaseandpublish">Release and publish</h2>
                 <p>To create a snapshot version of Clover Core as well as plugins for Ant, Eclipse and IDEA:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>ant global.clean clover-ant.pkg clover-idea.pkg clover-eclipse.pkg</pre>
                     </div>
                 </div>
@@ -180,8 +180,8 @@ mvn install</pre>
                         the database has changed)</p></li>
                     <li>run a command </li>
                 </ol>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>ant global.clean mvn.versioncheck prod.mvn.setup clover-ant.prod clover-idea.prod clover-eclipse.prod -Dclover.prod.build=true -Dpath.to.mvn=/path/to/apache-maven-3.6.3/bin/mvn</pre>
                     </div>
                 </div>

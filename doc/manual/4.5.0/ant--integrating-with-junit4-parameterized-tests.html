@@ -64,7 +64,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h1 id="IntegratingCloverwithJUnit4ParameterizedTests-Introduction">Introduction</h1>
                 <p>JUnit4 framework version <strong>4.10</strong> has introduced a feature which allows to run the same
                     test multiple times, using different data as input.</p>
@@ -82,8 +82,8 @@
                 <p>For example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">@RunWith(Parameterized.class)
+<pre
+    >@RunWith(Parameterized.class)
 public class PersonTest {
     @Parameterized.Parameters(name = &quot;{0} is a {1} [{index}]&quot;)
     public static Collection&lt;Object[]&gt; data() {
@@ -159,8 +159,8 @@ public class PersonTest {
                 <p>Example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">import org.junit.runner.JUnitCore;
+<pre
+    >import org.junit.runner.JUnitCore;
 import com.atlassian.clover.recorder.junit.JUnitTestRunnerInterceptor;
 
 public class RunJUnit4WithClover {

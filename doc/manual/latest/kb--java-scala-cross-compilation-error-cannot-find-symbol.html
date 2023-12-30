@@ -59,12 +59,12 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h4 id="Java-Scalacross-compilationerror-cannotfindsymbol-Symptoms">Symptoms</h4>
                 <p>Running Clover with mixed Java-Scala project having cross-dependencies between Java and Scala
                     classes, results in compiler complaining about missing Scala classes:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>[ERROR] /project/target/clover/src-instrumented/test/java/HelloJavaWorld.java:3: error: package test.scala does not exist
 [ERROR] import test.scala.HelloScalaProvider;
 [ERROR]                  ^
@@ -78,8 +78,8 @@
                 </div>
                 <h4 id="Java-Scalacross-compilationerror-cannotfindsymbol-Cause">Cause</h4>
                 <p>Typically, project structure looks like this:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>project/
     src/
         main/
@@ -110,8 +110,8 @@
                     Example: </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;build&gt;
+<pre
+    >&lt;build&gt;
   &lt;plugins&gt;
 	&lt;plugin&gt;
     	&lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;

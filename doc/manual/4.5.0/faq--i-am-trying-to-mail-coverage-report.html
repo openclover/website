@@ -59,13 +59,13 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p><strong>Q: I'm trying to get a coverage report mailed to the team as shown in your example, but I
                     keep getting &quot;[mail] Failed to send email&quot;. How do I fix this?</strong><br/>
                     The Ant <code>&lt;mail&gt;</code> task depends on external libraries that are not included in the
                     Ant distribution. You need to install the following jars in ANT_HOME/lib, both freely available from
                     Sun:
-                    <br class="atl-forced-newline"/></p>
+                    </p>
                 <ol>
                     <li><code>mail.jar</code> — from the JavaMail API</li>
                     <li><code>activation.jar</code> — from the JavaBeans Activation Framework</li>
@@ -74,8 +74,8 @@
 
                 <p>You should also check the details of your local SMTP server with your system administrator. It may
                     help to specify these details directly to the <code>&lt;mail&gt;</code> task:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>&lt;mail mailhost=&quot;smtp.myisp.com&quot; mailport=&quot;25&quot; from=&quot;build@example.com&quot;
 tolist=&quot;team@example.com&quot;  subject=&quot;coverage criteria not met&quot;
 message=&quot;$
@@ -84,7 +84,7 @@ message=&quot;$
 </pre>
                     </div>
                 </div>
-                <p><br class="atl-forced-newline"/></p>
+                <p></p>
             </div>
 
 

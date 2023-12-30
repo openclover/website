@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>Define a <code>setuptask</code> 'closure' in your <code>clover</code> {} code block to configure
                     advanced options for your Groovy project's build processes. Here, you can define various attributes
                     and elements of the <a href="ant--clover-setup.html">clover-setup</a> task.</p>
@@ -87,8 +87,8 @@
                 Example: using custom clover.db location and set of files to be instrumented</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">clover {
+<pre
+    >clover {
     // Example setuptask closure that will be invoked to configure clover.
     // Any Clover initialisation tasks should be defined here.
     // All attributes on the ant clover-setup task, which are
@@ -106,8 +106,8 @@
                 distributed coverage</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
-     data-theme="Confluence">clover {
+<pre
+    >clover {
     setuptask = { ant, binding, plugin -&gt; 
         ant.&#39;clover-setup&#39;(initstring: &quot;${binding.projectWorkDir}/clover/db/clover.db&quot;, 
                        tmpDir: &quot;${binding.projectWorkDir}/clover/tmp&quot;) {
@@ -125,8 +125,8 @@
                             href="ant--coverage-recorders.html">Coverage Recorders</a></span> for more details.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
-     data-theme="Confluence">clover {
+<pre
+    >clover {
     setuptask = { ant, binding, plugin -&gt; 
         ant.delete(dir: &quot;target/clover/db&quot;)
         ant.delete(dir: &quot;target/clover/tmp&quot;)

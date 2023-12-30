@@ -58,13 +58,13 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h3 id="NoClassDefFoundErrorcom_atlassian_clover/CoverageRecorder-Symptoms">Symptoms</h3>
                 <p>During execution of tests or application a following message appears:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">FATAL ERROR: Clover could not be initialised. Are you sure you have Clover in the runtime classpath?
+<pre
+    >FATAL ERROR: Clover could not be initialised. Are you sure you have Clover in the runtime classpath?
 ...
  (class java.lang.NoClassDefFoundError:com_atlassian_clover/CoverageRecorder)
 or
@@ -77,8 +77,8 @@ or
                     ...)</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;stack trace describing that initialization of some class has failed or that some field is null followed by&gt;
+<pre
+    >&lt;stack trace describing that initialization of some class has failed or that some field is null followed by&gt;
   ...
 Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer     &lt;or other clover class&gt;</pre>
                     </div>
@@ -137,8 +137,8 @@ Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer
                 <p>Add clover.jar to runtime classpath for forked junit tests, for instance:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;junit fork=&quot;yes&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;junit fork=&quot;yes&quot;&gt;
   &lt;classpath&gt;
     &lt;pathelement location=&quot;/path/to/clover.jar&quot;/&gt;
     &lt;pathelement path=&quot;/path/to/other/application.jars&quot;/&gt;
@@ -159,8 +159,8 @@ Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer
                     <span class="nolink">folder /src/it/webapp</span></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">...
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >...
 &lt;plugin&gt;
     &lt;groupId&gt;org.codehaus.cargo&lt;/groupId&gt;
     &lt;artifactId&gt;cargo-maven2-plugin&lt;/artifactId&gt;
@@ -225,8 +225,8 @@ Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer
                     problem - exact syntax depends on the plug-in:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;!-- usually under the &lt;configuration&gt; / &lt;dependencies&gt; section - depends on a plug-in --&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;!-- usually under the &lt;configuration&gt; / &lt;dependencies&gt; section - depends on a plug-in --&gt;
 &lt;dependency&gt;
 	&lt;groupId&gt;org.openclover&lt;/groupId&gt;
 	&lt;artifactId&gt;clover&lt;/artifactId&gt;

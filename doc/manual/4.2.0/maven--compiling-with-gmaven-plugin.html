@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h1 id="CompilingGroovywithGMavenplugin-ConfiguringtheGMavenPluginforGroovySupportinMaven2and3">
                     Configuring the GMaven Plugin for Groovy Support in Maven</h1>
                 <p>If you are using Clover-for-Maven on Groovy code, you would typically need to define a <code>plugin</code>
@@ -75,8 +75,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;properties&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;properties&gt;
   &lt;groovy.version&gt;1.8.8&lt;/groovy.version&gt;
   &lt;gmaven.version&gt;1.5&lt;/gmaven.version&gt;
 &lt;/properties&gt;
@@ -126,8 +126,8 @@
                 <p>Use the <strong>clover:setup </strong>goal for Clover instrumentation in case you have generateStubs
                     or generateTestStubs goal declared in GMaven plugin configuration.</p>
                 <p>In case you use clover:instrument a build will fail with an error message like:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>org.apache.maven.BuildFailureException: Compilation failure
 ... error: duplicate class: com.acme.MyClass</pre>
                     </div>

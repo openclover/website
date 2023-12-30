@@ -61,13 +61,13 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h2 id="DebuggingClover-DebuggingAntplugin">Debugging Ant plugin</h2>
                 <ol>
                     <li>Create &quot;Remote&quot; run configuration in IDEA.</li>
                     <li><p>Export ANT_OPTS, e.g.:</p>
-                        <div class="preformatted panel" style="border-width: 1px;">
-                            <div class="preformattedContent panelContent">
+                        <div style="border-width: 1px;">
+                            <div>
                                 <pre>export ANT_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005</pre>
                             </div>
                         </div>
@@ -78,8 +78,8 @@
                 <ol>
                     <li>Create &quot;Remote&quot; run configuration in IDEA.</li>
                     <li><p>Export MAVEN_OPTS, e.g.:</p>
-                        <div class="preformatted panel" style="border-width: 1px;">
-                            <div class="preformattedContent panelContent">
+                        <div style="border-width: 1px;">
+                            <div>
                                 <pre>export MAVEN_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005</pre>
                             </div>
                         </div>
@@ -91,8 +91,8 @@
                     <li>Create &quot;Remote&quot; run configuration in IDEA.</li>
                     <li><p>Edit <em>eclipse.ini</em> and add options for remote debugging <strong>after</strong> the
                         <em>&quot;-vmargs&quot;</em> flag, e.g.:</p>
-                        <div class="preformatted panel" style="border-width: 1px;">
-                            <div class="preformattedContent panelContent">
+                        <div style="border-width: 1px;">
+                            <div>
 <pre>-startup
 [...]
 -vmargs
@@ -122,8 +122,8 @@
                         in IDEA instance being debugged:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">Error:Internal error: (java.lang.ClassNotFoundException) clover.com.google.common.collect.Lists
+<pre
+    >Error:Internal error: (java.lang.ClassNotFoundException) clover.com.google.common.collect.Lists
 java.lang.ClassNotFoundException: clover.com.google.common.collect.Lists
 	at java.net.URLClassLoader$1.run(URLClassLoader.java:202)
 	at java.security.AccessController.doPrivileged(Native Method)
@@ -152,8 +152,8 @@ java.lang.ClassNotFoundException: clover.com.google.common.collect.Lists
                     <li>Create &quot;Remote&quot; run configuration in IDEA.</li>
                     <li><p>Edit <em>idea64.vmoptions</em> (or <em>idea.vmoptions</em>) of your test IDEA instance and
                         add options for remote debugging, e.g.:</p>
-                        <div class="preformatted panel" style="border-width: 1px;">
-                            <div class="preformattedContent panelContent">
+                        <div style="border-width: 1px;">
+                            <div>
 <pre>-Xms128m
 -Xmx750m
 -XX:ReservedCodeCacheSize=240m
@@ -165,8 +165,8 @@ java.lang.ClassNotFoundException: clover.com.google.common.collect.Lists
                     <li><p>Run test IDEA instance. Attach remote debugger in developer IDEA.</p></li>
                     <li><p>In case you would like to debug the external build process (which is launched by IDEA), then
                         add the following option to the <em>idea.properties</em> file:</p>
-                        <div class="preformatted panel" style="border-width: 1px;">
-                            <div class="preformattedContent panelContent">
+                        <div style="border-width: 1px;">
+                            <div>
                                 <pre>-Dcompiler.process.debug.port=5006</pre>
                             </div>
                         </div>

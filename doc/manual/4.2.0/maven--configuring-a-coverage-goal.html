@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h2 id="Configuringacoveragegoal-Settingcoveragethresholdasaqualitygate">Setting coverage threshold as a
                     quality gate</h2>
                 <p>You can check that your test coverage has reached a certain threshold, and fail the build if it has
@@ -69,8 +69,8 @@
                     <code>pom.xml</code>:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
   ...
   &lt;targetPercentage&gt;75%&lt;/targetPercentage&gt;
   ...

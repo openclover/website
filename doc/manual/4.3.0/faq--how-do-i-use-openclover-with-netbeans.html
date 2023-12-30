@@ -58,7 +58,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>Clover can be used with NetBeans 6.1 by integrating Clover for Ant into your NetBeans project build,
                     which is Ant-based. This integration will allow seamless instrumentation, test execution and
                     hard-copy coverage report generation from within NetBeans.</p>
@@ -93,8 +93,8 @@
                     build</h3>
 
                 <p>4.1 Add the following to the project <code>build.xml</code> (go to Files view and edit this file)</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>&lt;target name=&quot;-pre-init&quot; depends=&quot;with.clover&quot;/&gt;
 &lt;target name=&quot;-post-clean&quot; depends=&quot;clover.clean&quot;/&gt;
 

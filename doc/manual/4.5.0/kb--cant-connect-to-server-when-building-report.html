@@ -59,14 +59,14 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h4 id="Can&#39;tconnecttowindowserver-notenoughpermissionsthrownwhenbuildingcloverreport.-Symptoms">
                     Symptoms</h4>
                 <p>Generation of Clover report ends with a following error:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence"
-     data-theme="Confluence">clover.report:
+<pre data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence"
+    >clover.report:
 [clover-report] Clover Version 3.1.6, built on June 19 2012 (build-867)
 [clover-report] Loaded from: /home/alice/clover.jar
 [clover-report] Clover: Developer License registered to Atlassian.
@@ -88,8 +88,8 @@ at com.atlassian.clover.reporters.CloverReporter.execute(CloverReporter.java:41)
                 <p>Typical messages:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">java.lang.InternalError: Can&#39;t connect to window server - not enough permissions
+<pre
+    >java.lang.InternalError: Can&#39;t connect to window server - not enough permissions
 java.lang.InternalError: Can&#39;t connect to X11 window server using &#39;SOME_HOST_NAME&#39; as the value of the DISPLAY variable
 java.lang.InternalError: Can&#39;t connect to X11 window server using &#39;&#39; as the value of the DISPLAY variable </pre>
                     </div>
@@ -109,8 +109,8 @@ java.lang.InternalError: Can&#39;t connect to X11 window server using &#39;&#39;
                     to VM launch parameters, this tells AWT to use headless mode:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">export ANT_OPTS=-Djava.awt.headless=true
+<pre
+    >export ANT_OPTS=-Djava.awt.headless=true
 </pre>
                     </div>
                 </div>

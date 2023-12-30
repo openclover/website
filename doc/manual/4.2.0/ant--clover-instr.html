@@ -64,7 +64,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h1 id="clover-instr-Description">Description</h1>
                 <p>The <code>&lt;clover-instr&gt;</code> task produces instrumented versions of sets of Java source
                     files. These can then be compiled in place of the original source to produce an instrumented Java
@@ -97,69 +97,69 @@
                 </div>
                 <h1 id="clover-instr-Parameters">Parameters</h1>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>destdir</p></td>
-                            <td class="confluenceTd"><p>The directory into which Clover will write an instrumented copy
+                            <td><p>destdir</p></td>
+                            <td><p>The directory into which Clover will write an instrumented copy
                                 of the source code.</p></td>
-                            <td class="confluenceTd"><p>Yes.</p></td>
+                            <td><p>Yes.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>initstring</p></td>
-                            <td class="confluenceTd"><p>The Clover initString describes the location of the Clover
+                            <td><p>initstring</p></td>
+                            <td><p>The Clover initString describes the location of the Clover
                                 coverage database. Typically this is a relative or absolute file reference, e.g. <code>${basedir}/build/clover.db</code>.
                                 If not specified it defaults to <code>.clover</code>, relative to the project's base
                                 directory.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>flushinterval</p></td>
-                            <td class="confluenceTd"><p>When the flushpolicy is set to interval or threaded this value
+                            <td><p>flushinterval</p></td>
+                            <td><p>When the flushpolicy is set to interval or threaded this value
                                 is the minimum period between flush operations (in milliseconds).</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>flushpolicy</p></td>
-                            <td class="confluenceTd"><p>This attribute controls how Clover flushes coverage data during
+                            <td><p>flushpolicy</p></td>
+                            <td><p>This attribute controls how Clover flushes coverage data during
                                 a test run. Valid values are <code>directed</code>, <code>interval</code> or <code>threaded</code>.
-                                <br class="atl-forced-newline"/> <br class="atl-forced-newline"/> <code>directed</code>
+                                  <code>directed</code>
                                 — Coverage data is flushed at JVM shutdown, and after an inline flush directive. <br
-                                        class="atl-forced-newline"/> <br class="atl-forced-newline"/>
+                                        class="atl-forced-newline"/>
                                 <code>interval</code> — Coverage data is flushed as for <code>directed</code>, as well
                                 as periodically at a maximum rate based on the value of <code>flushinterval</code>. This
                                 is a 'passive' mode in that flushing potentially occurs as long as instrumented code is
-                                being executed. <br class="atl-forced-newline"/> <br class="atl-forced-newline"/> <code>threaded</code>
+                                being executed.   <code>threaded</code>
                                 — Coverage data is flushed as for <code>directed</code>, as well as periodically at a
                                 rate based on the value of <code>flushinterval</code>. This is an 'active' mode in that
                                 flushing occurs on a separate thread and is not dependent on the execution of
-                                instrumented code. <br class="atl-forced-newline"/> <br class="atl-forced-newline"/> For
+                                instrumented code.   For
                                 more information, see <a href="ant--flush-policy.html">Using a Flush
                                     Policy</a>.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to <code>directed</code>.</p></td>
+                            <td><p>No; defaults to <code>directed</code>.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>fullyQualifyJavaLang</p></td>
-                            <td class="confluenceTd"><p>This should only be set to '<code>false</code>' if you have
+                            <td><p>fullyQualifyJavaLang</p></td>
+                            <td><p>This should only be set to '<code>false</code>' if you have
                                 defined a variable called 'java' in your source files. If false, Clover will instrument
                                 source files without using fully qualified java.lang names.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to '<code>true</code>'.</p></td>
+                            <td><p>No; defaults to '<code>true</code>'.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>instrumentationLevel</p></td>
-                            <td class="confluenceTd"><p>This setting can reduce accuracy to method level, to enhance the
+                            <td><p>instrumentationLevel</p></td>
+                            <td><p>This setting can reduce accuracy to method level, to enhance the
                                 speed of instrumentation, compilation &amp; test execution. Valid values are 'method'
                                 and 'statement'.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to <code>statement</code>.</p></td>
+                            <td><p>No; defaults to <code>statement</code>.</p></td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">instrumentLambda</td>
-                            <td colspan="1" class="confluenceTd"><p><strong>Since 3.2.2.</strong> Whether Java 8 lambda
+                            <td colspan="1">instrumentLambda</td>
+                            <td colspan="1"><p><strong>Since 3.2.2.</strong> Whether Java 8 lambda
                                 functions shall be instrumented. If instrumented, they're treated like normal methods
                                 (and can be shown in HTML report and considered in code metrics, for example). Possible
                                 values:</p>
@@ -181,37 +181,37 @@
                                     expression-like form (i.e. use the <em>none</em> or <em>block</em> setting). See the
                                     <a href="kb--java-8-code-instrumented-by-clover-fails-to-compile.html">
                                         Java 8 code instrumented by Clover fails to compile</a> article for more details.</p></td>
-                            <td colspan="1" class="confluenceTd">No; defaults to &quot;all&quot; in 3.2.2-4.0.2 and to
+                            <td colspan="1">No; defaults to &quot;all&quot; in 3.2.2-4.0.2 and to
                                 &quot;none&quot; since 4.0.3.
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>recordTestResults</p></td>
-                            <td class="confluenceTd"><p>If set to '<code>false</code>', test results will not be
+                            <td><p>recordTestResults</p></td>
+                            <td><p>If set to '<code>false</code>', test results will not be
                                 recorded; instead, results can be added via the <code>&lt;testResults&gt;</code> fileset
                                 at report time. For more details please see '<a
                                         href="ant--test-results-and-per-test-coverage.html">Advanced Usage</a>'.
                             </p></td>
-                            <td class="confluenceTd"><p>No; defaults to '<code>true</code>'. </p></td>
+                            <td><p>No; defaults to '<code>true</code>'. </p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>relative</p></td>
-                            <td class="confluenceTd"><p>This controls whether the <code>initstring</code> parameter is
+                            <td><p>relative</p></td>
+                            <td><p>This controls whether the <code>initstring</code> parameter is
                                 treated as a relative path or not.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to '<code>false</code>'.</p></td>
+                            <td><p>No; defaults to '<code>false</code>'.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>srcdir</p></td>
-                            <td class="confluenceTd"><p>The directory of source code to instrument.</p></td>
-                            <td class="confluenceTd"><p>Yes, unless a nested <a href="ant--clover-instr.html">clover-instr</a>
+                            <td><p>srcdir</p></td>
+                            <td><p>The directory of source code to instrument.</p></td>
+                            <td><p>Yes, unless a nested <a href="ant--clover-instr.html">clover-instr</a>
                                 element is used.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>source</p></td>
-                            <td class="confluenceTd"><p>The source level to process source files at. <strong>It is
+                            <td><p>source</p></td>
+                            <td><p>The source level to process source files at. <strong>It is
                                 recommended that you set this parameter, either here or on</strong> <code><strong>&lt;javac&gt;</strong></code>
                                 <strong>invocations.</strong></p></td>
-                            <td class="confluenceTd"><p>No; defaults to the Java version detected at runtime.</p></td>
+                            <td><p>No; defaults to the Java version detected at runtime.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -225,45 +225,45 @@
                                                                                              rel="nofollow">Java Virtual
                         Machine</a>).</p><h5 id="clover-instr-Parameters.1">Parameters</h5>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p>Attribute name</p></th>
-                            <th class="confluenceTh"><p>Description</p></th>
-                            <th class="confluenceTh"><p>Required</p></th>
+                            <th><p>Attribute name</p></th>
+                            <th><p>Description</p></th>
+                            <th><p>Required</p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>name</p></td>
-                            <td class="confluenceTd"><p>The name of this configuration.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to '<code>tcp-config</code>'</p></td>
+                            <td><p>name</p></td>
+                            <td><p>The name of this configuration.</p></td>
+                            <td><p>No; defaults to '<code>tcp-config</code>'</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>port</p></td>
-                            <td class="confluenceTd"><p>The port the test JVM should listen on.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to '<code>1198</code>'</p></td>
+                            <td><p>port</p></td>
+                            <td><p>The port the test JVM should listen on.</p></td>
+                            <td><p>No; defaults to '<code>1198</code>'</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>host</p></td>
-                            <td class="confluenceTd"><p>The hostname the test JVM should bind to.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to '<code>localhost</code>'</p></td>
+                            <td><p>host</p></td>
+                            <td><p>The hostname the test JVM should bind to.</p></td>
+                            <td><p>No; defaults to '<code>localhost</code>'</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>timeout</p></td>
-                            <td class="confluenceTd"><p>(a number) The amount of time (in milliseconds) to wait before a
+                            <td><p>timeout</p></td>
+                            <td><p>(a number) The amount of time (in milliseconds) to wait before a
                                 connection attempt will fail.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to '<code>5000</code>'</p></td>
+                            <td><p>No; defaults to '<code>5000</code>'</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>numClients</p></td>
-                            <td class="confluenceTd"><p>(a number) The number of clients that need to connect to the
+                            <td><p>numClients</p></td>
+                            <td><p>(a number) The number of clients that need to connect to the
                                 test server before the tests will continue.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to '<code>0</code>'</p></td>
+                            <td><p>No; defaults to '<code>0</code>'</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>retryPeriod</p></td>
-                            <td class="confluenceTd"><p>(a number) The amount of time (in milliseconds) to wait before
+                            <td><p>retryPeriod</p></td>
+                            <td><p>(a number) The amount of time (in milliseconds) to wait before
                                 attempting to reconnect in the event of a network failure.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to '<code>1000</code>'</p></td>
+                            <td><p>No; defaults to '<code>1000</code>'</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -283,66 +283,66 @@
                         Coverage Contexts</a> for more information.</p><h5 id="clover-instr-Parameters.2">
                     Parameters</h5>
                     <div class="table-wrap">
-                        <table class="confluenceTable">
+                        <table>
                             <tbody>
                             <tr>
-                                <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                                <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                                <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                                <th><p><strong>Attribute</strong></p></th>
+                                <th><p><strong>Description</strong></p></th>
+                                <th><p><strong>Required</strong></p></th>
                             </tr>
                             <tr>
-                                <td class="confluenceTd"><p>name</p></td>
-                                <td class="confluenceTd"><p>The name for this context. Must be unique, and not be one of
+                                <td><p>name</p></td>
+                                <td><p>The name for this context. Must be unique, and not be one of
                                     the reserved context names (see <a
                                             href="ant--using-coverage-contexts.html">Using
                                         Coverage Contexts</a>).</p></td>
-                                <td class="confluenceTd"><p>Yes.</p></td>
+                                <td><p>Yes.</p></td>
                             </tr>
                             <tr>
-                                <td class="confluenceTd"><p>regexp</p></td>
-                                <td class="confluenceTd"><p>A Perl 5 Regexp that defines the context. This regexp should
+                                <td><p>regexp</p></td>
+                                <td><p>A Perl 5 Regexp that defines the context. This regexp should
                                     match the method signatures of methods you wish to include in this context. Note
                                     that when method signatures are tested against this regexp, whitespace is normalized
                                     and comments are ignored.</p></td>
-                                <td class="confluenceTd"><p>Yes.</p></td>
+                                <td><p>Yes.</p></td>
                             </tr>
                             <tr>
-                                <td colspan="1" class="confluenceTd">maxComplexity</td>
-                                <td colspan="1" class="confluenceTd">Match a method to this pattern if its cyclomatic
+                                <td colspan="1">maxComplexity</td>
+                                <td colspan="1">Match a method to this pattern if its cyclomatic
                                     complexity is not greater than maxComplexity. In other words - all methods with
                                     complexity &lt;= maxComplexity will be filtered out.
                                 </td>
-                                <td colspan="1" class="confluenceTd">No.</td>
+                                <td colspan="1">No.</td>
                             </tr>
                             <tr>
-                                <td class="confluenceTd">maxStatements</td>
-                                <td class="confluenceTd">Match a method to this pattern if its number of statements is
+                                <td>maxStatements</td>
+                                <td>Match a method to this pattern if its number of statements is
                                     not greater than maxStatements. In other words - all methods with statements &lt;=
                                     maxStaments will be filtered out.
                                 </td>
-                                <td class="confluenceTd">No.</td>
+                                <td>No.</td>
                             </tr>
                             <tr>
-                                <td colspan="1" class="confluenceTd">maxAggregatedComplexity</td>
-                                <td colspan="1" class="confluenceTd"><em><strong>Since 3.1.10.</strong></em> Match a
+                                <td colspan="1">maxAggregatedComplexity</td>
+                                <td colspan="1"><em><strong>Since 3.1.10.</strong></em> Match a
                                     method to this pattern if its aggregated cyclomatic complexity is not greater than
                                     maxAggregatedComplexity. In other words - all methods with aggregated complexity
                                     &lt;= maxAggregatedComplexity will be filtered out. Aggregated complexity metric is
                                     a sum of the method complexity and complexity of all anonymous inline classes
                                     declared in the method.
                                 </td>
-                                <td colspan="1" class="confluenceTd">No.</td>
+                                <td colspan="1">No.</td>
                             </tr>
                             <tr>
-                                <td colspan="1" class="confluenceTd">maxAggregatedStatements</td>
-                                <td colspan="1" class="confluenceTd"><em><strong>Since 3.1.10.</strong></em> Match a
+                                <td colspan="1">maxAggregatedStatements</td>
+                                <td colspan="1"><em><strong>Since 3.1.10.</strong></em> Match a
                                     method to this pattern if its number of aggregated statements is not greater than
                                     maxAggregatedStatements. In other words - all methods with aggregated statements
                                     &lt;= maxAggregatedStaments will be filtered out. Aggregated statements metric is a
                                     sum of the method statements and statements of all anonymous inline classes declared
                                     in the method.
                                 </td>
-                                <td colspan="1" class="confluenceTd">No.</td>
+                                <td colspan="1">No.</td>
                             </tr>
                             </tbody>
                         </table>
@@ -355,8 +355,8 @@
                         a trivial single-statement method like:</p>
                     <div class="code panel pdl" style="border-width: 1px;">
                         <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">int getNumber() {
+<pre
+    >int getNumber() {
    return number;
 }</pre>
                         </div>
@@ -364,8 +364,8 @@
                     <p>and a single-statement method which actually returns more complex data, like:</p>
                     <div class="code panel pdl" style="border-width: 1px;">
                         <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ActionListener getListener() {
+<pre
+    >ActionListener getListener() {
    return new ActionListener() {
        public void actionPerformed(ActionEvent e) {
            System.out.println(&quot;statement #1&quot;);
@@ -381,9 +381,9 @@
                         following:</p>
                     <div class="code panel pdl" style="border-width: 1px;">
                         <div class="codeContent panelContent pdl">
-                            <pre class="syntaxhighlighter-pre"
+                            <pre
                                  data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-                                 data-theme="Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxStatements=&quot;1&quot;&gt;</pre>
+                                >&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxStatements=&quot;1&quot;&gt;</pre>
                         </div>
                     </div>
                     <p>then both <em>getNumber()</em> and <em>getListener()</em> methods would be filtered-out, because
@@ -392,9 +392,9 @@
                     <p>If you would use new <em>maxAggregatedStatements</em>, for instance:</p>
                     <div class="code panel pdl" style="border-width: 1px;">
                         <div class="codeContent panelContent pdl">
-                            <pre class="syntaxhighlighter-pre"
+                            <pre
                                  data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-                                 data-theme="Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxAggregatedStatements=&quot;1&quot;&gt;</pre>
+                                >&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxAggregatedStatements=&quot;1&quot;&gt;</pre>
                         </div>
                     </div>
                     <p>then the <em>getNumber()</em> would be filtered-out and the <em>getListener()</em> method would
@@ -409,9 +409,9 @@
                         expression. For example:</p>
                     <div class="code panel pdl" style="border-width: 1px;">
                         <div class="codeContent panelContent pdl">
-                            <pre class="syntaxhighlighter-pre"
+                            <pre
                                  data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-                                 data-theme="Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;^(?!.*(getRunnable|getListener)).*$&quot; maxStatements=&quot;1&quot;/&gt;</pre>
+                                >&lt;methodContext name=&quot;trivial&quot; regexp=&quot;^(?!.*(getRunnable|getListener)).*$&quot; maxStatements=&quot;1&quot;/&gt;</pre>
                         </div>
                     </div>
                     <p>will filter-out all methods having not more than one statement, except those which are named <em>getRunnable</em>
@@ -430,27 +430,27 @@
                 </div>
                 <h5 id="clover-instr-Parameters.3">Parameters</h5>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>name</p></td>
-                            <td class="confluenceTd"><p>The name for this context. Must be unique, and not be one of the
+                            <td><p>name</p></td>
+                            <td><p>The name for this context. Must be unique, and not be one of the
                                 reserved context names (see <a
                                         href="ant--using-coverage-contexts.html">Using
                                     Coverage Contexts</a>).</p></td>
-                            <td class="confluenceTd"><p>Yes.</p></td>
+                            <td><p>Yes.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>regexp</p></td>
-                            <td class="confluenceTd"><p>A Perl 5 Regexp that defines the context. This regexp should
+                            <td><p>regexp</p></td>
+                            <td><p>A Perl 5 Regexp that defines the context. This regexp should
                                 match statements you wish to include in this context. Note that when statements are
                                 tested against this regexp, whitespace is normalized and comments are ignored.</p></td>
-                            <td class="confluenceTd"><p>Yes.</p></td>
+                            <td><p>Yes.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -464,8 +464,8 @@
                     Thanks to this you can change some of Clover's behavior without code recompilation.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;profiles&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;profiles&gt;
   &lt;profile name=&quot;default&quot; coverageRecorder=&quot;FIXED|GROWABLE|SHARED&quot;&gt;
     &lt;distributedCoverage/&gt; &lt;!-- optional --&gt;
   &lt;/profile&gt;
@@ -480,22 +480,22 @@
                 <p><strong>Since 3.1.11.</strong> Contains a definition of a single runtime profile.</p><h5
                     id="clover-instr-Parameters.4">Parameters</h5>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>name</p></td>
-                            <td class="confluenceTd"><p>The name for this profile; name must be unique among profiles.
+                            <td><p>name</p></td>
+                            <td><p>The name for this profile; name must be unique among profiles.
                                 There must be one profile named &quot;default&quot;.</p></td>
-                            <td class="confluenceTd"><p>No. Defaults to &quot;default&quot;.</p></td>
+                            <td><p>No. Defaults to &quot;default&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>coverageRecorder</p></td>
-                            <td class="confluenceTd"><p>Type of coverage recorder which will be used for gathering
+                            <td><p>coverageRecorder</p></td>
+                            <td><p>Type of coverage recorder which will be used for gathering
                                 coverage data at runtime. Possible values: FIXED, GROWABLE, SHARED (case
                                 insensitive).</p>
                                 <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
@@ -503,7 +503,7 @@
                                     using the default setting. Do not change until you deeply understand <a
                                             href="ant--coverage-recorders.html">how
                                         it works</a>.</p></td>
-                            <td class="confluenceTd"><p>No. Defaults to &quot;FIXED&quot;.</p></td>
+                            <td><p>No. Defaults to &quot;FIXED&quot;.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -567,38 +567,38 @@
                 <p>&lt;testclass&gt; can be used to include only specific test classes.</p><h6
                     id="clover-instr-Parameters.5">Parameters</h6>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>name</p></td>
-                            <td class="confluenceTd"><p>A regex on which to match the test class's name.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>name</p></td>
+                            <td><p>A regex on which to match the test class's name.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>super</p></td>
-                            <td class="confluenceTd"><p>A regex on which to match the test class's superclass.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>super</p></td>
+                            <td><p>A regex on which to match the test class's superclass.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>annotation</p></td>
-                            <td class="confluenceTd"><p>A regex on which to match the test class's annotation.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>annotation</p></td>
+                            <td><p>A regex on which to match the test class's annotation.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>package</p></td>
-                            <td class="confluenceTd"><p>A regex on which to match the test class's package.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>package</p></td>
+                            <td><p>A regex on which to match the test class's package.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>tag</p></td>
-                            <td class="confluenceTd"><p>A regex on which to match the test class's javadoc tags.</p>
+                            <td><p>tag</p></td>
+                            <td><p>A regex on which to match the test class's javadoc tags.</p>
                             </td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -613,8 +613,8 @@
                     matched for a class to be detected as a test, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;testsources dir=&quot;tests&quot;&gt;
+<pre
+    >&lt;testsources dir=&quot;tests&quot;&gt;
 &lt;and&gt;
   &lt;testclass annotation=&quot;Specification&quot;/&gt;
   &lt;testclass annotation=&quot;Test&quot;/&gt;
@@ -630,8 +630,8 @@
                     matched for a class to be detected as a test, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;testsources dir=&quot;tests&quot;&gt;
+<pre
+    >&lt;testsources dir=&quot;tests&quot;&gt;
 &lt;or&gt;
   &lt;testclass name=&quot;.*Spec&quot;/&gt;
   &lt;testclass name=&quot;.*Test&quot;/&gt;
@@ -652,39 +652,39 @@
                                      rel="nofollow">CLOV-1339</a>).</p><h6 id="clover-instr-Parameters.6">
                 Parameters</h6>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>name</p></td>
-                            <td class="confluenceTd"><p>A regex on which to match the test method's name.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>name</p></td>
+                            <td><p>A regex on which to match the test method's name.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>annotation</p></td>
-                            <td class="confluenceTd"><p>A regex on which to match the test method's annotation.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>annotation</p></td>
+                            <td><p>A regex on which to match the test method's annotation.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>tag</p></td>
-                            <td class="confluenceTd"><p>A regex on which to match the test method's javadoc tags.</p>
+                            <td><p>tag</p></td>
+                            <td><p>A regex on which to match the test method's javadoc tags.</p>
                             </td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>returntype</p></td>
-                            <td class="confluenceTd"><p>A regex on which to match the return type of the method,
+                            <td><p>returntype</p></td>
+                            <td><p>A regex on which to match the return type of the method,
                                 e.g.:</p>
                                 <ul>
                                     <li>&quot;<code>.*</code>&quot; will match any return type.</li>
                                     <li>&quot;<code>void</code>&quot; will match methods with no return type.</li>
                                 </ul>
                             </td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -693,8 +693,8 @@
                     treated as 'or' clauses, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;testsources dir=&quot;tests&quot;&gt;
+<pre
+    >&lt;testsources dir=&quot;tests&quot;&gt;
   &lt;testclass&gt;
     &lt;testmethod annotation=&quot;Specification&quot;/&gt;
     &lt;testmethod name=&quot;^should.*&quot;/&gt;
@@ -710,8 +710,8 @@
                 </p></p><h1 id="clover-instr-Examples">Examples</h1>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-instr srcdir=&quot;src&quot; destdir=&quot;instr&quot;/&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;clover-instr srcdir=&quot;src&quot; destdir=&quot;instr&quot;/&gt;
 </pre>
                     </div>
                 </div>
@@ -720,8 +720,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-instr destdir=&quot;instr&quot;/&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;clover-instr destdir=&quot;instr&quot;/&gt;
      &lt;fileset dir=&quot;src&quot;&gt;
        &lt;include name=&quot;**/*.java&quot;/&gt;
      &lt;/fileset&gt;
@@ -733,8 +733,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-instr destdir=&quot;instr&quot;/&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;clover-instr destdir=&quot;instr&quot;/&gt;
      &lt;testSources dir=&quot;src&quot;&gt;
          &lt;include name=&quot;**/*Test.java&quot;/&gt;
          &lt;testclass name=&quot;.*Test&quot;&gt;
@@ -755,8 +755,8 @@
                     coverage data is written out periodically during execution:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-instr flushpolicy=&quot;interval&quot; flushinterval=&quot;5000&quot; srcdir=&quot;src&quot; destdir=&quot;instr&quot; /&gt;
+<pre
+    >&lt;clover-instr flushpolicy=&quot;interval&quot; flushinterval=&quot;5000&quot; srcdir=&quot;src&quot; destdir=&quot;instr&quot; /&gt;
 </pre>
                     </div>
                 </div>
@@ -769,8 +769,8 @@
                     To override this location, use the <code>initstring</code> attribute.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-instr initstring=&quot;clover-db/coverage.db&quot; srcdir=&quot;src&quot; destdir=&quot;instr&quot;/&gt;
+<pre
+    >&lt;clover-instr initstring=&quot;clover-db/coverage.db&quot; srcdir=&quot;src&quot; destdir=&quot;instr&quot;/&gt;
 </pre>
                     </div>
                 </div>
@@ -783,8 +783,8 @@
                 <p>You cannot use &lt;parallel/&gt; task for code instrumentation, for instance:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;instrument&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;target name=&quot;instrument&quot;&gt;
   &lt;parallel&gt;
     &lt;clover-instr srcdir=&quot;module1&quot; destdir=&quot;module1-instr&quot; .../&gt;
     &lt;clover-instr srcdir=&quot;module2&quot; destdir=&quot;module1-instr&quot; .../&gt;
@@ -793,8 +793,8 @@
                     </div>
                 </div>
                 <p>will produce error message like:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>[clover] Error finalising instrumentation:
    [clover] java.io.IOException: Failed to move tmp registry file /myproject/.clover/clover3_1_6.db.tmp to final registry file
 </pre>

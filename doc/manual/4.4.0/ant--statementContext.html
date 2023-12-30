@@ -67,7 +67,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h2 id="statementContext-&lt;statementContext&gt;">&lt;statementContext&gt;</h2>
                 <p>Specifies a statement Context definition. See <a href="ant--using-coverage-contexts.html">Using
                     Coverage Contexts</a> for more information.</p>
@@ -77,26 +77,26 @@
                 </div>
                 <h5 id="statementContext-Parameters">Parameters</h5>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>name</p></td>
-                            <td class="confluenceTd"><p>The name for this context. Must be unique, and not be one of the
+                            <td><p>name</p></td>
+                            <td><p>The name for this context. Must be unique, and not be one of the
                                 reserved context names (see <a href="ant--using-coverage-contexts.html">Using
                                     Coverage Contexts</a>).</p></td>
-                            <td class="confluenceTd"><p>Yes.</p></td>
+                            <td><p>Yes.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>regexp</p></td>
-                            <td class="confluenceTd"><p>A Perl 5 Regexp that defines the context. This regexp should
+                            <td><p>regexp</p></td>
+                            <td><p>A Perl 5 Regexp that defines the context. This regexp should
                                 match statements you wish to include in this context. Note that when statements are
                                 tested against this regexp, whitespace is normalized and comments are ignored.</p></td>
-                            <td class="confluenceTd"><p>Yes.</p></td>
+                            <td><p>Yes.</p></td>
                         </tr>
                         </tbody>
                     </table>

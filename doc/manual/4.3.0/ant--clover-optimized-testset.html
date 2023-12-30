@@ -64,7 +64,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h3 id="clover-optimized-testset-Description">Description</h3>
                 <p>The <code>&lt;clover-optimized-testset&gt;</code> type is designed to be used within JUnit and Ant's
                     <code>&lt;batchtest/&gt;</code> task (which is used to feed JUnit a list of .java files that map to
@@ -73,49 +73,49 @@
                     include <code>cloverlib.xml</code>.</p>
                 <h3 id="clover-optimized-testset-Parameters">Parameters</h3>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><strong>snapshotfile</strong></p></td>
-                            <td class="confluenceTd"><p>Snapshot file path if not in the default location.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to (initstring + &quot;.snapshot&quot;).</p></td>
+                            <td><p><strong>snapshotfile</strong></p></td>
+                            <td><p>Snapshot file path if not in the default location.</p></td>
+                            <td><p>No; defaults to (initstring + &quot;.snapshot&quot;).</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><strong>enabled</strong></p></td>
-                            <td class="confluenceTd"><p>Boolean value that specifies whether the selector should
+                            <td><p><strong>enabled</strong></p></td>
+                            <td><p>Boolean value that specifies whether the selector should
                                 optimize. If set to false no optimization occurs, if true, then optimization occurs as
                                 per the other attributes.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><strong>minimize</strong></p></td>
-                            <td class="confluenceTd"><p>Boolean value that (when true) tells Clover to restrict the set
+                            <td><p><strong>minimize</strong></p></td>
+                            <td><p>Boolean value that (when true) tells Clover to restrict the set
                                 of tests, running only those that caused coverage in a changed file. When set to false,
                                 this will cause Clover to run all tests. this attribute can be used to force a full test
                                 run if, for instance, some important configuration files change and the build system
                                 decides that a full test run should be executed</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><strong>fullrunevery</strong></p></td>
-                            <td class="confluenceTd"><p>Specifies how many optimized builds can run before a full run
+                            <td><p><strong>fullrunevery</strong></p></td>
+                            <td><p>Specifies how many optimized builds can run before a full run
                                 should be performed (to re-calibrate the optimization).</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>10</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>10</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><strong>ordering</strong></p></td>
-                            <td class="confluenceTd"><p>Specifies how tests should be ordered during an optimized build.
+                            <td><p><strong>ordering</strong></p></td>
+                            <td><p>Specifies how tests should be ordered during an optimized build.
                                 Accepts values &quot;failfast&quot;, &quot;original&quot; or &quot;random&quot;. The
                                 &quot;failfast&quot; setting runs the previously failed test first then shortest to
                                 longest test. The &quot;original&quot; setting orders the tests as they were found by
                                 the underlying fileset. The &quot;random&quot; setting applies a random ordering to the
                                 tests.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>failfast</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>failfast</code>&quot;.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -127,8 +127,8 @@
                 <h3 id="clover-optimized-testset-Example">Example</h3>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;junit ...&gt;
+<pre
+    >&lt;junit ...&gt;
     &lt;batchtest todir=&quot;${outdir}/${testresultsprefix}&quot; fork=&quot;true&quot;&gt;
         &lt;clover-optimized-testset fullrunevery=&quot;${max.optimized.builds}&quot;&gt;
             &lt;fileset dir=&quot;${test.location}&quot; includes=&quot;**/*Test.java&quot;/&gt;

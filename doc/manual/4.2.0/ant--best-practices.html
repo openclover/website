@@ -63,7 +63,7 @@
         </div>
 
         <div id="content" class="view">
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>This section describes some recommended practices when integrating Clover into your Ant build. For a
                     great list of general Ant best practices, see <a
                                                                      href="http://www.onjava.com/pub/a/onjava/2003/12/17/ant_bestpractices.html"
@@ -110,17 +110,17 @@
                         are skipped. You also introduce significant memory overhead (particularly if <code>fork=&quot;true&quot;</code>
                         is set). Excessive use of <code>&lt;antcall&gt;</code> can also make a build file less readable,
                         because it can be difficult to trace which properties and references are valid for a given
-                        target. <br class="atl-forced-newline"/> <br class="atl-forced-newline"/> <img
+                        target.   <img
                                 class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
                                 data-emoticon-name="information" alt="(info)"/> If you must use <code><strong>&lt;ant&gt;</strong></code>
                         and <code><strong>&lt;antcall&gt;</strong></code>, be aware that you must set
                         <code>inheritrefs</code> to &quot;true&quot; if you are calling
-                        <code>&lt;clover-setup&gt;</code> in an upper-level project. <br class="atl-forced-newline"/>
-                        <br class="atl-forced-newline"/> Below, we demonstrate an alternative. Instead of this:</p>
+                        <code>&lt;clover-setup&gt;</code> in an upper-level project.
+                         Below, we demonstrate an alternative. Instead of this:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;!-- BAD. References wont be passed (References from &lt;clover-setup/&gt; would be lost). --&gt;
+<pre
+    >&lt;!-- BAD. References wont be passed (References from &lt;clover-setup/&gt; would be lost). --&gt;
 &lt;target name=&quot;all&quot;&gt;
 &lt;antcall target=&quot;clean&quot;&gt;
 &lt;antcall target=&quot;compile&quot;&gt;
@@ -133,8 +133,8 @@
                         <p>it is much better to use something like this:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;!-- GOOD --&gt;
+<pre
+    >&lt;!-- GOOD --&gt;
 &lt;target name=&quot;all&quot; depends=&quot;clean, compile, dist, test&quot;/&gt;
 </pre>
                             </div>

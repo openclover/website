@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 In this scenario, the project is checked out, built and tested at regular intervals, usually by an
                 automated process. Some tools that support this type of build are <a
                                                                                      href="http://www.anthillpro.com/html/products/anthillos/default.html"
@@ -118,14 +118,14 @@
                     viewing by the whole team:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;clover.report&quot; depends=&quot;with.clover&quot;&gt;
+<pre
+    >&lt;target name=&quot;clover.report&quot; depends=&quot;with.clover&quot;&gt;
    &lt;clover-html-report outdir=&quot;clover_html&quot;/&gt;
 &lt;/target&gt;
 </pre>
                     </div>
                 </div>
-                <p><br class="atl-forced-newline"/> <br class="atl-forced-newline"/> <br class="atl-forced-newline"/>
+                <p>
                 </p>
                 <h3 id="id-3.UsingCloverinAutomatedBuilds-Executivesummarycoveragereports">Executive summary coverage
                     reports</h3>
@@ -133,8 +133,8 @@
                     task is used to generate summary reports in PDF format, suitable for email or audit purposes.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;clover.summary&quot; depends=&quot;with.clover&quot;&gt;
+<pre
+    >&lt;target name=&quot;clover.summary&quot; depends=&quot;with.clover&quot;&gt;
    &lt;clover-pdf-report outfile=&quot;coverage.pdf&quot;/&gt;
 &lt;/target&gt;
 </pre>
@@ -151,8 +151,8 @@
                             href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> task:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;clover.report&quot; depends=&quot;with.clover&quot;&gt;
+<pre
+    >&lt;target name=&quot;clover.report&quot; depends=&quot;with.clover&quot;&gt;
 
    &lt;!-- generate a historypoint for the current coverage --&gt;
    &lt;clover-historypoint historyDir=&quot;clover_hist&quot;/&gt;
@@ -175,8 +175,8 @@
                     executive summary coverage report is generated and mailed to the team:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;coverageAlert&quot; depends=&quot;coverage.check&quot;
+<pre
+    >&lt;target name=&quot;coverageAlert&quot; depends=&quot;coverage.check&quot;
          if=&quot;coverage_check_failure&quot;&gt;
 
    &lt;clover-pdf-report outfile=&quot;coverage.pdf&quot;/&gt;
@@ -195,7 +195,7 @@
 </pre>
                     </div>
                 </div>
-                <p><br class="atl-forced-newline"/> <br class="atl-forced-newline"/> <br class="atl-forced-newline"/>
+                <p>
                 </p>
             </div>
 

@@ -59,7 +59,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h4 id="GeneratingCloverreportstakesalongtime-Symptoms">Symptoms</h4>
                 <p>Running build with Clover and generating reports takes considerably much more time compared to a
                     build without Clover. For example: several minutes instead of several seconds.</p>
@@ -67,15 +67,15 @@
                     minute):</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
-                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-                             data-theme="Confluence">mvn clover:setup install clover:clover</pre>
+                        <pre
+
+                            >mvn clover:setup install clover:clover</pre>
                     </div>
                 </div>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
     &lt;singleCloverDatabase&gt;true&lt;/singleCloverDatabase&gt;
     &lt;flushPolicy&gt;threaded&lt;/flushPolicy&gt;
     &lt;flushInterval&gt;50000&lt;/flushInterval&gt;

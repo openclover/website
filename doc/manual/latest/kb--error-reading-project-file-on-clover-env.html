@@ -58,22 +58,22 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h3 id="Errorreadingprojectfileon&lt;clover-env/&gt;-Symptoms">Symptoms</h3>
                 <p>1) Ant 1.9.1 or older is used.</p>
                 <p>2) A build file imports Clover's tasks from the clover.jar, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;clover-4.0.2.jar&quot;/&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;clover-4.0.2.jar&quot;/&gt;
 &lt;clover-env/&gt;</pre>
                     </div>
                 </div>
                 <p>3) An attempt to run a build fails with an error like:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">BUILD FAILED
+<pre
+    >BUILD FAILED
 Error reading project file jar:file:/path/to/clover-4.0.2.jar!/cloverlib.xml: central directory zip64 extended information extra field&#39;s length doesn&#39;t match central directory data.  Expected length 0 but is 16</pre>
                     </div>
                 </div>

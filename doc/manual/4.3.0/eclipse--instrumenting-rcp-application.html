@@ -64,7 +64,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>
                     <style type='text/css'>/*<![CDATA[*/
                     div.rbtoc1491813721759 {
@@ -260,8 +260,8 @@
                     <strong><em>clover-runtime.jar</em></strong> (you can find it in <em>&lt;eclipse&gt;\plugins\com.atlassian.clover.eclipse.runtime_version_number</em>)
                     is available in Java <strong>-Xbootclasspath</strong>.</p>
                 <p>Add this to your Eclipse Test <em>eclipse.ini</em> file, for example:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>-vmargs
 -Xbootclasspath/a:/path/to/eclipse-ide/plugins/com.atlassian.clover.eclipse.runtime_4.0.0.v20140711000000/clover-runtime.jar</pre>
                     </div>
@@ -347,8 +347,8 @@
                 <p>Make sure that the <em>clover-runtime.jar</em> (you can find it in <em>&lt;eclipse&gt;\plugins\com.atlassian.clover.eclipse.runtime_&lt;version_number&gt;</em>)
                     is available in Java <strong>-Xbootclasspath</strong>. Add this to your product's
                     <em>config.ini</em> file, for example:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>-vmargs
 -Xbootclasspath/a:/path/to/eclipse-ide/plugins/com.atlassian.clover.eclipse.runtime_4.0.0.v20140711000000/clover-runtime.jar</pre>
                     </div>
@@ -390,8 +390,8 @@
                     non-java files as well.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;project default=&quot;instrument&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;project default=&quot;instrument&quot;&gt;
     &lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/clover.jar&quot;/&gt;
     &lt;property name=&quot;ant-contrib.jar&quot; location=&quot;${user.home}/ant-contrib-1.0b3.jar&quot;/&gt;
     &lt;property name=&quot;project.original.dir&quot; location=&quot;original_project&quot;/&gt;

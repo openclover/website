@@ -58,15 +58,15 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h4 id="GrailsapplicationwithCloverfailswithjava.lang.VerifyError-Symptoms">Symptoms</h4>
                 <p>Your application is using the Clover-for-Grails plugin. Compilation fails with the
                     java.lang.VerifyError exception.</p>
                 <p>For example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence"
-     data-theme="Confluence">$ grails test-app -clover.on
+<pre data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence"
+    >$ grails test-app -clover.on
 
 ...
 build	Clover: Clover is enabled. Configuration: [on:true, debug:[:], verbose:[:]]
@@ -81,8 +81,8 @@ build	| Error Exception occurred trigger event [SetClasspath]: java.lang.VerifyE
                     available to your application as well. At the same time you have a Clover dependency defined in your
                     application's BuildConfig too. In case when these two dependencies refer to different Clover
                     versions, it may lead to conflicts.</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>myApp -&gt; somePlugin -&gt; clover version A
       -&gt; clover version B</pre>
                     </div>
@@ -100,8 +100,8 @@ build	| Error Exception occurred trigger event [SetClasspath]: java.lang.VerifyE
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>myApplication/grails-app/conf/BuildConfig.groovy</b>
                     </div>
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
-     data-theme="Confluence">grails.project.dependency.resolution = {
+<pre
+    >grails.project.dependency.resolution = {
   plugins { 
     compile(&quot;:somePluginWithInvalidDependency:1.0.0&quot;) {
       excludes &quot;clover&quot;  // exclude clover in wrong version

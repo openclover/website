@@ -65,7 +65,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p><em>This page contains instructions on how to tune Clover's performance when running your builds and
                     measuring code coverage.</em></p>
                 <p><em>On this page</em>:</p>
@@ -154,8 +154,8 @@
                     <li><p>Supply this option to the JVM running your tests:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">-Dclover.pertest.coverage=diff
+<pre
+    >-Dclover.pertest.coverage=diff
 </pre>
                             </div>
                         </div>
@@ -166,8 +166,8 @@
                     <li><p>Supply this option to the JVM running your tests:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">-Dclover.pertest.coverage=off
+<pre
+    >-Dclover.pertest.coverage=off
 </pre>
                             </div>
                         </div>
@@ -229,46 +229,46 @@
                 <h2 id="CloverPerformanceTuning-Comparisonofdifferentper-testcoveragerecordingstrategies">Comparison of
                     different per-test coverage recording strategies</h2>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh">Strategy</th>
-                            <th class="confluenceTh">System properties</th>
-                            <th colspan="1" class="confluenceTh">Comment</th>
+                            <th>Strategy</th>
+                            <th>System properties</th>
+                            <th colspan="1">Comment</th>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">disabled</td>
-                            <td colspan="1" class="confluenceTd">-Dclover.pertest.coverage=off</td>
-                            <td colspan="1" class="confluenceTd">Use this if to disable per-test coverage recording.
+                            <td colspan="1">disabled</td>
+                            <td colspan="1">-Dclover.pertest.coverage=off</td>
+                            <td colspan="1">Use this if to disable per-test coverage recording.
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd">diffing</td>
-                            <td class="confluenceTd">-Dclover.pertest.coverage=diff</td>
-                            <td colspan="1" class="confluenceTd">Theoretically it is good for highly CPU-intensive code
+                            <td>diffing</td>
+                            <td>-Dclover.pertest.coverage=diff</td>
+                            <td colspan="1">Theoretically it is good for highly CPU-intensive code
                                 (lot of hit counts to be recorded) and a relatively small code base (smaller hit count
                                 arrays to be compared).
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">single threaded</td>
-                            <td colspan="1" class="confluenceTd">(nothing)</td>
-                            <td colspan="1" class="confluenceTd">Default strategy. Designed for single-threaded
+                            <td colspan="1">single threaded</td>
+                            <td colspan="1">(nothing)</td>
+                            <td colspan="1">Default strategy. Designed for single-threaded
                                 applications. Per-test coverage might be inaccurate if used with multi-threaded
                                 application. Very good performance.
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">synchronized</td>
-                            <td colspan="1" class="confluenceTd">-Dclover.pertest.coverage.threading=synchronized</td>
-                            <td colspan="1" class="confluenceTd">Safe for multi-threaded applications. Performance
+                            <td colspan="1">synchronized</td>
+                            <td colspan="1">-Dclover.pertest.coverage.threading=synchronized</td>
+                            <td colspan="1">Safe for multi-threaded applications. Performance
                                 penalty as recording of every hit count is encapsulated in synchronized block.
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">volatile</td>
-                            <td colspan="1" class="confluenceTd">-Dclover.pertest.coverage.threading=volatile</td>
-                            <td colspan="1" class="confluenceTd">Safe for multi-threaded applications, but requires at
+                            <td colspan="1">volatile</td>
+                            <td colspan="1">-Dclover.pertest.coverage.threading=volatile</td>
+                            <td colspan="1">Safe for multi-threaded applications, but requires at
                                 least JRE 1.5.
                             </td>
                         </tr>
@@ -279,8 +279,8 @@
                 <p>The following class:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">import junit.framework.TestCase;
+<pre
+    >import junit.framework.TestCase;
 public class PerformanceTest extends TestCase {
     static int hitsPerTest;
     static int numberOfTests;

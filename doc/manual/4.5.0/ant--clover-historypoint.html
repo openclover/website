@@ -63,7 +63,7 @@
         </div>
 
         <div id="content" class="view">
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h3 id="clover-historypoint-Description">Description</h3>
                 <p>The <code>&lt;clover-historypoint&gt;</code> task records a coverage history point for use in <a
                         href="general--understanding-reports-historical.html">historical coverage reports</a>. The basic nesting of elements within the
@@ -78,53 +78,53 @@
                 </div>
                 <h3 id="clover-historypoint-Parameters">Parameters</h3>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>date</p></td>
-                            <td class="confluenceTd"><p>Specifies an override date for this history point. This allows
+                            <td><p>date</p></td>
+                            <td><p>Specifies an override date for this history point. This allows
                                 for generation of past historical data for a project.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to the timestamp of the current coverage data.</p>
+                            <td><p>No; defaults to the timestamp of the current coverage data.</p>
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>dateFormat</p></td>
-                            <td class="confluenceTd"><p>Specifies a date format string for parsing the
+                            <td><p>dateFormat</p></td>
+                            <td><p>Specifies a date format string for parsing the
                                 &quot;<code>date</code>&quot; attribute. The string must contain a valid java.text.SimpleDateFormat pattern.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to java.text.SimpleDateFormat
+                            <td><p>No; defaults to java.text.SimpleDateFormat
                                 using the default pattern and date format symbols for the default locale.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>filter</p></td>
-                            <td class="confluenceTd"><p>A comma or space separated list of contexts to exclude when
+                            <td><p>filter</p></td>
+                            <td><p>A comma or space separated list of contexts to exclude when
                                 generating the historypoint. See <a href="ant--using-coverage-contexts.html">Using
                                     Coverage Contexts</a>.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>historyDir</p></td>
-                            <td class="confluenceTd"><p>The directory where historical data is stored.</p></td>
-                            <td class="confluenceTd"><p>Yes.</p></td>
+                            <td><p>historyDir</p></td>
+                            <td><p>The directory where historical data is stored.</p></td>
+                            <td><p>Yes.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>includeFailedTestCoverage</p></td>
-                            <td class="confluenceTd"><p>If true, all coverage attributed to a test that failed will be
+                            <td><p>includeFailedTestCoverage</p></td>
+                            <td><p>If true, all coverage attributed to a test that failed will be
                                 included.  <img class="emoticon emoticon-information"
                                                 src="images/icons/emoticons/information.png"
                                                 data-emoticon-name="information" alt="(info)"/> If history-point
                                 generation is taking a long time, you can speed up the performance of your tests by
                                 setting this value to '<code>true</code>'.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;</p></td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>initstring</p></td>
-                            <td class="confluenceTd"><p>The <code>initstring</code> of the coverage database.</p></td>
-                            <td class="confluenceTd"><p>No; if not specified here, Clover will look in the default
+                            <td><p>initstring</p></td>
+                            <td><p>The <code>initstring</code> of the coverage database.</p></td>
+                            <td><p>No; if not specified here, Clover will look in the default
                                 location (<code>${basedir}/.clover</code>). If you have specified an
                                 <code>initstring</code> on the <code>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;</code>
                                 task, you must ensure that <code>&lt;<a
@@ -132,28 +132,28 @@
                                 the execution of this task.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>overwrite</p></td>
-                            <td class="confluenceTd"><p>If true, existing history point for the same date will be
+                            <td><p>overwrite</p></td>
+                            <td><p>If true, existing history point for the same date will be
                                 automatically overwritten.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>property</p></td>
-                            <td class="confluenceTd"><p>If set, the name of the property to hold the absolute path name
+                            <td><p>property</p></td>
+                            <td><p>If set, the name of the property to hold the absolute path name
                                 of the history point file that was created by this task.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>span</p></td>
-                            <td class="confluenceTd"><p>Specifies how far back in time to include coverage recordings
+                            <td><p>span</p></td>
+                            <td><p>Specifies how far back in time to include coverage recordings
                                 from since the last Clover build. See <a href="ant--using-spans.html">Using
                                     Spans</a>.</p></td>
-                            <td class="confluenceTd"><p>No; default includes &quot;all coverage data found&quot;.</p>
+                            <td><p>No; default includes &quot;all coverage data found&quot;.</p>
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>srcLevel</p></td>
-                            <td class="confluenceTd"><p>Prevents excessive Clover data from being loaded when generating
+                            <td><p>srcLevel</p></td>
+                            <td><p>Prevents excessive Clover data from being loaded when generating
                                 a history point. This should be used for large projects, where saving a full source
                                 level history point is taking a long time. <img class="emoticon emoticon-information"
                                                                                 src="images/icons/emoticons/information.png"
@@ -162,7 +162,7 @@
                                 currently do not use line level information. This means there is no loss of
                                 functionality when srcLevel=&quot;false&quot;. In the future however, line level
                                 information may be used.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;</p></td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -197,16 +197,16 @@
                 <h3 id="clover-historypoint-Examples">Examples</h3>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-historypoint historyDir=&quot;clover-historical&quot;/&gt;
+<pre
+    >&lt;clover-historypoint historyDir=&quot;clover-historical&quot;/&gt;
 </pre>
                     </div>
                 </div>
                 <p>Records a history point into the directory <code>PROJECT_DIR/clover-historical</code>.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-historypoint historyDir=&quot;clover-historical&quot;
+<pre
+    >&lt;clover-historypoint historyDir=&quot;clover-historical&quot;
                       date=&quot;010724120856&quot;
 		    dateFormat=&quot;yyMMddHHmmss&quot;/&gt;
 </pre>
@@ -215,8 +215,8 @@
                 <p>Records a history point, with the effective date of 24/07/01 12:08:56.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-historypoint historydir=&quot;history&quot;
+<pre
+    >&lt;clover-historypoint historydir=&quot;history&quot;
                      filter=&quot;toString&quot;
                      includeFailedTestCoverage=&quot;false&quot;
                      property=&quot;clover.historypoint.path&quot;&gt;
@@ -228,8 +228,8 @@
                     will contain the absolute file path of the history point that was created.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-historypoint historyDir=&quot;clover-historical&quot;&gt;
+<pre
+    >&lt;clover-historypoint historyDir=&quot;clover-historical&quot;&gt;
 	&lt;testsources dir=&quot;src&quot; include name=&quot;**/*Test.java&quot;/&gt;
 &lt;/clover-historypoint&gt;
 </pre>

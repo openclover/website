@@ -58,73 +58,73 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>Reports Code Coverage for the given coverage database to the console.</p>
                 <h2 id="ConsoleReporter-Usage">Usage</h2>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">java com.atlassian.clover.reporters.console.ConsoleReporter [OPTIONS] PARAMS
+<pre
+    >java com.atlassian.clover.reporters.console.ConsoleReporter [OPTIONS] PARAMS
 </pre>
                     </div>
                 </div>
                 <h3 id="ConsoleReporter-Params">Params</h3>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <td class="confluenceTd"><p>-i, --initstring &lt;file&gt;</p></td>
-                            <td class="confluenceTd"><p>The initstring of the coverage database.</p></td>
+                            <td><p>-i, --initstring &lt;file&gt;</p></td>
+                            <td><p>The initstring of the coverage database.</p></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <h3 id="ConsoleReporter-Options">Options</h3>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <td class="confluenceTd"><p>-t, --title &lt;string&gt;</p></td>
-                            <td class="confluenceTd"><p>Report title</p></td>
+                            <td><p>-t, --title &lt;string&gt;</p></td>
+                            <td><p>Report title</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-l, --level &lt;string&gt;</p></td>
-                            <td class="confluenceTd"><p>The level of detail to report. Valid values are &quot;summary&quot;,
+                            <td><p>-l, --level &lt;string&gt;</p></td>
+                            <td><p>The level of detail to report. Valid values are &quot;summary&quot;,
                                 &quot;class&quot;, &quot;method&quot;, &quot;statement&quot;. Default value is &quot;summary&quot;.</p>
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-p, --sourcepath &lt;path&gt;</p></td>
-                            <td class="confluenceTd"><p>The source path to search when looking for source files.</p>
+                            <td><p>-p, --sourcepath &lt;path&gt;</p></td>
+                            <td><p>The source path to search when looking for source files.</p>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">-si, --showinner</td>
-                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.2.0: </strong></em>Show inner
+                            <td colspan="1">-si, --showinner</td>
+                            <td colspan="1"><em><strong>Since 3.2.0: </strong></em>Show inner
                                 functions in the report (like a lambda function inside a method).
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">-sl, --showlambda</td>
-                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.2.0: </strong></em>Show lambda
+                            <td colspan="1">-sl, --showlambda</td>
+                            <td colspan="1"><em><strong>Since 3.2.0: </strong></em>Show lambda
                                 functions in the report.
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-s, --span &lt;interval&gt;</p></td>
-                            <td class="confluenceTd"><p>Specifies how far back in time to include coverage recordings
+                            <td><p>-s, --span &lt;interval&gt;</p></td>
+                            <td><p>Specifies how far back in time to include coverage recordings
                                 from since the last Clover build. See <a href="ant--using-spans.html">Using
                                     Spans</a>. Default includes &quot;all coverage data found&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">-u, --unittests</td>
-                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.1.6:</strong> </em>Show unit tests
+                            <td colspan="1">-u, --unittests</td>
+                            <td colspan="1"><em><strong>Since 3.1.6:</strong> </em>Show unit tests
                                 results summary. By default summary is not listed.
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">-c, --codetype</td>
-                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.1.6:</strong> </em>The type of code
+                            <td colspan="1">-c, --codetype</td>
+                            <td colspan="1"><em><strong>Since 3.1.6:</strong> </em>The type of code
                                 to report on. Valid values are: APPLICATION, TEST, ALL. Default value: APPLICATION
                             </td>
                         </tr>
@@ -139,8 +139,8 @@
                     arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">import com.atlassian.clover.reporters.console.ConsoleReporter;
+<pre
+    >import com.atlassian.clover.reporters.console.ConsoleReporter;
 
     ...
 
@@ -155,8 +155,8 @@
                 <h3 id="ConsoleReporter-Examples">Examples</h3>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">java com.atlassian.clover.reporters.console.ConsoleReporter -i clover.db
+<pre
+    >java com.atlassian.clover.reporters.console.ConsoleReporter -i clover.db
 </pre>
                     </div>
                 </div>
@@ -165,8 +165,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">java com.atlassian.clover.reporters.console.ConsoleReporter -l &quot;method&quot; -t &quot;Method Coverage&quot; -i clover.db
+<pre
+    >java com.atlassian.clover.reporters.console.ConsoleReporter -l &quot;method&quot; -t &quot;Method Coverage&quot; -i clover.db
 </pre>
                     </div>
                 </div>

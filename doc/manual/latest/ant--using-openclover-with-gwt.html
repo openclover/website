@@ -64,7 +64,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <div class="confluence-information-macro confluence-information-macro-information"><span
                         class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div class="confluence-information-macro-body"><p>You can instrument server-side code only. This is
@@ -97,8 +97,8 @@
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>build.xml</b></div>
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;project name=&quot;DynaTable&quot; default=&quot;build&quot; basedir=&quot;.&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;project name=&quot;DynaTable&quot; default=&quot;build&quot; basedir=&quot;.&quot;&gt;
     &lt;!-- Add following properties and targets --&gt;
 
     &lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/clover.jar&quot;/&gt;
@@ -148,8 +148,8 @@
                 <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
                         data-emoticon-name="warning" alt="(warning)"/> GWT requires Java 1.6 or above</p>
                 <p> </p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>ant devmode -Dwith.clover=true
 ... open web browser, close GWT console ...
 ant report</pre>

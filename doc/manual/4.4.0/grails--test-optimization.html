@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <div class="confluence-information-macro confluence-information-macro-information"><span
                         class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div class="confluence-information-macro-body"><p>This feature is available since <strong>Clover-for-Grails
@@ -76,9 +76,9 @@
                     the <strong>-clover.optimize</strong> option, for instance:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
-                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-                             data-theme="Confluence">grails test-app -clover.optimize</pre>
+                        <pre
+
+                            >grails test-app -clover.optimize</pre>
                     </div>
                 </div>
                 <p> </p>
@@ -107,8 +107,8 @@
                     command line, for instance:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
-     data-theme="Confluence">clover {
+<pre
+    >clover {
    snapshotLocation = &quot;/path/to/clover.snapshot&quot;
 } </pre>
                     </div>
@@ -117,15 +117,15 @@
                 <h2 id="TestOptimizationwithClover-for-Grails-TestOptimizationinaction">Test Optimization in action</h2>
                 <p>For the first time you should run a full build in order to make sure that the whole code is
                     instrumented by Clover. You can run:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>grails clean
 grails test-app -clover.optimize</pre>
                     </div>
                 </div>
                 <p>or</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>grails test-app -clover.on    # clover.on forces full clean
 grails test-app -clover.optimize</pre>
                     </div>

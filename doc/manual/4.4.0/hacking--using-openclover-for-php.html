@@ -61,13 +61,13 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>Clover does not support PHP language. However, there is a PHPUnit framework which can measure code
                     coverage for PHP application and to export coverage data to the Clover's XML report file format.</p>
                 <p> </p>
                 <p>Just use <em>--coverage-clover</em> toggle, for example:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>phpunit --log-junit &#39;reports/unitreport.xml&#39; --coverage-clover &#39;reports/clover.xml&#39; test/</pre>
                     </div>
                 </div>
@@ -85,8 +85,8 @@
                 <p> </p>
                 <p>Note: PHPUnit has also an option to produce the HTML report, but this is <strong>not</strong> a
                     report in Clover's HTML format.</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>phpunit --log-junit &#39;reports/unitreport.xml&#39; --coverage-html &#39;reports/clover_html&#39; test/</pre>
                     </div>
                 </div>

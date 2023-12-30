@@ -58,20 +58,20 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p><strong>Q: How are the Clover coverage percentages calculated?</strong>The &quot;total&quot; coverage
                     percentage of a class (or file, package, project) is provided as a quick guide to how well the class
                     is covered — and to allow ranking of classes.</p>
                 <p>The Total Percentage Coverage (TPC) is calculated using the formula:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>TPC = (CT + CF + SC + MC)/(2*C + S + M){excerpt}
 </pre>
                     </div>
                 </div>
                 <p>where</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>CT - conditionals that evaluated to &quot;true&quot; at least once
 CF - conditionals that evaluated to &quot;false&quot; at least once
 SC - statements covered
@@ -89,8 +89,8 @@ M - total number of methods
                     For instance:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;metrics
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;metrics
     coveredelements=&quot;221&quot; complexity=&quot;123&quot; loc=&quot;707&quot; methods=&quot;100&quot; classes=&quot;37&quot; 
     statements=&quot;209&quot; packages=&quot;1&quot; 
     coveredconditionals=&quot;12&quot; coveredmethods=&quot;42&quot; 
@@ -113,8 +113,8 @@ M - total number of methods
                     false.</p>
                 <p>So in order to calculate the Total Percentage Coverage metric using data from an XML report you have
                     to use the following equation:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>TPC = (coveredconditionals + coveredstatements + coveredmethods) / (conditionals + statements + methods)</pre>
                     </div>
                 </div>

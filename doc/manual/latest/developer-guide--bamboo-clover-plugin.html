@@ -58,7 +58,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h2 id="BambooCloverPluginDeveloperGuide-Preconditions">Preconditions</h2>
                 <div class="confluence-information-macro confluence-information-macro-information"><span
                         class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
@@ -88,15 +88,15 @@
                 </ul>
                 <p> </p>
                 <p>To run unit tests:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>mvn test</pre>
                     </div>
                 </div>
                 <p> </p>
                 <p>To run manual tests:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre># run this at the Bamboo project top level to install all the &lt;bamboo snapshot version&gt; 
 # artefacts locally); skipping tests and javadocs will make it faster
 mvn install -DskipTests=true -Dmaven.javadoc.skip=true
@@ -109,8 +109,8 @@ mvn bamboo:run -Dproduct.version=&lt;bamboo version&gt; -Dproduct.data.version=&
                 </div>
                 <div class="line number1 index0 alt2"><p>in the console you'll find a port number on which Bamboo
                     instance has started, e.g:</p>
-                    <div class="preformatted panel" style="border-width: 1px;">
-                        <div class="preformattedContent panelContent">
+                    <div style="border-width: 1px;">
+                        <div>
 <pre>[INFO] [talledLocalContainer] Tomcat 8.x started on port [6990]
 [INFO] bamboo started successfully in 58s at http://localhost:6990/bamboo
 [INFO] Type Ctrl-D to shutdown gracefully

@@ -59,16 +59,16 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p><strong>Q: For some statements in my code Clover reports &quot;No Coverage information gathered for
                     this expression&quot;. What does that mean?</strong><br/>
                     Clover will not measure coverage of a conditional expression if it contains an assignment operator.
                     In practice we have found this only a minor limitation. To understand why Clover has this
                     limitation, consider the following (very contrived) code fragment:
-                    <br class="atl-forced-newline"/>
-                    <br class="atl-forced-newline"/></p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+
+                    </p>
+                <div style="border-width: 1px;">
+                    <div>
 <pre>1  public int foo(int i) {
 2    int j;
 3    if ((j = i) == 1) {

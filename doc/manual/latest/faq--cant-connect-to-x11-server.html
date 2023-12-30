@@ -59,14 +59,14 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p><strong>Q: When generating some report types on my UNIX server with no XServer, I get an exception
                     &quot;Can't connect to X11 server&quot; or similar.</strong><br/>
                     You can set the System property <code>java.awt.headless=true</code> to avoid this
                     problem. When running Ant, this is most easily achieved by using the ANT_OPTS environment variable:
                 </p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>export ANT_OPTS=-Djava.awt.headless=true
 </pre>
                     </div>

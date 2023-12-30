@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>Welcome to the Clover-for-Ant tutorial. This document will walk you through the process of
                     integrating Clover with an Ant build, gradually exploring Clover's more advanced code coverage
                     features along the way.</p>
@@ -146,8 +146,8 @@
                 <p>Output should be similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">$ ant compile
+<pre
+    >$ ant compile
 Buildfile: .../tutorial/build.xml
 
 
@@ -173,8 +173,8 @@ BUILD SUCCESSFUL </pre>
                 <p>Output should be similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">$ ant test
+<pre
+    >$ ant test
 Buildfile: .../tutorial/build.xml
 
 
@@ -215,8 +215,8 @@ BUILD SUCCESSFUL</pre>
                     type definitions:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;property name=&quot;clover.jar&quot; location=&quot;../lib/clover.jar&quot;/&gt;
+<pre
+    >&lt;property name=&quot;clover.jar&quot; location=&quot;../lib/clover.jar&quot;/&gt;
 &lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
 </pre>
                     </div>
@@ -232,8 +232,8 @@ BUILD SUCCESSFUL</pre>
                 <p>Add a target called <code>with.clover</code> which will enable and configure Clover for a build:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;with.clover&quot;&gt;
+<pre
+    >&lt;target name=&quot;with.clover&quot;&gt;
    &lt;clover-setup/&gt;
 &lt;/target&gt;
 </pre>
@@ -244,8 +244,8 @@ BUILD SUCCESSFUL</pre>
                     add the line in marked below to the <code>build.classpath</code> Ant path:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;path id=&quot;build.classpath&quot;&gt;
+<pre
+    >&lt;path id=&quot;build.classpath&quot;&gt;
     &lt;pathelement path=&quot;${clover.jar}&quot;/&gt; &lt;!-- add this --&gt;
     &lt;pathelement path=&quot;${build.classes}&quot;/&gt;
 &lt;/path&gt;
@@ -259,8 +259,8 @@ BUILD SUCCESSFUL</pre>
                     target. This will delete the Clover database when the <code>clean</code> target is executed.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;clean&quot; &gt;
+<pre
+    >&lt;target name=&quot;clean&quot; &gt;
      &lt;clover-clean/&gt; &lt;!-- add this --&gt;
      &lt;delete dir=&quot;build&quot;/&gt;
 &lt;/target&gt;
@@ -279,8 +279,8 @@ BUILD SUCCESSFUL</pre>
                 <p>You will get output similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">$ ant with.clover compile
+<pre
+    >$ ant with.clover compile
 Buildfile: .../tutorial/build.xml
 
 
@@ -316,8 +316,8 @@ BUILD SUCCESSFUL</pre>
                     the tests, this time measuring coverage. Output from Ant will be the same as a normal test run:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">$ ant test
+<pre
+    >$ ant test
 Buildfile: .../tutorial/build.xml
 
 
@@ -356,8 +356,8 @@ BUILD SUCCESSFUL
                     create a HTML report:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;clover.report&quot;&gt;
+<pre
+    >&lt;target name=&quot;clover.report&quot;&gt;
    &lt;clover-html-report outdir=&quot;build/clover_html&quot; title=&quot;Clover Demo&quot;/&gt;
 &lt;/target&gt;
 </pre>
@@ -380,8 +380,8 @@ BUILD SUCCESSFUL
                     the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">$ ant clover.report
+<pre
+    >$ ant clover.report
 Buildfile: /Users/mparfianowicz/Work/clover-hg/tutorial/build.xml
 
 

@@ -68,7 +68,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>This page contains instructions on how to collect per-test coverage from a set of functional tests,
                     which run in multiple JVMs (Java Virtual Machines). This may be necessary when starting a web server
                     with the <a  href="http://blogs.webtide.com/janb/entry/jetty_runner"
@@ -179,9 +179,9 @@
                 <p>Example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
-                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-                             data-theme="Confluence">-Dclover.distributed.coverage=host=myhost;port=7777;numclients=2</pre>
+                        <pre
+
+                            >-Dclover.distributed.coverage=host=myhost;port=7777;numclients=2</pre>
                     </div>
                 </div>
                 <p> </p>
@@ -193,8 +193,8 @@
                 Setting the System Properties in the Ant JUnit Task</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot; showoutput=&quot;true&quot; printsummary=&quot;true&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot; showoutput=&quot;true&quot; printsummary=&quot;true&quot;&gt;
         &lt;sysproperty key=&quot;clover.server&quot; value=&quot;true&quot;/&gt;
         &lt;sysproperty key=&quot;clover.distributed.coverage&quot; value=&quot;ON&quot;/&gt;
         ...
@@ -208,8 +208,8 @@
                     set to <code>ON</code>.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence"> &lt;java jar=&quot;${jetty.jar}&quot; fork=&quot;true&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    > &lt;java jar=&quot;${jetty.jar}&quot; fork=&quot;true&quot;&gt;
 	...
         &lt;jvmarg value=&quot;-Dclover.distributed.coverage=ON&quot;/&gt;
 &lt;/java&gt;
@@ -230,8 +230,8 @@
                     nested element:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;distributedCoverage/&gt;
+<pre
+    >&lt;distributedCoverage/&gt;
 </pre>
                     </div>
                 </div>
@@ -242,8 +242,8 @@
                     element like so:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-setup&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;clover-setup&gt;
   &lt;distributedCoverage port=&quot;1234&quot; numClients=&quot;1&quot;/&gt;
 &lt;/clover-setup&gt;
 </pre>
@@ -259,8 +259,8 @@
                 <p>e.g.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot; showoutput=&quot;true&quot; printsummary=&quot;true&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot; showoutput=&quot;true&quot; printsummary=&quot;true&quot;&gt;
         &lt;sysproperty key=&quot;clover.server&quot; value=&quot;true&quot;/&gt;
         ...
 &lt;/junit&gt;

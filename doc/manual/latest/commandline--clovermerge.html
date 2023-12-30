@@ -58,63 +58,63 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>This tool merges existing Clover databases to allow for combined reports to be generated.</p>
                 <h3 id="CloverMerge-Usage">Usage</h3>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">java com.atlassian.clover.CloverMerge [OPTIONS] PARAMS [DBFILES...]
+<pre
+    >java com.atlassian.clover.CloverMerge [OPTIONS] PARAMS [DBFILES...]
 </pre>
                     </div>
                 </div>
                 <h3 id="CloverMerge-Parameters">Parameters</h3>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p>Parameter</p></th>
-                            <th class="confluenceTh"><p>Description</p></th>
-                            <th class="confluenceTh"><p>Required</p></th>
+                            <th><p>Parameter</p></th>
+                            <th><p>Description</p></th>
+                            <th><p>Required</p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-i, --initstring &lt;file&gt;</p></td>
-                            <td class="confluenceTd"><p>Clover initstring. Clover initstring. This is the path where the
+                            <td><p>-i, --initstring &lt;file&gt;</p></td>
+                            <td><p>Clover initstring. Clover initstring. This is the path where the
                                 new merged database will be written.</p></td>
-                            <td class="confluenceTd"><p>Yes.</p></td>
+                            <td><p>Yes.</p></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <h3 id="CloverMerge-Options">Options</h3>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p>Option</p></th>
-                            <th class="confluenceTh"><p>Description</p></th>
+                            <th><p>Option</p></th>
+                            <th><p>Description</p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-d, --debug</p></td>
-                            <td class="confluenceTd"><p>Enable debug logging.</p></td>
+                            <td><p>-d, --debug</p></td>
+                            <td><p>Enable debug logging.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-s, --span <a href="glossary--interval.html">interval</a></p>
+                            <td><p>-s, --span <a href="glossary--interval.html">interval</a></p>
                             </td>
-                            <td class="confluenceTd"><p>Specifies the span to use when reading subsequent databases to
+                            <td><p>Specifies the span to use when reading subsequent databases to
                                 be merged. This option can be specified more than once and applies to all databases
                                 specified after the option, or until another span in specified</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-u, --update <a href="glossary--interval.html">interval</a></p>
+                            <td><p>-u, --update <a href="glossary--interval.html">interval</a></p>
                             </td>
-                            <td class="confluenceTd"><p>If specified, any existing database specified by -i will be
+                            <td><p>If specified, any existing database specified by -i will be
                                 included in the merge. If interval is specified, it is used as the span when reading the
                                 existing database.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-v, --verbose</p></td>
-                            <td class="confluenceTd"><p>Enable verbose logging.</p></td>
+                            <td><p>-v, --verbose</p></td>
+                            <td><p>Enable verbose logging.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -125,8 +125,8 @@
                     the API:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">import com.atlassian.clover.CloverMerge;
+<pre
+    >import com.atlassian.clover.CloverMerge;
 
 ...
 
@@ -141,16 +141,16 @@ if (result != 0) {
                 <h3 id="CloverMerge-Examples">Examples</h3>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">java com.atlassian.clover.CloverMerge -i new.db proj1.db proj2.db
+<pre
+    >java com.atlassian.clover.CloverMerge -i new.db proj1.db proj2.db
 </pre>
                     </div>
                 </div>
                 <p>Merges proj1.db and proj2.db into the new database new.db. A span of zero seconds is used.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">java com.atlassian.clover.CloverMerge -i new.db proj1.db -s 30s proj2.db proj3.db
+<pre
+    >java com.atlassian.clover.CloverMerge -i new.db proj1.db -s 30s proj2.db proj3.db
 </pre>
                     </div>
                 </div>

@@ -59,12 +59,12 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h3 id="Couldnotfindgoal&#39;setup&#39;inpluginorg.apache.maven.plugins:maven-clover-plugin:2.4-Symptoms">
                     Symptoms</h3>
                 <p>When integrating Clover into a build, for example:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>mvn clean clover:setup test clover:aggregate clover:clover</pre>
                     </div>
                 </div>
@@ -72,8 +72,8 @@
                 <p>the build fails with an error like this:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">[ERROR] Could not find goal &#39;setup&#39; in plugin org.apache.maven.plugins:maven-clover-plugin:2.4 among available goals aggregate, check, instrumentInternal, instrument, log, clover, save-history -&gt; [Help 1]
+<pre
+    >[ERROR] Could not find goal &#39;setup&#39; in plugin org.apache.maven.plugins:maven-clover-plugin:2.4 among available goals aggregate, check, instrumentInternal, instrument, log, clover, save-history -&gt; [Help 1]
 org.apache.maven.plugin.MojoNotFoundException: Could not find goal &#39;setup&#39; in plugin org.apache.maven.plugins:maven-clover-plugin:2.4 among available goals aggregate, check, instrumentInternal, instrument, log, clover, save-history</pre>
                     </div>
                 </div>
@@ -108,8 +108,8 @@ org.apache.maven.plugin.MojoNotFoundException: Could not find goal &#39;setup&#3
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>.m2/settings.xml</b>
                     </div>
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;
+<pre
+    >&lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;
           xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
           xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0
           http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;
@@ -125,8 +125,8 @@ org.apache.maven.plugin.MojoNotFoundException: Could not find goal &#39;setup&#3
                     clover:setup test clover:clover').</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;version&gt;4.2.0&lt;/version&gt;
@@ -138,8 +138,8 @@ org.apache.maven.plugin.MojoNotFoundException: Could not find goal &#39;setup&#3
                     clean clover2:setup test clover2:clover').</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
     &lt;groupId&gt;com.atlassian.maven.plugins&lt;/groupId&gt;
     &lt;artifactId&gt;maven-clover2-plugin&lt;/artifactId&gt;
     &lt;version&gt;4.0.6&lt;/version&gt;

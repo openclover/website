@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h2 id="CreatingGrailspluginsusingClover-Importantnotice">Important notice</h2>
                 <p>In case you're developing a Grails plugin and this plugin is referencing the Clover plugin, it's
                     necessary to define that the Clover plugin is not exported. Otherwise, the Clover plugin will be
@@ -74,8 +74,8 @@
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>BuildConfig.groovy</b>
                     </div>
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
-     data-theme="Confluence">grails.project.dependency.resolution = {
+<pre
+    >grails.project.dependency.resolution = {
   plugins { 
     compile(&quot;:clover:3.2.0&quot;) {
       export = false

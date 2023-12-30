@@ -59,7 +59,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h4 id="Java8codeinstrumentedbyCloverfailstocompile-Symptoms">Symptoms</h4>
                 <p>Compilation of Java 8 code instrumented by Clover fails when a lambda expression is passed as an
                     argument of a generic method.</p>
@@ -68,8 +68,8 @@
                 <p>For the following code</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">public class LambdaAndGenerics {
+<pre
+    >public class LambdaAndGenerics {
     static interface Predicate&lt;T&gt; {
         boolean test(T t);
     }
@@ -92,8 +92,8 @@
                     </div>
                 </div>
                 <p>compiler fails with:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>java: reference to goo is ambiguous
   both method &lt;N&gt;goo(java.lang.Class&lt;N&gt;) in LambdaAndGenerics.Fails and method &lt;M&gt;goo(LambdaAndGenerics.Predicate&lt;M&gt;) in LambdaAndGenerics.Fails match
 
@@ -106,8 +106,8 @@ java: incompatible types: cannot infer type-variable(s) I,T
                 <p>The following code:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">public static List&lt;String&gt; testMapAndCollectBounds(List&lt;String&gt; input) {
+<pre
+    >public static List&lt;String&gt; testMapAndCollectBounds(List&lt;String&gt; input) {
     return input.stream()
             .map(e -&gt; e.toUpperCase())
             .collect(Collectors.toList());
@@ -115,8 +115,8 @@ java: incompatible types: cannot infer type-variable(s) I,T
                     </div>
                 </div>
                 <p>fails with a compilation error:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>incompatible types: inference variable T has incompatible bounds
 equality constraints: java.lang.String
 lower bounds: java.lang.Object</pre>
@@ -126,8 +126,8 @@ lower bounds: java.lang.Object</pre>
                 <p>The following code:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">public static Stream&lt;String&gt; testMapAndFilterBounds(List&lt;String&gt; input) {
+<pre
+    >public static Stream&lt;String&gt; testMapAndFilterBounds(List&lt;String&gt; input) {
     return input.stream()
             .map(e -&gt; e.toUpperCase())
             .filter(e -&gt; !e.isEmpty());
@@ -135,8 +135,8 @@ lower bounds: java.lang.Object</pre>
                     </div>
                 </div>
                 <p>fails with a compilation error:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>incompatible types: java.util.stream.Stream&lt;java.lang.Object&gt; cannot be converted to java.util.stream.Stream&lt;java.lang.String&gt;</pre>
                     </div>
                 </div>
@@ -164,16 +164,16 @@ lower bounds: java.lang.Object</pre>
                     into Clover's helper method having a signature like this:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;I, T extends I&gt; I lambdaInc(int index, T lambda, int stmtIndex)
+<pre
+    >&lt;I, T extends I&gt; I lambdaInc(int index, T lambda, int stmtIndex)
 </pre>
                     </div>
                 </div>
                 <p>this may cause problems when used with generic method having wildcards, such as:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">stream()
+<pre
+    >stream()
     .map(...)       // &lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper)
     .collect(...)   // &lt;R&gt; R collect(Supplier&lt;R&gt; supplier, BiConsumer&lt;R, ? super T&gt; accumulator, BiConsumer&lt;R, R&gt; combiner)</pre>
                     </div>
@@ -182,8 +182,8 @@ lower bounds: java.lang.Object</pre>
                 <p>1) Change a lambda function from an expression to a code block, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">// expression lambda
+<pre
+    >// expression lambda
 System.out.println(goo(e -&gt; false));
 // block lambda
 System.out.println(goo(e -&gt; { return false; }));</pre>
@@ -199,17 +199,17 @@ System.out.println(goo(e -&gt; { return false; }));</pre>
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Ant - build.xml</b>
                     </div>
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
+                        <pre
                              data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-                             data-theme="Confluence"> &lt;clover-setup instrumentLambda=&quot;block&quot;/&gt;</pre>
+                            > &lt;clover-setup instrumentLambda=&quot;block&quot;/&gt;</pre>
                     </div>
                 </div>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Maven - pom.xml</b>
                     </div>
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
    &lt;instrumentLambda&gt;block&lt;/instrumentLambda&gt;
 &lt;/configuration&gt;</pre>
                     </div>
@@ -218,8 +218,8 @@ System.out.println(goo(e -&gt; { return false; }));</pre>
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Grails -
                         BuildConfig.groovy</b></div>
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
-     data-theme="Confluence">clover {
+<pre
+    >clover {
    instrumentLambda = &quot;block&quot;
 } </pre>
                     </div>
@@ -238,8 +238,8 @@ System.out.println(goo(e -&gt; { return false; }));</pre>
                 <p>3) Or surround a lambda by ///CLOVER:OFF and ///CLOVER:ON comments, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">... some code ...
+<pre
+    >... some code ...
 ///CLOVER:OFF
 System.out.println(goo(e -&gt; false));
 ///CLOVER:ON 
@@ -251,8 +251,8 @@ System.out.println(goo(e -&gt; false));
                     e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">static class Works {
+<pre
+    >static class Works {
     void start() {
         System.out.println(goo(e -&gt; false));
     }

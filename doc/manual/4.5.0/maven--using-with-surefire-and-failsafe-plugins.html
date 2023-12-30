@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h2 id="UsingwithSurefireandFailsafePlugins-Introduction">Introduction</h2>
                 <p>Clover can be used to generate code coverage statistics from practically any kind of test - unit,
                     integration, functional, regression ... - both automatic and manual. The only thing that has to be
@@ -75,25 +75,25 @@
                     Comparison of maven-surefire-plugin and maven-failsafe-plugin</h2>
                 <p> </p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"> </th>
-                            <th class="confluenceTh">maven-surefire-plugin</th>
-                            <th class="confluenceTh">maven-failsafe-plugin</th>
+                            <th> </th>
+                            <th>maven-surefire-plugin</th>
+                            <th>maven-failsafe-plugin</th>
                         </tr>
                         <tr>
                             <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey">Main
                                 purpose
                             </td>
-                            <td colspan="1" class="confluenceTd">unit tests</td>
-                            <td colspan="1" class="confluenceTd">integration tests</td>
+                            <td colspan="1">unit tests</td>
+                            <td colspan="1">integration tests</td>
                         </tr>
                         <tr>
                             <td class="highlight-grey confluenceTd" data-highlight-colour="grey">Bound to build phase
                             </td>
-                            <td class="confluenceTd">test</td>
-                            <td class="confluenceTd"><p>pre-integration-test</p>
+                            <td>test</td>
+                            <td><p>pre-integration-test</p>
                                 <p>integration-test</p>
                                 <p>post-integration-test</p>
                                 <p>verify</p></td>
@@ -101,17 +101,17 @@
                         <tr>
                             <td class="highlight-grey confluenceTd" data-highlight-colour="grey">Build fails in phase
                             </td>
-                            <td class="confluenceTd">test</td>
-                            <td class="confluenceTd">verify</td>
+                            <td>test</td>
+                            <td>verify</td>
                         </tr>
                         <tr>
                             <td class="highlight-grey confluenceTd" data-highlight-colour="grey">Default wildcard
                                 pattern
                             </td>
-                            <td class="confluenceTd"><p>**/Test*.java</p>
+                            <td><p>**/Test*.java</p>
                                 <p>**/*Test.java</p>
                                 <p>**/*TestCase.java</p></td>
-                            <td class="confluenceTd"><p>**/IT*.java</p>
+                            <td><p>**/IT*.java</p>
                                 <p>**/*IT.java</p>
                                 <p>**/*ITCase.java</p></td>
                         </tr>
@@ -119,8 +119,8 @@
                             <td class="highlight-grey confluenceTd" data-highlight-colour="grey">Default output
                                 directory
                             </td>
-                            <td class="confluenceTd">${basedir}/target/surefire-reports</td>
-                            <td class="confluenceTd">${basedir}/target/failsafe-reports</td>
+                            <td>${basedir}/target/surefire-reports</td>
+                            <td>${basedir}/target/failsafe-reports</td>
                         </tr>
                         </tbody>
                     </table>
@@ -159,8 +159,8 @@
                 <p> </p><h4 id="UsingwithSurefireandFailsafePlugins-Contentofpom.xml">Content of pom.xml</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;dependencies&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;dependencies&gt;
     &lt;!-- Test framework which will be used by Failsafe plugin. Version number is mandatory --&gt;
     &lt;dependency&gt;
         &lt;groupId&gt;junit&lt;/groupId&gt;
@@ -207,8 +207,8 @@
                 clover-report.xml</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
     &lt;!-- Initialize Clover --&gt;
     &lt;clover-setup initString=&quot;${cloverdb}&quot;/&gt;
     &lt;target name=&quot;historical&quot;&gt;
@@ -241,9 +241,9 @@
                 <p> </p><h4 id="UsingwithSurefireandFailsafePlugins-Mavencommand">Maven command</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
+                        <pre
                              data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
-                             data-theme="Confluence">mvn clean clover:setup verify clover:aggregate clover:clover</pre>
+                            >mvn clean clover:setup verify clover:aggregate clover:clover</pre>
                     </div>
                 </div>
                 <p> </p>
@@ -283,8 +283,8 @@
                 <p> </p><h4 id="UsingwithSurefireandFailsafePlugins-Contentofpom.xml.1">Content of pom.xml</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;properties&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;properties&gt;
     &lt;!-- A common location in which a surefire report from &#39;test&#39; and failsafe report from
     &#39;integration-test&#39; phase will be stored. See also the clover-report.xml file which refers
     to this location --&gt;
@@ -339,8 +339,8 @@
                 clover-report.xml</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
     &lt;!-- Initialize Clover --&gt;
     &lt;clover-setup initString=&quot;${cloverdb}&quot;/&gt;
     &lt;target name=&quot;historical&quot;&gt;
@@ -372,9 +372,9 @@
                 <p> </p><h4 id="UsingwithSurefireandFailsafePlugins-Mavencommand.1">Maven command</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
+                        <pre
                              data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
-                             data-theme="Confluence">mvn clean clover:setup verify clover:aggregate clover:clover</pre>
+                            >mvn clean clover:setup verify clover:aggregate clover:clover</pre>
                     </div>
                 </div>
                 <p> </p>

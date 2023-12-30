@@ -64,7 +64,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>Clover defines a <em>Context</em> as a part of source code that matches a specified structure or
                     pattern. Contexts are either pre-defined or user-defined at instrumentation time. Each context must
                     have a unique name. At report time, you can specify which contexts you would like to exclude in the
@@ -79,75 +79,75 @@
                         support Groovy.</p></div>
                 </div>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p>Name</p></th>
-                            <th class="confluenceTh"><p>Description</p></th>
+                            <th><p>Name</p></th>
+                            <th><p>Description</p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>static</code></p></td>
-                            <td class="confluenceTd"><p>Static initializer block</p></td>
+                            <td><p><code>static</code></p></td>
+                            <td><p>Static initializer block</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>instance</code></p></td>
-                            <td class="confluenceTd"><p>Instance initializer block</p></td>
+                            <td><p><code>instance</code></p></td>
+                            <td><p>Instance initializer block</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>constructor</code></p></td>
-                            <td class="confluenceTd"><p>Constructor body</p></td>
+                            <td><p><code>constructor</code></p></td>
+                            <td><p>Constructor body</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>method</code></p></td>
-                            <td class="confluenceTd"><p>Method body</p></td>
+                            <td><p><code>method</code></p></td>
+                            <td><p>Method body</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>switch</code></p></td>
-                            <td class="confluenceTd"><p>Switch statement body</p></td>
+                            <td><p><code>switch</code></p></td>
+                            <td><p>Switch statement body</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>while</code></p></td>
-                            <td class="confluenceTd"><p>While loop body</p></td>
+                            <td><p><code>while</code></p></td>
+                            <td><p>While loop body</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>do</code></p></td>
-                            <td class="confluenceTd"><p>do-while loop body</p></td>
+                            <td><p><code>do</code></p></td>
+                            <td><p>do-while loop body</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>for</code></p></td>
-                            <td class="confluenceTd"><p>For loop body</p></td>
+                            <td><p><code>for</code></p></td>
+                            <td><p>For loop body</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>if</code></p></td>
-                            <td class="confluenceTd"><p>if body</p></td>
+                            <td><p><code>if</code></p></td>
+                            <td><p>if body</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>else</code></p></td>
-                            <td class="confluenceTd"><p>else body</p></td>
+                            <td><p><code>else</code></p></td>
+                            <td><p>else body</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>try</code></p></td>
-                            <td class="confluenceTd"><p>try body</p></td>
+                            <td><p><code>try</code></p></td>
+                            <td><p>try body</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>catch</code></p></td>
-                            <td class="confluenceTd"><p>catch body</p></td>
+                            <td><p><code>catch</code></p></td>
+                            <td><p>catch body</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>finally</code></p></td>
-                            <td class="confluenceTd"><p>finally body</p></td>
+                            <td><p><code>finally</code></p></td>
+                            <td><p>finally body</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>sync</code></p></td>
-                            <td class="confluenceTd"><p>synchronized block</p></td>
+                            <td><p><code>sync</code></p></td>
+                            <td><p>synchronized block</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>assert</code></p></td>
-                            <td class="confluenceTd"><p>assert statement</p></td>
+                            <td><p><code>assert</code></p></td>
+                            <td><p>assert statement</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>@deprecated</code></p></td>
-                            <td class="confluenceTd"><p>a deprecated block</p></td>
+                            <td><p><code>@deprecated</code></p></td>
+                            <td><p>a deprecated block</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -156,22 +156,22 @@
                 <p>A Method Context represents the set of methods whose signature matches a given pattern. Clover
                     provides several pre-defined method contexts:</p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p>Name</p></th>
-                            <th class="confluenceTh"><p>Regexp</p></th>
-                            <th class="confluenceTh"><p>Description</p></th>
+                            <th><p>Name</p></th>
+                            <th><p>Regexp</p></th>
+                            <th><p>Description</p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>private</code></p></td>
-                            <td class="confluenceTd"><p><code>(.* )?private .*</code></p></td>
-                            <td class="confluenceTd"><p>matches all private methods</p></td>
+                            <td><p><code>private</code></p></td>
+                            <td><p><code>(.* )?private .*</code></p></td>
+                            <td><p>matches all private methods</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>property</code></p></td>
-                            <td class="confluenceTd"><p><code>(.* )?public .*(get|set|is)[A-Z0-9].*</code></p></td>
-                            <td class="confluenceTd"><p>matches all property getters/setters</p></td>
+                            <td><p><code>property</code></p></td>
+                            <td><p><code>(.* )?public .*(get|set|is)[A-Z0-9].*</code></p></td>
+                            <td><p>matches all property getters/setters</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -203,16 +203,16 @@
                     wanted to create a <code>regexp</code> that matched the following Groovy method:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">def void foo()
+<pre
+    >def void foo()
 </pre>
                     </div>
                 </div>
                 <p>Your <code>regexp</code> must assume a match against:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">public def void foo()
+<pre
+    >public def void foo()
 </pre>
                     </div>
                 </div>
@@ -253,8 +253,8 @@
                 <p><strong>Examples of normalized signatures for Groovy</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
-     data-theme="Confluence">// normalized signature is: &quot;private void &lt;init&gt;()&quot;
+<pre
+    >// normalized signature is: &quot;private void &lt;init&gt;()&quot;
 private PrivateConstructor() {
         
 }
@@ -306,8 +306,8 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     outer statement will contain inner statements as well. Consider the following example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">void testStatementContext() {
+<pre
+    >void testStatementContext() {
     while (true) {
         if (logger.isDebugEnabled()) {
             logger.debug(&quot;abc&quot;);			
@@ -320,25 +320,25 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                 <p>a) the while loop</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
-                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-                             data-theme="Confluence">while (true) {{ if (logger.isDebugEnabled()) {{ logger.debug(&quot;abc&quot;); } }}</pre>
+                        <pre
+
+                            >while (true) {{ if (logger.isDebugEnabled()) {{ logger.debug(&quot;abc&quot;); } }}</pre>
                     </div>
                 </div>
                 <p>b) the if condition</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
-                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-                             data-theme="Confluence">if (logger.isDebugEnabled()) {{ logger.debug(&quot;abc&quot;); }</pre>
+                        <pre
+
+                            >if (logger.isDebugEnabled()) {{ logger.debug(&quot;abc&quot;); }</pre>
                     </div>
                 </div>
                 <p>c) the logger.debug() method call</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
-                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-                             data-theme="Confluence">logger.debug(&quot;abc&quot;);</pre>
+                        <pre
+
+                            >logger.debug(&quot;abc&quot;);</pre>
                     </div>
                 </div>
                 <p> </p>
@@ -346,9 +346,9 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     look like this:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
+                        <pre
                              data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-                             data-theme="Confluence">&lt;statementcontext name=&quot;logger&quot; regexp=&quot;^logger\.debug.*&quot;/&gt;</pre>
+                            >&lt;statementcontext name=&quot;logger&quot; regexp=&quot;^logger\.debug.*&quot;/&gt;</pre>
                     </div>
                 </div>
                 <p>Note that if the expression would be written as &quot;^<strong><span
@@ -367,8 +367,8 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     blocks from a coverage report:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-report&gt;
+<pre
+    >&lt;clover-report&gt;
        &lt;current outfile=&quot;clover_html&quot;&gt;
          &lt;format type=&quot;html&quot; filter=&quot;catch&quot;/&gt;
        &lt;/current&gt;
@@ -384,8 +384,8 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-setup ...&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;clover-setup ...&gt;
     &lt;!-- Don&#39;t instrument methods which have cyclomatic complexity &lt;= 1 or &lt;= 3 statements --&gt;
     &lt;methodContext name=&quot;simple_method&quot; regexp=&quot;.*&quot; maxComplexity=&quot;1&quot; maxStatements=&quot;3&quot;/&gt;
 &lt;/clover-setup&gt;</pre>
@@ -396,8 +396,8 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     contexts that match logging statements in your source:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-setup ...&gt;
+<pre
+    >&lt;clover-setup ...&gt;
     &lt;statementContext name=&quot;log&quot; regexp=&quot;^LOG\..*&quot;/&gt;
     &lt;statementContext name=&quot;iflog&quot; regexp=&quot;^if \(LOG\.is.*&quot;/&gt;
     &lt;methodContext name=&quot;main&quot; regexp=&quot;public static void main\(String args\[\]\).*&quot;/&gt;
@@ -411,8 +411,8 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     which is designed to match conditional logging statements such as:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">if (LOG.isDebugEnabled()) {
+<pre
+    >if (LOG.isDebugEnabled()) {
     // do some expensive debug logging
 }
 </pre>
@@ -421,8 +421,8 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                 <p>The third matches all 'main' methods that have a String Array named 'args' in the constructor:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">public static void main(String args[]) throws Exception
+<pre
+    >public static void main(String args[]) throws Exception
 </pre>
                     </div>
                 </div>
@@ -430,8 +430,8 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     can then generate a report that excludes logging statements:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-report&gt;
+<pre
+    >&lt;clover-report&gt;
     &lt;current outfile=&quot;clover_html&quot; title=&quot;My Coverage&quot;&gt;
         &lt;format type=&quot;html&quot; filter=&quot;log,iflog&quot;/&gt;
     &lt;/current&gt;

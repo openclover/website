@@ -61,14 +61,14 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h2 id="Configuringinstrumentation-Controllingwhichsourcefilesareinstrumented">Controlling which source
                     files are instrumented</h2>
                 <p>Use configuration elements to exclude and include source files from being instrumented:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
   ...
   &lt;includes&gt;
     &lt;include&gt;...ant style glob...&lt;/include&gt;
@@ -88,8 +88,8 @@
                     report):</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
   ...
   &lt;includesTestSourceRoots&gt;false&lt;/includesTestSourceRoots&gt;
 &lt;/configuration&gt;
@@ -111,8 +111,8 @@
                 <p><strong>To set this value in your pom.xml:</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
     &lt;instrumentation&gt;method&lt;/instrumentation&gt;
 &lt;/configuration&gt;
 </pre>
@@ -121,9 +121,9 @@
                 <p><strong>To set this value on the Maven command line:</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
-                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-                             data-theme="Confluence">-Dmaven.clover.instrumentation=method</pre>
+                        <pre
+
+                            >-Dmaven.clover.instrumentation=method</pre>
                     </div>
                 </div>
                 <p>The setting above will result in method level only instrumentation; no statement level coverage will
@@ -135,8 +135,8 @@
                 <p>To exclude <code>try</code> bodies and static initializer blocks:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
   ...
   &lt;contextFilters&gt;try,static&lt;/contextFilters&gt;
 &lt;/configuration&gt;
@@ -146,8 +146,8 @@
                 <p>To exclude arbitrary statements or methods you can specify one or more custom contexts like so:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
   &lt;methodContexts&gt;
     &lt;main&gt;(.* )?public static void main\(String\[\] argv\).*&lt;/main&gt;
   &lt;/methodContexts&gt;
@@ -164,8 +164,8 @@
                 <p>Each one still needs to be 'enabled' via the <code>&lt;contextFilters/&gt;</code> element:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
   ...
   &lt;contextFilters&gt;main,log,iflog&lt;/contextFilters&gt;
 &lt;/configuration&gt;
@@ -189,8 +189,8 @@
                     Clover JDK level to 1.4:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
   ...
   &lt;jdk&gt;1.4&lt;/jdk&gt;
 &lt;/configuration&gt;
@@ -203,8 +203,8 @@
                                              rel="nofollow">Flush Policy</a> and interval:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
   ...
   &lt;flushPolicy&gt;threaded&lt;/flushPolicy&gt;
   &lt;flushInterval&gt;5000&lt;/flushInterval&gt;
@@ -216,8 +216,8 @@
                 <p>To specify a particular location for your Clover database:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
   &lt;cloverDatabase&gt;foo/clover.db&lt;/cloverDatabase&gt;
 &lt;/configuration&gt;
 </pre>
@@ -226,8 +226,8 @@
                 <p>and to set a location for the merged database:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
   &lt;cloverMergeDatabase&gt;foo/cloverMerge.db&lt;/cloverMergeDatabase&gt;
 &lt;/configuration&gt;
 </pre>

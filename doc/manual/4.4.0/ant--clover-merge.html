@@ -64,7 +64,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h3 id="clover-merge-Description">Description</h3>
                 <p>The <code>&lt;clover-merge&gt;</code> task merges several Clover databases into one, to allow for
                     combined reports to be generated. The resultant database can be used with reporting tasks, such as
@@ -73,30 +73,30 @@
                     parameter.</p>
                 <h3 id="clover-merge-Parameters">Parameters</h3>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>initstring</p></td>
-                            <td class="confluenceTd"><p>The location to write the Clover coverage database resulting
+                            <td><p>initstring</p></td>
+                            <td><p>The location to write the Clover coverage database resulting
                                 from the merge.</p></td>
-                            <td class="confluenceTd"><p>Yes.</p></td>
+                            <td><p>Yes.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>update</p></td>
-                            <td class="confluenceTd"><p>If set to true and there is an existing database at <code>initString</code>,
+                            <td><p>update</p></td>
+                            <td><p>If set to true and there is an existing database at <code>initString</code>,
                                 that database will be included in the merge.</p></td>
-                            <td class="confluenceTd"><p>No. Defaults to '<strong>false</strong>'.</p></td>
+                            <td><p>No. Defaults to '<strong>false</strong>'.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>updateSpan</p></td>
-                            <td class="confluenceTd"><p>If update is true, this span is used when merging any existing
+                            <td><p>updateSpan</p></td>
+                            <td><p>If update is true, this span is used when merging any existing
                                 database at <code>initString</code>.</p></td>
-                            <td class="confluenceTd"><p>No. Defaults to <code>0</code> seconds.</p></td>
+                            <td><p>No. Defaults to <code>0</code> seconds.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -105,24 +105,24 @@
                     <code>&lt;clover-merge&gt;</code></h3><h4 id="clover-merge-&lt;cloverDb&gt;">&lt;cloverDb&gt;</h4>
                 <p>Specifies a Clover database to merge.</p><h5 id="clover-merge-Parameters.1">Parameters</h5>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>initstring</p></td>
-                            <td class="confluenceTd"><p>The <code>initString</code> of the database to merge.</p></td>
-                            <td class="confluenceTd"><p>Yes.</p></td>
+                            <td><p>initstring</p></td>
+                            <td><p>The <code>initString</code> of the database to merge.</p></td>
+                            <td><p>Yes.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>span</p></td>
-                            <td class="confluenceTd"><p>Specifies how far back in time to include coverage recordings
+                            <td><p>span</p></td>
+                            <td><p>Specifies how far back in time to include coverage recordings
                                 from since the last Clover build for this database. See <a
                                         href="ant--using-spans.html">Using Spans</a>.</p></td>
-                            <td class="confluenceTd"><p>No; default includes 'all coverage data found'.</p></td>
+                            <td><p>No; default includes 'all coverage data found'.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -137,27 +137,27 @@
                                            rel="nofollow"><em>Ant FileSet</em></a></em> <em>documentation for parameters
                     and sub-elements available on FileSets.</em></p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>refid</p></td>
-                            <td class="confluenceTd"><p>Lets you specify a <a
+                            <td><p>refid</p></td>
+                            <td><p>Lets you specify a <a
                                                                               href="http://ant.apache.org/manual/Types/fileset.html"
                                                                               rel="nofollow">fileset</a> that references
                                 a group of Clover database files. This references a fileset defined elsewhere.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to none.</p></td>
+                            <td><p>No; defaults to none.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>span</p></td>
-                            <td class="confluenceTd"><p>Specifies how far back in time to include coverage recordings
+                            <td><p>span</p></td>
+                            <td><p>Specifies how far back in time to include coverage recordings
                                 from since the last Clover build for this database. See <a
                                         href="ant--using-spans.html">Using Spans</a>.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to '0 seconds'.</p></td>
+                            <td><p>No; defaults to '0 seconds'.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -167,8 +167,8 @@
                     B:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-merge initString=&quot;mergedcoverage.db&quot;&gt;
+<pre
+    >&lt;clover-merge initString=&quot;mergedcoverage.db&quot;&gt;
     &lt;cloverDb initString=&quot;projectAcoverage.db&quot;/&gt;
     &lt;cloverDb initString=&quot;projectBcoverage.db&quot; span=&quot;30 mins&quot;/&gt;
  &lt;/clover-merge&gt;
@@ -179,8 +179,8 @@
                     <code>/home/projects</code>:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-merge initString=&quot;mergedcoverage.db&quot;&gt;
+<pre
+    >&lt;clover-merge initString=&quot;mergedcoverage.db&quot;&gt;
     &lt;cloverDbSet dir=&quot;/home/projects&quot; span=&quot;30 mins&quot;&gt;
           &lt;include name=&quot;**/coverage.db&quot;/&gt;
     &lt;/cloverDbSet&gt;

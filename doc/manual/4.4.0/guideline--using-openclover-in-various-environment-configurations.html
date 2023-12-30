@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p> </p>
                 <p>
                     <style type='text/css'>/*<![CDATA[*/
@@ -184,7 +184,7 @@
                     id="UsingCloverinvariousenvironmentconfigurations-Step1:BuildingyourapplicationwithClover">Step 1:
                 Building your application with Clover</h4>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
                             <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey">
@@ -195,8 +195,8 @@
                         </tr>
                         <tr>
                             <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey"> </td>
-                            <td colspan="2" style="text-align: center;" class="confluenceTd">one application</td>
-                            <td colspan="2" style="text-align: center;" class="confluenceTd">many applications</td>
+                            <td colspan="2" style="text-align: center;">one application</td>
+                            <td colspan="2" style="text-align: center;">many applications</td>
                         </tr>
                         <tr>
                             <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey">
@@ -207,10 +207,10 @@
                         </tr>
                         <tr>
                             <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey"> </td>
-                            <td colspan="1" style="text-align: center;" class="confluenceTd">one module</td>
-                            <td colspan="1" style="text-align: center;" class="confluenceTd">many modules</td>
-                            <td colspan="1" style="text-align: center;" class="confluenceTd">one module</td>
-                            <td colspan="1" style="text-align: center;" class="confluenceTd">many modules</td>
+                            <td colspan="1" style="text-align: center;">one module</td>
+                            <td colspan="1" style="text-align: center;">many modules</td>
+                            <td colspan="1" style="text-align: center;">one module</td>
+                            <td colspan="1" style="text-align: center;">many modules</td>
                         </tr>
                         <tr>
                             <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey"><strong>Solution</strong>
@@ -219,12 +219,12 @@
                         </tr>
                         <tr>
                             <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey"> </td>
-                            <td colspan="1" class="confluenceTd"><p>only one database will be produced under default
+                            <td colspan="1"><p>only one database will be produced under default
                                 location so there's nothing to do</p></td>
-                            <td colspan="1" class="confluenceTd">one database is created for every module</td>
-                            <td colspan="1" class="confluenceTd"><p>keep all applications under a common root; every
+                            <td colspan="1">one database is created for every module</td>
+                            <td colspan="1"><p>keep all applications under a common root; every
                                 application will have one Clover database in its default location</p></td>
-                            <td colspan="1" class="confluenceTd"><p>keep all applications under a common root; one
+                            <td colspan="1"><p>keep all applications under a common root; one
                                 database is created for every module for each application</p></td>
                         </tr>
                         </tbody>
@@ -234,7 +234,7 @@
                     id="UsingCloverinvariousenvironmentconfigurations-Step2:Running/testingyourapplicationwithClover">
                 Step 2: Running / testing your application with Clover</h4>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
                             <th class="highlight-grey confluenceTh" colspan="1"><strong>Q3</strong></th>
@@ -242,9 +242,9 @@
                                 working directories for compilation and testing?</strong></th>
                         </tr>
                         <tr>
-                            <th colspan="1" class="confluenceTh"> </th>
-                            <td colspan="1" class="confluenceTd">no</td>
-                            <td colspan="2" class="confluenceTd">yes</td>
+                            <th colspan="1"> </th>
+                            <td colspan="1">no</td>
+                            <td colspan="2">yes</td>
                         </tr>
                         <tr>
                             <th class="highlight-grey confluenceTh" colspan="1" data-highlight-colour="grey">
@@ -254,9 +254,9 @@
                         </tr>
                         <tr>
                             <th class="highlight-grey confluenceTh" colspan="1" data-highlight-colour="grey"> </th>
-                            <td colspan="1" class="confluenceTd">n/a</td>
-                            <td style="text-align: center;" class="confluenceTd">one database</td>
-                            <td style="text-align: center;" class="confluenceTd">many databases</td>
+                            <td colspan="1">n/a</td>
+                            <td style="text-align: center;">one database</td>
+                            <td style="text-align: center;">many databases</td>
                         </tr>
                         <tr>
                             <th class="highlight-grey confluenceTh" colspan="1" data-highlight-colour="grey"><strong>Solution</strong>
@@ -265,26 +265,26 @@
                         </tr>
                         <tr>
                             <th class="highlight-grey confluenceTh" colspan="1" data-highlight-colour="grey"> </th>
-                            <td class="confluenceTd">nothing to do; path to database <br/>is already stored in
+                            <td>nothing to do; path to database <br/>is already stored in
                                 instrumented code
                             </td>
-                            <td class="confluenceTd">copy database to a test machine; provide <em>clover.initstring</em>
+                            <td>copy database to a test machine; provide <em>clover.initstring</em>
                                 at runtime pointing to database location on a test machine
                             </td>
-                            <td class="confluenceTd">ensure that you've used relative paths in Step 1; copy all
+                            <td>ensure that you've used relative paths in Step 1; copy all
                                 databases to a test machine preserving directory structure; use <em>clover.initstring.basedir</em>
                                 pointing to common root folder
                             </td>
                         </tr>
                         <tr>
-                            <th colspan="1" class="confluenceTh"> </th>
-                            <td colspan="1" class="confluenceTd">as soon as tests are finished, you shall have coverage
+                            <th colspan="1"> </th>
+                            <td colspan="1">as soon as tests are finished, you shall have coverage
                                 recording files in the same directory where database is located
                             </td>
-                            <td colspan="1" class="confluenceTd">as soon as tests are finished, copy coverage recording
+                            <td colspan="1">as soon as tests are finished, copy coverage recording
                                 files to a build machine into a directory with a database
                             </td>
-                            <td colspan="1" class="confluenceTd">as soon as tests are finished, copy coverage recording
+                            <td colspan="1">as soon as tests are finished, copy coverage recording
                                 files generated for all databases to a build machine preserving directory structure
                             </td>
                         </tr>
@@ -295,30 +295,30 @@
                     id="UsingCloverinvariousenvironmentconfigurations-Step3:Aggregatingcoveragedataandgeneratingreport">
                 Step 3: Aggregating coverage data and generating report</h4>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><strong>Q5</strong></th>
-                            <th colspan="3" class="confluenceTh"><strong>Do you have many Clover databases generated
+                            <th><strong>Q5</strong></th>
+                            <th colspan="3"><strong>Do you have many Clover databases generated
                                 from Step 1?</strong></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"> </td>
-                            <td class="confluenceTd">one database</td>
-                            <td class="confluenceTd">many databases from one application</td>
-                            <td class="confluenceTd">many databases from many applications</td>
+                            <td> </td>
+                            <td>one database</td>
+                            <td>many databases from one application</td>
+                            <td>many databases from many applications</td>
                         </tr>
                         <tr>
-                            <th class="confluenceTh">Solution</th>
-                            <th colspan="3" class="confluenceTh"> </th>
+                            <th>Solution</th>
+                            <th colspan="3"> </th>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd"> </td>
-                            <td colspan="1" class="confluenceTd">nothing to merge, just generate a report using <em>clover:clover</em>
+                            <td colspan="1"> </td>
+                            <td colspan="1">nothing to merge, just generate a report using <em>clover:clover</em>
                             </td>
-                            <td colspan="1" class="confluenceTd">merge databases after tests using
+                            <td colspan="1">merge databases after tests using
                                 <em>clover:aggregate</em> and next generate report using <em>clover:clover</em></td>
-                            <td colspan="1" class="confluenceTd">merge databases after tests using
+                            <td colspan="1">merge databases after tests using
                                 <em>clover:aggregate</em> (to merge modules of every single application), followed by
                                 <em>clover:merge</em> (to merge merged databases from all applications into one
                                 database)
@@ -331,18 +331,18 @@
                     id="UsingCloverinvariousenvironmentconfigurations-Optional:Optimizingyourenvironmentconfiguration">
                 Optional: Optimizing your environment configuration</h4>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh">Q6</th>
-                            <th colspan="4" class="confluenceTh">In case you use different machines for build/reporting
+                            <th>Q6</th>
+                            <th colspan="4">In case you use different machines for build/reporting
                                 and testing - do you have a shared network drive? 
                             </th>
                         </tr>
                         <tr>
-                            <td colspan="1" style="text-align: center;" class="confluenceTd"> </td>
-                            <td colspan="2" style="text-align: center;" class="confluenceTd">yes</td>
-                            <td colspan="2" style="text-align: center;" class="confluenceTd">no</td>
+                            <td colspan="1" style="text-align: center;"> </td>
+                            <td colspan="2" style="text-align: center;">yes</td>
+                            <td colspan="2" style="text-align: center;">no</td>
                         </tr>
                         <tr>
                             <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey">
@@ -352,11 +352,11 @@
                                 clover.db) on several machines?</strong></td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd"> </td>
-                            <td colspan="1" style="text-align: center;" class="confluenceTd">no</td>
-                            <td colspan="1" style="text-align: center;" class="confluenceTd">yes</td>
-                            <td colspan="1" style="text-align: center;" class="confluenceTd">no</td>
-                            <td colspan="1" style="text-align: center;" class="confluenceTd">yes</td>
+                            <td colspan="1"> </td>
+                            <td colspan="1" style="text-align: center;">no</td>
+                            <td colspan="1" style="text-align: center;">yes</td>
+                            <td colspan="1" style="text-align: center;">no</td>
+                            <td colspan="1" style="text-align: center;">yes</td>
                         </tr>
                         <tr>
                             <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey"><strong>Solution</strong>
@@ -364,20 +364,20 @@
                             <td class="highlight-grey confluenceTd" colspan="4" data-highlight-colour="grey"> </td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd"> </td>
-                            <td colspan="1" class="confluenceTd">nothing to do (clover.db created during build <br/>is
+                            <td colspan="1"> </td>
+                            <td colspan="1">nothing to do (clover.db created during build <br/>is
                                 available on test machine too thanks to<br/>a network drive; coverage recording
                                 files<br/>are written to the same directory)
                             </td>
-                            <td colspan="1" class="confluenceTd">nothing to do (clover.db created during build <br/>is
+                            <td colspan="1">nothing to do (clover.db created during build <br/>is
                                 accessible on all test machines too; coverage<br/>recordings from all test machines are
                                 written to<br/>the same directory; coverage files generated on different<br/>machines
                                 will not clash because they're using<br/>unique file names)
                             </td>
-                            <td colspan="1" class="confluenceTd"><p>copy clover.db from build to test server</p>
+                            <td colspan="1"><p>copy clover.db from build to test server</p>
                                 <p>execute tests</p>
                                 <p>copy clover.db and coverage files from test to report server</p></td>
-                            <td colspan="1" class="confluenceTd"><p>copy clover.db from build to test servers</p>
+                            <td colspan="1"><p>copy clover.db from build to test servers</p>
                                 <p>execute tests</p>
                                 <p>copy clover.db from build to report server<br/>copy coverage files from all test
                                     servers to <br/>report server into the same directory</p></td>
@@ -389,18 +389,18 @@
                     id="UsingCloverinvariousenvironmentconfigurations-Optional:Per-testcoverageandtestoptimizationanddistributedcoverage">
                 Optional: Per-test coverage and test optimization and distributed coverage</h4>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh">Q8</th>
-                            <th colspan="4" class="confluenceTh">Are you interested in per-test coverage report or in
+                            <th>Q8</th>
+                            <th colspan="4">Are you interested in per-test coverage report or in
                                 test optimization?
                             </th>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd"> </td>
-                            <td colspan="2" style="text-align: center;" class="confluenceTd">no</td>
-                            <td colspan="2" style="text-align: center;" class="confluenceTd">yes</td>
+                            <td colspan="1"> </td>
+                            <td colspan="2" style="text-align: center;">no</td>
+                            <td colspan="2" style="text-align: center;">yes</td>
                         </tr>
                         <tr>
                             <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey">
@@ -410,11 +410,11 @@
                                 several machines?</strong></td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd"> </td>
-                            <td colspan="1" style="text-align: center;" class="confluenceTd">no</td>
-                            <td colspan="1" style="text-align: center;" class="confluenceTd">yes</td>
-                            <td colspan="1" style="text-align: center;" class="confluenceTd">no</td>
-                            <td colspan="1" style="text-align: center;" class="confluenceTd">yes</td>
+                            <td colspan="1"> </td>
+                            <td colspan="1" style="text-align: center;">no</td>
+                            <td colspan="1" style="text-align: center;">yes</td>
+                            <td colspan="1" style="text-align: center;">no</td>
+                            <td colspan="1" style="text-align: center;">yes</td>
                         </tr>
                         <tr>
                             <td class="highlight-grey confluenceTd" colspan="1" data-highlight-colour="grey"><strong>Solution</strong>
@@ -422,14 +422,14 @@
                             <td class="highlight-grey confluenceTd" colspan="4" data-highlight-colour="grey"> </td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd"> </td>
-                            <td colspan="1" class="confluenceTd">nothing to do</td>
-                            <td colspan="1" class="confluenceTd"><p>don't set up distributed coverage feature</p>
+                            <td colspan="1"> </td>
+                            <td colspan="1">nothing to do</td>
+                            <td colspan="1"><p>don't set up distributed coverage feature</p>
                                 <p>just run your application and gather <br/>coverage recording files from all <br/>machines
                                     in one common directory</p></td>
-                            <td colspan="1" class="confluenceTd"><p>don't set up distributed coverage feature</p>
+                            <td colspan="1"><p>don't set up distributed coverage feature</p>
                                 <p>use showUniqueCoverage=true for reporting</p></td>
-                            <td colspan="1" class="confluenceTd"><p>instrument code with distributedCoverage option<br/>(define
+                            <td colspan="1"><p>instrument code with distributedCoverage option<br/>(define
                                 host/port for server hosting unit tests)</p>
                                 <p>at runtime, designate one server where unit tests are<br/> executed and run with
                                     <code class="java plain">clover.server=true</code> runtime property<br/><br/>see <a
@@ -500,9 +500,9 @@
                 <p>Define <em>initstring</em> attribute for &lt;clover-setup&gt; or &lt;clover-instr&gt; tag, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
+                        <pre
                              data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-                             data-theme="Confluence">&lt;clover-setup initstring=&quot;/path/to/network/drive/clover.db&quot; /&gt;</pre>
+                            >&lt;clover-setup initstring=&quot;/path/to/network/drive/clover.db&quot; /&gt;</pre>
                     </div>
                 </div>
                 <p><strong>b) using Maven</strong></p>
@@ -510,8 +510,8 @@
                 </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;configuration&gt;
@@ -523,9 +523,9 @@
                 </div>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
+                        <pre
                              data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
-                             data-theme="Confluence">mvn clean clover:setup install</pre>
+                            >mvn clean clover:setup install</pre>
                     </div>
                 </div>
                 <p><strong><br/></strong></p>
@@ -543,9 +543,9 @@
                     on a network drive, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
+                        <pre
                              data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-                             data-theme="Confluence">&lt;clover-report initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;</pre>
+                            >&lt;clover-report initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;</pre>
                     </div>
                 </div>
                 <p><strong>b) using Maven</strong></p>
@@ -554,8 +554,8 @@
                     pom.xml will be used for reporting.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;configuration&gt;
@@ -567,9 +567,9 @@
                 </div>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
+                        <pre
                              data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
-                             data-theme="Confluence">mvn clover:clover</pre>
+                            >mvn clover:clover</pre>
                     </div>
                 </div>
                 <p> </p>
@@ -603,8 +603,8 @@
                 <p><strong>a) using Ant</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;all&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;target name=&quot;all&quot;&gt;
    &lt;!-- Enable Clover for every module, each with own database --&gt;
    &lt;clover-setup initstring=&quot;/path/to/network/drive/moduleX/clover.db&quot;&gt;
 &lt;/target&gt;</pre>
@@ -620,8 +620,8 @@
                 </ul>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;!-- top level pom.xml --&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;!-- top level pom.xml --&gt;
 &lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
@@ -647,8 +647,8 @@
                 <p><strong>a) using Ant</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-merge initstring=&quot;/path/to/mergedClover.db&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;clover-merge initstring=&quot;/path/to/mergedClover.db&quot;&gt;
    &lt;cloverDb initstring=&quot;/path/to/network/drive/moduleA/clover.db&quot;/&gt;
    &lt;cloverDb initstring=&quot;/path/to/network/drive/moduleB/clover.db&quot;/&gt;
 &lt;/clover-merge&gt;
@@ -658,8 +658,8 @@
                 <p><strong>b) using Maven</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;!-- Top-level pom.xml --&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;!-- Top-level pom.xml --&gt;
 &lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
@@ -671,9 +671,9 @@
                 </div>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
+                        <pre
                              data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
-                             data-theme="Confluence">mvn clover:aggregate clover:clover</pre>
+                            >mvn clover:aggregate clover:clover</pre>
                     </div>
                 </div>
                 <p> </p>
@@ -720,8 +720,8 @@
                     point to different directory for every application ,e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;!-- App1 build.xml --&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;!-- App1 build.xml --&gt;
 &lt;clover-setup initstring=&quot;/path/to/network/drive/app1/clover.db&quot;&gt;
 
 &lt;!-- App2 build.xml --&gt;
@@ -735,8 +735,8 @@
                     clover-merge task is more flexible regarding paths). Example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;!-- App1 pom.xml --&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;!-- App1 pom.xml --&gt;
 &lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
@@ -758,9 +758,9 @@
                 </div>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
+                        <pre
                              data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
-                             data-theme="Confluence">mvn clean clover:setup install</pre>
+                            >mvn clean clover:setup install</pre>
                     </div>
                 </div>
                 <p> </p>
@@ -779,8 +779,8 @@
                 <p><strong>a) using Ant</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-merge initstring=&quot;/path/to/network/drive/cloverMerged.db&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;clover-merge initstring=&quot;/path/to/network/drive/cloverMerged.db&quot;&gt;
    &lt;cloverDb initstring=&quot;/path/to/network/drive/app1/clover.db&quot;/&gt;
    &lt;cloverDb initstring=&quot;/path/to/network/drive/app2/clover.db&quot;/&gt;
 &lt;/clover-merge&gt;
@@ -790,8 +790,8 @@
                 <p><strong>b) using Maven</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;!-- Top-level pom.xml --&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;!-- Top-level pom.xml --&gt;
 &lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
@@ -805,8 +805,8 @@
                 </div>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
-     data-theme="Confluence">mvn clover:aggregate             # run it for multi-module applications
+<pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
+    >mvn clover:aggregate             # run it for multi-module applications
 mvn clover:merge clover:clover  # run it for final report</pre>
                     </div>
                 </div>
@@ -832,8 +832,8 @@ mvn clover:merge clover:clover  # run it for final report</pre>
                 </ul>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
-     data-theme="Confluence">app1/clover.db
+<pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
+    >app1/clover.db
 app2/clover.db
 app2/moduleA/clover.db
 app2/moduleB/clover.db</pre>
@@ -847,8 +847,8 @@ app2/moduleB/clover.db</pre>
                 </ul>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
-     data-theme="Confluence">/path/to/common-root/app1/clover.db
+<pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
+    >/path/to/common-root/app1/clover.db
 /path/to/common-root/app2/clover.db
 /path/to/common-root/app2/moduleA/clover.db
 /path/to/common-root/app2/moduleB/clover.db</pre>
@@ -911,8 +911,8 @@ app2/moduleB/clover.db</pre>
                 <p><strong>a) using Ant</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-setup initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;clover-setup initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
     &lt;distributedCoverage host=&quot;my.server.com&quot; port=&quot;1234&quot; numClients=&quot;2&quot; timeout=&quot;10000&quot;/&gt;
 &lt;/clover-setup&gt;</pre>
                     </div>
@@ -920,8 +920,8 @@ app2/moduleB/clover.db</pre>
                 <p><strong>b) using Maven</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;configuration&gt;
@@ -992,8 +992,8 @@ app2/moduleB/clover.db</pre>
                 <p><strong>a) using Ant</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-report initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;clover-report initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
     &lt;current showUniqueCoverage=&quot;true&quot; outfile=&quot;/path/to/clover/report&quot;&gt;
         &lt;format type=&quot;html&quot;/&gt;
         &lt;fileset dir=&quot;src&quot;/&gt;
@@ -1009,8 +1009,8 @@ app2/moduleB/clover.db</pre>
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
                         <b>report-descriptor.xml</b></div>
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
     &lt;clover-setup initString=&quot;${cloverdb}&quot;/&gt;
     &lt;target name=&quot;historical&quot;/&gt;
     &lt;target name=&quot;current&quot;&gt;
@@ -1026,8 +1026,8 @@ app2/moduleB/clover.db</pre>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>pom.xml</b></div>
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;configuration&gt;
@@ -1041,9 +1041,9 @@ app2/moduleB/clover.db</pre>
                 <p><strong><br/></strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
+                        <pre
                              data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
-                             data-theme="Confluence">mvn clover:clover</pre>
+                            >mvn clover:clover</pre>
                     </div>
                 </div>
                 <p><span style="color: rgb(255,0,0);"> </span></p>
@@ -1092,8 +1092,8 @@ app2/moduleB/clover.db</pre>
                 <p><strong>a) using Ant</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;all&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;target name=&quot;all&quot;&gt;
    &lt;!-- Enable clover for top level module --&gt;
    &lt;clover-setup initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
    &lt;!-- Build sub-modules ensuring that properties are passed --&gt;
@@ -1105,8 +1105,8 @@ app2/moduleB/clover.db</pre>
                 <p><strong>b) using Maven</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;!-- TOP LEVEL POM.XML --&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;!-- TOP LEVEL POM.XML --&gt;
 &lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
@@ -1120,9 +1120,9 @@ app2/moduleB/clover.db</pre>
                 </div>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
+                        <pre
                              data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
-                             data-theme="Confluence">mvn clover:setup test </pre>
+                            >mvn clover:setup test </pre>
                     </div>
                 </div>
                 <p><strong><br/></strong></p>
@@ -1139,8 +1139,8 @@ app2/moduleB/clover.db</pre>
                 <p><strong>a) using Ant</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-report initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;clover-report initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
     &lt;current outfile=&quot;/path/to/clover/report/current&quot; title=&quot;Coverage Report&quot;&gt;
         &lt;format type=&quot;html&quot;/&gt;
         &lt;fileset dir=&quot;src&quot;/&gt;
@@ -1158,8 +1158,8 @@ app2/moduleB/clover.db</pre>
                 <p><strong>b) using Maven</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;!-- Top-level pom.xml --&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;!-- Top-level pom.xml --&gt;
 &lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
@@ -1177,9 +1177,9 @@ app2/moduleB/clover.db</pre>
                 <p><span style="color: rgb(255,0,0);"><br/></span></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
+                        <pre
                              data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence"
-                             data-theme="Confluence">mvn clover:clover clover:save-history</pre>
+                            >mvn clover:clover clover:save-history</pre>
                     </div>
                 </div>
                 <p> </p>

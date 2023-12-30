@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p> </p>
                 <p>This page contains instructions on how to collect per-test coverage from a set of functional tests,
                     which run in multiple JVMs (Java Virtual Machines). This may be necessary when starting a web server
@@ -143,8 +143,8 @@
                     in the Maven Cargo Plugin configuration.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;systemProperties&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;systemProperties&gt;
     &lt;clover.distributed.coverage&gt;ON&lt;/clover.distributed.coverage&gt;
 &lt;/systemProperties&gt;
 </pre>
@@ -170,8 +170,8 @@
                 <p>Example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;systemProperties&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;systemProperties&gt;
     &lt;clover.distributed.coverage&gt;host=myhost;port=7777;numclients=2&lt;/clover.distributed.coverage&gt;
 &lt;/systemProperties&gt;</pre>
                     </div>
@@ -187,8 +187,8 @@
                 </ul>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
    &lt;forkMode&gt;once&lt;/forkMode&gt;
    &lt;systemProperties&gt;
        &lt;property&gt;
@@ -215,8 +215,8 @@
                     following code:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;configuration&gt;
    &lt;distributedCoverage/&gt;
 &lt;/configuration&gt;
 </pre>
@@ -227,45 +227,45 @@
                 </p>
                 <p>The <code>&lt;distributedCoverage&gt;</code> element takes the following nested elements:</p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p>Element name</p></th>
-                            <th class="confluenceTh"><p>Description</p></th>
-                            <th class="confluenceTh"><p>Required</p></th>
+                            <th><p>Element name</p></th>
+                            <th><p>Description</p></th>
+                            <th><p>Required</p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>host</p></td>
-                            <td class="confluenceTd"><p>The hostname the test JVM should bind to.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to '<code>localhost</code>'</p></td>
+                            <td><p>host</p></td>
+                            <td><p>The hostname the test JVM should bind to.</p></td>
+                            <td><p>No; defaults to '<code>localhost</code>'</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>name</p></td>
-                            <td class="confluenceTd"><p>The name of this configuration.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to '<code>tcp-config</code>'</p></td>
+                            <td><p>name</p></td>
+                            <td><p>The name of this configuration.</p></td>
+                            <td><p>No; defaults to '<code>tcp-config</code>'</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>numClients</p></td>
-                            <td class="confluenceTd"><p>The number of clients that need to connect to the test server
+                            <td><p>numClients</p></td>
+                            <td><p>The number of clients that need to connect to the test server
                                 before the tests will continue.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to '<code>0</code>'</p></td>
+                            <td><p>No; defaults to '<code>0</code>'</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>port</p></td>
-                            <td class="confluenceTd"><p>The port the test JVM should listen on.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to '<code>1198</code>'</p></td>
+                            <td><p>port</p></td>
+                            <td><p>The port the test JVM should listen on.</p></td>
+                            <td><p>No; defaults to '<code>1198</code>'</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>retryPeriod</p></td>
-                            <td class="confluenceTd"><p>The amount of time (in milliseconds) to wait before attempting
+                            <td><p>retryPeriod</p></td>
+                            <td><p>The amount of time (in milliseconds) to wait before attempting
                                 to reconnect in the event of a network failure.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to '<code>1000</code>'</p></td>
+                            <td><p>No; defaults to '<code>1000</code>'</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>timeout</p></td>
-                            <td class="confluenceTd"><p>The amount of time (in milliseconds) to wait before a connection
+                            <td><p>timeout</p></td>
+                            <td><p>The amount of time (in milliseconds) to wait before a connection
                                 attempt will fail.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to '<code>5000</code>'</p></td>
+                            <td><p>No; defaults to '<code>5000</code>'</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -278,8 +278,8 @@
                     configuration section, and ensure the forkMode parameter is set to 'once':</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
     &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
     &lt;configuration&gt;
         &lt;forkMode&gt;once&lt;/forkMode&gt;

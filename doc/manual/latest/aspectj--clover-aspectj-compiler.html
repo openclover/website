@@ -55,7 +55,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <div class="confluence-information-macro confluence-information-macro-information"><span
                         class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div class="confluence-information-macro-body"><p>This plugin is not supported by Atlassian.</p>
@@ -112,8 +112,8 @@
                     <li>optionally pass Clover-related options</li>
                 </ul>
                 <p>Example:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>java -cp &quot;clover.jar:clover-aspectj-compiler.jar:aspectjrt.jar:aspectjtools.jar&quot; com.atlassian.clover.instr.aspectj.CloverAjc -d &lt;output directory&gt; &lt;list of files&gt;</pre>
                     </div>
                 </div>
@@ -124,8 +124,8 @@
                 <h2 id="CloverAspectJCompiler-Generatecoveragereports">Generate coverage reports</h2>
                 <p>You can use any Clover integration to generate reports (Ant, Maven etc). One of the easiest ways is
                     to use the <a href="commandline--htmlreporter.html">HtmlReporter</a> command line tool, for example:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>java -cp &quot;clover.jar&quot; com.atlassian.clover.reporters.html.HtmlReporter -i .clover/clover.db -o target/report -a -e</pre>
                     </div>
                 </div>
@@ -136,8 +136,8 @@
                                                                                               href="https://github.com/openclover/clover-aspectj-compiler"
                                                                                               rel="nofollow">GitHub</a>,
                     e.g:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>git clone https://github.com/openclover/clover-aspectj-compiler.git</pre>
                     </div>
                 </div>

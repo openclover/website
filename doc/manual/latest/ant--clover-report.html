@@ -64,7 +64,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h1 id="clover-report-Introduction">Introduction</h1>
                 <p>The <code>&lt;clover-report&gt;</code> task generates <a href="general--understanding-reports-current.html">current</a> and <a
                         href="general--understanding-reports-historical.html">historical</a> reports in multiple formats.</p>
@@ -168,41 +168,41 @@
                         href="general--understanding-reports-historical.html">historical</a> reports in multiple formats. Parameters for &lt;clover-report&gt;:
                 </p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>coverageCacheSize</p></td>
-                            <td class="confluenceTd"><p>This is a performance tuning option, which is used to specify
+                            <td><p>coverageCacheSize</p></td>
+                            <td><p>This is a performance tuning option, which is used to specify
                                 the maximum size of coverage data kept in memory when generating a report. Accepts
                                 storage values such as 256m (256 megabytes) or 1g (1 gigabyte). Also accepts the value
                                 &quot;nocache&quot; to force all coverage data to be loaded into memory.</p></td>
-                            <td class="confluenceTd"><p>No. Default is 256m.</p></td>
+                            <td><p>No. Default is 256m.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>initstring</p></td>
-                            <td class="confluenceTd"><p>The initstring of the coverage database.</p></td>
-                            <td class="confluenceTd"><p>No; if not specified here, Clover will look in the default
+                            <td><p>initstring</p></td>
+                            <td><p>The initstring of the coverage database.</p></td>
+                            <td><p>No; if not specified here, Clover will look in the default
                                 location (<code>${basedir}.clover</code>). If you have specified an
                                 <code>initstring</code> on the <code>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;</code>
                                 task, you must ensure <code>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;</code>
                                 is called prior the execution of this task.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>failOnError</p></td>
-                            <td class="confluenceTd"><p>If true, failure to generate a report causes a build
+                            <td><p>failOnError</p></td>
+                            <td><p>If true, failure to generate a report causes a build
                                 failure.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>projectName</p></td>
-                            <td class="confluenceTd"><p>Overrides the project name set in the Ant build file. This is
+                            <td><p>projectName</p></td>
+                            <td><p>Overrides the project name set in the Ant build file. This is
                                 used for display purposes only.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to the project name of the Ant build file.</p></td>
+                            <td><p>No; defaults to the project name of the Ant build file.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -211,7 +211,7 @@
                 <p>These elements represent the actual reports to be generated. You can generate multiple reports by
                     specifying more than one of these inside a <code>&lt;clover-report&gt;</code> element. Each report
                     will contain links to the other reports. See <a href="ant--clover-report.html">clover-report</a>.
-                    <br class="atl-forced-newline"/> <br class="atl-forced-newline"/> <span
+                      <span
                             class="confluence-anchor-link" id="clover-report-Current"></span></p>
                 <h2 id="clover-report-&lt;current&gt;">&lt;current&gt;</h2>
                 <p>Generates a current coverage report. Specify the report format using a nested <a
@@ -220,118 +220,118 @@
                     or XML if not. See <a href="ant--clover-report.html">clover-report</a>.</p>
                 <p><strong>Parameters for &lt;current&gt;</strong></p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>alwaysReport</p></td>
-                            <td class="confluenceTd"><p>If set to true, a report will be generated even in the absence
+                            <td><p>alwaysReport</p></td>
+                            <td><p>If set to true, a report will be generated even in the absence
                                 of coverage data.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>charset</p></td>
-                            <td class="confluenceTd"><p>The character set to use in the HTML reports.</p></td>
-                            <td class="confluenceTd"><p>No. Default is UTF-8</p></td>
+                            <td><p>charset</p></td>
+                            <td><p>The character set to use in the HTML reports.</p></td>
+                            <td><p>No. Default is UTF-8</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>homepage</p></td>
-                            <td class="confluenceTd"><p>Specifies the start page to use. This can be one of the
+                            <td><p>homepage</p></td>
+                            <td><p>Specifies the start page to use. This can be one of the
                                 predefined pages: <code>dashboard</code>, <code>overview</code>, <code>aggregate</code>,
                                 <code>testresults</code>, <code>quickwins</code>, <code>projectrisks</code> or an
                                 arbitrary URL.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>dashboard</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>dashboard</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>includeFailedTestCoverage</p></td>
-                            <td class="confluenceTd"><p>Specifies whether or not to include coverage attributed to a
+                            <td><p>includeFailedTestCoverage</p></td>
+                            <td><p>Specifies whether or not to include coverage attributed to a
                                 test that has failed.</p></td>
-                            <td class="confluenceTd"><p>No; default is &quot;<code>false</code>&quot;.</p></td>
+                            <td><p>No; default is &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>maxTestsPerFile</p></td>
-                            <td class="confluenceTd"><p>Specifies the maximum number of tests (ranked by coverage
+                            <td><p>maxTestsPerFile</p></td>
+                            <td><p>Specifies the maximum number of tests (ranked by coverage
                                 contribution) to display on a source file report page. This parameter can be used to
                                 reduce the size of reports for projects with very large numbers of tests.</p></td>
-                            <td class="confluenceTd"><p>No; unlimited if not specified or <code>-1.</code></p></td>
+                            <td><p>No; unlimited if not specified or <code>-1.</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>numThreads</p></td>
-                            <td class="confluenceTd"><p>The number of threads to start when generating an HTML report. A
+                            <td><p>numThreads</p></td>
+                            <td><p>The number of threads to start when generating an HTML report. A
                                 value of 0 will disable multi-threading for report generation.</p></td>
-                            <td class="confluenceTd"><p>No. Default is 2.</p></td>
+                            <td><p>No. Default is 2.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>outfile</p></td>
-                            <td class="confluenceTd"><p>The outfile to write output to. If it does not exist, it is
+                            <td><p>outfile</p></td>
+                            <td><p>The outfile to write output to. If it does not exist, it is
                                 created. Depending on the specified format, this either represents a regular file (PDF,
                                 XML) or a directory (HTML, JSON).</p></td>
-                            <td class="confluenceTd"><p>Yes.</p></td>
+                            <td><p>Yes.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>span</p></td>
-                            <td class="confluenceTd"><p>Specifies how far back in time to include coverage recordings
+                            <td><p>span</p></td>
+                            <td><p>Specifies how far back in time to include coverage recordings
                                 from since the last Clover build. See <a href="ant--using-spans.html">Using
                                     Spans</a>.</p></td>
-                            <td class="confluenceTd"><p>No; default includes &quot;all coverage data found&quot;.</p>
+                            <td><p>No; default includes &quot;all coverage data found&quot;.</p>
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>summary</p></td>
-                            <td class="confluenceTd"><p>Specifies whether to generate a summary report or detailed
+                            <td><p>summary</p></td>
+                            <td><p>Specifies whether to generate a summary report or detailed
                                 report. Currently this applies for XML and PDF reports. See srcLevel on the format
                                 element for HTML.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">showLambdaFunctions</td>
-                            <td colspan="1" class="confluenceTd"><p>Whether to present lambda functions in the report.
+                            <td colspan="1">showLambdaFunctions</td>
+                            <td colspan="1"><p>Whether to present lambda functions in the report.
                                 If set to <em>false</em>, they are hidden on the methods' list, but code metrics still
                                 include them.</p></td>
-                            <td colspan="1" class="confluenceTd">No; defaults to &quot;<code>false</code>&quot;.</td>
+                            <td colspan="1">No; defaults to &quot;<code>false</code>&quot;.</td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">showInnerFunctions</td>
-                            <td colspan="1" class="confluenceTd"><p>Whether to show inner functions, i.e. functions
+                            <td colspan="1">showInnerFunctions</td>
+                            <td colspan="1"><p>Whether to show inner functions, i.e. functions
                                 declared inside methods in the report. This applies to Java8 lambda functions for
                                 instance. If set to <em>false</em>, then they are hidden on the methods' list, but code
                                 metrics still include them.</p></td>
-                            <td colspan="1" class="confluenceTd">No; defaults to &quot;<code>false</code>&quot;.</td>
+                            <td colspan="1">No; defaults to &quot;<code>false</code>&quot;.</td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>showUniqueCoverage</p></td>
-                            <td class="confluenceTd"><p>Calculate and show unique per-test coverage (for large projects,
+                            <td><p>showUniqueCoverage</p></td>
+                            <td><p>Calculate and show unique per-test coverage (for large projects,
                                 this can take a significant amount of time). Defaults ton<code>false</code>.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>timeout</p></td>
-                            <td class="confluenceTd"><p>The amount of time to wait for report generation to finish
+                            <td><p>timeout</p></td>
+                            <td><p>The amount of time to wait for report generation to finish
                                 before failing the build. This value must be an <a
                                         href="ant--using-spans-specifying-an-interval.html">Interval</a>.</p></td>
-                            <td class="confluenceTd"><p>No. Default is no timeout.</p></td>
+                            <td><p>No. Default is no timeout.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>title</p></td>
-                            <td class="confluenceTd"><p>Specifies a title for the report.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>title</p></td>
+                            <td><p>Specifies a title for the report.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>titleAnchor</p></td>
-                            <td class="confluenceTd"><p>If specified, the report title will be rendered as a hyperlink
+                            <td><p>titleAnchor</p></td>
+                            <td><p>If specified, the report title will be rendered as a hyperlink
                                 to this href.</p></td>
-                            <td class="confluenceTd"><p>No; default is to not render the report title as a
+                            <td><p>No; default is to not render the report title as a
                                 hyperlink.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>titleTarget</p></td>
-                            <td class="confluenceTd"><p>Specifies the href target if the title is to be rendered as a
+                            <td><p>titleTarget</p></td>
+                            <td><p>Specifies the href target if the title is to be rendered as a
                                 hyperlink (see <code>titleAnchor</code> above). <em>HTML format only.</em></p></td>
-                            <td class="confluenceTd"><p>No; default is &quot;<code>_top</code>&quot;.</p></td>
+                            <td><p>No; default is &quot;<code>_top</code>&quot;.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -375,187 +375,187 @@
                 <p><span class="confluence-anchor-link" id="clover-report-columnNames"></span></p>
                 <p><strong>Table of Column Names</strong></p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Column</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Valid Format Attributes</strong></p></th>
+                            <th><p><strong>Column</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Valid Format Attributes</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>avgClassesPerFile</p></td>
-                            <td class="confluenceTd"><p>The average number of classes per file.</p></td>
-                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                            <td><p>avgClassesPerFile</p></td>
+                            <td><p>The average number of classes per file.</p></td>
+                            <td><p><code>raw</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>avgMethodComplexity</p></td>
-                            <td class="confluenceTd"><p>The average number of paths per method.</p></td>
-                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                            <td><p>avgMethodComplexity</p></td>
+                            <td><p>The average number of paths per method.</p></td>
+                            <td><p><code>raw</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>avgMethodsPerClass</p></td>
-                            <td class="confluenceTd"><p>The average number of methods per class.</p></td>
-                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                            <td><p>avgMethodsPerClass</p></td>
+                            <td><p>The average number of methods per class.</p></td>
+                            <td><p><code>raw</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>avgStatementsPerMethod</p></td>
-                            <td class="confluenceTd"><p>The average number of statements per method.</p></td>
-                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                            <td><p>avgStatementsPerMethod</p></td>
+                            <td><p>The average number of statements per method.</p></td>
+                            <td><p><code>raw</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>complexity</p></td>
-                            <td class="confluenceTd"><p>Cyclomatic Complexity is a measure of the number of paths in
+                            <td><p>complexity</p></td>
+                            <td><p>Cyclomatic Complexity is a measure of the number of paths in
                                 your code.</p></td>
-                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                            <td><p><code>raw</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>complexityDensity</p></td>
-                            <td class="confluenceTd"><p>The average complexity per statement.</p></td>
-                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                            <td><p>complexityDensity</p></td>
+                            <td><p>The average complexity per statement.</p></td>
+                            <td><p><code>raw</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>coveredBranches</p></td>
-                            <td class="confluenceTd"><p>The amount of covered branches.</p></td>
-                            <td class="confluenceTd"><p>
+                            <td><p>coveredBranches</p></td>
+                            <td><p>The amount of covered branches.</p></td>
+                            <td><p>
                                 <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>coveredElements</p></td>
-                            <td class="confluenceTd"><p>The total number of covered elements (branches + statements) in
+                            <td><p>coveredElements</p></td>
+                            <td><p>The total number of covered elements (branches + statements) in
                                 the project.</p></td>
-                            <td class="confluenceTd"><p>
+                            <td><p>
                                 <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>coveredMethods</p></td>
-                            <td class="confluenceTd"><p>The amount of covered methods.</p></td>
-                            <td class="confluenceTd"><p>
+                            <td><p>coveredMethods</p></td>
+                            <td><p>The amount of covered methods.</p></td>
+                            <td><p>
                                 <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>coveredStatements</p></td>
-                            <td class="confluenceTd"><p>The amount of covered statements.</p></td>
-                            <td class="confluenceTd"><p>
+                            <td><p>coveredStatements</p></td>
+                            <td><p>The amount of covered statements.</p></td>
+                            <td><p>
                                 <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>expression</p></td>
-                            <td class="confluenceTd"><p>The body of this element will be evaluated as an arithmetic
+                            <td><p>expression</p></td>
+                            <td><p>The body of this element will be evaluated as an arithmetic
                                 expression. All other column names can be referenced. See Clover EL. This column takes
                                 an optional title attribute.</p></td>
-                            <td class="confluenceTd"><p>raw</p></td>
+                            <td><p>raw</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>filteredElements</p></td>
-                            <td class="confluenceTd"><p>The amount of elements that have been filtered out of the
+                            <td><p>filteredElements</p></td>
+                            <td><p>The amount of elements that have been filtered out of the
                                 report.</p></td>
-                            <td class="confluenceTd"><p>
+                            <td><p>
                                 <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>ncLineCount</p></td>
-                            <td class="confluenceTd"><p>The total number of non-comment lines. <br/> <img
+                            <td><p>ncLineCount</p></td>
+                            <td><p>The total number of non-comment lines. <br/> <img
                                     class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
                                     data-emoticon-name="information" alt="(info)"/> When using Clover on Groovy source
                                 code, this column consistently reports '0' at the moment.</p></td>
-                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                            <td><p><code>raw</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>lineCount</p></td>
-                            <td class="confluenceTd"><p>The total number of lines.</p></td>
-                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                            <td><p>lineCount</p></td>
+                            <td><p>The total number of lines.</p></td>
+                            <td><p><code>raw</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>SUM</p></td>
-                            <td class="confluenceTd"><p>Scientifically Untested Metric. This is very similar to crap4j
+                            <td><p>SUM</p></td>
+                            <td><p>Scientifically Untested Metric. This is very similar to crap4j
                                 and is defined by this expression:</p>
                                 <div class="code panel pdl" style="border-width: 1px;">
                                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">complexity^2 * ((1 - %coveredElements/100)^3) + complexity
+<pre
+    >complexity^2 * ((1 - %coveredElements/100)^3) + complexity
 </pre>
                                     </div>
                                 </div>
                             </td>
-                            <td class="confluenceTd"><p>raw</p></td>
+                            <td><p>raw</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>percentageCoveredContribution</p></td>
-                            <td class="confluenceTd"><p>Helps you to work out how much an individual package, file or
+                            <td><p>percentageCoveredContribution</p></td>
+                            <td><p>Helps you to work out how much an individual package, file or
                                 class contributes (percentage-wise) to the overall number of covered elements in the
                                 project. Useful for spotting quick wins.</p></td>
-                            <td class="confluenceTd"><p>raw;bar;%;longbar</p></td>
+                            <td><p>raw;bar;%;longbar</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>percentageUncoveredContribution</p></td>
-                            <td class="confluenceTd"><p>Helps you to work out how much an individual package, file or
+                            <td><p>percentageUncoveredContribution</p></td>
+                            <td><p>Helps you to work out how much an individual package, file or
                                 class contributes (percentage-wise) to the overall number of uncovered elements in the
                                 project. Useful for spotting quick wins.</p></td>
-                            <td class="confluenceTd"><p>raw;bar;%;longbar</p></td>
+                            <td><p>raw;bar;%;longbar</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>totalBranches</p></td>
-                            <td class="confluenceTd"><p>The total number of branches in the project.</p></td>
-                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                            <td><p>totalBranches</p></td>
+                            <td><p>The total number of branches in the project.</p></td>
+                            <td><p><code>raw</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>totalChildren</p></td>
-                            <td class="confluenceTd"><p>The number of lower order elements. The order of elements is:
+                            <td><p>totalChildren</p></td>
+                            <td><p>The number of lower order elements. The order of elements is:
                                 Project, Package, File, Class, Method, Statement</p></td>
-                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                            <td><p><code>raw</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>totalClasses</p></td>
-                            <td class="confluenceTd"><p>The total number of classes below the package, project or
+                            <td><p>totalClasses</p></td>
+                            <td><p>The total number of classes below the package, project or
                                 file.</p></td>
-                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                            <td><p><code>raw</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>totalElements</p></td>
-                            <td class="confluenceTd"><p>The total number of elements (branches + statements) in the
+                            <td><p>totalElements</p></td>
+                            <td><p>The total number of elements (branches + statements) in the
                                 project.</p></td>
-                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                            <td><p><code>raw</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>totalFiles</p></td>
-                            <td class="confluenceTd"><p>The total number of files below the package or project.</p></td>
-                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                            <td><p>totalFiles</p></td>
+                            <td><p>The total number of files below the package or project.</p></td>
+                            <td><p><code>raw</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>totalMethods</p></td>
-                            <td class="confluenceTd"><p>The total number of methods in the project.</p></td>
-                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                            <td><p>totalMethods</p></td>
+                            <td><p>The total number of methods in the project.</p></td>
+                            <td><p><code>raw</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>totalPercentageCovered</p></td>
-                            <td class="confluenceTd"><p>The total coverage.</p></td>
-                            <td class="confluenceTd"><p>
+                            <td><p>totalPercentageCovered</p></td>
+                            <td><p>The total coverage.</p></td>
+                            <td><p>
                                 <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>totalStatements</p></td>
-                            <td class="confluenceTd"><p>The total number of statements in the project.</p></td>
-                            <td class="confluenceTd"><p><code>raw</code></p></td>
+                            <td><p>totalStatements</p></td>
+                            <td><p>The total number of statements in the project.</p></td>
+                            <td><p><code>raw</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>uncoveredBranches</p></td>
-                            <td class="confluenceTd"><p>Branches that were not executed.</p></td>
-                            <td class="confluenceTd"><p>raw;bar;%;longbar</p></td>
+                            <td><p>uncoveredBranches</p></td>
+                            <td><p>Branches that were not executed.</p></td>
+                            <td><p>raw;bar;%;longbar</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>uncoveredElements</p></td>
-                            <td class="confluenceTd"><p>Elements that were not executed.</p></td>
-                            <td class="confluenceTd"><p>raw;bar;%;longbar</p></td>
+                            <td><p>uncoveredElements</p></td>
+                            <td><p>Elements that were not executed.</p></td>
+                            <td><p>raw;bar;%;longbar</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>uncoveredMethods</p></td>
-                            <td class="confluenceTd"><p>Methods that were not executed.</p></td>
-                            <td class="confluenceTd"><p>raw;bar;%;longbar</p></td>
+                            <td><p>uncoveredMethods</p></td>
+                            <td><p>Methods that were not executed.</p></td>
+                            <td><p>raw;bar;%;longbar</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>uncoveredStatements</p></td>
-                            <td class="confluenceTd"><p>Statements that were not executed.</p></td>
-                            <td class="confluenceTd"><p>raw;bar;%;longbar</p></td>
+                            <td><p>uncoveredStatements</p></td>
+                            <td><p>Statements that were not executed.</p></td>
+                            <td><p>raw;bar;%;longbar</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -564,46 +564,46 @@
                 <p><strong>Column Attributes</strong></p>
                 <p>Each of the above column elements can take the following attributes:</p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>format</p></td>
-                            <td class="confluenceTd"><p>Determines how the value is rendered. Depending on the column,
+                            <td><p>format</p></td>
+                            <td><p>Determines how the value is rendered. Depending on the column,
                                 this may be one of <code>raw</code>, <code>bar</code>, <code>%</code> or
                                 <code>longbar</code>.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>min</p></td>
-                            <td class="confluenceTd"><p>Sets a minimum threshold on the value of the column. If the
+                            <td><p>min</p></td>
+                            <td><p>Sets a minimum threshold on the value of the column. If the
                                 value is less than this it will be highlighted.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>max</p></td>
-                            <td class="confluenceTd"><p>Sets a maximum threshold on the value of the column. If the
+                            <td><p>max</p></td>
+                            <td><p>Sets a maximum threshold on the value of the column. If the
                                 value is greater than this it will be highlighted.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>scope</p></td>
-                            <td class="confluenceTd"><p>Controls at which level in the report the column will appear.
+                            <td><p>scope</p></td>
+                            <td><p>Controls at which level in the report the column will appear.
                                 The scope attribute can be one of: &quot;package&quot;, &quot;class&quot; or &quot;method&quot;.
                                 If omitted, the column will be used at every level in the report. Note that only the
                                 following columns support the scope attribute: <strong>expression</strong>, <strong>complexity</strong>,
                                 <strong>complexityDensity</strong>, <strong>coveredXXX</strong>,
                                 <strong>uncoveredXXX</strong> and <strong>totalXXX</strong>.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <p><br class="atl-forced-newline"/> <br class="atl-forced-newline"/> <span
+                <p>  <span
                         class="confluence-anchor-link" id="clover-report-CloverEL"></span><br/> <strong>Clover
                     Expression Language</strong><br/> Clover Expression Language enables you to combine any of Clover's
                     built-in column types to produce a custom column. The following arithmetic operators are available:
@@ -613,14 +613,14 @@
                 <p><em>Example</em>:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;columns&gt;
+<pre
+    >&lt;columns&gt;
   &lt;expression title=&quot;SUM&quot;&gt;complexity^2 * ((1 - %coveredElements/100)^3) + complexity&lt;/expression&gt;
 &lt;/columns&gt;
 </pre>
                     </div>
                 </div>
-                </p><h3 id="clover-report-Fileset&lt;fileset&gt;"><br class="atl-forced-newline"/> <span
+                </p><h3 id="clover-report-Fileset&lt;fileset&gt;"> <span
                     class="confluence-anchor-link" id="clover-report-Fileset"></span> &lt;fileset&gt;</h3>
                 <p>&lt;current&gt; supports nested filesets which control which source files are to be included in a
                     report. Only classes which are from the source files in the fileset are included in the report. This
@@ -635,103 +635,103 @@
                 <p>Specifies the output format and various options controlling the rendering of a report.
                 <p><strong>Parameters for &lt;format&gt;</strong></p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>type</p></td>
-                            <td class="confluenceTd"><p>The output format in which to render the report. Valid values
+                            <td><p>type</p></td>
+                            <td><p>The output format in which to render the report. Valid values
                                 are <code>pdf</code>, <code>xml</code>, <code>html</code> and <code>json</code>. Note
                                 that not all report formats support all other attributes.</p></td>
-                            <td class="confluenceTd"><p>Yes, unless <code>refid</code> is set.</p></td>
+                            <td><p>Yes, unless <code>refid</code> is set.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>refid</p></td>
-                            <td class="confluenceTd"><p>The id of another format element that will be used for this
+                            <td><p>refid</p></td>
+                            <td><p>The id of another format element that will be used for this
                                 report. See <a
                                         href="ant--sharing-report-formats.html">Sharing
                                     Report Formats</a>.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>id</p></td>
-                            <td class="confluenceTd"><p>The id of this format element.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>id</p></td>
+                            <td><p>The id of this format element.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>bw</p></td>
-                            <td class="confluenceTd"><p>Specify that the report should be black-and-white. Supported by
+                            <td><p>bw</p></td>
+                            <td><p>Specify that the report should be black-and-white. Supported by
                                 PDF reports only.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>orderBy</p></td>
-                            <td class="confluenceTd"><p>Specify how to order coverage tables. This attribute has no
-                                effect on XML format. Valid values are: <br class="atl-forced-newline"/> <br
+                            <td><p>orderBy</p></td>
+                            <td><p>Specify how to order coverage tables. This attribute has no
+                                effect on XML format. Valid values are:  <br
                                         class="atl-forced-newline"/> <code>Alpha</code> — Alpabetical. <br
                                         class="atl-forced-newline"/> <code>PcCoveredAsc</code> — Percent total coverage,
-                                ascending. <br class="atl-forced-newline"/> <code>PcCoveredDesc</code> — Percent total
-                                coverage, descending. <br class="atl-forced-newline"/> <code>ElementsCoveredAsc</code> —
-                                Total elements covered, ascending. <br class="atl-forced-newline"/> <code>ElementsCoveredDesc</code>
-                                — Total elements covered, descending. <br class="atl-forced-newline"/> <code>ElementsUncoveredAsc</code>
-                                — Total elements uncovered, ascending. <br class="atl-forced-newline"/> <code>ElementsUncoveredDesc</code>
+                                ascending.  <code>PcCoveredDesc</code> — Percent total
+                                coverage, descending.  <code>ElementsCoveredAsc</code> —
+                                Total elements covered, ascending.  <code>ElementsCoveredDesc</code>
+                                — Total elements covered, descending.  <code>ElementsUncoveredAsc</code>
+                                — Total elements uncovered, ascending.  <code>ElementsUncoveredDesc</code>
                                 — Total elements uncovered, descending.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to <code>PcCoveredAsc.</code></p></td>
+                            <td><p>No; defaults to <code>PcCoveredAsc.</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>noCache</p></td>
-                            <td class="confluenceTd"><p><em>(HTML only)</em> If true, insert nocache directives in HTML
+                            <td><p>noCache</p></td>
+                            <td><p><em>(HTML only)</em> If true, insert nocache directives in HTML
                                 output.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>srcLevel</p></td>
-                            <td class="confluenceTd"><p>If true, include source-level coverage information in the
+                            <td><p>srcLevel</p></td>
+                            <td><p>If true, include source-level coverage information in the
                                 report.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>filter</p></td>
-                            <td class="confluenceTd"><p>comma or space separated list of contexts to exclude when
+                            <td><p>filter</p></td>
+                            <td><p>comma or space separated list of contexts to exclude when
                                 generating coverage reports. See <a
                                         href="ant--using-coverage-contexts.html">Using
                                     Coverage Contexts</a>.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>pageSize</p></td>
-                            <td class="confluenceTd"><p><em>(PDF only)</em> Specify the page size to use. Valid values
+                            <td><p>pageSize</p></td>
+                            <td><p><em>(PDF only)</em> Specify the page size to use. Valid values
                                 are <code>A4</code>, <code>LETTER.</code></p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>A4</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>A4</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>showEmpty</p></td>
-                            <td class="confluenceTd"><p>If true, classes, files and packages that do not contain any
+                            <td><p>showEmpty</p></td>
+                            <td><p>If true, classes, files and packages that do not contain any
                                 executable code (i.e. methods, statements, or branches) are included in reports. These
                                 are normally not shown.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>tabWidth</p></td>
-                            <td class="confluenceTd"><p><em>(Source level reports only)</em> The number of space chars
+                            <td><p>tabWidth</p></td>
+                            <td><p><em>(Source level reports only)</em> The number of space chars
                                 to replace TAB characters with.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to <code>4.</code></p></td>
+                            <td><p>No; defaults to <code>4.</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>maxNameLength</p></td>
-                            <td class="confluenceTd"><p>The maximum length in chars of package or classnames in the
+                            <td><p>maxNameLength</p></td>
+                            <td><p>The maximum length in chars of package or classnames in the
                                 report. Longer names will be truncated. A value &lt; 0 indicates no limit.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to no limit.</p></td>
+                            <td><p>No; defaults to no limit.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>callback</p></td>
-                            <td class="confluenceTd"><p>The name of the callback function to wrap the JSON. If set to an
+                            <td><p>callback</p></td>
+                            <td><p>The name of the callback function to wrap the JSON. If set to an
                                 empty string, &quot; &quot;, then the JSON will not be wrapped.</p></td>
-                            <td class="confluenceTd"><p>No; default is 'processClover'.</p></td>
+                            <td><p>No; default is 'processClover'.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -745,8 +745,8 @@
                 </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;sourcepath&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;sourcepath&gt;
     &lt;pathelement location=&quot;moduleA/src&quot;/&gt;
     &lt;pathelement location=&quot;moduleA/test&quot;/&gt;
 &lt;/sourcepath&gt;</pre>
@@ -756,8 +756,8 @@
                     e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;sourcepath&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;sourcepath&gt;
     &lt;dirset dir=&quot;.&quot;&gt;
         &lt;include name=&quot;**/src/main/java&quot;/&gt;
         &lt;include name=&quot;**/src/main/groovy&quot;/&gt;                    
@@ -767,7 +767,7 @@
 &lt;/sourcepath&gt;</pre>
                     </div>
                 </div>
-                <h3 id="clover-report-Testsources&lt;testsources&gt;"><br class="atl-forced-newline"/> <span
+                <h3 id="clover-report-Testsources&lt;testsources&gt;"> <span
                         class="confluence-anchor-link" id="clover-report-Testsources"></span> &lt;testsources&gt;</h3>
                 <p><code>&lt;testsources&gt;</code> is an <a
                                                              href="https://ant.apache.org/manual/Types/fileset.html"
@@ -776,7 +776,7 @@
                     displayed in the separate 'Test' node of the coverage tree. If omitted, Clover's <a
                             href="ant--clover-test-detection.html">default test detection algorithm</a> will be
                     used to distinguish test sources.</p>
-                <h3 id="clover-report-Testresults&lt;testresults&gt;"><br class="atl-forced-newline"/> <span
+                <h3 id="clover-report-Testresults&lt;testresults&gt;"> <span
                         class="confluence-anchor-link" id="clover-report-Testresults"></span> &lt;testresults&gt;</h3>
                 <p><code>&lt;testresults&gt;</code> is an optional <a
                                                                       href="https://ant.apache.org/manual/Types/fileset.html"
@@ -787,7 +787,7 @@
                 <p><code>&lt;testresults&gt;</code> is generally not required by most users, as the built-in test
                     results will provide all required information in the majority of cases. For more details please see
                     '<a href="ant--test-results-and-per-test-coverage.html">Advanced Usage</a>'. <br
-                            class="atl-forced-newline"/> <br class="atl-forced-newline"/> <span
+                            class="atl-forced-newline"/>  <span
                             class="confluence-anchor-link" id="clover-report-Historical"></span></p>
                 <h2 id="clover-report-&lt;historical&gt;">&lt;historical&gt;</h2>
                 <p>Generates a historical coverage report. Specify the report format using a nested Format element (see
@@ -795,70 +795,70 @@
                     are optionally controlled by nested elements. See <a href="ant--clover-report.html">clover-report</a>.
                 </p><h5 id="clover-report-Parametersfor&lt;historical&gt;">Parameters for &lt;historical&gt;</h5>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>title</p></td>
-                            <td class="confluenceTd"><p>Specifies a title for the report.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>title</p></td>
+                            <td><p>Specifies a title for the report.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>titleAnchor</p></td>
-                            <td class="confluenceTd"><p>if specified, the report title will be rendered as a hyperlink
+                            <td><p>titleAnchor</p></td>
+                            <td><p>if specified, the report title will be rendered as a hyperlink
                                 to this href.</p></td>
-                            <td class="confluenceTd"><p>No; default is to not render the report title as a
+                            <td><p>No; default is to not render the report title as a
                                 hyperlink.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>titleTarget</p></td>
-                            <td class="confluenceTd"><p>Specifies the href target if the title is to be rendered as a
+                            <td><p>titleTarget</p></td>
+                            <td><p>Specifies the href target if the title is to be rendered as a
                                 hyperlink (see <code>titleAnchor</code> above). <em>HTML format only</em></p></td>
-                            <td class="confluenceTd"><p>No; default is &quot;<code>_top</code>&quot;.</p></td>
+                            <td><p>No; default is &quot;<code>_top</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>charset</p></td>
-                            <td class="confluenceTd"><p>The character set to use in the HTML reports.</p></td>
-                            <td class="confluenceTd"><p>No. Default is UTF-8</p></td>
+                            <td><p>charset</p></td>
+                            <td><p>The character set to use in the HTML reports.</p></td>
+                            <td><p>No. Default is UTF-8</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>dateFormat</p></td>
-                            <td class="confluenceTd"><p>Specifies a date format string for parsing the &quot;from&quot;
+                            <td><p>dateFormat</p></td>
+                            <td><p>Specifies a date format string for parsing the &quot;from&quot;
                                 and &quot;to&quot; fields. The string must contain a valid java.text.SimpleDateFormat
                                 pattern.</p></td>
-                            <td class="confluenceTd"><p>No; default is set to java.text.SimpleDateFormat
+                            <td><p>No; default is set to java.text.SimpleDateFormat
                                 using the default pattern and date format symbols for the default locale.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>from</p></td>
-                            <td class="confluenceTd"><p>Specifies the date before which data points will be ignored. The
+                            <td><p>from</p></td>
+                            <td><p>Specifies the date before which data points will be ignored. The
                                 date must be specified either using the default java.text.SimpleDateFormat
                                 for your locale or using the pattern defined in the &quot;dateFormat&quot; attribute.
                             </p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>historyDir</p></td>
-                            <td class="confluenceTd"><p>The directory containing Clover historical data as produced by
+                            <td><p>historyDir</p></td>
+                            <td><p>The directory containing Clover historical data as produced by
                                 the &lt;<a href="ant--clover-historypoint.html">clover-historypoint</a>&gt; task.
                             </p></td>
-                            <td class="confluenceTd"><p>Yes.</p></td>
+                            <td><p>Yes.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>historyIncludes</p></td>
-                            <td class="confluenceTd"><p>An <a
+                            <td><p>historyIncludes</p></td>
+                            <td><p>An <a
                                                               href="http://ant.apache.org/manual/dirtasks.html#patterns"
                                                               rel="nofollow">Ant GLOB</a> to select specific history
                                 point files within the <code>historyDir</code> directory</p></td>
-                            <td class="confluenceTd"><p>No; default is <code>clover-*.xml.gz</code></p></td>
+                            <td><p>No; default is <code>clover-*.xml.gz</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>json</p></td>
-                            <td class="confluenceTd"><p>A true or false value. If set to true, then a file called <code>historical-json.js</code>
+                            <td><p>json</p></td>
+                            <td><p>A true or false value. If set to true, then a file called <code>historical-json.js</code>
                                 will be created in the top level directory containing some <a
                                                                                               href="http://en.wikipedia.org/wiki/Json#JSONP"
                                                                                               rel="nofollow">JSONP</a>.
@@ -869,27 +869,27 @@
                                                href="http://code.google.com/apis/visualization/documentation/reference.html#DataTable"
                                                rel="nofollow">Google Visualization API</a>.
                                 <a href="ant--json-reference.html">More information.</a></p></td>
-                            <td class="confluenceTd"><p>No. Default is &quot;false&quot;.</p></td>
+                            <td><p>No. Default is &quot;false&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>outfile</p></td>
-                            <td class="confluenceTd"><p>The outfile to write output to. If it does not exist, it is
+                            <td><p>outfile</p></td>
+                            <td><p>The outfile to write output to. If it does not exist, it is
                                 created. Depending on the specified format, this either represents a regular file (PDF)
                                 or a directory (HTML).</p></td>
-                            <td class="confluenceTd"><p>Yes; default format is HTML.</p></td>
+                            <td><p>Yes; default format is HTML.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>package</p></td>
-                            <td class="confluenceTd"><p>Restricts the report to a particular package.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>package</p></td>
+                            <td><p>Restricts the report to a particular package.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>to</p></td>
-                            <td class="confluenceTd"><p>Specifies the date after which data points will be ignored. The
+                            <td><p>to</p></td>
+                            <td><p>Specifies the date after which data points will be ignored. The
                                 date must be specified either using the default java.text.SimpleDateFormat
                                 for your locale or using the pattern defined in the &quot;dateFormat&quot; attribute.
                             </p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -911,41 +911,41 @@
                 <p> </p>
                 <p><strong>Parameters for &lt;added&gt;</strong></p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>range</p></td>
-                            <td class="confluenceTd"><p>The maximum number of classes to show. If the value is 5, then a
+                            <td><p>range</p></td>
+                            <td><p>The maximum number of classes to show. If the value is 5, then a
                                 maximum of 5 &quot;gainers&quot; and 5 &quot;losers&quot; will be shown.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to <code>5.</code></p></td>
+                            <td><p>No; defaults to <code>5.</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>interval</p></td>
-                            <td class="confluenceTd"><p>The time interval over which the delta should be calculated
+                            <td><p>interval</p></td>
+                            <td><p>The time interval over which the delta should be calculated
                                 (from the last history point). Uses the <a
                                         href="ant--using-spans-specifying-an-interval.html">Interval</a>
                                 format. The range is automatically adjusted to the closest smaller interval available.
                             </p></td>
-                            <td class="confluenceTd"><p>No; the default is to take the delta of the last two history
+                            <td><p>No; the default is to take the delta of the last two history
                                 points.</p></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <p><br class="atl-forced-newline"/> <strong>Nested elements of &lt;added&gt;</strong></p>
+                <p> <strong>Nested elements of &lt;added&gt;</strong></p>
                 <p>The &lt;added&gt; element can take a single <a href="ant--clover-report.html">column</a> element, allowing you to add
                     one additional metric to the data shown in &lt;added&gt;.</p>
-                <p><br class="atl-forced-newline"/><strong> Example: &lt;totalStatements&gt;</strong></p>
+                <p><strong> Example: &lt;totalStatements&gt;</strong></p>
                 <p>You could add totalStatements to &lt;added&gt; with the following code.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;added&gt;
+<pre
+    >&lt;added&gt;
          &lt;columns&gt;
                    &lt;totalStatements/&gt;
          &lt;/columns&gt;
@@ -963,53 +963,53 @@
                 <p>A custom chart.
                 <p><strong>Parameters for &lt;chart&gt;</strong></p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>title</p></td>
-                            <td class="confluenceTd"><p>The title to use for the chart.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>title</p></td>
+                            <td><p>The title to use for the chart.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>logscale</p></td>
-                            <td class="confluenceTd"><p>Use a log scale for the y axis.</p></td>
-                            <td class="confluenceTd"><p>No; default is set to 'true'.</p></td>
+                            <td><p>logscale</p></td>
+                            <td><p>Use a log scale for the y axis.</p></td>
+                            <td><p>No; default is set to 'true'.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>xLabel</p></td>
-                            <td class="confluenceTd"><p>The x label to use.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>xLabel</p></td>
+                            <td><p>The x label to use.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>yLabel</p></td>
-                            <td class="confluenceTd"><p>The x label to use.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>yLabel</p></td>
+                            <td><p>The x label to use.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>width</p></td>
-                            <td class="confluenceTd"><p>The width of the chart image.</p></td>
-                            <td class="confluenceTd"><p>No; default is set to 640 pixels (640px).</p></td>
+                            <td><p>width</p></td>
+                            <td><p>The width of the chart image.</p></td>
+                            <td><p>No; default is set to 640 pixels (640px).</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>height</p></td>
-                            <td class="confluenceTd"><p>The height of the chart image.</p></td>
-                            <td class="confluenceTd"><p>No; default is set to 480 pixels (480px).</p></td>
+                            <td><p>height</p></td>
+                            <td><p>The height of the chart image.</p></td>
+                            <td><p>No; default is set to 480 pixels (480px).</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>upperBound</p></td>
-                            <td class="confluenceTd"><p>The maximum y value to display.</p></td>
-                            <td class="confluenceTd"><p>No; default is set to -1 (unbounded).</p></td>
+                            <td><p>upperBound</p></td>
+                            <td><p>The maximum y value to display.</p></td>
+                            <td><p>No; default is set to -1 (unbounded).</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>autoRange</p></td>
-                            <td class="confluenceTd"><p>If set to 'true', the y-axis will be chosen automatically to fit
+                            <td><p>autoRange</p></td>
+                            <td><p>If set to 'true', the y-axis will be chosen automatically to fit
                                 the data best.</p></td>
-                            <td class="confluenceTd"><p>No; default is 'false'.</p></td>
+                            <td><p>No; default is 'false'.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -1034,103 +1034,103 @@
                 <p>Specifies the output format and various options controlling the rendering of a report.
                 <p><strong>Parameters for &lt;format&gt;</strong></p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>type</p></td>
-                            <td class="confluenceTd"><p>The output format in which to render the report. Valid values
+                            <td><p>type</p></td>
+                            <td><p>The output format in which to render the report. Valid values
                                 are <code>pdf</code>, <code>xml</code>, <code>html</code> and <code>json</code>. Note
                                 that not all report formats support all other attributes.</p></td>
-                            <td class="confluenceTd"><p>Yes, unless <code>refid</code> is set.</p></td>
+                            <td><p>Yes, unless <code>refid</code> is set.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>refid</p></td>
-                            <td class="confluenceTd"><p>The id of another format element that will be used for this
+                            <td><p>refid</p></td>
+                            <td><p>The id of another format element that will be used for this
                                 report. See <a
                                         href="ant--sharing-report-formats.html">Sharing
                                     Report Formats</a>.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>id</p></td>
-                            <td class="confluenceTd"><p>The id of this format element.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>id</p></td>
+                            <td><p>The id of this format element.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>bw</p></td>
-                            <td class="confluenceTd"><p>Specify that the report should be black-and-white. Supported by
+                            <td><p>bw</p></td>
+                            <td><p>Specify that the report should be black-and-white. Supported by
                                 PDF reports only.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>orderBy</p></td>
-                            <td class="confluenceTd"><p>Specify how to order coverage tables. This attribute has no
-                                effect on XML format. Valid values are: <br class="atl-forced-newline"/> <br
+                            <td><p>orderBy</p></td>
+                            <td><p>Specify how to order coverage tables. This attribute has no
+                                effect on XML format. Valid values are:  <br
                                         class="atl-forced-newline"/> <code>Alpha</code> — Alpabetical. <br
                                         class="atl-forced-newline"/> <code>PcCoveredAsc</code> — Percent total coverage,
-                                ascending. <br class="atl-forced-newline"/> <code>PcCoveredDesc</code> — Percent total
-                                coverage, descending. <br class="atl-forced-newline"/> <code>ElementsCoveredAsc</code> —
-                                Total elements covered, ascending. <br class="atl-forced-newline"/> <code>ElementsCoveredDesc</code>
-                                — Total elements covered, descending. <br class="atl-forced-newline"/> <code>ElementsUncoveredAsc</code>
-                                — Total elements uncovered, ascending. <br class="atl-forced-newline"/> <code>ElementsUncoveredDesc</code>
+                                ascending.  <code>PcCoveredDesc</code> — Percent total
+                                coverage, descending.  <code>ElementsCoveredAsc</code> —
+                                Total elements covered, ascending.  <code>ElementsCoveredDesc</code>
+                                — Total elements covered, descending.  <code>ElementsUncoveredAsc</code>
+                                — Total elements uncovered, ascending.  <code>ElementsUncoveredDesc</code>
                                 — Total elements uncovered, descending.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to <code>PcCoveredAsc.</code></p></td>
+                            <td><p>No; defaults to <code>PcCoveredAsc.</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>noCache</p></td>
-                            <td class="confluenceTd"><p><em>(HTML only)</em> If true, insert nocache directives in HTML
+                            <td><p>noCache</p></td>
+                            <td><p><em>(HTML only)</em> If true, insert nocache directives in HTML
                                 output.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>srcLevel</p></td>
-                            <td class="confluenceTd"><p>If true, include source-level coverage information in the
+                            <td><p>srcLevel</p></td>
+                            <td><p>If true, include source-level coverage information in the
                                 report.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>filter</p></td>
-                            <td class="confluenceTd"><p>comma or space separated list of contexts to exclude when
+                            <td><p>filter</p></td>
+                            <td><p>comma or space separated list of contexts to exclude when
                                 generating coverage reports. See <a
                                         href="ant--using-coverage-contexts.html">Using
                                     Coverage Contexts</a>.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>pageSize</p></td>
-                            <td class="confluenceTd"><p><em>(PDF only)</em> Specify the page size to use. Valid values
+                            <td><p>pageSize</p></td>
+                            <td><p><em>(PDF only)</em> Specify the page size to use. Valid values
                                 are <code>A4</code>, <code>LETTER.</code></p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>A4</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>A4</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>showEmpty</p></td>
-                            <td class="confluenceTd"><p>If true, classes, files and packages that do not contain any
+                            <td><p>showEmpty</p></td>
+                            <td><p>If true, classes, files and packages that do not contain any
                                 executable code (i.e. methods, statements, or branches) are included in reports. These
                                 are normally not shown.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>tabWidth</p></td>
-                            <td class="confluenceTd"><p><em>(Source level reports only)</em> The number of space chars
+                            <td><p>tabWidth</p></td>
+                            <td><p><em>(Source level reports only)</em> The number of space chars
                                 to replace TAB characters with.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to <code>4.</code></p></td>
+                            <td><p>No; defaults to <code>4.</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>maxNameLength</p></td>
-                            <td class="confluenceTd"><p>The maximum length in chars of package or classnames in the
+                            <td><p>maxNameLength</p></td>
+                            <td><p>The maximum length in chars of package or classnames in the
                                 report. Longer names will be truncated. A value &lt; 0 indicates no limit.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to no limit.</p></td>
+                            <td><p>No; defaults to no limit.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>callback</p></td>
-                            <td class="confluenceTd"><p>The name of the callback function to wrap the JSON. If set to an
+                            <td><p>callback</p></td>
+                            <td><p>The name of the callback function to wrap the JSON. If set to an
                                 empty string, &quot; &quot;, then the JSON will not be wrapped.</p></td>
-                            <td class="confluenceTd"><p>No; default is 'processClover'.</p></td>
+                            <td><p>No; default is 'processClover'.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -1145,19 +1145,19 @@
                 <p>Specifies a chart showing other metrics over time.</p>
                 <p>Parameters for &lt;metrics&gt;:</p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>logscale</p></td>
-                            <td class="confluenceTd"><p>Specifies that a log scale be used on the Range Axis. This can
+                            <td><p>logscale</p></td>
+                            <td><p>Specifies that a log scale be used on the Range Axis. This can
                                 be useful if you are including, for example, LOC and packages in the same chart.</p>
                             </td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -1170,33 +1170,33 @@
                     movers over a given time frame, for example, weeks and months.
                 <p>Parameters for &lt;movers&gt;:</p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>threshold</p></td>
-                            <td class="confluenceTd"><p>The absolute point change in percent coverage that class must
+                            <td><p>threshold</p></td>
+                            <td><p>The absolute point change in percent coverage that class must
                                 have changed by for inclusion. e.g &quot;<code>10%</code>&quot;.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to <code>1%.</code></p></td>
+                            <td><p>No; defaults to <code>1%.</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>range</p></td>
-                            <td class="confluenceTd"><p>The maximum number of classes to show. If the value is 5, then a
+                            <td><p>range</p></td>
+                            <td><p>The maximum number of classes to show. If the value is 5, then a
                                 maximum of 5 &quot;gainers&quot; and 5 &quot;losers&quot; will be shown.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to <code>5.</code></p></td>
+                            <td><p>No; defaults to <code>5.</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>interval</p></td>
-                            <td class="confluenceTd"><p>The time interval over which the delta should be calculated
+                            <td><p>interval</p></td>
+                            <td><p>The time interval over which the delta should be calculated
                                 (from the last history point). Uses the <a
                                         href="ant--using-spans-specifying-an-interval.html">Interval</a>
                                 format. The range is automatically adjusted to the closest smaller interval available.
                             </p></td>
-                            <td class="confluenceTd"><p>No; the default is to take the delta of the last two history
+                            <td><p>No; the default is to take the delta of the last two history
                                 points.</p></td>
                         </tr>
                         </tbody>
@@ -1211,8 +1211,8 @@
                 <p>You could add totalStatements to &lt;movers&gt; with the following code.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;movers&gt;
+<pre
+    >&lt;movers&gt;
          &lt;columns&gt;
                    &lt;totalStatements/&gt;
          &lt;/columns&gt;
@@ -1231,8 +1231,8 @@
                     configurations</h2>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-report&gt;
+<pre
+    >&lt;clover-report&gt;
    &lt;current outfile=&quot;current.xml&quot;/&gt;
 &lt;/clover-report&gt;
 </pre>
@@ -1242,8 +1242,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-report&gt;
+<pre
+    >&lt;clover-report&gt;
    &lt;current outfile=&quot;current.pdf&quot; summary=&quot;true&quot;&gt;
       &lt;format type=&quot;pdf&quot;/&gt;
    &lt;/current&gt;
@@ -1255,8 +1255,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;report.json&quot; depends=&quot;with.clover&quot;&gt;
+<pre
+    >&lt;target name=&quot;report.json&quot; depends=&quot;with.clover&quot;&gt;
 &lt;clover-report&gt;
    &lt;current outfile=&quot;clover_json&quot;&gt;
     &lt;format type=&quot;json&quot;/&gt;
@@ -1275,8 +1275,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-report&gt;
+<pre
+    >&lt;clover-report&gt;
    &lt;current outfile=&quot;clover_html&quot; title=&quot;My Project&quot; summary=&quot;true&quot;&gt;
       &lt;format type=&quot;html&quot;/&gt;
    &lt;/current&gt;
@@ -1289,8 +1289,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">		&lt;clover-report&gt;
+<pre
+    >		&lt;clover-report&gt;
 		  &lt;current outfile=&quot;report-current&quot; title=&quot;Coverage&quot;&gt;
 			&lt;fileset dir=&quot;src/main/java&quot;&gt;
 			  &lt;exclude name=&quot;**/*Blah.java&quot;/&gt;
@@ -1305,8 +1305,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-report&gt;
+<pre
+    >&lt;clover-report&gt;
    &lt;current outfile=&quot;clover_html&quot; title=&quot;Util Coverage&quot;&gt;
       &lt;format type=&quot;html&quot; orderBy=&quot;ElementsCoveredAsc&quot;/&gt;
       &lt;testsources dir=&quot;src/test&quot; includes=&quot;\**/*.java&quot;/&gt;
@@ -1321,8 +1321,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-report&gt;
+<pre
+    >&lt;clover-report&gt;
    &lt;current outfile=&quot;clover_html&quot; title=&quot;My Project&quot;&gt;
       &lt;format type=&quot;html&quot;/&gt;
       &lt;sourcepath&gt;
@@ -1338,8 +1338,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;tstamp&gt;
+<pre
+    >&lt;tstamp&gt;
    &lt;format property=&quot;report.limit&quot; pattern=&quot;MM/dd/yyyy hh:mm aa&quot;
        offset=&quot;-1&quot; unit=&quot;month&quot;/&gt;
 &lt;/tstamp&gt;
@@ -1362,8 +1362,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-report&gt;
+<pre
+    >&lt;clover-report&gt;
   &lt;current outfile=&quot;report-current&quot; title=&quot;Coverage&quot;&gt;
     &lt;fileset dir=&quot;src&quot;&gt;
       &lt;patternset refid=&quot;clover.files&quot;/&gt;
@@ -1380,13 +1380,13 @@
                     not removed the coverage database. It will prevent classes, currently in the database but now
                     excluded, from being included in the report. It is prudent, however, to delete the coverage
                     database, coverage information and recompile when you change these settings.</p>
-                <p><br class="atl-forced-newline"/> <br class="atl-forced-newline"/> <span
+                <p>  <span
                         class="confluence-anchor-link" id="clover-report-customisedColumnsExample"></span></p>
                 <h2 id="clover-report-Exampleofcustomizingcolumns">Example of customizing columns</h2>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-report&gt;
+<pre
+    >&lt;clover-report&gt;
    &lt;current outfile=&quot;report-current&quot; title=&quot;Coverage&quot;&gt;
       &lt;format type=&quot;html&quot;/&gt;
       &lt;columns&gt;
@@ -1401,14 +1401,14 @@
                 </div>
                 <p>Generates a HTML report that will only include a bar chart showing the percentage of methods covered,
                     the actual percentage of statements covered and the actual number of branches covered. If less than
-                    75% of methods are covered, those values will be highlighted. <br class="atl-forced-newline"/> <br
+                    75% of methods are covered, those values will be highlighted.  <br
                             class="atl-forced-newline"/> <span class="confluence-anchor-link"
                                                                id="clover-report-linkedReportExample"></span></p>
                 <h2 id="clover-report-Exampleoflinkedreports">Example of linked reports</h2>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-report&gt;
+<pre
+    >&lt;clover-report&gt;
       &lt;current outfile=&quot;report1&quot; title=&quot;Coverage Report 1&quot;&gt;
         &lt;format type=&quot;html&quot;/&gt;
         &lt;fileset dir=&quot;src&quot;&gt;
@@ -1427,14 +1427,14 @@
                     </div>
                 </div>
                 <p>Generates two HTML reports. Each of these reports will contain a link to the other. <br
-                        class="atl-forced-newline"/> <br class="atl-forced-newline"/> <span
+                        class="atl-forced-newline"/>  <span
                         class="confluence-anchor-link" id="clover-report-historyReportExamples"></span></p>
                 <h2 id="clover-report-ExamplesofHistoricalReportConfigurations">Examples of Historical Report
                     Configurations</h2>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-report&gt;
+<pre
+    >&lt;clover-report&gt;
    &lt;historical outfile=&quot;historical.pdf&quot;
                historyDir=&quot;clover_history&quot;&gt;
        &lt;format type=&quot;pdf&quot;/&gt;
@@ -1449,8 +1449,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-report&gt;
+<pre
+    >&lt;clover-report&gt;
    &lt;historical outfile=&quot;two_months&quot; title=&quot;My Project&quot;
                from=&quot;020101&quot; to=&quot;020301&quot; dateFormat=&quot;yyMMdd&quot;
                historyDir=&quot;clover_history&quot;&gt;
@@ -1467,8 +1467,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-report&gt;
+<pre
+    >&lt;clover-report&gt;
    &lt;historical outfile=&quot;report.pdf&quot; title=&quot;My Project&quot;
                historyDir=&quot;clover_history&quot;&gt;
       &lt;overview/&gt;

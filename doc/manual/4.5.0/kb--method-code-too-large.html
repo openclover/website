@@ -59,11 +59,11 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h3 id="Methodcodetoolarge-Symptoms">Symptoms</h3>
                 <p>Compilation of Groovy code instrumented by Clover fails with an error like:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>| Error Compilation error compiling [integration] tests: startup failed:
 General error during class generation: Method code too large!
 
@@ -106,9 +106,9 @@ java.lang.RuntimeException: Method code too large!
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Ant</b></div>
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
+                        <pre
                              data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-                             data-theme="Confluence">&lt;clover-setup instrumentationLevel=&quot;method&quot;/&gt; </pre>
+                            >&lt;clover-setup instrumentationLevel=&quot;method&quot;/&gt; </pre>
                     </div>
                 </div>
                 <p>See: <a href="ant--clover-setup.html">Clover-for-Ant /
@@ -117,8 +117,8 @@ java.lang.RuntimeException: Method code too large!
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Maven</b></div>
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
   &lt;groupId&gt;org.openclover&lt;/groupId&gt;
   &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
   &lt;configuration&gt;
@@ -136,8 +136,8 @@ java.lang.RuntimeException: Method code too large!
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Grails</b></div>
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
-     data-theme="Confluence">// grails-app/conf/BuildConfig.groovy:
+<pre
+    >// grails-app/conf/BuildConfig.groovy:
 
 clover { 
     setuptask = { ant, binding, plugin -&gt;

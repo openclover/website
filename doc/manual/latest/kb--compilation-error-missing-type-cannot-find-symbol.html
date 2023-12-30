@@ -59,13 +59,13 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h4 id="CompilationerrorwithCloverenabled-missingtype,cannotfindsymbol-Symptoms">Symptoms</h4>
                 <p>When Clover is enabled compilation fails with a missing type error, for example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">[javac] /workspace/com/samples/OtherClass.java:11: cannot find symbol
+<pre
+    >[javac] /workspace/com/samples/OtherClass.java:11: cannot find symbol
 [javac] symbol  : variable BuildTime
 [javac] location: class com.samples.OtherClass
 [javac]         __CLR4_0_3b0b0i9zeh8ey.R.inc(397);System.out.println(BuildTime.BUILD_TIME);
@@ -86,8 +86,8 @@
                     <div class="syntaxhighlighter nogutter  xml"><p> </p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
   &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
   &lt;artifactId&gt;maven-antrun-plugin&lt;/artifactId&gt;
   &lt;executions&gt;
@@ -112,9 +112,9 @@
                 <p>and you run standard Clover instrumentation, such as:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
-                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-                             data-theme="Confluence">mvn clean clover:setup test clover:clover clover:aggregate</pre>
+                        <pre
+
+                            >mvn clean clover:setup test clover:clover clover:aggregate</pre>
                     </div>
                 </div>
                 <p> </p>
@@ -135,12 +135,12 @@
                 </ul>
                 <p> </p>
                 <p>You can either do it in a command line:</p>
-                <div class="syntaxhighlighter nogutter  java"><p> </p>
+                <div><p> </p>
                     <div class="code panel pdl" style="border-width: 1px;">
                         <div class="codeContent panelContent pdl">
-                            <pre class="syntaxhighlighter-pre"
-                                 data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-                                 data-theme="Confluence">mvn clean generate-sources clover:setup test</pre>
+                            <pre
+
+                                >mvn clean generate-sources clover:setup test</pre>
                         </div>
                     </div>
                     <p> </p></div>
@@ -152,8 +152,8 @@
                     <div class="syntaxhighlighter nogutter  xml"><p> </p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
   &lt;groupId&gt;org.openclover&lt;/groupId&gt;
   &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
   &lt;executions&gt;

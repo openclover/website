@@ -58,18 +58,18 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h4 id="id-&quot;Couldnotinitializeclass&quot;erroratruntime-Symptoms">Symptoms</h4>
                 <p>Execution of tests or a standalone application terminates with an error message similar to the
                     following:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>Could not initialize class com.acme.MyClass$__CLR3_2_02t2thng9gff</pre>
                     </div>
                 </div>
                 <p>or from Maven:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>java.lang.reflect.InvocationTargetException
     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
     at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -81,8 +81,8 @@ Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.acme.M
                     </div>
                 </div>
                 <p>or from JBoss:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>org.jboss.arquillian.container.spi.client.container.DeploymentException: Could not deploy to container: ...
 Caused by: javax.persistence.PersistenceException: ...
 Caused by: org.hibernate.MappingException: Could not get constructor for org.hibernate.persister.entity.SingleTableEntityPersister

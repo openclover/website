@@ -58,72 +58,72 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>Produces a JSON report of Code Coverage for the given coverage database.</p>
                 <h2 id="JSONReporter-Usage">Usage</h2>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence"> java com.atlassian.clover.reporters.json.JSONReporter [OPTIONS] PARAMS
+<pre
+    > java com.atlassian.clover.reporters.json.JSONReporter [OPTIONS] PARAMS
 </pre>
                     </div>
                 </div>
                 <h3 id="JSONReporter-Parameters">Parameters</h3>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <td class="confluenceTd"><p>-i, --initstring &lt;file&gt;</p></td>
-                            <td class="confluenceTd"><p>The initstring of the coverage database.</p></td>
+                            <td><p>-i, --initstring &lt;file&gt;</p></td>
+                            <td><p>The initstring of the coverage database.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-o, --outputdir &lt;dir&gt;</p></td>
-                            <td class="confluenceTd"><p>The output directory for generated JSON.</p></td>
+                            <td><p>-o, --outputdir &lt;dir&gt;</p></td>
+                            <td><p>The output directory for generated JSON.</p></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <h3 id="JSONReporter-Options">Options</h3>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <td class="confluenceTd"><p>-a, --alwaysreport</p></td>
-                            <td class="confluenceTd"><p>Forces a report to be generated, even if there is no coverage
+                            <td><p>-a, --alwaysreport</p></td>
+                            <td><p>Forces a report to be generated, even if there is no coverage
                                 data. Defaults to '<code>false</code>', i.e. a report with no coverage will abort
                                 generation.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-d, --debug</p></td>
-                            <td class="confluenceTd"><p>Switch logging level to debug.</p></td>
+                            <td><p>-d, --debug</p></td>
+                            <td><p>Switch logging level to debug.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-if --includefailcoverage</p></td>
-                            <td class="confluenceTd"><p>Specifies whether or not to include coverage attributed to a
+                            <td><p>-if --includefailcoverage</p></td>
+                            <td><p>Specifies whether or not to include coverage attributed to a
                                 test that has failed. If omitted, failed test coverage is not included. Default setting
                                 is 'false'.</p></td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">-si, --showinner</td>
-                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.2.0: </strong></em>Show inner
+                            <td colspan="1">-si, --showinner</td>
+                            <td colspan="1"><em><strong>Since 3.2.0: </strong></em>Show inner
                                 functions in the report (like a lambda function inside a method).
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">-sl, --showlambda</td>
-                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.2.0: </strong></em>Show lambda
+                            <td colspan="1">-sl, --showlambda</td>
+                            <td colspan="1"><em><strong>Since 3.2.0: </strong></em>Show lambda
                                 functions in the report.
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">-tc, --threadcount &lt;int&gt;</td>
-                            <td colspan="1" class="confluenceTd">Number of <u>additional</u> threads to be allocated to
+                            <td colspan="1">-tc, --threadcount &lt;int&gt;</td>
+                            <td colspan="1">Number of <u>additional</u> threads to be allocated to
                                 report generation. Default is 0.
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-v, --verbose</p></td>
-                            <td class="confluenceTd"><p>Switch logging level to verbose.</p></td>
+                            <td><p>-v, --verbose</p></td>
+                            <td><p>Switch logging level to verbose.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -136,8 +136,8 @@
                     arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">import com.atlassian.clover.CloverStartup;
+<pre
+    >import com.atlassian.clover.CloverStartup;
 import com.atlassian.clover.Logger;
 import com.atlassian.clover.reporters.json.JSONReporter;
 
@@ -156,9 +156,9 @@ public class JsonReportRunner {
                 <h3 id="JSONReporter-Examples">Examples</h3>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
-                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-                             data-theme="Confluence"> java com.atlassian.clover.reporters.json.JSONReporter -i clover.db -o clover_json</pre>
+                        <pre
+
+                            > java com.atlassian.clover.reporters.json.JSONReporter -i clover.db -o clover_json</pre>
                     </div>
                 </div>
                 <p>Read coverage for the Clover database &quot;clover.db&quot; and produce a report in the directory

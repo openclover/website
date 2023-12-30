@@ -58,7 +58,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p><strong>Q: Why do I get an java.lang.OutOfMemoryError when compiling with Clover turned on?</strong>
                 </p>
 
@@ -75,8 +75,8 @@
                 </ul>
 
 
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>export ANT_OPTS=-Xmx256m
 </pre>
                     </div>
@@ -90,8 +90,8 @@
                 </ul>
 
 
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>&lt;javac srcdir=&quot;${src}&quot;
 destdir=&quot;${build}&quot;
 fork=&quot;true&quot;

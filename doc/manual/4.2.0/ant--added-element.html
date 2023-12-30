@@ -66,45 +66,45 @@
         </div>
 
         <div id="content" class="view">
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p><code>&lt;added&gt;</code> displays new classes for the given column.</p>
                 <p> </p>
                 <p><strong>Parameters for &lt;added&gt;</strong></p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>range</p></td>
-                            <td class="confluenceTd"><p>The maximum number of classes to show. If the value is 5, then a
+                            <td><p>range</p></td>
+                            <td><p>The maximum number of classes to show. If the value is 5, then a
                                 maximum of 5 &quot;gainers&quot; and 5 &quot;losers&quot; will be shown.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to <code>5.</code></p></td>
+                            <td><p>No; defaults to <code>5.</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>interval</p></td>
-                            <td class="confluenceTd"><p>The time interval over which the delta should be calculated
+                            <td><p>interval</p></td>
+                            <td><p>The time interval over which the delta should be calculated
                                 (from the last history point). Uses the <a href="ant--using-spans-specifying-an-interval.html">Interval</a>
                                 format. The range is automatically adjusted to the closest smaller interval available.
                             </p></td>
-                            <td class="confluenceTd"><p>No; the default is to take the delta of the last two history
+                            <td><p>No; the default is to take the delta of the last two history
                                 points.</p></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <p><br class="atl-forced-newline"/> <strong>Nested elements of &lt;added&gt;</strong></p>
+                <p> <strong>Nested elements of &lt;added&gt;</strong></p>
                 <p>The &lt;added&gt; element can take a single <a href="ant--clover-report.html">column</a> element,
                     allowing you to add one additional metric to the data shown in &lt;added&gt;.</p>
-                <p><br class="atl-forced-newline"/><strong> Example: &lt;totalStatements&gt;</strong></p>
+                <p><strong> Example: &lt;totalStatements&gt;</strong></p>
                 <p>You could add totalStatements to &lt;added&gt; with the following code.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;added&gt;
+<pre
+    >&lt;added&gt;
          &lt;columns&gt;
                    &lt;totalStatements/&gt;
          &lt;/columns&gt;

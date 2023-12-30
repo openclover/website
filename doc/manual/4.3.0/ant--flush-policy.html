@@ -65,7 +65,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>How Clover writes coverage data to disk at runtime can be configured by changing Clover's <em>flush
                     policy</em>. Clover provides three policies: <code>directed</code>, <code>interval</code> and <code>threaded</code>.
                     The default mode is <code>directed</code>. The flush policy is set at instrumentation time, either
@@ -78,15 +78,15 @@
                     shutting down the JVM at the end of testing is not desirable, you will want to use one of the
                     interval-based flush policies.</p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Policy</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
+                            <th><p><strong>Policy</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>directed</code></p></td>
-                            <td class="confluenceTd"><p><em>default.</em> Coverage recordings are flushed only when the
+                            <td><p><code>directed</code></p></td>
+                            <td><p><em>default.</em> Coverage recordings are flushed only when the
                                 hosting JVM is shut down, or where the user has directed a flush using the <code>///CLOVER:FLUSH</code>
                                 <a href="ant--using-source-directives.html">inline directive</a>. Directed flushing
                                 has the lowest runtime performance overhead of all flush policies (depending on the use
@@ -95,8 +95,8 @@
                                     abnormally.</strong></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>interval</code></p></td>
-                            <td class="confluenceTd"><p> The <code>interval</code> policy flushes as per the directed
+                            <td><p><code>interval</code></p></td>
+                            <td><p> The <code>interval</code> policy flushes as per the directed
                                 policy, and also at a <em>maximum</em> rate determined by the interval set at
                                 instrumentation time (see the <code>flushinterval</code> attribute on <code>&lt;<a
                                         href="ant--clover-setup.html">clover-setup</a>&gt;</code>). The <code>interval</code>
@@ -112,8 +112,8 @@
                                 determined by the flush interval. </p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><code>threaded</code></p></td>
-                            <td class="confluenceTd"><p> The <code>threaded</code> policy flushes as per the directed
+                            <td><p><code>threaded</code></p></td>
+                            <td><p> The <code>threaded</code> policy flushes as per the directed
                                 policy, and also at a rate determined by the interval set at instrumentation time (see
                                 the <code>flushinterval</code> attribute on <code>&lt;<a
                                         href="ant--clover-setup.html">clover-setup</a>&gt;</code>). The <code>threaded</code>

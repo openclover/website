@@ -58,7 +58,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h3 id="MavenAssemblyPluginfailswithClover-Symptoms">Symptoms</h3>
                 <ul>
                     <li>project is using the maven-assembly-plugin</li>
@@ -67,8 +67,8 @@
                 </ul>
                 <p> </p>
                 <p>Build log contains errors like the following:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>[ERROR] Failed to execute goal org.apache.maven.plugins:maven-assembly-plugin:2.3:single (make-assembly) on project xyz: Execution make-assembly of goal org.apache.maven.plugins:maven-assembly-plugin:2.3:single failed. NullPointerException -&gt; [Help 1]
 org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal org.apache.maven.plugins:maven-assembly-plugin:2.3:single (make-assembly) on project xyz: Execution make-assembly of goal org.apache.maven.plugins:maven-assembly-plugin:2.3:single failed.
     at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:225)
@@ -86,8 +86,8 @@ Caused by: java.lang.NullPointerException
                     </div>
                 </div>
                 <p>or</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>[ERROR] Failed to execute goal org.apache.maven.plugins:maven-assembly-plugin:2.4:single (make-assembly) on project xyz: Failed to create assembly: Error creating assembly archive withdep: Problem creating jar: jar:file:/opt/bamboo-agent-home/xml-data/build-dir/PROJ-PLAN-JOB/target/xyz-1.0.0-SNAPSHOT.jar!/instrumentation.ser -&gt; [Help 1]
 org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal org.apache.maven.plugins:maven-assembly-plugin:2.4:single (make-assembly) on project xyz: Failed to create assembly: Error creating assembly archive withdep: Problem creating jar: jar:file:/opt/bamboo-agent-home/xml-data/build-dir/PROJ-PLAN-JOB/target/xyz-1.0.0-SNAPSHOT.jar!/instrumentation.ser
     at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:217)
@@ -142,8 +142,8 @@ Caused by: java.io.IOException: jar:file:/opt/bamboo-agent-home/xml-data/build-d
                     is trying to access resources from dependent modules, which have been already instrumented by Clover
                     (i.e. created in the phase after <em>clover:setup</em>). As a consequence, Maven Assembly Plugin
                     fails accessing files like:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>**/instrumentation.ser
 **/groverconfig*/*
 **/classes/**/*$__CLR*.class</pre>
@@ -154,15 +154,15 @@ Caused by: java.io.IOException: jar:file:/opt/bamboo-agent-home/xml-data/build-d
                 <p>In order to avoid such problems, Maven shall not run the same build phase twice.</p>
                 <p>You have to configure <strong>manual</strong> Clover integration and modify the &quot;Goals&quot;
                     field in a Maven Task(s). In case when your original goals are:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>mvn clean &lt;other goals or phases&gt;</pre>
                     </div>
                 </div>
                 <p> </p>
                 <p>they should be changed to:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>mvn clean clover:setup &lt;other goals or phases&gt; clover:aggregate clover:clover</pre>
                     </div>
                 </div>

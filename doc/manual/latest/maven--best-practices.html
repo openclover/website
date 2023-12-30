@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>This page contains best practices for using Clover for Maven.</p>
                 <p><strong>On this page:</strong></p>
                 <p>
@@ -138,8 +138,8 @@
                         Example:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">mvn verify -Pclover.optimize
+<pre
+    >mvn verify -Pclover.optimize
 </pre>
                             </div>
                         </div>
@@ -149,8 +149,8 @@
                         builds. The following configuration added to the <code>pom.xml</code> is one option:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre
+    >&lt;configuration&gt;
   &lt;snapshot&gt;${user.home}/.clover/${groupId}-${artifactId}/clover.snapshot&lt;/snapshot&gt;
 &lt;/configuration&gt;
 </pre>
@@ -161,8 +161,8 @@
                         to the usual Maven output location. If you run this command:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">mvn deploy -Pclover.optimize
+<pre
+    >mvn deploy -Pclover.optimize
 </pre>
                             </div>
                         </div>
@@ -174,9 +174,9 @@
                 <p>Add a new build plan with the following command line:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
-                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-                             data-theme="Confluence">mvn clover:setup verify clover:snapshot</pre>
+                        <pre
+
+                            >mvn clover:setup verify clover:snapshot</pre>
                     </div>
                 </div>
                 <h1 id="BestPracticesforMaven-Testoptimizationonthedesktop">Test optimization on the desktop</h1>
@@ -184,8 +184,8 @@
                         class="confluence-link">'clover.optimize'</span> profile that can be activated like so:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">mvn verify -Pclover.optimize
+<pre
+    >mvn verify -Pclover.optimize
 </pre>
                     </div>
                 </div>
@@ -201,8 +201,8 @@
                     profile is an example of a build profile to activate when running this command:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">mvn site -Pclover.report
+<pre
+    >mvn site -Pclover.report
 </pre>
                     </div>
                 </div>
@@ -218,8 +218,8 @@
                     <code>clover.snapshot</code> for the entire project:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;configuration&gt;
+<pre
+    >&lt;configuration&gt;
     &lt;snapshot&gt;${user.home}/.clover/atlassian-plugins-clover.snapshot&lt;/snapshot&gt;
     &lt;singleCloverDatabase&gt;true&lt;/singleCloverDatabase&gt;
 &lt;/configuration&gt;
@@ -257,8 +257,8 @@
                     <strong>instrumented</strong> classes.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">mvn clover:setup install clover:clover
+<pre
+    >mvn clover:setup install clover:clover
 </pre>
                     </div>
                 </div>
@@ -300,8 +300,8 @@
                 <p><span class="confluence-anchor-link" id="BestPracticesforMaven-clover.report"></span></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;profile&gt;
+<pre
+    >&lt;profile&gt;
             &lt;id&gt;clover.report&lt;/id&gt;
             &lt;build&gt;
                 &lt;plugins&gt;
@@ -341,8 +341,8 @@
                 <p><span class="confluence-anchor-link" id="BestPracticesforMaven-clover.optimize"></span></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;profile&gt;
+<pre
+    >&lt;profile&gt;
             &lt;id&gt;clover.optimize&lt;/id&gt;
             &lt;build&gt;
                 &lt;plugins&gt;
@@ -377,8 +377,8 @@
                 <p><span class="confluence-anchor-link" id="BestPracticesforMaven-clover.all"></span></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;profile&gt;
+<pre
+    >&lt;profile&gt;
             &lt;id&gt;clover.all&lt;/id&gt;
             &lt;build&gt;
                 &lt;plugins&gt;

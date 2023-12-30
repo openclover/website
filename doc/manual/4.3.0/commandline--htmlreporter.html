@@ -58,27 +58,27 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>Produces an HTML report of Code Coverage for the given coverage database.</p>
                 <h2 id="HtmlReporter-Usage">Usage</h2>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">java -cp clover.jar com.atlassian.clover.reporters.html.HtmlReporter [OPTIONS] PARAMS
+<pre
+    >java -cp clover.jar com.atlassian.clover.reporters.html.HtmlReporter [OPTIONS] PARAMS
 </pre>
                     </div>
                 </div>
                 <h3 id="HtmlReporter-Params">Params</h3>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <td class="confluenceTd"><p>-i, --initstring &lt;file&gt;</p></td>
-                            <td class="confluenceTd"><p>The initstring of the coverage database.</p></td>
+                            <td><p>-i, --initstring &lt;file&gt;</p></td>
+                            <td><p>The initstring of the coverage database.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-o, --outputdir &lt;dir&gt;</p></td>
-                            <td class="confluenceTd"><p>The directory to write the report to. Will be created if it
+                            <td><p>-o, --outputdir &lt;dir&gt;</p></td>
+                            <td><p>The directory to write the report to. Will be created if it
                                 doesn't exist.</p></td>
                         </tr>
                         </tbody>
@@ -86,27 +86,27 @@
                 </div>
                 <h3 id="HtmlReporter-Options">Options</h3>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <td class="confluenceTd"><p>-a, --alwaysreport</p></td>
-                            <td class="confluenceTd"><p>Forces a report to be generated, even if there is no coverage
+                            <td><p>-a, --alwaysreport</p></td>
+                            <td><p>Forces a report to be generated, even if there is no coverage
                                 data. Defaults to '<code>false</code>', i.e. a report with no coverage will abort
                                 generation.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-b, --hidebars</p></td>
-                            <td class="confluenceTd"><p>Don't render coverage bars.</p></td>
+                            <td><p>-b, --hidebars</p></td>
+                            <td><p>Don't render coverage bars.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-bw</p></td>
-                            <td class="confluenceTd"><p>Don't color syntax-highlighted source — smaller HTML output.</p>
+                            <td><p>-bw</p></td>
+                            <td><p>Don't color syntax-highlighted source — smaller HTML output.</p>
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-c, --orderby &lt;compname&gt;</p></td>
-                            <td class="confluenceTd"><p>Comparator to use when listing packages and classes. Default is
-                                PcCoveredAsc. <br class="atl-forced-newline"/> Valid values are:</p>
+                            <td><p>-c, --orderby &lt;compname&gt;</p></td>
+                            <td><p>Comparator to use when listing packages and classes. Default is
+                                PcCoveredAsc.  Valid values are:</p>
                                 <ul>
                                     <li>Alpha — Alpabetical.</li>
                                     <li>PcCoveredAsc — Percent total coverage, ascending.</li>
@@ -119,18 +119,18 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-d, --debug</p></td>
-                            <td class="confluenceTd"><p>Switch logging level to debug.</p></td>
+                            <td><p>-d, --debug</p></td>
+                            <td><p>Switch logging level to debug.</p></td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">-e, --showempty</td>
-                            <td colspan="1" class="confluenceTd">Show classes/packages even if they don't have any
+                            <td colspan="1">-e, --showempty</td>
+                            <td colspan="1">Show classes/packages even if they don't have any
                                 statements, methods or conditionals. default is false
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-f, --filter &lt;string&gt;</p></td>
-                            <td class="confluenceTd"><p>Comma or space separated list of contexts to ignore when
+                            <td><p>-f, --filter &lt;string&gt;</p></td>
+                            <td><p>Comma or space separated list of contexts to ignore when
                                 generating coverage reports. Most useful one is &quot;catch&quot;. <br
                                         class="atl-forced-newline"/> Valid values are &quot;assert&quot;, &quot;static&quot;,
                                 &quot;instance&quot;, &quot;constructor&quot;, &quot;method&quot;, &quot;switch&quot;,
@@ -140,51 +140,51 @@
                                     Contexts</a>.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-h, --hidesrc</p></td>
-                            <td class="confluenceTd"><p>Don't render source level coverage.</p></td>
+                            <td><p>-h, --hidesrc</p></td>
+                            <td><p>Don't render source level coverage.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-if --includefailcoverage</p></td>
-                            <td class="confluenceTd"><p>Specifies whether or not to include coverage attributed to a
+                            <td><p>-if --includefailcoverage</p></td>
+                            <td><p>Specifies whether or not to include coverage attributed to a
                                 test that has failed. If omitted, failed test coverage is not included. Default setting
                                 is 'false'.</p></td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd"><p>-n, --nocache</p></td>
-                            <td colspan="1" class="confluenceTd">Insert no-cache browser directives in html output.</td>
+                            <td colspan="1"><p>-n, --nocache</p></td>
+                            <td colspan="1">Insert no-cache browser directives in html output.</td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-p, --sourcepath &lt;path&gt;</p></td>
-                            <td class="confluenceTd"><p>The source path to search when looking for source files.</p>
+                            <td><p>-p, --sourcepath &lt;path&gt;</p></td>
+                            <td><p>The source path to search when looking for source files.</p>
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-s, --span &lt;interval&gt;</p></td>
-                            <td class="confluenceTd"><p>Specifies how far back in time to include coverage recordings
+                            <td><p>-s, --span &lt;interval&gt;</p></td>
+                            <td><p>Specifies how far back in time to include coverage recordings
                                 from. See Using Spans. Default includes &quot;all coverage data found&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">-si, --showinner</td>
-                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.2.0: </strong></em>Show inner
+                            <td colspan="1">-si, --showinner</td>
+                            <td colspan="1"><em><strong>Since 3.2.0: </strong></em>Show inner
                                 functions in the report (like a lambda function inside a method).
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">-sl, --showlambda</td>
-                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.2.0: </strong></em>Show lambda
+                            <td colspan="1">-sl, --showlambda</td>
+                            <td colspan="1"><em><strong>Since 3.2.0: </strong></em>Show lambda
                                 functions in the report.
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">-su, --showunique</td>
-                            <td colspan="1" class="confluenceTd"><p><em><strong>Since
+                            <td colspan="1">-su, --showunique</td>
+                            <td colspan="1"><p><em><strong>Since
                                 3.1.5</strong><strong>:</strong></em> Calculate and show unique per-test coverage (for
                                 large projects can consume much memory and take a significant amount of time). Defaults
                                 to false.</p></td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">--style &lt;string&gt;</td>
-                            <td colspan="1" class="confluenceTd"><p><em><strong>Since 4.0.0:</strong></em> Style of the
+                            <td colspan="1">--style &lt;string&gt;</td>
+                            <td colspan="1"><p><em><strong>Since 4.0.0:</strong></em> Style of the
                                 report:</p>
                                 <p>&quot;adg&quot; - following the <a
                                                                       href="http://developer.atlassian.com/design/latest/"
@@ -199,23 +199,23 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-t, --title &lt;string&gt;</p></td>
-                            <td class="confluenceTd"><p>Report title.</p></td>
+                            <td><p>-t, --title &lt;string&gt;</p></td>
+                            <td><p>Report title.</p></td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd"><p>-tc, --threadcount &lt;int&gt;</p></td>
-                            <td colspan="1" class="confluenceTd">Number of <u>additional</u> threads to be allocated to
+                            <td colspan="1"><p>-tc, --threadcount &lt;int&gt;</p></td>
+                            <td colspan="1">Number of <u>additional</u> threads to be allocated to
                                 report generation. Default is 0.
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-tw, --tabwidth &lt;int&gt;</p></td>
-                            <td class="confluenceTd"><p>The number of spaces to subsitute TAB characters with. Defaults
+                            <td><p>-tw, --tabwidth &lt;int&gt;</p></td>
+                            <td><p>The number of spaces to subsitute TAB characters with. Defaults
                                 to 4.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-v, --verbose</p></td>
-                            <td class="confluenceTd"><p>Switch logging level to verbose.</p></td>
+                            <td><p>-v, --verbose</p></td>
+                            <td><p>Switch logging level to verbose.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -228,8 +228,8 @@
                     arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">import com.atlassian.clover.reporters.html.HtmlReporter;
+<pre
+    >import com.atlassian.clover.reporters.html.HtmlReporter;
 import com.atlassian.clover.CloverStartup;
 import com.atlassian.clover.Logger;
 
@@ -248,8 +248,8 @@ public class HtmlReportRunner {
                 <h3 id="HtmlReporter-Examples">Examples</h3>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">java com.atlassian.clover.reporters.html.HtmlReporter -i clover.db -o clover_html
+<pre
+    >java com.atlassian.clover.reporters.html.HtmlReporter -i clover.db -o clover_html
 </pre>
                     </div>
                 </div>
@@ -258,8 +258,8 @@ public class HtmlReportRunner {
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">java com.atlassian.clover.reporters.html.HtmlReporter -c ElementsCoveredAsc
+<pre
+    >java com.atlassian.clover.reporters.html.HtmlReporter -c ElementsCoveredAsc
       -t &quot;My Coverage&quot; -i clover.db -o clover_html
 </pre>
                     </div>

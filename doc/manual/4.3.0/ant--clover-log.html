@@ -64,72 +64,72 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h3 id="clover-log-Description">Description</h3>
                 <p>The <code>&lt;clover-log&gt;</code> task reports coverage information to the console at different
                     levels.</p>
                 <h3 id="clover-log-Parameters">Parameters</h3>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>initstring</p></td>
-                            <td class="confluenceTd"><p>The <code>initstring</code> of the coverage database.</p></td>
-                            <td class="confluenceTd"><p>No; if not specified here, Clover will use the default location
+                            <td><p>initstring</p></td>
+                            <td><p>The <code>initstring</code> of the coverage database.</p></td>
+                            <td><p>No; if not specified here, Clover will use the default location
                                 (<code>${basedir}/.clover</code>). If you have specified an <code>initstring</code> on
                                 the &lt;<a href="ant--clover-setup.html">clover-setup</a>&gt; task, you must ensure
                                 that &lt;<a href="ant--clover-setup.html">clover-setup</a>&gt; is called prior the
                                 execution of this task.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>level</p></td>
-                            <td class="confluenceTd"><p>Controls the level of detail included in the report. Valid
+                            <td><p>level</p></td>
+                            <td><p>Controls the level of detail included in the report. Valid
                                 values are <code>summary</code>, <code>class</code>, <code>method</code>, <code>statement</code>
                             </p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>summary</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>summary</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>filter</p></td>
-                            <td class="confluenceTd"><p>comma or space separated list of contexts to ignore when
+                            <td><p>filter</p></td>
+                            <td><p>comma or space separated list of contexts to ignore when
                                 calculating coverage. See <a href="ant--using-coverage-contexts.html">Using Coverage
                                     Contexts</a>.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>span</p></td>
-                            <td class="confluenceTd"><p>Specifies how far back in time to include coverage recordings
+                            <td><p>span</p></td>
+                            <td><p>Specifies how far back in time to include coverage recordings
                                 from since the last Clover build. See <a href="ant--using-spans.html">Using
                                     Spans</a>.</p></td>
-                            <td class="confluenceTd"><p>No; defaults includes &quot;all coverage data found&quot;.</p>
+                            <td><p>No; defaults includes &quot;all coverage data found&quot;.</p>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">codeType</td>
-                            <td colspan="1" class="confluenceTd"><p><em><strong>Since 3.1.6:</strong> </em>Specifies
+                            <td colspan="1">codeType</td>
+                            <td colspan="1"><p><em><strong>Since 3.1.6:</strong> </em>Specifies
                                 which sources shall be taken for calculation. This attribute should be used together
                                 with &lt;testSources&gt; nested element.</p>
                                 <p>Valid values are: APPLICATION (business code), TEST (test code), ALL (business + test
                                     code).</p></td>
-                            <td colspan="1" class="confluenceTd">No; Default value: APPLICATION.</td>
+                            <td colspan="1">No; Default value: APPLICATION.</td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">showUnitTests</td>
-                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.1.6:</strong> </em>Show unit tests
+                            <td colspan="1">showUnitTests</td>
+                            <td colspan="1"><em><strong>Since 3.1.6:</strong> </em>Show unit tests
                                 summary in the report. Must be used with codeType=ALL or codeType=TEST.
                             </td>
-                            <td colspan="1" class="confluenceTd">No; Default value: false</td>
+                            <td colspan="1">No; Default value: false</td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">outputProperty</td>
-                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.1.6:</strong> </em>Name of the Ant
+                            <td colspan="1">outputProperty</td>
+                            <td colspan="1"><em><strong>Since 3.1.6:</strong> </em>Name of the Ant
                                 property in which a clover-log report will be stored, instead of printing it to console.
                             </td>
-                            <td colspan="1" class="confluenceTd">No;</td>
+                            <td colspan="1">No;</td>
                         </tr>
                         </tbody>
                     </table>
@@ -143,17 +143,17 @@
                 <p>Specifies a named package to restrict the report to. Multiple <code>&lt;package&gt;</code> elements
                     can be specified.</p><h5 id="clover-log-Parameters.1">Parameters</h5>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>name</p></td>
-                            <td class="confluenceTd"><p>The name of the package to include.</p></td>
-                            <td class="confluenceTd"><p>Yes.</p></td>
+                            <td><p>name</p></td>
+                            <td><p>The name of the package to include.</p></td>
+                            <td><p>Yes.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -170,8 +170,8 @@
                 <h3 id="clover-log-Examples">Examples</h3>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-log/&gt;
+<pre
+    >&lt;clover-log/&gt;
 </pre>
                     </div>
                 </div>
@@ -179,8 +179,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-log&gt;
+<pre
+    >&lt;clover-log&gt;
          &lt;package name=&quot;com.acme.killerapp.core&quot;/&gt;
  &lt;/clover-log&gt;
 </pre>
@@ -190,8 +190,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-log level=&quot;statement&quot;&gt;
+<pre
+    >&lt;clover-log level=&quot;statement&quot;&gt;
          &lt;package name=&quot;com.acme.killerapp.core&quot;/&gt;
  &lt;/clover-log&gt;
 </pre>
@@ -202,8 +202,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-log level=&quot;statement&quot;
+<pre
+    >&lt;clover-log level=&quot;statement&quot;
 	     filter=&quot;catch&quot;&gt;
          &lt;package name=&quot;com.acme.killerapp.core&quot;/&gt;
  &lt;/clover-log&gt;
@@ -214,8 +214,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-log level=&quot;statement&quot;&gt;
+<pre
+    >&lt;clover-log level=&quot;statement&quot;&gt;
     &lt;sourcepath&gt;
        &lt;pathelement path=&quot;/some/other/location&quot;/&gt;
     &lt;/sourcepath&gt;
@@ -228,8 +228,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-log codeType=&quot;APPLICATION&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;clover-log codeType=&quot;APPLICATION&quot;&gt;
     &lt;fileset dir=&quot;src/main/java&quot;/&gt;
     &lt;fileset dir=&quot;src/main/groovy&quot;/&gt;
     &lt;fileset dir=&quot;src/test/java&quot;/&gt;
@@ -245,8 +245,8 @@
                 <p> </p>
                 <h3 id="clover-log-Sampleoutput">Sample output</h3>
                 <p>Example for <em>&lt;clover-log showUnitTests=&quot;true&quot; code=&quot;ALL&quot;.../&gt;</em></p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>Clover Coverage Report
 Coverage Timestamp: Tue May 22 13:21:44 CEST 2012
 Report for code   : ALL

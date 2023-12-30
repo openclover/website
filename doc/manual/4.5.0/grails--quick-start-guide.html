@@ -58,7 +58,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
 
                 <div class="alert alert-warning">
                     This plugin integrates with Grails 2.x and is no longer maintained.
@@ -71,8 +71,8 @@
                     Grails project directory.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">grails install-plugin clover
+<pre
+    >grails install-plugin clover
 </pre>
                     </div>
                 </div>
@@ -84,15 +84,15 @@
                                 href="grails--installation-guide.html">Clover-for-Grails
                             Installation Guide</a>.</p></div>
                 </div>
-                <h2 id="Clover-for-GrailsQuickStartGuide-GeneratingabasicClovercoveragereport">Generate a 
+                <h2 id="Clover-for-GrailsQuickStartGuide-GeneratingabasicClovercoveragereport">Generate a
                     coverage report</h2>
                 <p>To generate a basic Clover code coverage report, you need to add the Clover option
                     <code>-clover.on</code> to the <code>grails test-app</code> command line target for running unit
                     tests against your Grails project.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">grails test-app -clover.on -clover.view
+<pre
+    >grails test-app -clover.on -clover.view
 </pre>
                     </div>
                 </div>
@@ -111,16 +111,16 @@
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Linux/UNIX/Mac OS
                         X:</b></div>
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">export JAVA_OPTS=&quot;-XX:MaxPermSize=192m&quot;
+<pre
+    >export JAVA_OPTS=&quot;-XX:MaxPermSize=192m&quot;
 </pre>
                     </div>
                 </div>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Windows:</b></div>
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">set JAVA_OPTS=&quot;-XX:MaxPermSize=192m&quot;
+<pre
+    >set JAVA_OPTS=&quot;-XX:MaxPermSize=192m&quot;
 </pre>
                     </div>
                 </div>

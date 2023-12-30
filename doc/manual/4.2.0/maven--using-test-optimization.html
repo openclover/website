@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>Follow the steps in this document to set up Clover's Test Optimization, which allows targeted testing
                     of only the code which has changed since the last build.</p>
                 <p>This page contains the basic steps for adding Clover's Test Optimization to an existing Maven
@@ -78,8 +78,8 @@
                     following command:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">mvn clover:setup clover:optimize test clover:snapshot
+<pre
+    >mvn clover:setup clover:optimize test clover:snapshot
 </pre>
                     </div>
                 </div>
@@ -113,8 +113,8 @@
                     in your <strong>pom.xml</strong>:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;profiles&gt;
+<pre
+    >&lt;profiles&gt;
     &lt;profile&gt;
         &lt;id&gt;clover.optimize&lt;/id&gt;
         &lt;build&gt;
@@ -143,8 +143,8 @@
                 <p>This will then make it possible to run the following command:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">mvn integration-test -Pclover.optimize
+<pre
+    >mvn integration-test -Pclover.optimize
 </pre>
                     </div>
                 </div>

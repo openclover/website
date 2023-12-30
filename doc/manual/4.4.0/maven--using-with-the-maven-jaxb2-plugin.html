@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h2 id="UsingCloverwithJAXBplugin-Steps">Steps</h2>
                 <h3 id="UsingCloverwithJAXBplugin-Addclover-maven-pluginto&lt;build&gt;section">Add clover-maven-plugin
                     to &lt;build&gt; section</h3>
@@ -79,8 +79,8 @@
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;version&gt;${clover.version}&lt;/version&gt;
@@ -118,8 +118,8 @@
                 </ul>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;dependencies&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;dependencies&gt;
     &lt;dependency&gt;
         &lt;groupId&gt;javax.xml.bind&lt;/groupId&gt;
         &lt;artifactId&gt;jaxb-api&lt;/artifactId&gt;
@@ -139,8 +139,8 @@
                 </ul>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
     &lt;groupId&gt;org.jvnet.jaxb2.maven2&lt;/groupId&gt;
     &lt;artifactId&gt;maven-jaxb2-plugin&lt;/artifactId&gt;
     &lt;version&gt;0.8.1&lt;/version&gt;
@@ -200,8 +200,8 @@
                 <h2 id="UsingCloverwithJAXBplugin-Troubleshooting">Troubleshooting</h2>
                 <p><strong>Problem: </strong>Class not found - javax.activation.DataHandler with an error message like
                     below:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>[INFO] [jaxb2:generate {execution: default}]
 [FATAL ERROR] org.jvnet.mjiip.v_2.XJC2Mojo#execute() caused a linkage error (java.lang.NoClassDefFoundError) and may be
 out-of-date. Check the realms:
@@ -223,8 +223,8 @@ java.lang.NoClassDefFoundError: javax/activation/DataHandler
                 <p> </p>
                 <p><strong>Problem:</strong> When using the Clover Plugin together with the the JAXB2 Plugin, the build
                     fails during instrumentation due to an unresolved clover.jar with an error message like below:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>[ERROR] BUILD ERROR
 [INFO] ------------------------------------------------------------------------
 [INFO] Error configuring: 
@@ -247,8 +247,8 @@ which has not yet been resolved
                     for example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;dependency&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;dependency&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover&lt;/artifactId&gt;
     &lt;version&gt;4.4.0&lt;/version&gt;

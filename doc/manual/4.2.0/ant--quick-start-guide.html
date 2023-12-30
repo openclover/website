@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <div class="confluence-information-macro confluence-information-macro-tip"><span
                         class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span>
                     <div class="confluence-information-macro-body"><p>Do you want to type less code? See the even faster
@@ -90,8 +90,8 @@
                 <p><strong>2.1</strong> Add the Clover Ant tasks to your project:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;property name=&quot;clover.jar&quot; location=&quot;CLOVER_HOME/lib/clover.jar&quot;/&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;property name=&quot;clover.jar&quot; location=&quot;CLOVER_HOME/lib/clover.jar&quot;/&gt;
 &lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
 </pre>
                     </div>
@@ -99,8 +99,8 @@
                 <p><strong>2.2</strong> Add a target to switch on Clover:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;with.clover&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;target name=&quot;with.clover&quot;&gt;
     &lt;clover-setup/&gt;
 &lt;/target&gt;
 </pre>
@@ -111,8 +111,8 @@
                     directory path where Clover should put the generated HTML</em><em>):</em></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;clover.html&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;target name=&quot;clover.html&quot;&gt;
     &lt;clover-html-report outdir=&quot;coverage&quot;/&gt;
 &lt;/target&gt;
 </pre>
@@ -122,8 +122,8 @@
                     a file where Clover should write the PDF file):</em></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;clover.pdf&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;target name=&quot;clover.pdf&quot;&gt;
   &lt;clover-pdf-report outfile=&quot;coverage.pdf&quot;/&gt;
 &lt;/target&gt;
 </pre>
@@ -133,8 +133,8 @@
                     a file where Clover should write the XML file):</em></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;clover.xml&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;target name=&quot;clover.xml&quot;&gt;
     &lt;clover-report&gt;
        &lt;current outfile=&quot;coverage.xml&quot;&gt;
           &lt;format type=&quot;xml&quot;/&gt;
@@ -147,8 +147,8 @@
                 <p><em>OR, for simple emacs-style reporting to the console, try:</em></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;clover.log&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;target name=&quot;clover.log&quot;&gt;
     &lt;clover-log/&gt;
 &lt;/target&gt;
 </pre>
@@ -159,8 +159,8 @@
                     add a <code>&lt;classpath&gt;</code> element:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;junit ...&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;junit ...&gt;
      ...
      &lt;classpath&gt;
          &lt;pathelement path=&quot;${clover.jar}&quot;/&gt;
@@ -176,8 +176,8 @@
                     '<code>build</code>' and your unit test target is named '<code>test</code>'):</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ant clean with.clover test clover.html
+<pre
+    >ant clean with.clover test clover.html
 </pre>
                     </div>
                 </div>
@@ -185,8 +185,8 @@
                 <p>To generate a Clover coverage report:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ant clover.html (or clover.xml, clover.pdf etc)
+<pre
+    >ant clover.html (or clover.xml, clover.pdf etc)
 </pre>
                     </div>
                 </div>

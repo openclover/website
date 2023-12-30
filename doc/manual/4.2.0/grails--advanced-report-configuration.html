@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>Define a <code>reporttask</code> closure in your <code>clover</code> {} code block to configure
                     advanced report generation options for your Groovy project's build process. Here, you can define
                     various attributes and elements of the <a href="ant--clover-report.html">clover-report</a> task.
@@ -92,8 +92,8 @@
                 </ul>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
-     data-theme="Confluence">clover {
+<pre
+    >clover {
 
   // reports.dir defines the location of your Clover report output
   // within your Grails project.
@@ -147,8 +147,8 @@
                 if code coverage is too low</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
-     data-theme="Confluence">reporttask = { ant, binding, self -&gt;
+<pre
+    >reporttask = { ant, binding, self -&gt;
       ant.&#39;clover-check&#39;(target: &quot;80%&quot;, haltOnFailure: true) { }
 }</pre>
                     </div>

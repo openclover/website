@@ -67,69 +67,69 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h2 id="methodContext-&lt;methodContext&gt;">&lt;methodContext&gt;</h2>
                 <p>Specifies a method Context definition. See <a href="ant--using-coverage-contexts.html">Using
                     Coverage Contexts</a> for more information.</p><h5 id="methodContext-Parameters">Parameters</h5>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>name</p></td>
-                            <td class="confluenceTd"><p>The name for this context. Must be unique, and not be one of the
+                            <td><p>name</p></td>
+                            <td><p>The name for this context. Must be unique, and not be one of the
                                 reserved context names (see <a href="ant--using-coverage-contexts.html">Using
                                     Coverage Contexts</a>).</p></td>
-                            <td class="confluenceTd"><p>Yes.</p></td>
+                            <td><p>Yes.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>regexp</p></td>
-                            <td class="confluenceTd"><p>A Perl 5 Regexp that defines the context. This regexp should
+                            <td><p>regexp</p></td>
+                            <td><p>A Perl 5 Regexp that defines the context. This regexp should
                                 match the method signatures of methods you wish to include in this context. Note that
                                 when method signatures are tested against this regexp, whitespace is normalized and
                                 comments are ignored.</p></td>
-                            <td class="confluenceTd"><p>Yes.</p></td>
+                            <td><p>Yes.</p></td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">maxComplexity</td>
-                            <td colspan="1" class="confluenceTd">Match a method to this pattern if its cyclomatic
+                            <td colspan="1">maxComplexity</td>
+                            <td colspan="1">Match a method to this pattern if its cyclomatic
                                 complexity is not greater than maxComplexity. In other words - all methods with
                                 complexity &lt;= maxComplexity will be filtered out.
                             </td>
-                            <td colspan="1" class="confluenceTd">No.</td>
+                            <td colspan="1">No.</td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd">maxStatements</td>
-                            <td class="confluenceTd">Match a method to this pattern if its number of statements is not
+                            <td>maxStatements</td>
+                            <td>Match a method to this pattern if its number of statements is not
                                 greater than maxStatements. In other words - all methods with statements &lt;=
                                 maxStaments will be filtered out.
                             </td>
-                            <td class="confluenceTd">No.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">maxAggregatedComplexity</td>
-                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.1.10.</strong></em> Match a method
+                            <td colspan="1">maxAggregatedComplexity</td>
+                            <td colspan="1"><em><strong>Since 3.1.10.</strong></em> Match a method
                                 to this pattern if its aggregated cyclomatic complexity is not greater than
                                 maxAggregatedComplexity. In other words - all methods with aggregated complexity &lt;=
                                 maxAggregatedComplexity will be filtered out. Aggregated complexity metric is a sum of
                                 the method complexity and complexity of all anonymous inline classes declared in the
                                 method.
                             </td>
-                            <td colspan="1" class="confluenceTd">No.</td>
+                            <td colspan="1">No.</td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">maxAggregatedStatements</td>
-                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.1.10.</strong></em> Match a method
+                            <td colspan="1">maxAggregatedStatements</td>
+                            <td colspan="1"><em><strong>Since 3.1.10.</strong></em> Match a method
                                 to this pattern if its number of aggregated statements is not greater than
                                 maxAggregatedStatements. In other words - all methods with aggregated statements &lt;=
                                 maxAggregatedStaments will be filtered out. Aggregated statements metric is a sum of the
                                 method statements and statements of all anonymous inline classes declared in the method.
                             </td>
-                            <td colspan="1" class="confluenceTd">No.</td>
+                            <td colspan="1">No.</td>
                         </tr>
                         </tbody>
                     </table>
@@ -142,8 +142,8 @@
                     single-statement method like:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">int getNumber() {
+<pre
+    >int getNumber() {
    return number;
 }</pre>
                     </div>
@@ -151,8 +151,8 @@
                 <p>and a single-statement method which actually returns more complex data, like:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ActionListener getListener() {
+<pre
+    >ActionListener getListener() {
    return new ActionListener() {
        public void actionPerformed(ActionEvent e) {
            System.out.println(&quot;statement #1&quot;);
@@ -168,9 +168,9 @@
                 </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
+                        <pre
                              data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-                             data-theme="Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxStatements=&quot;1&quot;&gt;</pre>
+                            >&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxStatements=&quot;1&quot;&gt;</pre>
                     </div>
                 </div>
                 <p>then both <em>getNumber()</em> and <em>getListener()</em> methods would be filtered-out, because each
@@ -179,9 +179,9 @@
                 <p>If you would use new <em>maxAggregatedStatements</em>, for instance:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
+                        <pre
                              data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-                             data-theme="Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxAggregatedStatements=&quot;1&quot;&gt;</pre>
+                            >&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxAggregatedStatements=&quot;1&quot;&gt;</pre>
                     </div>
                 </div>
                 <p>then the <em>getNumber()</em> would be filtered-out and the <em>getListener()</em> method would
@@ -196,9 +196,9 @@
                     example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
+                        <pre
                              data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-                             data-theme="Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;^(?!.*(getRunnable|getListener)).*$&quot; maxStatements=&quot;1&quot;/&gt;</pre>
+                            >&lt;methodContext name=&quot;trivial&quot; regexp=&quot;^(?!.*(getRunnable|getListener)).*$&quot; maxStatements=&quot;1&quot;/&gt;</pre>
                     </div>
                 </div>
                 <p>will filter-out all methods having not more than one statement, except those which are named <em>getRunnable</em>

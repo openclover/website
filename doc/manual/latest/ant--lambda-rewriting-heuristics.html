@@ -67,7 +67,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <div class="confluence-information-macro confluence-information-macro-information"><span
                         class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div class="confluence-information-macro-body"><p>Following document applies for version 4.0.5 or
@@ -83,8 +83,8 @@
                 <p>With implemented heuristic, such code:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">public static Stream&lt;String&gt; test(List&lt;String&gt; input) {
+<pre
+    >public static Stream&lt;String&gt; test(List&lt;String&gt; input) {
     return input.stream()
             .map(e -&gt; e.toUpperCase())
             .filter(e -&gt; !e.isEmpty());
@@ -94,8 +94,8 @@
                 <p>will be instrumented with the following manner:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">public static Stream&lt;String&gt; test(List&lt;String&gt; input) {
+<pre
+    >public static Stream&lt;String&gt; test(List&lt;String&gt; input) {
     return input.stream()
             .map(e -&gt;  {return e.toUpperCase();})
             .filter(e -&gt; {return !e.isEmpty();});

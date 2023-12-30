@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>For developers working with the Google Web Toolkit (GWT) software development kit and Clover for
                     Maven, the <code>clover-maven-plugin</code> works best with the <a
                                                                                          href="https://gwt-maven-plugin.github.io/gwt-maven-plugin/"
@@ -94,8 +94,8 @@
                         tag - for example htmlunit allows headless run. Example:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
     &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
     &lt;artifactId&gt;gwt-maven-plugin&lt;/artifactId&gt;
     &lt;version&gt;2.4.0&lt;/version&gt;
@@ -124,8 +124,8 @@
                         be instrumented with Clover - instrument only server-side code. Example:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;version&gt;${clover.version}&lt;/version&gt;
@@ -144,8 +144,8 @@
                             all sources).<br/><br/><br/></p></li>
                     <li><p>By default, the <em>gwt:test</em> goal is bound to integration-test phase (and not test), so
                         run maven with <em>integration-test</em> or <em>install</em> goal. Example:</p>
-                        <div class="preformatted panel" style="border-width: 1px;">
-                            <div class="preformattedContent panelContent">
+                        <div style="border-width: 1px;">
+                            <div>
                                 <pre>mvn clean clover:setup install clover:aggregate clover:clover</pre>
                             </div>
                         </div>
@@ -170,8 +170,8 @@
                         Increase memory for maven-surefire-plugin, if necessary. Example:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;dependency&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;dependency&gt;
     &lt;groupId&gt;com.googlecode.gwt-test-utils&lt;/groupId&gt;
     &lt;artifactId&gt;gwt-test-utils&lt;/artifactId&gt;
     &lt;version&gt;0.38&lt;/version&gt;
@@ -216,8 +216,8 @@
                         be instrumented as well. Example:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;executions&gt;
@@ -242,8 +242,8 @@
                         </div>
                         <p><br/><br/></p></li>
                     <li><p>Run build, for example:</p>
-                        <div class="preformatted panel" style="border-width: 1px;">
-                            <div class="preformattedContent panelContent">
+                        <div style="border-width: 1px;">
+                            <div>
                                 <pre>mvn clean install</pre>
                             </div>
                         </div>

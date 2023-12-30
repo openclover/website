@@ -58,12 +58,12 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h4 id="Springcan&#39;tinitializebeanswithClover-Symptoms">Symptoms</h4>
                 <p>After enabling Clover, compilation succeeds, but Spring fails to create beans at a runtime with a
                     similar error:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>java.lang.IllegalStateException: Failed to load ApplicationContext
 ...
 Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name &#39;someBean&#39;: Autowiring of fields failed; 
@@ -77,8 +77,8 @@ nested exception is org.springframework.beans.factory.BeanCreationException: Uns
                     in your build process. For example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence"> &lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    > &lt;plugin&gt;
    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
    &lt;artifactId&gt;maven-antrun-plugin&lt;/artifactId&gt;
    &lt;executions&gt;
@@ -102,9 +102,9 @@ nested exception is org.springframework.beans.factory.BeanCreationException: Uns
                 <p>In such case, when you run standard Clover instrumentation, such as:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
-                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-                             data-theme="Confluence">mvn clean clover:setup test clover:clover clover:aggregate</pre>
+                        <pre
+
+                            >mvn clean clover:setup test clover:clover clover:aggregate</pre>
                     </div>
                 </div>
                 <p>Clover's code instrumentation (clover:setup) will occur before bean's code generation (as the
@@ -117,9 +117,9 @@ nested exception is org.springframework.beans.factory.BeanCreationException: Uns
                     been generated. You can either do it in a command line:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
-                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-                             data-theme="Confluence">mvn clean generate-sources clover:setup test</pre>
+                        <pre
+
+                            >mvn clean generate-sources clover:setup test</pre>
                     </div>
                 </div>
                 <p>or you can bind the 'clover:setup' to a build phase which happens <a
@@ -128,8 +128,8 @@ nested exception is org.springframework.beans.factory.BeanCreationException: Uns
                     'generate-sources' one</a>, for example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence"> &lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    > &lt;plugin&gt;
    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
    &lt;executions&gt;

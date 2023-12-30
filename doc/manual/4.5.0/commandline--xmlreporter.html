@@ -58,48 +58,48 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>Produces an XML report of Code Coverage for the given coverage database.</p>
                 <h2 id="XMLReporter-Usage">Usage</h2>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence"> java com.atlassian.clover.reporters.xml.XMLReporter [OPTIONS] PARAMS
+<pre
+    > java com.atlassian.clover.reporters.xml.XMLReporter [OPTIONS] PARAMS
 </pre>
                     </div>
                 </div>
                 <h3 id="XMLReporter-Parameters">Parameters</h3>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <td class="confluenceTd"><p>-i, --initstring &lt;file&gt;</p></td>
-                            <td class="confluenceTd"><p>The initstring of the coverage database.</p></td>
+                            <td><p>-i, --initstring &lt;file&gt;</p></td>
+                            <td><p>The initstring of the coverage database.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-o, --outfile &lt;file&gt;</p></td>
-                            <td class="confluenceTd"><p>The file to write XML output to.</p></td>
+                            <td><p>-o, --outfile &lt;file&gt;</p></td>
+                            <td><p>The file to write XML output to.</p></td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
                 <h3 id="XMLReporter-Options">Options</h3>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <td class="confluenceTd"><p>-a, --alwaysreport</p></td>
-                            <td class="confluenceTd"><p>Forces a report to be generated, even if there is no coverage
+                            <td><p>-a, --alwaysreport</p></td>
+                            <td><p>Forces a report to be generated, even if there is no coverage
                                 data. Defaults to '<code>false</code>', i.e. a report with no coverage will abort
                                 generation.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-d, --debug</p></td>
-                            <td class="confluenceTd"><p>Switch logging level to debug.</p></td>
+                            <td><p>-d, --debug</p></td>
+                            <td><p>Switch logging level to debug.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-f, --filter &lt;string&gt;</p></td>
-                            <td class="confluenceTd"><p>Comma or space separated list of contexts to ignore when
+                            <td><p>-f, --filter &lt;string&gt;</p></td>
+                            <td><p>Comma or space separated list of contexts to ignore when
                                 generating coverage reports. Most useful one is &quot;catch&quot;. <br
                                         class="atl-forced-newline"/> Valid values are &quot;assert&quot;, &quot;static&quot;,
                                 &quot;instance&quot;, &quot;constructor&quot;, &quot;method&quot;, &quot;switch&quot;,
@@ -109,46 +109,46 @@
                                     Contexts</a>.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-if --includefailcoverage</p></td>
-                            <td class="confluenceTd"><p>Specifies whether or not to include coverage attributed to a
+                            <td><p>-if --includefailcoverage</p></td>
+                            <td><p>Specifies whether or not to include coverage attributed to a
                                 test that has failed. If omitted, failed test coverage is not included. Default setting
                                 is 'false'.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-l, --lineinfo</p></td>
-                            <td class="confluenceTd"><p>Include source-level coverage info.</p></td>
+                            <td><p>-l, --lineinfo</p></td>
+                            <td><p>Include source-level coverage info.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-s, --span &lt;interval&gt;</p></td>
-                            <td class="confluenceTd"><p>Specifies how far back in time to include coverage recordings
+                            <td><p>-s, --span &lt;interval&gt;</p></td>
+                            <td><p>Specifies how far back in time to include coverage recordings
                                 from. . See <a href="ant--using-spans.html">Using Spans</a>. Default includes &quot;all
                                 coverage data found&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">-si, --showinner</td>
-                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.2.0: </strong></em>Show inner
+                            <td colspan="1">-si, --showinner</td>
+                            <td colspan="1"><em><strong>Since 3.2.0: </strong></em>Show inner
                                 functions in the report (like a lambda function inside a method).
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">-sl, --showlambda</td>
-                            <td colspan="1" class="confluenceTd"><em><strong>Since 3.2.0: </strong></em>Show lambda
+                            <td colspan="1">-sl, --showlambda</td>
+                            <td colspan="1"><em><strong>Since 3.2.0: </strong></em>Show lambda
                                 functions in the report.
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1" class="confluenceTd">-tc, --threadcount &lt;int&gt;</td>
-                            <td colspan="1" class="confluenceTd">Number of <u>additional</u> threads to be allocated to
+                            <td colspan="1">-tc, --threadcount &lt;int&gt;</td>
+                            <td colspan="1">Number of <u>additional</u> threads to be allocated to
                                 report generation. Default is 0.
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-t, --title &lt;string&gt;</p></td>
-                            <td class="confluenceTd"><p>Report title.</p></td>
+                            <td><p>-t, --title &lt;string&gt;</p></td>
+                            <td><p>Report title.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>-v, --verbose</p></td>
-                            <td class="confluenceTd"><p>Switch logging level to verbose.</p></td>
+                            <td><p>-v, --verbose</p></td>
+                            <td><p>Switch logging level to verbose.</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -161,8 +161,8 @@
                     arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">import com.atlassian.clover.CloverStartup;
+<pre
+    >import com.atlassian.clover.CloverStartup;
 import com.atlassian.clover.Logger;
 import com.atlassian.clover.reporters.xml.XMLReporter;
 
@@ -180,18 +180,18 @@ public class XmlReportRunner {
                 <h3 id="XMLReporter-Examples">Examples</h3>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
-                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-                             data-theme="Confluence"> java com.atlassian.clover.reporters.xml.XMLReporter -i clover.db -o coverage.xml</pre>
+                        <pre
+
+                            > java com.atlassian.clover.reporters.xml.XMLReporter -i clover.db -o coverage.xml</pre>
                     </div>
                 </div>
                 <p>Read coverage for the Clover database &quot;clover.db&quot;, and produce a report in the file &quot;coverage.xml&quot;</p>
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
-                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-                             data-theme="Confluence">java com.atlassian.clover.reporters.xml.XMLReporter -l -t &quot;My Coverage&quot; -i clover.db -o coverage.xml</pre>
+                        <pre
+
+                            >java com.atlassian.clover.reporters.xml.XMLReporter -l -t &quot;My Coverage&quot; -i clover.db -o coverage.xml</pre>
                     </div>
                 </div>
                 <p>Produce the same report as above, but include source-level coverage information, and a report

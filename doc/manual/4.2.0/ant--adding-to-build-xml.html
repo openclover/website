@@ -60,14 +60,14 @@
         </div>
 
         <div id="content" class="view">
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>This is the recommended method of installing Clover.</p>
                 <p> </p>
                 <p>Adding Clover to your build is done by adding the following to your buildfile (e.g. build.xml):</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;/path/to/clover.jar&quot;/&gt;
+<pre
+    >&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;/path/to/clover.jar&quot;/&gt;
 </pre>
                     </div>
                 </div>
@@ -83,8 +83,8 @@
                     task:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;-check.clover&quot;&gt;
+<pre
+    >&lt;target name=&quot;-check.clover&quot;&gt;
 &lt;available property=&quot;clover.installed&quot;
 classname=&quot;com.atlassian.clover.CloverInstr&quot; /&gt;
 &lt;/target&gt;

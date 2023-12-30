@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>This section of the tutorial looks at some advanced features of Clover.</p>
                 <p>The <code>&lt;<a href="ant--clover-check.html">clover-check</a>&gt;</code> task provides a useful
                     mechanism for automating your coverage checking and gives you the option of failing your build if
@@ -112,8 +112,8 @@
                     by specifying a target similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;clover.check&quot; depends=&quot;with.clover&quot;&gt;
+<pre
+    >&lt;target name=&quot;clover.check&quot; depends=&quot;with.clover&quot;&gt;
     &lt;clover-check target=&quot;80%&quot;/&gt;
 &lt;/target&gt;
 </pre>
@@ -124,8 +124,8 @@
                     target coverage percentage, output will be similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">$ ant clover.check
+<pre
+    >$ ant clover.check
 Buildfile: build.xml
 
 with.clover:
@@ -142,8 +142,8 @@ BUILD SUCCESSFUL
                     instead:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">$ ant clover.check
+<pre
+    >$ ant clover.check
 Buildfile: build.xml
 
 with.clover:
@@ -169,8 +169,8 @@ BUILD SUCCESSFUL
                     <code>haltOnFailure</code> is <code>false</code>.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;clover.check.haltonfail&quot; depends=&quot;with.clover&quot;&gt;
+<pre
+    >&lt;target name=&quot;clover.check.haltonfail&quot; depends=&quot;with.clover&quot;&gt;
     &lt;clover-check target=&quot;80%&quot; haltOnFailure=&quot;true&quot;/&gt;
  &lt;/target&gt;
 </pre>
@@ -180,8 +180,8 @@ BUILD SUCCESSFUL
                     task allows you to set a specified property if the target of the project is not met:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;clover.check.setproperty&quot; depends=&quot;with.clover&quot;&gt;
+<pre
+    >&lt;target name=&quot;clover.check.setproperty&quot; depends=&quot;with.clover&quot;&gt;
     &lt;clover-check target=&quot;80%&quot; failureProperty=&quot;coverageFailed&quot;/&gt;
  &lt;/target&gt;
 </pre>
@@ -201,8 +201,8 @@ BUILD SUCCESSFUL
                     project. This is done by adding nested '<code>package</code>' elements like the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;clover.check.packages&quot; depends=&quot;with.clover&quot;&gt;
+<pre
+    >&lt;target name=&quot;clover.check.packages&quot; depends=&quot;with.clover&quot;&gt;
     &lt;clover-check target=&quot;80%&quot;&gt;
         &lt;package name=&quot;com.clover.example.one&quot; target=&quot;70%&quot;/&gt;
         &lt;package name=&quot;com.clover.example.two&quot; target=&quot;40%&quot;/&gt;
@@ -219,8 +219,8 @@ BUILD SUCCESSFUL
                     coverage calculations.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;clover.check.nocatch&quot; depends &quot;with.clover&quot;&gt;
+<pre
+    >&lt;target name=&quot;clover.check.nocatch&quot; depends &quot;with.clover&quot;&gt;
     &lt;clover-check target=&quot;80%&quot; filter=&quot;catch&quot;/&gt;
 &lt;/target&gt;
 </pre>

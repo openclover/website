@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>Part two of this tutorial focuses on the creation and interpretation of Clover 'Historical'
                     reports.</p>
                 <p><em>On this page:</em></p>
@@ -134,8 +134,8 @@
                 <p>Add the following target to your <code>build.xml</code> file:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;record.point&quot;&gt;
+<pre
+    >&lt;target name=&quot;record.point&quot;&gt;
     &lt;clover-historypoint historyDir=&quot;clover_history&quot;/&gt;
 &lt;/target&gt;
 </pre>
@@ -160,8 +160,8 @@
                 <p>Run the command <code>ant record.point</code>. Output should be similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">$ ant record.point
+<pre
+    >$ ant record.point
 Buildfile: .../tutorial/build.xml
 
 
@@ -248,8 +248,8 @@ BUILD SUCCESSFUL</pre>
                 <p>Add the following target to <code>build.xml</code>:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;hist.report&quot;&gt;
+<pre
+    >&lt;target name=&quot;hist.report&quot;&gt;
      &lt;clover-report&gt;
            &lt;historical outfile=&quot;historical.pdf&quot;
                   historyDir=&quot;clover_history&quot;&gt;
@@ -278,8 +278,8 @@ BUILD SUCCESSFUL</pre>
                     similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">$ ant hist.report
+<pre
+    >$ ant hist.report
 Buildfile: /Users/mparfianowicz/Work/clover-hg/tutorial/build.xml
 
 
@@ -369,8 +369,8 @@ BUILD SUCCESSFUL </pre>
                     specify whether or not a chart uses a log scale by adding the <code>logscale</code> attribute:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;metrics logscale=&quot;false&quot;/&gt;
+<pre
+    >&lt;metrics logscale=&quot;false&quot;/&gt;
 </pre>
                     </div>
                 </div>

@@ -59,7 +59,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h4 id="GrailsapplicationwithCloverfailswith&#39;Nosignatureofmethod&#39;exception-Symptoms">
                     Symptoms</h4>
                 <p>Your application is using the Clover-for-Grails plugin. You run Grails under Windows. A path to
@@ -67,8 +67,8 @@
                 <p>Build fails with a &quot;No signature of method&quot; exception.</p>
                 <p> </p>
                 <p>For example:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>$ grails test-app -clover.on -clover.license.path=c:\Users\Alice\clover.license
 
 ...
@@ -87,8 +87,8 @@ is applicable for argument types: (java.lang.String, java.lang.Boolean) values: 
                     id="GrailsapplicationwithCloverfailswith&#39;Nosignatureofmethod&#39;exception-Resolution">
                 Resolution</h4>
                 <p>Put path to a Clover license key in double quotes, e.g.:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>$ grails test-app -clover.on &quot;-clover.license.path=c:\Users\Alice\clover.license&quot;</pre>
                     </div>
                 </div>

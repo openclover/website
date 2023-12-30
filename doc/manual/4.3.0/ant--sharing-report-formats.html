@@ -64,7 +64,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>You can share report formats across a number of reports. This allows you to standardize on a set of
                     report formats and use these for all of your reports.<br/> Standalone format elements are created
                     using the <code>&lt;<a href="ant--clover-format.html">clover-format</a>&gt;</code> type. These
@@ -74,8 +74,8 @@
                 <p>The following code declares two report formats:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-format id=&quot;std.format&quot; srclevel=&quot;true&quot; type=&quot;pdf&quot;/&gt;
+<pre
+    >&lt;clover-format id=&quot;std.format&quot; srclevel=&quot;true&quot; type=&quot;pdf&quot;/&gt;
 &lt;clover-format id=&quot;bw.format&quot; bw=&quot;true&quot; srclevel=&quot;true&quot; type=&quot;pdf&quot;/&gt;
 </pre>
                     </div>
@@ -87,8 +87,8 @@
                     report example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-report&gt;
+<pre
+    >&lt;clover-report&gt;
    &lt;current summary=&quot;yes&quot;  outfile=&quot;report-current.pdf&quot;
                   title=&quot;Ant Coverage&quot;&gt;
       &lt;format refid=&quot;std.format&quot;/&gt;
@@ -102,8 +102,8 @@
                     allowing selection of the report format at build time. The following is a complete example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;report&quot;&gt;
+<pre
+    >&lt;target name=&quot;report&quot;&gt;
    &lt;clover-format id=&quot;std.format&quot; srclevel=&quot;true&quot; type=&quot;pdf&quot;/&gt;
    &lt;clover-format id=&quot;bw.format&quot; bw=&quot;true&quot; srclevel=&quot;true&quot; type=&quot;pdf&quot;/&gt;
    &lt;property name=&quot;format&quot; value=&quot;std.format&quot;/&gt;
@@ -126,13 +126,13 @@
                     reports, use:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ant report \-Dformat=bw.format
+<pre
+    >ant report \-Dformat=bw.format
 </pre>
                     </div>
                 </div>
-                <p><br class="atl-forced-newline"/> <br class="atl-forced-newline"/> <br class="atl-forced-newline"/>
-                    <br class="atl-forced-newline"/> <br class="atl-forced-newline"/> <br class="atl-forced-newline"/>
+                <p>
+
                 </p>
             </div>
 

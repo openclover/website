@@ -58,7 +58,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h3 id="AboutCodeCoverage-WhatisCodeCoverage?">What is Code Coverage?</h3>
                 <p><em>Code coverage</em> is the percentage of code which is covered by automated tests. <em>Code
                     coverage measurement</em> simply determines which statements in a body of code have been executed
@@ -97,22 +97,22 @@
                 <p>There are many approaches to code coverage measurement. Broadly there are three approaches, which may
                     be used in combination:</p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <td class="confluenceTd"><p><strong>Source code instrumentation</strong></p></td>
-                            <td class="confluenceTd"><p>This approach adds instrumentation statements to the source code
+                            <td><p><strong>Source code instrumentation</strong></p></td>
+                            <td><p>This approach adds instrumentation statements to the source code
                                 and compiles the code with the normal compile tool chain to produce an instrumented
                                 assembly.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><strong>Intermediate code instrumentation</strong></p></td>
-                            <td class="confluenceTd"><p>Here the compiled class files are instrumented by adding new
+                            <td><p><strong>Intermediate code instrumentation</strong></p></td>
+                            <td><p>Here the compiled class files are instrumented by adding new
                                 bytecodes, and a new instrumented class is generated.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><strong>Runtime information collection</strong></p></td>
-                            <td class="confluenceTd"><p>This approach collects information from the runtime environment
+                            <td><p><strong>Runtime information collection</strong></p></td>
+                            <td><p>This approach collects information from the runtime environment
                                 as the code executes to determine coverage information</p></td>
                         </tr>
                         </tbody>
@@ -137,26 +137,26 @@
                     id="AboutCodeCoverage-TypesofCoveragemeasured">Types of Coverage measured</h4>
                 <p>Clover measures three basic types of coverage analysis:</p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <td class="confluenceTd"><p><strong>Statement</strong></p></td>
-                            <td class="confluenceTd"><p>Statement coverage measures whether each statement is
+                            <td><p><strong>Statement</strong></p></td>
+                            <td><p>Statement coverage measures whether each statement is
                                 executed.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><strong>Branch</strong></p></td>
-                            <td class="confluenceTd"><p>Branch coverage (sometimes called Decision Coverage) measures
+                            <td><p><strong>Branch</strong></p></td>
+                            <td><p>Branch coverage (sometimes called Decision Coverage) measures
                                 which possible branches in flow control structures are followed. Clover does this by
                                 recording if the boolean expression in the control structure evaluated to both true and
-                                false during execution.<br class="atl-forced-newline"/> <br class="atl-forced-newline"/>
+                                false during execution.
                                 In Groovy code, Clover also treats Elvis expressions (a :? b), safe method calls
                                 (a?.b()), safe property calls (a?.b) and safe attribute calls (a?.@b) as branches.</p>
                             </td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p><strong>Method</strong></p></td>
-                            <td class="confluenceTd"><p>Method coverage measures if a method was entered at all during
+                            <td><p><strong>Method</strong></p></td>
+                            <td><p>Method coverage measures if a method was entered at all during
                                 execution.</p></td>
                         </tr>
                         </tbody>
@@ -167,8 +167,8 @@
                     reports. The Total Coverage Percentage (TPC) is calculated as follows:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">TPC = (BT + BF + SC + MC)/(2*B + S + M) * 100%
+<pre
+    >TPC = (BT + BF + SC + MC)/(2*B + S + M) * 100%
 
 where
 

@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>This page contains instructions on how to use Clover with the maven-bundle-plugin.</p>
 
                 <p>The following configuration is required to ensure that the <code>clover.jar</code> and any
@@ -81,8 +81,8 @@
 
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">
+<pre
+    >
 &lt;Import-Package&gt; &lt;!-- Make the bundle plugin process instrumented class files correctly --&gt;
   com_*;resolution:=optional
 &lt;/Import-Package&gt;

@@ -67,15 +67,15 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h2 id="profiles-&lt;profiles&gt;">&lt;profiles&gt;</h2>
                 <p><strong>Since 3.1.11.</strong> Optional element. Defines a list of Clover profiles, which can be
                     selected at runtime by providing a <strong>clover.profile=&lt;name&gt;</strong> system property.
                     Thanks to this you can change some of Clover's behavior without code recompilation.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;profiles&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;profiles&gt;
   &lt;profile name=&quot;default&quot; coverageRecorder=&quot;FIXED|GROWABLE|SHARED&quot;&gt;
     &lt;distributedCoverage/&gt; &lt;!-- optional --&gt;
   &lt;/profile&gt;
@@ -90,29 +90,29 @@
                 <p><strong>Since 3.1.11.</strong> Contains a definition of a single runtime profile.</p><h5
                     id="profiles-Parameters">Parameters</h5>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>name</p></td>
-                            <td class="confluenceTd"><p>The name for this profile; name must be unique among profiles.
+                            <td><p>name</p></td>
+                            <td><p>The name for this profile; name must be unique among profiles.
                                 There must be one profile named &quot;default&quot;.</p></td>
-                            <td class="confluenceTd"><p>No. Defaults to &quot;default&quot;.</p></td>
+                            <td><p>No. Defaults to &quot;default&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>coverageRecorder</p></td>
-                            <td class="confluenceTd"><p>Type of coverage recorder which will be used for gathering
+                            <td><p>coverageRecorder</p></td>
+                            <td><p>Type of coverage recorder which will be used for gathering
                                 coverage data at runtime. Possible values: FIXED, GROWABLE, SHARED (case
                                 insensitive).</p>
                                 <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
                                         data-emoticon-name="warning" alt="(warning)"/> Warning: we strongly recommend
                                     using the default setting. Do not change until you deeply understand <a
                                             href="ant--coverage-recorders.html">how it works</a>.</p></td>
-                            <td class="confluenceTd"><p>No. Defaults to &quot;FIXED&quot;.</p></td>
+                            <td><p>No. Defaults to &quot;FIXED&quot;.</p></td>
                         </tr>
                         </tbody>
                     </table>

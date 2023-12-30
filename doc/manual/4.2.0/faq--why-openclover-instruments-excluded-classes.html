@@ -59,7 +59,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p><strong>Q: Why does Clover instrument classes I have excluded using the</strong> <code><strong>&lt;exclude&gt;</strong></code>
                     <strong>element of the</strong> <code><strong>&lt;</strong><strong><a
                             href="ant--clover-setup.html">clover-setup</a></strong><strong>&gt;</strong></code>
@@ -72,8 +72,8 @@
                         a master-build/sub-build arrangement, with compilation occuring in the sub-builds and <code>&lt;<a
                                 href="ant--clover-setup.html">clover-setup</a>&gt;</code> done in the master-build,
                         you will need to explicitly pass these patternsets as references:
-                        <div class="preformatted panel" style="border-width: 1px;">
-                            <div class="preformattedContent panelContent">
+                        <div style="border-width: 1px;">
+                            <div>
 <pre>&lt;ant ...&gt;
 &lt;reference refid=&quot;clover.files&quot;/&gt;
 &lt;reference refid=&quot;clover.useclass.files&quot;/&gt;

@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>This plugin is currently being developed under name <code>clover-maven-plugin. </code>Since version
                     4.1.1 it has been renamed to <code style="background-color: transparent;">clover-maven-plugin</code> to
                     stay compliant with Apache Maven naming conventions.</p>
@@ -69,8 +69,8 @@
                     call it by new name, e.g.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre
+    >&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;version&gt;4.2.0&lt;/version&gt;
@@ -81,8 +81,8 @@
                 <p>Similarly, when ran from a command line, goals have &quot;clover:&quot; prefix, instead of &quot;clover2:&quot;:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">mvn clean clover:setup verify clover:clover
+<pre
+    >mvn clean clover:setup verify clover:clover
  
 # before 4.1.1 it was
 # mvn clean clover2:setup verify clover2:clover</pre>

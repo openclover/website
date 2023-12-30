@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>This section of the tutorial walks through the process of setting up Clover
                     Test Optimization, which efficiently runs only the tests for code which has changed since the last
                     build.</p>
@@ -131,8 +131,8 @@
                 <p>Open your <code>build.xml</code> file. You should already have this line included:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
+<pre
+    >&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
 </pre>
                     </div>
                 </div>
@@ -140,8 +140,8 @@
                     of code, as shown below:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
+<pre
+    >&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
 &lt;clover-env/&gt;</pre>
                     </div>
                 </div>
@@ -155,9 +155,9 @@
                     clover database <code>clover.db</code> ) here:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-                        <pre class="syntaxhighlighter-pre"
-                             data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-                             data-theme="Confluence">&lt;PROJECT_DIR&gt;/.clover/coverage.db.snapshot</pre>
+                        <pre
+
+                            >&lt;PROJECT_DIR&gt;/.clover/coverage.db.snapshot</pre>
                     </div>
                 </div>
                 <h2 id="Part4-TestOptimizationTutorial-3.AddinganewAnttargettogeneratetheoptimizedtest&#39;snapshot&#39;">
@@ -166,8 +166,8 @@
                 </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;target name=&quot;clover.snapshot&quot; depends=&quot;with.clover&quot;&gt;
+<pre
+    >&lt;target name=&quot;clover.snapshot&quot; depends=&quot;with.clover&quot;&gt;
     &lt;clover-snapshot file=&quot;${clover.snapshot.file}&quot;/&gt;
 &lt;/target&gt;</pre>
                     </div>
@@ -179,8 +179,8 @@
                             style="background-color: transparent;">batchtest</code> will look like so:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;junit fork=&quot;yes&quot; printsummary=&quot;true&quot;&gt;
+<pre
+    >&lt;junit fork=&quot;yes&quot; printsummary=&quot;true&quot;&gt;
     &lt;classpath refid=&quot;testbuild.classpath&quot;/&gt;
     &lt;formatter type=&quot;xml&quot;/&gt;
     &lt;batchtest fork=&quot;yes&quot; todir=&quot;${build.testresults}&quot;&gt;
@@ -197,8 +197,8 @@
                     the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;junit fork=&quot;yes&quot; printsummary=&quot;true&quot;&gt;
+<pre
+    >&lt;junit fork=&quot;yes&quot; printsummary=&quot;true&quot;&gt;
     &lt;classpath refid=&quot;testbuild.classpath&quot;/&gt;
     &lt;formatter type=&quot;xml&quot;/&gt;
     &lt;batchtest fork=&quot;yes&quot; todir=&quot;${build.testresults}&quot;&gt;
@@ -228,8 +228,8 @@
                 <p>Run your build with the following command:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ant with.clover clean test clover.snapshot
+<pre
+    >ant with.clover clean test clover.snapshot
 </pre>
                     </div>
                 </div>
@@ -242,8 +242,8 @@
                     file:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">test:
+<pre
+    >test:
     [mkdir] Created dir: /tutorial/build/testresult
     [junit] Running com.atlassian.samples.money.MoneyBagTest
     [junit] Tests run: 26, Failures: 0, Errors: 0, Time elapsed: 0.141 sec
@@ -269,8 +269,8 @@ clover.snapshot:
                     build:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">test:
+<pre
+    >test:
     [junit] Clover estimates saving around 3 seconds on this optimized test run.
     [junit] Clover is including 0 test classes in this run (total test classes: 2)
 </pre>
@@ -287,8 +287,8 @@ clover.snapshot:
                 </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">public IMoney add(IMoney m) {
+<pre
+    >public IMoney add(IMoney m) {
     System.out.println(&quot;Adding: &quot; + m);
     return m.addMoneyBag(this);
 }
@@ -301,8 +301,8 @@ clover.snapshot:
                 <p>Now having changed a file in the project, we will run the same Ant tasks again.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ant with.clover test clover.snapshot
+<pre
+    >ant with.clover test clover.snapshot
 </pre>
                     </div>
                 </div>
@@ -310,8 +310,8 @@ clover.snapshot:
                     file specifically. We can see this illustrated in the console output:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">test:
+<pre
+    >test:
     [junit] Clover estimates saving around 3 seconds on this optimized test run.
     [junit] Clover is including 1 test class in this run (total test classes: 2)
     [junit] Running com.atlassian.samples.money.MoneyBagTest

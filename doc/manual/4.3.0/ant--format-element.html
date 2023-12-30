@@ -67,105 +67,105 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>Specifies the output format and various options controlling the rendering of a report.</p>
                 <p><strong>Parameters for &lt;format&gt;</strong></p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>type</p></td>
-                            <td class="confluenceTd"><p>The output format in which to render the report. Valid values
+                            <td><p>type</p></td>
+                            <td><p>The output format in which to render the report. Valid values
                                 are <code>pdf</code>, <code>xml</code>, <code>html</code> and <code>json</code>. Note
                                 that not all report formats support all other attributes.</p></td>
-                            <td class="confluenceTd"><p>Yes, unless <code>refid</code> is set.</p></td>
+                            <td><p>Yes, unless <code>refid</code> is set.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>refid</p></td>
-                            <td class="confluenceTd"><p>The id of another format element that will be used for this
+                            <td><p>refid</p></td>
+                            <td><p>The id of another format element that will be used for this
                                 report. See <a href="ant--sharing-report-formats.html">Sharing Report Formats</a>.
                             </p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>id</p></td>
-                            <td class="confluenceTd"><p>The id of this format element.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>id</p></td>
+                            <td><p>The id of this format element.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>bw</p></td>
-                            <td class="confluenceTd"><p>Specify that the report should be black-and-white. Supported by
+                            <td><p>bw</p></td>
+                            <td><p>Specify that the report should be black-and-white. Supported by
                                 PDF reports only.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>orderBy</p></td>
-                            <td class="confluenceTd"><p>Specify how to order coverage tables. This attribute has no
-                                effect on XML format. Valid values are: <br class="atl-forced-newline"/> <br
+                            <td><p>orderBy</p></td>
+                            <td><p>Specify how to order coverage tables. This attribute has no
+                                effect on XML format. Valid values are:  <br
                                         class="atl-forced-newline"/> <code>Alpha</code> — Alpabetical. <br
                                         class="atl-forced-newline"/> <code>PcCoveredAsc</code> — Percent total coverage,
-                                ascending. <br class="atl-forced-newline"/> <code>PcCoveredDesc</code> — Percent total
-                                coverage, descending. <br class="atl-forced-newline"/> <code>ElementsCoveredAsc</code> —
-                                Total elements covered, ascending. <br class="atl-forced-newline"/> <code>ElementsCoveredDesc</code>
-                                — Total elements covered, descending. <br class="atl-forced-newline"/> <code>ElementsUncoveredAsc</code>
-                                — Total elements uncovered, ascending. <br class="atl-forced-newline"/> <code>ElementsUncoveredDesc</code>
+                                ascending.  <code>PcCoveredDesc</code> — Percent total
+                                coverage, descending.  <code>ElementsCoveredAsc</code> —
+                                Total elements covered, ascending.  <code>ElementsCoveredDesc</code>
+                                — Total elements covered, descending.  <code>ElementsUncoveredAsc</code>
+                                — Total elements uncovered, ascending.  <code>ElementsUncoveredDesc</code>
                                 — Total elements uncovered, descending.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to <code>PcCoveredAsc.</code></p></td>
+                            <td><p>No; defaults to <code>PcCoveredAsc.</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>noCache</p></td>
-                            <td class="confluenceTd"><p><em>(HTML only)</em> If true, insert nocache directives in HTML
+                            <td><p>noCache</p></td>
+                            <td><p><em>(HTML only)</em> If true, insert nocache directives in HTML
                                 output.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>srcLevel</p></td>
-                            <td class="confluenceTd"><p>If true, include source-level coverage information in the
+                            <td><p>srcLevel</p></td>
+                            <td><p>If true, include source-level coverage information in the
                                 report.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>filter</p></td>
-                            <td class="confluenceTd"><p>comma or space separated list of contexts to exclude when
+                            <td><p>filter</p></td>
+                            <td><p>comma or space separated list of contexts to exclude when
                                 generating coverage reports. See <a href="ant--using-coverage-contexts.html">Using
                                     Coverage Contexts</a>.</p></td>
-                            <td class="confluenceTd"><p>No.</p></td>
+                            <td><p>No.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>pageSize</p></td>
-                            <td class="confluenceTd"><p><em>(PDF only)</em> Specify the page size to use. Valid values
+                            <td><p>pageSize</p></td>
+                            <td><p><em>(PDF only)</em> Specify the page size to use. Valid values
                                 are <code>A4</code>, <code>LETTER.</code></p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>A4</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>A4</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>showEmpty</p></td>
-                            <td class="confluenceTd"><p>If true, classes, files and packages that do not contain any
+                            <td><p>showEmpty</p></td>
+                            <td><p>If true, classes, files and packages that do not contain any
                                 executable code (i.e. methods, statements, or branches) are included in reports. These
                                 are normally not shown.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>tabWidth</p></td>
-                            <td class="confluenceTd"><p><em>(Source level reports only)</em> The number of space chars
+                            <td><p>tabWidth</p></td>
+                            <td><p><em>(Source level reports only)</em> The number of space chars
                                 to replace TAB characters with.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to <code>4.</code></p></td>
+                            <td><p>No; defaults to <code>4.</code></p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>maxNameLength</p></td>
-                            <td class="confluenceTd"><p>The maximum length in chars of package or classnames in the
+                            <td><p>maxNameLength</p></td>
+                            <td><p>The maximum length in chars of package or classnames in the
                                 report. Longer names will be truncated. A value &lt; 0 indicates no limit.</p></td>
-                            <td class="confluenceTd"><p>No; defaults to no limit.</p></td>
+                            <td><p>No; defaults to no limit.</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>callback</p></td>
-                            <td class="confluenceTd"><p>The name of the callback function to wrap the JSON. If set to an
+                            <td><p>callback</p></td>
+                            <td><p>The name of the callback function to wrap the JSON. If set to an
                                 empty string, &quot; &quot;, then the JSON will not be wrapped.</p></td>
-                            <td class="confluenceTd"><p>No; default is 'processClover'.</p></td>
+                            <td><p>No; default is 'processClover'.</p></td>
                         </tr>
                         </tbody>
                     </table>

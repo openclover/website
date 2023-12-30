@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>Clover provides a set of high level, preconfigured Ant targets. A target is a high-level,
                     pre-configured set of functionality that you can use to quickly integrate Clover. They can be
                     launched by adding them as values to Ant on the command line.</p>
@@ -122,8 +122,8 @@
                     line, as follows:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ant clover.all
+<pre
+    >ant clover.all
 </pre>
                     </div>
                 </div>
@@ -136,8 +136,8 @@
                 <p><strong>Example:</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ant with.clover
+<pre
+    >ant with.clover
 </pre>
                     </div>
                 </div>
@@ -147,19 +147,19 @@
                     order) from a single target.</p>
                 <p><strong>clover.all Properties</strong>:</p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p>Property name</p></th>
-                            <th class="confluenceTh"><p>Description</p></th>
-                            <th class="confluenceTh"><p>Options</p></th>
-                            <th class="confluenceTh"><p>Dependency</p></th>
+                            <th><p>Property name</p></th>
+                            <th><p>Description</p></th>
+                            <th><p>Options</p></th>
+                            <th><p>Dependency</p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>test.target</p></td>
-                            <td class="confluenceTd"><p>Defines the name of a custom target to run the tests.</p></td>
-                            <td class="confluenceTd"><p>inheritrefs (TRUE/FALSE)</p></td>
-                            <td class="confluenceTd"><p>clover.clean, with.clover</p></td>
+                            <td><p>test.target</p></td>
+                            <td><p>Defines the name of a custom target to run the tests.</p></td>
+                            <td><p>inheritrefs (TRUE/FALSE)</p></td>
+                            <td><p>clover.clean, with.clover</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -167,8 +167,8 @@
                 <p><strong>Example:</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ant clover.all -Dtest.target=run.tests
+<pre
+    >ant clover.all -Dtest.target=run.tests
 </pre>
                     </div>
                 </div>
@@ -182,8 +182,8 @@
                 <p><strong>Example:</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ant clover.clean
+<pre
+    >ant clover.clean
 </pre>
                     </div>
                 </div>
@@ -192,36 +192,36 @@
                 <p>Generates HTML and XML reports to <code>clover.dest</code> using <code>project.title</code>.</p>
                 <p><strong>clover.current Properties</strong>:</p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p>Property name</p></th>
-                            <th class="confluenceTh"><p>Description</p></th>
-                            <th class="confluenceTh"><p>Options</p></th>
-                            <th class="confluenceTh"><p>Dependency</p></th>
+                            <th><p>Property name</p></th>
+                            <th><p>Description</p></th>
+                            <th><p>Options</p></th>
+                            <th><p>Dependency</p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>project.title</p></td>
-                            <td class="confluenceTd"><p>A string value, the user-specified name for this project</p>
+                            <td><p>project.title</p></td>
+                            <td><p>A string value, the user-specified name for this project</p>
                             </td>
-                            <td class="confluenceTd"><p>None</p></td>
-                            <td class="confluenceTd"><p>None</p></td>
+                            <td><p>None</p></td>
+                            <td><p>None</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>clover.dest</p></td>
-                            <td class="confluenceTd"><p>A system path, the destination directory for clover reports for
+                            <td><p>clover.dest</p></td>
+                            <td><p>A system path, the destination directory for clover reports for
                                 this project</p></td>
-                            <td class="confluenceTd"><p>None</p></td>
-                            <td class="confluenceTd"><p>None</p></td>
+                            <td><p>None</p></td>
+                            <td><p>None</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>clover.span</p></td>
-                            <td class="confluenceTd"><p>A time <a
+                            <td><p>clover.span</p></td>
+                            <td><p>A time <a
                                     href="ant--using-spans-specifying-an-interval.html">interval</a> defining the <a
                                     href="ant--using-spans.html">time span</a> to use when creating historical
                                 reports</p></td>
-                            <td class="confluenceTd"><p>None</p></td>
-                            <td class="confluenceTd"><p>None</p></td>
+                            <td><p>None</p></td>
+                            <td><p>None</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -229,8 +229,8 @@
                 <p><strong>Example:</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ant clover.current -Dproject.title=&quot;MyProject&quot;
+<pre
+    >ant clover.current -Dproject.title=&quot;MyProject&quot;
 </pre>
                     </div>
                 </div>
@@ -241,35 +241,35 @@
                     be created using the historypoints in <code>clover.project.historydir</code>.</p>
                 <p><strong>clover.report Properties</strong>:</p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p>Property name</p></th>
-                            <th class="confluenceTh"><p>Description</p></th>
-                            <th class="confluenceTh"><p>Options</p></th>
-                            <th class="confluenceTh"><p>Dependency</p></th>
+                            <th><p>Property name</p></th>
+                            <th><p>Description</p></th>
+                            <th><p>Options</p></th>
+                            <th><p>Dependency</p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>clover.historypoint.projectdir</p></td>
-                            <td class="confluenceTd"><p>A path location, where history points are stored.</p></td>
-                            <td class="confluenceTd"><p>None</p></td>
-                            <td class="confluenceTd"><p>None</p></td>
+                            <td><p>clover.historypoint.projectdir</p></td>
+                            <td><p>A path location, where history points are stored.</p></td>
+                            <td><p>None</p></td>
+                            <td><p>None</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>clover.dest</p></td>
-                            <td class="confluenceTd"><p>A system path, the destination directory for clover reports for
+                            <td><p>clover.dest</p></td>
+                            <td><p>A system path, the destination directory for clover reports for
                                 this project</p></td>
-                            <td class="confluenceTd"><p>None</p></td>
-                            <td class="confluenceTd"><p>None</p></td>
+                            <td><p>None</p></td>
+                            <td><p>None</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>clover.span</p></td>
-                            <td class="confluenceTd"><p>A time <a
+                            <td><p>clover.span</p></td>
+                            <td><p>A time <a
                                     href="ant--using-spans-specifying-an-interval.html">interval</a> defining the <a
                                     href="ant--using-spans.html">time span</a> to use when creating historical
                                 reports</p></td>
-                            <td class="confluenceTd"><p>None</p></td>
-                            <td class="confluenceTd"><p>None</p></td>
+                            <td><p>None</p></td>
+                            <td><p>None</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -277,8 +277,8 @@
                 <p><strong>Example:</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ant clover.report -Dclover.historypoint.projectdir=&quot;\myprojects\project3\history\&quot;
+<pre
+    >ant clover.report -Dclover.historypoint.projectdir=&quot;\myprojects\project3\history\&quot;
 </pre>
                     </div>
                 </div>
@@ -287,34 +287,34 @@
                 <p>Saves a history point to <code>clover.project.historydir</code>.</p>
                 <p><strong>clover.save-history Properties</strong>:</p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p>Property name</p></th>
-                            <th class="confluenceTh"><p>Description</p></th>
-                            <th class="confluenceTh"><p>Options</p></th>
-                            <th class="confluenceTh"><p>Dependency</p></th>
+                            <th><p>Property name</p></th>
+                            <th><p>Description</p></th>
+                            <th><p>Options</p></th>
+                            <th><p>Dependency</p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>clover.project.historydir</p></td>
-                            <td class="confluenceTd"><p>A path location, where history points are stored.</p></td>
-                            <td class="confluenceTd"><p>None</p></td>
-                            <td class="confluenceTd"><p>None</p></td>
+                            <td><p>clover.project.historydir</p></td>
+                            <td><p>A path location, where history points are stored.</p></td>
+                            <td><p>None</p></td>
+                            <td><p>None</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>test.target</p></td>
-                            <td class="confluenceTd"><p>Defines the name of a custom target to run the tests.</p></td>
-                            <td class="confluenceTd"><p>inheritrefs (TRUE/FALSE)</p></td>
-                            <td class="confluenceTd"><p>clover.clean, with.clover</p></td>
+                            <td><p>test.target</p></td>
+                            <td><p>Defines the name of a custom target to run the tests.</p></td>
+                            <td><p>inheritrefs (TRUE/FALSE)</p></td>
+                            <td><p>clover.clean, with.clover</p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>clover.span</p></td>
-                            <td class="confluenceTd"><p>A time <a
+                            <td><p>clover.span</p></td>
+                            <td><p>A time <a
                                     href="ant--using-spans-specifying-an-interval.html">interval</a> defining the <a
                                     href="ant--using-spans.html">time span</a> to use when creating historical
                                 reports</p></td>
-                            <td class="confluenceTd"><p>None</p></td>
-                            <td class="confluenceTd"><p>None</p></td>
+                            <td><p>None</p></td>
+                            <td><p>None</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -322,8 +322,8 @@
                 <p><strong>Example:</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ant clover.save-history
+<pre
+    >ant clover.save-history
 </pre>
                     </div>
                 </div>
@@ -334,28 +334,28 @@
                 <p><strong>Example:</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ant clover.snapshot
+<pre
+    >ant clover.snapshot
 </pre>
                     </div>
                 </div>
                 <p><strong>clover.snapshot Properties</strong>:</p>
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p>Property name</p></th>
-                            <th class="confluenceTh"><p>Description</p></th>
-                            <th class="confluenceTh"><p>Options</p></th>
-                            <th class="confluenceTh"><p>Dependency</p></th>
+                            <th><p>Property name</p></th>
+                            <th><p>Description</p></th>
+                            <th><p>Options</p></th>
+                            <th><p>Dependency</p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p>clover.snapshot.file</p></td>
-                            <td class="confluenceTd"><p>Defines the location of the snapshot file to use when saving
+                            <td><p>clover.snapshot.file</p></td>
+                            <td><p>Defines the location of the snapshot file to use when saving
                                 optimized data. For use with Clover's <a href="general--what-is-test-optimization.html">Test
                                     Optimization</a> feature.</p></td>
-                            <td class="confluenceTd"><p>None</p></td>
-                            <td class="confluenceTd"><p>None</p></td>
+                            <td><p>None</p></td>
+                            <td><p>None</p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -367,8 +367,8 @@
                 </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ant clover.snapshot.file
+<pre
+    >ant clover.snapshot.file
 </pre>
                     </div>
                 </div>

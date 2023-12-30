@@ -58,7 +58,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
 
                 <div class="alert alert-warning">
                     This plugin integrates with Grails 2.x and is no longer maintained.
@@ -133,8 +133,8 @@
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>grails-app/conf/BuildConfig.groovy</b>
                     </div>
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
-     data-theme="Confluence">grails.project.dependency.resolution = {
+<pre
+    >grails.project.dependency.resolution = {
     plugins {
         compile &quot;org.grails.plugins:clover:4.0.0&quot;
     }
@@ -155,8 +155,8 @@
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>grails-app/conf/BuildConfig.groovy</b>
                     </div>
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: groovy; gutter: false; theme: Confluence"
-     data-theme="Confluence">grails.project.dependency.resolution = {
+<pre
+    >grails.project.dependency.resolution = {
     pom true
 }</pre>
                     </div>
@@ -166,8 +166,8 @@
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>pom.xml</b></div>
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;dependency&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;dependency&gt;
     &lt;groupId&gt;org.grails.plugins&lt;/groupId&gt;
     &lt;artifactId&gt;clover&lt;/artifactId&gt;
     &lt;version&gt;4.5.0&lt;/version&gt;
@@ -187,8 +187,8 @@
                 <p> </p>
                 <h2 class="paragraph" id="Clover-for-GrailsInstallationGuide-Usingthe&#39;install-plugin&#39;command">
                     Using the 'install-plugin' command</h2>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>grails install-plugin clover 4.0.0</pre>
                     </div>
                 </div>
@@ -201,8 +201,8 @@
                     installing the plugin directly from its <span class="confluence-link">web address</span>:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">grails install-plugin http://plugins.grails.org/grails-clover/tags/RELEASE_x_y_z/grails-clover-x.y.z.zip
+<pre
+    >grails install-plugin http://plugins.grails.org/grails-clover/tags/RELEASE_x_y_z/grails-clover-x.y.z.zip
 </pre>
                     </div>
                 </div>
@@ -212,8 +212,8 @@
                 <p>It's also possible to install it from a downloaded file:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">grails install-plugin /path/to/grails-clover-x.y.zip
+<pre
+    >grails install-plugin /path/to/grails-clover-x.y.zip
 </pre>
                     </div>
                 </div>

@@ -59,14 +59,14 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p><strong>Q: I only need instrumented classes for unit testing and I don't want to risk publishing them
                     to my production environment. How can I do this with Clover?</strong> Clover supports writing both
                     instrumented and uninstrumented class files to different directories during a build. <br/>
                     To enable the feature, right click on your project and select properties, select Clover, select
                     Compilation tab, select &quot;User specified folder&quot; and then select a project directory where
                     you wish instrumented classes.
-                    <br class="atl-forced-newline"/></p>
+                    </p>
 
                 <p>All your other Eclipse plugins will then pick up uninstrumented class files from your normal output
                     folder(s) but instrumented classes will also be available for unit testing. The trick, though, is to
@@ -74,9 +74,9 @@
                     uninstrumented ones. To do this, you will need to modify the classpath of your JUnit launch
                     configuration so that under User Entries the folder containing instrumented classes is *before* the
                     regular output folder for your project.
-                    <br class="atl-forced-newline"/>
-                    <br class="atl-forced-newline"/>
-                    <br class="atl-forced-newline"/></p>
+
+
+                    </p>
             </div>
 
 

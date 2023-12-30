@@ -61,7 +61,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 In this scenario, a developer is responsible for obtaining a certain level of code coverage on her code
                 before it is accepted into the base.<p>The typical cycle the developer follows is something like:</p>
                 <ol>
@@ -94,8 +94,8 @@
                     analysis:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-setup&gt;
+<pre
+    >&lt;clover-setup&gt;
      &lt;files includes=&quot;**/plugins/cruncher/**, **/plugins/muncher/**&quot;/&gt;
 &lt;/clover-setup&gt;
 </pre>
@@ -105,8 +105,8 @@
                     the command line:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;property name=&quot;coverage.includes&quot; value=&quot;**&quot;/&gt;
+<pre
+    >&lt;property name=&quot;coverage.includes&quot; value=&quot;**&quot;/&gt;
   &lt;clover-setup&gt;
      &lt;files includes=&quot;${coverage.includes}&quot;/&gt;
   &lt;/clover-setup&gt;
@@ -116,16 +116,16 @@
                 <p>Developers can then use a command line like the following for Java code:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ant build -Dcoverage.includes=java/**/foo/*.java
+<pre
+    >ant build -Dcoverage.includes=java/**/foo/*.java
 </pre>
                     </div>
                 </div>
                 <p>And for Groovy code:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">ant build -Dcoverage.includes=groovy/**/foo/*.groovy
+<pre
+    >ant build -Dcoverage.includes=groovy/**/foo/*.groovy
 </pre>
                     </div>
                 </div>
@@ -136,8 +136,8 @@
                     console:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-log/&gt;
+<pre
+    >&lt;clover-log/&gt;
 </pre>
                     </div>
                 </div>
@@ -149,8 +149,8 @@
                     that will print a summary of coverage results to the console:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-log level=&quot;summary&quot;/&gt;
+<pre
+    >&lt;clover-log level=&quot;summary&quot;/&gt;
 </pre>
                     </div>
                 </div>
@@ -163,8 +163,8 @@
                     of the last Clover build). To include results gathered over the last hour use:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-log span=&quot;1h&quot;/&gt;
+<pre
+    >&lt;clover-log span=&quot;1h&quot;/&gt;
 </pre>
                     </div>
                 </div>

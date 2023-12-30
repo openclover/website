@@ -64,7 +64,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h3 id="clover-pdf-report-Description">Description</h3>
 
                 <p>The <code>&lt;clover-pdf-report&gt;</code> task generates a PDF report with sensible default
@@ -75,39 +75,39 @@
                 <h3 id="clover-pdf-report-Parameters">Parameters</h3>
 
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p> outfile </p></td>
-                            <td class="confluenceTd"><p> The filename to write the report to. </p></td>
-                            <td class="confluenceTd"><p> Yes. </p></td>
+                            <td><p> outfile </p></td>
+                            <td><p> The filename to write the report to. </p></td>
+                            <td><p> Yes. </p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p> initstring </p></td>
-                            <td class="confluenceTd"><p> The path to the Clover database. If not specified, Clover will
+                            <td><p> initstring </p></td>
+                            <td><p> The path to the Clover database. If not specified, Clover will
                                 use the <code>initstring</code> set by a previous execution of <code>&lt;<a
                                         href="ant--clover-setup.html">clover-setup</a>&gt;</code> in the current
                                 build sequence. Otherwise, the default database location will be used. </p></td>
-                            <td class="confluenceTd"><p> No. </p></td>
+                            <td><p> No. </p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p> historydir </p></td>
-                            <td class="confluenceTd"><p> The directory that contains any clover history points. <strong>If
+                            <td><p> historydir </p></td>
+                            <td><p> The directory that contains any clover history points. <strong>If
                                 this attribute is set, a new history point will be generated prior to the generation of
                                 the full report.</strong> For more information, see <code>&lt;<a
                                     href="ant--clover-historypoint.html">clover-historypoint</a>&gt;</code>. </p>
                             </td>
-                            <td class="confluenceTd"><p> No. </p></td>
+                            <td><p> No. </p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p> title </p></td>
-                            <td class="confluenceTd"><p> The title to use in the report. </p></td>
-                            <td class="confluenceTd"><p> No. </p></td>
+                            <td><p> title </p></td>
+                            <td><p> The title to use in the report. </p></td>
+                            <td><p> No. </p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -118,8 +118,8 @@
 
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">
+<pre
+    >
 &lt;clover-pdf-report outfile=&quot;clover_coverage.pdf&quot;/&gt;
 </pre>
                     </div>
@@ -128,8 +128,8 @@
                 </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">
+<pre
+    >
 &lt;clover-pdf-report outfile=&quot;clover_coverage.pdf&quot; historydir=&quot;clover/historypoints&quot; title=&quot;MyProject Coverage&quot;/&gt;
 </pre>
                     </div>

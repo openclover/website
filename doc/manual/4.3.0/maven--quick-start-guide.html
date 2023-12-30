@@ -58,7 +58,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <p>To get started with Clover-for-Maven, carry out the following steps.</p><h4>Add
                 org.openclover in .m2/settings.xml</h4>
                 <p>Before you get started, add this to your <code>.m2/settings.xml</code> file so you can reference
@@ -66,8 +66,8 @@
                 <div class="container" title="Hint: double-click to select code"><p> </p>
                     <div class="code panel pdl" style="border-width: 1px;">
                         <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;pluginGroups&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;pluginGroups&gt;
     &lt;pluginGroup&gt;org.openclover&lt;/pluginGroup&gt;
 &lt;/pluginGroups&gt;</pre>
                         </div>
@@ -76,8 +76,8 @@
                         command line</h4>
                     <p class="line number1 index0 alt2">The quickest and easiest way to try Clover is from the command
                         line:</p>
-                    <div class="preformatted panel" style="border-width: 1px;">
-                        <div class="preformattedContent panelContent">
+                    <div style="border-width: 1px;">
+                        <div>
                             <pre>mvn clean clover:setup test clover:aggregate clover:clover</pre>
                         </div>
                     </div>

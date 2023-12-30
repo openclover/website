@@ -64,7 +64,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h3 id="clover-clean-Description">Description</h3>
 
                 <p>The <code>&lt;clover-clean&gt;</code> task deletes the <a
@@ -74,24 +74,24 @@
                 <h3 id="clover-clean-Parameters">Parameters</h3>
 
                 <div class="table-wrap">
-                    <table class="confluenceTable">
+                    <table>
                         <tbody>
                         <tr>
-                            <th class="confluenceTh"><p><strong>Attribute</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Description</strong></p></th>
-                            <th class="confluenceTh"><p><strong>Required</strong></p></th>
+                            <th><p><strong>Attribute</strong></p></th>
+                            <th><p><strong>Description</strong></p></th>
+                            <th><p><strong>Required</strong></p></th>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p> haltOnError </p></td>
-                            <td class="confluenceTd"><p> Controls whether an error (such as a failure to delete a file)
+                            <td><p> haltOnError </p></td>
+                            <td><p> Controls whether an error (such as a failure to delete a file)
                                 stops the build or is merely reported to the screen (&quot;<code>true</code>&quot;/&quot;<code>false</code>&quot;).
                             </p></td>
-                            <td class="confluenceTd"><p> No; defaults to &quot;<code>false</code>&quot;. </p></td>
+                            <td><p> No; defaults to &quot;<code>false</code>&quot;. </p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p> initstring </p></td>
-                            <td class="confluenceTd"><p> The initstring of the database to clean. </p></td>
-                            <td class="confluenceTd"><p> No; if not specified here, Clover will use the default location
+                            <td><p> initstring </p></td>
+                            <td><p> The initstring of the database to clean. </p></td>
+                            <td><p> No; if not specified here, Clover will use the default location
                                 (<code>${basedir}/.clover</code>). If you have specified an <code>initstring</code> on
                                 the <code>&lt;</code><code><a
                                         href="ant--clover-setup.html">clover-setup</a></code><code>&gt;</code> task,
@@ -99,26 +99,26 @@
                                 is called prior to the execution of this task. </p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p> keepdb </p></td>
-                            <td class="confluenceTd"><p> Controls whether to keep the coverage database file
+                            <td><p> keepdb </p></td>
+                            <td><p> Controls whether to keep the coverage database file
                                 (&quot;<code>true</code>&quot;/&quot;<code>false</code>&quot;). If
                                 &quot;<code>false</code>&quot;, the coverage database will be deleted. </p></td>
-                            <td class="confluenceTd"><p> No; defaults to &quot;<code>false</code>&quot;. </p></td>
+                            <td><p> No; defaults to &quot;<code>false</code>&quot;. </p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p> keepTestSnapshot </p></td>
-                            <td class="confluenceTd"><p> Specifies whether the test snapshot file should be kept or
+                            <td><p> keepTestSnapshot </p></td>
+                            <td><p> Specifies whether the test snapshot file should be kept or
                                 deleted; defaults to true. (&quot;<code>true</code>&quot;/&quot;<code>false</code>&quot;)
                             </p></td>
-                            <td class="confluenceTd"><p> No; if not specified here, the last test snapshot will be
+                            <td><p> No; if not specified here, the last test snapshot will be
                                 stored. \(i) This is not deleted between builds (unlike the <code>.db</code> file and
                                 the coverage files). </p></td>
                         </tr>
                         <tr>
-                            <td class="confluenceTd"><p> verbose </p></td>
-                            <td class="confluenceTd"><p> Controls whether to show the name of each deleted file
+                            <td><p> verbose </p></td>
+                            <td><p> Controls whether to show the name of each deleted file
                                 (&quot;<code>true</code>&quot;/&quot;<code>false</code>&quot;). </p></td>
-                            <td class="confluenceTd"><p> No; defaults to &quot;<code>false</code>&quot;. </p></td>
+                            <td><p> No; defaults to &quot;<code>false</code>&quot;. </p></td>
                         </tr>
                         </tbody>
                     </table>
@@ -129,8 +129,8 @@
 
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">
+<pre
+    >
 &lt;clover-clean/&gt;
 </pre>
                     </div>
@@ -138,8 +138,8 @@
                 <p>Deletes the coverage database and all of the coverage recordings.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">
+<pre
+    >
 &lt;clover-clean verbose=&quot;true&quot;/&gt;
 </pre>
                     </div>
@@ -148,14 +148,14 @@
                     each file deleted.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">
+<pre
+    >
 &lt;clover-clean keepdb=&quot;true&quot;/&gt;
 </pre>
                     </div>
                 </div>
                 <p>Deletes the coverage recordings but keeps the coverage database.
-                    <br class="atl-forced-newline"/></p>
+                    </p>
             </div>
 
 

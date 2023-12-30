@@ -58,7 +58,7 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h2 style="margin-left: 0.0px;" id="GrailsCloverPluginDeveloperGuide-Preconditions">Preconditions</h2>
                 <ul style="margin-left: 0.0px;">
                     <li style="margin-left: 0.0px;">Install Grails <strong>2.0.4</strong> and set $GRAILS_HOME <br/>
@@ -76,8 +76,8 @@
                     </li>
                     <li style="margin-left: 0.0px;">Clone the repository:</li>
                 </ul>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>git clone ssh://git@github.com/openclover/grails-clover-plugin.git</pre>
                     </div>
                 </div>
@@ -85,8 +85,8 @@
                 <p>To build the plugin and to run unit tests type:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">grails package-plugin
+<pre
+    >grails package-plugin
 grails test-app</pre>
                     </div>
                 </div>
@@ -94,8 +94,8 @@ grails test-app</pre>
                 <p>To run integration tests:</p>
                 <ol>
                     <li><p>Install the artefact</p>
-                        <div class="preformatted panel" style="border-width: 1px;">
-                            <div class="preformattedContent panelContent">
+                        <div style="border-width: 1px;">
+                            <div>
                                 <pre>grails test maven-install # it puts zip into local Maven cache ~/.m2</pre>
                             </div>
                         </div>
@@ -111,8 +111,8 @@ grails test-app</pre>
                                     style="background-color: transparent;">&lt;project&gt;</em><span
                                     style="background-color: transparent;">/grails-app/conf/BuildConfig.groovy, e.g.:<br/></span>
                             </p>
-                                <div class="preformatted panel" style="border-width: 1px;">
-                                    <div class="preformattedContent panelContent">
+                                <div style="border-width: 1px;">
+                                    <div>
 <pre>plugins {
     build &quot;:clover:4.4.0&quot;
 }</pre>
@@ -123,8 +123,8 @@ grails test-app</pre>
                             </p></li>
                             <li><p><span style="background-color: transparent;">Change directory to <em>&lt;grails&gt;/testcases/&lt;project_name&gt;</em> and run<br/></span>
                             </p>
-                                <div class="preformatted panel" style="border-width: 1px;">
-                                    <div class="preformattedContent panelContent">
+                                <div style="border-width: 1px;">
+                                    <div>
                                         <pre>grails test-app -clover.on</pre>
                                     </div>
                                 </div>
@@ -169,8 +169,8 @@ grails test-app</pre>
                                                                                  rel="nofollow">http://grails.org/plugins/clover</a> page
                     </li>
                     <li><p>add the following in <strong>~/.grails/settings.groovy</strong>:</p>
-                        <div class="preformatted panel" style="border-width: 1px;">
-                            <div class="preformattedContent panelContent">
+                        <div style="border-width: 1px;">
+                            <div>
 <pre>grails.project.repos.grailsCentral.username = &quot;YOUR_GRAILS_ORG_LOGIN&quot;
 grails.project.repos.grailsCentral.password = &quot;YOUR_GRAILS_ORG_PASSWORD&quot;</pre>
                             </div>

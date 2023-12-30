@@ -64,15 +64,15 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h3 id="UnitTestResultsandPer-TestCoverage-Per-TestCoverage">Per-Test Coverage</h3>Clover has the
                 ability to integrate Unit Test results and per-test coverage information into Coverage reports. This
                 unique feature gives you a powerful insight into how well tested your covered code actually is, by
                 showing you exactly which statements each of your tests cover.<p>To take advantage of this feature all
                 you need to do is:</p>
                 <ul>
-                    <li><strong>Allow Clover to instrument your test classes.</strong> <br class="atl-forced-newline"/>
-                        <br class="atl-forced-newline"/> You must ensure that all your test classes are included for
+                    <li><strong>Allow Clover to instrument your test classes.</strong>
+                         You must ensure that all your test classes are included for
                         Clover instrumentation. To enable Clover instrumentation of your source code, use the
                         <code>&lt;</code><code><a
                                 href="ant--clover-setup.html">clover-setup</a></code><code>&gt;</code> task.<br/>
@@ -92,8 +92,8 @@
                     framework for example uses the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-setup&gt;
+<pre
+    >&lt;clover-setup&gt;
   &lt;testsources dir=&quot;tests&quot;&gt;
     &lt;testclass&gt;
       &lt;testmethod annotation=&quot;Specification&quot;/&gt;
@@ -110,8 +110,8 @@
                     grouped by an OR.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;clover-setup&gt;
+<pre
+    >&lt;clover-setup&gt;
   &lt;testsources dir=&quot;tests&quot;&gt;
     &lt;or&gt;
       &lt;testclass name=&quot;.*Context&quot;&gt;
@@ -156,8 +156,8 @@
                         using the <code>&lt;junit&gt;</code>task, you need to add an XML result formatter:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;property name=&quot;testreport.dir&quot; value=&quot;build/test-reports&quot;&gt;
+<pre
+    >&lt;property name=&quot;testreport.dir&quot; value=&quot;build/test-reports&quot;&gt;
 
  &lt;junit ...&gt;
      ...
@@ -186,8 +186,8 @@
                 <p>e.g.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">      &lt;testresults dir=&quot;test-results&quot; include=&quot;TEST-*.xml&quot;/&gt;
+<pre
+    >      &lt;testresults dir=&quot;test-results&quot; include=&quot;TEST-*.xml&quot;/&gt;
 </pre>
                     </div>
                 </div>

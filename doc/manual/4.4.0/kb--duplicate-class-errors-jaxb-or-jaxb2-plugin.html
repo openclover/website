@@ -58,14 +58,14 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h3 id="DuplicateclasserrorswithCloverandJAXBorJAXB2plugin-Symptoms">Symptoms</h3>
                 <p>Project uses JAXB or JAXB2 plugin, which generates sources into <strong>src/main/java</strong>
                     directory:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
     &lt;groupId&gt;org.jvnet.jaxb2.maven2&lt;/groupId&gt;
     &lt;artifactId&gt;maven-jaxb2-plugin&lt;/artifactId&gt;
     &lt;version&gt;0.8.0&lt;/version&gt;
@@ -85,8 +85,8 @@
                 </div>
                 <p> </p>
                 <p>When integrating Clover into a build, for example:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>mvn clean clover:setup test clover:aggregate clover:clover</pre>
                     </div>
                 </div>
@@ -94,8 +94,8 @@
                 <p>the build fails with a number of &quot;duplicate class&quot; errors:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
-     data-theme="Confluence">[INFO] [compiler:compile {execution: default-compile}]
+<pre
+    >[INFO] [compiler:compile {execution: default-compile}]
 [DEBUG] Using compiler &#39;javac&#39;.
 [DEBUG] Source directories: [/bamboohome/xml-data/build-dir/MYPLAN-JOB1/mymodule/target/clover/src-instrumented
 /bamboohome/xml-data/build-dir/MYPLAN-JOB1/mymodule/src/main/java]
@@ -135,8 +135,8 @@
                 <p>Example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
     &lt;groupId&gt;org.jvnet.jaxb2.maven2&lt;/groupId&gt;
     &lt;artifactId&gt;maven-jaxb2-plugin&lt;/artifactId&gt;
     &lt;version&gt;0.8.0&lt;/version&gt;
@@ -164,8 +164,8 @@
                 </ul>
                 <p><strong><br/></strong></p>
                 <p>Example:<strong><br/></strong></p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>mvn clean jaxb2:generate clover:setup test clover:aggregate clover:clover</pre>
                     </div>
                 </div>
@@ -182,8 +182,8 @@
                 <p>Example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-     data-theme="Confluence">&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
+    >&lt;plugin&gt;
     &lt;groupId&gt;org.jvnet.jaxb2.maven2&lt;/groupId&gt;
     &lt;artifactId&gt;maven-jaxb2-plugin&lt;/artifactId&gt;
     &lt;version&gt;0.8.0&lt;/version&gt;
@@ -221,8 +221,8 @@
 &lt;/plugin&gt;</pre>
                     </div>
                 </div>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>mvn clean test clover:aggregate clover:clover</pre>
                     </div>
                 </div>
@@ -237,8 +237,8 @@
                 <p> </p>
                 <h3 id="DuplicateclasserrorswithCloverandJAXBorJAXB2plugin-Codesamples">Code samples</h3>
                 <p>Checkout sources of the <code>clover-maven-plugin</code>:</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
                         <pre>git clone https://github.com/openclover/clover-maven-plugin.git</pre>
                     </div>
                 </div>

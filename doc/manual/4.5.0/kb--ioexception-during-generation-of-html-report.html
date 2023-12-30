@@ -58,14 +58,14 @@
 
         <div id="content" class="view">
 
-            <div id="main-content" class="wiki-content group">
+            <div id="main-content">
                 <h4 id="IOExceptionduringgenerationofHTMLreport-Symptoms">Symptoms</h4>
                 <p>Generation of HTML Clover report throws IOException like follows:</p>
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence"
-     data-theme="Confluence">Writing HTML report to ...
+<pre data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence"
+    >Writing HTML report to ...
 
 javax.imageio.IIOException: Can&#39;t create output stream!
         at javax.imageio.ImageIO.write(ImageIO.java:1560)
@@ -102,8 +102,8 @@ Caused by: java.io.IOException: The filename, directory name, or volume label sy
                     Check write permission to this location.</p>
                 <p>Change to different location if necessary - either by declaring <em>TMP</em> variable or setting <em>-Djava.io.tmpdir
                     property</em> for java process.</p>
-                <div class="preformatted panel" style="border-width: 1px;">
-                    <div class="preformattedContent panelContent">
+                <div style="border-width: 1px;">
+                    <div>
 <pre>set TMP=c:\TEMP
 java -cp clover.jar com.atlassian.clover.reporters.html.HtmlReporter ...
 
