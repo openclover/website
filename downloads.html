@@ -15,28 +15,27 @@
     <link href="resources/css/style.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/"><img src="resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Overview</a></li>
-                <li><a href="features">Features</a></li>
-                <li class="active"><a href="downloads">Downloads</a></li>
-                <li><a href="documentation">Documentation</a></li>
-                <li><a href="support">Support</a></li>
-                <li><a href="blog">Blog</a></li>
+        <a class="navbar-brand" href="/"><img src="resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        <div class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="downloads">Downloads</a></li>
+                <li class="nav-item"><a class="nav-link" href="documentation">Documentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="support">Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog">Blog</a></li>
                 <!--<li><a href="faq">FAQ</a></li>-->
-                <li><a href="about-us">About us</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="about-us" id="navbarDropdown"
+                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="about-us">Development team</a></li>
+                        <li><a class="dropdown-item" href="privacy-policy">Privacy policy</a></li>
+                        <li><a class="dropdown-item" href="license">License information</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -317,156 +316,6 @@
             <td>11-Jul-2014</td>
             <td><a href="https://confluence.atlassian.com/display/CLOVER/Clover+4.0+Release+Notes">Release Notes</a></td>
         </tr>
-        <tr>
-            <td><b>Atlassian Clover&reg; 3.3.0</b></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-ant-3.3.0.zip">Ant</a></td>
-            <td><a href="https://search.maven.org/#artifactdetails%7Ccom.atlassian.maven.plugins%7Cmaven-clover2-plugin%7C3.3.0%7Cmaven-plugin">Maven</a></td>
-            <td><a href="https://grails.org/plugin/clover">Grails</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/com.cenqua.clover.updatesite_3.3.0.v20140331000000.zip">Eclipse</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-idea-3.3.0.jar">IDEA</a></td>
-            <td>31-Mar-2014</td>
-            <td><a href="https://confluence.atlassian.com/display/CLOVER/Clover+3.3+Release+Notes">Release Notes</a></td>
-        </tr>
-        <tr>
-            <td>Atlassian Clover&reg; 3.2.2</td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-ant-3.2.2.zip">Ant</a></td>
-            <td><a href="https://search.maven.org/#artifactdetails%7Ccom.atlassian.maven.plugins%7Cmaven-clover2-plugin%7C3.2.2%7Cmaven-plugin">Maven</a></td>
-            <td><a href="https://grails.org/plugin/clover">Grails</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/com.cenqua.clover.updatesite_3.2.2.v20140207000000.zip">Eclipse</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-idea-3.2.2.jar">IDEA</a></td>
-            <td>07-Feb-2014</td>
-            <td><a href="https://confluence.atlassian.com/display/CLOVER032/Changes+in+Clover-for-Ant+3.2.2">Changes</a></td>
-        </tr>
-        <tr>
-            <td>Atlassian Clover&reg; 3.2.1</td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-ant-3.2.1.zip">Ant</a></td>
-            <td><a href="https://search.maven.org/#artifactdetails%7Ccom.atlassian.maven.plugins%7Cmaven-clover2-plugin%7C3.2.1%7Cmaven-plugin">Maven</a></td>
-            <td><a href="https://grails.org/plugin/clover">Grails</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/com.cenqua.clover.updatesite_3.2.1.v20140110000000.zip">Eclipse</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-idea-3.2.1.jar">IDEA</a></td>
-            <td>10-Jan-2014</td>
-            <td><a href="https://confluence.atlassian.com/display/CLOVER032/Changes+in+Clover-for-Ant+3.2.1">Changes</a></td>
-        </tr>
-        <tr>
-            <td><b>Atlassian Clover&reg; 3.2.0</b></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-ant-3.2.0.zip">Ant</a></td>
-            <td><a href="https://search.maven.org/#artifactdetails%7Ccom.atlassian.maven.plugins%7Cmaven-clover2-plugin%7C3.2.0%7Cmaven-plugin">Maven</a></td>
-            <td><a href="https://grails.org/plugin/clover">Grails</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/com.cenqua.clover.updatesite_3.2.0.v20131021000000.zip">Eclipse</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-idea-3.2.0.jar">IDEA</a></td>
-            <td>21-Oct-2013</td>
-            <td><a href="https://confluence.atlassian.com/display/CLOVER/Clover+3.2+Release+Notes">Release Notes</a></td>
-        </tr>
-        <tr>
-            <td>Atlassian Clover&reg; 3.1.12</td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-ant-3.1.12.zip">Ant</a></td>
-            <td><a href="https://search.maven.org/#artifactdetails%7Ccom.atlassian.maven.plugins%7Cmaven-clover2-plugin%7C3.1.12%7Cmaven-plugin">Maven</a></td>
-            <td><a href="https://grails.org/plugin/clover">Grails</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/com.cenqua.clover.updatesite_3.1.12.v20130627000000.zip">Eclipse</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-idea-3.1.12.jar">IDEA</a></td>
-            <td>27-Jun-2013</td>
-            <td><a href="https://confluence.atlassian.com/display/CLOVER031/Changes+in+3.1.12+for+Ant">Changes</a></td>
-        </tr>
-        <tr>
-            <td>Atlassian Clover&reg; 3.1.11</td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-ant-3.1.11.zip">Ant</a></td>
-            <td><a href="https://search.maven.org/#artifactdetails%7Ccom.atlassian.maven.plugins%7Cmaven-clover2-plugin%7C3.1.11%7Cmaven-plugin">Maven</a></td>
-            <td><a href="https://grails.org/plugin/clover">Grails</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/com.cenqua.clover.updatesite_3.1.11.v20130325000000.zip">Eclipse</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-idea-3.1.11.jar">IDEA</a></td>
-            <td>25-Mar-2013</td>
-            <td><a href="https://confluence.atlassian.com/display/CLOVER031/Changes+in+3.1.11+for+Ant">Changes</a></td>
-        </tr>
-        <tr>
-            <td>Atlassian Clover&reg; 3.1.10</td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-ant-3.1.10.zip">Ant</a></td>
-            <td><a href="https://search.maven.org/#artifactdetails%7Ccom.atlassian.maven.plugins%7Cmaven-clover2-plugin%7C3.1.10%7Cmaven-plugin">Maven</a></td>
-            <td><a href="https://grails.org/plugin/clover">Grails</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/com.cenqua.clover.updatesite_3.1.10.v20130108000000.zip">Eclipse</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-idea-3.1.10.jar">IDEA</a></td>
-            <td>08-Jan-2013</td>
-            <td><a href="https://confluence.atlassian.com/display/CLOVER031/Changes+in+3.1.10+for+Ant">Changes</a></td>
-        </tr>
-        <tr>
-            <td>Atlassian Clover&reg; 3.1.8</td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-ant-3.1.8.zip">Ant</a></td>
-            <td><a href="https://search.maven.org/#artifactdetails%7Ccom.atlassian.maven.plugins%7Cmaven-clover2-plugin%7C3.1.8%7Cmaven-plugin">Maven</a></td>
-            <td><a href="https://grails.org/plugin/clover">Grails</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/com.cenqua.clover.updatesite_3.1.8.v20121113000000.zip">Eclipse</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-idea-3.1.8.jar">IDEA</a></td>
-            <td>13-Nov-2012</td>
-            <td><a href="https://confluence.atlassian.com/display/CLOVER031/Changes+in+3.1.8+for+Ant">Changes</a></td>
-        </tr>
-        <tr>
-            <td>Atlassian Clover&reg; 3.1.7</td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-ant-3.1.7.zip">Ant</a></td>
-            <td><a href="https://search.maven.org/#artifactdetails%7Ccom.atlassian.maven.plugins%7Cmaven-clover2-plugin%7C3.1.7%7Cmaven-plugin">Maven</a></td>
-            <td><a href="https://grails.org/plugin/clover">Grails</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/com.cenqua.clover.updatesite_3.1.7.v20120831000000.zip">Eclipse</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-idea-3.1.7.jar">IDEA</a></td>
-            <td>31-Aug-2012</td>
-            <td><a href="https://confluence.atlassian.com/display/CLOVER031/Changes+in+3.1.7+for+Ant">Changes</a></td>
-        </tr>
-        <tr>
-            <td>Atlassian Clover&reg; 3.1.6</td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-ant-3.1.6.zip">Ant</a></td>
-            <td><a href="https://search.maven.org/#artifactdetails%7Ccom.atlassian.maven.plugins%7Cmaven-clover2-plugin%7C3.1.6%7Cmaven-plugin">Maven</a></td>
-            <td><a href="https://grails.org/plugin/clover">Grails</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/com.cenqua.clover.updatesite_3.1.6.v20120619000000.zip">Eclipse</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-idea-3.1.6.jar">IDEA</a></td>
-            <td>19-Jun-2012</td>
-            <td><a href="https://confluence.atlassian.com/display/CLOVER031/Changes+in+3.1.6+for+Ant">Changes</a></td>
-        </tr>
-        <tr>
-            <td>Atlassian Clover&reg; 3.1.5</td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-ant-3.1.5.zip">Ant</a></td>
-            <td><a href="https://search.maven.org/#artifactdetails%7Ccom.atlassian.maven.plugins%7Cmaven-clover2-plugin%7C3.1.5%7Cmaven-plugin">Maven</a></td>
-            <td><a href="https://grails.org/plugin/clover">Grails</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/com.cenqua.clover.updatesite_3.1.5.v20120425000000.zip">Eclipse</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-idea-3.1.5.jar">IDEA</a></td>
-            <td>25-Apr-2012</td>
-            <td><a href="https://confluence.atlassian.com/display/CLOVER031/Changes+in+3.1.5+for+Ant">Changes</a></td>
-        </tr>
-        <tr>
-            <td>Atlassian Clover&reg; 3.1.4</td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-ant-3.1.4.zip">Ant</a></td>
-            <td><a href="https://search.maven.org/#artifactdetails%7Ccom.atlassian.maven.plugins%7Cmaven-clover2-plugin%7C3.1.4%7Cmaven-plugin">Maven</a></td>
-            <td><a href="https://grails.org/plugin/clover">Grails</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/com.cenqua.clover.updatesite_3.1.4.v20120227000000.zip">Eclipse</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-idea-3.1.4.jar">IDEA</a></td>
-            <td>27-Feb-2012</td>
-            <td><a href="https://confluence.atlassian.com/display/CLOVER031/Changes+in+3.1.4+for+Ant">Changes</a></td>
-        </tr>
-        <tr>
-            <td>Atlassian Clover&reg; 3.1.3</td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-ant-3.1.3.zip">Ant</a></td>
-            <td><a href="https://search.maven.org/#artifactdetails%7Ccom.atlassian.maven.plugins%7Cmaven-clover2-plugin%7C3.1.3%7Cmaven-plugin">Maven</a></td>
-            <td><a href="https://grails.org/plugin/clover">Grails</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/com.cenqua.clover.updatesite_3.1.3.v20120117000000.zip">Eclipse</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-idea-3.1.3.jar">IDEA</a></td>
-            <td>17-Jan-2012</td>
-            <td><a href="https://confluence.atlassian.com/display/CLOVER031/Changes+in+3.1.3+for+Ant">Changes</a></td>
-        </tr>
-        <tr>
-            <td>Atlassian Clover&reg; 3.1.2</td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-ant-3.1.2.zip">Ant</a></td>
-            <td><a href="https://search.maven.org/#artifactdetails%7Ccom.atlassian.maven.plugins%7Cmaven-clover2-plugin%7C3.1.2%7Cmaven-plugin">Maven</a></td>
-            <td><a href="https://grails.org/plugin/clover">Grails</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/com.cenqua.clover.updatesite_3.1.2.v20111107000000.zip">Eclipse</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-idea-3.1.2.jar">IDEA</a></td>
-            <td>07-Nov-2011</td>
-            <td><a href="https://confluence.atlassian.com/display/CLOVER031/Changes+in+3.1.2+for+Ant">Changes</a></td>
-        </tr>
-        <tr>
-            <td><b>Atlassian Clover&reg; 3.1.0</b></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-ant-3.1.0.zip">Ant</a></td>
-            <td><a href="https://search.maven.org/#artifactdetails%7Ccom.atlassian.maven.plugins%7Cmaven-clover2-plugin%7C3.1.0%7Cmaven-plugin">Maven</a></td>
-            <td><a href="https://grails.org/plugin/clover">Grails</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/com.cenqua.clover.updatesite_3.1.0.v20110602000000.zip">Eclipse</a></td>
-            <td><a href="https://www.atlassian.com/software/clover/downloads/binary/clover-idea-3.1.0.jar">IDEA</a></td>
-            <td>02-Jun-2011</td>
-            <td><a href="https://confluence.atlassian.com/display/CLOVER/Clover+3.1+Release+Notes">Release Notes</a></td>
-        </tr>
     </table>
 
     <h1>Source downloads</h1>
@@ -503,14 +352,14 @@
 
 <div class="container">
     <footer>
-        <p class="small text-muted">&copy; 2017-2020 Marek Parfianowicz. Atlassian&reg; and Atlassian Clover&reg; are registered trademarks of Atlassian (Australia). All other product
+        <p class="small text-muted">&copy; 2017-2024 Marek Parfianowicz. Atlassian&reg; and Atlassian Clover&reg; are registered trademarks of Atlassian (Australia). All other product
             and company names are trademarks or registered trademarks of their respective holders. They have been used
             for information purposes only and use of them does not imply any affiliation with or endorsement by them. </p>
     </footer>
 </div>
 
 <script src="resources/js/jquery-3.7.1.min.js"></script>
-<script src="resources/js/bootstrap.min.js"></script>
+<script src="resources/js/bootstrap.bundle.min.js"></script>
 <script src="resources/js/js.cookie.js"></script>
 <script src="resources/js/cookie.js"></script>
 </body>
