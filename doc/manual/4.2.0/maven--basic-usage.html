@@ -136,7 +136,7 @@
                     </li>
                     <li>The <strong>clover:clover</strong> goal generates an HTML, XML, PDF or JSON report.</li>
                 </ol>
-                <p><span class="confluence-anchor-link" id="Basicusage-run_via_pom"></span></p>
+                <p><span id="Basicusage-run_via_pom"></span></p>
                 <h2>Running Goals via pom.xml</h2>
                 <p>The goals described above can be executed by specifying them in your <code>pom.xml</code>.</p>
                 <p>To generate a Clover report when you run the <code>site</code> goal:</p>
@@ -221,7 +221,7 @@
                     clover:instrument vs clover:instrument-test</h2>
                 <div class="confluence-information-macro confluence-information-macro-information"><span
                         class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-                    <div class="confluence-information-macro-body"><p>The <strong>clover:setup</strong> goal performs
+                    <div><p>The <strong>clover:setup</strong> goal performs
                         instrumentation in the main build life cycle, therefore it's not recommended to use it together
                         with 'install' or 'deploy' goals (unless this is your intention). The benefit of this approach
                         is that build is made only once. Furthermore, clover:setup supports instrumentation of Groovy
@@ -245,9 +245,9 @@
                         </p></div>
                 </div>
                 <h2>How to manage instrumented code</h2>
-                <div class="confluence-information-macro confluence-information-macro-warning"><span
-                        class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span>
-                    <div class="confluence-information-macro-body"><p>As Clover integration produces instrumented
+                <div><span
+                       ></span>
+                    <div><p>As Clover integration produces instrumented
                         classes, we recommend to ensure that you do not install them to production (for instance: <em>'mvn
                             deploy'</em> to public repository, <em>'scp'</em> to an application server running on
                         production, etc). Having instrumented code in such location(s) is usually not desired.</p>

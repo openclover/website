@@ -73,7 +73,7 @@
                     language. A full list of supported Block Contexts is shown below.</p>
                 <div class="confluence-information-macro confluence-information-macro-information"><span
                         class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-                    <div class="confluence-information-macro-body"><p>Clover's block context feature currently does not
+                    <div><p>Clover's block context feature currently does not
                         support Groovy.</p></div>
                 </div>
                 <div class="table-wrap">
@@ -176,17 +176,17 @@
                 </div>
                 <p>A method signature includes all annotations, modifiers (public, static, final etc), the return type,
                     the method name, parameter types and names, the throws clause and exceptions.</p>
-                <div class="confluence-information-macro confluence-information-macro-note"><p class="title">Note</p>
-                    <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
-                    <div class="confluence-information-macro-body"><p>When matching method signatures against context
+                <div><p class="title">Note</p>
+                    <span ></span>
+                    <div><p>When matching method signatures against context
                         regexps, whitespace is normalized and comments are ignored.</p></div>
                 </div>
                 <p>You can define your own method contexts via the <code>&lt;methodContext&gt;</code> sub-element of
                     <code>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;</code>, or via the configuration
                     panel of your Clover IDE Plugin.</p>
-                <div class="confluence-information-macro confluence-information-macro-note"><p class="title">Note</p>
-                    <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
-                    <div class="confluence-information-macro-body"><p>Contexts are matched against your source at
+                <div><p class="title">Note</p>
+                    <span ></span>
+                    <div><p>Contexts are matched against your source at
                         <strong>instrumentation-time</strong>. This means you need to <strong>re-instrument your
                             code</strong> after defining a new context.</p></div>
                 </div>
@@ -285,7 +285,7 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                 <h2>Statement Contexts</h2>
                 <div class="confluence-information-macro confluence-information-macro-information"><span
                         class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-                    <div class="confluence-information-macro-body"><p>Clover's statement context feature currently does
+                    <div><p>Clover's statement context feature currently does
                         not support Groovy.</p></div>
                 </div>
                 <p>A Statement Context represents the set of statements that match a given pattern. For example, you
@@ -351,9 +351,9 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                         style="color: rgb(0,0,255);">.*</span></strong>logger\.debug.*&quot;, then it would match also
                     outer statements.</p>
                 <h2>Using Context Filters</h2>
-                <div class="confluence-information-macro confluence-information-macro-note"><p class="title">Note</p>
-                    <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
-                    <div class="confluence-information-macro-body"><p>This section describes using context filters with
+                <div><p class="title">Note</p>
+                    <span ></span>
+                    <div><p>This section describes using context filters with
                         Ant. For details of using filters with the IDE plugins, see the individual documentation for the
                         plugin.</p></div>
                 </div>

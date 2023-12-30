@@ -171,12 +171,12 @@
                 <p> </p>
                 <div class="confluence-information-macro confluence-information-macro-information"><span
                         class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-                    <div class="confluence-information-macro-body"><p>Confused which scenario you shall use? Have a
+                    <div><p>Confused which scenario you shall use? Have a
                         quick look at the <a href="#UsingCloverinvariousenvironmentconfigurations-DecisionMatrix">Decision
                             Matrix</a>.</p></div>
                 </div>
                 <p> </p>
-                <p><span style="color: rgb(255,0,0);"><span class="confluence-anchor-link"
+                <p><span style="color: rgb(255,0,0);"><span
                                                             id="UsingCloverinvariousenvironmentconfigurations-DecisionMatrix"></span> </span>
                 </p>
                 <h1>Decision matrix</h1><h4
@@ -484,7 +484,7 @@
                 </ul>
                 <h2>Overview chart</h2>
                 <p><strong><span style="color: rgb(255,0,0);"><span><img
-                        class="confluence-embedded-image" confluence-query-params="effects=border-simple,shadow-kn"
+                        confluence-query-params="effects=border-simple,shadow-kn"
                         src="attachments/294489251/294912829.png?effects=border-simple,shadow-kn"
 
 
@@ -588,7 +588,7 @@
                 </ul>
                 <h2>Overview chart</h2>
                 <p><span style="color: rgb(255,0,0);"><span><img
-                        class="confluence-embedded-image" confluence-query-params="effects=border-simple,shadow-kn"
+                        confluence-query-params="effects=border-simple,shadow-kn"
                         src="attachments/294489251/294912832.png?effects=border-simple,shadow-kn"
 
 
@@ -703,7 +703,7 @@
                 </ul>
                 <h2>Overview chart</h2>
                 <p><span style="color: rgb(255,0,0);"><span><img
-                        class="confluence-embedded-image" confluence-query-params="effects=border-simple,shadow-kn"
+                        confluence-query-params="effects=border-simple,shadow-kn"
                         src="attachments/294489251/294912833.png?effects=border-simple,shadow-kn"
 
 
@@ -879,7 +879,7 @@ app2/moduleB/clover.db</pre>
                 </ul>
                 <h2>Overview chart</h2>
                 <p><span style="color: rgb(255,0,0);"><span><img
-                        class="confluence-embedded-image" confluence-query-params="effects=border-simple,shadow-kn"
+                        confluence-query-params="effects=border-simple,shadow-kn"
                         src="attachments/294489251/294912834.png?effects=border-simple,shadow-kn"
 
 
@@ -950,10 +950,10 @@ app2/moduleB/clover.db</pre>
                 <p>You don't have to provide any runtime options for JVM. They're already compiled in the code.</p>
                 <p> </p>
                 <p><strong>Potential problems</strong></p>
-                <div class="confluence-information-macro confluence-information-macro-warning"><p class="title">Server
+                <div><p class="title">Server
                     does not wait for clients, despite having numClients != 0 in build configuration</p><span
-                        class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span>
-                    <div class="confluence-information-macro-body"><p>Do not use <code class="java plain">-Dclover.distributed.coverage=ON</code>
+                       ></span>
+                    <div><p>Do not use <code class="java plain">-Dclover.distributed.coverage=ON</code>
                         runtime option if numClients!=0 was set in instrumentation. The
                         <em>clover.distributed.coverage</em> provided at runtime will override <em>numClients</em>
                         setting from instrumentation, setting it to 0. As a consequence your tests on server will start
@@ -968,10 +968,10 @@ app2/moduleB/clover.db</pre>
                         </ul>
                     </div>
                 </div>
-                <div class="confluence-information-macro confluence-information-macro-warning"><p class="title">
+                <div><p class="title">
                     Execution of tests hangs when with numClients != 0</p><span
-                        class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span>
-                    <div class="confluence-information-macro-body"><p>It can happen that your server will wait for
+                       ></span>
+                    <div><p>It can happen that your server will wait for
                         clients to connect, while clients will wait until server starts unit test execution. This is a
                         typical case for web applications running in container (like Tomcat, JBoss), when your unit test
                         calls a servlet class (e.g. via HTTP request). The issue is as follows:</p>
@@ -1048,7 +1048,7 @@ app2/moduleB/clover.db</pre>
                 <p><span style="color: rgb(255,0,0);"> </span></p>
                 <div class="confluence-information-macro confluence-information-macro-information"><span
                         class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-                    <div class="confluence-information-macro-body"><p>More information about format of report descriptor
+                    <div><p>More information about format of report descriptor
                         can be found here:</p>
                         <ul>
                             <li><a
@@ -1077,7 +1077,7 @@ app2/moduleB/clover.db</pre>
                 </ul>
                 <h2>Overview chart</h2>
                 <p><span style="color: rgb(255,0,0);"><span><img
-                        class="confluence-embedded-image" confluence-query-params="effects=border-simple,shadow-kn"
+                        confluence-query-params="effects=border-simple,shadow-kn"
                         src="attachments/294489251/294912835.png?effects=border-simple,shadow-kn"
 
 

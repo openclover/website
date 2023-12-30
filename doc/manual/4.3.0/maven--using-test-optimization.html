@@ -65,9 +65,9 @@
                     of only the code which has changed since the last build.</p>
                 <p>This page contains the basic steps for adding Clover's Test Optimization to an existing Maven
                     configuration.</p>
-                <div class="confluence-information-macro confluence-information-macro-note"><span
-                        class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
-                    <div class="confluence-information-macro-body"><p>WARNING: Clover's build optimization in Maven runs
+                <div><span
+                        ></span>
+                    <div><p>WARNING: Clover's build optimization in Maven runs
                         in the default build lifecycle - not the forked Clover lifecycle. Please pay attention not to
                         deploy clovered artifacts to your repository. Test Optimization is only recommended for saving
                         time during development - not production deployment.</p></div>
@@ -150,7 +150,7 @@
                 <h2>Test Optimization In-Action</h2>
                 <p>The first time Clover Test Optimization is used a full test run will be done. You should see the
                     following log message appear in the maven stdout:</p>
-                <p><span><img class="confluence-embedded-image"
+                <p><span><img
                                                                        src="attachments/170492714/317165315.png"
 
 
@@ -166,7 +166,7 @@
                 <p> </p>
                 <p>If you then rerun the build, without modifying any source files (and ensuring the snapshot file is
                     not deleted) you should see the following:</p>
-                <p><span><img class="confluence-embedded-image"
+                <p><span><img
                                                                        src="attachments/170492714/317165316.png"
 
 
@@ -182,7 +182,7 @@
                 <p> </p>
                 <p>If a source file is modified in any way (including whitespace changes), and you re-run the build,
                     only TestCases that cover the modified file will be run, for instance:</p>
-                <p><span><img class="confluence-embedded-image"
+                <p><span><img
                                                                        src="attachments/170492714/317165317.png"
 
 
@@ -204,7 +204,7 @@
                 <p>TIP: If your terminal supports ANSI escape sequences (OS X, Linux by default), supply the
                     <code><strong>-Dansi.color=true</strong></code> property on the command line to have your build
                     optimization in full color.</p>
-                <p><span><img class="confluence-embedded-image"
+                <p><span><img
                                                                        src="attachments/170492714/317165318.png"
 
 

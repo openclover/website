@@ -160,7 +160,7 @@
                                 href="#clover-report-clover-report">clover-report</a>&gt;</p>
                     </div>
                 </div>
-                <p><span class="confluence-anchor-link" id="clover-report-clover-report"></span></p>
+                <p><span id="clover-report-clover-report"></span></p>
                 <h1 id="clover-report-Parameters">Parameters</h1>
                 <p>The <code>&lt;clover-report&gt;</code> task generates <a href="general--understanding-reports-current.html">current</a> and <a
                         href="general--understanding-reports-historical.html">historical</a> reports in multiple formats. Parameters for &lt;clover-report&gt;:
@@ -210,7 +210,7 @@
                     specifying more than one of these inside a <code>&lt;clover-report&gt;</code> element. Each report
                     will contain links to the other reports. See <a href="ant--clover-report.html">clover-report</a>.
                       <span
-                            class="confluence-anchor-link" id="clover-report-Current"></span></p>
+                            id="clover-report-Current"></span></p>
                 <h2>&lt;current&gt;</h2>
                 <p>Generates a current coverage report. Specify the report format using a nested <a
                         href="#clover-report-Format">Format</a> element. Valid formats are XML, HTML, PDF and JSON,
@@ -340,16 +340,16 @@
                 <p>These elements represent individual sections of the 'current' report. If you do not specify any of
                     these elements, all the sections will be included in the report. If you specify more one or more of
                     these elements, only the specified sections will be included.</p>
-                <div class="confluence-information-macro confluence-information-macro-note"><span
-                        class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
-                    <div class="confluence-information-macro-body"><p>You may specify multiple &lt;overview&gt; and &lt;coverage&gt;
+                <div><span
+                        ></span>
+                    <div><p>You may specify multiple &lt;overview&gt; and &lt;coverage&gt;
                         elements in the 'current' report. These may have different properties and include different
                         elements. The charts will appear in the report in the same order they appear in the &lt;current&gt;
                         element. The &lt;movers&gt; element always appears at the end of the report following these
                         charts regardless of its location in the &lt;current&gt; element.</p></div>
                 </div>
                 <p> </p>
-                <h3><span class="confluence-anchor-link"
+                <h3><span
                                                                     id="clover-report-Columns"></span> &lt;columns&gt;
                 </h3>
                 <p>Specifies the data columns to be included on summary pages. If not specified, default columns will be
@@ -371,7 +371,7 @@
                 <p>Note that <code>bar</code> and <code>%</code> are not valid formats for total columns.</p>
                 <p>All column elements also take <code>max</code> and/or <code>min</code> threshold attributes. If the
                     value for the column is outside the threshold, the value will be highlighted.</p>
-                <p><span class="confluence-anchor-link" id="clover-report-columnNames"></span></p>
+                <p><span id="clover-report-columnNames"></span></p>
                 <p><strong>Table of Column Names</strong></p>
                 <div class="table-wrap">
                     <table>
@@ -603,7 +603,7 @@
                     </table>
                 </div>
                 <p>  <span
-                        class="confluence-anchor-link" id="clover-report-CloverEL"></span><br/> <strong>Clover
+                        id="clover-report-CloverEL"></span><br/> <strong>Clover
                     Expression Language</strong><br/> Clover Expression Language enables you to combine any of Clover's
                     built-in column types to produce a custom column. The following arithmetic operators are available:
                     +, - , *, /, ^, (). Any of Clover's columns may be referenced.<br/> A percentage sign, '%', before a
@@ -620,7 +620,7 @@
                     </div>
                 </div>
                 </p><h3> <span
-                    class="confluence-anchor-link" id="clover-report-Fileset"></span> &lt;fileset&gt;</h3>
+                    id="clover-report-Fileset"></span> &lt;fileset&gt;</h3>
                 <p>&lt;current&gt; supports nested filesets which control which source files are to be included in a
                     report. Only classes which are from the source files in the fileset are included in the report. This
                     allows reports to focus on certain packages or particular classes. By using <a
@@ -628,7 +628,7 @@
                                                                                                    rel="nofollow">Ant
                         fileset</a> selectors, more complicated selections are possible, such as the files which have
                     recently changed, or files written by a particular author.</p>
-                <h3><span class="confluence-anchor-link"
+                <h3><span
                                                                           id="clover-report-current-format"></span> &lt;format&gt;
                 </h3>
                 <p>Specifies the output format and various options controlling the rendering of a report.
@@ -736,7 +736,7 @@
                     </table>
                 </div>
                 <p><strong><br/></strong></p></p><h3><br
-                    class="atl-forced-newline"/> <span class="confluence-anchor-link"
+                    class="atl-forced-newline"/> <span
                                                        id="clover-report-Sourcepath"></span> &lt;sourcepath&gt;</h3>
                 <p>Specifies an Ant path that Clover should use when looking for source files. This option is useful
                     when sources are located in a different directory than during compilation.</p>
@@ -767,7 +767,7 @@
                     </div>
                 </div>
                 <h3> <span
-                        class="confluence-anchor-link" id="clover-report-Testsources"></span> &lt;testsources&gt;</h3>
+                        id="clover-report-Testsources"></span> &lt;testsources&gt;</h3>
                 <p><code>&lt;testsources&gt;</code> is an <a
                                                              href="https://ant.apache.org/manual/Types/fileset.html"
                                                              rel="nofollow">Ant fileset</a> that can be used to
@@ -776,7 +776,7 @@
                             href="ant--clover-test-detection.html">default test detection algorithm</a> will be
                     used to distinguish test sources.</p>
                 <h3> <span
-                        class="confluence-anchor-link" id="clover-report-Testresults"></span> &lt;testresults&gt;</h3>
+                        id="clover-report-Testresults"></span> &lt;testresults&gt;</h3>
                 <p><code>&lt;testresults&gt;</code> is an optional <a
                                                                       href="https://ant.apache.org/manual/Types/fileset.html"
                                                                       rel="nofollow">Ant fileset</a> that Clover uses to
@@ -787,7 +787,7 @@
                     results will provide all required information in the majority of cases. For more details please see
                     '<a href="ant--test-results-and-per-test-coverage.html">Advanced Usage</a>'. <br
                             class="atl-forced-newline"/>  <span
-                            class="confluence-anchor-link" id="clover-report-Historical"></span></p>
+                            id="clover-report-Historical"></span></p>
                 <h2>&lt;historical&gt;</h2>
                 <p>Generates a historical coverage report. Specify the report format using a nested Format element (see
                     below). Valid formats are HTML or PDF. The default format is HTML. Contents of the historical report
@@ -912,7 +912,7 @@
                     always appears at the end of the report following these charts regardless of its location in the
                     <code>&lt;historical&gt;</code> element.</p>
                 <p> </p>
-                <h3><span class="confluence-anchor-link"
+                <h3><span
                                                                 id="clover-report-added"></span> &lt;added&gt;</h3>
                 <p><code>&lt;added&gt;</code> displays new classes for the given column.
                 <p> </p>
@@ -964,7 +964,7 @@
                         data-emoticon-name="information" alt="(info)"/> No more than one additional column can be
                     attached to &lt;added&gt;. The 'added' classes table will always appear above the Movers section in
                     the report - regardless of its order in the XML.</p>
-                <p> </p></p><h3><span class="confluence-anchor-link"
+                <p> </p></p><h3><span
                                                                             id="clover-report-Chart"></span> &lt;chart&gt;
             </h3>
                 <p>A custom chart.
@@ -1027,7 +1027,7 @@
                     'raw', or '%'. The supported columns are identical to <a href="ant--clover-report.html">columns in the &lt;current&gt;element</a>.
                     If no columns nested element is supplied, then the default columns from the &lt;coverage&gt; element
                     are used.</p></p><h3><span
-                    class="confluence-anchor-link" id="clover-report-Coverage"></span> &lt;coverage&gt;</h3>
+                    id="clover-report-Coverage"></span> &lt;coverage&gt;</h3>
                 <ul>
                     <li>Note that the 'include' attribute from Clover 2.0 has been replaced by the &lt;columns&gt;
                         element.
@@ -1036,7 +1036,7 @@
                 <p>Specifies a chart showing percentage coverage over time.</p>
                 <p>This element does not support any attributes. The default behavior is that everything is
                     included.</p>
-                <h3><span class="confluence-anchor-link"
+                <h3><span
                                                                   id="clover-report-Format"></span> &lt;format&gt;</h3>
                 <p>Specifies the output format and various options controlling the rendering of a report.
                 <p><strong>Parameters for &lt;format&gt;</strong></p>
@@ -1143,7 +1143,7 @@
                     </table>
                 </div>
                 <p><strong><br/></strong></p></p><h3><span
-                    class="confluence-anchor-link" id="clover-report-Metrics"></span> &lt;metrics&gt;</h3>
+                    id="clover-report-Metrics"></span> &lt;metrics&gt;</h3>
                 <ul>
                     <li>Note that the 'include' attribute from Clover 2.0 has been replaced by the &lt;columns&gt;
                         element.
@@ -1170,7 +1170,7 @@
                     </table>
                 </div>
                 <p>The default metrics included in the chart are <code>loc, ncloc, methods and classes.</code></p>
-                <h3><span class="confluence-anchor-link"
+                <h3><span
                                                                   id="clover-report-Movers"></span> &lt;movers&gt;</h3>
                 <p>Specifies a table that shows those classes that have a coverage delta higher than a specified
                     threshold over a specified time period. This can be specified multiple times, to track project
@@ -1209,11 +1209,11 @@
                         </tbody>
                     </table>
                 </div>
-                <p><span class="confluence-anchor-link"></span><br/> <strong>Nested elements
+                <p><span></span><br/> <strong>Nested elements
                     of &lt;movers&gt;</strong></p>
                 <p>The &lt;movers&gt; element can take a single <a href="ant--clover-report.html">column</a> element, allowing you to
                     add one additional metric to the data shown in &lt;movers&gt;.</p>
-                <p><span class="confluence-anchor-link" id="clover-report-movers-totalStatements"></span><br/> <strong>Example:
+                <p><span id="clover-report-movers-totalStatements"></span><br/> <strong>Example:
                     &lt;totalStatements&gt;</strong></p>
                 <p>You could add totalStatements to &lt;movers&gt; with the following code.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -1230,7 +1230,7 @@
                 <p><img src="images/icons/emoticons/information.png"
                         data-emoticon-name="information" alt="(info)"/> No more than one additional column can be added
                     to &lt;movers&gt;.</p></p><h3><span
-                    class="confluence-anchor-link" id="clover-report-historical-overview"></span> &lt;overview&gt;</h3>
+                    id="clover-report-historical-overview"></span> &lt;overview&gt;</h3>
                 <p>Specifies a section that provides summary of the total percentage coverage at the last history point.
                     This element does not support any attributes.</p>
                 <h1 id="clover-report-Examples">Examples</h1>
@@ -1388,7 +1388,7 @@
                     excluded, from being included in the report. It is prudent, however, to delete the coverage
                     database, coverage information and recompile when you change these settings.</p>
                 <p>  <span
-                        class="confluence-anchor-link" id="clover-report-customisedColumnsExample"></span></p>
+                        id="clover-report-customisedColumnsExample"></span></p>
                 <h2>Example of customizing columns</h2>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -1409,7 +1409,7 @@
                 <p>Generates a HTML report that will only include a bar chart showing the percentage of methods covered,
                     the actual percentage of statements covered and the actual number of branches covered. If less than
                     75% of methods are covered, those values will be highlighted.  <br
-                            class="atl-forced-newline"/> <span class="confluence-anchor-link"
+                            class="atl-forced-newline"/> <span
                                                                id="clover-report-linkedReportExample"></span></p>
                 <h2>Example of linked reports</h2>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -1435,7 +1435,7 @@
                 </div>
                 <p>Generates two HTML reports. Each of these reports will contain a link to the other. <br
                         class="atl-forced-newline"/>  <span
-                        class="confluence-anchor-link" id="clover-report-historyReportExamples"></span></p>
+                        id="clover-report-historyReportExamples"></span></p>
                 <h2>Examples of Historical Report
                     Configurations</h2>
                 <div class="code panel pdl" style="border-width: 1px;">

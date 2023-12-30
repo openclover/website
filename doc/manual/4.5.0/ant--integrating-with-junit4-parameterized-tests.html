@@ -110,7 +110,7 @@ public class PersonTest {
                     recording test results for them. However, till Clover 3.3.0 there's was no information about which
                     test iteration has failed - all test iterations had the same same:</p>
                 <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
-                        class="confluence-embedded-image" width="750"
+                        width="750"
                         confluence-query-params="effects=border-simple,shadow-kn"
                         src="attachments/487096327/487325697.png?effects=border-simple,shadow-kn"
 
@@ -125,7 +125,7 @@ public class PersonTest {
                     JUnit's runner. It &quot;listens&quot; which test is being executed and what runtime name it has
                     (evaluated by JUnit). Thanks to this, you can see an iteration number:</p>
                 <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
-                        class="confluence-embedded-image" width="750"
+                        width="750"
                         confluence-query-params="effects=border-simple,shadow-kn"
                         src="attachments/487096327/487325698.png?effects=border-simple,shadow-kn"
 
@@ -138,7 +138,7 @@ public class PersonTest {
                 <p> </p>
                 <p>as well as full test names (<em>@Parameters(name=...)</em>) in the reports:</p>
                 <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
-                        class="confluence-embedded-image" width="750"
+                        width="750"
                         confluence-query-params="effects=border-simple,shadow-kn"
                         src="attachments/487096327/487325699.png?effects=border-simple,shadow-kn"
 
@@ -176,7 +176,7 @@ public class RunJUnit4WithClover {
                 <div class="confluence-information-macro confluence-information-macro-information"><p class="title">
                     LIMITATION</p><span
                         class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-                    <div class="confluence-information-macro-body"><p>Clover's JUnitTestRunnerInterceptor can correctly
+                    <div><p>Clover's JUnitTestRunnerInterceptor can correctly
                         handle parameterized test names when test methods from a single test case class are executed
                         sequentially. It means that you shall not use a test runner which will run all iterations in
                         parallel.</p>

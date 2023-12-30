@@ -94,10 +94,10 @@
                 <p>The required memory can be increased by setting the <code>-XX:MaxPermSize</code> setting on the JVM.
                     Add proper toggle for 'java' command call or set JAVA_OPTS, ANT_OPTS, MAVEN_OPTS depending on the
                     build tool you use.</p>
-                <div class="confluence-information-macro confluence-information-macro-note"><p class="title">Forking
+                <div><p class="title">Forking
                     Processes</p><span
-                        class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
-                    <div class="confluence-information-macro-body"><p>It's important to note that some Maven plugins
+                        ></span>
+                    <div><p>It's important to note that some Maven plugins
                         (such as Surefire or Failsafe) will fork the JVM process and <code>MAVEN_OPTS</code> may not
                         take effect. If you are experiencing issues using Maven plugins even after you've set <code>MAVEN_OPTS</code>
                         for your build, you will likely need to set the <code>-XX:MaxPermSize</code> setting in the
