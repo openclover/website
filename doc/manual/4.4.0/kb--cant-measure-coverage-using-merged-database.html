@@ -59,7 +59,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h4 id="Can&#39;tmeasurecoverageusingmergeddatabase-Symptoms">Symptoms</h4>
+                <h4>Symptoms</h4>
                 <p>Several Clover databases created during instrumentation are merged into one. Next such merged
                     database is used to run instrumented application. During application startup a following message
                     appears:</p>
@@ -75,11 +75,11 @@ gathering.
 </pre>
                     </div>
                 </div>
-                <p> </p><h4 id="Can&#39;tmeasurecoverageusingmergeddatabase-Cause">Cause</h4>
+                <p> </p><h4>Cause</h4>
                 <p>It is possible to merge several Clover databases into one in order to have a single coverage report.
                     However, such merged database becomes 'read-only' and cannot be used for further code coverage
                     gathering.</p>
-                <p> </p><h4 id="Can&#39;tmeasurecoverageusingmergeddatabase-Resolution">Resolution</h4>
+                <p> </p><h4>Resolution</h4>
                 <p>Use original non-merged databases for execution of application module(s).</p>
                 <p> </p>
                 <p>Alternatively, it's possible to create a single database for several application modules during

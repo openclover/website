@@ -70,7 +70,7 @@
                     have a unique name. At report time, you can specify which contexts you would like to exclude in the
                     coverage report.</p>
                 <p> </p>
-                <h2 id="UsingCoverageContexts-BlockContexts">Block Contexts</h2>
+                <h2>Block Contexts</h2>
                 <p>Block Contexts are pre-defined by Clover. They represent 'block' syntactic constructs in the Java
                     language. A full list of supported Block Contexts is shown below.</p>
                 <div class="confluence-information-macro confluence-information-macro-information"><span
@@ -152,7 +152,7 @@
                         </tbody>
                     </table>
                 </div>
-                <h2 id="UsingCoverageContexts-MethodContexts">Method Contexts</h2>
+                <h2>Method Contexts</h2>
                 <p>A Method Context represents the set of methods whose signature matches a given pattern. Clover
                     provides several pre-defined method contexts:</p>
                 <div class="table-wrap">
@@ -192,7 +192,7 @@
                         <strong>instrumentation-time</strong>. This means you need to <strong>re-instrument your
                             code</strong> after defining a new context.</p></div>
                 </div>
-                <h4 id="UsingCoverageContexts-MethodContextswithGroovycode">Method Contexts with Groovy code</h4>
+                <h4>Method Contexts with Groovy code</h4>
                 <p>While <a  href="http://groovy-lang.org/" rel="nofollow">Groovy syntax</a> is
                     flexible in nature, the regular expressions defined in the <code>regexp</code> parameters of <code>&lt;methodContext&gt;</code>
                     elements must match a 'normalized' method signature.</p>
@@ -286,7 +286,7 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     </div>
                 </div>
                 <p> </p>
-                <h2 id="UsingCoverageContexts-StatementContexts">Statement Contexts</h2>
+                <h2>Statement Contexts</h2>
                 <div class="confluence-information-macro confluence-information-macro-information"><span
                         class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div class="confluence-information-macro-body"><p>Clover's statement context feature currently does
@@ -354,14 +354,14 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                 <p>Note that if the expression would be written as &quot;^<strong><span
                         style="color: rgb(0,0,255);">.*</span></strong>logger\.debug.*&quot;, then it would match also
                     outer statements.</p>
-                <h2 id="UsingCoverageContexts-UsingContextFilters">Using Context Filters</h2>
+                <h2>Using Context Filters</h2>
                 <div class="confluence-information-macro confluence-information-macro-note"><p class="title">Note</p>
                     <span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
                     <div class="confluence-information-macro-body"><p>This section describes using context filters with
                         Ant. For details of using filters with the IDE plugins, see the individual documentation for the
                         plugin.</p></div>
                 </div>
-                <h4 id="UsingCoverageContexts-Filteringcatchblocks">Filtering catch blocks</h4>
+                <h4>Filtering catch blocks</h4>
                 <p>In some cases you may not be interested in the coverage of statements inside catch blocks. To filter
                     them, you can use Clover's predefined <code>catch</code> context to exclude statements inside catch
                     blocks from a coverage report:</p>
@@ -377,7 +377,7 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                     </div>
                 </div>
                 <p>This generates a source-level HTML report that excludes coverage from statements inside catch
-                    blocks.</p><h4 id="UsingCoverageContexts-Filteringsimplemethods">Filtering simple methods</h4>
+                    blocks.</p><h4>Filtering simple methods</h4>
                 <p>In order to filter-out simple getters and setters you can use built-in &quot;property&quot; method
                     context. </p>
                 <p>You can define also own filter, based on cyclomatic complexity and/or number of statements. For
@@ -391,7 +391,7 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
 &lt;/clover-setup&gt;</pre>
                     </div>
                 </div>
-                <p> </p><h4 id="UsingCoverageContexts-Filteringloggingstatements">Filtering logging statements</h4>
+                <p> </p><h4>Filtering logging statements</h4>
                 <p>To remove logging statements for coverage reports, you will need to define one or more statement
                     contexts that match logging statements in your source:</p>
                 <div class="code panel pdl" style="border-width: 1px;">

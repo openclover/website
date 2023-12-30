@@ -59,7 +59,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h3 id="DuplicateclasserrorswithCloverandJAXBorJAXB2plugin-Symptoms">Symptoms</h3>
+                <h3>Symptoms</h3>
                 <p>Project uses JAXB or JAXB2 plugin, which generates sources into <strong>src/main/java</strong>
                     directory:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -110,7 +110,7 @@
 </pre>
                     </div>
                 </div>
-                <h3 id="DuplicateclasserrorswithCloverandJAXBorJAXB2plugin-Cause">Cause</h3>
+                <h3>Cause</h3>
                 <p>A build has a following sequence of events:</p>
                 <p>1. <strong><em>clover:setup</em></strong> is called - Clover instruments regular sources found in
                     'src/main/java' and changes the source root from 'src/main/java' to 'target/clover/src-instrumented'<br/>
@@ -119,7 +119,7 @@
                     source roots - 'src/main/java' and 'target/clover/src-instrumented' - thus it gets &quot;regular&quot;
                     sources twice (original and instrumented), what leads to the duplicate class error</p>
                 <p> </p>
-                <h3 id="DuplicateclasserrorswithCloverandJAXBorJAXB2plugin-Resolution">Resolution</h3>
+                <h3>Resolution</h3>
                 <p>There are three solutions possible:</p>
                 <p> </p>
                 <p><strong>1. Use separate source root for generated sources</strong></p>
@@ -227,7 +227,7 @@
                     </div>
                 </div>
                 <p> </p>
-                <h3 id="DuplicateclasserrorswithCloverandJAXBorJAXB2plugin-References">References</h3>
+                <h3>References</h3>
                 <ul>
                     <li><a href="maven--using-with-the-maven-jaxb2-plugin.html">Using
                         Clover with JAXB plugin</a></li>
@@ -235,7 +235,7 @@
                         class errors with Clover and jaxws-maven plugin</a></li>
                 </ul>
                 <p> </p>
-                <h3 id="DuplicateclasserrorswithCloverandJAXBorJAXB2plugin-Codesamples">Code samples</h3>
+                <h3>Code samples</h3>
                 <p>Checkout sources of the <code>clover-maven-plugin</code>:</p>
                 <div style="border-width: 1px;">
                     <div>

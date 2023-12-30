@@ -117,7 +117,7 @@
                     </ul>
                 </div>
                 </p><h1 id="CloverPerformanceTuning-Tipsforimprovingperformance">Tips for improving performance</h1>
-                <h2 id="CloverPerformanceTuning-Configure&#39;Uniqueper-testcoverage&#39;trackinginHTMLreport">Configure
+                <h2>Configure
                     'Unique per-test coverage' tracking in HTML report</h2>
                 <p>Unique coverage relates to a line of code that was hit by only one test. Unique coverage tracking can
                     be switched off to reduce CPU &amp; memory usage when running Clover. You can configure unique
@@ -129,7 +129,7 @@
                         HTML report in Clover-for-Ant</a></li>
                     <li><a href="ant--clover-report.html">The Current report in Clover-for-Ant</a></li>
                 </ul>
-                <h2 id="CloverPerformanceTuning-SetInstrumentationto&quot;methodlevel&quot;(whenusingTestOptimization)">
+                <h2>
                     Set Instrumentation to &quot;method level&quot; (when using Test Optimization)</h2>
                 <p>If you use Clover in your build purely for Test Optimization purposes and not for coverage reporting,
                     you can reduce the granularity of Clover instrumentation from statement to method level. The '<code>instrumentationLevel</code>'
@@ -144,7 +144,7 @@
                     <li><a href="ant--clover-instr.html">clover-instr</a> (Clover instrumentation)</li>
                 </ul>
                 <p>See the <a href="ant--task-reference.html">Ant Task Reference</a> for more information.</p>
-                <h2 id="CloverPerformanceTuning-Selectper-testcoveragerecordingstrategy">Select per-test coverage
+                <h2>Select per-test coverage
                     recording strategy</h2>
                 <p>During your test runs, Clover tries to record total code coverage and per-test code coverage as
                     efficiently as possible but defaults to settings best for applications which are not highly CPU
@@ -182,7 +182,7 @@
                         variable or to Maven through the MAVEN_OPTS variable.
                     </li>
                 </ul>
-                <h2 id="CloverPerformanceTuning-RelatedLinks">Related Links</h2>
+                <h2>Related Links</h2>
                 <ul>
                     <li><a href="eclipse--performance-tuning.html">Performance Tuning in Clover
                         for Eclipse</a></li>
@@ -192,8 +192,8 @@
                     data<em><br/></em></h1>
                 <p><em>This appendix contains few sample performance results based on a synthetic and a real code.
                     Results in your project may be different.<br/></em></p>
-                <h2 id="CloverPerformanceTuning-Comparisonofstatementandmethodinstrumentationlevel">Comparison of
-                    statement and method instrumentation level</h2><h4 id="CloverPerformanceTuning-Samplecode">Sample
+                <h2>Comparison of
+                    statement and method instrumentation level</h2><h4>Sample
                 code</h4>
                 <p>A following open source libraries were tested using statement- and method-level instrumentation.</p>
                 <ul>
@@ -226,7 +226,7 @@
                     id="CloverPerformanceTuning-Conclusion">Conclusion</h4>
                 <p>Performance penalty for a method and statement instrumentation level may vary significantly,
                     especially for CPU-intensive applications.</p>
-                <h2 id="CloverPerformanceTuning-Comparisonofdifferentper-testcoveragerecordingstrategies">Comparison of
+                <h2>Comparison of
                     different per-test coverage recording strategies</h2>
                 <div class="table-wrap">
                     <table>
@@ -275,7 +275,7 @@
                         </tbody>
                     </table>
                 </div>
-                <p> </p><h4 id="CloverPerformanceTuning-Samplecode.1">Sample code</h4>
+                <p> </p><h4>Sample code</h4>
                 <p>The following class:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -306,7 +306,7 @@ public class PerformanceTest extends TestCase {
                     with following arguments:</p>
                 <p>PerformanceTest 10 1000000<br/>PerformanceTest 20 500000<br/>PerformanceTest 50 200000<br/>PerformanceTest
                     100 100000<br/>PerformanceTest 200 500000<br/>PerformanceTest 500 200000<br/>PerformanceTest 1000
-                    10000<br/>PerformanceTest 10000 1000</p><h4 id="CloverPerformanceTuning-Results.1">Results</h4>
+                    10000<br/>PerformanceTest 10000 1000</p><h4>Results</h4>
                 <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
                                                                        src="attachments/184549844/420807924.png"
                                                                        data-image-src="attachments/184549844/420807924.png"
@@ -321,7 +321,7 @@ public class PerformanceTest extends TestCase {
                                                                        data-linked-resource-container-version="20"></span>
                 </p>
                 <p><em>Test environment: JDK 1.5, Windows 7; Core i7 2670QM 2.2 GHz; 8GB RAM; HDD 750GB 7200RPM.</em>
-                </p><h4 id="CloverPerformanceTuning-Conclusion.1">Conclusion</h4>
+                </p><h4>Conclusion</h4>
                 <p>For a large number of tests, performance is mainly affected by a fact that the coverage recording
                     file is being created on a hard disk. If you have more than 1000 tests there is practically no
                     difference which strategy is used.</p>

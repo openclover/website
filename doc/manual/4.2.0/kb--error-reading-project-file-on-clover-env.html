@@ -59,7 +59,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h3 id="Errorreadingprojectfileon&lt;clover-env/&gt;-Symptoms">Symptoms</h3>
+                <h3>Symptoms</h3>
                 <p>1) Ant 1.9.1 or older is used.</p>
                 <p>2) A build file imports Clover's tasks from the clover.jar, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -77,11 +77,11 @@
 Error reading project file jar:file:/path/to/clover-4.0.2.jar!/cloverlib.xml: central directory zip64 extended information extra field&#39;s length doesn&#39;t match central directory data.  Expected length 0 but is 16</pre>
                     </div>
                 </div>
-                <h3 id="Errorreadingprojectfileon&lt;clover-env/&gt;-Cause">Cause</h3>
+                <h3>Cause</h3>
                 <p>This is caused by a bug in zip64 implementation and has been fixed in Ant 1.9.2 (<a
                          href="https://archive.apache.org/dist/ant/RELEASE-NOTES-1.9.2.html"
                         rel="nofollow">release notes</a>).</p>
-                <h3 id="Errorreadingprojectfileon&lt;clover-env/&gt;-Resolution">Resolution</h3>
+                <h3>Resolution</h3>
                 <p>Upgrade to Ant 1.9.2 or newer.</p>
             </div>
 

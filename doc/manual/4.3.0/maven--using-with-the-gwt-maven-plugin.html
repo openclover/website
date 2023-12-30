@@ -74,20 +74,20 @@
                                              href="http://www.mail-archive.com/gwt-maven@googlegroups.com/msg00663.html"
                                              rel="nofollow">Google Groups discussion</a>.</p>
                 <p> </p>
-                <h2 id="UsingCloverwiththeGWT-mavenplugin-Instrumentationofsourcecode">Instrumentation of source
+                <h2>Instrumentation of source
                     code</h2>
                 <p>Because of the nature of Google Web Toolkit, which translates Java source code (client and shared
                     parts) into a JavaScript, which is later being executed in a web browser, instrumentation of Java
                     sources by Clover requires few technical tricks.</p>
                 <p> </p>
-                <h3 id="UsingCloverwiththeGWT-mavenplugin-Instrumentationofserver-sidecodeonly">Instrumentation of
+                <h3>Instrumentation of
                     server-side code only</h3>
                 <p>This is a simpler case, as server-side Java sources are being complied to classes and executed
                     directly in JVM. Therefore the only thing which has to be set up is to enable Clover and limit
                     instrumentation to server-side code packages.</p><h4
                     id="UsingCloverwiththeGWT-mavenplugin-Testframeworks">Test frameworks</h4>
                 <p>The gwt-maven-plugin provides a JUnit-compatible GWTTestCase which allows to run unit tests using a
-                    web browser or htmlunit.</p><h4 id="UsingCloverwiththeGWT-mavenplugin-HowtoconfigureMavenproject">
+                    web browser or htmlunit.</p><h4>
                 How to configure Maven project</h4>
                 <ol>
                     <li><p>Add GWT Maven Plugin to <strong>pom.xml</strong> and set desired test mode in &lt;configuration&gt;
@@ -152,12 +152,12 @@
                     </li>
                 </ol>
                 <p> </p>
-                <h3 id="UsingCloverwiththeGWT-mavenplugin-Instrumentationofserver,clientandsharedcode">Instrumentation
+                <h3>Instrumentation
                     of server, client and shared code</h3>
                 <p>In this case we cannot use <em><strong>gwt:compile</strong></em> and <em><strong>gwt:test</strong>
                 </em>goals. The reason is that it would start translation of Java client-side and shared source code to
                     JavaScript, searching for sources of all referenced classes, including the Clover instrumentation,
-                    which would cause a build failure.</p><h4 id="UsingCloverwiththeGWT-mavenplugin-Testframeworks.1">
+                    which would cause a build failure.</p><h4>
                 Test frameworks</h4>
                 <p>The gwt-test-utils framework provides means to simulate GWT inside JVM, it can intercept all
                     GWT.xyz() method calls, prepare mocks using Mockito or EasyMock etc. The JUnit-compatible GwtTest
@@ -249,7 +249,7 @@
                         </div>
                     </li>
                 </ol>
-                <h2 id="UsingCloverwiththeGWT-mavenplugin-Exampleproject">Example project</h2>
+                <h2>Example project</h2>
                 <ol>
                     <li>Checkout GwtCloverExample sources: <a
                                                                              href="https://github.com/openclover/clover-maven-plugin"

@@ -59,7 +59,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h3 id="Failedtoexecuteplugin&#39;CloverResultsCollector&#39;-Symptoms">Symptoms</h3>
+                <h3>Symptoms</h3>
                 <p>Bamboo with Clover is used. Clover tab is not visible for a Job. Clover statistics are not available
                     in build Metadata after the build. Build log contains an error message like this:</p>
                 <div style="border-width: 1px;">
@@ -68,7 +68,7 @@
 Failed to execute plugin &#39;Clover Results Collector&#39; with error: No file matches the specified pattern:target/site/clover\**\clover.xml in [&lt;bamboo_home&gt;\xml-data\build-dir\AA-BB-JOB1]</pre>
                     </div>
                 </div>
-                <h3 id="Failedtoexecuteplugin&#39;CloverResultsCollector&#39;-Cause">Cause</h3>
+                <h3>Cause</h3>
                 <p><strong>1) Build has failed causing that not all Clover's goals have been called</strong></p>
                 <ul>
                     <li>the &quot;Automatically integrate Clover into this build&quot; is used</li>
@@ -113,7 +113,7 @@ Failed to execute plugin &#39;Clover Results Collector&#39; with error: No file 
                 <p> </p>
                 <p> </p>
                 <p> </p>
-                <h3 id="Failedtoexecuteplugin&#39;CloverResultsCollector&#39;-Resolution">Resolution</h3>
+                <h3>Resolution</h3>
                 <p><strong>ad 1) Do not fail a build in case of test failures</strong></p>
                 <ul>
                     <li>set the maven.test.failure.ignore=true property for Surefire plugin or</li>

@@ -60,7 +60,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h4 id="GeneratingCloverreportstakesalongtime-Symptoms">Symptoms</h4>
+                <h4>Symptoms</h4>
                 <p>Running build with Clover and generating reports takes considerably much more time compared to a
                     build without Clover. For example: several minutes instead of several seconds.</p>
                 <p>Build is made using Clover-for-Maven plugin. Flush interval is set to a very high value (e.g. 1
@@ -82,11 +82,11 @@
 &lt;/configuration&gt;</pre>
                     </div>
                 </div>
-                <p> </p><h4 id="GeneratingCloverreportstakesalongtime-Cause">Cause</h4>
+                <p> </p><h4>Cause</h4>
                 <p>The maven-clover-plugin is waiting for a flush to occur before each report (or log) is generated. As
                     a consequence, if very high flushInterval value is used, it must wait this time for every module
                     build.</p>
-                <p> </p><h4 id="GeneratingCloverreportstakesalongtime-Resolution">Resolution</h4>
+                <p> </p><h4>Resolution</h4>
                 <p>Set low value of flushInterval or use the default setting (i.e. do not declare it in pom.xml).</p>
                 <p> <!--$body--> </p>
                 <div><span style="font-weight: bold;"><br/></span></div>

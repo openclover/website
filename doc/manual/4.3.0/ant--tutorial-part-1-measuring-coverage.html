@@ -125,7 +125,7 @@
                         <li><a href='#Part1-MeasuringCoverage-Nextsteps'>Next steps</a></li>
                     </ul>
                 </div>
-                </p><h1 id="Part1-MeasuringCoverage-Introduction">Introduction</h1>
+                </p><h1>Introduction</h1>
                 <p>Part one of this tutorial focuses on the creation and interpretation of Clover 'current' reports.
                     Current reports display graphical and numerical data relating to the most recent coverage data
                     collected for the project. This tutorial covers the initial creation of coverage data before
@@ -136,12 +136,12 @@
                     <code>tutorial/src</code> directory, then use Clover to determine how well the unit tests actually
                     test the library.</p>
                 <p>In the first step, we will compile the Money library and run tests against it.</p>
-                <h1 id="Part1-MeasuringCoverage-Step1.Compilingandrunning">Step 1. Compiling and running</h1>
+                <h1>Step 1. Compiling and running</h1>
                 <p>In this step we will compile the library and run the tests against it without using Clover to check
                     that everything is working correctly before including Clover in the next step. In the
                     <code>tutorial</code> directory you will find the initial build file which contains targets for
                     compiling, running and cleaning the build.</p>
-                <h2 id="Part1-MeasuringCoverage-Compiling">Compiling</h2>
+                <h2>Compiling</h2>
                 <p>To compile the java files, use the command <code>ant compile</code></p>
                 <p>Output should be similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -168,7 +168,7 @@ BUILD SUCCESSFUL </pre>
                 </div>
                 <p>This shows that the java source files have been compiled and class files have been placed in the
                     <code>tutorial\build</code> directory.</p>
-                <h2 id="Part1-MeasuringCoverage-Runningthetests">Running the tests</h2>
+                <h2>Running the tests</h2>
                 <p>To run the JUnit tests, use the command <code>ant test</code></p>
                 <p>Output should be similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -198,11 +198,11 @@ BUILD SUCCESSFUL</pre>
                 <p>This shows that all the tests have been run and have passed. We have now compiled the Money library,
                     and ran tests against it. In the next step, we will add Clover targets and properties to the build
                     file to enable measurement of code coverage.</p>
-                <h1 id="Part1-MeasuringCoverage-Step2.AddingClovertargets">Step 2. Adding Clover targets</h1>
+                <h1>Step 2. Adding Clover targets</h1>
                 <p>Now that we have compiled the code and run unit tests, we are ready to add Clover targets and
                     properties to the build file so we can measure the code coverage of the tests. Modifying the build
                     file is trivial. Firstly we need to add a target to enable and configure Clover for the build.</p>
-                <h2 id="Part1-MeasuringCoverage-AddingClovertaskdefinitions">Adding Clover task definitions</h2>
+                <h2>Adding Clover task definitions</h2>
                 <div class="confluence-information-macro confluence-information-macro-note"><span
                         class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
                     <div class="confluence-information-macro-body"><p>For this tutorial, ensure that the property <code>clover.jar</code>
@@ -228,7 +228,7 @@ BUILD SUCCESSFUL</pre>
                         installed the <code>clover.jar</code> elsewhere, adjust the path accordingly.</p></div>
                 </div>
                 <p>These lines define the Clover Ant tasks which can then be used within the build file.</p>
-                <h2 id="Part1-MeasuringCoverage-AddingatargettoenableClover">Adding a target to enable Clover</h2>
+                <h2>Adding a target to enable Clover</h2>
                 <p>Add a target called <code>with.clover</code> which will enable and configure Clover for a build:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -239,7 +239,7 @@ BUILD SUCCESSFUL</pre>
 </pre>
                     </div>
                 </div>
-                <h2 id="Part1-MeasuringCoverage-AddingClovertotheclasspath">Adding Clover to the classpath</h2>
+                <h2>Adding Clover to the classpath</h2>
                 <p>The <code>clover.jar</code> needs to be in both compilation and runtime classpath. To achieve this,
                     add the line in marked below to the <code>build.classpath</code> Ant path:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -252,7 +252,7 @@ BUILD SUCCESSFUL</pre>
 </pre>
                     </div>
                 </div>
-                <h2 id="Part1-MeasuringCoverage-Adding&lt;clover-clean&gt;tothecleantarget">Adding &lt;clover-clean&gt; to
+                <h2>Adding &lt;clover-clean&gt; to
                     the clean target</h2>
                 <p>It is advisable to add the <code>&lt;</code><code><a
                         href="ant--clover-clean.html">clover-clean</a></code><code>/&gt;</code> task to the <code>clean</code>
@@ -270,9 +270,9 @@ BUILD SUCCESSFUL</pre>
                 <p>Once you have made these changes, save the <code>build.xml</code> file. We will add some more Clover
                     targets later to perform coverage reporting, but first we will re-compile the Money library with
                     Clover and re-run the tests to obtain coverage data.</p>
-                <h1 id="Part1-MeasuringCoverage-Step3.TestingwithClover">Step 3. Testing with Clover</h1>
+                <h1>Step 3. Testing with Clover</h1>
                 <p>We are now ready to measure the coverage of the tests over the Money library.</p>
-                <h2 id="Part1-MeasuringCoverage-CompilewithClover">Compile with Clover</h2>
+                <h2>Compile with Clover</h2>
                 <p>Ensure that your build has been cleaned by running <code>ant clean</code>. This deletes all class
                     files from previous compilations.</p>
                 <p>Compile your code with Clover using the command <code>ant with.clover compile</code>.</p>
@@ -311,7 +311,7 @@ BUILD SUCCESSFUL</pre>
                 <p>The result of this process is that your source files have been instrumented by Clover and then
                     compiled as usual. As part of the instrumentation process, Clover creates a database that will be
                     used during the coverage recording and report process.</p>
-                <h2 id="Part1-MeasuringCoverage-Runningthetests.1">Running the tests</h2>
+                <h2>Running the tests</h2>
                 <p>We now need to run the tests again, using the command <code>ant test</code>. This command will run
                     the tests, this time measuring coverage. Output from Ant will be the same as a normal test run:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -345,13 +345,13 @@ BUILD SUCCESSFUL
                     disk.</p>
                 <p>In the next step we'll generate a coverage report from this data to see how well the tests actually
                     cover the Money library.</p>
-                <h1 id="Part1-MeasuringCoverage-Step4.Creatingareport">Step 4. Creating a report</h1>
+                <h1>Step 4. Creating a report</h1>
                 <p>We are now ready to produce a coverage report. This section will focus on producing a Clover HTML
                     report. For information on how to generate a PDF report see the <code>&lt;</code><code><a
                             href="ant--clover-pdf-report.html">clover-pdf-report</a></code><code>&gt;</code> task,
                     or for other types of Clover reports see the <code>&lt;</code><code><a
                             href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> task.</p>
-                <h2 id="Part1-MeasuringCoverage-AddingaCloverreporttarget">Adding a Clover report target</h2>
+                <h2>Adding a Clover report target</h2>
                 <p>Open the <code>build.xml</code> file in a text editor and add the following <code>target</code> to
                     create a HTML report:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -375,7 +375,7 @@ BUILD SUCCESSFUL
                     is relative to the path of the Ant build file. In this case, the directory
                     <code>build/clover_html</code> will be nested within <code>tutorial</code> as this is the location
                     of <code>build.xml</code>.</p>
-                <h2 id="Part1-MeasuringCoverage-Generatingthereport">Generating the report</h2>
+                <h2>Generating the report</h2>
                 <p>Create a HTML report with the command <code>ant clover.report</code>. You will get output similar to
                     the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -401,7 +401,7 @@ BUILD SUCCESSFUL</pre>
                     a web browser. See <a href="general--understanding-reports-current.html">'Current' Report</a> for details about interpreting this
                     coverage report.</p>
                 <p>In the next step, we will enhance the JUnit tests to improve code coverage of the Money library.</p>
-                <h1 id="Part1-MeasuringCoverage-Step5.Improvingcoverage">Step 5. Improving coverage</h1>
+                <h1>Step 5. Improving coverage</h1>
                 <p>After having a look at the coverage report, you'll notice that coverage is not 100%. Although not
                     always possible, it is best to get as close to full coverage as you can. Think of it this way: every
                     line that isn't covered could contain a bug that will otherwise make it into production. <strong>You
@@ -451,7 +451,7 @@ BUILD SUCCESSFUL</pre>
                 <p>After these amendments have been made, compile and run tests again (by running <code>ant test</code>),
                     then re-generate the HTML report (by running <code>ant clover.report</code>). You will see that the
                     Money class now has 100% coverage.</p>
-                <h1 id="Part1-MeasuringCoverage-Nextsteps">Next steps</h1>
+                <h1>Next steps</h1>
                 <p><a href="ant--tutorial-part-2-historical-reporting.html">Part 2 - Historical Reporting</a></p>
             </div>
 

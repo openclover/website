@@ -59,7 +59,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h4 id="Ignoringcoveragerecordingfiles-Symptoms">Symptoms</h4>
+                <h4>Symptoms</h4>
                 <p>When you try to generate a Clover report you see:</p>
                 <p> - less coverage than expected</p>
                 <p> - or no coverage</p>
@@ -83,7 +83,7 @@ dbVersion=1322688610511, writeTimeStamp=1323291710342, format=0], coverageSum=17
 because no FileInfo supports its coverage range</pre>
                     </div>
                 </div>
-                <h4 id="Ignoringcoveragerecordingfiles-Cause">Cause</h4>
+                <h4>Cause</h4>
                 <p>Whenever Clover instruments a source file, it records its time stamp in the Clover database. It's not
                     a file modification time <img class="emoticon emoticon-yellow-star"
                                                   src="images/icons/emoticons/star_yellow.png"
@@ -125,7 +125,7 @@ because no FileInfo supports its coverage range</pre>
                 <p><em><img class="emoticon emoticon-yellow-star" src="images/icons/emoticons/star_yellow.png"
                             data-emoticon-name="yellow-star" alt="(star)"/> OK. Clover records file modification time as
                     well, but it's being used for different purposes. </em></p>
-                <p> </p><h4 id="Ignoringcoveragerecordingfiles-Resolution">Resolution</h4>
+                <p> </p><h4>Resolution</h4>
                 <p>Check whether your build script does not accidentally delete Clover's database in a middle of a
                     build. Look for <em>&quot;Creating new database at &lt;path/to/clover.db&gt;&quot;</em> vs <em>&quot;Updating
                         existing database at &lt;path/to/clover.db&gt;&quot;</em> messages in a build log. </p>
@@ -139,7 +139,7 @@ because no FileInfo supports its coverage range</pre>
                     the report is generated, which could potentially trigger recompilation (imagine a target dependency
                     like: &quot;report -&gt; test -&gt; compile&quot; where the &quot;compile&quot; target removes
                     clover.db).</p>
-                <p> </p><h4 id="Ignoringcoveragerecordingfiles-References">References</h4>
+                <p> </p><h4>References</h4>
                 <ul>
                     <li><a href="ant--coverage-recorders.html">Coverage
                         Recorders</a></li>

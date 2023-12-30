@@ -59,7 +59,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h4 id="GrailsapplicationwithCloverfailswithjava.lang.VerifyError-Symptoms">Symptoms</h4>
+                <h4>Symptoms</h4>
                 <p>Your application is using the Clover-for-Grails plugin. Compilation fails with the
                     java.lang.VerifyError exception.</p>
                 <p>For example:</p>
@@ -75,7 +75,7 @@ build	| Error Exception occurred trigger event [SetClasspath]: java.lang.VerifyE
 </pre>
                     </div>
                 </div>
-                <p> </p><h4 id="GrailsapplicationwithCloverfailswithjava.lang.VerifyError-Cause">Cause</h4>
+                <p> </p><h4>Cause</h4>
                 <p>Your application is using some Grails plugin, which has a dependency on the Clover plugin and this
                     dependency is being exported outside the plugin. As a consequence this Clover plugin becomes
                     available to your application as well. At the same time you have a Clover dependency defined in your
@@ -87,7 +87,7 @@ build	| Error Exception occurred trigger event [SetClasspath]: java.lang.VerifyE
       -&gt; clover version B</pre>
                     </div>
                 </div>
-                <h4 id="GrailsapplicationwithCloverfailswithjava.lang.VerifyError-Resolution">Resolution</h4>
+                <h4>Resolution</h4>
                 <p>1) If you own the plugin which has an invalid dependency, fix it's BuildConfig.groovy and add &quot;export
                     = false&quot; in the Clover dependency. See <a
                             href="developer-guide--creating-grails-plugin-using-clover.html">Creating

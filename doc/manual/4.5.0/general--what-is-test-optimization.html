@@ -98,7 +98,7 @@
                         <li><a href='#AboutTestOptimization-RelatedLinks'>Related Links</a></li>
                     </ul>
                 </div>
-                </p><h2 id="AboutTestOptimization-WhatisTestOptimization?">What is Test Optimization?</h2>
+                </p><h2>What is Test Optimization?</h2>
                 <p>Test optimization will make a build potentially complete a lot faster than a full build and test run.
                     It should do this without substantially compromising the quality of the feedback it gives; in other
                     words a quicker pass or fail result, but a reasonably accurate pass or fail.</p>
@@ -108,7 +108,7 @@
                     covering modified code, then in ascending order by test invocation time.</p>
                 <p>Since Clover records which tests covered which lines of code, it can tell the build to only run tests
                     that cover code modified since the last build.</p>
-                <h2 id="AboutTestOptimization-HowTestOptimizationWorks">How Test Optimization Works</h2>
+                <h2>How Test Optimization Works</h2>
                 <p>The following is a general outline of what is required to enable Clover to optimize the test and
                     build process.</p>
                 <ol>
@@ -136,7 +136,7 @@
                         required (e.g. configuration file changes) in which case <strong>go to step 1</strong>.
                     </li>
                 </ol>
-                <h2 id="AboutTestOptimization-SupportedTestEnvironmentsforTestOptimization">Supported Test Environments
+                <h2>Supported Test Environments
                     for Test Optimization</h2>
                 <p>The following environments are supported for Test Optimization.</p>
                 <p>Your unit tests must be completely standalone and have no inter-test dependencies.</p>
@@ -145,7 +145,7 @@
                     <div class="confluence-information-macro-body"><p>Clover's Test Optimization features currently do
                         not support Groovy.</p></div>
                 </div>
-                <h4 id="AboutTestOptimization-Ant">Ant</h4>
+                <h4>Ant</h4>
                 <ul>
                     <li>Junit - using the &lt;batchset/&gt; element nested in the Ant &lt;junit/&gt; task to select
                         tests to be run.
@@ -157,7 +157,7 @@
                         distributed coverage</a>.
                     </li>
                 </ul>
-                <h4 id="AboutTestOptimization-Maven2&amp;3">Maven</h4>
+                <h4>Maven</h4>
                 <ul>
                     <li>Maven version 2.0.8+</li>
                     <li>maven-surefire-plugin.</li>
@@ -171,7 +171,7 @@
                             coverage</a>.
                     </li>
                 </ul>
-                <h4 id="AboutTestOptimization-Eclipse">Eclipse</h4>
+                <h4>Eclipse</h4>
                 <ul>
                     <li>JUnit test classes are supported but TestSuites are not currently supported.</li>
                     <li>TestNG is not currently supported.</li>
@@ -179,13 +179,13 @@
                         currently supported (to be addressed in a future release).
                     </li>
                 </ul>
-                <h4 id="AboutTestOptimization-IDEA">IDEA</h4>
+                <h4>IDEA</h4>
                 <ul>
                     <li>JUnit test classes are supported but TestSuites are not currently supported.</li>
                     <li>TestNG is not currently supported.</li>
                 </ul>
                 <p> </p>
-                <h2 id="AboutTestOptimization-Exemplaryresults">Exemplary results</h2>
+                <h2>Exemplary results</h2>
                 <p><strong><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
                                 data-emoticon-name="warning" alt="(warning)"/> The following is a sample from
                     development of one of Atlassian products. Optimization results in your project(s) may vary.</strong>
@@ -256,7 +256,7 @@
                     </table>
                 </div>
                 <p> </p>
-                <h2 id="AboutTestOptimization-RelatedLinks">Related Links</h2>
+                <h2>Related Links</h2>
                 <ul>
                     <li><a href="ant--test-optimization-quick-start-guide.html">Test Optimization Quick
                         Start for Ant</a></li>

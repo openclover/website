@@ -127,10 +127,10 @@
                     in time. By running tests with Clover over time and creating a series of history points, it is
                     possible to compare code coverage and metrics by viewing results in a single Clover report and
                     enabling you to track the development of your project.</p>
-                <h1 id="Part2-HistoricalReporting-Step1-Creatinghistorypoints">Step 1 - Creating history points</h1>
+                <h1>Step 1 - Creating history points</h1>
                 <p>Step 1 describes how to set up the relevant Ant target and run the command so that a history point
                     can be created. The generation of historical reports is discussed in later steps.</p>
-                <h2 id="Part2-HistoricalReporting-Addingahistorypointtarget">Adding a history point target</h2>
+                <h2>Adding a history point target</h2>
                 <p>Add the following target to your <code>build.xml</code> file:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -154,7 +154,7 @@
                                 href="ant--clover-historypoint.html">clover-historypoint</a>&gt; task for details.
                     </p></div>
                 </div>
-                <h2 id="Part2-HistoricalReporting-Recordingahistorypoint">Recording a history point</h2>
+                <h2>Recording a history point</h2>
                 <p>Ensure that the source code has been instrumented, and the tests run, by using the command <code>ant
                     clean with.clover test</code>.</p>
                 <p>Run the command <code>ant record.point</code>. Output should be similar to the following:</p>
@@ -177,7 +177,7 @@ BUILD SUCCESSFUL</pre>
                 </div>
                 <p>In the next step we will add more tests to improve coverage of the Money library, recording Clover
                     history points along the way.</p>
-                <h1 id="Part2-HistoricalReporting-Step2-Generatinghistoricaldata">Step 2 - Generating historical
+                <h1>Step 2 - Generating historical
                     data</h1>
                 <p>In <a href="ant--tutorial-part-1-measuring-coverage.html">Part 1 of the tutorial</a> we made additions
                     to the testing suite to improve code coverage. In order to show the historical reporter in use, we
@@ -240,11 +240,11 @@ BUILD SUCCESSFUL</pre>
                 <p>We have now created a series of history points for the Money library. The next section discusses how
                     to generate a Clover historical report which will display the historical data that has been
                     collected.</p>
-                <h1 id="Part2-HistoricalReporting-Step3-Creatinghistoricalreports">Step 3 - Creating historical
+                <h1>Step 3 - Creating historical
                     reports</h1>
                 <p>Now that we have recorded several history points, the next step is to add a target to the build file
                     which will call the historical reporter and generate a historical report.</p>
-                <h2 id="Part2-HistoricalReporting-Addahistoricalreporttarget">Add a historical report target</h2>
+                <h2>Add a historical report target</h2>
                 <p>Add the following target to <code>build.xml</code>:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -273,7 +273,7 @@ BUILD SUCCESSFUL</pre>
                     <code>&lt;format&gt;</code> element is omitted, a PDF report is produced by default. Depending on
                     the chosen format, the <code>outfile</code> value may represent a single file as in the case of the
                     PDF format, or the name of a directory (in the case of the HTML format).</p>
-                <h2 id="Part2-HistoricalReporting-Generatingahistoricalreport">Generating a historical report</h2>
+                <h2>Generating a historical report</h2>
                 <p>Create a historical report by using the command <code>ant hist.report</code>. Output should be
                     similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -304,14 +304,14 @@ BUILD SUCCESSFUL </pre>
                     <div class="confluence-information-macro-body"><p>To interpret this history report, see <a
                             href="general--understanding-reports-historical.html">Understanding a Historical Report</a></p></div>
                 </div>
-                <h1 id="Part2-HistoricalReporting-Step4-Customizinghistoricalreports">Step 4 - Customizing historical
+                <h1>Step 4 - Customizing historical
                     reports</h1>
                 <p>In the previous sections of this tutorial we have looked at how to create and interpret a basic
                     historical report. In addition to basic reporting, the historical reporter is highly configurable
                     and this section will detail some of the options you can use. For a full list of the report
                     configuration options, see the documentation for the <code>&lt;<a
                             href="ant--clover-report.html">clover-report</a>&gt;</code> task.</p>
-                <h2 id="Part2-HistoricalReporting-Changingoutputformat">Changing output format</h2>
+                <h2>Changing output format</h2>
                 <p>The default historical report type is PDF, although an HTML report can also be produced. To create an
                     HTML report, add a nested <code>&lt;format&gt;</code> element with type specified as
                     <code>html</code> to your <code>&lt;<a
@@ -330,7 +330,7 @@ BUILD SUCCESSFUL </pre>
                 <p>A custom title can also be displayed for your report by using the <code>title</code> attribute in the
                     <code>&lt;historical&gt;</code> element as above. You can find report in <code>tutorial/build/clover_html/historical/historical.html</code>.
                 </p>
-                <h2 id="Part2-HistoricalReporting-Chartselection">Chart selection</h2>
+                <h2>Chart selection</h2>
                 <p>The historical reporter allows you to specify which charts to include in your report, and also allows
                     you to configure further options in the charts themselves.</p>
                 <p>The default reporting mode is to include all four report elements: <code>&lt;overview&gt;</code>,
@@ -350,7 +350,7 @@ BUILD SUCCESSFUL </pre>
                 </div>
                 <p>The above code will produce a historical PDF report with the title '<code>My Project</code>' which
                     includes only two sections: the 'Overview' and the 'Coverage over time' charts.</p>
-                <h2 id="Part2-HistoricalReporting-Chartconfiguration">Chart configuration</h2>
+                <h2>Chart configuration</h2>
                 <p>Clover presents flexible charting configuration, allowing you to present information exactly as you
                     like it. The <code>&lt;chart&gt;</code> element allows you to define a custom chart and fill it with
                     specific data with the <code>&lt;columns&gt;</code> element.</p>
@@ -374,7 +374,7 @@ BUILD SUCCESSFUL </pre>
 </pre>
                     </div>
                 </div>
-                <h2 id="Part2-HistoricalReporting-&#39;Movers&#39;configuration">'Movers' configuration</h2>
+                <h2>'Movers' configuration</h2>
                 <p>The 'Movers' section of the historical report shows you the classes whose coverage has changed the
                     most recently. This is useful for spotting classes that have had sudden changes in coverage, perhaps
                     the unintended result of changes to the unit test suite.</p>
@@ -401,7 +401,7 @@ BUILD SUCCESSFUL </pre>
                     specifying interval values.</p>
                 <p>The next section of this tutorial will discuss how you can automate the coverage checking of your
                     project.</p>
-                <h1 id="Part2-HistoricalReporting-Nextsteps">Next steps</h1>
+                <h1>Next steps</h1>
                 <p><a href="ant--tutorial-part-3-automating-coverage-checks.html">Part 3 - Automating Coverage Checks</a>
                 </p>
             </div>

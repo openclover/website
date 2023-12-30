@@ -60,7 +60,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h3 id="Methodcodetoolarge-Symptoms">Symptoms</h3>
+                <h3>Symptoms</h3>
                 <p>Compilation of Groovy code instrumented by Clover fails with an error like:</p>
                 <div style="border-width: 1px;">
                     <div>
@@ -80,13 +80,13 @@ java.lang.RuntimeException: Method code too large!
                     </div>
                 </div>
                 <p> </p>
-                <h3 id="Methodcodetoolarge-Cause">Cause</h3>
+                <h3>Cause</h3>
                 <p>There is a 64kB limit of byte code of a single method. In some cases this limit may be hit, for
                     instance when many AST transformation plugins are used.</p>
                 <p>A good example is a test method written in a Spock framework, having dozens of &quot;when: / then:&quot;
                     blocks, which is first transformed by the Spock and next instrumented by Clover.</p>
                 <p> </p>
-                <h3 id="Methodcodetoolarge-Resolution">Resolution</h3>
+                <h3>Resolution</h3>
                 <p>1) Identify the large method in your code causing a problem (this may be hard as there's no
                     information from a groovyc, even with --verbose or --verboseCompile). Reduce size of this method,
                     e.g. by splitting it.</p>

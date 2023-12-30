@@ -59,7 +59,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h3 id="MavenAssemblyPluginfailswithClover-Symptoms">Symptoms</h3>
+                <h3>Symptoms</h3>
                 <ul>
                     <li>project is using the maven-assembly-plugin</li>
                     <li>project is a multi-module Maven project and is built by Bamboo</li>
@@ -111,7 +111,7 @@ Caused by: java.io.IOException: jar:file:/opt/bamboo-agent-home/xml-data/build-d
                     </div>
                 </div>
                 <p> </p>
-                <h3 id="MavenAssemblyPluginfailswithClover-Cause">Cause</h3>
+                <h3>Cause</h3>
                 <p>A problem is related with
                     <span class="jira-issue resolved" data-issue-key="BAM-13208">
                 <a href="https://jira.atlassian.com/browse/BAM-13208?src=confmacro" class="jira-issue-key"><img
@@ -150,7 +150,7 @@ Caused by: java.io.IOException: jar:file:/opt/bamboo-agent-home/xml-data/build-d
                     </div>
                 </div>
                 <p> </p>
-                <h3 id="MavenAssemblyPluginfailswithClover-Solution">Solution</h3>
+                <h3>Solution</h3>
                 <p>In order to avoid such problems, Maven shall not run the same build phase twice.</p>
                 <p>You have to configure <strong>manual</strong> Clover integration and modify the &quot;Goals&quot;
                     field in a Maven Task(s). In case when your original goals are:</p>
@@ -167,7 +167,7 @@ Caused by: java.io.IOException: jar:file:/opt/bamboo-agent-home/xml-data/build-d
                     </div>
                 </div>
                 <p> </p>
-                <h3 id="MavenAssemblyPluginfailswithClover-Notes">Notes</h3>
+                <h3>Notes</h3>
                 <div class="confluence-information-macro confluence-information-macro-information"><span
                         class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div class="confluence-information-macro-body"><p>The NullPointerException thrown by

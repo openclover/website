@@ -60,7 +60,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h4 id="UsingexternaljavaccompilercausesclassestonotbeinstrumentedwithClover-Symptoms">Symptoms</h4>
+                <h4>Symptoms</h4>
                 <p>Running the following ANT command, example only:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -74,7 +74,7 @@ ant clean with.clover compile
                 <p>Builds the project successfully where classes are compiled as expected. However, the classes are not
                     instrumented. </p>
 
-                <h4 id="UsingexternaljavaccompilercausesclassestonotbeinstrumentedwithClover-Cause">Cause</h4>
+                <h4>Cause</h4>
                 <p>This is due to a compiler attribute is defined within the <code>&lt;javac/&gt;</code> task. For
                     example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -97,7 +97,7 @@ compiler=&quot;&lt;the_compiler&gt;&quot; .....
                 </ul>
 
 
-                <h4 id="UsingexternaljavaccompilercausesclassestonotbeinstrumentedwithClover-Resolution">Resolution</h4>
+                <h4>Resolution</h4>
                 <p>Remove the compiler attribute from the <code>&lt;javac/&gt;</code> task and define the compiler using
                     the <code>clovercompile</code> attribute within the <code>&lt;clover-setup&gt;</code> task.</p>
 

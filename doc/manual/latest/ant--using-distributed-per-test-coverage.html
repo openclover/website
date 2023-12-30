@@ -127,7 +127,7 @@
                         </li>
                     </ul>
                 </div>
-                </p><h2 id="UsingDistributedPer-testCoveragewithClover-for-Ant-GeneralOverview">General Overview</h2>
+                </p><h2>General Overview</h2>
                 <p>Clover collects per-test coverage for tests running in a separate JVM by sending messages using the
                     tcp protocol. The JVM hosting the tests is the 'Clover Server' and the JVM(s) hosting the
                     application are the 'Clover Clients'. The 'Clover Server' ( ie. the JVM running your tests) needs to
@@ -151,7 +151,7 @@
                         webserver poses a problem.)
                     </li>
                 </ol>
-                <h3 id="UsingDistributedPer-testCoveragewithClover-for-Ant-Option1.EnablingDistributedCoverageatRuntime">
+                <h3>
                     Option 1. Enabling Distributed Coverage at Runtime</h3>
                 <p>Once your Clover-instrumented application has been deployed, and your tests have been instrumented
                     and compiled with Clover, distributed per-test coverage can be enabled and configured at runtime
@@ -202,7 +202,7 @@
 </pre>
                     </div>
                 </div>
-                <h4 id="UsingDistributedPer-testCoveragewithClover-for-Ant-SettingaSystemPropertyintheJavataskthatstartstheWebServer">
+                <h4>
                     Setting a System Property in the Java task that starts the WebServer</h4>
                 <p>The JVM running your webserver also requires the <code>clover.distributed.coverage</code> property
                     set to <code>ON</code>.</p>
@@ -218,7 +218,7 @@
                 </div>
                 <p>If you are unable to set a System Property on the JVM running your webserver, use the second approach
                     described below.</p>
-                <h3 id="UsingDistributedPer-testCoveragewithClover-for-Ant-Option2.ConfiguringDistributedCoverageatInstrumentationTime">
+                <h3>
                     Option 2. Configuring Distributed Coverage at Instrumentation Time</h3>
                 <p>It is sometimes more convenient to enable distributed Coverage when you enable Clover - before
                     instrumentation of your source code.<br/> The following approach removes the need to set any system
@@ -270,7 +270,7 @@
                 <p>If you have specified the <code>numClients</code> option to something greater than 0, your tests can
                     be started prior to starting the webserver. Clover will wait until <code>numClients</code> have
                     connected to the testing session before allowing the tests to start running.</p>
-                <h3 id="UsingDistributedPer-testCoveragewithClover-for-Ant-RelatedLinks">Related Links</h3>
+                <h3>Related Links</h3>
                 <p><a href="general--what-is-distributed-per-test-coverage.html">About Distributed Per-Test Coverage</a>
                 </p>
                 <p><a href="general--what-is-test-optimization.html">About Test Optimization</a></p>

@@ -60,7 +60,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h4 id="CompilationerrorwithCloverenabled-unexpectedreturnvalue-Symptoms">Symptoms</h4>
+                <h4>Symptoms</h4>
                 <p>Clover-instrumented code fails to compile with a following error:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -72,7 +72,7 @@
 1 error</pre>
                     </div>
                 </div>
-                <p> </p><h4 id="CompilationerrorwithCloverenabled-unexpectedreturnvalue-Cause">Cause</h4>
+                <p> </p><h4>Cause</h4>
                 <p>Since version 4.0.5, Clover tries to resolve some compilation errors listed <a
                         href="kb--java-8-code-instrumented-by-clover-fails-to-compile.html">here</a> by rewriting some of lambda expressions to lambda blocks. Clover looks
                     for JDK <code>java.util.stream.Stream's</code> and some of <code>Guava</code> classes' with lambda
@@ -96,7 +96,7 @@
                 </div>
                 <p>The full list of methods which are affected can be found <a
                         href="ant--lambda-rewriting-heuristics.html">here</a></p>
-                <h4 id="CompilationerrorwithCloverenabled-unexpectedreturnvalue-Solution"><span
+                <h4><span
                         style="color: rgb(0,0,0);">Solution </span></h4>
                 <p><span style="color: rgb(0,0,0);">1) Please use <code>CLOVER:VOID</code> directive to instruct Clover that this specific lambda does not return a value, as follows:</span>
                 </p>

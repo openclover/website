@@ -440,7 +440,7 @@
                         </tbody>
                     </table>
                 </div>
-                <p> </p><h4 id="UsingCloverinvariousenvironmentconfigurations-Assumptionsforallscenarios:">Assumptions
+                <p> </p><h4>Assumptions
                 for all scenarios:</h4>
                 <p>For the simplicity of the tutorial it's assumed that:</p>
                 <ul>
@@ -463,7 +463,7 @@
                 <p> </p>
                 <h1 id="UsingCloverinvariousenvironmentconfigurations-Example#1-oneapplicationexecutedonseveralservers">
                     Example #1 - one application executed on several servers</h1>
-                <h2 id="UsingCloverinvariousenvironmentconfigurations-Assumptions">Assumptions</h2>
+                <h2>Assumptions</h2>
                 <ul>
                     <li>there is one application having one Clover database <br/>(e.g. a Maven project with a &lt;singleCloverDatabase&gt;
                         or an Ant project with one &lt;clover-setup&gt;)
@@ -483,7 +483,7 @@
                         testing)
                     </li>
                 </ul>
-                <h2 id="UsingCloverinvariousenvironmentconfigurations-Overviewchart">Overview chart</h2>
+                <h2>Overview chart</h2>
                 <p><strong><span style="color: rgb(255,0,0);"><span class="confluence-embedded-file-wrapper"><img
                         class="confluence-embedded-image" confluence-query-params="effects=border-simple,shadow-kn"
                         src="attachments/294489251/294912829.png?effects=border-simple,shadow-kn"
@@ -494,7 +494,7 @@
                         data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
                         data-linked-resource-container-id="294489251"
                         data-linked-resource-container-version="35"></span><br/></span></strong></p>
-                <h2 id="UsingCloverinvariousenvironmentconfigurations-Steps">Steps</h2>
+                <h2>Steps</h2>
                 <p><strong>1) Build application with Clover</strong></p>
                 <p><strong>a) using Ant</strong></p>
                 <p>Define <em>initstring</em> attribute for &lt;clover-setup&gt; or &lt;clover-instr&gt; tag, e.g.:</p>
@@ -575,7 +575,7 @@
                 <p> </p>
                 <h1 id="UsingCloverinvariousenvironmentconfigurations-Example#2-oneapplicationwithmanyCloverdatabasesexecutedonseveralservers">
                     Example #2 - one application with many Clover databases executed on several servers</h1>
-                <h2 id="UsingCloverinvariousenvironmentconfigurations-Assumptions.1">Assumptions</h2>
+                <h2>Assumptions</h2>
                 <ul>
                     <li>one application containing multiple Clover databases<br/>
                         <ul>
@@ -587,7 +587,7 @@
                     <li>we're not interested in per-test coverage recording</li>
                     <li>we want to have a single report showing combined coverage for all modules from all servers</li>
                 </ul>
-                <h2 id="UsingCloverinvariousenvironmentconfigurations-Overviewchart.1">Overview chart</h2>
+                <h2>Overview chart</h2>
                 <p><span style="color: rgb(255,0,0);"><span class="confluence-embedded-file-wrapper"><img
                         class="confluence-embedded-image" confluence-query-params="effects=border-simple,shadow-kn"
                         src="attachments/294489251/294912832.png?effects=border-simple,shadow-kn"
@@ -598,7 +598,7 @@
                         data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
                         data-linked-resource-container-id="294489251"
                         data-linked-resource-container-version="35"></span><br/></span></p>
-                <h2 id="UsingCloverinvariousenvironmentconfigurations-Steps.1">Steps</h2>
+                <h2>Steps</h2>
                 <p><strong>1) Build application with Clover</strong></p>
                 <p><strong>a) using Ant</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -679,7 +679,7 @@
                 <p> </p>
                 <h1 id="UsingCloverinvariousenvironmentconfigurations-Example#3-multipleapplicationsexecutedonseveralserversinisolation">
                     Example #3 - multiple applications executed on several servers in isolation</h1>
-                <h2 id="UsingCloverinvariousenvironmentconfigurations-Assumptions.2">Assumptions</h2>
+                <h2>Assumptions</h2>
                 <ul>
                     <li>we have multiple applications (each of them can have one or more modules)<br/>
                         <ul>
@@ -702,7 +702,7 @@
                         from all application servers
                     </li>
                 </ul>
-                <h2 id="UsingCloverinvariousenvironmentconfigurations-Overviewchart.2">Overview chart</h2>
+                <h2>Overview chart</h2>
                 <p><span style="color: rgb(255,0,0);"><span class="confluence-embedded-file-wrapper"><img
                         class="confluence-embedded-image" confluence-query-params="effects=border-simple,shadow-kn"
                         src="attachments/294489251/294912833.png?effects=border-simple,shadow-kn"
@@ -713,7 +713,7 @@
                         data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
                         data-linked-resource-container-id="294489251"
                         data-linked-resource-container-version="35"></span><br/></span></p>
-                <h2 id="UsingCloverinvariousenvironmentconfigurations-Steps.2">Steps</h2>
+                <h2>Steps</h2>
                 <p><strong>1) Build application with Clover</strong></p>
                 <p><strong>a) using Ant</strong></p>
                 <p>Define <em>initstring</em> attribute for &lt;clover-setup&gt; or &lt;clover-instr&gt; tag, which will
@@ -862,7 +862,7 @@ app2/moduleB/clover.db</pre>
                 <p> </p>
                 <h1 id="UsingCloverinvariousenvironmentconfigurations-Example#4-multi-moduleapplicationwithdistributedexecutiononseveralservers">
                     Example #4 - multi-module application with distributed execution on several servers</h1>
-                <h2 id="UsingCloverinvariousenvironmentconfigurations-Assumptions.3">Assumptions</h2>
+                <h2>Assumptions</h2>
                 <ul>
                     <li>we have a multi-module project (like Maven project with modules, or Ant project with several
                         build.xml files with inheriting properties across ant calls)
@@ -878,7 +878,7 @@ app2/moduleB/clover.db</pre>
                         servers
                     </li>
                 </ul>
-                <h2 id="UsingCloverinvariousenvironmentconfigurations-Overviewchart.3">Overview chart</h2>
+                <h2>Overview chart</h2>
                 <p><span style="color: rgb(255,0,0);"><span class="confluence-embedded-file-wrapper"><img
                         class="confluence-embedded-image" confluence-query-params="effects=border-simple,shadow-kn"
                         src="attachments/294489251/294912834.png?effects=border-simple,shadow-kn"
@@ -889,7 +889,7 @@ app2/moduleB/clover.db</pre>
                         data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
                         data-linked-resource-container-id="294489251"
                         data-linked-resource-container-version="35"></span><br/></span></p>
-                <h2 id="UsingCloverinvariousenvironmentconfigurations-Steps.3">Steps</h2>
+                <h2>Steps</h2>
                 <p><strong>1) Build application with Clover</strong></p>
                 <ul>
                     <li>define how many clients will connect to JVM running unit tests;</li>
@@ -1067,7 +1067,7 @@ app2/moduleB/clover.db</pre>
                 </div>
                 <h1 id="UsingCloverinvariousenvironmentconfigurations-Example#5-multi-moduleapplicationwithhistorypoints">
                     Example #5 - multi-module application with history points</h1>
-                <h2 id="UsingCloverinvariousenvironmentconfigurations-Assumptions.4">Assumptions</h2>
+                <h2>Assumptions</h2>
                 <ul>
                     <li>we have a multi-module project (like Maven project with modules, or Ant project with several
                         build.xml files with inheriting properites across ant calls)
@@ -1076,7 +1076,7 @@ app2/moduleB/clover.db</pre>
                     <li>we are not interested in per-test coverage or test optimization</li>
                     <li>we want to have a single report showing combined coverage for all modules</li>
                 </ul>
-                <h2 id="UsingCloverinvariousenvironmentconfigurations-Overviewchart.4">Overview chart</h2>
+                <h2>Overview chart</h2>
                 <p><span style="color: rgb(255,0,0);"><span class="confluence-embedded-file-wrapper"><img
                         class="confluence-embedded-image" confluence-query-params="effects=border-simple,shadow-kn"
                         src="attachments/294489251/294912835.png?effects=border-simple,shadow-kn"
@@ -1087,7 +1087,7 @@ app2/moduleB/clover.db</pre>
                         data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
                         data-linked-resource-container-id="294489251"
                         data-linked-resource-container-version="35"></span><br/></span></p>
-                <h2 id="UsingCloverinvariousenvironmentconfigurations-Steps.4">Steps</h2>
+                <h2>Steps</h2>
                 <p><span style="color: rgb(255,0,0);"> </span><strong>1) Build application with Clover</strong></p>
                 <p><strong>a) using Ant</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">

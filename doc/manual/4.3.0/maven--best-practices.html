@@ -119,14 +119,14 @@
                         </li>
                     </ul>
                 </div>
-                </p><h1 id="BestPracticesforMaven-TestOptimizationinaCIenvironment">Test Optimization in a CI
+                </p><h1>Test Optimization in a CI
                 environment</h1>
                 <p>There are two recommended ways to utilize Clover's test optimization in a CI (<a
                          href="http://en.wikipedia.org/wiki/Continuous_integration" rel="nofollow">Continuous
                     Integration</a>) environment, either using a Profile, or to run the goals directly.<br/> NB. Clover
                     Test Optimization will not work if you have added the <code>clover-maven-plugin</code> to the
                     default build section of the pom with an execution binding the 'instrument' goal.</p>
-                <h2 id="BestPracticesforMaven-SettingupaCIprofile">Setting up a CI profile</h2>
+                <h2>Setting up a CI profile</h2>
                 <ol>
                     <li>Add a <span class="confluence-link">'clover.optimize'</span> profile to the project's <code>pom.xml</code>.
                     </li>
@@ -170,7 +170,7 @@
                                 class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
                                 data-emoticon-name="warning" alt="(warning)"/>.</p></li>
                 </ol>
-                <h2 id="BestPracticesforMaven-RunningtheClovergoalsdirectly">Running the Clover goals directly</h2>
+                <h2>Running the Clover goals directly</h2>
                 <p>Add a new build plan with the following command line:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -179,7 +179,7 @@
                             >mvn clover:setup verify clover:snapshot</pre>
                     </div>
                 </div>
-                <h1 id="BestPracticesforMaven-Testoptimizationonthedesktop">Test optimization on the desktop</h1>
+                <h1>Test optimization on the desktop</h1>
                 <p>Running Clover's test optimization locally is very advantageous. This is achieved using the <span
                         class="confluence-link">'clover.optimize'</span> profile that can be activated like so:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -189,7 +189,7 @@
 </pre>
                     </div>
                 </div>
-                <h1 id="BestPracticesforMaven-Combiningbuildoptimizationwithsitecoveragereporting">Combining build
+                <h1>Combining build
                     optimization with site coverage reporting</h1>
                 <p>Maven2 will merge any executions defined in the default build section of the pom, with those defined
                     in a profile. It is therefore recommended practice to always use two profiles — one for test
@@ -209,7 +209,7 @@
                 <p>Using separate profiles for site generation and Test Optimization is currently the recommended way to
                     have both a site and a Test Optimization Clover build configured in the same <code>pom.xml</code>.
                 </p>
-                <h1 id="BestPracticesforMaven-Testoptimizationacrossamulti-moduleproject">Test optimization across a
+                <h1>Test optimization across a
                     multi-module project</h1>
                 <p>By default, Clover will generate a new <code>clover.db</code> and <code>clover.snapshot</code> file
                     for each module. This means, that if you have tests in module A that cover code in module B, and you
@@ -232,7 +232,7 @@
                     than the default of 10. See also <a
                                                         href="../../maven/4.3.0/snapshot-mojo.html#singleCloverDatabase"
                                                         rel="nofollow">singleCloverDatabase</a>.</p>
-                <h1 id="BestPracticesforMaven-Usingclover:setupfornon-forkedlifecycle">Using clover:setup for non-forked
+                <h1>Using clover:setup for non-forked
                     life cycle</h1>
                 <p>The <a
                           href="../../maven/4.3.0/setup-mojo.html" rel="nofollow">clover:setup</a>
@@ -267,7 +267,7 @@
                 <p>Note: clover:setup will automatically bind itself to the 'process-sources' phase if defined in the
                     goals list of the plugin's executions.</p>
                 <p><span class="confluence-anchor-link" id="BestPracticesforMaven-groovycrosscompilation"></span></p>
-                <h1 id="BestPracticesforMaven-CrosscompilationusingGroovy">Cross compilation using Groovy</h1>
+                <h1>Cross compilation using Groovy</h1>
                 <p>If you are using cross-compilation with Groovy code, you should ensure that the
                     clover-maven-plugin<code>:setup</code> goal runs before the GMaven Plugin's <code>gmaven:generateStubs</code>
                     goal in your <code>pom.xml</code>. Otherwise, you may end up with errors when running the
@@ -275,7 +275,7 @@
                 <p>Alternatively, if you run <code>clover:setup</code> directly from the <code>mvn</code> command line,
                     then this Clover goal will run before the <code>gmaven:generateStubs</code> goal and you will avoid
                     these errors when cross-compiling Groovy code.</p>
-                <h1 id="BestPracticesforMaven-Coloringtestoptimization">Coloring test optimization</h1>
+                <h1>Coloring test optimization</h1>
                 <p>If your terminal supports ANSI escape codes, run your Maven build with the <code>-Dansi.color</code>
                     flag. Currently a few important log messages dealing with Clover's Test Optimization will be logged
                     in color:</p>
@@ -293,10 +293,10 @@
                                                                            data-linked-resource-container-version="32"></span><br/></em>
                 </p>
                 <p> </p>
-                <h1 id="BestPracticesforMaven-BuildProfiles">Build Profiles</h1>
+                <h1>Build Profiles</h1>
                 <p>The following profiles can be used directly in the pom.xml. This avoids the need to modify the
                     ~/.m2/settings.xml file.</p>
-                <h2 id="BestPracticesforMaven-clover.reportProfile">clover.report Profile</h2>
+                <h2>clover.report Profile</h2>
                 <p><span class="confluence-anchor-link" id="BestPracticesforMaven-clover.report"></span></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -337,7 +337,7 @@
                     </div>
                 </div>
                 <p> </p>
-                <h2 id="BestPracticesforMaven-CloverOptimizeProfile">Clover Optimize Profile</h2>
+                <h2>Clover Optimize Profile</h2>
                 <p><span class="confluence-anchor-link" id="BestPracticesforMaven-clover.optimize"></span></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -372,7 +372,7 @@
                     </div>
                 </div>
                 <p> </p>
-                <h2 id="BestPracticesforMaven-CloverOptimize,Report,LogandCheckProfile">Clover Optimize, Report, Log and
+                <h2>Clover Optimize, Report, Log and
                     Check Profile</h2>
                 <p><span class="confluence-anchor-link" id="BestPracticesforMaven-clover.all"></span></p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -414,7 +414,7 @@
 </pre>
                     </div>
                 </div>
-                <h5 id="BestPracticesforMaven-RelatedLinks">Related Links</h5>
+                <h5>Related Links</h5>
                 <ul>
                     <li><a href="general--what-is-test-optimization.html">Test Optimization Technical Details</a></li>
                 </ul>

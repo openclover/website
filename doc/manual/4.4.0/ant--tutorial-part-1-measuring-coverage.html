@@ -141,7 +141,7 @@
                     that everything is working correctly before including Clover in the next step. In the
                     <code>tutorial</code> directory you will find the initial build file which contains targets for
                     compiling, running and cleaning the build.</p>
-                <h2 id="Part1-MeasuringCoverage-Compiling">Compiling</h2>
+                <h2>Compiling</h2>
                 <p>To compile the java files, use the command <code>ant compile</code></p>
                 <p>Output should be similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -168,7 +168,7 @@ BUILD SUCCESSFUL </pre>
                 </div>
                 <p>This shows that the java source files have been compiled and class files have been placed in the
                     <code>tutorial\build</code> directory.</p>
-                <h2 id="Part1-MeasuringCoverage-Runningthetests">Running the tests</h2>
+                <h2>Running the tests</h2>
                 <p>To run the JUnit tests, use the command <code>ant test</code></p>
                 <p>Output should be similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -202,7 +202,7 @@ BUILD SUCCESSFUL</pre>
                 <p>Now that we have compiled the code and run unit tests, we are ready to add Clover targets and
                     properties to the build file so we can measure the code coverage of the tests. Modifying the build
                     file is trivial. Firstly we need to add a target to enable and configure Clover for the build.</p>
-                <h2 id="Part1-MeasuringCoverage-AddingClovertaskdefinitions">Adding Clover task definitions</h2>
+                <h2>Adding Clover task definitions</h2>
                 <div class="confluence-information-macro confluence-information-macro-note"><span
                         class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span>
                     <div class="confluence-information-macro-body"><p>For this tutorial, ensure that the property <code>clover.jar</code>
@@ -228,7 +228,7 @@ BUILD SUCCESSFUL</pre>
                         installed the <code>clover.jar</code> elsewhere, adjust the path accordingly.</p></div>
                 </div>
                 <p>These lines define the Clover Ant tasks which can then be used within the build file.</p>
-                <h2 id="Part1-MeasuringCoverage-AddingatargettoenableClover">Adding a target to enable Clover</h2>
+                <h2>Adding a target to enable Clover</h2>
                 <p>Add a target called <code>with.clover</code> which will enable and configure Clover for a build:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -239,7 +239,7 @@ BUILD SUCCESSFUL</pre>
 </pre>
                     </div>
                 </div>
-                <h2 id="Part1-MeasuringCoverage-AddingClovertotheclasspath">Adding Clover to the classpath</h2>
+                <h2>Adding Clover to the classpath</h2>
                 <p>The <code>clover.jar</code> needs to be in both compilation and runtime classpath. To achieve this,
                     add the line in marked below to the <code>build.classpath</code> Ant path:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -252,7 +252,7 @@ BUILD SUCCESSFUL</pre>
 </pre>
                     </div>
                 </div>
-                <h2 id="Part1-MeasuringCoverage-Adding&lt;clover-clean&gt;tothecleantarget">Adding &lt;clover-clean&gt; to
+                <h2>Adding &lt;clover-clean&gt; to
                     the clean target</h2>
                 <p>It is advisable to add the <code>&lt;</code><code><a
                         href="ant--clover-clean.html">clover-clean</a></code><code>/&gt;</code> task to the <code>clean</code>
@@ -272,7 +272,7 @@ BUILD SUCCESSFUL</pre>
                     Clover and re-run the tests to obtain coverage data.</p>
                 <h1 id="Part1-MeasuringCoverage-Step3.TestingwithClover">Step 3. Testing with Clover</h1>
                 <p>We are now ready to measure the coverage of the tests over the Money library.</p>
-                <h2 id="Part1-MeasuringCoverage-CompilewithClover">Compile with Clover</h2>
+                <h2>Compile with Clover</h2>
                 <p>Ensure that your build has been cleaned by running <code>ant clean</code>. This deletes all class
                     files from previous compilations.</p>
                 <p>Compile your code with Clover using the command <code>ant with.clover compile</code>.</p>
@@ -311,7 +311,7 @@ BUILD SUCCESSFUL</pre>
                 <p>The result of this process is that your source files have been instrumented by Clover and then
                     compiled as usual. As part of the instrumentation process, Clover creates a database that will be
                     used during the coverage recording and report process.</p>
-                <h2 id="Part1-MeasuringCoverage-Runningthetests.1">Running the tests</h2>
+                <h2>Running the tests</h2>
                 <p>We now need to run the tests again, using the command <code>ant test</code>. This command will run
                     the tests, this time measuring coverage. Output from Ant will be the same as a normal test run:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -351,7 +351,7 @@ BUILD SUCCESSFUL
                             href="ant--clover-pdf-report.html">clover-pdf-report</a></code><code>&gt;</code> task,
                     or for other types of Clover reports see the <code>&lt;</code><code><a
                             href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> task.</p>
-                <h2 id="Part1-MeasuringCoverage-AddingaCloverreporttarget">Adding a Clover report target</h2>
+                <h2>Adding a Clover report target</h2>
                 <p>Open the <code>build.xml</code> file in a text editor and add the following <code>target</code> to
                     create a HTML report:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -375,7 +375,7 @@ BUILD SUCCESSFUL
                     is relative to the path of the Ant build file. In this case, the directory
                     <code>build/clover_html</code> will be nested within <code>tutorial</code> as this is the location
                     of <code>build.xml</code>.</p>
-                <h2 id="Part1-MeasuringCoverage-Generatingthereport">Generating the report</h2>
+                <h2>Generating the report</h2>
                 <p>Create a HTML report with the command <code>ant clover.report</code>. You will get output similar to
                     the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">

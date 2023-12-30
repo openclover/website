@@ -60,7 +60,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h4 id="Java-Scalacross-compilationerror-cannotfindsymbol-Symptoms">Symptoms</h4>
+                <h4>Symptoms</h4>
                 <p>Running Clover with mixed Java-Scala project having cross-dependencies between Java and Scala
                     classes, results in compiler complaining about missing Scala classes:</p>
                 <div style="border-width: 1px;">
@@ -76,7 +76,7 @@
 [ERROR] 2 errors</pre>
                     </div>
                 </div>
-                <h4 id="Java-Scalacross-compilationerror-cannotfindsymbol-Cause">Cause</h4>
+                <h4>Cause</h4>
                 <p>Typically, project structure looks like this:</p>
                 <div style="border-width: 1px;">
                     <div>
@@ -105,7 +105,7 @@
                     </li>
                 </ul>
                 <p>Because of this, when Scala compiler runs, it can't find *.scala files.</p>
-                <p> </p><h4 id="Java-Scalacross-compilationerror-cannotfindsymbol-Resolution">Resolution</h4>
+                <p> </p><h4>Resolution</h4>
                 <p>Configure <code>build-helper-maven-plugin</code> to add Scala directories to compile source roots.
                     Example: </p>
                 <div class="code panel pdl" style="border-width: 1px;">

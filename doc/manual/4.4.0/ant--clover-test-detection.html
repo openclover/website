@@ -68,9 +68,9 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h2 id="Clovertestdetection-Detectionoftestmethods">Detection of test methods</h2>
+                <h2>Detection of test methods</h2>
                 <p>Clover is able to detect test methods for following test frameworks and code patterns.</p>
-                <h3 id="Clovertestdetection-JavaDoctags">JavaDoc tags</h3>
+                <h3>JavaDoc tags</h3>
                 <p>This approach can be used for Java 1.4, which does not support annotations. In such case, test
                     methods can be marked using JavaDoc tags:</p>
                 <p><strong>TestNG style</strong></p>
@@ -82,17 +82,17 @@
                 <p><strong>JUnit style</strong></p>
                 <pre>/** @test */</pre>
                 <pre>void myTestMethod() { }</pre>
-                <h3 id="Clovertestdetection-JUnit3">JUnit3</h3>
+                <h3>JUnit3</h3>
                 <p>Methods with a following signature:</p>
                 <pre>public void test***()</pre>
-                <h3 id="Clovertestdetection-JUnit4"><span class="hl_comment">JUnit4</span></h3>
+                <h3><span class="hl_comment">JUnit4</span></h3>
                 <p><span class="hl_comment">Methods annotated with one of the following:<br/></span></p>
                 <pre>@junit.org.Test</pre>
                 <pre>@Test</pre>
                 Also expected exceptions are understood, e.g.:
                 <pre>@Test(expected={Foo.class})</pre>
                 <pre>@Test(expected=Foo.class)</pre>
-                <h3 id="Clovertestdetection-JUnit4+Spring"><span class="hl_comment"><span class="hl_comment"><span
+                <h3><span class="hl_comment"><span class="hl_comment"><span
                         class="hl_comment">JUnit4+Spring</span></span></span><strong><span
                         class="hl_comment"> </span></strong></h3>
                 <p>Methods annotated with:</p>
@@ -100,7 +100,7 @@
                 <p><span class="hl_comment"><span class="hl_comment"><span
                         class="hl_comment">or<br/></span></span></span></p>
                 <pre>@Test <br/>@ExpectedException(value={Bar.class})</pre>
-                <h3 id="Clovertestdetection-TestNG"><span class="hl_comment"><span class="hl_comment"><span
+                <h3><span class="hl_comment"><span class="hl_comment"><span
                         class="hl_comment"><span class="hl_comment"><span class="hl_comment">TestNG</span></span></span></span></span>
                 </h3>
                 <p><span class="hl_comment"><span class="hl_comment"><span class="hl_comment"><span
@@ -113,13 +113,13 @@
                 <pre>@Test(expectedExceptions={Foo.class})</pre>
                 <pre>@org.testng.annotations.Test(expectedExceptions=Foo.class)</pre>
                 <pre>@Test(expectedExceptions=Foo.class)</pre>
-                <h3 id="Clovertestdetection-Instinct">Instinct</h3>
+                <h3>Instinct</h3>
                 <p><span class="hl_comment"><span class="hl_comment"><span class="hl_comment"><span
                         class="hl_comment"><span class="hl_comment">Methods annotated with one of the following:</span></span></span></span></span>
                 </p>
                 <pre>@com.googlecode.instinct.marker.annotate.Specification(expectedException=Foo.class)</pre>
                 <pre>@Specification(expectedException=Foo.class)</pre>
-                <h2 id="Clovertestdetection-Usagecontext">Usage context</h2>
+                <h2>Usage context</h2>
                 <p>These patterns are being used by Clover for per-test coverage, test optimization and reporting.</p>
                 <p> </p>
             </div>

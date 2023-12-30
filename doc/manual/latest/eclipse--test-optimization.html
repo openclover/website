@@ -112,7 +112,7 @@
                         <li><a href='#id-7.TestOptimizationforEclipse-Troubleshooting'>Troubleshooting</a></li>
                     </ul>
                 </div>
-                </p><h2 id="id-7.TestOptimizationforEclipse-BeforeYouBegin">Before You Begin</h2>
+                </p><h2>Before You Begin</h2>
                 <p>Before using Test Optimization with Clover-for-Eclipse, be aware of the following.</p>
                 <ul>
                     <li>Test Optimization is available as a launch command, similar to '<strong>Run</strong>' or
@@ -123,7 +123,7 @@
                         is no Test Optimization.
                     </li>
                 </ul>
-                <h2 id="id-7.TestOptimizationforEclipse-LaunchingTestOptimization">Launching Test Optimization</h2>
+                <h2>Launching Test Optimization</h2>
                 <p><strong>To establish Test Optimization in Clover-for-Eclipse, carry out one of the following
                     actions</strong>:</p>
                 <ul>
@@ -186,7 +186,7 @@
                 <p><img class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
                         data-emoticon-name="information" alt="(info)"/> When the Run Optimized button is used, Clover
                     will run the configuration that was most recently run optimized.</p>
-                <h2 id="id-7.TestOptimizationforEclipse-MeasuringTestOptimizationResults">Measuring Test Optimization
+                <h2>Measuring Test Optimization
                     Results</h2>
                 <p>When Optimized tests are being run, the JUnit view displays additional info about savings (as shown
                     in the screenshot below).</p>
@@ -234,7 +234,7 @@
                 <p>The Delete Snapshot icon is disabled when the selected project does not have the snapshot file.<br/>
                     Test Optimization would run all tests (no optimization) when the snapshot file is deleted or absent.
                 </p>
-                <h2 id="id-7.TestOptimizationforEclipse-TestOptimizationSettings">Test Optimization Settings</h2>
+                <h2>Test Optimization Settings</h2>
                 <p>The list below shows the settings available for Test Optimization.</p>
                 <ul>
                     <li>Show dialog when no tests need to be run: when Test Optimization reduces amount of tests to 0,
@@ -256,7 +256,7 @@
                         </ul>
                     </li>
                 </ul>
-                <h3 id="id-7.TestOptimizationforEclipse-SettingGlobalPreferences">Setting Global Preferences</h3>
+                <h3>Setting Global Preferences</h3>
                 <p><em>Screenshot: Setting Global Preferences</em><br/> <span
                         class="confluence-embedded-file-wrapper"><img
                         class="confluence-embedded-image confluence-content-image-border"
@@ -269,7 +269,7 @@
                         data-linked-resource-container-version="43"></span></p>
                 <p>These are global (workspace-scope) preferences of Test Optimization; they are used as a template for
                     per-launch configuration preferences, or used when launch configuration uses default settings.</p>
-                <h3 id="id-7.TestOptimizationforEclipse-SettingPer-launcherPreferences">Setting Per-launcher
+                <h3>Setting Per-launcher
                     Preferences</h3>
                 <p><em>Screenshot: Running Optimized Configurations</em><br/> <span
                         class="confluence-embedded-file-wrapper"><img
@@ -296,11 +296,11 @@
                     <li>Use default settings: when set, use the workspace (global) settings.</li>
                     <li>Copy defaults: copy workspace settings to current settings.</li>
                 </ul>
-                <h2 id="id-7.TestOptimizationforEclipse-ConfigurationsUnsuitableForTestOptimization">Configurations
+                <h2>Configurations
                     Unsuitable For Test Optimization</h2>
                 <p>Some configurations are not suitable for Test Optimization. Please see the following points for
                     specific details.</p>
-                <h3 id="id-7.TestOptimizationforEclipse-LimitationswithMulti-ProjectSet-Ups">Limitations with
+                <h3>Limitations with
                     Multi-Project Set-Ups</h3>
                 <p>Clover does not aggregate data across projects, so it is not possible to detect changed sources in
                     projects other than the one the test is in. As a result, if your project contains tests that are
@@ -309,7 +309,7 @@
                 <p>For more information, see this JIRA issue: <a
                                                                  href="http://jira.atlassian.com/browse/CEP-297"
                                                                  rel="nofollow">CEP-297</a>.</p>
-                <h3 id="id-7.TestOptimizationforEclipse-LimitationswithTestSuites">Limitations with Test Suites</h3>
+                <h3>Limitations with Test Suites</h3>
                 <p>Clover does not recognize test suites as entities that should be optimized away. As the result test
                     suites are always run (never optimized).<br/> If your test launch configuration includes both test
                     suite and the test case (which is probably an incorrect configuration), then the test case would be
@@ -318,10 +318,10 @@
                 <p>For more information, see this JIRA issue: <a
                                                                  href="http://jira.atlassian.com/browse/CEP-299"
                                                                  rel="nofollow">CEP-299</a>.</p>
-                <h3 id="id-7.TestOptimizationforEclipse-LimitationswithTestingFrameworks">Limitations with Testing
+                <h3>Limitations with Testing
                     Frameworks</h3>
                 <p>Test Optimization is only supported with JUnit tests at this time.</p>
-                <h2 id="id-7.TestOptimizationforEclipse-Troubleshooting">Troubleshooting</h2>
+                <h2>Troubleshooting</h2>
                 <p>To troubleshoot Test Optimization in Clover-for-Eclipse, check through the following solutions:</p>
                 <ol>
                     <li>If Clover is disabled for the project or generally Clover does not work for the project;<br/>

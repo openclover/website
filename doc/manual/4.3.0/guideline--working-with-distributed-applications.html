@@ -66,7 +66,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h1 id="WorkingwithDistributedApplications-Introduction">Introduction</h1>
+                <h1>Introduction</h1>
                 <p>In some cases the application you wish to test has many components running on separate nodes in a
                     network, or even on disconnected machines. You can use Clover to test such applications, although
                     some additional configuration is required. This page describes how to configure Clover in order to
@@ -149,7 +149,7 @@
                         </li>
                     </ul>
                 </div>
-                </p><h1 id="WorkingwithDistributedApplications-Overview">Overview</h1>
+                </p><h1>Overview</h1>
                 <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
                                                                        confluence-query-params="effects=border-simple,shadow-kn"
                                                                        src="attachments/72253463/296586441.png?effects=border-simple,shadow-kn"
@@ -213,7 +213,7 @@
                     </li>
                 </ul>
                 <p> </p>
-                <h1 id="WorkingwithDistributedApplications-Collectingoverallcoveragefromdistributedbuilds">Collecting
+                <h1>Collecting
                     overall coverage from distributed builds</h1>
                 <p>The first step in setting up coverage from distributed builds is to configure Clover for overall
                     coverage reporting.</p><h4
@@ -297,7 +297,7 @@
                         </div>
                     </li>
                 </ol>
-                <h4 id="WorkingwithDistributedApplications-Step3:Setyourclasspathcorrectly">Step 3: Set your classpath
+                <h4>Step 3: Set your classpath
                     correctly</h4>
                 <p>You must put <code>clover.jar</code> (or the appropriate Clover plugin jar) in the classpath for any
                     JVM that will load classes that have been instrumented by Clover. How you go about this depends on
@@ -305,12 +305,12 @@
                 <p>In some cases, the <code>clover.jar</code> must be on the classpath of the actual webserver, not just
                     on the classpath of the webapp that is instrumented. This is to ensure Clover can properly flush its
                     coverage data when the JVM of the webserver is shutdown.</p>
-                <h1 id="WorkingwithDistributedApplications-Collectingper-testcoveragefromdistributedbuilds">Collecting
+                <h1>Collecting
                     per-test coverage from distributed builds</h1>
                 <p><img class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
                         data-emoticon-name="information" alt="(info)"/> The steps below require you to have carried out
                     the previous steps on this page (related to 'Collecting Overall Coverage from Distributed Builds').
-                </p><h4 id="WorkingwithDistributedApplications-Enablingordisablingdistributedcoverageatruntime">Enabling
+                </p><h4>Enabling
                 or disabling distributed coverage at runtime</h4>
                 <p>Clover's distributed coverage feature is enabled at runtime by making use of command-line
                     options.</p>
@@ -377,7 +377,7 @@
                 <p><strong>Configuration complete</strong><br/> Distributed Per-Test Coverage in Clover will now operate
                     when running distributed builds. Detailed reports will now be available.</p>
                 <p> </p>
-                <h1 id="WorkingwithDistributedApplications-Troubleshooting">Troubleshooting</h1><h4
+                <h1>Troubleshooting</h1><h4
                     id="WorkingwithDistributedApplications-Serverdoesnotwaitforclients,despitehavingnumClients!=0inbuildconfiguration">
                 Server does not wait for clients, despite having numClients != 0 in build configuration</h4>
                 <div class="confluence-information-macro confluence-information-macro-warning"><span
@@ -397,7 +397,7 @@
                         </ul>
                     </div>
                 </div>
-                <p> </p><h4 id="WorkingwithDistributedApplications-ExecutionoftestshangswhennumClients!=0">Execution of
+                <p> </p><h4>Execution of
                 tests hangs when numClients != 0</h4>
                 <div class="confluence-information-macro confluence-information-macro-warning"><span
                         class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span>

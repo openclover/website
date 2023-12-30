@@ -104,7 +104,7 @@
                 </div>
                 </p><h1 id="Part3-AutomatingCoverageChecks-Validatingbuildsagainstcodecoverage">Validating builds
                 against code coverage</h1>
-                <h2 id="Part3-AutomatingCoverageChecks-Addingcoveragechecking">Adding coverage checking</h2>
+                <h2>Adding coverage checking</h2>
                 <p>Ensure that you have current Clover coverage data so that you can check the coverage percentage for
                     your project. Clover coverage data is generated as described in <a
                             href="ant--tutorial-part-1-measuring-coverage.html">Part 1</a> of the Tutorial.</p>
@@ -160,7 +160,7 @@ BUILD SUCCESSFUL
                 <p>In order to try this out on the Money library used in this tutorial, try commenting out some of the
                     tests in the <code>MoneyTest.java</code> file to create a situation where the code coverage does not
                     reach 80%.</p>
-                <h2 id="Part3-AutomatingCoverageChecks-Failingthebuildifcoveragecriterianotmet">Failing the build if
+                <h2>Failing the build if
                     coverage criteria not met</h2>
                 <p>In the above situation where the target is not met, after the message has been written to output, the
                     build for the specified target will continue as normal.</p>
@@ -193,7 +193,7 @@ BUILD SUCCESSFUL
                     outcome accordingly. For an example on managing the resulting actions for a project which does not
                     meet its coverage target, see <a href="ant--using-in-automated-builds.html">Using
                         Clover in Automated Builds</a>.</p>
-                <h2 id="Part3-AutomatingCoverageChecks-Addingpackage-levelcoveragecriteria">Adding package-level
+                <h2>Adding package-level
                     coverage criteria</h2>
                 <p>The <code>&lt;<a href="ant--clover-check.html">clover-check</a>&gt;</code> task also allows you
                     to specify the desired percentage covered for different packages, which is useful if you have
@@ -211,7 +211,7 @@ BUILD SUCCESSFUL
 </pre>
                     </div>
                 </div>
-                <h2 id="Part3-AutomatingCoverageChecks-Contextfiltering">Context filtering</h2>
+                <h2>Context filtering</h2>
                 <p>The <code>&lt;<a href="ant--clover-check.html">clover-check</a>&gt;</code> task allows you to
                     prescribe a filter that excludes coverage of certain block-types from overall coverage calculations.
                     See <a href="ant--using-coverage-contexts.html">Coverage Contexts</a> for more information. The

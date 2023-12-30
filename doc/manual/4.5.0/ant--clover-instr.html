@@ -216,14 +216,14 @@
                         </tbody>
                     </table>
                 </div>
-                <h3 id="clover-instr-NestedElementsof&lt;clover-instr&gt;">Nested Elements of &lt;clover-instr&gt;</h3>
+                <h3>Nested Elements of &lt;clover-instr&gt;</h3>
                 <p><span class="confluence-anchor-link" id="clover-instr-distributedCoverage"></span></p><h4
                     id="clover-instr-&lt;distributedCoverage&gt;">&lt;distributedCoverage&gt;</h4>
                 <p>This element turns on Clover's distributed coverage feature, enabling the collection of per-test
                     coverage data, when your test environment requires more than one JVM (<a
                                                                                              href="http://en.wikipedia.org/wiki/Jvm"
                                                                                              rel="nofollow">Java Virtual
-                        Machine</a>).</p><h5 id="clover-instr-Parameters.1">Parameters</h5>
+                        Machine</a>).</p><h5>Parameters</h5>
                 <div class="table-wrap">
                     <table>
                         <tbody>
@@ -276,11 +276,11 @@
                 <p>Specifies a set of source files to instrument.</p>
                 <p> </p>
                 <p><span class="confluence-anchor-link" id="clover-instr-MethodContext"></span></p>
-                <h4 id="clover-instr-&lt;methodContext">
-                    <h2 id="clover-instr-&lt;methodContext&gt;">&lt;methodContext&gt;</h2>
+                <h4>
+                    <h2>&lt;methodContext&gt;</h2>
                     <p>Specifies a method Context definition. See <a
                             href="ant--using-coverage-contexts.html">Using
-                        Coverage Contexts</a> for more information.</p><h5 id="clover-instr-Parameters.2">
+                        Coverage Contexts</a> for more information.</p><h5>
                     Parameters</h5>
                     <div class="table-wrap">
                         <table>
@@ -420,7 +420,7 @@
                 <p> </p>
                 <p><span class="confluence-anchor-link" id="clover-instr-StatementContext"></span></p>
                 <p>
-                <h2 id="clover-instr-&lt;statementContext&gt;">&lt;statementContext&gt;</h2>
+                <h2>&lt;statementContext&gt;</h2>
                 <p>Specifies a statement Context definition. See <a
                         href="ant--using-coverage-contexts.html">Using Coverage
                     Contexts</a> for more information.</p>
@@ -428,7 +428,7 @@
                         class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span>
                     <div class="confluence-information-macro-body"><p>This element does not support Groovy.</p></div>
                 </div>
-                <h5 id="clover-instr-Parameters.3">Parameters</h5>
+                <h5>Parameters</h5>
                 <div class="table-wrap">
                     <table>
                         <tbody>
@@ -458,7 +458,7 @@
                 </p><p> </p>
                 <p><span class="confluence-anchor-link" id="clover-instr-profiles"></span></p>
                 <p>
-                <h2 id="clover-instr-&lt;profiles&gt;">&lt;profiles&gt;</h2>
+                <h2>&lt;profiles&gt;</h2>
                 <p><strong>Since 3.1.11.</strong> Optional element. Defines a list of Clover profiles, which can be
                     selected at runtime by providing a <strong>clover.profile=&lt;name&gt;</strong> system property.
                     Thanks to this you can change some of Clover's behavior without code recompilation.</p>
@@ -476,7 +476,7 @@
 </pre>
                     </div>
                 </div>
-                <p> </p><h4 id="clover-instr-&lt;profile&gt;">&lt;profile&gt;</h4>
+                <p> </p><h4>&lt;profile&gt;</h4>
                 <p><strong>Since 3.1.11.</strong> Contains a definition of a single runtime profile.</p><h5
                     id="clover-instr-Parameters.4">Parameters</h5>
                 <div class="table-wrap">
@@ -508,12 +508,12 @@
                         </tbody>
                     </table>
                 </div>
-                <h5 id="clover-instr-Nestedelements">Nested elements</h5>
+                <h5>Nested elements</h5>
                 <p><strong>&lt;distributedCoverage/&gt;</strong></p>
                 <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
                         data-emoticon-name="light-on" alt="(lightbulb)"/>Note: a definition in <em><strong>&lt;profile&gt;/&lt;distributedCoverage&gt;</strong></em>
                     element has priority over the <em><strong>&lt;clover-setup|clover-instr&gt;/&lt;distributedCoverage&gt;</strong></em>
-                    element.</p><h5 id="clover-instr-Selectingclover.profileatruntime">Selecting clover.profile at
+                    element.</p><h5>Selecting clover.profile at
                 runtime</h5>
                 <p>Clover profile is being selected at runtime using the following algorithm:</p>
                 <ul>
@@ -547,7 +547,7 @@
                 <p>So it fall-backs to default system settings in case of missing profile.</p>
                 <p> </p></p><p> </p>
                 <p><span class="confluence-anchor-link" id="clover-instr-Testsources"></span>
-                <h2 id="clover-instr-&lt;testsources&gt;">&lt;testsources&gt;</h2>
+                <h2>&lt;testsources&gt;</h2>
                 <p><code>&lt;testsources&gt;</code> is an <a
                                                              href="https://ant.apache.org/manual/Types/fileset.html"
                                                              rel="nofollow">Ant fileset</a> which should only be used if
@@ -606,7 +606,7 @@
                 <p><img class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
                         data-emoticon-name="information" alt="(info)"/> For more information about regular expressions,
                     please check java.util.regex.Pattern documentation.
-                </p><h6 id="clover-instr-&lt;and&gt;">&lt;and&gt;</h6>
+                </p><h6>&lt;and&gt;</h6>
                 <p>&lt;and&gt; can be used to specify multiple instances of &lt;testclass&gt;, all of which must be
                     matched for a class to be detected as a test, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -622,7 +622,7 @@
                     </div>
                 </div>
                 <p>In this example, a class will only be recognized as a test if it has &quot;<code>Specification</code>&quot;
-                    <strong>and</strong> &quot;<code>Test</code>&quot; annotations.</p><h6 id="clover-instr-&lt;or&gt;">
+                    <strong>and</strong> &quot;<code>Test</code>&quot; annotations.</p><h6>
                 &lt;or&gt;</h6>
                 <p>&lt;or&gt; can be used to specify multiple instances of &lt;testclass&gt;, any of which must be
                     matched for a class to be detected as a test, e.g.:</p>
@@ -647,7 +647,7 @@
                 <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
                         data-emoticon-name="warning" alt="(warning)"/> Clover matches methods only; it does not match
                     constructors (<a  href="https://jira.atlassian.com/browse/CLOV-1339"
-                                     rel="nofollow">CLOV-1339</a>).</p><h6 id="clover-instr-Parameters.6">
+                                     rel="nofollow">CLOV-1339</a>).</p><h6>
                 Parameters</h6>
                 <div class="table-wrap">
                     <table>
@@ -746,7 +746,7 @@
                 <p>This example produces an instrumented copy which recognizes all of the following as tests: classes in
                     the directory &quot;src&quot;; classes in files whose names end with &quot;Test&quot;; methods whose
                     names contain with &quot;Bag&quot;.</p>
-                <p> </p><h4 id="clover-instr-IntervalFlushing">Interval Flushing</h4>
+                <p> </p><h4>Interval Flushing</h4>
                 <p>By default Clover will write coverage data to disk when the hosting JVM exits, via a shutdown hook.
                     This is not always practical, particularly when the application you are testing runs in an
                     Application Server. In this situation, you can configure Clover to use 'interval' flushing, where
@@ -760,7 +760,7 @@
                 </div>
                 <p>The &quot;flushinterval&quot; defines in milliseconds the minimum interval between coverage
                     writes.</p>
-                <p> </p><h4 id="clover-instr-SpecifyingthelocationoftheCloverDatabase.">Specifying the location of the
+                <p> </p><h4>Specifying the location of the
                 Clover Database.</h4>
                 <p>By default, Clover writes its <a href="ant--managing-the-coverage-database.html">internal
                     database</a> to the <code>.clover</code> directory relative to the project's <code>basedir</code>.

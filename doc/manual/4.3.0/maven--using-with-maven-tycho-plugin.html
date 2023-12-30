@@ -62,13 +62,13 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h1 id="UsingCloverwithMavenTychoPlugin-Introduction">Introduction</h1>
+                <h1>Introduction</h1>
                 <p>You cannot use direct integration of Tycho plugin with Clover using standard 'clover:setup' or
                     'clover:instrument' goals. The reason is Maven Tycho Plugin ignores Maven's source folders
                     definitions. Instead of this, Tycho Plugin reads source folders locations from Eclipse configuration
                     files (like build.properties). As a consequence it does not see files instrumented by Clover, which
                     are stored in the <em>target/src-instrumented</em> directory.</p>
-                <h1 id="UsingCloverwithMavenTychoPlugin-Workaround">Workaround</h1>
+                <h1>Workaround</h1>
                 <p>However, you can use a following trick, which is very similar to the one described in <a
                         href="eclipse--instrumenting-rcp-application.html"
                         rel="nofollow">Instrumenting RCP Application / Approach#1 : Instrument source code manually</a>:
@@ -147,7 +147,7 @@
                                                                        data-linked-resource-container-id="302809603"
                                                                        data-linked-resource-container-version="10"></span>
                 </p>
-                <p> </p><h4 id="UsingCloverwithMavenTychoPlugin-Codesample">Code sample</h4>
+                <p> </p><h4>Code sample</h4>
                 <p>You can clone examples provided by Tycho team: <span>git clone <a
                                                                                      href="http://git.eclipse.org/c/tycho/org.eclipse.tycho-demo.git"
                                                                                      rel="nofollow">http://git.eclipse.org/c/tycho/org.eclipse.tycho-demo.git</a></span>
@@ -155,7 +155,7 @@
                 <p><span>Go to <em>&quot;itp01&quot;</em> sample, </span>rename it to
                     <em>&quot;original_project&quot;</em>, use Ant script from below and save it in directory above<em>
                         &quot;original_project&quot;</em>. Follow instructions below.</p>
-                <p> </p><h4 id="UsingCloverwithMavenTychoPlugin-Antscript">Ant script</h4>
+                <p> </p><h4>Ant script</h4>
                 <p>Sample Ant script which instruments all *.java files from <em>project.original.dir</em> and puts them
                     into <em>project.instrumented.dir</em>, preserving original directory structure. It copies all
                     non-java files as well.</p>
@@ -228,7 +228,7 @@
 &lt;/project&gt;</pre>
                     </div>
                 </div>
-                <p> </p><h4 id="UsingCloverwithMavenTychoPlugin-Modifiedtop-levelpom.xml">Modified top-level
+                <p> </p><h4>Modified top-level
                 pom.xml</h4>
                 <p>You must have the Clover artefact available during compilation by Tycho. Modify the <em>tycho-compiler-plugin</em>
                     configuration and add <em>org.openclover:clover</em> to
@@ -269,7 +269,7 @@
 </pre>
                     </div>
                 </div>
-                <p> </p><h4 id="UsingCloverwithMavenTychoPlugin-Usage">Usage</h4>
+                <p> </p><h4>Usage</h4>
                 <p>Directory layout:</p>
                 <div style="border-width: 1px;">
                     <div>

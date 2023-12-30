@@ -59,15 +59,15 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h4 id="Mavenisdeployinginstrumentedjars-Symptoms">Symptoms</h4>
+                <h4>Symptoms</h4>
                 <p>A Maven project with clover-maven-plugin configured with the <em><strong>clover:setup</strong> </em>goal.
                 </p>
                 <p>When &quot;mvn deploy&quot; command is used, Maven deploys a JAR which contains classes instrument by
                     Clover.</p>
-                <p> </p><h4 id="Mavenisdeployinginstrumentedjars-Cause">Cause</h4>
+                <p> </p><h4>Cause</h4>
                 <p>The <em><strong>clover:setup</strong> </em>goal performs instrumentation in the main life cycle
                     build. This is normal behavior.</p>
-                <p> </p><h4 id="Mavenisdeployinginstrumentedjars-Resolution">Resolution</h4>
+                <p> </p><h4>Resolution</h4>
                 <p>You can use:</p>
                 <ul>
                     <li><em>&quot;clover:instrument&quot;</em> goal, which forks a parallel build life cycle and creates

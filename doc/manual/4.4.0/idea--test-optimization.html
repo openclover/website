@@ -110,7 +110,7 @@
                         <li><a href='#id-7.TestOptimizationforIDEA-Troubleshooting'>Troubleshooting</a></li>
                     </ul>
                 </div>
-                </p><h2 id="id-7.TestOptimizationforIDEA-BeforeYouBegin">Before You Begin</h2>
+                </p><h2>Before You Begin</h2>
                 <p>Before using Test Optimization with Clover-for-IDEA, be aware of the following.</p>
                 <ul>
                     <li>Test Optimization is available as a '<strong>Run Optimized</strong>' command, similar to
@@ -121,7 +121,7 @@
                         no Test Optimization.
                     </li>
                 </ul>
-                <h2 id="id-7.TestOptimizationforIDEA-LaunchingTestOptimization">Launching Test Optimization</h2>
+                <h2>Launching Test Optimization</h2>
                 <p><strong>To establish Test Optimization in Clover-for-IDEA, carry out one of the following
                     actions</strong>:</p>
                 <ul>
@@ -184,7 +184,7 @@
                                                                        data-linked-resource-container-id="188514333"
                                                                        data-linked-resource-container-version="19"></span>
                 </p>
-                <h2 id="id-7.TestOptimizationforIDEA-MeasuringTestOptimizationResults">Measuring Test Optimization
+                <h2>Measuring Test Optimization
                     Results</h2>
                 <p>When optimized tests are being run, Clover displays additional information about it.</p>
                 <p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image"
@@ -217,8 +217,8 @@
                     in the Clover tool bar. The Delete Snapshot icon is invisible when the project does not have the
                     snapshot file. Test Optimization would run all tests (no optimization) when the snapshot file is
                     deleted or absent.</p>
-                <h2 id="id-7.TestOptimizationforIDEA-TestOptimizationSettings">Test Optimization Settings</h2>
-                <h3 id="id-7.TestOptimizationforIDEA-SettingGlobalPreferences">Setting Global Preferences</h3>
+                <h2>Test Optimization Settings</h2>
+                <h3>Setting Global Preferences</h3>
                 <p>Open the &quot;Clover (global settings)&quot; page. On this page you can defined how Clover should
                     notify about empty test runs, i.e. ones that have all tests optimised out.</p>
                 <ul>
@@ -237,7 +237,7 @@
                         data-base-url="https://confluence.atlassian.com" data-linked-resource-content-type="image/png"
                         data-linked-resource-container-id="188514333"
                         data-linked-resource-container-version="19"></span></p>
-                <h3 id="id-7.TestOptimizationforIDEA-SettingPer-launcherPreferences">Setting Per-launcher
+                <h3>Setting Per-launcher
                     Preferences</h3>
                 <p>Open the &quot;Edit configurations&quot; dialog, select test configuration. Next open the &quot;Startup/Connection&quot;
                     tab and select the &quot;Clover Test Optimization&quot;.</p>
@@ -274,11 +274,11 @@
                         data-linked-resource-container-id="188514333"
                         data-linked-resource-container-version="19"></span></p>
                 <p> </p>
-                <h2 id="id-7.TestOptimizationforIDEA-ConfigurationsUnsuitableForTestOptimization">Configurations
+                <h2>Configurations
                     Unsuitable For Test Optimization</h2>
                 <p>Some configurations are not suitable for Test Optimization. Please see the following points for
                     specific details.</p>
-                <h3 id="id-7.TestOptimizationforIDEA-LimitationswithTestSuites">Limitations with Test Suites</h3>
+                <h3>Limitations with Test Suites</h3>
                 <p>Clover does not recognise test suites as entities that should be optimised away. As the result test
                     suites are always run (never optimised).<br/> If your test launch configuration includes both test
                     suite and the test case (which is probably an incorrect configuration), then the test case would be
@@ -287,12 +287,12 @@
                 <p>For more information, see this JIRA issue: <a
                                                                  href="http://jira.atlassian.com/browse/CIJ-249"
                                                                  rel="nofollow">CIJ-249</a>.</p>
-                <h3 id="id-7.TestOptimizationforIDEA-Limitationwithtestmethods">Limitation with test methods</h3>
+                <h3>Limitation with test methods</h3>
                 <p>Due to bug <a  href="https://jira.atlassian.com/browse/CLOV-1084"
                                  rel="nofollow">CLOV-1084</a>, in case when you execute optimized run and next add new
                     test method to a class, such class will be always executed in next optimized runs. In order to fix
                     it, you have to delete optimization snapshot (see button in tool bar menu).</p>
-                <h2 id="id-7.TestOptimizationforIDEA-Troubleshooting">Troubleshooting</h2>
+                <h2>Troubleshooting</h2>
                 <p>To troubleshoot Test Optimization in Clover-for-IDEA, check through the following solutions:</p>
                 <ol>
                     <li>If Clover is disabled for the project or generally Clover does not work for the project;<br/>

@@ -60,7 +60,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h4 id="CompilationerrorwithCloverenabled-variableoftypeObject-Symptoms">Symptoms</h4>
+                <h4>Symptoms</h4>
                 <p>Clover instrumented code fails to compile with following error:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -87,7 +87,7 @@ src/LambdaAndStreams.java:35: error: incompatible types: Stream&lt;Object&gt; ca
 }</pre>
                     </div>
                 </div>
-                <p> </p><h4 id="CompilationerrorwithCloverenabled-variableoftypeObject-Cause">Cause</h4>
+                <p> </p><h4>Cause</h4>
                 <p>Clover proxies lambda expression with method wrapper defined with generic signatures. Type inferring
                     algorithm JDK 8 the compiler uses has its own limitations and the compiler may not be able to infer
                     proper type when a method reference is used and which results in compilation error. Since it's not
@@ -158,7 +158,7 @@ src/LambdaAndStreams.java:35: error: incompatible types: Stream&lt;Object&gt; ca
                         </ol>
                     </li>
                 </ol>
-                <h4 id="CompilationerrorwithCloverenabled-variableoftypeObject-Bugtracker:">
+                <h4>
                     <span> </span><br/><br/><span>Bug tracker:</span></h4>
                 <p><span>
     <span class="jira-issue" data-issue-key="CLOV-1762">

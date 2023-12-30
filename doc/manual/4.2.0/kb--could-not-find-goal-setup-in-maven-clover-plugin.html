@@ -60,7 +60,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h3 id="Couldnotfindgoal&#39;setup&#39;inpluginorg.apache.maven.plugins:maven-clover-plugin:2.4-Symptoms">
+                <h3>
                     Symptoms</h3>
                 <p>When integrating Clover into a build, for example:</p>
                 <div style="border-width: 1px;">
@@ -77,7 +77,7 @@
 org.apache.maven.plugin.MojoNotFoundException: Could not find goal &#39;setup&#39; in plugin org.apache.maven.plugins:maven-clover-plugin:2.4 among available goals aggregate, check, instrumentInternal, instrument, log, clover, save-history</pre>
                     </div>
                 </div>
-                <h3 id="Couldnotfindgoal&#39;setup&#39;inpluginorg.apache.maven.plugins:maven-clover-plugin:2.4-Cause">
+                <h3>
                     Cause</h3>
                 <p>1) The maven-clover2-plugin is declared in pom, but goals called from a command line have the
                     'clover' prefix.</p>
@@ -85,7 +85,7 @@ org.apache.maven.plugin.MojoNotFoundException: Could not find goal &#39;setup&#3
                 <p>2) Neither the clover-maven-plugin is declared in pom.xml nor the <em>&lt;pluginGroup&gt;com.atlassian.maven.plugins&lt;/pluginGroup&gt;</em> in
                     .m2/settings.xml and you use goals prefixed with 'clover' from a command line.</p>
                 <p> </p>
-                <h3 id="Couldnotfindgoal&#39;setup&#39;inpluginorg.apache.maven.plugins:maven-clover-plugin:2.4-Resolution">
+                <h3>
                     Resolution</h3>
                 <p>Clover plugin for Maven has been renamed
                     in Clover 4.1 and next renamed in OpenClover 4.2. Therefore: </p>

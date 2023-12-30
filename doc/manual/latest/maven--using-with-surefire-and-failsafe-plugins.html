@@ -62,7 +62,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h2 id="UsingwithSurefireandFailsafePlugins-Introduction">Introduction</h2>
+                <h2>Introduction</h2>
                 <p>Clover can be used to generate code coverage statistics from practically any kind of test - unit,
                     integration, functional, regression ... - both automatic and manual. The only thing that has to be
                     done is to instrument source code and run it with proper options.</p>
@@ -71,7 +71,7 @@
                     with Surefire plugin &quot;out of the box&quot;.</p>
                 <p>In this short tutorial you will learn how to configure Clover with the Maven Failsafe Plugin, which
                     is used for integration tests.</p>
-                <h2 id="UsingwithSurefireandFailsafePlugins-Comparisonofmaven-surefire-pluginandmaven-failsafe-plugin">
+                <h2>
                     Comparison of maven-surefire-plugin and maven-failsafe-plugin</h2>
                 <p> </p>
                 <div class="table-wrap">
@@ -126,7 +126,7 @@
                     </table>
                 </div>
                 <p> </p>
-                <h2 id="UsingwithSurefireandFailsafePlugins-SettingupCloverwithmaven-failsafe-plugin(only)">Setting up
+                <h2>Setting up
                     Clover with maven-failsafe-plugin (only)</h2>
                 <p>In order to have code coverage statistics from integration tests <em><strong>and excluding</strong>
                     <strong>unit tests</strong></em>, you have to do the following:</p>
@@ -156,7 +156,7 @@
                         </ol>
                     </li>
                 </ol>
-                <p> </p><h4 id="UsingwithSurefireandFailsafePlugins-Contentofpom.xml">Content of pom.xml</h4>
+                <p> </p><h4>Content of pom.xml</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
 <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
@@ -203,7 +203,7 @@
 &lt;/build&gt;</pre>
                     </div>
                 </div>
-                <p> </p><h4 id="UsingwithSurefireandFailsafePlugins-Contentofclover-report.xml">Content of
+                <p> </p><h4>Content of
                 clover-report.xml</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -238,7 +238,7 @@
 &lt;/project&gt;</pre>
                     </div>
                 </div>
-                <p> </p><h4 id="UsingwithSurefireandFailsafePlugins-Mavencommand">Maven command</h4>
+                <p> </p><h4>Maven command</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
                         <pre
@@ -248,7 +248,7 @@
                 </div>
                 <p> </p>
                 <p> </p>
-                <h2 id="UsingwithSurefireandFailsafePlugins-SettingupCloverwithmaven-surefire-pluginandmaven-failsafe-plugin(combinedreport)">
+                <h2>
                     Setting up Clover with maven-surefire-plugin and maven-failsafe-plugin (combined report)</h2>
                 <p>In order to have combined coverage statistics from unit <em><strong>and</strong> </em>integration
                     tests, you have to do the following:</p>
@@ -280,7 +280,7 @@
                         </ol>
                     </li>
                 </ol>
-                <p> </p><h4 id="UsingwithSurefireandFailsafePlugins-Contentofpom.xml.1">Content of pom.xml</h4>
+                <p> </p><h4>Content of pom.xml</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
 <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
@@ -335,7 +335,7 @@
 &lt;/build&gt;</pre>
                     </div>
                 </div>
-                <p> </p><h4 id="UsingwithSurefireandFailsafePlugins-Contentofclover-report.xml.1">Content of
+                <p> </p><h4>Content of
                 clover-report.xml</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -369,7 +369,7 @@
 &lt;/project&gt;</pre>
                     </div>
                 </div>
-                <p> </p><h4 id="UsingwithSurefireandFailsafePlugins-Mavencommand.1">Maven command</h4>
+                <p> </p><h4>Maven command</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
                         <pre
@@ -378,7 +378,7 @@
                     </div>
                 </div>
                 <p> </p>
-                <h2 id="UsingwithSurefireandFailsafePlugins-Testoptimization">Test optimization</h2>
+                <h2>Test optimization</h2>
                 <p>Test Optimization feature is available for Surefire plugin. You you have to use:</p>
                 <ul>
                     <li><a
@@ -396,7 +396,7 @@
                     maven-failsafe-plugin is not available yet. See <a
                             href="hacking--updating-optimization-snapshot-file.html">Hacking Clover / Updating
                         optimization snapshot file</a> if you need a workaround. <br/></strong></p>
-                <h2 id="UsingwithSurefireandFailsafePlugins-Sampleproject">Sample project</h2>
+                <h2>Sample project</h2>
                 <p>A sample project shows usage of Surefire and Failsafe plugins together.</p>
                 <p>Checkout code: <a
                                                     href="https://github.com/openclover/clover-maven-plugin"
@@ -404,7 +404,7 @@
                 </p>
                 <p>Go to: <strong>src/it/surefire-and-failsafe-plugins</strong></p>
                 <p>Run mvn command with goals as specified in <em>goals.txt</em> file in this project.</p>
-                <h2 id="UsingwithSurefireandFailsafePlugins-References">References</h2>
+                <h2>References</h2>
                 <p>See also:</p>
                 <ul>
                     <li><a  href="http://maven.apache.org/plugins/maven-surefire-plugin/"

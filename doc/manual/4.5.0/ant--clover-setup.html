@@ -320,11 +320,11 @@
                     Use the '<code>clovercompiler</code>' attribute instead.</p>
                 <h1 id="clover-setup-NestedElements">Nested Elements</h1>
                 <p><span class="confluence-anchor-link" id="clover-setup-distributedCoverage"></span></p>
-                <h2 id="clover-setup-&lt;distributedCoverage&gt;">&lt;distributedCoverage&gt;</h2>
+                <h2>&lt;distributedCoverage&gt;</h2>
                 <p>This element, which supports both Java and Groovy, turns on Clover's distributed coverage feature,
                     enabling the collection of per-test coverage data, when your test environment requires more than one
                     JVM (<a  href="http://en.wikipedia.org/wiki/Jvm" rel="nofollow">Java Virtual
-                        Machine</a>).</p><h5 id="clover-setup-Parameters">Parameters</h5>
+                        Machine</a>).</p><h5>Parameters</h5>
                 <div class="table-wrap">
                     <table>
                         <tbody>
@@ -372,7 +372,7 @@
                 <p><img class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
                         data-emoticon-name="information" alt="(info)"/> All attributes are optional.</p>
                 <p><span class="confluence-anchor-link" id="clover-setup-Files"></span></p>
-                <h2 id="clover-setup-&lt;files&gt;">&lt;files&gt;</h2>
+                <h2>&lt;files&gt;</h2>
                 <p>An Ant patternset, relative to the top level package (e.g. com/atlassian/clovertest), element which
                     controls which files are included or excluded from Clover instrumentation. Use this when you wish to
                     exclude files based on packages.</p>
@@ -382,7 +382,7 @@
                         been deprecated and has no effect.</p></div>
                 </div>
                 <p><span class="confluence-anchor-link" id="clover-setup-Fileset"></span></p>
-                <h2 id="clover-setup-&lt;fileset&gt;">&lt;fileset&gt;</h2>
+                <h2>&lt;fileset&gt;</h2>
                 <p>As of Clover 1.2, <code>&lt;clover-setup&gt;</code> also supports multiple Ant &lt;filesets&gt;.
                     These give greater flexibility in specifying which source files are to be instrumented by Clover.
                     This is useful when you have more than one source base and only want some of those source bases to
@@ -398,10 +398,10 @@
                 </div>
                 <p><span class="confluence-anchor-link" id="clover-setup-MethodContext"></span></p>
                 <p>
-                <h2 id="clover-setup-&lt;methodContext&gt;">&lt;methodContext&gt;</h2>
+                <h2>&lt;methodContext&gt;</h2>
                 <p>Specifies a method Context definition. See <a
                         href="ant--using-coverage-contexts.html">Using Coverage
-                    Contexts</a> for more information.</p><h5 id="clover-setup-Parameters.1">Parameters</h5>
+                    Contexts</a> for more information.</p><h5>Parameters</h5>
                 <div class="table-wrap">
                     <table>
                         <tbody>
@@ -538,7 +538,7 @@
                 <p> </p></p><p> </p>
                 <p><span class="confluence-anchor-link" id="clover-setup-StatementContext"></span></p>
                 <p>
-                <h2 id="clover-setup-&lt;statementContext&gt;">&lt;statementContext&gt;</h2>
+                <h2>&lt;statementContext&gt;</h2>
                 <p>Specifies a statement Context definition. See <a
                         href="ant--using-coverage-contexts.html">Using Coverage
                     Contexts</a> for more information.</p>
@@ -546,7 +546,7 @@
                         class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span>
                     <div class="confluence-information-macro-body"><p>This element does not support Groovy.</p></div>
                 </div>
-                <h5 id="clover-setup-Parameters.2">Parameters</h5>
+                <h5>Parameters</h5>
                 <div class="table-wrap">
                     <table>
                         <tbody>
@@ -576,7 +576,7 @@
                 </p><p> </p>
                 <p><span class="confluence-anchor-link" id="clover-setup-profiles"></span></p>
                 <p>
-                <h2 id="clover-setup-&lt;profiles&gt;">&lt;profiles&gt;</h2>
+                <h2>&lt;profiles&gt;</h2>
                 <p><strong>Since 3.1.11.</strong> Optional element. Defines a list of Clover profiles, which can be
                     selected at runtime by providing a <strong>clover.profile=&lt;name&gt;</strong> system property.
                     Thanks to this you can change some of Clover's behavior without code recompilation.</p>
@@ -594,7 +594,7 @@
 </pre>
                     </div>
                 </div>
-                <p> </p><h4 id="clover-setup-&lt;profile&gt;">&lt;profile&gt;</h4>
+                <p> </p><h4>&lt;profile&gt;</h4>
                 <p><strong>Since 3.1.11.</strong> Contains a definition of a single runtime profile.</p><h5
                     id="clover-setup-Parameters.3">Parameters</h5>
                 <div class="table-wrap">
@@ -626,12 +626,12 @@
                         </tbody>
                     </table>
                 </div>
-                <h5 id="clover-setup-Nestedelements">Nested elements</h5>
+                <h5>Nested elements</h5>
                 <p><strong>&lt;distributedCoverage/&gt;</strong></p>
                 <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
                         data-emoticon-name="light-on" alt="(lightbulb)"/>Note: a definition in <em><strong>&lt;profile&gt;/&lt;distributedCoverage&gt;</strong></em>
                     element has priority over the <em><strong>&lt;clover-setup|clover-instr&gt;/&lt;distributedCoverage&gt;</strong></em>
-                    element.</p><h5 id="clover-setup-Selectingclover.profileatruntime">Selecting clover.profile at
+                    element.</p><h5>Selecting clover.profile at
                 runtime</h5>
                 <p>Clover profile is being selected at runtime using the following algorithm:</p>
                 <ul>
@@ -664,7 +664,7 @@
                 </ul>
                 <p>So it fall-backs to default system settings in case of missing profile.</p>
                 <p> </p></p><p> <span class="confluence-anchor-link" id="clover-setup-Testsources"></span></p>
-                <h2 id="clover-setup-&lt;testsources&gt;">&lt;testsources&gt;</h2>
+                <h2>&lt;testsources&gt;</h2>
                 <p><code>&lt;testsources&gt;</code> is an <a
                                                              href="https://ant.apache.org/manual/Types/fileset.html"
                                                              rel="nofollow">Ant fileset</a> which should only be used if
@@ -722,7 +722,7 @@
                 <p><img class="emoticon emoticon-information" src="images/icons/emoticons/information.png"
                         data-emoticon-name="information" alt="(info)"/> For more information about regular expressions,
                     please check java.util.regex.Pattern documentation.
-                </p><h6 id="clover-setup-&lt;and&gt;">&lt;and&gt;</h6>
+                </p><h6>&lt;and&gt;</h6>
                 <p>&lt;and&gt; can be used to specify multiple instances of &lt;testclass&gt;, all of which must be
                     matched for a class to be detected as a test, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -738,7 +738,7 @@
                     </div>
                 </div>
                 <p>In this example, a class will only be recognized as a test if it has &quot;<code>Specification</code>&quot;
-                    <strong>and</strong> &quot;<code>Test</code>&quot; annotations.</p><h6 id="clover-setup-&lt;or&gt;">
+                    <strong>and</strong> &quot;<code>Test</code>&quot; annotations.</p><h6>
                 &lt;or&gt;</h6>
                 <p>&lt;or&gt; can be used to specify multiple instances of &lt;testclass&gt;, any of which must be
                     matched for a class to be detected as a test, e.g.:</p>
@@ -763,7 +763,7 @@
                 <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
                         data-emoticon-name="warning" alt="(warning)"/> Clover matches methods only; it does not match
                     constructors (<a  href="https://jira.atlassian.com/browse/CLOV-1339"
-                                     rel="nofollow">CLOV-1339</a>).</p><h6 id="clover-setup-Parameters.5">
+                                     rel="nofollow">CLOV-1339</a>).</p><h6>
                 Parameters</h6>
                 <div class="table-wrap">
                     <table>
@@ -864,7 +864,7 @@
                 </div>
                 <p>This example instruments all source files in the src/main directory tree that contain the string
                     &quot;Joe Bloggs&quot;. Ant's filesets supports a number of these selectors. Please refer to the Ant
-                    manual for information on these selectors.</p><h4 id="clover-setup-IntervalFlushing">Interval
+                    manual for information on these selectors.</p><h4>Interval
                 Flushing</h4>
                 <p>By default Clover will write coverage data to disk when the hosting JVM exits, via a shutdown hook.
                     This is not always practical, particularly when the application you are testing runs in an
@@ -879,7 +879,7 @@
                     </div>
                 </div>
                 <p>The &quot;flushinterval&quot; defines in milliseconds the minimum interval between coverage data
-                    writes.</p><h4 id="clover-setup-Specifyingadelegatecompiler">Specifying a delegate compiler</h4>
+                    writes.</p><h4>Specifying a delegate compiler</h4>
                 <p>Clover provides the optional &quot;clovercompiler&quot; attribute to allow specification of the java
                     compiler to delegate to once instrumentation is completed. The attribute accepts the same values
                     &quot;compiler&quot; attribute of the <a
@@ -893,7 +893,7 @@
                     </div>
                 </div>
                 <p>This example will pass compilation to the &quot;jikes&quot; compiler once instrumentation is
-                    complete.</p><h4 id="clover-setup-SpecifyingthelocationoftheCloverCoveragedatabase">Specifying the
+                    complete.</p><h4>Specifying the
                 location of the Clover Coverage database</h4>
                 <p>By default, Clover writes its <a href="ant--managing-the-coverage-database.html">internal
                     database</a> to the <code>.clover/clover.db</code> file relative to the project's base directory. To

@@ -60,7 +60,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h4 id="OutOfMemoryError:PermGenspace-Symptoms">Symptoms</h4>
+                <h4>Symptoms</h4>
                 <p>Running a build with Clover results in OutOfMemory error (usually during test execution):</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -69,7 +69,7 @@
 </pre>
                     </div>
                 </div>
-                <h4 id="OutOfMemoryError:PermGenspace-Cause">Cause</h4>
+                <h4>Cause</h4>
                 <p>Possible causes are:</p>
                 <p><strong>1) Insufficient memory allocation for PermGen</strong></p>
                 <p>PermGen space keeps class definitions. Due to a fact that:</p>
@@ -89,7 +89,7 @@
                     multiple times a new version of an application into it (without restarting the process). It can
                     happen that classes from old application will not be deallocated. See this article for more details:
                     <a  href="http://plumbr.eu/blog/what-is-a-permgen-leak" rel="nofollow">http://plumbr.eu/blog/what-is-a-permgen-leak</a>.
-                </p><h4 id="OutOfMemoryError:PermGenspace-Resolution">Resolution</h4>
+                </p><h4>Resolution</h4>
                 <p>The required memory can be increased by setting the <code>-XX:MaxPermSize</code> setting on the JVM.
                     Add proper toggle for 'java' command call or set JAVA_OPTS, ANT_OPTS, MAVEN_OPTS depending on the
                     build tool you use.</p>
@@ -117,7 +117,7 @@
 </pre>
                     </div>
                 </div>
-                <p> </p><h4 id="OutOfMemoryError:PermGenspace-Exampleformaven-cargo-plugin">Example for
+                <p> </p><h4>Example for
                 maven-cargo-plugin</h4>
                 <p>If you are using the <a  href="http://cargo.codehaus.org/Maven2+plugin"
                                            rel="nofollow">Maven Cargo plugin</a>, add the following in the <code>&lt;systemProperties/&gt;</code>

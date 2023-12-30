@@ -65,7 +65,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h1 id="IntegratingCloverwithJUnit4ParameterizedTests-Introduction">Introduction</h1>
+                <h1>Introduction</h1>
                 <p>JUnit4 framework version <strong>4.10</strong> has introduced a feature which allows to run the same
                     test multiple times, using different data as input.</p>
                 <p>In order to use this, you have to:</p>
@@ -107,7 +107,7 @@ public class PersonTest {
                 <p>See more details on <a
                                           href="https://github.com/junit-team/junit/wiki/Parameterized-tests"
                                           rel="nofollow">JUnit wiki page</a>.</p>
-                <h1 id="IntegratingCloverwithJUnit4ParameterizedTests-IntegratingClover">Integrating Clover</h1>
+                <h1>Integrating Clover</h1>
                 <p>As such parametrized tests are being executed by JUnit's test runner, Clover has no problem with
                     recording test results for them. However, till Clover 3.3.0 there's was no information about which
                     test iteration has failed - all test iterations had the same same:</p>
@@ -151,7 +151,7 @@ public class PersonTest {
                         data-linked-resource-container-id="487096327" data-linked-resource-container-version="8"></span>
                 </p>
                 <p> </p>
-                <h2 id="IntegratingCloverwithJUnit4ParameterizedTests-IntegratingwithAnt">Integrating with Ant</h2>
+                <h2>Integrating with Ant</h2>
                 <p>Unfortunately, neither Ant's &lt;junit&gt; task nor JUnit itself (via command line argument) has a
                     way to attach test listeners. It must be done programmatically. You have to instantiate a JUnitCore,
                     add Clover's JUnitTestRunnerInterceptor to it and call core.run() method passing test class(es) as
@@ -184,10 +184,10 @@ public class RunJUnit4WithClover {
                         parallel.</p>
                         <p>On the other hand, running entire test cases or test suites in parallel is allowed.</p></div>
                 </div>
-                <h2 id="IntegratingCloverwithJUnit4ParameterizedTests-IntegratingwithMaven">Integrating with Maven</h2>
+                <h2>Integrating with Maven</h2>
                 <p>See <a href="maven--surefire-and-junit4-parameterized-tests.html">Running JUnit4
                     Parameterized tests with Surefire</a>.</p>
-                <h1 id="IntegratingCloverwithJUnit4ParameterizedTests-References">References</h1>
+                <h1>References</h1>
                 <ul>
                     <li><a  href="https://github.com/junit-team/junit/wiki/Parameterized-tests"
                            rel="nofollow">https://github.com/junit-team/junit/wiki/Parameterized-tests</a></li>

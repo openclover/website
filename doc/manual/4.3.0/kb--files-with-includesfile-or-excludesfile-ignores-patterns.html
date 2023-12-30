@@ -60,7 +60,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h4 id="A&lt;files&gt;with&lt;includesfile&gt;or&lt;excludesfile&gt;ignorespatterns-Symptoms">
+                <h4>
                     Symptoms</h4>
                 <p>A &lt;fileset&gt; tag in Clover's task, such as &lt;clover-setup&gt; or &lt;clover-report&gt;,
                     contains definitions of inclusion/exclusion patterns using the &lt;includesfile&gt; / &lt;excludesfile&gt;
@@ -78,13 +78,13 @@
                 </div>
                 <p>When running Clover's task, it looks as if these patterns are being ignored - either all of them or
                     only some of them.</p>
-                <p> </p><h4 id="A&lt;files&gt;with&lt;includesfile&gt;or&lt;excludesfile&gt;ignorespatterns-Cause">
+                <p> </p><h4>
                 Cause</h4>
                 <p>Ant does not trim whitespace from patterns defined in an external file. Furthermore, Ant does not
                     warn if any whitespace character is found at the beginning or the end of a line. Which means that if
                     you accidentally append, let's say a space character at the end, it becomes a part of a pattern and
                     causes that files are not matched properly.</p>
-                <p> </p><h4 id="A&lt;files&gt;with&lt;includesfile&gt;or&lt;excludesfile&gt;ignorespatterns-Resolution">
+                <p> </p><h4>
                 Resolution</h4>
                 <p>Make sure that you have no leading/trailing whitespaces in your file(s) containing patterns.</p>
                 <p> </p>

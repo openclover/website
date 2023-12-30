@@ -59,7 +59,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h4 id="WarningaboutolderCloveredartifactversionduringmulti-moduleMavenbuild-Symptoms">Symptoms</h4>
+                <h4>Symptoms</h4>
                 <p>Multi-module Maven build. Instrumentation by 'clover:instrument'. Warning during build as
                     follows:</p>
                 <p> </p>
@@ -69,7 +69,7 @@
     and could fail the build. Please consider running Clover again on that dependency&#39;s project.</pre>
                     </div>
                 </div>
-                <p> </p><h4 id="WarningaboutolderCloveredartifactversionduringmulti-moduleMavenbuild-Cause">Cause</h4>
+                <p> </p><h4>Cause</h4>
                 <p>When Clover is used with 'clover:instrument' goal, it forks a parallel build process. Thus build
                     produces two versions of artifacts:</p>
                 <ul>
@@ -91,7 +91,7 @@
                 </ul>
                 <p> </p>
                 <p>We provide a 'fudge-factor' of 2 seconds, as the Clover artifact is created first.</p>
-                <p> </p><h4 id="WarningaboutolderCloveredartifactversionduringmulti-moduleMavenbuild-Resolution">
+                <p> </p><h4>
                 Resolution</h4>
                 <p>Use the <a
                               href="../../maven/4.2.0/instrumentInternal-mojo.html#cloveredArtifactExpiryInMillis"

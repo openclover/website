@@ -63,7 +63,7 @@
 
             <div id="main-content">
                 <p><span>Clover sources are organised into individually build-able modules. </span></p>
-                <h2 id="Buildsystem-Modulelayout"><span>Module layout</span></h2>
+                <h2><span>Module layout</span></h2>
                 <p><span>Each module lives in a separate top-level directory with its own build file. The rough template is:</span>
                 </p>
                 <div style="border-width: 1px;">
@@ -85,7 +85,7 @@
 +--build.xml             - convenience build file that allows global build/test</pre>
                     </div>
                 </div>
-                <h2 id="Buildsystem-Targets"><span>Targets</span></h2>
+                <h2><span>Targets</span></h2>
                 <p>The target names in build files for each module are prefixed by the name of the module, allowing
                     modules to import other modules build files and express target dependencies in the normal Ant
                     way. <strong>This naming convention is important for the operation of the build</strong>. Each
@@ -110,7 +110,7 @@
                 </p>
                 <p>A global convenience build file <code>/build.xml</code> provides global build/test/report/clean
                     targets, as well as exposing all targets from all modules.</p>
-                <h2 id="Buildsystem-Day-to-daydevelopment">Day-to-day development</h2>
+                <h2>Day-to-day development</h2>
                 <ul>
                     <li>If you are working on a particular module, you can either call build targets on the local module
                         build file or from the global build file.

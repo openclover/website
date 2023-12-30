@@ -60,13 +60,13 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h4 id="HTMLreportgenerationtakesaverylongtime-Symptoms"><span style="color: rgb(0,51,102);"><strong>Symptoms</strong></span>
+                <h4><span style="color: rgb(0,51,102);"><strong>Symptoms</strong></span>
                 </h4>
 
                 <p><span style="color: rgb(0,0,0);">Able to instrument code correctly, run tests, and generate clover DB files and clover XML. When running HTML report generation, however, the report generation takes a very long time.</span>
                 </p>
 
-                <h4 id="HTMLreportgenerationtakesaverylongtime-Causes"><span style="color: rgb(0,51,102);"><strong>Causes</strong></span>
+                <h4><span style="color: rgb(0,51,102);"><strong>Causes</strong></span>
                 </h4>
 
                 <ul>
@@ -79,7 +79,7 @@
                 </ul>
 
 
-                <h4 id="HTMLreportgenerationtakesaverylongtime-Resolution"><span style="color: rgb(0,51,102);"><strong>Resolution</strong></span>
+                <h4><span style="color: rgb(0,51,102);"><strong>Resolution</strong></span>
                 </h4>
 
                 <p><span style="color: rgb(0,0,0);">First increase the memory available to Clover to the maximum allowed for your JVM. For example up to -Xmx2048m on *nix 32 bit JVMs, -Xmx1546m on Windows 32 bit JVMs. Consider using a 64 bit JVM for reporting on large projects (&gt; 500k LOC) with many test methods (&gt; 1000) as Clover may need more heap than a 32bit JVM can provide.</span>

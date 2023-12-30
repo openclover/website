@@ -127,7 +127,7 @@
                 <p>The process described here will change your build file to always run in Test Optimization mode.</p>
                 <h1 id="Part4-TestOptimizationTutorial-AddingTestOptimizationtaskstobuild.xml">Adding Test Optimization
                     tasks to build.xml</h1>
-                <h2 id="Part4-TestOptimizationTutorial-1.Addingpathstoresources">1. Adding paths to resources</h2>
+                <h2>1. Adding paths to resources</h2>
                 <p>Open your <code>build.xml</code> file. You should already have this line included:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -145,7 +145,7 @@
 &lt;clover-env/&gt;</pre>
                     </div>
                 </div>
-                <h2 id="Part4-TestOptimizationTutorial-2.Choosingalocationforthesnapshotfile">2. Choosing a location for
+                <h2>2. Choosing a location for
                     the snapshot file</h2>
                 <p>Test Optimization uses the concept of a '<strong>snapshot</strong>' file. This is a file that records
                     information about the previous build, as a point of comparison. This is what allows Clover to run
@@ -160,7 +160,7 @@
                             >&lt;PROJECT_DIR&gt;/.clover/coverage.db.snapshot</pre>
                     </div>
                 </div>
-                <h2 id="Part4-TestOptimizationTutorial-3.AddinganewAnttargettogeneratetheoptimizedtest&#39;snapshot&#39;">
+                <h2>
                     3. Adding a new Ant target to generate the optimized test 'snapshot'</h2>
                 <p>Now' we'll and a new Ant target to generate the test <a href="ant--clover-snapshot.html">snapshot</a>:
                 </p>
@@ -172,7 +172,7 @@
 &lt;/target&gt;</pre>
                     </div>
                 </div>
-                <h2 id="Part4-TestOptimizationTutorial-4.EditingtheJUnittasktoaddthe&#39;clover-optimized-testset&#39;element">
+                <h2>
                     4. Editing the JUnit task to add the 'clover-optimized-testset' element</h2>
                 <p>In your <code>build.xml</code> file, edit the <code>test</code> target ,specifically the
                     <code>junit</code> portion and its sub-element, <code>batchtest</code>. Your code inside <code
@@ -223,7 +223,7 @@
                     database and then run targeted tests which incorporate only those files which have changed, (which
                     in this case will be only one, the Java file that we edited). This saves valuable time, which is the
                     key advantage of Test Optimization.</p>
-                <h2 id="Part4-TestOptimizationTutorial-5.Runningthetestoptimizedbuild">5. Running the test optimized
+                <h2>5. Running the test optimized
                     build</h2>
                 <p>Run your build with the following command:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -260,7 +260,7 @@ clover.snapshot:
 /tutorial/.clover/clover.db.snapshot</pre>
                     </div>
                 </div>
-                <h2 id="Part4-TestOptimizationTutorial-6.Runningan&#39;empty&#39;optimizedbuild">6. Running an 'empty'
+                <h2>6. Running an 'empty'
                     optimized build</h2>
                 <p>If we re-run the same Ant build, Clover will detect that none of the source files have changed.
                     Because we are running a Test Optimized build, Clover won't build or test anything, the result is
@@ -278,7 +278,7 @@ clover.snapshot:
                 </div>
                 <p>This is desired behavior, especially in a continuous integration environment where builds are
                     automated and run regularly.</p>
-                <h2 id="Part4-TestOptimizationTutorial-7.Editingafileintheproject">7. Editing a file in the project</h2>
+                <h2>7. Editing a file in the project</h2>
                 <p>To show how Test Optimization works, we'll change one of the files in the project. When we run the
                     Test Optimized build, Clover will detect that this file has changed and build it exclusively (rather
                     than rebuilding everything).</p>
@@ -296,7 +296,7 @@ clover.snapshot:
                     </div>
                 </div>
                 <p>Now save the file.</p>
-                <h2 id="Part4-TestOptimizationTutorial-8.Rebuildingtheprojectwithtestoptimization">8. Rebuilding the
+                <h2>8. Rebuilding the
                     project with test optimization</h2>
                 <p>Now having changed a file in the project, we will run the same Ant tasks again.</p>
                 <div class="code panel pdl" style="border-width: 1px;">

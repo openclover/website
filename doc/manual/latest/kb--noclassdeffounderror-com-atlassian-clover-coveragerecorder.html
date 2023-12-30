@@ -59,7 +59,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h3 id="NoClassDefFoundErrorcom_atlassian_clover/CoverageRecorder-Symptoms">Symptoms</h3>
+                <h3>Symptoms</h3>
                 <p>During execution of tests or application a following message appears:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -83,7 +83,7 @@ or
 Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer     &lt;or other clover class&gt;</pre>
                     </div>
                 </div>
-                <h3 id="NoClassDefFoundErrorcom_atlassian_clover/CoverageRecorder-Cause">Cause</h3>
+                <h3>Cause</h3>
                 <p>In 99% of cases this is caused by a fact that <strong>Clover's JAR </strong>(clover.jar in case of
                     Ant, org.openclover:clover artifact in case of Maven) is missing in runtime. Please keep in
                     mind that it's not enough to have clover.jar during compilation - classes instrumented by Clover
@@ -132,7 +132,7 @@ Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer
                     <li>when you uninstalled Clover plug-in</li>
                 </ul>
                 <p> </p>
-                <h3 id="NoClassDefFoundErrorcom_atlassian_clover/CoverageRecorder-Resolution">Resolution</h3>
+                <h3>Resolution</h3>
                 <p><strong>Ant JUnit tests</strong></p>
                 <p>Add clover.jar to runtime classpath for forked junit tests, for instance:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -257,7 +257,7 @@ Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer
                 <p><strong>IDEA</strong></p>
                 <p>In case when you uninstall Clover plug-in, you have to rebuild the whole project to ensure that no
                     instrumented classes are left.</p>
-                <p> </p><h4 id="NoClassDefFoundErrorcom_atlassian_clover/CoverageRecorder-References">References</h4>
+                <p> </p><h4>References</h4>
                 <ul>
                     <li><a
                            href="https://community.atlassian.com/t5/Clover/ct-p/clover"

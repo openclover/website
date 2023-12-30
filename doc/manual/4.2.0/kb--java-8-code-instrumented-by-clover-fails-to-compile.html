@@ -60,10 +60,10 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h4 id="Java8codeinstrumentedbyCloverfailstocompile-Symptoms">Symptoms</h4>
+                <h4>Symptoms</h4>
                 <p>Compilation of Java 8 code instrumented by Clover fails when a lambda expression is passed as an
                     argument of a generic method.</p>
-                <p> </p><h4 id="Java8codeinstrumentedbyCloverfailstocompile-Example#1-overloadedgenericmethods">Example
+                <p> </p><h4>Example
                 #1 - overloaded generic methods</h4>
                 <p>For the following code</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -101,7 +101,7 @@ java: incompatible types: cannot infer type-variable(s) I,T
     (argument mismatch; java.lang.Class is not a functional interface)</pre>
                     </div>
                 </div>
-                <h4 id="Java8codeinstrumentedbyCloverfailstocompile-Example#2-Java8streams">Example #2 - Java 8
+                <h4>Example #2 - Java 8
                     streams</h4>
                 <p>The following code:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
@@ -140,7 +140,7 @@ lower bounds: java.lang.Object</pre>
                         <pre>incompatible types: java.util.stream.Stream&lt;java.lang.Object&gt; cannot be converted to java.util.stream.Stream&lt;java.lang.String&gt;</pre>
                     </div>
                 </div>
-                <p> </p><h4 id="Java8codeinstrumentedbyCloverfailstocompile-Cause">Cause</h4>
+                <p> </p><h4>Cause</h4>
                 <p>In case of example #1 it's a bug (aka technical limitation) in Oracle's javac compiler which fails to
                     perform type inference for several nested generic types or methods. Roughly speaking, due to
                     performance reasons, a compiler performs simplified method matching:</p>
@@ -178,7 +178,7 @@ lower bounds: java.lang.Object</pre>
     .collect(...)   // &lt;R&gt; R collect(Supplier&lt;R&gt; supplier, BiConsumer&lt;R, ? super T&gt; accumulator, BiConsumer&lt;R, R&gt; combiner)</pre>
                     </div>
                 </div>
-                <p> </p><h4 id="Java8codeinstrumentedbyCloverfailstocompile-Resolution">Resolution</h4>
+                <p> </p><h4>Resolution</h4>
                 <p>1) Change a lambda function from an expression to a code block, e.g.:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
@@ -272,7 +272,7 @@ System.out.println(goo(e -&gt; false));
                     classes'</em> methods into a block form. More details here: <a
                         href="ant--lambda-rewriting-heuristics.html">Lambda
                     rewriting heuristics</a>. Try upgrading to Clover 4.0.5 and/or use <code>instrumentLambda=&quot;expression&quot;</code> or <code>instrumentLambda=&quot;all_but_references&quot;</code>.
-                </p><h4 id="Java8codeinstrumentedbyCloverfailstocompile-Bugtracker">Bug tracker</h4>
+                </p><h4>Bug tracker</h4>
                 <p>
     <span class="jira-issue" data-issue-key="CLOV-1465">
                 <a href="https://jira.atlassian.com/browse/CLOV-1465?src=confmacro" class="jira-issue-key"><img

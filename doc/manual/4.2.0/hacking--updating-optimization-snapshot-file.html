@@ -59,7 +59,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h4 id="Updatingoptimizationsnapshotfile-Introduction">Introduction</h4>
+                <h4>Introduction</h4>
                 <p>Imagine a following scenario:</p>
                 <ul>
                     <li>your project has a set of integration tests which follow a classic maven-failsafe-plugin
@@ -96,7 +96,7 @@
                     </li>
                 </ul>
                 <p>How to solve this?</p>
-                <p> </p><h4 id="Updatingoptimizationsnapshotfile-Solution">Solution</h4>
+                <p> </p><h4>Solution</h4>
                 <p>You can update Clover's Optimization Snapshot file &quot;manually&quot;. Exact integration would
                     depend on the framework you are using and you need to write such integration, but in general it
                     works this way:</p>
@@ -104,7 +104,7 @@
                 <p>2) Save optimization snapshot file <em>(clover:snapshot)</em></p>
                 <p>3) Run test result verification <em>(mvn verify)</em> and store failed test results (somewhere)</p>
                 <p>4) Update optimization snapshot file and set status for failed tests (see code example below)</p>
-                <p> </p><h4 id="Updatingoptimizationsnapshotfile-Example">Example</h4>
+                <p> </p><h4>Example</h4>
                 <p>A simple application which sets test duration and test failure for certain test case:</p>
                 <p><a  href="https://github.com/openclover/clover-maven-plugin" rel="nofollow">https://github.com/openclover/clover-maven-plugin</a>
                     (src/it/optmized/snapshot-hacking)</p>

@@ -59,7 +59,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <h3 id="Unabletopublishartifact&quot;CloverReport(System)&quot;-Symptoms">Symptoms</h3>
+                <h3>Symptoms</h3>
                 <p>Bamboo with Clover is used. Clover HTML report artifact is empty after the build. Build log contains
                     an error message like this:</p>
                 <div style="border-width: 1px;">
@@ -67,7 +67,7 @@
                         <pre>Unable to publish artifact [Clover Report (System)]: the source directory &lt;bamboo_home&gt;\xml-data\build-dir\AA-BB-JOB1\target\site\clover does not exist.</pre>
                     </div>
                 </div>
-                <h3 id="Unabletopublishartifact&quot;CloverReport(System)&quot;-Cause">Cause</h3>
+                <h3>Cause</h3>
                 <p><strong>1) Build has failed causing that not all Clover's goals have been called</strong></p>
                 <p>Example:</p>
                 <ul>
@@ -100,7 +100,7 @@
                         artifact definition
                     </li>
                 </ul>
-                <h3 id="Unabletopublishartifact&quot;CloverReport(System)&quot;-Resolution">Resolution</h3>
+                <h3>Resolution</h3>
                 <p><strong>ad 1) Do not fail a build in case of test failures</strong></p>
                 <ul>
                     <li>set the maven.test.failure.ignore=true property for Surefire plugin or</li>
