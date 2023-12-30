@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.2 : Compiling Groovy with GMaven plugin</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,45 +39,48 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.2</a>
-</li>
+                        <a href="index.html">OpenClover 4.2</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="maven--clover-maven-plugin.html">Clover-for-Maven</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="maven--user-guide.html">Clover-for-Maven User&#39;s Guide</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Compiling Groovy with GMaven plugin
-                        </span>
+                <span id="title-text">
+                    Compiling Groovy with GMaven plugin
+                </span>
             </h1>
         </div>
 
 
-<div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.2.x. Check the <a href="../latest/maven--compiling-with-gmaven-plugin.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+        <div class="alert alert-warning" role="alert">
+            You are reading documentation for version 4.2.x. Check the
+            <a href="../latest/maven--compiling-with-gmaven-plugin.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <h1 id="CompilingGroovywithGMavenplugin-ConfiguringtheGMavenPluginforGroovySupportinMaven2and3">
                     Configuring the GMaven Plugin for Groovy Support in Maven</h1>
                 <p>If you are using Clover-for-Maven on Groovy code, you would typically need to define a <code>plugin</code>
-                    element for the <a  href="https://groovy.github.io/gmaven/" rel="nofollow">GMaven
+                    element for the <a href="https://groovy.github.io/gmaven/" rel="nofollow">GMaven
                         Plugin</a> in your <code>pom.xml</code> file.</p>
                 <p>As shown in the example definition below, the GMaven Plugin definition requires the Groovy dependency
-                    (<code>groovy-all</code>). However, within this dependency, you <em>must</em> define a <a
-                            href="general--supported-platforms.html">version of Groovy that Clover supports</a> inside
+                    (<code>groovy-all</code>). However, within this dependency, you <em>must</em> define a
+                    <a href="general--supported-platforms.html">version of Groovy that Clover supports</a> inside
                     a <code>version</code> sub-element. If you omit this <code>version</code> element, the GMaven Plugin
                     will default to using Groovy version 1.6.0, which is not compatible with Clover.</p>
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-    >&lt;properties&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;properties&gt;
   &lt;groovy.version&gt;1.8.8&lt;/groovy.version&gt;
   &lt;gmaven.version&gt;1.5&lt;/gmaven.version&gt;
 &lt;/properties&gt;
@@ -119,12 +121,11 @@
                     </div>
                 </div>
                 <p> </p>
-                <h3>Tips</h3><h4
-                    id="CompilingGroovywithGMavenplugin-Cross-compilation">Cross-compilation</h4>
-                <p>If you use cross-compilation with Groovy code, please refer to the <a
-                        href="maven--best-practices.html#BestPracticesforMaven-groovycrosscompilation">Cross
-                    Compilation using Groovy</a> on the <a href="maven--best-practices.html">Best Practices
-                    for Maven</a> page.</p><h4>Stub generation</h4>
+                <h3>Tips</h3><h4 id="CompilingGroovywithGMavenplugin-Cross-compilation">Cross-compilation</h4>
+                <p>If you use cross-compilation with Groovy code, please refer to the
+                    <a href="maven--best-practices.html#BestPracticesforMaven-groovycrosscompilation">Cross
+                        Compilation using Groovy</a> on the <a href="maven--best-practices.html">Best Practices
+                        for Maven</a> page.</p><h4>Stub generation</h4>
                 <p>Use the <strong>clover:setup </strong>goal for Clover instrumentation in case you have generateStubs
                     or generateTestStubs goal declared in GMaven plugin configuration.</p>
                 <p>In case you use clover:instrument a build will fail with an error message like:</p>
@@ -137,16 +138,14 @@
                 <p>A reason is that GMaven will generate stubs twice and will add
                     <em>/generated-sources/groovy-stubs</em> source root for both the default build life cycle (<em>/target</em>)
                     and the Clover's forked build life cycle (<em>/target/clover</em>) resulting in duplicated source
-                    files passed to the Maven compiler.</p><h4
-                    id="CompilingGroovywithGMavenplugin-SettingtheproviderSelection">Setting the providerSelection</h4>
+                    files passed to the Maven compiler.</p>
+                <h4 id="CompilingGroovywithGMavenplugin-SettingtheproviderSelection">Setting the providerSelection</h4>
                 <p>Remember to configure a providerSelection parameter. Otherwise build might fail with the following
                     error: <em>&quot;org.apache.maven.lifecycle.LifecycleExecutionException: Unexpected node:
-                        Node[7:1,64,ANNOTATIONS]&quot; (see <a
-                                                               href="http://stackoverflow.com/questions/2199547/maven-compile-mixed-java-groovy-1-7-project-using-gmaven-plugin"
-                                                               rel="nofollow">stackoverflow</a>).</em></p><h4
-                    id="CompilingGroovywithGMavenplugin-Codeexample">Code example</h4>
-                <p>See <a  href="https://github.com/openclover/clover-maven-plugin"
-                          rel="nofollow">https://github.com/openclover/clover-maven-plugin</a> repository,
+                        Node[7:1,64,ANNOTATIONS]&quot; (see <a href="http://stackoverflow.com/questions/2199547/maven-compile-mixed-java-groovy-1-7-project-using-gmaven-plugin" rel="nofollow">stackoverflow</a>).</em>
+                </p><h4 id="CompilingGroovywithGMavenplugin-Codeexample">Code example</h4>
+                <p>See
+                    <a href="https://github.com/openclover/clover-maven-plugin" rel="nofollow">https://github.com/openclover/clover-maven-plugin</a> repository,
                     <strong><em>src/it/groovy </em></strong>directory<em>.</em><strong><em><br/></em></strong></p>
                 <p> </p>
             </div>
@@ -163,8 +162,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

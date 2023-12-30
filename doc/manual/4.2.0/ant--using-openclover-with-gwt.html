@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.2 : Using Clover-for-Ant with GWT</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,34 +39,39 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.2</a>
-</li>
+                        <a href="index.html">OpenClover 4.2</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
                     </li>
-                    <li class="breadcrumb-item"><span><a href="ant--integrating-openclover-with-other-tools.html">A. Integrating Clover-for-Ant with other tools</a></span>
+                    <li class="breadcrumb-item">
+                        <span><a href="ant--integrating-openclover-with-other-tools.html">A. Integrating Clover-for-Ant with other tools</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Using Clover-for-Ant with GWT
-                        </span>
+                <span id="title-text">
+                    Using Clover-for-Ant with GWT
+                </span>
             </h1>
         </div>
 
 
-<div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.2.x. Check the <a href="../latest/ant--using-openclover-with-gwt.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+        <div class="alert alert-warning" role="alert">
+            You are reading documentation for version 4.2.x. Check the
+            <a href="../latest/ant--using-openclover-with-gwt.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
-                <div class="confluence-information-macro confluence-information-macro-information"><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                <div class="confluence-information-macro confluence-information-macro-information">
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div><p>You can instrument server-side code only. This is
                         due to a nature of the Google Web Toolkit which translates client and shared parts into a
                         JavaScript. If you try to instrument client code, GWT will search for sources of all referenced
@@ -80,14 +84,13 @@
                 <p> </p>
                 <p>1) Download and install</p>
                 <ul>
-                    <li>GWT SDK 2.5 - <a
-                                         href="http://code.google.com/p/google-web-toolkit/downloads/list"
-                                         rel="nofollow">http://code.google.com/p/google-web-toolkit/downloads/list</a>
+                    <li>GWT SDK 2.5 -
+                        <a href="http://code.google.com/p/google-web-toolkit/downloads/list" rel="nofollow">http://code.google.com/p/google-web-toolkit/downloads/list</a>
                         (referred as &lt;gwt-sdk&gt;)
                     </li>
                 </ul>
-                <p>2) Open the sample DynaTable application (located in &lt;gwt-sdk&gt;/samples/DynaTable; referred as
-                    &lt;project_dir&gt;) and enhance <em>build.xml</em> file by adding:</p>
+                <p>2) Open the sample DynaTable application (located in &lt;gwt-sdk&gt;/samples/DynaTable; referred as &lt;project_dir&gt;) and enhance
+                    <em>build.xml</em> file by adding:</p>
                 <ul>
                     <li>&lt;clover-setup&gt; with includes=&quot;'' for server-side code</li>
                     <li>&lt;clover-report&gt; or &lt;clover-html-report&gt;</li>
@@ -98,8 +101,7 @@
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>build.xml</b></div>
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-    >&lt;project name=&quot;DynaTable&quot; default=&quot;build&quot; basedir=&quot;.&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;project name=&quot;DynaTable&quot; default=&quot;build&quot; basedir=&quot;.&quot;&gt;
     &lt;!-- Add following properties and targets --&gt;
 
     &lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/clover.jar&quot;/&gt;
@@ -146,8 +148,9 @@
                 </div>
                 <p> </p>
                 <p>3) Build application, run tests and generate Clover report.</p>
-                <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
-                        data-emoticon-name="warning" alt="(warning)"/> GWT requires Java 1.6 or above</p>
+                <p>
+                    <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> GWT requires Java 1.6 or above
+                </p>
                 <p> </p>
                 <div style="border-width: 1px;">
                     <div>
@@ -156,20 +159,11 @@
 ant report</pre>
                     </div>
                 </div>
-                <p>Open <em>&lt;project_dir&gt;/clover/report/index.html</em> file. You shall see a report like this:
-                </p>
-                <p><span><img
-                                                                       src="attachments/317195603/317163618.png"
+                <p>Open <em>&lt;project_dir&gt;/clover/report/index.html</em> file. You shall see a report like this: </p>
+                <p><span><img src="attachments/317195603/317163618.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <h2>References</h2>
                 <p>See also</p>
@@ -192,8 +186,7 @@ ant report</pre>
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

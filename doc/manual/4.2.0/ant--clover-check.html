@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.2 : clover-check</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,10 +39,11 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.2</a>
-</li>
+                        <a href="index.html">OpenClover 4.2</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
@@ -52,18 +52,20 @@
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            clover-check
-                        </span>
+                <span id="title-text">
+                    clover-check
+                </span>
             </h1>
         </div>
 
 
-<div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.2.x. Check the <a href="../latest/ant--clover-check.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+        <div class="alert alert-warning" role="alert">
+            You are reading documentation for version 4.2.x. Check the <a href="../latest/ant--clover-check.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <h3>Description</h3>
@@ -137,8 +139,7 @@
                             <td><p>No; If not specified here, Clover will look in the default
                                 location (<code>${basedir}/.clover</code>). If you have specified an
                                 <code>initstring</code> on the <code>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;</code>
-                                task, you must ensure that <code>&lt;<a
-                                        href="ant--clover-setup.html">clover-setup</a>&gt;</code> is called prior to
+                                task, you must ensure that <code>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;</code> is called prior to
                                 the execution of this task.</p></td>
                         </tr>
                         <tr>
@@ -168,8 +169,7 @@
                         </tr>
                         <tr>
                             <td><p>target</p></td>
-                            <td><p>The target percentage total coverage for the project. e.g.
-                                &quot;<code>10%</code>&quot;</p></td>
+                            <td><p>The target percentage total coverage for the project. e.g. &quot;<code>10%</code>&quot;</p></td>
                             <td><p>At least one of <code>target</code>, <code>methodTarget</code>,
                                 <code>statementTarget</code> or <code>conditionalTarget</code> is required, unless
                                 nested <code><a href="ant--clover-check.html">clover-check</a></code> elements are
@@ -179,8 +179,8 @@
                     </table>
                 </div>
                 <div class="confluence-information-macro confluence-information-macro-information"><p class="title">
-                    Important note on target, methodTarget, statementTarget, conditionalTarget</p><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    Important note on target, methodTarget, statementTarget, conditionalTarget</p>
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div><p>Comparison of actual value with a target
                         percentage is performed with such numerical precision as number of fractional digits set for a
                         target percentage. A standard rounding is used (BigDecimal.ROUND_HALF_EVEN).</p>
@@ -233,8 +233,7 @@
                         </tr>
                         <tr>
                             <td><p>target</p></td>
-                            <td><p>The target percentage total coverage for the package. e.g.
-                                &quot;10%&quot;</p></td>
+                            <td><p>The target percentage total coverage for the package. e.g. &quot;10%&quot;</p></td>
                             <td><p>At least one of <code>target</code>, <code>methodTarget</code>,
                                 <code>statementTarget</code> or <code>conditionalTarget</code> is required.</p></td>
                         </tr>
@@ -242,15 +241,12 @@
                     </table>
                 </div>
                 <h4>&lt;testsources&gt;</h4>
-                <p><code>&lt;testsources&gt;</code> is an <a
-                                                             href="https://ant.apache.org/manual/Types/fileset.html"
-                                                             rel="nofollow">Ant fileset</a> that can be used to
+                <p><code>&lt;testsources&gt;</code> is an
+                    <a href="https://ant.apache.org/manual/Types/fileset.html" rel="nofollow">Ant fileset</a> that can be used to
                     distinguish test source code from application source code. All files included in the fileset will be
                     displayed in the separate 'Test' node of the coverage tree. If omitted, Clover's default test
-                    detection algorithm will be used to distinguish test sources.</p><h4
-                    id="clover-check-&lt;testResults&gt;">&lt;testResults&gt;</h4>
-                <p>An optional Ant fileset <a
-                                              href="http://ant.apache.org/manual/CoreTypes/fileset.html" rel="nofollow">
+                    detection algorithm will be used to distinguish test sources.</p><h4 id="clover-check-&lt;testResults&gt;">&lt;testResults&gt;</h4>
+                <p>An optional Ant fileset <a href="http://ant.apache.org/manual/CoreTypes/fileset.html" rel="nofollow">
                     containing a list of test result XML files.</a></p>
                 <p><code>&lt;testresults&gt;</code> is generally not required by most users, as the built-in test
                     results will provide all required information in the majority of cases. For more details please see
@@ -258,8 +254,7 @@
                 <h3>Examples</h3>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-check target=&quot;80%&quot;/&gt;
+<pre>&lt;clover-check target=&quot;80%&quot;/&gt;
 </pre>
                     </div>
                 </div>
@@ -267,8 +262,7 @@
                     continues.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-check target=&quot;80%&quot;
+<pre>&lt;clover-check target=&quot;80%&quot;
               haltOnFailure=&quot;true&quot;/&gt;
 </pre>
                     </div>
@@ -277,8 +271,7 @@
                     fails.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-check target=&quot;80%&quot;
+<pre>&lt;clover-check target=&quot;80%&quot;
               failureProperty=&quot;coverageFailed&quot;/&gt;
 </pre>
                     </div>
@@ -287,8 +280,7 @@
                     property <code>coverageFailed</code> is set.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-check target=&quot;80%&quot;
+<pre>&lt;clover-check target=&quot;80%&quot;
    &lt;package name=&quot;com.acme.killerapp.core&quot; target=&quot;70%&quot;/&gt;
    &lt;package name=&quot;com.acme.killerapp.ai&quot; target=&quot;40%&quot;/&gt;
 &lt;/clover-check&gt;
@@ -304,8 +296,7 @@
                 <p>If any of these criteria are not met, a message is logged and the build continues.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-check target=&quot;80%&quot;
+<pre>&lt;clover-check target=&quot;80%&quot;
              filter=&quot;catch&quot;&gt;
    &lt;package name=&quot;com.acme.killerapp.core&quot; target=&quot;70%&quot;/&gt;
    &lt;package name=&quot;com.acme.killerapp.ai&quot; target=&quot;40%&quot;/&gt;
@@ -316,8 +307,7 @@
                 <p>As above, but doesn't include coverage of catch blocks when measuring criteria.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-check target=&quot;80%&quot; conditionalTarget=&quot;90%&quot;
+<pre>&lt;clover-check target=&quot;80%&quot; conditionalTarget=&quot;90%&quot;
              filter=&quot;catch&quot;&gt;
    &lt;package name=&quot;com.acme.killerapp.core&quot; target=&quot;70%&quot;/&gt;
    &lt;package name=&quot;com.acme.killerapp.ai&quot; target=&quot;40%&quot;/&gt;
@@ -328,8 +318,7 @@
                 <p>As previous example, but also ensures that the project conditional coverage is at least 90%.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;clover-check&gt;
+<pre>&lt;clover-check&gt;
    &lt;package regex=&quot;com.acme.killerapp.core.*&quot; target=&quot;70%&quot;/&gt;
 &lt;/clover-check&gt;
 </pre>
@@ -350,8 +339,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

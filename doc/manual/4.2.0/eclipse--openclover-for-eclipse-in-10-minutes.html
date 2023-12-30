@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.2 : 1. Clover for Eclipse in 10 minutes</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,34 +39,38 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.2</a>
-</li>
+                        <a href="index.html">OpenClover 4.2</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="eclipse--overview.html">Clover-for-Eclipse</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="eclipse--user-guide.html">Clover-for-Eclipse User&#39;s Guide</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            1. Clover for Eclipse in 10 minutes
-                        </span>
+                <span id="title-text">
+                    1. Clover for Eclipse in 10 minutes
+                </span>
             </h1>
         </div>
 
 
-<div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.2.x. Check the <a href="../latest/eclipse--openclover-for-eclipse-in-10-minutes.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+        <div class="alert alert-warning" role="alert">
+            You are reading documentation for version 4.2.x. Check the
+            <a href="../latest/eclipse--openclover-for-eclipse-in-10-minutes.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <p> </p>
                 <p>This short guide will learn you how to install and use Clover in 10 minutes.</p>
                 <p>
-                    <style type='text/css'>/*<![CDATA[*/
+                    <style type="text/css">/*<![CDATA[*/
                     div.rbtoc1491813719102 {
                         padding: 0px;
                     }
@@ -82,30 +85,31 @@
                         padding-left: 0px;
                     }
 
-                    /*]]>*/</style>
-                <div class='toc-macro rbtoc1491813719102'>
-                    <ul class='toc-indentation'>
-                        <li><a href='#id-1.CloverforEclipsein10minutes-Installingtheplugin'>Installing the plugin</a>
+                    /*]]>*/
+                    </style>
+                <div class="toc-macro rbtoc1491813719102">
+                    <ul class="toc-indentation">
+                        <li><a href="#id-1.CloverforEclipsein10minutes-Installingtheplugin">Installing the plugin</a>
                         </li>
-                        <li><a href='#id-1.CloverforEclipsein10minutes-EnablingCloverforJavaproject'>Enabling Clover for
+                        <li><a href="#id-1.CloverforEclipsein10minutes-EnablingCloverforJavaproject">Enabling Clover for
                             Java project</a></li>
-                        <li><a href='#id-1.CloverforEclipsein10minutes-Buildingandrunningapplication'>Building and
+                        <li><a href="#id-1.CloverforEclipsein10minutes-Buildingandrunningapplication">Building and
                             running application</a></li>
-                        <li><a href='#id-1.CloverforEclipsein10minutes-Reviewingcoverageresults'>Reviewing coverage
+                        <li><a href="#id-1.CloverforEclipsein10minutes-Reviewingcoverageresults">Reviewing coverage
                             results</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#id-1.CloverforEclipsein10minutes-CoverageExplorer'>Coverage Explorer</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#id-1.CloverforEclipsein10minutes-CoverageExplorer">Coverage Explorer</a>
                                 </li>
-                                <li><a href='#id-1.CloverforEclipsein10minutes-CloverDashboard'>Clover Dashboard</a>
+                                <li><a href="#id-1.CloverforEclipsein10minutes-CloverDashboard">Clover Dashboard</a>
                                 </li>
-                                <li><a href='#id-1.CloverforEclipsein10minutes-JavaEditor'>Java Editor</a></li>
-                                <li><a href='#id-1.CloverforEclipsein10minutes-TestRunExplorer'>Test Run Explorer</a>
+                                <li><a href="#id-1.CloverforEclipsein10minutes-JavaEditor">Java Editor</a></li>
+                                <li><a href="#id-1.CloverforEclipsein10minutes-TestRunExplorer">Test Run Explorer</a>
                                 </li>
-                                <li><a href='#id-1.CloverforEclipsein10minutes-TestContributions'>Test Contributions</a>
+                                <li><a href="#id-1.CloverforEclipsein10minutes-TestContributions">Test Contributions</a>
                                 </li>
-                                <li><a href='#id-1.CloverforEclipsein10minutes-CoverageCloudReport'>Coverage Cloud
+                                <li><a href="#id-1.CloverforEclipsein10minutes-CoverageCloudReport">Coverage Cloud
                                     Report</a></li>
-                                <li><a href='#id-1.CloverforEclipsein10minutes-CoverageTreemapReport'>Coverage Treemap
+                                <li><a href="#id-1.CloverforEclipsein10minutes-CoverageTreemapReport">Coverage Treemap
                                     Report</a></li>
                             </ul>
                         </li>
@@ -114,9 +118,7 @@
                 </p><h2>Installing the plugin</h2>
                 <ol>
                     <li>Select from the menu &quot;Help | Install new software&quot;.</li>
-                    <li>Click &quot;Add&quot; button and enter <a
-                                                                  href="http://openclover.org/update"
-                                                                  rel="nofollow">http://openclover.org/update</a>
+                    <li>Click &quot;Add&quot; button and enter <a href="http://openclover.org/update" rel="nofollow">http://openclover.org/update</a>
                         then click OK.
                     </li>
                     <li>Select &quot;Clover 4&quot; and &quot;Clover 4 Ant Support&quot; features. Disable the <em>&quot;Contact
@@ -127,37 +129,20 @@
                         unsigned content, click &quot;Restart now&quot;.
                     </li>
                 </ol>
-                <p><span><img
-                                                                       src="attachments/297666888/297600019.png"
+                <p><span><img src="attachments/297666888/297600019.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <p> </p>
                 <h2>Enabling Clover for Java
                     project</h2>
-                <p>Right click on a project in<em> &quot;Package Explorer&quot;</em> view, select &quot;<em>Clover &gt;
-                    Enable on this Project</em>&quot;. If you wish to enable Clover for multiple projects at once,
+                <p>Right click on a project in<em> &quot;Package Explorer&quot;</em> view, select &quot;<em>Clover &gt; Enable on this Project</em>&quot;. If you wish to enable Clover for multiple projects at once,
                     choose <em>&quot;Enable/Disable on...</em>&quot;.</p>
-                <p><span><img
-                                                                       src="attachments/297666888/297600020.png"
+                <p><span><img src="attachments/297666888/297600020.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <p>Four Clover views will be opened automatically:</p>
                 <ul>
@@ -166,81 +151,39 @@
                     <li>Clover Dashboard</li>
                     <li>Test Contributions</li>
                 </ul>
-                <p><span><img
-                                                                       src="attachments/297666888/297600021.png"
+                <p><span><img src="attachments/297666888/297600021.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
-                <p><span><img
-                                                                       src="attachments/297666888/297600022.png"
+                <p><span><img src="attachments/297666888/297600022.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <p> </p>
-                <p>You can always open them from <em>&quot;Window &gt; Show View &gt; Other ... &gt; Clover&quot;</em>:
-                </p>
-                <p><span><img
-                                                                       src="attachments/297666888/297600024.png"
+                <p>You can always open them from <em>&quot;Window &gt; Show View &gt; Other ... &gt; Clover&quot;</em>: </p>
+                <p><span><img src="attachments/297666888/297600024.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <p> </p>
                 <h2>Building and running
                     application</h2>
                 <p>Build your project as usual. In order to run it, choose &quot;Run with Clover&quot; button from tool
                     bar:</p>
-                <p><span><img
-                                                                       src="attachments/297666888/297600133.png"
+                <p><span><img src="attachments/297666888/297600133.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
-                <h2>Reviewing coverage results</h2><h4
-                    id="id-1.CloverforEclipsein10minutes-CoverageExplorer">Coverage Explorer</h4>
+                <h2>Reviewing coverage results</h2><h4 id="id-1.CloverforEclipsein10minutes-CoverageExplorer">Coverage Explorer</h4>
                 <p>It's the best place to start. You will see coverage and metrics for all instrumented projects.</p>
-                <p><span><img
-                                                                       src="attachments/297666888/297600126.png"
+                <p><span><img src="attachments/297666888/297600126.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p><h4>Clover Dashboard</h4>
                 <div class="sectionColumnWrapper">
                     <div class="sectionMacro">
@@ -255,47 +198,30 @@
                                     <li><strong>Most Complex Packages</strong> - lists several packages with the highest
                                         complexity -&gt; refactor
                                     </li>
-                                    <li><strong>Most Complex Classes</strong> - as above, but on a class level -&gt;
-                                        refactor
+                                    <li><strong>Most Complex Classes</strong> - as above, but on a class level -&gt; refactor
                                     </li>
                                     <li><strong>Top Project Risks</strong> - the most complex and the least tested
                                         classes -&gt; refactor and/or write more tests
                                     </li>
-                                    <li><strong>Least Tested Methods</strong> - methods with the lowest test coverage -&gt;
-                                        write more tests
+                                    <li><strong>Least Tested Methods</strong> - methods with the lowest test coverage -&gt; write more tests
                                     </li>
                                 </ul>
                             </div>
-                            <div class="columnMacro"><p><span
-                                    class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
-                                    width="300"
-                                    src="attachments/297666888/297600127.png"
+                            <div class="columnMacro"><p>
+                                <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img width="300" src="attachments/297666888/297600127.png"
 
 
-
-
-
-
-
-                                    ></span></p></div>
+                                ></span></p></div>
                         </div>
                     </div>
                 </div>
                 <p> </p><h4>Java Editor</h4>
                 <p>To view coverage information on a line-by-line basis, Clover adds colored annotations to your
                     project's Java source code editors.</p>
-                <p><span><img
-                                                                       src="attachments/297666888/301007757.png"
+                <p><span><img src="attachments/297666888/301007757.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <p>Colors used for background highlighting are as follows:</p>
                 <div class="table-wrap">
@@ -363,18 +289,10 @@
                     test method (the test method's coverage contribution) as well as the percentage of the class'
                     coverage that was attributable only to the selected test method (the test method's unique
                     coverage).</p>
-                <p><span><img
-                                                                       src="attachments/297666888/297600129.png"
+                <p><span><img src="attachments/297666888/297600129.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p><h4>Test Contributions</h4>
                 <div class="sectionColumnWrapper">
                     <div class="sectionMacro">
@@ -386,16 +304,10 @@
                                 contributed to coverage of the file at the current cursor position.</p>
                                 <p>The Test Contributions view allows you to better understand the relationship between
                                     your test code and your application code.</p></div>
-                            <div class="columnMacro"><p><span><img
-                                    src="attachments/297666888/297600130.png"
+                            <div class="columnMacro"><p><span><img src="attachments/297666888/297600130.png"
 
 
-
-
-
-
-
-                                    ></span></p></div>
+                            ></span></p></div>
                         </div>
                     </div>
                 </div>
@@ -405,31 +317,15 @@
                     increasing the overall project or per-package coverage. The coverage cloud report can be generated
                     by right clicking on your Clover-enabled project in the Coverage Explorer view or Test Run Explorer
                     view and selecting Generate Coverage Cloud.</p>
-                <p><span><img
-                                                                       src="attachments/297666888/301007759.png"
+                <p><span><img src="attachments/297666888/301007759.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
-                <p><span><img
-                                                                       src="attachments/297666888/297600131.png"
+                <p><span><img src="attachments/297666888/297600131.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p><h4>Coverage Treemap Report</h4>
                 <p>The coverage treemap report allows simultaneous comparison of classes and package by complexity and
                     by code coverage. The treemap is divided by package (labeled) and then further divided by class
@@ -438,31 +334,15 @@
                     uncovered).</p>
                 <p>The treemap cloud report can be generated by right clicking on your Clover-enabled project in the
                     Coverage Explorer and selecting Generate Coverage Treemap.</p>
-                <p><span><img
-                                                                       src="attachments/297666888/301007762.png"
+                <p><span><img src="attachments/297666888/301007762.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
-                <p><span><img
-                                                                       src="attachments/297666888/301007763.png"
+                <p><span><img src="attachments/297666888/301007763.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <p> </p>
                 <p> </p>
@@ -485,8 +365,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

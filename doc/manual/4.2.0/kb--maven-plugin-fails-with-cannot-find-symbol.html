@@ -4,7 +4,7 @@
     <title>Maven 2 plugin fails with cannot find symbol exception when defining two locations
         for source files</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -13,9 +13,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -25,8 +25,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -41,34 +40,37 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="kb--index.html">Clover Knowledge Base</a>
-</li>
+                        <a href="kb--index.html">Clover Knowledge Base</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="kb--troubleshooting-maven.html">Troubleshooting Maven</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Maven 2 plugin fails with cannot find symbol exception when defining two locations for source files
-                        </span>
+                <span id="title-text">
+                    Maven 2 plugin fails with cannot find symbol exception when defining two locations for source files
+                </span>
             </h1>
         </div>
 
 
-<div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.2.x. Check the <a href="../latest/kb--maven-plugin-fails-with-cannot-find-symbol.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+        <div class="alert alert-warning" role="alert">
+            You are reading documentation for version 4.2.x. Check the
+            <a href="../latest/kb--maven-plugin-fails-with-cannot-find-symbol.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <h4>
                     Symptoms</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >[INFO] ------------------------------------------------------------------------
+<pre>[INFO] ------------------------------------------------------------------------
 [ERROR] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
 [INFO] Compilation failure
@@ -84,8 +86,7 @@ symbol: class SomeClass
                     configured to handle this as below:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-    >&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;plugin&gt;
   &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
   &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
   &lt;configuration&gt;
@@ -103,19 +104,16 @@ symbol: class SomeClass
                 <h4>
                     Cause</h4>
                 <p>Clover does not understand the above definition of source roots.</p>
-                <p> </p><h4
-                    id="Maven2pluginfailswithcannotfindsymbolexceptionwhendefiningtwolocationsforsourcefiles-Resolution">
+                <p> </p><h4 id="Maven2pluginfailswithcannotfindsymbolexceptionwhendefiningtwolocationsforsourcefiles-Resolution">
                 Resolution</h4>
-                <p>Maven's best practice is to use the <a
-                                                          href="http://mojo.codehaus.org/build-helper-maven-plugin/add-source-mojo.html"
-                                                          rel="nofollow">build-helper-maven-plugin</a> to add alternate
+                <p>Maven's best practice is to use the
+                    <a href="http://mojo.codehaus.org/build-helper-maven-plugin/add-source-mojo.html" rel="nofollow">build-helper-maven-plugin</a> to add alternate
                     source directories, instead of using <em>&lt;includes&gt;</em> in the maven-compiler-plugin.</p>
                 <p>Please remove the &lt;includes&gt; from the maven-compiler-plugin and add the following definition to
                     your pom.xml:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-    >&lt;plugin&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;plugin&gt;
   &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
   &lt;artifactId&gt;build-helper-maven-plugin&lt;/artifactId&gt;
   &lt;version&gt;1.1&lt;/version&gt;
@@ -154,8 +152,7 @@ symbol: class SomeClass
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

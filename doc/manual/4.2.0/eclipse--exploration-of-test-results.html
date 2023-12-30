@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.2 : 3. Exploration of test results in Eclipse</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,33 +39,37 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.2</a>
-</li>
+                        <a href="index.html">OpenClover 4.2</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="eclipse--overview.html">Clover-for-Eclipse</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="eclipse--user-guide.html">Clover-for-Eclipse User&#39;s Guide</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            3. Exploration of test results in Eclipse
-                        </span>
+                <span id="title-text">
+                    3. Exploration of test results in Eclipse
+                </span>
             </h1>
         </div>
 
 
-<div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.2.x. Check the <a href="../latest/eclipse--exploration-of-test-results.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+        <div class="alert alert-warning" role="alert">
+            You are reading documentation for version 4.2.x. Check the
+            <a href="../latest/eclipse--exploration-of-test-results.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <p> </p>
                 <p>
-                    <style type='text/css'>/*<![CDATA[*/
+                    <style type="text/css">/*<![CDATA[*/
                     div.rbtoc1491813720185 {
                         padding: 0px;
                     }
@@ -81,16 +84,17 @@
                         padding-left: 0px;
                     }
 
-                    /*]]>*/</style>
-                <div class='toc-macro rbtoc1491813720185'>
-                    <ul class='toc-indentation'>
-                        <li><a href='#id-3.ExplorationoftestresultsinEclipse-TestRunExplorer'>Test Run Explorer</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#id-3.ExplorationoftestresultsinEclipse-ActionsandMenus'>Actions and
+                    /*]]>*/
+                    </style>
+                <div class="toc-macro rbtoc1491813720185">
+                    <ul class="toc-indentation">
+                        <li><a href="#id-3.ExplorationoftestresultsinEclipse-TestRunExplorer">Test Run Explorer</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#id-3.ExplorationoftestresultsinEclipse-ActionsandMenus">Actions and
                                     Menus</a></li>
                             </ul>
                         </li>
-                        <li><a href='#id-3.ExplorationoftestresultsinEclipse-TestContributions'>Test Contributions</a>
+                        <li><a href="#id-3.ExplorationoftestresultsinEclipse-TestContributions">Test Contributions</a>
                         </li>
                     </ul>
                 </div>
@@ -125,18 +129,10 @@
                         Methods&quot; layout
                     </li>
                 </ol>
-                <p><span><img
-                                                                       src="attachments/297667011/301007773.png"
+                <p><span><img src="attachments/297667011/301007773.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <p> </p><h4>Actions and Menus</h4>
                 <p>The Test Run Explorer view allows the following actions (from the view toolbar, menu or both):</p>
@@ -151,9 +147,7 @@
                     <li><strong>Delete Coverage Recordings</strong>. Deletes the coverage recording data recorded from
                         test runs or applications runs for the selected project.
                     </li>
-                    <li><strong>Clear Snapshot</strong> Deletes the <a
-                            href="eclipse--test-optimization.html"
-                            rel="nofollow">Test Optimization</a> snapshot file
+                    <li><strong>Clear Snapshot</strong> Deletes the <a href="eclipse--test-optimization.html" rel="nofollow">Test Optimization</a> snapshot file
                     </li>
                     <li><strong>Compiled with Clover</strong>. Toggles the use of Clover instrumentation when Eclipse
                         compiles the selected Java project.
@@ -175,11 +169,11 @@
                     <li><strong>Coverage Reports &gt; View report  </strong>Browse recently generated
                         reports<strong>.<br/><br/></strong></li>
                     <li><strong>Layout &gt; Test cases</strong>  Shows &quot;Project &gt; Test Methods&quot; layout</li>
-                    <li><strong>Layout &gt; Packages</strong>  Shows &quot;Project &gt; Package &gt; Test Class &gt;
-                        Test Methods&quot; layout
+                    <li><strong>Layout &gt; Packages</strong>  Shows &quot;Project &gt; Package &gt; Test Class &gt; Test Methods&quot; layout
                     </li>
-                    <li><strong>Layout &gt; Source roots</strong>  Shows &quot;Project &gt; Source Root &gt; Package
-                        &gt; Test Class &gt; Test Methods&quot; layout<br/><br/></li>
+                    <li>
+                        <strong>Layout &gt; Source roots</strong>  Shows &quot;Project &gt; Source Root &gt; Package &gt; Test Class &gt; Test Methods&quot; layout<br/><br/>
+                    </li>
                     <li><strong>Coverage in Editors &gt; Show All</strong>. Shows red/green coverage areas in open Java
                         editors. This is useful for finding out exactly which parts of the code are being covered.
                     </li>
@@ -219,25 +213,16 @@
                     test methods that contributed to coverage of the file at the current cursor position.</p>
                 <p>The Test Contributions view allows you to better understand the relationship between your test code
                     and your application code as you move between Java source files.</p>
-                <p><span><img
-                                                                       src="attachments/297667011/301007774.png"
+                <p><span><img src="attachments/297667011/301007774.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <p> </p>
                 <hr/>
                 <p>You have already learned how to navigate through code coverage and test results. But don't you have a
                     feeling that your coverage reports could be more accurate when focused on <em>really </em>important
-                    areas of application? If you do so, don't hesitate to read <a
-                            href="eclipse--scope-of-instrumentation.html">4. Scope of instrumentation in
+                    areas of application? If you do so, don't hesitate to read <a href="eclipse--scope-of-instrumentation.html">4. Scope of instrumentation in
                         Eclipse</a> to learn how to configure instrumentation scope from whole projects down to a single
                     line of code.</p>
                 <p> </p>
@@ -255,8 +240,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

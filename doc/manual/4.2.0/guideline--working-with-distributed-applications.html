@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.2 : Working with Distributed Applications</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,10 +39,11 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.2</a>
-</li>
+                        <a href="index.html">OpenClover 4.2</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
@@ -51,21 +51,23 @@
                     <li class="breadcrumb-item"><span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
                     </li>
                     <li>
-                        <span><a
-                                href="8.-Controlling-Clover-at-Runtime_71599101.html">8. Controlling Clover at Runtime</a></span>
+                        <span><a href="8.-Controlling-Clover-at-Runtime_71599101.html">8. Controlling Clover at Runtime</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Working with Distributed Applications
-                        </span>
+                <span id="title-text">
+                    Working with Distributed Applications
+                </span>
             </h1>
         </div>
 
 
-<div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.2.x. Check the <a href="../latest/guideline--working-with-distributed-applications.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+        <div class="alert alert-warning" role="alert">
+            You are reading documentation for version 4.2.x. Check the
+            <a href="../latest/guideline--working-with-distributed-applications.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <h1 id="WorkingwithDistributedApplications-Introduction">Introduction</h1>
@@ -74,28 +76,27 @@
                     some additional configuration is required. This page describes how to configure Clover in order to
                     get a per-test code coverage for distributed business logic.</p>
                 <p> </p>
-                <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
-                        data-emoticon-name="warning" alt="(warning)"/> Please note that having an application deployed
+                <p>
+                    <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> Please note that having an application deployed
                     on multiple machines does not necessarily mean that the application logic is truly distributed. For
                     instance, an application might run on multiple machines for the sake of load balancing, but do not
-                    have communication between nodes. We recommend to read the <a
-                            href="guideline--using-openclover-in-various-environment-configurations.html">Using Clover in
+                    have communication between nodes. We recommend to read the
+                    <a href="guideline--using-openclover-in-various-environment-configurations.html">Using Clover in
                         various environment configurations</a> tutorial and especially to have a look at the &quot;Decision
                     matrix&quot; which can help you to decide which approach would best fit your needs.</p>
-                <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
-                        data-emoticon-name="warning" alt="(warning)"/> When deploying your application in container
-                    environments, you should also check to ensure that Clover <a
-                            href="guideline--working-with-restricted-security-environments.html">has sufficient
+                <p>
+                    <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> When deploying your application in container
+                    environments, you should also check to ensure that Clover
+                    <a href="guideline--working-with-restricted-security-environments.html">has sufficient
                         permissions to function</a>.</p>
-                <p><img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png"
-                        data-emoticon-name="warning" alt="(warning)"/> In case you use Maven, ensure that you're
-                    deploying an instrumented version of an application archive. If you use &quot;clover2:setup&quot;
-                    then the WAR/EAR is named as usual, but if you use &quot;clover2:instrument&quot; then file has a
-                    &quot;-clover&quot; suffix and is usually located in the <code>target/clover</code> directory.</p>
+                <p>
+                    <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> In case you use Maven, ensure that you're
+                    deploying an instrumented version of an application archive. If you use &quot;clover2:setup&quot; then the WAR/EAR is named as usual, but if you use &quot;clover2:instrument&quot; then file has a &quot;-clover&quot; suffix and is usually located in the
+                    <code>target/clover</code> directory.</p>
                 <p> </p>
                 <p><strong>On this page</strong>:</p>
                 <p>
-                    <style type='text/css'>/*<![CDATA[*/
+                    <style type="text/css">/*<![CDATA[*/
                     div.rbtoc1491813710074 {
                         padding: 0px;
                     }
@@ -110,72 +111,64 @@
                         padding-left: 0px;
                     }
 
-                    /*]]>*/</style>
-                <div class='toc-macro rbtoc1491813710074'>
-                    <ul class='toc-indentation'>
-                        <li><a href='#WorkingwithDistributedApplications-Introduction'>Introduction</a></li>
-                        <li><a href='#WorkingwithDistributedApplications-Overview'>Overview</a></li>
+                    /*]]>*/
+                    </style>
+                <div class="toc-macro rbtoc1491813710074">
+                    <ul class="toc-indentation">
+                        <li><a href="#WorkingwithDistributedApplications-Introduction">Introduction</a></li>
+                        <li><a href="#WorkingwithDistributedApplications-Overview">Overview</a></li>
                         <li>
-                            <a href='#WorkingwithDistributedApplications-Collectingoverallcoveragefromdistributedbuilds'>Collecting
+                            <a href="#WorkingwithDistributedApplications-Collectingoverallcoveragefromdistributedbuilds">Collecting
                                 overall coverage from distributed builds</a>
-                            <ul class='toc-indentation'>
+                            <ul class="toc-indentation">
                                 <li>
-                                    <a href='#WorkingwithDistributedApplications-Step1:UnderstandingtheClover&#39;initstring&#39;'>Step
+                                    <a href="#WorkingwithDistributedApplications-Step1:UnderstandingtheClover&#39;initstring&#39;">Step
                                         1: Understanding the Clover &#39;initstring&#39;</a></li>
                                 <li>
-                                    <a href='#WorkingwithDistributedApplications-Step2:ChoosingalocationfortheCloverregistry'>Step
+                                    <a href="#WorkingwithDistributedApplications-Step2:ChoosingalocationfortheCloverregistry">Step
                                         2: Choosing a location for the Clover registry</a></li>
-                                <li><a href='#WorkingwithDistributedApplications-Step3:Setyourclasspathcorrectly'>Step
+                                <li><a href="#WorkingwithDistributedApplications-Step3:Setyourclasspathcorrectly">Step
                                     3: Set your classpath correctly</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href='#WorkingwithDistributedApplications-Collectingper-testcoveragefromdistributedbuilds'>Collecting
+                            <a href="#WorkingwithDistributedApplications-Collectingper-testcoveragefromdistributedbuilds">Collecting
                                 per-test coverage from distributed builds</a>
-                            <ul class='toc-indentation'>
+                            <ul class="toc-indentation">
                                 <li>
-                                    <a href='#WorkingwithDistributedApplications-Enablingordisablingdistributedcoverageatruntime'>Enabling
+                                    <a href="#WorkingwithDistributedApplications-Enablingordisablingdistributedcoverageatruntime">Enabling
                                         or disabling distributed coverage at runtime</a></li>
                             </ul>
                         </li>
-                        <li><a href='#WorkingwithDistributedApplications-Troubleshooting'>Troubleshooting</a>
-                            <ul class='toc-indentation'>
+                        <li><a href="#WorkingwithDistributedApplications-Troubleshooting">Troubleshooting</a>
+                            <ul class="toc-indentation">
                                 <li>
-                                    <a href='#WorkingwithDistributedApplications-Serverdoesnotwaitforclients,despitehavingnumClients!=0inbuildconfiguration'>Server
+                                    <a href="#WorkingwithDistributedApplications-Serverdoesnotwaitforclients,despitehavingnumClients!=0inbuildconfiguration">Server
                                         does not wait for clients, despite having numClients != 0 in build
                                         configuration</a></li>
                                 <li>
-                                    <a href='#WorkingwithDistributedApplications-ExecutionoftestshangswhennumClients!=0'>Execution
+                                    <a href="#WorkingwithDistributedApplications-ExecutionoftestshangswhennumClients!=0">Execution
                                         of tests hangs when numClients != 0</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
                 </p><h1 id="WorkingwithDistributedApplications-Overview">Overview</h1>
-                <p><span><img
-                                                                       confluence-query-params="effects=border-simple,shadow-kn"
-                                                                       src="attachments/72253463/296586441.png?effects=border-simple,shadow-kn"
+                <p><span><img confluence-query-params="effects=border-simple,shadow-kn" src="attachments/72253463/296586441.png?effects=border-simple,shadow-kn"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <p>In Clover Distributed Coverage we have two main machine roles:<strong><br/></strong></p>
                 <p><strong>Clover Server</strong> - is a JVM in which Clover sends &quot;test start&quot; and &quot;test
                     end&quot; events in order to inform Clover Clients about test boundaries; Clover opens a port on
                     which it waits for Clover Clients to connect</p>
                 <p><strong>Clover Client</strong> - is a JVM in which Clover will connect to Clover Server</p>
-                <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
-                        data-emoticon-name="light-on" alt="(lightbulb)"/> Please note that Clover's Server/Client
+                <p>
+                    <img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)"/> Please note that Clover's Server/Client
                     designation is actually unrelated with your application structure.</p>
-                <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
-                        data-emoticon-name="light-on" alt="(lightbulb)"/> Both Clover Server and Clover Client write
+                <p>
+                    <img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)"/> Both Clover Server and Clover Client write
                     coverage files to disk.</p>
                 <p> </p>
                 <p>Clover Server is the place where you will typically execute unit tests (or integration tests). These
@@ -186,28 +179,17 @@
                     physical machine as Build Server, of course.</p>
                 <p> </p>
                 <p> </p>
-                <p><span><img
-                                                                       confluence-query-params="effects=border-simple,shadow-kn"
-                                                                       src="attachments/72253463/296586517.png?effects=border-simple,shadow-kn"
+                <p><span><img confluence-query-params="effects=border-simple,shadow-kn" src="attachments/72253463/296586517.png?effects=border-simple,shadow-kn"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
-                <p>The diagram above shows a simplified configuration used in the <a
-                                                                                     href="https://github.com/openclover/clover-maven-plugin/src/tip/src/it/webapp/?at=default"
-                                                                                     rel="nofollow">WebApp example</a>.
+                <p>The diagram above shows a simplified configuration used in the
+                    <a href="https://github.com/openclover/clover-maven-plugin/src/tip/src/it/webapp/?at=default" rel="nofollow">WebApp example</a>.
                     There are only two JVMs used:</p>
                 <ul>
                     <li><strong>1st one</strong> is a Maven build, which instantiates a container using Cargo Maven
-                        Plugin, deploys compiled application and clover.jar, executes unit tests with &quot;-Dclover.server=true&quot;
-                        option (Clover records coverage of test classes) and finally creates a report
+                        Plugin, deploys compiled application and clover.jar, executes unit tests with &quot;-Dclover.server=true&quot; option (Clover records coverage of test classes) and finally creates a report
                     </li>
                     <li><strong>2nd one</strong> is a Tomcat container, where instrumented application is running,
                         Clover listens to &quot;test start/end&quot; evens to record per-test coverage (in addition to
@@ -218,17 +200,15 @@
                 <h1 id="WorkingwithDistributedApplications-Collectingoverallcoveragefromdistributedbuilds">Collecting
                     overall coverage from distributed builds</h1>
                 <p>The first step in setting up coverage from distributed builds is to configure Clover for overall
-                    coverage reporting.</p><h4
-                    id="WorkingwithDistributedApplications-Step1:UnderstandingtheClover&#39;initstring&#39;">Step 1:
+                    coverage reporting.</p><h4 id="WorkingwithDistributedApplications-Step1:UnderstandingtheClover&#39;initstring&#39;">Step 1:
                 Understanding the Clover 'initstring'</h4>
                 <p>At build time, Clover constructs a registry of your source code, and writes it to a file at the
                     location specified in the Clover initialization string (<code>initstring</code>). When
                     Clover-instrumented code is executed (e.g. by running a suite of unit tests), Clover looks in the
                     same location for this registry file to initialize itself. Clover then records coverage data and
-                    writes coverage recording files next to the registry file during execution. See <a
-                            href="ant--managing-the-coverage-database.html">Clover Database Structure</a> for more
-                    information.</p><h4
-                    id="WorkingwithDistributedApplications-Step2:ChoosingalocationfortheCloverregistry">Step 2: Choosing
+                    writes coverage recording files next to the registry file during execution. See
+                    <a href="ant--managing-the-coverage-database.html">Clover Database Structure</a> for more
+                    information.</p><h4 id="WorkingwithDistributedApplications-Step2:ChoosingalocationfortheCloverregistry">Step 2: Choosing
                 a location for the Clover registry</h4>
                 <p>If you are deploying and running your Clover-instrumented code on different machines, you must
                     provide a way for Clover to find the registry file, and provide a place for Clover to write coverage
@@ -244,8 +224,8 @@
                     <li><strong>Specify an</strong> <code><strong>initstring</strong></code> <strong>that is a relative
                         path, resolved at runtime</strong><br/> The compile-time <code>initstring</code> represents a
                         relative path (relative to the current working directory of each execution context). To do this
-                        you need to specify <code>relative=&quot;yes&quot;</code> on the <code>&lt;<a
-                                href="ant--clover-setup.html">clover-setup</a>&gt;</code> task.<br/> OR:
+                        you need to specify <code>relative=&quot;yes&quot;</code> on the
+                        <code>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;</code> task.<br/> OR:
                     </li>
                     <li><p><strong>Specify an</strong> <code><strong>initstring</strong></code> <strong>at runtime via
                         system properties</strong><br/> You can override the Clover <code>initstring</code> at runtime
@@ -279,15 +259,13 @@
                             launched, using the <code>-D</code>parameter:</p>
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeContent panelContent pdl">
-<pre
-    >java -Dclover.initstring=... myapplication.Server
+<pre>java -Dclover.initstring=... myapplication.Server
 </pre>
                             </div>
                         </div>
                         <p>For application servers, this may involve adding the property to a startup script or batch
                             file.</p>
-                        <div><span
-                                ></span>
+                        <div><span></span>
                             <div><p>For methods two and three in the sequence
                                 above, you will need to copy the Clover registry file from the location on the build
                                 machine to the appropriate directory on each of the execution machines (as part of the
@@ -309,10 +287,9 @@
                     coverage data when the JVM of the webserver is shutdown.</p>
                 <h1 id="WorkingwithDistributedApplications-Collectingper-testcoveragefromdistributedbuilds">Collecting
                     per-test coverage from distributed builds</h1>
-                <p><img src="images/icons/emoticons/information.png"
-                        data-emoticon-name="information" alt="(info)"/> The steps below require you to have carried out
-                    the previous steps on this page (related to 'Collecting Overall Coverage from Distributed Builds').
-                </p><h4>Enabling
+                <p>
+                    <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> The steps below require you to have carried out
+                    the previous steps on this page (related to 'Collecting Overall Coverage from Distributed Builds'). </p><h4>Enabling
                 or disabling distributed coverage at runtime</h4>
                 <p>Clover's distributed coverage feature is enabled at runtime by making use of command-line
                     options.</p>
@@ -323,7 +300,7 @@
                     <div class="codeContent panelContent pdl">
                         <pre
 
-                            > -Dclover.distributed.coverage=on</pre>
+                        > -Dclover.distributed.coverage=on</pre>
                     </div>
                 </div>
                 <p>This will enable distributed coverage with default settings (host=localhost, port=1198,
@@ -346,7 +323,7 @@
                     <div class="codeContent panelContent pdl">
                         <pre
 
-                            > -Dclover.distributed.coverage=host=myhost;port=7777;numClients=2</pre>
+                        > -Dclover.distributed.coverage=host=myhost;port=7777;numClients=2</pre>
                     </div>
                 </div>
                 <p> </p>
@@ -356,7 +333,7 @@
                     <div class="codeContent panelContent pdl">
                         <pre
 
-                            > -Dclover.server=true </pre>
+                        > -Dclover.server=true </pre>
                     </div>
                 </div>
                 <p><strong><br/></strong></p>
@@ -366,24 +343,23 @@
                     <div class="codeContent panelContent pdl">
                         <pre
 
-                            >-Dclover.distributed.coverage=off </pre>
+                        >-Dclover.distributed.coverage=off </pre>
                     </div>
                 </div>
                 <p>This will turn off distributed coverage for the JVM in which this is set, regardless of what was
                     instrumented.</p>
-                <p>For more configuration options and how to do this in Ant and Maven, see the <a
-                        href="ant--using-distributed-per-test-coverage.html">Clover-for-Ant</a>
+                <p>For more configuration options and how to do this in Ant and Maven, see the
+                    <a href="ant--using-distributed-per-test-coverage.html">Clover-for-Ant</a>
                     and <a href="maven--using-distributed-per-test-coverage.html">Clover-for-Maven 2</a>
                     documentation.</p>
                 <p> </p>
                 <p><strong>Configuration complete</strong><br/> Distributed Per-Test Coverage in Clover will now operate
                     when running distributed builds. Detailed reports will now be available.</p>
                 <p> </p>
-                <h1 id="WorkingwithDistributedApplications-Troubleshooting">Troubleshooting</h1><h4
-                    id="WorkingwithDistributedApplications-Serverdoesnotwaitforclients,despitehavingnumClients!=0inbuildconfiguration">
-                Server does not wait for clients, despite having numClients != 0 in build configuration</h4>
-                <div><span
-                       ></span>
+                <h1 id="WorkingwithDistributedApplications-Troubleshooting">Troubleshooting</h1>
+                <h4 id="WorkingwithDistributedApplications-Serverdoesnotwaitforclients,despitehavingnumClients!=0inbuildconfiguration">
+                    Server does not wait for clients, despite having numClients != 0 in build configuration</h4>
+                <div><span></span>
                     <div><p>Do not use <code class="java plain">-Dclover.distributed.coverage=on</code>
                         runtime option if numClients!=0 was set in instrumentation. The
                         <em>clover.distributed.coverage</em> provided at runtime will override <em>numClients</em>
@@ -401,8 +377,7 @@
                 </div>
                 <p> </p><h4>Execution of
                 tests hangs when numClients != 0</h4>
-                <div><span
-                       ></span>
+                <div><span></span>
                     <div><p><strong>Server-client dependency loop</strong></p>
                         <p>It can happen that your &quot;Server&quot; will wait for &quot;Clients&quot; to connect,
                             while Clients will wait until Server starts unit test execution - it depends on how tests
@@ -439,8 +414,7 @@
                 <p><strong>Sample code</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >package com.my.webapp;
+<pre>package com.my.webapp;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
@@ -458,8 +432,7 @@ public class MyServletContextListener implements ServletContextListener {
                 </div>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-    >&lt;web-app&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;web-app&gt;
     &lt;!-- ... --&gt; 
     &lt;listener&gt;
         &lt;listener-class&gt;com.my.webapp.MyServletContextListener&lt;/listener-class&gt;
@@ -469,9 +442,7 @@ public class MyServletContextListener implements ServletContextListener {
                     </div>
                 </div>
                 <p> </p>
-                <p>Full code example is availabl here: <a
-                                                                   href="https://github.com/openclover/clover-maven-plugin"
-                                                                   rel="nofollow">https://github.com/openclover/clover-maven-plugin</a>
+                <p>Full code example is availabl here: <a href="https://github.com/openclover/clover-maven-plugin" rel="nofollow">https://github.com/openclover/clover-maven-plugin</a>
                     (src/it/webapp).</p>
                 <p> </p>
             </div>
@@ -487,8 +458,7 @@ public class MyServletContextListener implements ServletContextListener {
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

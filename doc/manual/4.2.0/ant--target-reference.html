@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.2 : 9. Clover Target Reference</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,45 +39,48 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.2</a>
-</li>
+                        <a href="index.html">OpenClover 4.2</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            9. Clover Target Reference
-                        </span>
+                <span id="title-text">
+                    9. Clover Target Reference
+                </span>
             </h1>
         </div>
 
 
-<div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.2.x. Check the <a href="../latest/ant--target-reference.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+        <div class="alert alert-warning" role="alert">
+            You are reading documentation for version 4.2.x. Check the <a href="../latest/ant--target-reference.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <p>Clover provides a set of high level, preconfigured Ant targets. A target is a high-level,
                     pre-configured set of functionality that you can use to quickly integrate Clover. They can be
                     launched by adding them as values to Ant on the command line.</p>
                 <p>Each target contains a number of logically grouped lower-level pieces of functionality made up of
-                    Clover-specific <a href="ant--task-reference.html">Tasks</a> and <a
-                            href="ant--type-reference.html">Types</a>. These allow you to harness Clover's
+                    Clover-specific <a href="ant--task-reference.html">Tasks</a> and
+                    <a href="ant--type-reference.html">Types</a>. These allow you to harness Clover's
                     feature set, applying the concept of <em>convention over configuration</em>. This should help you
                     avoid laboriously coding your own targets from scratch — allowing you to rapidly begin using Clover,
                     no matter how complex your environment.</p>
-                <p><img src="images/icons/emoticons/information.png"
-                        data-emoticon-name="information" alt="(info)"/> To enable Ant targets in Clover, you need to
+                <p>
+                    <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> To enable Ant targets in Clover, you need to
                     firstly follow the <a href="ant--quick-start-guide.html">Clover Quickstart Guide</a>.</p>
                 <p><em>On this page:</em></p>
                 <p>
-                    <style type='text/css'>/*<![CDATA[*/
+                    <style type="text/css">/*<![CDATA[*/
                     div.rbtoc1491813710786 {
                         padding: 0px;
                     }
@@ -93,30 +95,31 @@
                         padding-left: 0px;
                     }
 
-                    /*]]>*/</style>
-                <div class='toc-macro rbtoc1491813710786'>
-                    <ul class='toc-indentation'>
-                        <li><a href='#id-9.CloverTargetReference-UsingaTarget'>Using a Target</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#id-9.CloverTargetReference-with.clover(target)'>with.clover (target)</a>
+                    /*]]>*/
+                    </style>
+                <div class="toc-macro rbtoc1491813710786">
+                    <ul class="toc-indentation">
+                        <li><a href="#id-9.CloverTargetReference-UsingaTarget">Using a Target</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#id-9.CloverTargetReference-with.clover(target)">with.clover (target)</a>
                                 </li>
-                                <li><a href='#id-9.CloverTargetReference-clover.all(target)'>clover.all (target)</a>
+                                <li><a href="#id-9.CloverTargetReference-clover.all(target)">clover.all (target)</a>
                                 </li>
-                                <li><a href='#id-9.CloverTargetReference-clover.clean(target)'>clover.clean (target)</a>
+                                <li><a href="#id-9.CloverTargetReference-clover.clean(target)">clover.clean (target)</a>
                                 </li>
-                                <li><a href='#id-9.CloverTargetReference-clover.current(target)'>clover.current
+                                <li><a href="#id-9.CloverTargetReference-clover.current(target)">clover.current
                                     (target)</a></li>
-                                <li><a href='#id-9.CloverTargetReference-clover.report(target)'>clover.report
+                                <li><a href="#id-9.CloverTargetReference-clover.report(target)">clover.report
                                     (target)</a></li>
-                                <li><a href='#id-9.CloverTargetReference-clover.save-history(target)'>clover.save-history
+                                <li><a href="#id-9.CloverTargetReference-clover.save-history(target)">clover.save-history
                                     (target)</a></li>
-                                <li><a href='#id-9.CloverTargetReference-clover.snapshot(target)'>clover.snapshot
+                                <li><a href="#id-9.CloverTargetReference-clover.snapshot(target)">clover.snapshot
                                     (target)</a></li>
-                                <li><a href='#id-9.CloverTargetReference-clover.snapshot.file(target)'>clover.snapshot.file
+                                <li><a href="#id-9.CloverTargetReference-clover.snapshot.file(target)">clover.snapshot.file
                                     (target)</a></li>
                             </ul>
                         </li>
-                        <li><a href='#id-9.CloverTargetReference-CustomTargets'>Custom Targets</a></li>
+                        <li><a href="#id-9.CloverTargetReference-CustomTargets">Custom Targets</a></li>
                     </ul>
                 </div>
                 </p><h2>Using a Target</h2>
@@ -124,8 +127,7 @@
                     line, as follows:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >ant clover.all
+<pre>ant clover.all
 </pre>
                     </div>
                 </div>
@@ -138,8 +140,7 @@
                 <p><strong>Example:</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >ant with.clover
+<pre>ant with.clover
 </pre>
                     </div>
                 </div>
@@ -169,8 +170,7 @@
                 <p><strong>Example:</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >ant clover.all -Dtest.target=run.tests
+<pre>ant clover.all -Dtest.target=run.tests
 </pre>
                     </div>
                 </div>
@@ -184,8 +184,7 @@
                 <p><strong>Example:</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >ant clover.clean
+<pre>ant clover.clean
 </pre>
                     </div>
                 </div>
@@ -218,9 +217,8 @@
                         </tr>
                         <tr>
                             <td><p>clover.span</p></td>
-                            <td><p>A time <a
-                                    href="ant--using-spans-specifying-an-interval.html">interval</a> defining the <a
-                                    href="ant--using-spans.html">time span</a> to use when creating historical
+                            <td><p>A time <a href="ant--using-spans-specifying-an-interval.html">interval</a> defining the
+                                <a href="ant--using-spans.html">time span</a> to use when creating historical
                                 reports</p></td>
                             <td><p>None</p></td>
                             <td><p>None</p></td>
@@ -231,8 +229,7 @@
                 <p><strong>Example:</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >ant clover.current -Dproject.title=&quot;MyProject&quot;
+<pre>ant clover.current -Dproject.title=&quot;MyProject&quot;
 </pre>
                     </div>
                 </div>
@@ -266,9 +263,8 @@
                         </tr>
                         <tr>
                             <td><p>clover.span</p></td>
-                            <td><p>A time <a
-                                    href="ant--using-spans-specifying-an-interval.html">interval</a> defining the <a
-                                    href="ant--using-spans.html">time span</a> to use when creating historical
+                            <td><p>A time <a href="ant--using-spans-specifying-an-interval.html">interval</a> defining the
+                                <a href="ant--using-spans.html">time span</a> to use when creating historical
                                 reports</p></td>
                             <td><p>None</p></td>
                             <td><p>None</p></td>
@@ -279,8 +275,7 @@
                 <p><strong>Example:</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >ant clover.report -Dclover.historypoint.projectdir=&quot;\myprojects\project3\history\&quot;
+<pre>ant clover.report -Dclover.historypoint.projectdir=&quot;\myprojects\project3\history\&quot;
 </pre>
                     </div>
                 </div>
@@ -311,9 +306,8 @@
                         </tr>
                         <tr>
                             <td><p>clover.span</p></td>
-                            <td><p>A time <a
-                                    href="ant--using-spans-specifying-an-interval.html">interval</a> defining the <a
-                                    href="ant--using-spans.html">time span</a> to use when creating historical
+                            <td><p>A time <a href="ant--using-spans-specifying-an-interval.html">interval</a> defining the
+                                <a href="ant--using-spans.html">time span</a> to use when creating historical
                                 reports</p></td>
                             <td><p>None</p></td>
                             <td><p>None</p></td>
@@ -324,8 +318,7 @@
                 <p><strong>Example:</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >ant clover.save-history
+<pre>ant clover.save-history
 </pre>
                     </div>
                 </div>
@@ -336,8 +329,7 @@
                 <p><strong>Example:</strong></p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >ant clover.snapshot
+<pre>ant clover.snapshot
 </pre>
                     </div>
                 </div>
@@ -364,13 +356,12 @@
                 </div>
                 <p><span id="id-9.CloverTargetReference-clover.snapshot.file"></span></p>
                 <h3>clover.snapshot.file (target)</h3>
-                <p>Defines the location of the snapshot file to use when saving optimized data. For use with Clover's <a
-                        href="general--what-is-test-optimization.html">Test Optimization</a> feature. <br/> <strong>Example:</strong>
+                <p>Defines the location of the snapshot file to use when saving optimized data. For use with Clover's
+                    <a href="general--what-is-test-optimization.html">Test Optimization</a> feature. <br/> <strong>Example:</strong>
                 </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >ant clover.snapshot.file
+<pre>ant clover.snapshot.file
 </pre>
                     </div>
                 </div>
@@ -391,8 +382,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

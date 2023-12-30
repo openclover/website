@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.2 : Part 1 - Measuring Coverage</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,28 +39,32 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.2</a>
-</li>
+                        <a href="index.html">OpenClover 4.2</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="tutorials--index.html">Clover Tutorials</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="tutorials--ant-tutorial.html">Clover-for-Ant tutorial</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Part 1 - Measuring Coverage
-                        </span>
+                <span id="title-text">
+                    Part 1 - Measuring Coverage
+                </span>
             </h1>
         </div>
 
 
-<div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.2.x. Check the <a href="../latest/ant--tutorial-part-1-measuring-coverage.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+        <div class="alert alert-warning" role="alert">
+            You are reading documentation for version 4.2.x. Check the
+            <a href="../latest/ant--tutorial-part-1-measuring-coverage.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <p>Welcome to the Clover-for-Ant tutorial. This document will walk you through the process of
@@ -69,7 +72,7 @@
                     features along the way.</p>
                 <p><em>On this page:</em></p>
                 <p>
-                    <style type='text/css'>/*<![CDATA[*/
+                    <style type="text/css">/*<![CDATA[*/
                     div.rbtoc1491813745011 {
                         padding: 0px;
                     }
@@ -84,47 +87,49 @@
                         padding-left: 0px;
                     }
 
-                    /*]]>*/</style>
-                <div class='toc-macro rbtoc1491813745011'>
-                    <ul class='toc-indentation'>
-                        <li><a href='#Part1-MeasuringCoverage-Introduction'>Introduction</a></li>
-                        <li><a href='#Part1-MeasuringCoverage-Step1.Compilingandrunning'>Step 1. Compiling and
+                    /*]]>*/
+                    </style>
+                <div class="toc-macro rbtoc1491813745011">
+                    <ul class="toc-indentation">
+                        <li><a href="#Part1-MeasuringCoverage-Introduction">Introduction</a></li>
+                        <li><a href="#Part1-MeasuringCoverage-Step1.Compilingandrunning">Step 1. Compiling and
                             running</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#Part1-MeasuringCoverage-Compiling'>Compiling</a></li>
-                                <li><a href='#Part1-MeasuringCoverage-Runningthetests'>Running the tests</a></li>
+                            <ul class="toc-indentation">
+                                <li><a href="#Part1-MeasuringCoverage-Compiling">Compiling</a></li>
+                                <li><a href="#Part1-MeasuringCoverage-Runningthetests">Running the tests</a></li>
                             </ul>
                         </li>
-                        <li><a href='#Part1-MeasuringCoverage-Step2.AddingClovertargets'>Step 2. Adding Clover
+                        <li><a href="#Part1-MeasuringCoverage-Step2.AddingClovertargets">Step 2. Adding Clover
                             targets</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#Part1-MeasuringCoverage-AddingClovertaskdefinitions'>Adding Clover task
+                            <ul class="toc-indentation">
+                                <li><a href="#Part1-MeasuringCoverage-AddingClovertaskdefinitions">Adding Clover task
                                     definitions</a></li>
-                                <li><a href='#Part1-MeasuringCoverage-AddingatargettoenableClover'>Adding a target to
+                                <li><a href="#Part1-MeasuringCoverage-AddingatargettoenableClover">Adding a target to
                                     enable Clover</a></li>
-                                <li><a href='#Part1-MeasuringCoverage-AddingClovertotheclasspath'>Adding Clover to the
+                                <li><a href="#Part1-MeasuringCoverage-AddingClovertotheclasspath">Adding Clover to the
                                     classpath</a></li>
-                                <li><a href='#Part1-MeasuringCoverage-Adding&lt;clover-clean&gt;tothecleantarget'>Adding
-                                    &lt;clover-clean&gt; to the clean target</a></li>
-                            </ul>
-                        </li>
-                        <li><a href='#Part1-MeasuringCoverage-Step3.TestingwithClover'>Step 3. Testing with Clover</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#Part1-MeasuringCoverage-CompilewithClover'>Compile with Clover</a></li>
-                                <li><a href='#Part1-MeasuringCoverage-Runningthetests.1'>Running the tests</a></li>
-                            </ul>
-                        </li>
-                        <li><a href='#Part1-MeasuringCoverage-Step4.Creatingareport'>Step 4. Creating a report</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#Part1-MeasuringCoverage-AddingaCloverreporttarget'>Adding a Clover report
-                                    target</a></li>
-                                <li><a href='#Part1-MeasuringCoverage-Generatingthereport'>Generating the report</a>
+                                <li>
+                                    <a href="#Part1-MeasuringCoverage-Adding&lt;clover-clean&gt;tothecleantarget">Adding &lt;clover-clean&gt; to the clean target</a>
                                 </li>
                             </ul>
                         </li>
-                        <li><a href='#Part1-MeasuringCoverage-Step5.Improvingcoverage'>Step 5. Improving coverage</a>
+                        <li><a href="#Part1-MeasuringCoverage-Step3.TestingwithClover">Step 3. Testing with Clover</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#Part1-MeasuringCoverage-CompilewithClover">Compile with Clover</a></li>
+                                <li><a href="#Part1-MeasuringCoverage-Runningthetests.1">Running the tests</a></li>
+                            </ul>
                         </li>
-                        <li><a href='#Part1-MeasuringCoverage-Nextsteps'>Next steps</a></li>
+                        <li><a href="#Part1-MeasuringCoverage-Step4.Creatingareport">Step 4. Creating a report</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#Part1-MeasuringCoverage-AddingaCloverreporttarget">Adding a Clover report
+                                    target</a></li>
+                                <li><a href="#Part1-MeasuringCoverage-Generatingthereport">Generating the report</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#Part1-MeasuringCoverage-Step5.Improvingcoverage">Step 5. Improving coverage</a>
+                        </li>
+                        <li><a href="#Part1-MeasuringCoverage-Nextsteps">Next steps</a></li>
                     </ul>
                 </div>
                 </p><h1 id="Part1-MeasuringCoverage-Introduction">Introduction</h1>
@@ -148,8 +153,7 @@
                 <p>Output should be similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >$ ant compile
+<pre>$ ant compile
 Buildfile: .../tutorial/build.xml
 
 
@@ -175,8 +179,7 @@ BUILD SUCCESSFUL </pre>
                 <p>Output should be similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >$ ant test
+<pre>$ ant test
 Buildfile: .../tutorial/build.xml
 
 
@@ -205,11 +208,10 @@ BUILD SUCCESSFUL</pre>
                     properties to the build file so we can measure the code coverage of the tests. Modifying the build
                     file is trivial. Firstly we need to add a target to enable and configure Clover for the build.</p>
                 <h2>Adding Clover task definitions</h2>
-                <div><span
-                        ></span>
+                <div><span></span>
                     <div><p>For this tutorial, ensure that the property <code>clover.jar</code>
-                        has been defined as the path to your 'clover.jar' file. Hence, if you followed the <a
-                                href="ant--adding-to-build-xml.html">Adding to Ant's build.xml</a> instructions and have only added the
+                        has been defined as the path to your 'clover.jar' file. Hence, if you followed the
+                        <a href="ant--adding-to-build-xml.html">Adding to Ant's build.xml</a> instructions and have only added the
                         Clover 'taskdef' resource to your 'build.xml' file, you'll need to redefine this resource to
                         match the format described in this step.</p></div>
                 </div>
@@ -217,14 +219,13 @@ BUILD SUCCESSFUL</pre>
                     type definitions:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;property name=&quot;clover.jar&quot; location=&quot;../lib/clover.jar&quot;/&gt;
+<pre>&lt;property name=&quot;clover.jar&quot; location=&quot;../lib/clover.jar&quot;/&gt;
 &lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
 </pre>
                     </div>
                 </div>
                 <div><p class="title">Note</p>
-                    <span ></span>
+                    <span></span>
                     <div><p>This assumes that the <code>clover.jar</code> is
                         left in the unpacked Clover distribution from which this tutorial is being done. If you have
                         installed the <code>clover.jar</code> elsewhere, adjust the path accordingly.</p></div>
@@ -234,8 +235,7 @@ BUILD SUCCESSFUL</pre>
                 <p>Add a target called <code>with.clover</code> which will enable and configure Clover for a build:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;target name=&quot;with.clover&quot;&gt;
+<pre>&lt;target name=&quot;with.clover&quot;&gt;
    &lt;clover-setup/&gt;
 &lt;/target&gt;
 </pre>
@@ -246,8 +246,7 @@ BUILD SUCCESSFUL</pre>
                     add the line in marked below to the <code>build.classpath</code> Ant path:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;path id=&quot;build.classpath&quot;&gt;
+<pre>&lt;path id=&quot;build.classpath&quot;&gt;
     &lt;pathelement path=&quot;${clover.jar}&quot;/&gt; &lt;!-- add this --&gt;
     &lt;pathelement path=&quot;${build.classes}&quot;/&gt;
 &lt;/path&gt;
@@ -256,13 +255,12 @@ BUILD SUCCESSFUL</pre>
                 </div>
                 <h2>Adding &lt;clover-clean&gt; to
                     the clean target</h2>
-                <p>It is advisable to add the <code>&lt;</code><code><a
-                        href="ant--clover-clean.html">clover-clean</a></code><code>/&gt;</code> task to the <code>clean</code>
+                <p>It is advisable to add the <code>&lt;</code><code><a href="ant--clover-clean.html">clover-clean</a></code><code>/&gt;</code> task to the
+                    <code>clean</code>
                     target. This will delete the Clover database when the <code>clean</code> target is executed.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;target name=&quot;clean&quot; &gt;
+<pre>&lt;target name=&quot;clean&quot; &gt;
      &lt;clover-clean/&gt; &lt;!-- add this --&gt;
      &lt;delete dir=&quot;build&quot;/&gt;
 &lt;/target&gt;
@@ -281,8 +279,7 @@ BUILD SUCCESSFUL</pre>
                 <p>You will get output similar to the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >$ ant with.clover compile
+<pre>$ ant with.clover compile
 Buildfile: .../tutorial/build.xml
 
 
@@ -318,8 +315,7 @@ BUILD SUCCESSFUL</pre>
                     the tests, this time measuring coverage. Output from Ant will be the same as a normal test run:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >$ ant test
+<pre>$ ant test
 Buildfile: .../tutorial/build.xml
 
 
@@ -349,26 +345,23 @@ BUILD SUCCESSFUL
                     cover the Money library.</p>
                 <h1 id="Part1-MeasuringCoverage-Step4.Creatingareport">Step 4. Creating a report</h1>
                 <p>We are now ready to produce a coverage report. This section will focus on producing a Clover HTML
-                    report. For information on how to generate a PDF report see the <code>&lt;</code><code><a
-                            href="ant--clover-pdf-report.html">clover-pdf-report</a></code><code>&gt;</code> task,
-                    or for other types of Clover reports see the <code>&lt;</code><code><a
-                            href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> task.</p>
+                    report. For information on how to generate a PDF report see the
+                    <code>&lt;</code><code><a href="ant--clover-pdf-report.html">clover-pdf-report</a></code><code>&gt;</code> task,
+                    or for other types of Clover reports see the
+                    <code>&lt;</code><code><a href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> task.</p>
                 <h2>Adding a Clover report target</h2>
                 <p>Open the <code>build.xml</code> file in a text editor and add the following <code>target</code> to
                     create a HTML report:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >&lt;target name=&quot;clover.report&quot;&gt;
+<pre>&lt;target name=&quot;clover.report&quot;&gt;
    &lt;clover-html-report outdir=&quot;build/clover_html&quot; title=&quot;Clover Demo&quot;/&gt;
 &lt;/target&gt;
 </pre>
                     </div>
                 </div>
-                <p>The <code>&lt;</code><code><a
-                        href="ant--clover-html-report.html">clover-html-report</a></code><code>&gt;</code> task is a
-                    simplified version of the <code>&lt;</code><code><a
-                            href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> task. As no
+                <p>The <code>&lt;</code><code><a href="ant--clover-html-report.html">clover-html-report</a></code><code>&gt;</code> task is a
+                    simplified version of the <code>&lt;</code><code><a href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> task. As no
                     <code>historydir</code> attribute has been specified, it uses the current coverage data. Historical
                     reports, which show the progress of coverage over the life of the project, are discussed later in
                     this tutorial (see <a href="ant--tutorial-part-2-historical-reporting.html">Part 2 - Historical
@@ -382,8 +375,7 @@ BUILD SUCCESSFUL
                     the following:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >$ ant clover.report
+<pre>$ ant clover.report
 Buildfile: /Users/mparfianowicz/Work/clover-hg/tutorial/build.xml
 
 
@@ -414,15 +406,11 @@ BUILD SUCCESSFUL</pre>
                     when the Money value is zero. The coverage report shows that the code to handle this has not been
                     covered by the tests. Line 40 has been executed 27 times, but since it has never evaluated to <code>true</code>
                     it has not been fully covered and is therefore in red. It follows then that the two successive lines
-                    have never been executed.<br/> <span><img
-                            class="confluence-embedded-image confluence-content-image-border"
-                            src="attachments/72548380/93159441.gif"
+                    have never been executed.<br/>
+                    <span><img class="confluence-embedded-image confluence-content-image-border" src="attachments/72548380/93159441.gif"
 
 
-
-
-                            data-linked-resource-content-type="image/gif"
-                            ></span><br/> We can now improve the tests so
+                            data-linked-resource-content-type="image/gif"></span><br/> We can now improve the tests so
                     that this section of code is covered. To do this, make the following additions (shown in <strong>bold</strong>)
                     to the <code>MoneyBagTest.java</code> file.<br/> Declare the variable <code>f0USD</code>:</p>
                 <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
@@ -445,8 +433,7 @@ BUILD SUCCESSFUL</pre>
                 <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
                     <div class="panelContent" style="background-color: white;">
                         <p><strong>public void testMoneyEqualsZero()  {</strong><br/> <strong>   
-                            assertTrue(!f0USD.equals(null));</strong><br/> <strong>    IMoney equalMoney = new Money(0,
-                            &quot;CHF&quot;);</strong><br/> <strong>   
+                            assertTrue(!f0USD.equals(null));</strong><br/> <strong>    IMoney equalMoney = new Money(0, &quot;CHF&quot;);</strong><br/> <strong>   
                             assertTrue(f0USD.equals(equalMoney));</strong><br/> <strong>}</strong></p>
                     </div>
                 </div>
@@ -468,8 +455,7 @@ BUILD SUCCESSFUL</pre>
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.2 : 1. Clover for IDEA in 10 minutes</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,28 +39,32 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.2</a>
-</li>
+                        <a href="index.html">OpenClover 4.2</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="idea--overview.html">Clover-for-IDEA</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="idea--user-guide.html">Clover-for-IDEA User&#39;s Guide</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            1. Clover for IDEA in 10 minutes
-                        </span>
+                <span id="title-text">
+                    1. Clover for IDEA in 10 minutes
+                </span>
             </h1>
         </div>
 
 
-<div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.2.x. Check the <a href="../latest/idea--openclover-for-idea-in-10-minutes.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+        <div class="alert alert-warning" role="alert">
+            You are reading documentation for version 4.2.x. Check the
+            <a href="../latest/idea--openclover-for-idea-in-10-minutes.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <h2>Getting Started</h2>
@@ -72,148 +75,73 @@
                     <li>Enable Clover, by selecting the 'Enable Clover' check box in the &quot;File | Settings | Project
                         | Clover&quot; interface.
                     </li>
-                    <li>Turn on clover instrumentation by selecting the <span
-                           ><img
-                                                                          src="attachments/300814874/648609826.png"
+                    <li>Turn on clover instrumentation by selecting the <span><img src="attachments/300814874/648609826.png"
 
 
-
-
-
-
-
-
-
-                                                                          ></span>
+                    ></span>
                         toolbar item.
                     </li>
                     <li>Rebuild your project using any of the build mechanisms provided by IDEA.</li>
                     <li>Run your project by running the unit tests or some other means.</li>
-                    <li>Refresh the latest coverage data by clicking the <span><img
-                            src="attachments/300814874/648609830.png"
+                    <li>Refresh the latest coverage data by clicking the <span><img src="attachments/300814874/648609830.png"
 
 
-
-
-
-                            ></span> toolbar item.
+                    ></span> toolbar item.
                     </li>
-                    <li>Highlight coverage in the source code editor by selecting the <span
-                           ><img
-                                                                          src="attachments/300814874/648609827.png"
+                    <li>Highlight coverage in the source code editor by selecting the <span><img src="attachments/300814874/648609827.png"
 
 
-
-
-
-
-
-
-
-                                                                          ></span>
-                        toolbar item.  Available highlighting options: <br
-                                class="atl-forced-newline"/><span><img
-                                src="attachments/300814874/301008088.gif"
-
-
-
+                    ></span>
+                        toolbar item. Available highlighting options: <br class="atl-forced-newline"/><span><img src="attachments/300814874/301008088.gif"
 
 
                                 data-linked-resource-content-type="image/gif"
 
-                                ></span> highlight covered code (in green) and
-                        code with no coverage (in red), <span
-                               ><img
-                                                                              src="attachments/300814874/301008089.gif"
+                        ></span> highlight covered code (in green) and
+                        code with no coverage (in red), <span><img src="attachments/300814874/301008089.gif"
 
 
+                                data-linked-resource-content-type="image/gif"
+
+                        ></span>
+                        only highlight code with no coverage, <span><img src="attachments/300814874/301008090.gif"
 
 
+                                data-linked-resource-content-type="image/gif"
+
+                        ></span>
+                        turn code coverage highlighting off. <span><img src="attachments/300814874/301008091.png"
 
 
-
-                                                                              data-linked-resource-content-type="image/gif"
-
-                                                                              ></span>
-                        only highlight code with no coverage, <span
-                               ><img
-                                                                              src="attachments/300814874/301008090.gif"
-
-
-
-
-
-
-
-                                                                              data-linked-resource-content-type="image/gif"
-
-                                                                              ></span>
-                        turn code coverage highlighting off. <span
-                               ><img
-                                                                              src="attachments/300814874/301008091.png"
-
-
-
-
-
-
-
-
-
-                                                                              ></span>
+                        ></span>
                         this enables little gray and green clovers in package explorer. These indicate the toggled state
                         of the exclusion annotation.
                     </li>
-                    <li>When <span><img
-                                                                                 src="attachments/300814874/301008092.png"
+                    <li>When <span><img src="attachments/300814874/301008092.png"
 
 
-
-
-
-
-
-
-
-                                                                                 ></span>
+                    ></span>
                         option is selected only coverage from passed unit tests contributes to the coverage percentage.
                     </li>
-                    <li>View the TreeMap report for the current project using the <span
-                           ><img
-                                                                          src="attachments/300814874/301008093.gif"
+                    <li>View the TreeMap report for the current project using the <span><img src="attachments/300814874/301008093.gif"
 
 
+                            data-linked-resource-content-type="image/gif"
 
-
-
-
-
-                                                                          data-linked-resource-content-type="image/gif"
-
-                                                                          ></span>
+                    ></span>
                         button.
                     </li>
-                    <li>View the Cloud report for current project using <span
-                           ><img
-                                                                          src="attachments/300814874/301008094.png"
+                    <li>View the Cloud report for current project using <span><img src="attachments/300814874/301008094.png"
 
 
-
-
-
-
-
-
-
-                                                                          ></span>
+                    ></span>
                         button.
                     </li>
                 </ol>
                 <p> </p>
                 <hr/>
                 <p>Congratulations! You now know basics of <em>Clover for IDEA </em>plugin - enough to start your daily
-                    work with it. If you want to learn more, read the <a
-                            href="idea--exploration-of-coverage.html">2. Exploration of coverage in
+                    work with it. If you want to learn more, read the <a href="idea--exploration-of-coverage.html">2. Exploration of coverage in
                         IDEA</a> chapter.</p>
             </div>
 
@@ -228,8 +156,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

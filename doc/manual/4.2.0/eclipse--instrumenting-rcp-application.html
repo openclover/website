@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.2 : Instrumenting RCP Application</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,10 +39,11 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.2</a>
-</li>
+                        <a href="index.html">OpenClover 4.2</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="eclipse--overview.html">Clover-for-Eclipse</a></span>
@@ -52,22 +52,25 @@
                     </li>
                     <li class="breadcrumb-item"><span><a href="9.-Eclipse-advanced-topics_297667027.html">9. Eclipse advanced topics</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Instrumenting RCP Application
-                        </span>
+                <span id="title-text">
+                    Instrumenting RCP Application
+                </span>
             </h1>
         </div>
 
 
-<div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.2.x. Check the <a href="../latest/eclipse--instrumenting-rcp-application.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+        <div class="alert alert-warning" role="alert">
+            You are reading documentation for version 4.2.x. Check the
+            <a href="../latest/eclipse--instrumenting-rcp-application.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <p>
-                    <style type='text/css'>/*<![CDATA[*/
+                    <style type="text/css">/*<![CDATA[*/
                     div.rbtoc1491813721759 {
                         padding: 0px;
                     }
@@ -82,47 +85,48 @@
                         padding-left: 0px;
                     }
 
-                    /*]]>*/</style>
-                <div class='toc-macro rbtoc1491813721759'>
-                    <ul class='toc-indentation'>
-                        <li><a href='#InstrumentingRCPApplication-RunningapplicationinsideEclipseIDE(withClover)'>Running
+                    /*]]>*/
+                    </style>
+                <div class="toc-macro rbtoc1491813721759">
+                    <ul class="toc-indentation">
+                        <li><a href="#InstrumentingRCPApplication-RunningapplicationinsideEclipseIDE(withClover)">Running
                             application inside Eclipse IDE (with Clover)</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#InstrumentingRCPApplication-Instrumentingcode'>Instrumenting code</a></li>
-                                <li><a href='#InstrumentingRCPApplication-Runningproduct'>Running product</a></li>
+                            <ul class="toc-indentation">
+                                <li><a href="#InstrumentingRCPApplication-Instrumentingcode">Instrumenting code</a></li>
+                                <li><a href="#InstrumentingRCPApplication-Runningproduct">Running product</a></li>
                             </ul>
                         </li>
-                        <li><a href='#InstrumentingRCPApplication-RunningapplicationinanotherEclipse'>Running
+                        <li><a href="#InstrumentingRCPApplication-RunningapplicationinanotherEclipse">Running
                             application in another Eclipse</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#InstrumentingRCPApplication-Glossary'>Glossary</a></li>
-                                <li><a href='#InstrumentingRCPApplication-Instrumentingcode.1'>Instrumenting code</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#InstrumentingRCPApplication-Glossary">Glossary</a></li>
+                                <li><a href="#InstrumentingRCPApplication-Instrumentingcode.1">Instrumenting code</a>
                                 </li>
                                 <li>
-                                    <a href='#InstrumentingRCPApplication-ExportingPlug-insorPlug-infragmentsExportingPlug-insorPlug-infragments'>Exporting
+                                    <a href="#InstrumentingRCPApplication-ExportingPlug-insorPlug-infragmentsExportingPlug-insorPlug-infragments">Exporting
                                         Plug-ins or Plug-in fragments</a></li>
-                                <li><a href='#InstrumentingRCPApplication-ExportingFeatures'>Exporting Features</a></li>
-                                <li><a href='#InstrumentingRCPApplication-Runningplug-insandfeatures'>Running plug-ins
+                                <li><a href="#InstrumentingRCPApplication-ExportingFeatures">Exporting Features</a></li>
+                                <li><a href="#InstrumentingRCPApplication-Runningplug-insandfeatures">Running plug-ins
                                     and features</a></li>
-                                <li><a href='#InstrumentingRCPApplication-Generatingreport'>Generating report</a></li>
+                                <li><a href="#InstrumentingRCPApplication-Generatingreport">Generating report</a></li>
                             </ul>
                         </li>
-                        <li><a href='#InstrumentingRCPApplication-RunningproductoutsideEclipse'>Running product outside
+                        <li><a href="#InstrumentingRCPApplication-RunningproductoutsideEclipse">Running product outside
                             Eclipse</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#InstrumentingRCPApplication-ExportingProduct'>Exporting Product</a></li>
-                                <li><a href='#InstrumentingRCPApplication-Approach#1:Instrumentsourcecodemanually'>Approach
+                            <ul class="toc-indentation">
+                                <li><a href="#InstrumentingRCPApplication-ExportingProduct">Exporting Product</a></li>
+                                <li><a href="#InstrumentingRCPApplication-Approach#1:Instrumentsourcecodemanually">Approach
                                     #1: Instrument source code manually</a></li>
                                 <li>
-                                    <a href='#InstrumentingRCPApplication-Approach#2:Overwriteproduct&#39;spluginsbyinstrumentedversions'>Approach
+                                    <a href="#InstrumentingRCPApplication-Approach#2:Overwriteproduct&#39;spluginsbyinstrumentedversions">Approach
                                         #2: Overwrite product&#39;s plugins by instrumented versions</a></li>
-                                <li><a href='#InstrumentingRCPApplication-Runningproduct.1'>Running product</a></li>
-                                <li><a href='#InstrumentingRCPApplication-Generatingreport.1'>Generating report</a></li>
-                                <li><a href='#InstrumentingRCPApplication-Sampleworkbenchconfiguration'>Sample workbench
+                                <li><a href="#InstrumentingRCPApplication-Runningproduct.1">Running product</a></li>
+                                <li><a href="#InstrumentingRCPApplication-Generatingreport.1">Generating report</a></li>
+                                <li><a href="#InstrumentingRCPApplication-Sampleworkbenchconfiguration">Sample workbench
                                     configuration</a></li>
                             </ul>
                         </li>
-                        <li><a href='#InstrumentingRCPApplication-Appendix1Appendix1'>Appendix 1</a></li>
+                        <li><a href="#InstrumentingRCPApplication-Appendix1Appendix1">Appendix 1</a></li>
                     </ul>
                 </div>
                 </p><h1 id="InstrumentingRCPApplication-RunningapplicationinsideEclipseIDE(withClover)">Running
@@ -135,32 +139,25 @@
                         (in project properties); typically it looks like this:
                     </li>
                 </ul>
-                <p style="margin-left: 90.0px;"><span
-                        class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
-                        class="confluence-embedded-image confluence-content-image-border" height="161" width="421"
-                        src="attachments/296091649/296583853.png"
+                <p style="margin-left: 90.0px;">
+                    <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-content-image-border" height="161" width="421" src="attachments/296091649/296583853.png"
 
 
-
-
-
-                        ></span></p>
+                    ></span></p>
                 <ul>
                     <li>add CLOVER_RUNTIME variable on &quot;Java Build Path / Libraries&quot; tab</li>
                     <li>rebuild project</li>
                 </ul>
                 <p> </p>
-                <div><span
-                       ></span>
+                <div><span></span>
                     <div><p>Your project must use a Java Builder in order to
                         be instrumented by Clover. If you're using other builders for compilation (like Ant Builder)
                         instead of Java Builder, your code won't be instrumented.</p>
-                        <p>In such case, instrument sources manually before building them - for example by adding &lt;clover-instr/&gt;
-                            or &lt;clover-setup/&gt; to your Ant's build.xml. See example in <a
-                                    href="#InstrumentingRCPApplication-Appendix1">Appendix 1</a>.</p></div>
+                        <p>In such case, instrument sources manually before building them - for example by adding &lt;clover-instr/&gt; or &lt;clover-setup/&gt; to your Ant's build.xml. See example in
+                            <a href="#InstrumentingRCPApplication-Appendix1">Appendix 1</a>.</p></div>
                 </div>
-                <div class="confluence-information-macro confluence-information-macro-information"><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                <div class="confluence-information-macro confluence-information-macro-information">
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
                     <div><p>Note that having PDE builders like Plug-in
                         Manifest Builder / Extension Point Schema Builder in addition to Java Builder is OK, as they are
                         just packaging compiled classes.</p></div>
@@ -168,31 +165,24 @@
                 <p> </p><h4>Running product</h4>
                 <p>In order to run instrumented code you have to use <em>&quot;Run with Clover as...&quot;</em> button
                     from tool bar. It will add Clover jar to -Xbootclasspath.</p>
-                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
-                        class="confluence-embedded-image confluence-content-image-border" height="134" width="448"
-                        src="attachments/296091649/295537859.png"
+                <p>
+                    <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-content-image-border" height="134" width="448" src="attachments/296091649/295537859.png"
 
 
-
-
-
-                        ></span></p>
+                    ></span></p>
                 <p> </p>
                 <p>Alternatively, if you wish to use &quot;Run as...&quot; (or other action like Debug, Profile) to run
                     instrumented application, define <strong>-Xbootclasspath/a:/your/path/to/clover-runtime.jar</strong>
                     in <em>VM Arguments</em> box as presented below:</p>
-                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
-                        class="confluence-embedded-image confluence-content-image-border" height="593" width="1024"
-                        src="attachments/296091649/295537856.png"
+                <p>
+                    <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-content-image-border" height="593" width="1024" src="attachments/296091649/295537856.png"
 
 
-
-
-
-                        ></span></p>
-                <div class="confluence-information-macro confluence-information-macro-information"><span
-                        class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
-                    <div><p>You can find clover-runtime.jar in <em><strong>&lt;eclipse_dir&gt;\plugins\com.atlassian.clover.eclipse.runtime_4.X.X.vYYYYMMDD000000\clover-runtime.jar</strong></em>.
+                    ></span></p>
+                <div class="confluence-information-macro confluence-information-macro-information">
+                    <span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span>
+                    <div><p>You can find clover-runtime.jar in
+                        <em><strong>&lt;eclipse_dir&gt;\plugins\com.atlassian.clover.eclipse.runtime_4.X.X.vYYYYMMDD000000\clover-runtime.jar</strong></em>.
                     </p>
                         <p><em>(Usage of other clover*.jar files is discouraged, because they can have <em>different
                             content</em>, build time stamp or instrumentation database version).</em></p></div>
@@ -211,44 +201,29 @@
                     installed</p>
                 <p> </p><h4>Instrumenting code</h4>
                 <p>Run Eclipse IDE. Open Project Properties &gt; Clover. Check the <em>&quot;Enable Clover in this
-                    project</em>&quot; box. On the <em>&quot;Instrumentation&quot;</em> tab in<em> &quot;Initstring</em>&quot;
-                    box:</p>
+                    project</em>&quot; box. On the <em>&quot;Instrumentation&quot;</em> tab in<em> &quot;Initstring</em>&quot; box:</p>
                 <ul>
                     <li>select the <em>&quot;Custom value&quot;</em> radio button,</li>
                     <li>enter absolute path for Clover database</li>
                     <li>deselect the <em>&quot;Relative to project dir&quot;</em> toggle.</li>
                 </ul>
-                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
-                        class="confluence-embedded-image confluence-content-image-border" height="231" width="391"
-                        src="attachments/296091649/296583851.png"
+                <p>
+                    <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-content-image-border" height="231" width="391" src="attachments/296091649/296583851.png"
 
 
-
-
-
-                        ></span></p>
+                    ></span></p>
                 <p>Click OK and rebuild the project.</p>
-                <p> </p><h4
-                    id="InstrumentingRCPApplication-ExportingPlug-insorPlug-infragmentsExportingPlug-insorPlug-infragments">
-                <span
-                      id="InstrumentingRCPApplication-ExportingPlug-insorPlug-infragments"></span>Exporting Plug-ins or
+                <p> </p><h4 id="InstrumentingRCPApplication-ExportingPlug-insorPlug-infragmentsExportingPlug-insorPlug-infragments">
+                <span id="InstrumentingRCPApplication-ExportingPlug-insorPlug-infragments"></span>Exporting Plug-ins or
                 Plug-in fragments</h4>
                 <p>Right click on plug-in project, choose <em>&quot;Export ...&quot;</em> &gt; <em>&quot;Plug-in
                     Development&quot;</em> / <em>&quot;Deployable plug-ins and fragments&quot;</em>. On<em> &quot;Options&quot;</em>
                     tab make sure that the <em>&quot;Use class files compiled in the workspace&quot;</em> checkbox is
                     selected.</p>
-                <p><span><img
-                                                                       src="attachments/296091649/296583852.png"
+                <p><span><img src="attachments/296091649/296583852.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
                 <p> </p><h4>Exporting Features</h4>
                 <p>Right click on feature project, choose <em>&quot;Export ...&quot;</em> &gt; <em>&quot;Plug-in
@@ -258,7 +233,8 @@
                 <p> </p><h4>Running plug-ins and
                 features</h4>
                 <p>Now, you can install these features or plug-ins into the Eclipse Test. Make sure that the
-                    <strong><em>clover-runtime.jar</em></strong> (you can find it in <em>&lt;eclipse&gt;\plugins\com.atlassian.clover.eclipse.runtime_version_number</em>)
+                    <strong><em>clover-runtime.jar</em></strong> (you can find it in
+                    <em>&lt;eclipse&gt;\plugins\com.atlassian.clover.eclipse.runtime_version_number</em>)
                     is available in Java <strong>-Xbootclasspath</strong>.</p>
                 <p>Add this to your Eclipse Test <em>eclipse.ini</em> file, for example:</p>
                 <div style="border-width: 1px;">
@@ -267,15 +243,15 @@
 -Xbootclasspath/a:/path/to/eclipse-ide/plugins/com.atlassian.clover.eclipse.runtime_4.0.0.v20140711000000/clover-runtime.jar</pre>
                     </div>
                 </div>
-                <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
-                        data-emoticon-name="light-on" alt="(lightbulb)"/>Note that <em><strong>-vmargs</strong> </em>is
+                <p>
+                    <img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)"/>Note that
+                    <em><strong>-vmargs</strong> </em>is
                     necessary because all arguments listed after <em>-vmargs</em> are being passed as arguments for JVM,
                     instead of arguments for Eclipse framework.</p>
                 <p> </p><h4>Generating report</h4>
                 <p>As during instrumentation the absolute path was used for Clover database, your Eclipse IDE should
                     automatically fetch coverage files so that you can see results in Coverage Explorer.</p>
-                <p>You can also generate report manually, using &lt;clover-report&gt; Ant task for instance. See the
-                    &quot;report&quot; target in Appendix 1.</p>
+                <p>You can also generate report manually, using &lt;clover-report&gt; Ant task for instance. See the &quot;report&quot; target in Appendix 1.</p>
                 <p> </p>
                 <h1 id="InstrumentingRCPApplication-RunningproductoutsideEclipse">Running product outside Eclipse</h1>
                 <h4>Exporting Product</h4>
@@ -292,60 +268,51 @@
                     not use Builders defined in project properties, but calls PDE Ant build scripts. As a consequence it
                     bypasses the &quot;Clover Pre/Post-Java Builder&quot;.</p>
                 <p> </p>
-                <p>There are two ways to solve this:</p><h4
-                    id="InstrumentingRCPApplication-Approach#1:Instrumentsourcecodemanually">Approach #1: Instrument
+                <p>There are two ways to solve this:</p><h4 id="InstrumentingRCPApplication-Approach#1:Instrumentsourcecodemanually">Approach #1: Instrument
                 source code manually</h4>
-                <p class="emoticon emoticon-light-on" title="Lightbulb On (on)">1) Use <a
-                        href="commandline--cloverinstr.html"
-                        rel="nofollow">CloverInstr </a>command line tool or <a
-                        href="ant--clover-instr.html"
-                        rel="nofollow">clover-instr</a> Ant task to instrument sources manually - see script in <a
-                        href="#InstrumentingRCPApplication-Appendix1">Appendix 1</a></p>
-                <p class="emoticon emoticon-light-on" style="margin-left: 30.0px;" title="Lightbulb On (on)"><img
-                        class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
-                        data-emoticon-name="light-on" alt="(lightbulb)"/>remember to put instrumented sources in another
-                    location, i.e. not into your original source folder <img class="emoticon emoticon-smile"
-                                                                             src="images/icons/emoticons/smile.png"
-                                                                             data-emoticon-name="smile" alt="(smile)"/>
+                <p class="emoticon emoticon-light-on" title="Lightbulb On (on)">1) Use
+                    <a href="commandline--cloverinstr.html" rel="nofollow">CloverInstr </a>command line tool or
+                    <a href="ant--clover-instr.html" rel="nofollow">clover-instr</a> Ant task to instrument sources manually - see script in
+                    <a href="#InstrumentingRCPApplication-Appendix1">Appendix 1</a></p>
+                <p class="emoticon emoticon-light-on" style="margin-left: 30.0px;" title="Lightbulb On (on)">
+                    <img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)"/>remember to put instrumented sources in another
+                    location, i.e. not into your original source folder
+                    <img class="emoticon emoticon-smile" src="images/icons/emoticons/smile.png" data-emoticon-name="smile" alt="(smile)"/>
                 </p>
                 <p class="emoticon emoticon-light-on" title="Lightbulb On (on)"><br/>2) Open instrumented sources in
                     Eclipse IDE.</p>
                 <p>Add the <em>clover-runtime.jar</em> from <em>&lt;eclipse_home&gt;\plugins\com.atlassian.clover.eclipse.runtime_&lt;version_number&gt;</em>
                     as external JAR to Java Build Path.</p>
-                <p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img
-                        class="confluence-embedded-image confluence-content-image-border" height="414" width="798"
-                        src="attachments/296091649/296583857.png"
+                <p>
+                    <span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-content-image-border" height="414" width="798" src="attachments/296091649/296583857.png"
 
 
-
-
-
-                        ></span></p>
-                <p style="margin-left: 30.0px;"><img class="emoticon emoticon-light-on"
-                                                     src="images/icons/emoticons/lightbulb_on.png"
-                                                     data-emoticon-name="light-on" alt="(lightbulb)"/> Do not add it as
+                    ></span></p>
+                <p style="margin-left: 30.0px;">
+                    <img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)"/> Do not add it as
                     dependency in MANIFEST.MF as there's no reason to package this jar inside your product - it's only
                     for compilation. At runtime, the -<em>Xbootclasspath</em> will be used. </p>
                 <p>Run Eclipse Product Export Wizard.</p>
-                <p> </p><h4 class="emoticon emoticon-light-on" title="Lightbulb On (on)"
-                            id="InstrumentingRCPApplication-Approach#2:Overwriteproduct&#39;spluginsbyinstrumentedversions">
-                Approach #2: Overwrite product's plugins by instrumented versions</h4>
-                <p>1) Manually export all plugins being part of your product - see <a
-                        href="#InstrumentingRCPApplication-ExportingPlug-insorPlug-infragments">Exporting Plug-ins or
-                    Plug-in fragments</a> (they will contain instrumented classes).</p>
+                <p> </p>
+                <h4 class="emoticon emoticon-light-on" title="Lightbulb On (on)" id="InstrumentingRCPApplication-Approach#2:Overwriteproduct&#39;spluginsbyinstrumentedversions">
+                    Approach #2: Overwrite product's plugins by instrumented versions</h4>
+                <p>1) Manually export all plugins being part of your product - see
+                    <a href="#InstrumentingRCPApplication-ExportingPlug-insorPlug-infragments">Exporting Plug-ins or
+                        Plug-in fragments</a> (they will contain instrumented classes).</p>
                 <p>2) Export product using &quot;Eclipse Product Export Wizard&quot; into some folder (it will contain
                     un-instrumented classes).</p>
                 <p>3) Overwrite plugins in the exported product folder by those exported manually.</p>
                 <p> </p>
-                <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
-                        data-emoticon-name="light-on" alt="(lightbulb)"/> This is less convenient compared to Approach
+                <p>
+                    <img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)"/> This is less convenient compared to Approach
                     #1 as you have to export plugins one-by-one, but might be needed if:</p>
                 <ul>
                     <li>you have sources generated during build (XML schema bindings, for instance) and</li>
                     <li>you want to have them instrumented as well (which is usually not practised).</li>
                 </ul>
                 <p> </p><h4>Running product</h4>
-                <p>Make sure that the <em>clover-runtime.jar</em> (you can find it in <em>&lt;eclipse&gt;\plugins\com.atlassian.clover.eclipse.runtime_&lt;version_number&gt;</em>)
+                <p>Make sure that the <em>clover-runtime.jar</em> (you can find it in
+                    <em>&lt;eclipse&gt;\plugins\com.atlassian.clover.eclipse.runtime_&lt;version_number&gt;</em>)
                     is available in Java <strong>-Xbootclasspath</strong>. Add this to your product's
                     <em>config.ini</em> file, for example:</p>
                 <div style="border-width: 1px;">
@@ -354,36 +321,27 @@
 -Xbootclasspath/a:/path/to/eclipse-ide/plugins/com.atlassian.clover.eclipse.runtime_4.0.0.v20140711000000/clover-runtime.jar</pre>
                     </div>
                 </div>
-                <p><img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png"
-                        data-emoticon-name="light-on" alt="(lightbulb)"/>Note that <em><strong>-vmargs</strong> </em>is
+                <p>
+                    <img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)"/>Note that
+                    <em><strong>-vmargs</strong> </em>is
                     necessary because all arguments listed after <em>-vmargs</em> are being passed as arguments for JVM,
                     instead of arguments for Eclipse framework.</p>
                 <p> </p><h4>Generating report</h4>
                 <p>As during instrumentation the absolute path was used for Clover database, your Eclipse IDE should
                     automatically fetch coverage files so that you can see results in Coverage Explorer.</p>
-                <p>You can also generate it manually e.g. using &lt;clover-report&gt; Ant task. See the &quot;report&quot;
-                    target in Appendix 1.</p>
+                <p>You can also generate it manually e.g. using &lt;clover-report&gt; Ant task. See the &quot;report&quot; target in Appendix 1.</p>
                 <p> </p><h4>Sample workbench
                 configuration</h4>
                 <p>The diagram below shows how work with manually instrumented sources (Approach #1) can be organized. A
                     location of Clover database configured in Eclipse IDE as well as in Ant script which instruments
                     sources is the same and points to an absolute path. Thanks to this, after running product, coverage
                     results can be fetched automatically into Eclipse IDE #1.</p>
-                <p><span><img
-                                                                       src="attachments/296091649/296586347.png"
+                <p><span><img src="attachments/296091649/296586347.png"
 
 
-
-
-
-
-
-
-
-                                                                       ></span>
+                ></span>
                 </p>
-                <h1 id="InstrumentingRCPApplication-Appendix1Appendix1"><span
-                                                                              id="InstrumentingRCPApplication-Appendix1"></span>Appendix
+                <h1 id="InstrumentingRCPApplication-Appendix1Appendix1"><span id="InstrumentingRCPApplication-Appendix1"></span>Appendix
                     1</h1>
                 <p> </p>
                 <p>Sample Ant script which instruments all *.java files from <em>project.original.dir</em> and puts them
@@ -391,8 +349,7 @@
                     non-java files as well.</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"
-    >&lt;project default=&quot;instrument&quot;&gt;
+<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;project default=&quot;instrument&quot;&gt;
     &lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/clover.jar&quot;/&gt;
     &lt;property name=&quot;ant-contrib.jar&quot; location=&quot;${user.home}/ant-contrib-1.0b3.jar&quot;/&gt;
     &lt;property name=&quot;project.original.dir&quot; location=&quot;original_project&quot;/&gt;
@@ -474,8 +431,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

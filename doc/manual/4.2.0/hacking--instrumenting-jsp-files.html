@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.2 : Instrumenting JSP files</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,29 +39,34 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.2</a>
-</li>
+                        <a href="index.html">OpenClover 4.2</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="hacking--hacking-openclover.html">Hacking Clover</a></span>
                     </li>
-                    <li class="breadcrumb-item"><span><a href="hacking--using-openclover-for-other-programming-languages.html">Using Clover for other programming languages</a></span>
+                    <li class="breadcrumb-item">
+                        <span><a href="hacking--using-openclover-for-other-programming-languages.html">Using Clover for other programming languages</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Instrumenting JSP files
-                        </span>
+                <span id="title-text">
+                    Instrumenting JSP files
+                </span>
             </h1>
         </div>
 
 
-<div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.2.x. Check the <a href="../latest/hacking--instrumenting-jsp-files.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
-            
+        <div class="alert alert-warning" role="alert">
+            You are reading documentation for version 4.2.x. Check the
+            <a href="../latest/hacking--instrumenting-jsp-files.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
+
             <div id="main-content">
                 <p>Clover cannot instrument JSP files directly. However, as all JSP files are translated to Java and
                     next compiled using standard javac compiler, it is possible to enhance generated Java sources with
@@ -72,25 +76,21 @@
                 <div class="action-body flooded"><p>By default, Tomcat compiles JSP file on the first access. Generated
                     Java source code as well as compiled classes are stored in <em>&lt;tomcat_home&gt;/work/Catalina/localhost/&lt;application_name&gt;</em>.
                     Luckily, Tomcat allows to perform pre-compilation of JSP files - classes should be bundled into WAR
-                    and proper servlet definitions added to web.xml. More details can be found on <a
-                             href="http://tomcat.apache.org/tomcat-6.0-doc/jasper-howto.html"
-                            rel="nofollow">http://tomcat.apache.org/tomcat-6.0-doc/jasper-howto.html</a> page.</p><br
-                        class="action-body flooded"/>
+                    and proper servlet definitions added to web.xml. More details can be found on
+                    <a href="http://tomcat.apache.org/tomcat-6.0-doc/jasper-howto.html" rel="nofollow">http://tomcat.apache.org/tomcat-6.0-doc/jasper-howto.html</a> page.
+                </p><br class="action-body flooded"/>
                     <h2>Examples</h2><h4>
                         Tomcat</h4>
-                    <p>1) Download sample application from <a
-                                                              href="http://tomcat.apache.org/tomcat-6.0-doc/appdev/sample/"
-                                                              rel="nofollow">http://tomcat.apache.org/tomcat-6.0-doc/appdev/sample/</a>
+                    <p>1) Download sample application from
+                        <a href="http://tomcat.apache.org/tomcat-6.0-doc/appdev/sample/" rel="nofollow">http://tomcat.apache.org/tomcat-6.0-doc/appdev/sample/</a>
                     </p>
-                    <p>2) Take sample Ant build script from <a
-                                                               href="http://tomcat.apache.org/tomcat-6.0-doc/jasper-howto.html"
-                                                               rel="nofollow">http://tomcat.apache.org/tomcat-6.0-doc/jasper-howto.html</a>
+                    <p>2) Take sample Ant build script from
+                        <a href="http://tomcat.apache.org/tomcat-6.0-doc/jasper-howto.html" rel="nofollow">http://tomcat.apache.org/tomcat-6.0-doc/jasper-howto.html</a>
                     </p>
                     <p>3) Add Clover-related tasks and properties, for instance:</p>
                     <div class="code panel pdl" style="border-width: 1px;">
                         <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"
-    >&lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/clover.jar&quot;/&gt;
+<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/clover.jar&quot;/&gt;
 &lt;property name=&quot;clover.db&quot; location=&quot;${java.io.tmpdir}/clover/clover.db&quot;/&gt;
 &lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt; 
    
@@ -109,8 +109,7 @@
                     </div>
                     <p>Comments:</p>
                     <ul>
-                        <li>the &quot;init&quot; target has &lt;clover-setup&gt; task with flushpolicy=&quot;interval&quot;
-                            set (so that coverage recording files will be written at specified time interval, instead of
+                        <li>the &quot;init&quot; target has &lt;clover-setup&gt; task with flushpolicy=&quot;interval&quot; set (so that coverage recording files will be written at specified time interval, instead of
                             JVM shutdown - thanks to this it's required to shutdown Tomcat)
                         </li>
                         <li>the &quot;init&quot; target has &quot;inistring&quot; with an absolute path to database (in
@@ -135,18 +134,10 @@
                         generated in the location of clover.db database.</p>
                     <p>9) Run &quot;ant report&quot; in order to generate coverage report.</p>
                     <p> </p>
-                    <p><span><img
-                                                                           src="attachments/313459436/313918719.png"
+                    <p><span><img src="attachments/313459436/313918719.png"
 
 
-
-
-
-
-
-
-
-                                                                           ></span>
+                    ></span>
                     </p></div>
             </div>
 
@@ -161,8 +152,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

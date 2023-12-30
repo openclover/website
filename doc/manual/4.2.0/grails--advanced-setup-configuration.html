@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.2 : Advanced setup configuration</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,28 +39,32 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.2</a>
-</li>
+                        <a href="index.html">OpenClover 4.2</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="grails--overview.html">Clover-for-Grails</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="grails--user-guide.html">Clover-for-Grails User&#39;s Guide</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            Advanced setup configuration
-                        </span>
+                <span id="title-text">
+                    Advanced setup configuration
+                </span>
             </h1>
         </div>
 
 
-<div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.2.x. Check the <a href="../latest/grails--advanced-setup-configuration.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+        <div class="alert alert-warning" role="alert">
+            You are reading documentation for version 4.2.x. Check the
+            <a href="../latest/grails--advanced-setup-configuration.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <p>Define a <code>setuptask</code> 'closure' in your <code>clover</code> {} code block to configure
@@ -73,24 +76,21 @@
                     <li><code>binding</code> — the groovy binding for accessing project variables</li>
                     <li><code>plugin</code> — the clover grails plugin that invoked this closure</li>
                 </ul>
-                <p>The syntax used to define your clover-setup tasks in the <code>clover</code> {} code block is <a
-                         href="https://gant.github.io/" rel="nofollow">Gant</a>.</p>
-                <div><span
-                        ></span>
+                <p>The syntax used to define your clover-setup tasks in the <code>clover</code> {} code block is
+                    <a href="https://gant.github.io/" rel="nofollow">Gant</a>.</p>
+                <div><span></span>
                     <div><p>Please be aware that some attributes and
                         sub-elements of the <a href="ant--clover-setup.html">clover-setup</a> task do not support
                         Groovy. Therefore, if your Grails project makes substantial use of Groovy code (as opposed to
-                        pure Java code, which is likely to be the case), not all features of the <a
-                                href="ant--clover-setup.html">clover-setup</a> task will be available to you. Refer
+                        pure Java code, which is likely to be the case), not all features of the
+                        <a href="ant--clover-setup.html">clover-setup</a> task will be available to you. Refer
                         to the <a href="ant--clover-setup.html">clover-setup</a> topic for details.</p></div>
                 </div>
-                <p> </p><h4
-                    id="Advancedsetupconfiguration-Example:usingcustomclover.dblocationandsetoffilestobeinstrumented">
+                <p> </p><h4 id="Advancedsetupconfiguration-Example:usingcustomclover.dblocationandsetoffilestobeinstrumented">
                 Example: using custom clover.db location and set of files to be instrumented</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >clover {
+<pre>clover {
     // Example setuptask closure that will be invoked to configure clover.
     // Any Clover initialisation tasks should be defined here.
     // All attributes on the ant clover-setup task, which are
@@ -108,8 +108,7 @@
                 distributed coverage</h4>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >clover {
+<pre>clover {
     setuptask = { ant, binding, plugin -&gt; 
         ant.&#39;clover-setup&#39;(initstring: &quot;${binding.projectWorkDir}/clover/db/clover.db&quot;, 
                        tmpDir: &quot;${binding.projectWorkDir}/clover/tmp&quot;) {
@@ -122,13 +121,11 @@
                 <p> </p><h4>Example: using shared
                 coverage recorder</h4>
                 <p>Use the Shared Coverage Recorder only in case when you have performance problem related with creation
-                    of thousands of coverage recording files in clover.db directory. See <span
-                            class="confluence-link"><a
-                            href="ant--coverage-recorders.html">Coverage Recorders</a></span> for more details.</p>
+                    of thousands of coverage recording files in clover.db directory. See <span class="confluence-link"><a href="ant--coverage-recorders.html">Coverage Recorders</a></span> for more details.
+                </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
-<pre
-    >clover {
+<pre>clover {
     setuptask = { ant, binding, plugin -&gt; 
         ant.delete(dir: &quot;target/clover/db&quot;)
         ant.delete(dir: &quot;target/clover/tmp&quot;)
@@ -169,8 +166,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>

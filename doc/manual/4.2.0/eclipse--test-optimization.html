@@ -3,7 +3,7 @@
 <head>
     <title>OpenClover 4.2 : 7. Test Optimization for Eclipse</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 
@@ -12,9 +12,9 @@
     <div class="container">
         <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarMainMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
                 <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
@@ -24,8 +24,7 @@
                 <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
                 <!--<li><a href="../../../faq">FAQ</a></li>-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown"
-                       role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About us</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
                         <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
@@ -40,35 +39,38 @@
 <div id="page" class="container">
     <div id="main" class="aui-page-panel">
         <div id="main-header">
-            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';"><ol class="breadcrumb">
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '&raquo;';">
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-    <a href="index.html">OpenClover 4.2</a>
-</li>
+                        <a href="index.html">OpenClover 4.2</a>
+                    </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="eclipse--overview.html">Clover-for-Eclipse</a></span>
                     </li>
                     <li class="breadcrumb-item"><span><a href="eclipse--user-guide.html">Clover-for-Eclipse User&#39;s Guide</a></span>
                     </li>
-                </ol></nav>
+                </ol>
+            </nav>
             <h1 id="title-heading" class="pagetitle">
-                                                <span id="title-text">
-                            7. Test Optimization for Eclipse
-                        </span>
+                <span id="title-text">
+                    7. Test Optimization for Eclipse
+                </span>
             </h1>
         </div>
 
 
-<div class="alert alert-warning" role="alert">
-    You are reading documentation for version 4.2.x. Check the <a href="../latest/eclipse--test-optimization.html" class="alert-link">latest version</a>.
-</div><div id="content" class="view">
+        <div class="alert alert-warning" role="alert">
+            You are reading documentation for version 4.2.x. Check the <a href="../latest/eclipse--test-optimization.html" class="alert-link">latest version</a>.
+        </div>
+        <div id="content" class="view">
 
             <div id="main-content">
                 <p>This page explains how to set up Clover's Test Optimization feature in the Eclipse development
                     environment.</p>
                 <p><em>On this page:</em></p>
                 <p>
-                    <style type='text/css'>/*<![CDATA[*/
+                    <style type="text/css">/*<![CDATA[*/
                     div.rbtoc1491813721158 {
                         padding: 0px;
                     }
@@ -83,35 +85,36 @@
                         padding-left: 0px;
                     }
 
-                    /*]]>*/</style>
-                <div class='toc-macro rbtoc1491813721158'>
-                    <ul class='toc-indentation'>
-                        <li><a href='#id-7.TestOptimizationforEclipse-BeforeYouBegin'>Before You Begin</a></li>
-                        <li><a href='#id-7.TestOptimizationforEclipse-LaunchingTestOptimization'>Launching Test
+                    /*]]>*/
+                    </style>
+                <div class="toc-macro rbtoc1491813721158">
+                    <ul class="toc-indentation">
+                        <li><a href="#id-7.TestOptimizationforEclipse-BeforeYouBegin">Before You Begin</a></li>
+                        <li><a href="#id-7.TestOptimizationforEclipse-LaunchingTestOptimization">Launching Test
                             Optimization</a></li>
-                        <li><a href='#id-7.TestOptimizationforEclipse-MeasuringTestOptimizationResults'>Measuring Test
+                        <li><a href="#id-7.TestOptimizationforEclipse-MeasuringTestOptimizationResults">Measuring Test
                             Optimization Results</a></li>
-                        <li><a href='#id-7.TestOptimizationforEclipse-TestOptimizationSettings'>Test Optimization
+                        <li><a href="#id-7.TestOptimizationforEclipse-TestOptimizationSettings">Test Optimization
                             Settings</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#id-7.TestOptimizationforEclipse-SettingGlobalPreferences'>Setting Global
+                            <ul class="toc-indentation">
+                                <li><a href="#id-7.TestOptimizationforEclipse-SettingGlobalPreferences">Setting Global
                                     Preferences</a></li>
-                                <li><a href='#id-7.TestOptimizationforEclipse-SettingPer-launcherPreferences'>Setting
+                                <li><a href="#id-7.TestOptimizationforEclipse-SettingPer-launcherPreferences">Setting
                                     Per-launcher Preferences</a></li>
                             </ul>
                         </li>
-                        <li><a href='#id-7.TestOptimizationforEclipse-ConfigurationsUnsuitableForTestOptimization'>Configurations
+                        <li><a href="#id-7.TestOptimizationforEclipse-ConfigurationsUnsuitableForTestOptimization">Configurations
                             Unsuitable For Test Optimization</a>
-                            <ul class='toc-indentation'>
-                                <li><a href='#id-7.TestOptimizationforEclipse-LimitationswithMulti-ProjectSet-Ups'>Limitations
+                            <ul class="toc-indentation">
+                                <li><a href="#id-7.TestOptimizationforEclipse-LimitationswithMulti-ProjectSet-Ups">Limitations
                                     with Multi-Project Set-Ups</a></li>
-                                <li><a href='#id-7.TestOptimizationforEclipse-LimitationswithTestSuites'>Limitations
+                                <li><a href="#id-7.TestOptimizationforEclipse-LimitationswithTestSuites">Limitations
                                     with Test Suites</a></li>
-                                <li><a href='#id-7.TestOptimizationforEclipse-LimitationswithTestingFrameworks'>Limitations
+                                <li><a href="#id-7.TestOptimizationforEclipse-LimitationswithTestingFrameworks">Limitations
                                     with Testing Frameworks</a></li>
                             </ul>
                         </li>
-                        <li><a href='#id-7.TestOptimizationforEclipse-Troubleshooting'>Troubleshooting</a></li>
+                        <li><a href="#id-7.TestOptimizationforEclipse-Troubleshooting">Troubleshooting</a></li>
                     </ul>
                 </div>
                 </p><h2>Before You Begin</h2>
@@ -130,112 +133,66 @@
                     actions</strong>:</p>
                 <ul>
                     <li>Select a folder or package containing test classes and click the '<strong>Run Optimized</strong>'
-                        icon <span><img
-                                                                                 src="attachments/185040929/185139222.png"
+                        icon <span><img src="attachments/185040929/185139222.png"
 
 
-
-
-
-
-
-
-
-                                                                                 ></span>,
+                        ></span>,
                         OR
                     </li>
                     <li>Right-click on a folder or package containing test classes and select '<strong>Run Optimized As:
                         JUnit Test</strong>', OR
                     </li>
                 </ul>
-                <p><em>Screenshot: Launching a Build with Test Optimization from the Context Menu</em><br/> <span
-                       ><img
-                        class="confluence-embedded-image confluence-content-image-border"
-                        src="attachments/185040929/185139235.png"
+                <p><em>Screenshot: Launching a Build with Test Optimization from the Context Menu</em><br/>
+                    <span><img class="confluence-embedded-image confluence-content-image-border" src="attachments/185040929/185139235.png"
 
 
-
-
-
-                        ></span></p>
+                    ></span></p>
                 <ul>
                     <li>Select an existing launch configuration from the Run Optimized dropdown, OR</li>
                 </ul>
-                <p><em>Screenshot: Launching a Build with Test Optimization from the Drop-Down Menu</em><br/> <span
-                       ><img
-                        class="confluence-embedded-image confluence-content-image-border"
-                        src="attachments/185040929/185139234.png"
+                <p><em>Screenshot: Launching a Build with Test Optimization from the Drop-Down Menu</em><br/>
+                    <span><img class="confluence-embedded-image confluence-content-image-border" src="attachments/185040929/185139234.png"
 
 
-
-
-
-                        ></span></p>
+                    ></span></p>
                 <ul>
                     <li>Create a Run Optimized configuration and execute it from the configuration dialog.</li>
                 </ul>
                 <p><em>Screenshot: Launching a Build with Test Optimization from the Configuration Dialog</em><br/>
-                    <span><img
-                            class="confluence-embedded-image confluence-content-image-border"
-                            src="attachments/185040929/185139240.png"
+                    <span><img class="confluence-embedded-image confluence-content-image-border" src="attachments/185040929/185139240.png"
 
 
-
-
-
-
-                            ></span></p>
-                <p><img src="images/icons/emoticons/information.png"
-                        data-emoticon-name="information" alt="(info)"/> When the Run Optimized button is used, Clover
+                    ></span></p>
+                <p>
+                    <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> When the Run Optimized button is used, Clover
                     will run the configuration that was most recently run optimized.</p>
                 <h2>Measuring Test Optimization
                     Results</h2>
                 <p>When Optimized tests are being run, the JUnit view displays additional info about savings (as shown
                     in the screenshot below).</p>
-                <p><em>Screenshot: Pop-up Notification of Time Savings With Test Optimization</em><br/> <span
-                       ><img
-                        class="confluence-embedded-image confluence-content-image-border"
-                        src="attachments/185040929/189202434.png"
+                <p><em>Screenshot: Pop-up Notification of Time Savings With Test Optimization</em><br/>
+                    <span><img class="confluence-embedded-image confluence-content-image-border" src="attachments/185040929/189202434.png"
 
 
-
-
-
-                        ></span></p>
+                    ></span></p>
                 <p>After Optimized tests run, Clover saves a snapshot file with coverage information that is used to
-                    optimize the following test runs.<br/> This file may be deleted using the Delete Snapshot icon <span
-                           ><img
-                                                                          src="attachments/185040929/185139223.png"
+                    optimize the following test runs.<br/> This file may be deleted using the Delete Snapshot icon
+                    <span><img src="attachments/185040929/185139223.png"
 
 
-
-
-
-
-
-
-
-                                                                          ></span>
+                    ></span>
                     in the Coverage View (next to Delete Coverage Recordings button; you need to select a project
                     first).</p>
-                <p><img src="images/icons/emoticons/information.png"
-                        data-emoticon-name="information" alt="(info)"/> The '<strong>Delete Coverage Recordings</strong>'
-                    button <span><img
-                                                                               src="attachments/185040929/188383282.png"
+                <p>
+                    <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> The '<strong>Delete Coverage Recordings</strong>'
+                    button <span><img src="attachments/185040929/188383282.png"
 
 
-
-
-
-
-
-
-
-                                                                               ></span>
+                ></span>
                     also clears the snapshot file.</p>
                 <p>The Delete Snapshot icon is disabled when the selected project does not have the snapshot file.<br/>
-                    Test Optimization would run all tests (no optimization) when the snapshot file is deleted or absent.
-                </p>
+                    Test Optimization would run all tests (no optimization) when the snapshot file is deleted or absent. </p>
                 <h2>Test Optimization Settings</h2>
                 <p>The list below shows the settings available for Test Optimization.</p>
                 <ul>
@@ -259,40 +216,24 @@
                     </li>
                 </ul>
                 <h3>Setting Global Preferences</h3>
-                <p><em>Screenshot: Setting Global Preferences</em><br/> <span
-                       ><img
-                        class="confluence-embedded-image confluence-content-image-border"
-                        src="attachments/185040929/185139242.png"
+                <p><em>Screenshot: Setting Global Preferences</em><br/>
+                    <span><img class="confluence-embedded-image confluence-content-image-border" src="attachments/185040929/185139242.png"
 
 
-
-
-
-                        ></span></p>
+                    ></span></p>
                 <p>These are global (workspace-scope) preferences of Test Optimization; they are used as a template for
                     per-launch configuration preferences, or used when launch configuration uses default settings.</p>
                 <h3>Setting Per-launcher
                     Preferences</h3>
-                <p><em>Screenshot: Running Optimized Configurations</em><br/> <span
-                       ><img
-                        class="confluence-embedded-image confluence-content-image-border"
-                        src="attachments/185040929/185139241.png"
+                <p><em>Screenshot: Running Optimized Configurations</em><br/>
+                    <span><img class="confluence-embedded-image confluence-content-image-border" src="attachments/185040929/185139241.png"
 
 
+                    ></span> <br class="atl-forced-newline"/> <em>Screenshot: The Run Optimized Drop-Down Menu</em><br/>
+                    <span><img class="confluence-embedded-image confluence-content-image-border" src="attachments/185040929/185139240.png"
 
 
-
-                        ></span>  <br
-                        class="atl-forced-newline"/> <em>Screenshot: The Run Optimized Drop-Down Menu</em><br/> <span
-                       ><img
-                        class="confluence-embedded-image confluence-content-image-border"
-                        src="attachments/185040929/185139240.png"
-
-
-
-
-
-                        ></span></p>
+                    ></span></p>
                 <p>Allows overriding the workspace settings for single launch config.</p>
                 <ul>
                     <li>Use default settings: when set, use the workspace (global) settings.</li>
@@ -308,18 +249,14 @@
                     projects other than the one the test is in. As a result, if your project contains tests that are
                     dependent on other projects, any change in those projects would not be detected by Test Optimization
                     and some tests that should be run will be 'optimized' too aggressively and not executed.</p>
-                <p>For more information, see this JIRA issue: <a
-                                                                 href="http://jira.atlassian.com/browse/CEP-297"
-                                                                 rel="nofollow">CEP-297</a>.</p>
+                <p>For more information, see this JIRA issue: <a href="http://jira.atlassian.com/browse/CEP-297" rel="nofollow">CEP-297</a>.</p>
                 <h3>Limitations with Test Suites</h3>
                 <p>Clover does not recognize test suites as entities that should be optimized away. As the result test
                     suites are always run (never optimized).<br/> If your test launch configuration includes both test
                     suite and the test case (which is probably an incorrect configuration), then the test case would be
                     run twice (normal behavior) or once (via test suite) when the test case is optimized away.</p>
                 <p>Resolution: Do not include test suites in launch configuration, add test cases directly.</p>
-                <p>For more information, see this JIRA issue: <a
-                                                                 href="http://jira.atlassian.com/browse/CEP-299"
-                                                                 rel="nofollow">CEP-299</a>.</p>
+                <p>For more information, see this JIRA issue: <a href="http://jira.atlassian.com/browse/CEP-299" rel="nofollow">CEP-299</a>.</p>
                 <h3>Limitations with Testing
                     Frameworks</h3>
                 <p>Test Optimization is only supported with JUnit tests at this time.</p>
@@ -343,17 +280,14 @@
                     <li>If Test Optimization does not work when your have tests in different project than the classes
                         being tested;<br/>
                         <ul>
-                            <li>This is a known issue. See this JIRA issue for more details: (<a
-                                                                                                 href="http://jira.atlassian.com/browse/CEP-297"
-                                                                                                 rel="nofollow">CEP-297</a>).
+                            <li>This is a known issue. See this JIRA issue for more details: (<a href="http://jira.atlassian.com/browse/CEP-297" rel="nofollow">CEP-297</a>).
                             </li>
                         </ul>
                     </li>
                     <li>If your test case is run twice, or not optimized at all;<br/>
                         <ul>
                             <li>Clover does not support test suites. Make sure you don't try to run one, launch test
-                                cases directly (<a  href="http://jira.atlassian.com/browse/CEP-299"
-                                                   rel="nofollow">CEP-299</a>).
+                                cases directly (<a href="http://jira.atlassian.com/browse/CEP-299" rel="nofollow">CEP-299</a>).
                             </li>
                         </ul>
                     </li>
@@ -376,8 +310,7 @@
             created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
             <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
             Modifications by Marek Parfianowicz, under
-            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
-        </p>
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
     </footer>
 </div>
 <script src="../../../resources/js/bootstrap.bundle.min.js"></script>
