@@ -97,37 +97,37 @@
                             <p>For documentation presented in the standard Maven format, see the
                                 <a href="../../maven/4.5.0/index.html" rel="nofollow">Maven Site Docs</a>.</p>
                             <h4 id="Clover-for-Maven2and3QuickStartGuide-Troubleshooting">Troubleshooting</h4>
-                            <div class="confluence-information-macro confluence-information-macro-information"><p class="title">No coverage data?</p>
-                                <span></span>
-                                <div><p>Clover uses source code
+                            <div class="alert alert-primary" role="alert">
+    <h4 class="alert-heading">No coverage data?</h4>
+    <p>Clover uses source code
                                     instrumentation, which means that source files must be recompiled with the
                                     'clover:setup' goal. Ensure that you're building your project from scratch (call
                                     'mvn clean' or do the fresh checkout). Otherwise Maven may find your old,
-                                    non-instrumented classes from a previous build and do not compile sources.</p></div>
-                            </div>
-                            <div class="confluence-information-macro confluence-information-macro-information"><p class="title">No coverage data?</p>
-                                <span></span>
-                                <div><p>In case you run in-container tests
+                                    non-instrumented classes from a previous build and do not compile sources.</p>
+</div>
+                            <div class="alert alert-primary" role="alert">
+    <h4 class="alert-heading">Still no coverage data?</h4>
+    <p>In case you run in-container tests
                                     (e.g. using maven-cargo-plugin) or spawn new JVM processes or run tests of an
                                     application running on a remote server, you may need to add Clover's runtime JAR
                                     (com.atlassian.clover:clover) to a class path. See
-                                    <a href="https://confluence.atlassian.com/x/lwjoEg" rel="nofollow">NoClassDefFoundError</a>
-                                    and <a href="guideline--using-openclover-for-web-applications.html">Using Clover for web
-                                        applications</a>.</p></div>
-                            </div>
-                            <div class="confluence-information-macro confluence-information-macro-information"><p class="title">Out of memory?</p>
-                                <span></span>
-                                <div><p>Please keep in mind that Clover adds
+                                    <a href="https://confluence.atlassian.com/x/lwjoEg" rel="nofollow" class="alert-link">NoClassDefFoundError</a>
+                                    and <a href="guideline--using-openclover-for-web-applications.html" class="alert-link">Using Clover for web
+                                        applications</a>.</p>
+</div>
+                            <div class="alert alert-primary" role="alert">
+    <h4 class="alert-heading">Out of memory?</h4>
+    <p>Please keep in mind that Clover adds
                                     extra instructions to your classes measuring code coverage. Thus, increasing PermGen
-                                    size may be necessary. See <a href="kb--outofmemoryerror-permgen-space.html">OutOfMemoryError:
-                                        PermGen space</a>.</p></div>
-                            </div>
-                            <div class="confluence-information-macro confluence-information-macro-information"><p class="title">Need more help?</p>
-                                <span></span>
-                                <div><p>See <a href="kb--openclover-knowledge-base-home.html">Clover
+                                    size may be necessary. See <a href="kb--outofmemoryerror-permgen-space.html" class="alert-link">OutOfMemoryError:
+                                        PermGen space</a>.</p>
+</div>
+                            <div class="alert alert-primary" role="alert">
+    <h4 class="alert-heading">Need more help?</h4>
+    <p>See <a href="kb--openclover-knowledge-base-home.html" class="alert-link">Clover
                                     Knowledge Base Home</a> and
-                                    <a href="https://community.atlassian.com/t5/Clover/ct-p/clover" rel="nofollow">Atlassian Community</a>.</p></div>
-                            </div>
+                                    <a href="https://community.atlassian.com/t5/Clover/ct-p/clover" rel="nofollow" class="alert-link">Atlassian Community</a>.</p>
+</div>
                         </div>
                     </div>
                 </div>
