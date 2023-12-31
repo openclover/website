@@ -361,13 +361,11 @@
                     be instrumented. This can be difficult to setup with patterns. Filesets also allow much greater
                     flexibility in specifying which files to instrument by facilitating the use of Ant's fileset
                     selectors. Use this when you wish to exclude files based on directory structure.</p>
-                <div class="confluence-information-macro confluence-information-macro-information">
-                    <span></span>
-                    <div>
-                        <p>The &lt;fileset&gt; tag has a &quot;dir&quot; attribute and uses standard Ant directory scanner to find sources for exclusion. It means that
+                <div class="alert alert-primary" role="alert">
+    <p>The &lt;fileset&gt; tag has a &quot;dir&quot; attribute and uses standard Ant directory scanner to find sources for exclusion. It means that
                             at the time when &lt;clover-setup&gt; is called the directory must be present and files to be
-                            excluded/included too.</p></div>
-                </div>
+                            excluded/included too.</p>
+</div>
                 <p><span id="clover-setup-MethodContext"></span></p>
                 <p>
                 <h2>&lt;methodContext&gt;</h2>

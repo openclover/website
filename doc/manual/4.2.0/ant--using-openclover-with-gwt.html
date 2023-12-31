@@ -68,13 +68,12 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <div class="confluence-information-macro confluence-information-macro-information">
-                    <span></span>
-                    <div><p>You can instrument server-side code only. This is
+                <div class="alert alert-primary" role="alert">
+    <p>You can instrument server-side code only. This is
                         due to a nature of the Google Web Toolkit which translates client and shared parts into a
                         JavaScript. If you try to instrument client code, GWT will search for sources of all referenced
-                        classes, including the Clover instrumentation, which would cause a build failure.</p></div>
-                </div>
+                        classes, including the Clover instrumentation, which would cause a build failure.</p>
+</div>
                 <p> </p>
                 <h2>Clover with manual GWT
                     integration</h2>

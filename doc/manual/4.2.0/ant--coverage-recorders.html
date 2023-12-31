@@ -99,11 +99,10 @@
                 </p>
                 <h2>Executing code</h2>
                 <h3>Fixed Coverage Recorder</h3>
-                <div class="confluence-information-macro confluence-information-macro-information">
-                    <span></span>
-                    <div><p>This is a default coverage recorder and we
-                        strongly recommend using it. </p></div>
-                </div>
+                <div class="alert alert-primary" role="alert">
+    <p>This is a default coverage recorder and we
+                        strongly recommend using it. </p>
+</div>
                 <p>It's using an in-memory fixed-size <em><strong>long[]</strong></em> array for recording hit counts
                     for methods, statements and branches. Calculation of the long[] array size requires access to the
                     Clover Database (clover.db) at runtime, however. All classes which were compiled in the same
@@ -115,13 +114,11 @@
                 ></span>
                 </p>
                 <h3>Growable Coverage Recorder</h3>
-                <div class="confluence-information-macro confluence-information-macro-information">
-                    <span></span>
-                    <div><p>This recorder simplifies a deployment and test
+                <div class="alert alert-primary" role="alert">
+    <p>This recorder simplifies a deployment and test
                         process as clover.db is not required at runtime. It's useful for cases like in-container tests,
                         tests executed on application server, builds on remote agents or for Android applications.</p>
-                    </div>
-                </div>
+</div>
                 <p>It's using a dynamically resizeable two-dimensional <em><strong>long[][1000000]</strong></em> array
                     for recording hit counts for methods. Thanks to this it does not require access to the Clover
                     Database at runtime and this is its main advantage. It's performance is slightly lower than the
