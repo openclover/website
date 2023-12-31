@@ -176,15 +176,15 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="confluence-information-macro confluence-information-macro-information"><p class="title">
-                    Important note on target, methodTarget, statementTarget, conditionalTarget</p>
-                    <span></span>
-                    <div><p>Comparison of actual value with a target
+                <div class="alert alert-primary" role="alert">
+    <h4 class="alert-heading">
+                    Important note on target, methodTarget, statementTarget, conditionalTarget</h4>
+    <div><p>Comparison of actual value with a target
                         percentage is performed with such numerical precision as number of fractional digits set for a
                         target percentage. A standard rounding is used (BigDecimal.ROUND_HALF_EVEN).</p>
                         <p>For example, if actual coverage value is 99.9% then for the target=&quot;100%&quot; a build
                             will pass, whereas for the target=&quot;100.000000%&quot; a build will fail.</p></div>
-                </div>
+</div>
                 <p> </p>
                 <h3>Nested elements of &lt;clover-check&gt;</h3>
                 <h4>&lt;package&gt;</h4>

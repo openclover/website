@@ -113,14 +113,15 @@
 &lt;/plugins&gt;</pre>
                     </div>
                 </div>
-                <div class="confluence-information-macro confluence-information-macro-information"><p class="title">
-                    LIMITATION</p><span></span>
-                    <div><p>Clover's JUnitTestRunnerInterceptor can correctly
+                <div class="alert alert-primary" role="alert">
+    <h4 class="alert-heading">
+                    LIMITATION</h4>
+    <div><p>Clover's JUnitTestRunnerInterceptor can correctly
                         handle parameterized test names when test methods from a single test case class are executed
                         sequentially. It means that you shall not use a test runner which will run all iterations in
                         parallel.</p>
                         <p>On the other hand, running entire test cases or test suites in parallel is allowed.</p></div>
-                </div>
+</div>
                 <h1>References</h1>
                 <ul>
                     <li><a href="ant--integrating-with-junit4-parameterized-tests.html">Integrating Clover

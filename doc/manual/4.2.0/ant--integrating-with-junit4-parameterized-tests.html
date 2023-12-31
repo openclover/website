@@ -158,14 +158,15 @@ public class RunJUnit4WithClover {
                 <p> </p>
                 <p>As soon as test execution is finished you can generate a Clover report.</p>
                 <p> </p>
-                <div class="confluence-information-macro confluence-information-macro-information"><p class="title">
-                    LIMITATION</p><span></span>
-                    <div><p>Clover's JUnitTestRunnerInterceptor can correctly
+                <div class="alert alert-primary" role="alert">
+    <h4 class="alert-heading">
+                    LIMITATION</h4>
+    <div><p>Clover's JUnitTestRunnerInterceptor can correctly
                         handle parameterized test names when test methods from a single test case class are executed
                         sequentially. It means that you shall not use a test runner which will run all iterations in
                         parallel.</p>
                         <p>On the other hand, running entire test cases or test suites in parallel is allowed.</p></div>
-                </div>
+</div>
                 <h2>Integrating with Maven</h2>
                 <p>See <a href="maven--surefire-and-junit4-parameterized-tests.html">Running JUnit4
                     Parameterized tests with Surefire</a>.</p>
