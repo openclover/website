@@ -82,28 +82,26 @@
                     test reordering other than the default '<strong>failfast</strong>' are advanced options which are
                     covered elsewhere.</p>
                 <p> </p>
-                <div class="confluence-information-macro confluence-information-macro-information">
-                    <span></span>
-                    <div><p>Clover's Test Optimization feature currently do
+                <div class="alert alert-primary" role="alert">
+    <div><p>Clover's Test Optimization feature currently do
                         not support optimization for test cases written in Groovy
-                        <a href="https://jira.atlassian.com/browse/CLOV-1152" rel="nofollow">(CLOV-1152)</a>:</p>
+                        <a href="https://jira.atlassian.com/browse/CLOV-1152" rel="nofollow" class="alert-link">(CLOV-1152)</a>:</p>
                         <ul>
                             <li>test cases written in Groovy will be executed in each test run</li>
                             <li>test cases written in Java will be optimized</li>
                             <li>application code can be written in Java or Groovy in order to be optimized</li>
                         </ul>
                     </div>
-                </div>
-                <div class="confluence-information-macro confluence-information-macro-information">
-                    <span></span>
-                    <div><p>Clover's Test Optimization does not optimize
-                        execution of JUnit TestSuites (<a href="https://jira.atlassian.com/browse/CLOV-616" rel="nofollow">CLOV-616</a>) and TestNG (<a href="https://jira.atlassian.com/browse/CLOV-373" rel="nofollow">CLOV-373</a>).
+</div>
+                <div class="alert alert-primary" role="alert">
+    <div><p>Clover's Test Optimization does not optimize
+                        execution of JUnit TestSuites (<a href="https://jira.atlassian.com/browse/CLOV-616" rel="nofollow" class="alert-link">CLOV-616</a>) and TestNG (<a href="https://jira.atlassian.com/browse/CLOV-373" rel="nofollow" class="alert-link">CLOV-373</a>).
                     </p>
                         <ul>
                             <li>&lt;batchtest&gt; resource collection shall contain JUnit TestCases</li>
                         </ul>
                     </div>
-                </div>
+</div>
                 <p> </p><h4>BEFORE YOU START</h4>
                 <p>Try to ensure your unit tests do not have dependencies between them as this may cause optimized
                     builds to fail more frequently than usual.</p><h4 id="TestOptimizationQuickStartGuideforAnt-BASICSTEPS">BASIC STEPS</h4>
