@@ -110,7 +110,7 @@
                     applications. The JSON data from Clover is easy to manipulate programmatically, allowing innovative
                     developers to use it for displaying or processing their coverage data in novel ways.</p>
                 <p><strong>Clover-Ant code for JSON output</strong></p>
-                <pre>&lt;target name=&quot;report.json&quot; depends=&quot;with.clover&quot;&gt;
+                <pre><code class="language-xml">&lt;target name=&quot;report.json&quot; depends=&quot;with.clover&quot;&gt;
 &lt;clover-report&gt;
    &lt;current outfile=&quot;clover_json&quot;&gt;
     &lt;format type=&quot;json&quot;/&gt;
@@ -120,16 +120,15 @@
       &lt;/columns&gt;
    &lt;/current&gt;
 &lt;/clover-report&gt;
-&lt;/target&gt;
-</pre>
+&lt;/target&gt;</code></pre>
                 <h1 id="JSONreference-JSONdataformat">JSON data format</h1>
                 <h3>Current report</h3>
                 <p><strong>Code snippet</strong></p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;clover-report&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;clover-report&gt;
   &lt;current outfile=&quot;${clover.report}&quot;&gt;
     &lt;format type=&quot;json&quot;/&gt;
   &lt;/current&gt;
-&lt;/clover-report&gt;</pre>
+&lt;/clover-report&gt;</code></pre>
                 <p> </p>
                 <p><strong>Files generated for a current report</strong></p>
                 <div style="border-width: 1px;">
@@ -268,12 +267,12 @@
                 <p> </p>
                 <h3>Historical report</h3>
                 <p><strong>Code snippet</strong></p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;clover-report&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;clover-report&gt;
   &lt;historical outfile=&quot;${clover.report}&quot; historydir=&quot;${historydir}&quot; json=&quot;true&quot;&gt; &lt;!-- json=&quot;true&quot; generates historical-json.js file --&gt;
     &lt;format type=&quot;html&quot;/&gt; &lt;!-- Note that historical report does not handle format type=&quot;json&quot; --&gt;
     &lt;!-- ... --&gt;
   &lt;/historical&gt;
-&lt;/clover-report&gt;</pre>
+&lt;/clover-report&gt;</code></pre>
                 <p> </p>
                 <p><strong>Format of historical-json.js file</strong></p>
                 <div style="border-width: 1px;">
@@ -325,7 +324,7 @@
 </pre>
                 <p>The &quot;lines&quot; array contains the hit counts for each line in the BCodec.java file.</p>
                 <p><strong>JSON in an HTML page:</strong></p>
-                <pre>&lt;!--  Define the callback function before including the java.js for the file you wish to process. --&gt;
+                <pre><code class="language-xml">&lt;!--  Define the callback function before including the java.js for the file you wish to process. --&gt;
     &lt;script type=&quot;text/javascript&quot;&gt;
         function processClover(obj) {
             alert(obj.id);
@@ -340,8 +339,7 @@
     &lt;/script&gt;
     &lt;script type=&quot;text/javascript&quot;
             src=&quot;http://downloads.atlassian.com/software/clover/samples/codec/org/apache/commons/codec/net/BCode.java.js&quot;&gt;
-    &lt;/script&gt;
-</pre>
+    &lt;/script&gt;</code></pre>
                 <p><strong>JSON live
                     demo</strong><br/> This example uses JavaScript alerts to display the JSON data. <a
 

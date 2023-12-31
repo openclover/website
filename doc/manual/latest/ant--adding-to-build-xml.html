@@ -61,8 +61,7 @@
         <div id="content" class="view">
             <div id="main-content">
                 <p>In order to import Clover's tasks load the cloverlib.xml resource in your build.xml file, e.g.:</p>
-                <pre>&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;/path/to/clover.jar&quot;/&gt;
-</pre>
+                <pre><code class="language-xml">&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;/path/to/clover.jar&quot;/&gt;</code></pre>
 
                 <p>WARNING: the &lt;clover-setup&gt; task requires clover.jar to be placed directly on Ant's classpath,
                     otherwise the compilation via &lt;javac&gt; task will fail with an error: </p>
@@ -76,7 +75,7 @@
                     For example, you may need to ship the build file to others who may not have Clover installed. To
                     check Clover's availability you can make use of the standard Ant <code>&lt;available&gt;</code>
                     task:</p>
-                <pre>&lt;target name=&quot;-check.clover&quot;&gt;
+                <pre><code class="language-xml">&lt;target name=&quot;-check.clover&quot;&gt;
 &lt;available property=&quot;clover.installed&quot;
 classname=&quot;com.atlassian.clover.CloverInstr&quot; /&gt;
 &lt;/target&gt;
@@ -85,9 +84,7 @@ classname=&quot;com.atlassian.clover.CloverInstr&quot; /&gt;
 &lt;fail message=&quot;The target you are attempting to run requires Clover, which doesn&#39;t appear to be installed&quot;/&gt;
 &lt;/target&gt;
 
-&lt;target name=&quot;with.clover&quot; depends=&quot;guard.noclover&quot;&gt;
-...
-</pre>
+&lt;target name=&quot;with.clover&quot; depends=&quot;guard.noclover&quot;&gt;</code></pre>
                 <p>
                 <h3>Troubleshooting</h3>
 
