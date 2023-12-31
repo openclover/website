@@ -647,25 +647,23 @@
                 </p><h6>&lt;and&gt;</h6>
                 <p>&lt;and&gt; can be used to specify multiple instances of &lt;testclass&gt;, all of which must be
                     matched for a class to be detected as a test, e.g.:</p>
-                <pre>&lt;testsources dir=&quot;tests&quot;&gt;
+                <pre><code class="language-xml">&lt;testsources dir=&quot;tests&quot;&gt;
 &lt;and&gt;
   &lt;testclass annotation=&quot;Specification&quot;/&gt;
   &lt;testclass annotation=&quot;Test&quot;/&gt;
 &lt;/and&gt;
-&lt;testsources&gt;
-</pre>
+&lt;testsources&gt;</code></pre>
                 <p>In this example, a class will only be recognized as a test if it has &quot;<code>Specification</code>&quot;
                     <strong>and</strong> &quot;<code>Test</code>&quot; annotations.</p><h6>
                 &lt;or&gt;</h6>
                 <p>&lt;or&gt; can be used to specify multiple instances of &lt;testclass&gt;, any of which must be
                     matched for a class to be detected as a test, e.g.:</p>
-                <pre>&lt;testsources dir=&quot;tests&quot;&gt;
+                <pre><code class="language-xml">&lt;testsources dir=&quot;tests&quot;&gt;
 &lt;or&gt;
   &lt;testclass name=&quot;.*Spec&quot;/&gt;
   &lt;testclass name=&quot;.*Test&quot;/&gt;
 &lt;/or&gt;
-&lt;testsources&gt;
-</pre>
+&lt;testsources&gt;</code></pre>
                 <p>In this example, a class will be recognized as a test if its name matches &quot;<code>.*Spec</code>&quot;,
                     <strong>or</strong> its name matches &quot;<code>.*Test</code>&quot;.</p>
                 <p><span id="clover-setup-Testmethod"></span></p>
@@ -715,29 +713,26 @@
                 </div>
                 <p>Note that you can include multiple instances of &lt;testmethod&gt;, in which case they will be
                     treated as 'or' clauses, e.g.:</p>
-                <pre>&lt;testsources dir=&quot;tests&quot;&gt;
+                <pre><code class="language-xml">&lt;testsources dir=&quot;tests&quot;&gt;
   &lt;testclass&gt;
     &lt;testmethod annotation=&quot;Specification&quot;/&gt;
     &lt;testmethod name=&quot;^should.*&quot;/&gt;
     &lt;testmethod name=&quot;^must.*&quot;/&gt;
   &lt;/testclass&gt;
-&lt;testsources&gt;
-</pre>
+&lt;testsources&gt;</code></pre>
                 <p>In this example, a method will be recognized as a test if its annotation is &quot;<code>Specification</code>&quot;,
                     <strong>or</strong> its name matches &quot;<code>^should*</code>&quot;, <strong>or</strong> its name matches &quot;<code>^must*</code>&quot;.
                 </p>
                 <h1 id="clover-setup-Examples">Examples</h1>
-                <pre>&lt;clover-setup/&gt;
-</pre>
+                <pre><code class="language-xml">&lt;clover-setup/&gt;</code></pre>
                 <p>This example is the minimal setup to use Clover. In this case, the
                     <a href="ant--managing-the-coverage-database.html">Clover coverage database</a> is located in
                     the .clover relative directory.</p>
-                <pre>&lt;clover-setup enabled=&quot;${enable}&quot;&gt;
+                <pre><code class="language-xml">&lt;clover-setup enabled=&quot;${enable}&quot;&gt;
      &lt;files&gt;
        &lt;exclude name=&quot;**/atlassian/clover/**/*.java&quot;/&gt;
      &lt;/files&gt;
-&lt;/clover-setup&gt;
-</pre>
+&lt;/clover-setup&gt;</code></pre>
                 <p>This example shows the use of a property, &quot;enable&quot;, to control whether Clover
                     instrumentation is enabled. Additionally, the instrumentation will exclude all Java source files in
                     trees belonging to the *.atlassian.clover.* packages (please note, that even if the files belong
@@ -745,12 +740,11 @@
                     and do not belong to the package structure. When using files, you need to filter by files or the
                     packages as in the example above). Note that the fileset can also be referenced using a refid
                     attribute.</p>
-                <pre>&lt;clover-setup enabled=&quot;${coverage.enable}&quot;&gt;
+                <pre><code class="language-xml">&lt;clover-setup enabled=&quot;${coverage.enable}&quot;&gt;
      &lt;fileset dir=&quot;src/main&quot;&gt;
        &lt;contains text=&quot;Joe Bloggs&quot;/&gt;
      &lt;/fileset&gt;
-&lt;/clover-setup&gt;
-</pre>
+&lt;/clover-setup&gt;</code></pre>
                 <p>This example instruments all source files in the src/main directory tree that contain the string &quot;Joe Bloggs&quot;. Ant's filesets supports a number of these selectors. Please refer to the Ant
                     manual for information on these selectors.</p><h4>Interval
                 Flushing</h4>
