@@ -81,19 +81,18 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>date</p></td>
-                            <td><p>Specifies an override date for this history point. This allows
-                                for generation of past historical data for a project.</p></td>
-                            <td><p>No; defaults to the timestamp of the current coverage data.</p>
-                            </td>
+                            <td>date</td>
+                            <td>Specifies an override date for this history point. This allows
+                                for generation of past historical data for a project.</td>
+                            <td>No; defaults to the timestamp of the current coverage data.</td>
                         </tr>
                         <tr>
-                            <td><p>dateFormat</p></td>
+                            <td>dateFormat</td>
                             <td><p>Specifies a date format string for parsing the &quot;<code>date</code>&quot; attribute. The string must contain a valid <a
 
                                     href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html" rel="nofollow">java.text.SimpleDateFormat</a> pattern.
@@ -103,19 +102,19 @@
                                 using the default pattern and date format symbols for the default locale.</p></td>
                         </tr>
                         <tr>
-                            <td><p>filter</p></td>
+                            <td>filter</td>
                             <td><p>A comma or space separated list of contexts to exclude when
                                 generating the historypoint. See <a href="ant--using-coverage-contexts.html">Using
                                     Coverage Contexts</a>.</p></td>
-                            <td><p>No.</p></td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>historyDir</p></td>
-                            <td><p>The directory where historical data is stored.</p></td>
-                            <td><p>Yes.</p></td>
+                            <td>historyDir</td>
+                            <td>The directory where historical data is stored.</td>
+                            <td>Yes.</td>
                         </tr>
                         <tr>
-                            <td><p>includeFailedTestCoverage</p></td>
+                            <td>includeFailedTestCoverage</td>
                             <td><p>If true, all coverage attributed to a test that failed will be
                                 included.  <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> If history-point
                                 generation is taking a long time, you can speed up the performance of your tests by
@@ -123,7 +122,7 @@
                             <td><p>No; defaults to &quot;<code>false</code>&quot;</p></td>
                         </tr>
                         <tr>
-                            <td><p>initstring</p></td>
+                            <td>initstring</td>
                             <td><p>The <code>initstring</code> of the coverage database.</p></td>
                             <td><p>No; if not specified here, Clover will look in the default
                                 location (<code>${basedir}/.clover</code>). If you have specified an
@@ -132,27 +131,26 @@
                                 the execution of this task.</p></td>
                         </tr>
                         <tr>
-                            <td><p>overwrite</p></td>
-                            <td><p>If true, existing history point for the same date will be
-                                automatically overwritten.</p></td>
+                            <td>overwrite</td>
+                            <td>If true, existing history point for the same date will be
+                                automatically overwritten.</td>
                             <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>property</p></td>
-                            <td><p>If set, the name of the property to hold the absolute path name
-                                of the history point file that was created by this task.</p></td>
-                            <td><p>No.</p></td>
+                            <td>property</td>
+                            <td>If set, the name of the property to hold the absolute path name
+                                of the history point file that was created by this task.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>span</p></td>
+                            <td>span</td>
                             <td><p>Specifies how far back in time to include coverage recordings
                                 from since the last Clover build. See <a href="ant--using-spans.html">Using
                                     Spans</a>.</p></td>
-                            <td><p>No; default includes &quot;all coverage data found&quot;.</p>
-                            </td>
+                            <td>No; default includes &quot;all coverage data found&quot;.</td>
                         </tr>
                         <tr>
-                            <td><p>srcLevel</p></td>
+                            <td>srcLevel</td>
                             <td><p>Prevents excessive Clover data from being loaded when generating
                                 a history point. This should be used for large projects, where saving a full source
                                 level history point is taking a long time.

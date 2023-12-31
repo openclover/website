@@ -99,20 +99,20 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <td><p><strong>Source code instrumentation</strong></p></td>
-                            <td><p>This approach adds instrumentation statements to the source code
+                            <td><strong>Source code instrumentation</strong></td>
+                            <td>This approach adds instrumentation statements to the source code
                                 and compiles the code with the normal compile tool chain to produce an instrumented
-                                assembly.</p></td>
+                                assembly.</td>
                         </tr>
                         <tr>
-                            <td><p><strong>Intermediate code instrumentation</strong></p></td>
-                            <td><p>Here the compiled class files are instrumented by adding new
-                                bytecodes, and a new instrumented class is generated.</p></td>
+                            <td><strong>Intermediate code instrumentation</strong></td>
+                            <td>Here the compiled class files are instrumented by adding new
+                                bytecodes, and a new instrumented class is generated.</td>
                         </tr>
                         <tr>
-                            <td><p><strong>Runtime information collection</strong></p></td>
-                            <td><p>This approach collects information from the runtime environment
-                                as the code executes to determine coverage information</p></td>
+                            <td><strong>Runtime information collection</strong></td>
+                            <td>This approach collects information from the runtime environment
+                                as the code executes to determine coverage information</td>
                         </tr>
                         </tbody>
                     </table>
@@ -139,24 +139,23 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <td><p><strong>Statement</strong></p></td>
-                            <td><p>Statement coverage measures whether each statement is
-                                executed.</p></td>
+                            <td><strong>Statement</strong></td>
+                            <td>Statement coverage measures whether each statement is
+                                executed.</td>
                         </tr>
                         <tr>
-                            <td><p><strong>Branch</strong></p></td>
-                            <td><p>Branch coverage (sometimes called Decision Coverage) measures
+                            <td><strong>Branch</strong></td>
+                            <td>Branch coverage (sometimes called Decision Coverage) measures
                                 which possible branches in flow control structures are followed. Clover does this by
                                 recording if the boolean expression in the control structure evaluated to both true and
                                 false during execution.
                                 In Groovy code, Clover also treats Elvis expressions (a :? b), safe method calls
-                                (a?.b()), safe property calls (a?.b) and safe attribute calls (a?.@b) as branches.</p>
-                            </td>
+                                (a?.b()), safe property calls (a?.b) and safe attribute calls (a?.@b) as branches.</td>
                         </tr>
                         <tr>
-                            <td><p><strong>Method</strong></p></td>
-                            <td><p>Method coverage measures if a method was entered at all during
-                                execution.</p></td>
+                            <td><strong>Method</strong></td>
+                            <td>Method coverage measures if a method was entered at all during
+                                execution.</td>
                         </tr>
                         </tbody>
                     </table>

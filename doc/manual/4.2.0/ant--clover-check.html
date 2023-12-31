@@ -75,9 +75,9 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <td><p><strong>ocumentationAttribute</strong></p></td>
-                            <td><p><strong>Description</strong></p></td>
-                            <td><p><strong>Required</strong></p></td>
+                            <td><strong>ocumentationAttribute</strong></td>
+                            <td><strong>Description</strong></td>
+                            <td><strong>Required</strong></td>
                         </tr>
                         <tr>
                             <td colspan="1">codeType</td>
@@ -88,51 +88,50 @@
                             <td colspan="1">No; Default value: APPLICATION.</td>
                         </tr>
                         <tr>
-                            <td><p>conditionalTarget</p></td>
-                            <td><p>The target percentage conditional coverage for the project.</p>
-                            </td>
+                            <td>conditionalTarget</td>
+                            <td>The target percentage conditional coverage for the project.</td>
                             <td><p>At least one of <code>target</code>, <code>methodTarget</code>,
                                 <code>statementTarget</code> or <code>conditionalTarget</code> is required, unless
                                 nested <a href="ant--clover-check.html">clover-check</a> elements are specified.</p>
                             </td>
                         </tr>
                         <tr>
-                            <td><p>failureProperty</p></td>
-                            <td><p>Specifies the name of a property to be set if the target is not
+                            <td>failureProperty</td>
+                            <td>Specifies the name of a property to be set if the target is not
                                 met. If the target is not met, the property will contain a text description of the
-                                failure(s).</p></td>
-                            <td><p>No.</p></td>
+                                failure(s).</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>filter</p></td>
+                            <td>filter</td>
                             <td><p>comma or space separated list of contexts to exclude when
                                 calculating coverage. See <a href="ant--using-coverage-contexts.html">Using Coverage
                                     Contexts</a>.</p></td>
-                            <td><p>No.</p></td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>haltOnFailure</p></td>
-                            <td><p>Specifies if the build should be halted if the target is not
-                                met.</p></td>
+                            <td>haltOnFailure</td>
+                            <td>Specifies if the build should be halted if the target is not
+                                met.</td>
                             <td><p>No; default is &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>historydir</p></td>
-                            <td><p>Allows you to specify a location for historical build data,
+                            <td>historydir</td>
+                            <td>Allows you to specify a location for historical build data,
                                 along with a configurable threshold expressed as a percentage – used to cause the build
                                 to fail if coverage has dropped. This attribute is passed down to specified packages,
-                                then the same test is done for these at the package level.</p></td>
+                                then the same test is done for these at the package level.</td>
                             <td><p>No. Example: <code>historyDir=&quot;/history&quot;
                                 threshold=&quot;1%&quot;</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>includeFailedTestCoverage</p></td>
-                            <td><p>Specifies whether to include failed test coverage when
-                                calculating the total coverage percentage.</p></td>
+                            <td>includeFailedTestCoverage</td>
+                            <td>Specifies whether to include failed test coverage when
+                                calculating the total coverage percentage.</td>
                             <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>initstring</p></td>
+                            <td>initstring</td>
                             <td><p>The <code>initstring</code> of the coverage database.</p></td>
                             <td><p>No; If not specified here, Clover will look in the default
                                 location (<code>${basedir}/.clover</code>). If you have specified an
@@ -141,32 +140,30 @@
                                 the execution of this task.</p></td>
                         </tr>
                         <tr>
-                            <td><p>methodTarget</p></td>
-                            <td><p>The target percentage method coverage for the project.</p></td>
+                            <td>methodTarget</td>
+                            <td>The target percentage method coverage for the project.</td>
                             <td><p>At least one of <code>target</code>, <code>methodTarget</code>,
                                 <code>statementTarget</code> or <code>conditionalTarget</code> is required, unless
                                 nested <code><a href="ant--clover-check.html">clover-check</a></code> elements are
                                 specified.</p></td>
                         </tr>
                         <tr>
-                            <td><p>span</p></td>
+                            <td>span</td>
                             <td><p>Specifies how far back in time to include coverage recordings
                                 from since the last Clover build. See <a href="ant--using-spans.html">Using
                                     Spans</a>.</p></td>
-                            <td><p>No; default includes &quot;all coverage data found&quot;.</p>
-                            </td>
+                            <td>No; default includes &quot;all coverage data found&quot;.</td>
                         </tr>
                         <tr>
-                            <td><p>statementTarget</p></td>
-                            <td><p>The target percentage statement coverage for the project.</p>
-                            </td>
+                            <td>statementTarget</td>
+                            <td>The target percentage statement coverage for the project.</td>
                             <td><p>At least one of <code>target</code>, <code>methodTarget</code>,
                                 <code>statementTarget</code> or <code>conditionalTarget</code> is required, unless
                                 nested <code><a href="ant--clover-check.html">clover-check</a></code> elements are
                                 specified.</p></td>
                         </tr>
                         <tr>
-                            <td><p>target</p></td>
+                            <td>target</td>
                             <td><p>The target percentage total coverage for the project. e.g. &quot;<code>10%</code>&quot;</p></td>
                             <td><p>At least one of <code>target</code>, <code>methodTarget</code>,
                                 <code>statementTarget</code> or <code>conditionalTarget</code> is required, unless
@@ -193,45 +190,43 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>conditionalTarget</p></td>
-                            <td><p>The target percentage conditional coverage for the package.</p>
-                            </td>
+                            <td>conditionalTarget</td>
+                            <td>The target percentage conditional coverage for the package.</td>
                             <td><p>At least one of <code>target</code>, <code>methodTarget</code>,
                                 <code>statementTarget</code> or <code>conditionalTarget</code> is required.</p></td>
                         </tr>
                         <tr>
-                            <td><p>methodTarget</p></td>
-                            <td><p>The target percentage method coverage for the package.</p></td>
+                            <td>methodTarget</td>
+                            <td>The target percentage method coverage for the package.</td>
                             <td><p>At least one of <code>target</code>, <code>methodTarget</code>,
                                 <code>statementTarget</code> or <code>conditionalTarget</code> is required.</p></td>
                         </tr>
                         <tr>
-                            <td><p>name</p></td>
-                            <td><p>The name of the package.</p></td>
+                            <td>name</td>
+                            <td>The name of the package.</td>
                             <td><p>Either (but not both) of <code>name</code> or <code>regex</code>
                                 is required.</p></td>
                         </tr>
                         <tr>
-                            <td><p>regex</p></td>
-                            <td><p>Regular expression to match package names.</p></td>
+                            <td>regex</td>
+                            <td>Regular expression to match package names.</td>
                             <td><p>Either (but not both) of <code>name</code> or <code>regex</code>
                                 is required.</p></td>
                         </tr>
                         <tr>
-                            <td><p>statementTarget</p></td>
-                            <td><p>The target percentage statement coverage for the package.</p>
-                            </td>
+                            <td>statementTarget</td>
+                            <td>The target percentage statement coverage for the package.</td>
                             <td><p>At least one of <code>target</code>, <code>methodTarget</code>,
                                 <code>statementTarget</code> or <code>conditionalTarget</code> is required.</p></td>
                         </tr>
                         <tr>
-                            <td><p>target</p></td>
-                            <td><p>The target percentage total coverage for the package. e.g. &quot;10%&quot;</p></td>
+                            <td>target</td>
+                            <td>The target percentage total coverage for the package. e.g. &quot;10%&quot;</td>
                             <td><p>At least one of <code>target</code>, <code>methodTarget</code>,
                                 <code>statementTarget</code> or <code>conditionalTarget</code> is required.</p></td>
                         </tr>

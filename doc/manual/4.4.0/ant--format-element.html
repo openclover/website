@@ -73,36 +73,36 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>type</p></td>
+                            <td>type</td>
                             <td><p>The output format in which to render the report. Valid values
                                 are <code>pdf</code>, <code>xml</code>, <code>html</code> and <code>json</code>. Note
                                 that not all report formats support all other attributes.</p></td>
                             <td><p>Yes, unless <code>refid</code> is set.</p></td>
                         </tr>
                         <tr>
-                            <td><p>refid</p></td>
+                            <td>refid</td>
                             <td><p>The id of another format element that will be used for this
                                 report. See <a href="ant--sharing-report-formats.html">Sharing Report Formats</a>. </p></td>
-                            <td><p>No.</p></td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>id</p></td>
-                            <td><p>The id of this format element.</p></td>
-                            <td><p>No.</p></td>
+                            <td>id</td>
+                            <td>The id of this format element.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>bw</p></td>
-                            <td><p>Specify that the report should be black-and-white. Supported by
-                                PDF reports only.</p></td>
+                            <td>bw</td>
+                            <td>Specify that the report should be black-and-white. Supported by
+                                PDF reports only.</td>
                             <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>orderBy</p></td>
+                            <td>orderBy</td>
                             <td><p>Specify how to order coverage tables. This attribute has no
                                 effect on XML format. Valid values are: <br class="atl-forced-newline"/> <code>Alpha</code> — Alpabetical.
                                 <br class="atl-forced-newline"/> <code>PcCoveredAsc</code> — Percent total coverage,
@@ -115,54 +115,54 @@
                             <td><p>No; defaults to <code>PcCoveredAsc.</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>noCache</p></td>
+                            <td>noCache</td>
                             <td><p><em>(HTML only)</em> If true, insert nocache directives in HTML
                                 output.</p></td>
                             <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>srcLevel</p></td>
-                            <td><p>If true, include source-level coverage information in the
-                                report.</p></td>
+                            <td>srcLevel</td>
+                            <td>If true, include source-level coverage information in the
+                                report.</td>
                             <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>filter</p></td>
+                            <td>filter</td>
                             <td><p>comma or space separated list of contexts to exclude when
                                 generating coverage reports. See <a href="ant--using-coverage-contexts.html">Using
                                     Coverage Contexts</a>.</p></td>
-                            <td><p>No.</p></td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>pageSize</p></td>
+                            <td>pageSize</td>
                             <td><p><em>(PDF only)</em> Specify the page size to use. Valid values
                                 are <code>A4</code>, <code>LETTER.</code></p></td>
                             <td><p>No; defaults to &quot;<code>A4</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>showEmpty</p></td>
-                            <td><p>If true, classes, files and packages that do not contain any
+                            <td>showEmpty</td>
+                            <td>If true, classes, files and packages that do not contain any
                                 executable code (i.e. methods, statements, or branches) are included in reports. These
-                                are normally not shown.</p></td>
+                                are normally not shown.</td>
                             <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>tabWidth</p></td>
+                            <td>tabWidth</td>
                             <td><p><em>(Source level reports only)</em> The number of space chars
                                 to replace TAB characters with.</p></td>
                             <td><p>No; defaults to <code>4.</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>maxNameLength</p></td>
-                            <td><p>The maximum length in chars of package or classnames in the
-                                report. Longer names will be truncated. A value &lt; 0 indicates no limit.</p></td>
-                            <td><p>No; defaults to no limit.</p></td>
+                            <td>maxNameLength</td>
+                            <td>The maximum length in chars of package or classnames in the
+                                report. Longer names will be truncated. A value &lt; 0 indicates no limit.</td>
+                            <td>No; defaults to no limit.</td>
                         </tr>
                         <tr>
-                            <td><p>callback</p></td>
-                            <td><p>The name of the callback function to wrap the JSON. If set to an
-                                empty string, &quot; &quot;, then the JSON will not be wrapped.</p></td>
-                            <td><p>No; default is 'processClover'.</p></td>
+                            <td>callback</td>
+                            <td>The name of the callback function to wrap the JSON. If set to an
+                                empty string, &quot; &quot;, then the JSON will not be wrapped.</td>
+                            <td>No; default is 'processClover'.</td>
                         </tr>
                         </tbody>
                     </table>

@@ -76,24 +76,24 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>initstring</p></td>
-                            <td><p>The location to write the Clover coverage database resulting
-                                from the merge.</p></td>
-                            <td><p>Yes.</p></td>
+                            <td>initstring</td>
+                            <td>The location to write the Clover coverage database resulting
+                                from the merge.</td>
+                            <td>Yes.</td>
                         </tr>
                         <tr>
-                            <td><p>update</p></td>
+                            <td>update</td>
                             <td><p>If set to true and there is an existing database at <code>initString</code>,
                                 that database will be included in the merge.</p></td>
                             <td><p>No. Defaults to '<strong>false</strong>'.</p></td>
                         </tr>
                         <tr>
-                            <td><p>updateSpan</p></td>
+                            <td>updateSpan</td>
                             <td><p>If update is true, this span is used when merging any existing
                                 database at <code>initString</code>.</p></td>
                             <td><p>No. Defaults to <code>0</code> seconds.</p></td>
@@ -108,20 +108,20 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>initstring</p></td>
+                            <td>initstring</td>
                             <td><p>The <code>initString</code> of the database to merge.</p></td>
-                            <td><p>Yes.</p></td>
+                            <td>Yes.</td>
                         </tr>
                         <tr>
-                            <td><p>span</p></td>
+                            <td>span</td>
                             <td><p>Specifies how far back in time to include coverage recordings
                                 from since the last Clover build for this database. See <a href="ant--using-spans.html">Using Spans</a>.</p></td>
-                            <td><p>No; default includes 'all coverage data found'.</p></td>
+                            <td>No; default includes 'all coverage data found'.</td>
                         </tr>
                         </tbody>
                     </table>
@@ -137,21 +137,21 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>refid</p></td>
+                            <td>refid</td>
                             <td><p>Lets you specify a <a href="http://ant.apache.org/manual/Types/fileset.html" rel="nofollow">fileset</a> that references
                                 a group of Clover database files. This references a fileset defined elsewhere.</p></td>
-                            <td><p>No; defaults to none.</p></td>
+                            <td>No; defaults to none.</td>
                         </tr>
                         <tr>
-                            <td><p>span</p></td>
+                            <td>span</td>
                             <td><p>Specifies how far back in time to include coverage recordings
                                 from since the last Clover build for this database. See <a href="ant--using-spans.html">Using Spans</a>.</p></td>
-                            <td><p>No; defaults to '0 seconds'.</p></td>
+                            <td>No; defaults to '0 seconds'.</td>
                         </tr>
                         </tbody>
                     </table>

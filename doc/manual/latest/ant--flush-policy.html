@@ -78,11 +78,11 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Policy</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
+                            <th>Policy</th>
+                            <th>Description</th>
                         </tr>
                         <tr>
-                            <td><p><code>directed</code></p></td>
+                            <td><code>directed</code></td>
                             <td><p><em>default.</em> Coverage recordings are flushed only when the
                                 hosting JVM is shut down, or where the user has directed a flush using the <code>///CLOVER:FLUSH</code>
                                 <a href="ant--using-source-directives.html">inline directive</a>. Directed flushing
@@ -92,7 +92,7 @@
                                     abnormally.</strong></p></td>
                         </tr>
                         <tr>
-                            <td><p><code>interval</code></p></td>
+                            <td><code>interval</code></td>
                             <td><p> The <code>interval</code> policy flushes as per the directed
                                 policy, and also at a <em>maximum</em> rate determined by the interval set at
                                 instrumentation time (see the <code>flushinterval</code> attribute on
@@ -109,7 +109,7 @@
                                 determined by the flush interval. </p></td>
                         </tr>
                         <tr>
-                            <td><p><code>threaded</code></p></td>
+                            <td><code>threaded</code></td>
                             <td><p> The <code>threaded</code> policy flushes as per the directed
                                 policy, and also at a rate determined by the interval set at instrumentation time (see
                                 the <code>flushinterval</code> attribute on <code>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;</code>). The

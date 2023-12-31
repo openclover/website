@@ -78,44 +78,44 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p><strong>snapshotfile</strong></p></td>
-                            <td><p>Snapshot file path if not in the default location.</p></td>
-                            <td><p>No; defaults to (initstring + &quot;.snapshot&quot;).</p></td>
+                            <td><strong>snapshotfile</strong></td>
+                            <td>Snapshot file path if not in the default location.</td>
+                            <td>No; defaults to (initstring + &quot;.snapshot&quot;).</td>
                         </tr>
                         <tr>
-                            <td><p><strong>enabled</strong></p></td>
-                            <td><p>Boolean value that specifies whether the selector should
+                            <td><strong>enabled</strong></td>
+                            <td>Boolean value that specifies whether the selector should
                                 optimize. If set to false no optimization occurs, if true, then optimization occurs as
-                                per the other attributes.</p></td>
+                                per the other attributes.</td>
                             <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p><strong>minimize</strong></p></td>
-                            <td><p>Boolean value that (when true) tells Clover to restrict the set
+                            <td><strong>minimize</strong></td>
+                            <td>Boolean value that (when true) tells Clover to restrict the set
                                 of tests, running only those that caused coverage in a changed file. When set to false,
                                 this will cause Clover to run all tests. this attribute can be used to force a full test
                                 run if, for instance, some important configuration files change and the build system
-                                decides that a full test run should be executed</p></td>
+                                decides that a full test run should be executed</td>
                             <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p><strong>fullrunevery</strong></p></td>
-                            <td><p>Specifies how many optimized builds can run before a full run
-                                should be performed (to re-calibrate the optimization).</p></td>
+                            <td><strong>fullrunevery</strong></td>
+                            <td>Specifies how many optimized builds can run before a full run
+                                should be performed (to re-calibrate the optimization).</td>
                             <td><p>No; defaults to &quot;<code>10</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p><strong>ordering</strong></p></td>
-                            <td><p>Specifies how tests should be ordered during an optimized build.
+                            <td><strong>ordering</strong></td>
+                            <td>Specifies how tests should be ordered during an optimized build.
                                 Accepts values &quot;failfast&quot;, &quot;original&quot; or &quot;random&quot;. The &quot;failfast&quot; setting runs the previously failed test first then shortest to
                                 longest test. The &quot;original&quot; setting orders the tests as they were found by
                                 the underlying fileset. The &quot;random&quot; setting applies a random ordering to the
-                                tests.</p></td>
+                                tests.</td>
                             <td><p>No; defaults to &quot;<code>failfast</code>&quot;.</p></td>
                         </tr>
                         </tbody>

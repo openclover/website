@@ -149,21 +149,20 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>coverageCacheSize</p></td>
-                            <td><p>This is a performance tuning option, which is used to specify
+                            <td>coverageCacheSize</td>
+                            <td>This is a performance tuning option, which is used to specify
                                 the maximum size of coverage data kept in memory when generating a report. Accepts
-                                storage values such as 256m (256 megabytes) or 1g (1 gigabyte). Also accepts the value &quot;nocache&quot; to force all coverage data to be loaded into memory.</p>
-                            </td>
-                            <td><p>No. Default is 256m.</p></td>
+                                storage values such as 256m (256 megabytes) or 1g (1 gigabyte). Also accepts the value &quot;nocache&quot; to force all coverage data to be loaded into memory.</td>
+                            <td>No. Default is 256m.</td>
                         </tr>
                         <tr>
-                            <td><p>initstring</p></td>
-                            <td><p>The initstring of the coverage database.</p></td>
+                            <td>initstring</td>
+                            <td>The initstring of the coverage database.</td>
                             <td><p>No; if not specified here, Clover will look in the default
                                 location (<code>${basedir}.clover</code>). If you have specified an
                                 <code>initstring</code> on the <code>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;</code>
@@ -171,16 +170,16 @@
                                 is called prior the execution of this task.</p></td>
                         </tr>
                         <tr>
-                            <td><p>failOnError</p></td>
-                            <td><p>If true, failure to generate a report causes a build
-                                failure.</p></td>
+                            <td>failOnError</td>
+                            <td>If true, failure to generate a report causes a build
+                                failure.</td>
                             <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>projectName</p></td>
-                            <td><p>Overrides the project name set in the Ant build file. This is
-                                used for display purposes only.</p></td>
-                            <td><p>No; defaults to the project name of the Ant build file.</p></td>
+                            <td>projectName</td>
+                            <td>Overrides the project name set in the Ant build file. This is
+                                used for display purposes only.</td>
+                            <td>No; defaults to the project name of the Ant build file.</td>
                         </tr>
                         </tbody>
                     </table>
@@ -200,23 +199,23 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>alwaysReport</p></td>
-                            <td><p>If set to true, a report will be generated even in the absence
-                                of coverage data.</p></td>
+                            <td>alwaysReport</td>
+                            <td>If set to true, a report will be generated even in the absence
+                                of coverage data.</td>
                             <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>charset</p></td>
-                            <td><p>The character set to use in the HTML reports.</p></td>
-                            <td><p>No. Default is UTF-8</p></td>
+                            <td>charset</td>
+                            <td>The character set to use in the HTML reports.</td>
+                            <td>No. Default is UTF-8</td>
                         </tr>
                         <tr>
-                            <td><p>homepage</p></td>
+                            <td>homepage</td>
                             <td><p>Specifies the start page to use. This can be one of the
                                 predefined pages: <code>dashboard</code>, <code>overview</code>, <code>aggregate</code>,
                                 <code>testresults</code>, <code>quickwins</code>, <code>projectrisks</code> or an
@@ -224,44 +223,43 @@
                             <td><p>No; defaults to &quot;<code>dashboard</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>includeFailedTestCoverage</p></td>
-                            <td><p>Specifies whether or not to include coverage attributed to a
-                                test that has failed.</p></td>
+                            <td>includeFailedTestCoverage</td>
+                            <td>Specifies whether or not to include coverage attributed to a
+                                test that has failed.</td>
                             <td><p>No; default is &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>maxTestsPerFile</p></td>
-                            <td><p>Specifies the maximum number of tests (ranked by coverage
+                            <td>maxTestsPerFile</td>
+                            <td>Specifies the maximum number of tests (ranked by coverage
                                 contribution) to display on a source file report page. This parameter can be used to
-                                reduce the size of reports for projects with very large numbers of tests.</p></td>
+                                reduce the size of reports for projects with very large numbers of tests.</td>
                             <td><p>No; unlimited if not specified or <code>-1.</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>numThreads</p></td>
-                            <td><p>The number of threads to start when generating an HTML report. A
-                                value of 0 will disable multi-threading for report generation.</p></td>
-                            <td><p>No. Default is 2.</p></td>
+                            <td>numThreads</td>
+                            <td>The number of threads to start when generating an HTML report. A
+                                value of 0 will disable multi-threading for report generation.</td>
+                            <td>No. Default is 2.</td>
                         </tr>
                         <tr>
-                            <td><p>outfile</p></td>
-                            <td><p>The outfile to write output to. If it does not exist, it is
+                            <td>outfile</td>
+                            <td>The outfile to write output to. If it does not exist, it is
                                 created. Depending on the specified format, this either represents a regular file (PDF,
-                                XML) or a directory (HTML, JSON).</p></td>
-                            <td><p>Yes.</p></td>
+                                XML) or a directory (HTML, JSON).</td>
+                            <td>Yes.</td>
                         </tr>
                         <tr>
-                            <td><p>span</p></td>
+                            <td>span</td>
                             <td><p>Specifies how far back in time to include coverage recordings
                                 from since the last Clover build. See <a href="ant--using-spans.html">Using
                                     Spans</a>.</p></td>
-                            <td><p>No; default includes &quot;all coverage data found&quot;.</p>
-                            </td>
+                            <td>No; default includes &quot;all coverage data found&quot;.</td>
                         </tr>
                         <tr>
-                            <td><p>summary</p></td>
-                            <td><p>Specifies whether to generate a summary report or detailed
+                            <td>summary</td>
+                            <td>Specifies whether to generate a summary report or detailed
                                 report. Currently this applies for XML and PDF reports. See srcLevel on the format
-                                element for HTML.</p></td>
+                                element for HTML.</td>
                             <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
@@ -280,32 +278,32 @@
                             <td colspan="1">No; defaults to &quot;<code>false</code>&quot;.</td>
                         </tr>
                         <tr>
-                            <td><p>showUniqueCoverage</p></td>
+                            <td>showUniqueCoverage</td>
                             <td><p>Calculate and show unique per-test coverage (for large projects,
                                 this can take a significant amount of time). Defaults to<br/> - <code>true</code> for
                                 Clover 3.1.4 and older<br/> - <code>false</code> for Clover 3.1.5 and newer.</p></td>
-                            <td><p>No.</p></td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>timeout</p></td>
+                            <td>timeout</td>
                             <td><p>The amount of time to wait for report generation to finish
                                 before failing the build. This value must be an <a href="ant--using-spans-specifying-an-interval.html">Interval</a>.</p></td>
-                            <td><p>No. Default is no timeout.</p></td>
+                            <td>No. Default is no timeout.</td>
                         </tr>
                         <tr>
-                            <td><p>title</p></td>
-                            <td><p>Specifies a title for the report.</p></td>
-                            <td><p>No.</p></td>
+                            <td>title</td>
+                            <td>Specifies a title for the report.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>titleAnchor</p></td>
-                            <td><p>If specified, the report title will be rendered as a hyperlink
-                                to this href.</p></td>
-                            <td><p>No; default is to not render the report title as a
-                                hyperlink.</p></td>
+                            <td>titleAnchor</td>
+                            <td>If specified, the report title will be rendered as a hyperlink
+                                to this href.</td>
+                            <td>No; default is to not render the report title as a
+                                hyperlink.</td>
                         </tr>
                         <tr>
-                            <td><p>titleTarget</p></td>
+                            <td>titleTarget</td>
                             <td><p>Specifies the href target if the title is to be rendered as a
                                 hyperlink (see <code>titleAnchor</code> above). <em>HTML format only.</em></p></td>
                             <td><p>No; default is &quot;<code>_top</code>&quot;.</p></td>
@@ -350,94 +348,94 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Column</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Valid Format Attributes</strong></p></th>
+                            <th>Column</th>
+                            <th>Description</th>
+                            <th>Valid Format Attributes</th>
                         </tr>
                         <tr>
-                            <td><p>avgClassesPerFile</p></td>
-                            <td><p>The average number of classes per file.</p></td>
-                            <td><p><code>raw</code></p></td>
+                            <td>avgClassesPerFile</td>
+                            <td>The average number of classes per file.</td>
+                            <td><code>raw</code></td>
                         </tr>
                         <tr>
-                            <td><p>avgMethodComplexity</p></td>
-                            <td><p>The average number of paths per method.</p></td>
-                            <td><p><code>raw</code></p></td>
+                            <td>avgMethodComplexity</td>
+                            <td>The average number of paths per method.</td>
+                            <td><code>raw</code></td>
                         </tr>
                         <tr>
-                            <td><p>avgMethodsPerClass</p></td>
-                            <td><p>The average number of methods per class.</p></td>
-                            <td><p><code>raw</code></p></td>
+                            <td>avgMethodsPerClass</td>
+                            <td>The average number of methods per class.</td>
+                            <td><code>raw</code></td>
                         </tr>
                         <tr>
-                            <td><p>avgStatementsPerMethod</p></td>
-                            <td><p>The average number of statements per method.</p></td>
-                            <td><p><code>raw</code></p></td>
+                            <td>avgStatementsPerMethod</td>
+                            <td>The average number of statements per method.</td>
+                            <td><code>raw</code></td>
                         </tr>
                         <tr>
-                            <td><p>complexity</p></td>
-                            <td><p>Cyclomatic Complexity is a measure of the number of paths in
-                                your code.</p></td>
-                            <td><p><code>raw</code></p></td>
+                            <td>complexity</td>
+                            <td>Cyclomatic Complexity is a measure of the number of paths in
+                                your code.</td>
+                            <td><code>raw</code></td>
                         </tr>
                         <tr>
-                            <td><p>complexityDensity</p></td>
-                            <td><p>The average complexity per statement.</p></td>
-                            <td><p><code>raw</code></p></td>
+                            <td>complexityDensity</td>
+                            <td>The average complexity per statement.</td>
+                            <td><code>raw</code></td>
                         </tr>
                         <tr>
-                            <td><p>coveredBranches</p></td>
-                            <td><p>The amount of covered branches.</p></td>
+                            <td>coveredBranches</td>
+                            <td>The amount of covered branches.</td>
                             <td><p>
                                 <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>coveredElements</p></td>
-                            <td><p>The total number of covered elements (branches + statements) in
-                                the project.</p></td>
+                            <td>coveredElements</td>
+                            <td>The total number of covered elements (branches + statements) in
+                                the project.</td>
                             <td><p>
                                 <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>coveredMethods</p></td>
-                            <td><p>The amount of covered methods.</p></td>
+                            <td>coveredMethods</td>
+                            <td>The amount of covered methods.</td>
                             <td><p>
                                 <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>coveredStatements</p></td>
-                            <td><p>The amount of covered statements.</p></td>
+                            <td>coveredStatements</td>
+                            <td>The amount of covered statements.</td>
                             <td><p>
                                 <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>expression</p></td>
-                            <td><p>The body of this element will be evaluated as an arithmetic
+                            <td>expression</td>
+                            <td>The body of this element will be evaluated as an arithmetic
                                 expression. All other column names can be referenced. See Clover EL. This column takes
-                                an optional title attribute.</p></td>
-                            <td><p>raw</p></td>
+                                an optional title attribute.</td>
+                            <td>raw</td>
                         </tr>
                         <tr>
-                            <td><p>filteredElements</p></td>
-                            <td><p>The amount of elements that have been filtered out of the
-                                report.</p></td>
+                            <td>filteredElements</td>
+                            <td>The amount of elements that have been filtered out of the
+                                report.</td>
                             <td><p>
                                 <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>ncLineCount</p></td>
+                            <td>ncLineCount</td>
                             <td><p>The total number of non-comment lines. <br/>
                                 <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> When using Clover on Groovy source
                                 code, this column consistently reports '0' at the moment.</p></td>
-                            <td><p><code>raw</code></p></td>
+                            <td><code>raw</code></td>
                         </tr>
                         <tr>
-                            <td><p>lineCount</p></td>
-                            <td><p>The total number of lines.</p></td>
-                            <td><p><code>raw</code></p></td>
+                            <td>lineCount</td>
+                            <td>The total number of lines.</td>
+                            <td><code>raw</code></td>
                         </tr>
                         <tr>
-                            <td><p>SUM</p></td>
+                            <td>SUM</td>
                             <td><p>Scientifically Untested Metric. This is very similar to crap4j
                                 and is defined by this expression:</p>
                                 <div class="code panel pdl" style="border-width: 1px;">
@@ -447,85 +445,85 @@
                                     </div>
                                 </div>
                             </td>
-                            <td><p>raw</p></td>
+                            <td>raw</td>
                         </tr>
                         <tr>
-                            <td><p>percentageCoveredContribution</p></td>
-                            <td><p>Helps you to work out how much an individual package, file or
+                            <td>percentageCoveredContribution</td>
+                            <td>Helps you to work out how much an individual package, file or
                                 class contributes (percentage-wise) to the overall number of covered elements in the
-                                project. Useful for spotting quick wins.</p></td>
-                            <td><p>raw;bar;%;longbar</p></td>
+                                project. Useful for spotting quick wins.</td>
+                            <td>raw;bar;%;longbar</td>
                         </tr>
                         <tr>
-                            <td><p>percentageUncoveredContribution</p></td>
-                            <td><p>Helps you to work out how much an individual package, file or
+                            <td>percentageUncoveredContribution</td>
+                            <td>Helps you to work out how much an individual package, file or
                                 class contributes (percentage-wise) to the overall number of uncovered elements in the
-                                project. Useful for spotting quick wins.</p></td>
-                            <td><p>raw;bar;%;longbar</p></td>
+                                project. Useful for spotting quick wins.</td>
+                            <td>raw;bar;%;longbar</td>
                         </tr>
                         <tr>
-                            <td><p>totalBranches</p></td>
-                            <td><p>The total number of branches in the project.</p></td>
-                            <td><p><code>raw</code></p></td>
+                            <td>totalBranches</td>
+                            <td>The total number of branches in the project.</td>
+                            <td><code>raw</code></td>
                         </tr>
                         <tr>
-                            <td><p>totalChildren</p></td>
-                            <td><p>The number of lower order elements. The order of elements is:
-                                Project, Package, File, Class, Method, Statement</p></td>
-                            <td><p><code>raw</code></p></td>
+                            <td>totalChildren</td>
+                            <td>The number of lower order elements. The order of elements is:
+                                Project, Package, File, Class, Method, Statement</td>
+                            <td><code>raw</code></td>
                         </tr>
                         <tr>
-                            <td><p>totalClasses</p></td>
-                            <td><p>The total number of classes below the package, project or
-                                file.</p></td>
-                            <td><p><code>raw</code></p></td>
+                            <td>totalClasses</td>
+                            <td>The total number of classes below the package, project or
+                                file.</td>
+                            <td><code>raw</code></td>
                         </tr>
                         <tr>
-                            <td><p>totalElements</p></td>
-                            <td><p>The total number of elements (branches + statements) in the
-                                project.</p></td>
-                            <td><p><code>raw</code></p></td>
+                            <td>totalElements</td>
+                            <td>The total number of elements (branches + statements) in the
+                                project.</td>
+                            <td><code>raw</code></td>
                         </tr>
                         <tr>
-                            <td><p>totalFiles</p></td>
-                            <td><p>The total number of files below the package or project.</p></td>
-                            <td><p><code>raw</code></p></td>
+                            <td>totalFiles</td>
+                            <td>The total number of files below the package or project.</td>
+                            <td><code>raw</code></td>
                         </tr>
                         <tr>
-                            <td><p>totalMethods</p></td>
-                            <td><p>The total number of methods in the project.</p></td>
-                            <td><p><code>raw</code></p></td>
+                            <td>totalMethods</td>
+                            <td>The total number of methods in the project.</td>
+                            <td><code>raw</code></td>
                         </tr>
                         <tr>
-                            <td><p>totalPercentageCovered</p></td>
-                            <td><p>The total coverage.</p></td>
+                            <td>totalPercentageCovered</td>
+                            <td>The total coverage.</td>
                             <td><p>
                                 <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>totalStatements</p></td>
-                            <td><p>The total number of statements in the project.</p></td>
-                            <td><p><code>raw</code></p></td>
+                            <td>totalStatements</td>
+                            <td>The total number of statements in the project.</td>
+                            <td><code>raw</code></td>
                         </tr>
                         <tr>
-                            <td><p>uncoveredBranches</p></td>
-                            <td><p>Branches that were not executed.</p></td>
-                            <td><p>raw;bar;%;longbar</p></td>
+                            <td>uncoveredBranches</td>
+                            <td>Branches that were not executed.</td>
+                            <td>raw;bar;%;longbar</td>
                         </tr>
                         <tr>
-                            <td><p>uncoveredElements</p></td>
-                            <td><p>Elements that were not executed.</p></td>
-                            <td><p>raw;bar;%;longbar</p></td>
+                            <td>uncoveredElements</td>
+                            <td>Elements that were not executed.</td>
+                            <td>raw;bar;%;longbar</td>
                         </tr>
                         <tr>
-                            <td><p>uncoveredMethods</p></td>
-                            <td><p>Methods that were not executed.</p></td>
-                            <td><p>raw;bar;%;longbar</p></td>
+                            <td>uncoveredMethods</td>
+                            <td>Methods that were not executed.</td>
+                            <td>raw;bar;%;longbar</td>
                         </tr>
                         <tr>
-                            <td><p>uncoveredStatements</p></td>
-                            <td><p>Statements that were not executed.</p></td>
-                            <td><p>raw;bar;%;longbar</p></td>
+                            <td>uncoveredStatements</td>
+                            <td>Statements that were not executed.</td>
+                            <td>raw;bar;%;longbar</td>
                         </tr>
                         </tbody>
                     </table>
@@ -537,38 +535,38 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>format</p></td>
+                            <td>format</td>
                             <td><p>Determines how the value is rendered. Depending on the column,
                                 this may be one of <code>raw</code>, <code>bar</code>, <code>%</code> or
                                 <code>longbar</code>.</p></td>
-                            <td><p>No.</p></td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>min</p></td>
-                            <td><p>Sets a minimum threshold on the value of the column. If the
-                                value is less than this it will be highlighted.</p></td>
-                            <td><p>No.</p></td>
+                            <td>min</td>
+                            <td>Sets a minimum threshold on the value of the column. If the
+                                value is less than this it will be highlighted.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>max</p></td>
-                            <td><p>Sets a maximum threshold on the value of the column. If the
-                                value is greater than this it will be highlighted.</p></td>
-                            <td><p>No.</p></td>
+                            <td>max</td>
+                            <td>Sets a maximum threshold on the value of the column. If the
+                                value is greater than this it will be highlighted.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>scope</p></td>
+                            <td>scope</td>
                             <td><p>Controls at which level in the report the column will appear.
                                 The scope attribute can be one of: &quot;package&quot;, &quot;class&quot; or &quot;method&quot;.
                                 If omitted, the column will be used at every level in the report. Note that only the
                                 following columns support the scope attribute: <strong>expression</strong>, <strong>complexity</strong>,
                                 <strong>complexityDensity</strong>, <strong>coveredXXX</strong>,
                                 <strong>uncoveredXXX</strong> and <strong>totalXXX</strong>.</p></td>
-                            <td><p>No.</p></td>
+                            <td>No.</td>
                         </tr>
                         </tbody>
                     </table>
@@ -602,37 +600,37 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>type</p></td>
+                            <td>type</td>
                             <td><p>The output format in which to render the report. Valid values
                                 are <code>pdf</code>, <code>xml</code>, <code>html</code> and <code>json</code>. Note
                                 that not all report formats support all other attributes.</p></td>
                             <td><p>Yes, unless <code>refid</code> is set.</p></td>
                         </tr>
                         <tr>
-                            <td><p>refid</p></td>
+                            <td>refid</td>
                             <td><p>The id of another format element that will be used for this
                                 report. See <a href="ant--sharing-report-formats.html">Sharing
                                     Report Formats</a>.</p></td>
-                            <td><p>No.</p></td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>id</p></td>
-                            <td><p>The id of this format element.</p></td>
-                            <td><p>No.</p></td>
+                            <td>id</td>
+                            <td>The id of this format element.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>bw</p></td>
-                            <td><p>Specify that the report should be black-and-white. Supported by
-                                PDF reports only.</p></td>
+                            <td>bw</td>
+                            <td>Specify that the report should be black-and-white. Supported by
+                                PDF reports only.</td>
                             <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>orderBy</p></td>
+                            <td>orderBy</td>
                             <td><p>Specify how to order coverage tables. This attribute has no
                                 effect on XML format. Valid values are: <br class="atl-forced-newline"/> <code>Alpha</code> — Alpabetical.
                                 <br class="atl-forced-newline"/> <code>PcCoveredAsc</code> — Percent total coverage,
@@ -645,54 +643,54 @@
                             <td><p>No; defaults to <code>PcCoveredAsc.</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>noCache</p></td>
+                            <td>noCache</td>
                             <td><p><em>(HTML only)</em> If true, insert nocache directives in HTML
                                 output.</p></td>
                             <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>srcLevel</p></td>
-                            <td><p>If true, include source-level coverage information in the
-                                report.</p></td>
+                            <td>srcLevel</td>
+                            <td>If true, include source-level coverage information in the
+                                report.</td>
                             <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>filter</p></td>
+                            <td>filter</td>
                             <td><p>comma or space separated list of contexts to exclude when
                                 generating coverage reports. See <a href="ant--using-coverage-contexts.html">Using
                                     Coverage Contexts</a>.</p></td>
-                            <td><p>No.</p></td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>pageSize</p></td>
+                            <td>pageSize</td>
                             <td><p><em>(PDF only)</em> Specify the page size to use. Valid values
                                 are <code>A4</code>, <code>LETTER.</code></p></td>
                             <td><p>No; defaults to &quot;<code>A4</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>showEmpty</p></td>
-                            <td><p>If true, classes, files and packages that do not contain any
+                            <td>showEmpty</td>
+                            <td>If true, classes, files and packages that do not contain any
                                 executable code (i.e. methods, statements, or branches) are included in reports. These
-                                are normally not shown.</p></td>
+                                are normally not shown.</td>
                             <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>tabWidth</p></td>
+                            <td>tabWidth</td>
                             <td><p><em>(Source level reports only)</em> The number of space chars
                                 to replace TAB characters with.</p></td>
                             <td><p>No; defaults to <code>4.</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>maxNameLength</p></td>
-                            <td><p>The maximum length in chars of package or classnames in the
-                                report. Longer names will be truncated. A value &lt; 0 indicates no limit.</p></td>
-                            <td><p>No; defaults to no limit.</p></td>
+                            <td>maxNameLength</td>
+                            <td>The maximum length in chars of package or classnames in the
+                                report. Longer names will be truncated. A value &lt; 0 indicates no limit.</td>
+                            <td>No; defaults to no limit.</td>
                         </tr>
                         <tr>
-                            <td><p>callback</p></td>
-                            <td><p>The name of the callback function to wrap the JSON. If set to an
-                                empty string, &quot; &quot;, then the JSON will not be wrapped.</p></td>
-                            <td><p>No; default is 'processClover'.</p></td>
+                            <td>callback</td>
+                            <td>The name of the callback function to wrap the JSON. If set to an
+                                empty string, &quot; &quot;, then the JSON will not be wrapped.</td>
+                            <td>No; default is 'processClover'.</td>
                         </tr>
                         </tbody>
                     </table>
@@ -749,35 +747,35 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>title</p></td>
-                            <td><p>Specifies a title for the report.</p></td>
-                            <td><p>No.</p></td>
+                            <td>title</td>
+                            <td>Specifies a title for the report.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>titleAnchor</p></td>
-                            <td><p>if specified, the report title will be rendered as a hyperlink
-                                to this href.</p></td>
-                            <td><p>No; default is to not render the report title as a
-                                hyperlink.</p></td>
+                            <td>titleAnchor</td>
+                            <td>if specified, the report title will be rendered as a hyperlink
+                                to this href.</td>
+                            <td>No; default is to not render the report title as a
+                                hyperlink.</td>
                         </tr>
                         <tr>
-                            <td><p>titleTarget</p></td>
+                            <td>titleTarget</td>
                             <td><p>Specifies the href target if the title is to be rendered as a
                                 hyperlink (see <code>titleAnchor</code> above). <em>HTML format only</em></p></td>
                             <td><p>No; default is &quot;<code>_top</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>charset</p></td>
-                            <td><p>The character set to use in the HTML reports.</p></td>
-                            <td><p>No. Default is UTF-8</p></td>
+                            <td>charset</td>
+                            <td>The character set to use in the HTML reports.</td>
+                            <td>No. Default is UTF-8</td>
                         </tr>
                         <tr>
-                            <td><p>dateFormat</p></td>
+                            <td>dateFormat</td>
                             <td><p>Specifies a date format string for parsing the &quot;from&quot; and &quot;to&quot; fields. The string must contain a valid
                                 <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html" rel="nofollow">java.text.SimpleDateFormat</a>
                                 pattern.</p></td>
@@ -786,27 +784,27 @@
                                 using the default pattern and date format symbols for the default locale.</p></td>
                         </tr>
                         <tr>
-                            <td><p>from</p></td>
+                            <td>from</td>
                             <td><p>Specifies the date before which data points will be ignored. The
                                 date must be specified either using the default
                                 <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html" rel="nofollow">java.text.SimpleDateFormat</a>
                                 for your locale or using the pattern defined in the &quot;dateFormat&quot; attribute. </p></td>
-                            <td><p>No.</p></td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>historyDir</p></td>
+                            <td>historyDir</td>
                             <td><p>The directory containing Clover historical data as produced by
                                 the &lt;<a href="ant--clover-historypoint.html">clover-historypoint</a>&gt; task. </p></td>
-                            <td><p>Yes.</p></td>
+                            <td>Yes.</td>
                         </tr>
                         <tr>
-                            <td><p>historyIncludes</p></td>
+                            <td>historyIncludes</td>
                             <td><p>An <a href="http://ant.apache.org/manual/dirtasks.html#patterns" rel="nofollow">Ant GLOB</a> to select specific history
                                 point files within the <code>historyDir</code> directory</p></td>
                             <td><p>No; default is <code>clover-*.xml.gz</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>json</p></td>
+                            <td>json</td>
                             <td><p>A true or false value. If set to true, then a file called <code>historical-json.js</code>
                                 will be created in the top level directory containing some
                                 <a href="http://en.wikipedia.org/wiki/Json#JSONP" rel="nofollow">JSONP</a>.
@@ -815,27 +813,27 @@
                                 used by the
                                 <a href="http://code.google.com/apis/visualization/documentation/reference.html#DataTable" rel="nofollow">Google Visualization API</a>.
                                 <a href="ant--json-reference.html">More information.</a></p></td>
-                            <td><p>No. Default is &quot;false&quot;.</p></td>
+                            <td>No. Default is &quot;false&quot;.</td>
                         </tr>
                         <tr>
-                            <td><p>outfile</p></td>
-                            <td><p>The outfile to write output to. If it does not exist, it is
+                            <td>outfile</td>
+                            <td>The outfile to write output to. If it does not exist, it is
                                 created. Depending on the specified format, this either represents a regular file (PDF)
-                                or a directory (HTML).</p></td>
-                            <td><p>Yes; default format is HTML.</p></td>
+                                or a directory (HTML).</td>
+                            <td>Yes; default format is HTML.</td>
                         </tr>
                         <tr>
-                            <td><p>package</p></td>
-                            <td><p>Restricts the report to a particular package.</p></td>
-                            <td><p>No.</p></td>
+                            <td>package</td>
+                            <td>Restricts the report to a particular package.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>to</p></td>
+                            <td>to</td>
                             <td><p>Specifies the date after which data points will be ignored. The
                                 date must be specified either using the default
                                 <a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/SimpleDateFormat.html" rel="nofollow">java.text.SimpleDateFormat</a>
                                 for your locale or using the pattern defined in the &quot;dateFormat&quot; attribute. </p></td>
-                            <td><p>No.</p></td>
+                            <td>No.</td>
                         </tr>
                         </tbody>
                     </table>
@@ -858,23 +856,23 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>range</p></td>
-                            <td><p>The maximum number of classes to show. If the value is 5, then a
-                                maximum of 5 &quot;gainers&quot; and 5 &quot;losers&quot; will be shown.</p></td>
+                            <td>range</td>
+                            <td>The maximum number of classes to show. If the value is 5, then a
+                                maximum of 5 &quot;gainers&quot; and 5 &quot;losers&quot; will be shown.</td>
                             <td><p>No; defaults to <code>5.</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>interval</p></td>
+                            <td>interval</td>
                             <td><p>The time interval over which the delta should be calculated
                                 (from the last history point). Uses the <a href="ant--using-spans-specifying-an-interval.html">Interval</a>
                                 format. The range is automatically adjusted to the closest smaller interval available. </p></td>
-                            <td><p>No; the default is to take the delta of the last two history
-                                points.</p></td>
+                            <td>No; the default is to take the delta of the last two history
+                                points.</td>
                         </tr>
                         </tbody>
                     </table>
@@ -904,50 +902,50 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>title</p></td>
-                            <td><p>The title to use for the chart.</p></td>
-                            <td><p>No.</p></td>
+                            <td>title</td>
+                            <td>The title to use for the chart.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>logscale</p></td>
-                            <td><p>Use a log scale for the y axis.</p></td>
-                            <td><p>No; default is set to 'true'.</p></td>
+                            <td>logscale</td>
+                            <td>Use a log scale for the y axis.</td>
+                            <td>No; default is set to 'true'.</td>
                         </tr>
                         <tr>
-                            <td><p>xLabel</p></td>
-                            <td><p>The x label to use.</p></td>
-                            <td><p>No.</p></td>
+                            <td>xLabel</td>
+                            <td>The x label to use.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>yLabel</p></td>
-                            <td><p>The x label to use.</p></td>
-                            <td><p>No.</p></td>
+                            <td>yLabel</td>
+                            <td>The x label to use.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>width</p></td>
-                            <td><p>The width of the chart image.</p></td>
-                            <td><p>No; default is set to 640 pixels (640px).</p></td>
+                            <td>width</td>
+                            <td>The width of the chart image.</td>
+                            <td>No; default is set to 640 pixels (640px).</td>
                         </tr>
                         <tr>
-                            <td><p>height</p></td>
-                            <td><p>The height of the chart image.</p></td>
-                            <td><p>No; default is set to 480 pixels (480px).</p></td>
+                            <td>height</td>
+                            <td>The height of the chart image.</td>
+                            <td>No; default is set to 480 pixels (480px).</td>
                         </tr>
                         <tr>
-                            <td><p>upperBound</p></td>
-                            <td><p>The maximum y value to display.</p></td>
-                            <td><p>No; default is set to -1 (unbounded).</p></td>
+                            <td>upperBound</td>
+                            <td>The maximum y value to display.</td>
+                            <td>No; default is set to -1 (unbounded).</td>
                         </tr>
                         <tr>
-                            <td><p>autoRange</p></td>
-                            <td><p>If set to 'true', the y-axis will be chosen automatically to fit
-                                the data best.</p></td>
-                            <td><p>No; default is 'false'.</p></td>
+                            <td>autoRange</td>
+                            <td>If set to 'true', the y-axis will be chosen automatically to fit
+                                the data best.</td>
+                            <td>No; default is 'false'.</td>
                         </tr>
                         </tbody>
                     </table>
@@ -972,37 +970,37 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>type</p></td>
+                            <td>type</td>
                             <td><p>The output format in which to render the report. Valid values
                                 are <code>pdf</code>, <code>xml</code>, <code>html</code> and <code>json</code>. Note
                                 that not all report formats support all other attributes.</p></td>
                             <td><p>Yes, unless <code>refid</code> is set.</p></td>
                         </tr>
                         <tr>
-                            <td><p>refid</p></td>
+                            <td>refid</td>
                             <td><p>The id of another format element that will be used for this
                                 report. See <a href="ant--sharing-report-formats.html">Sharing
                                     Report Formats</a>.</p></td>
-                            <td><p>No.</p></td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>id</p></td>
-                            <td><p>The id of this format element.</p></td>
-                            <td><p>No.</p></td>
+                            <td>id</td>
+                            <td>The id of this format element.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>bw</p></td>
-                            <td><p>Specify that the report should be black-and-white. Supported by
-                                PDF reports only.</p></td>
+                            <td>bw</td>
+                            <td>Specify that the report should be black-and-white. Supported by
+                                PDF reports only.</td>
                             <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>orderBy</p></td>
+                            <td>orderBy</td>
                             <td><p>Specify how to order coverage tables. This attribute has no
                                 effect on XML format. Valid values are: <br class="atl-forced-newline"/> <code>Alpha</code> — Alpabetical.
                                 <br class="atl-forced-newline"/> <code>PcCoveredAsc</code> — Percent total coverage,
@@ -1015,54 +1013,54 @@
                             <td><p>No; defaults to <code>PcCoveredAsc.</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>noCache</p></td>
+                            <td>noCache</td>
                             <td><p><em>(HTML only)</em> If true, insert nocache directives in HTML
                                 output.</p></td>
                             <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>srcLevel</p></td>
-                            <td><p>If true, include source-level coverage information in the
-                                report.</p></td>
+                            <td>srcLevel</td>
+                            <td>If true, include source-level coverage information in the
+                                report.</td>
                             <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>filter</p></td>
+                            <td>filter</td>
                             <td><p>comma or space separated list of contexts to exclude when
                                 generating coverage reports. See <a href="ant--using-coverage-contexts.html">Using
                                     Coverage Contexts</a>.</p></td>
-                            <td><p>No.</p></td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>pageSize</p></td>
+                            <td>pageSize</td>
                             <td><p><em>(PDF only)</em> Specify the page size to use. Valid values
                                 are <code>A4</code>, <code>LETTER.</code></p></td>
                             <td><p>No; defaults to &quot;<code>A4</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>showEmpty</p></td>
-                            <td><p>If true, classes, files and packages that do not contain any
+                            <td>showEmpty</td>
+                            <td>If true, classes, files and packages that do not contain any
                                 executable code (i.e. methods, statements, or branches) are included in reports. These
-                                are normally not shown.</p></td>
+                                are normally not shown.</td>
                             <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
                         </tr>
                         <tr>
-                            <td><p>tabWidth</p></td>
+                            <td>tabWidth</td>
                             <td><p><em>(Source level reports only)</em> The number of space chars
                                 to replace TAB characters with.</p></td>
                             <td><p>No; defaults to <code>4.</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>maxNameLength</p></td>
-                            <td><p>The maximum length in chars of package or classnames in the
-                                report. Longer names will be truncated. A value &lt; 0 indicates no limit.</p></td>
-                            <td><p>No; defaults to no limit.</p></td>
+                            <td>maxNameLength</td>
+                            <td>The maximum length in chars of package or classnames in the
+                                report. Longer names will be truncated. A value &lt; 0 indicates no limit.</td>
+                            <td>No; defaults to no limit.</td>
                         </tr>
                         <tr>
-                            <td><p>callback</p></td>
-                            <td><p>The name of the callback function to wrap the JSON. If set to an
-                                empty string, &quot; &quot;, then the JSON will not be wrapped.</p></td>
-                            <td><p>No; default is 'processClover'.</p></td>
+                            <td>callback</td>
+                            <td>The name of the callback function to wrap the JSON. If set to an
+                                empty string, &quot; &quot;, then the JSON will not be wrapped.</td>
+                            <td>No; default is 'processClover'.</td>
                         </tr>
                         </tbody>
                     </table>
@@ -1078,15 +1076,14 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>logscale</p></td>
-                            <td><p>Specifies that a log scale be used on the Range Axis. This can
-                                be useful if you are including, for example, LOC and packages in the same chart.</p>
-                            </td>
+                            <td>logscale</td>
+                            <td>Specifies that a log scale be used on the Range Axis. This can
+                                be useful if you are including, for example, LOC and packages in the same chart.</td>
                             <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
                         </tr>
                         </tbody>
@@ -1102,29 +1099,29 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>threshold</p></td>
+                            <td>threshold</td>
                             <td><p>The absolute point change in percent coverage that class must
                                 have changed by for inclusion. e.g &quot;<code>10%</code>&quot;.</p></td>
                             <td><p>No; defaults to <code>1%.</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>range</p></td>
-                            <td><p>The maximum number of classes to show. If the value is 5, then a
-                                maximum of 5 &quot;gainers&quot; and 5 &quot;losers&quot; will be shown.</p></td>
+                            <td>range</td>
+                            <td>The maximum number of classes to show. If the value is 5, then a
+                                maximum of 5 &quot;gainers&quot; and 5 &quot;losers&quot; will be shown.</td>
                             <td><p>No; defaults to <code>5.</code></p></td>
                         </tr>
                         <tr>
-                            <td><p>interval</p></td>
+                            <td>interval</td>
                             <td><p>The time interval over which the delta should be calculated
                                 (from the last history point). Uses the <a href="ant--using-spans-specifying-an-interval.html">Interval</a>
                                 format. The range is automatically adjusted to the closest smaller interval available. </p></td>
-                            <td><p>No; the default is to take the delta of the last two history
-                                points.</p></td>
+                            <td>No; the default is to take the delta of the last two history
+                                points.</td>
                         </tr>
                         </tbody>
                     </table>

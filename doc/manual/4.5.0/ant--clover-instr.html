@@ -89,32 +89,32 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>destdir</p></td>
-                            <td><p>The directory into which Clover will write an instrumented copy
-                                of the source code.</p></td>
-                            <td><p>Yes.</p></td>
+                            <td>destdir</td>
+                            <td>The directory into which Clover will write an instrumented copy
+                                of the source code.</td>
+                            <td>Yes.</td>
                         </tr>
                         <tr>
-                            <td><p>initstring</p></td>
+                            <td>initstring</td>
                             <td><p>The Clover initString describes the location of the Clover
                                 coverage database. Typically this is a relative or absolute file reference, e.g. <code>${basedir}/build/clover.db</code>.
                                 If not specified it defaults to <code>.clover</code>, relative to the project's base
                                 directory.</p></td>
-                            <td><p>No.</p></td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>flushinterval</p></td>
-                            <td><p>When the flushpolicy is set to interval or threaded this value
-                                is the minimum period between flush operations (in milliseconds).</p></td>
-                            <td><p>No.</p></td>
+                            <td>flushinterval</td>
+                            <td>When the flushpolicy is set to interval or threaded this value
+                                is the minimum period between flush operations (in milliseconds).</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>flushpolicy</p></td>
+                            <td>flushpolicy</td>
                             <td><p>This attribute controls how Clover flushes coverage data during
                                 a test run. Valid values are <code>directed</code>, <code>interval</code> or <code>threaded</code>.
                                 <code>directed</code>
@@ -132,17 +132,17 @@
                             <td><p>No; defaults to <code>directed</code>.</p></td>
                         </tr>
                         <tr>
-                            <td><p>fullyQualifyJavaLang</p></td>
+                            <td>fullyQualifyJavaLang</td>
                             <td><p>This should only be set to '<code>false</code>' if you have
                                 defined a variable called 'java' in your source files. If false, Clover will instrument
                                 source files without using fully qualified java.lang names.</p></td>
                             <td><p>No; defaults to '<code>true</code>'.</p></td>
                         </tr>
                         <tr>
-                            <td><p>instrumentationLevel</p></td>
-                            <td><p>This setting can reduce accuracy to method level, to enhance the
+                            <td>instrumentationLevel</td>
+                            <td>This setting can reduce accuracy to method level, to enhance the
                                 speed of instrumentation, compilation &amp; test execution. Valid values are 'method'
-                                and 'statement'.</p></td>
+                                and 'statement'.</td>
                             <td><p>No; defaults to <code>statement</code>.</p></td>
                         </tr>
                         <tr>
@@ -173,7 +173,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><p>recordTestResults</p></td>
+                            <td>recordTestResults</td>
                             <td><p>If set to '<code>false</code>', test results will not be
                                 recorded; instead, results can be added via the <code>&lt;testResults&gt;</code> fileset
                                 at report time. For more details please see '<a href="ant--test-results-and-per-test-coverage.html">Advanced Usage</a>'. </p>
@@ -181,23 +181,23 @@
                             <td><p>No; defaults to '<code>true</code>'. </p></td>
                         </tr>
                         <tr>
-                            <td><p>relative</p></td>
+                            <td>relative</td>
                             <td><p>This controls whether the <code>initstring</code> parameter is
                                 treated as a relative path or not.</p></td>
                             <td><p>No; defaults to '<code>false</code>'.</p></td>
                         </tr>
                         <tr>
-                            <td><p>srcdir</p></td>
-                            <td><p>The directory of source code to instrument.</p></td>
+                            <td>srcdir</td>
+                            <td>The directory of source code to instrument.</td>
                             <td><p>Yes, unless a nested <a href="ant--clover-instr.html">clover-instr</a>
                                 element is used.</p></td>
                         </tr>
                         <tr>
-                            <td><p>source</p></td>
+                            <td>source</td>
                             <td><p>The source level to process source files at. <strong>It is
                                 recommended that you set this parameter, either here or on</strong> <code><strong>&lt;javac&gt;</strong></code>
                                 <strong>invocations.</strong></p></td>
-                            <td><p>No; defaults to the Java version detected at runtime.</p></td>
+                            <td>No; defaults to the Java version detected at runtime.</td>
                         </tr>
                         </tbody>
                     </table>
@@ -216,36 +216,36 @@
                             <th><p>Required</p></th>
                         </tr>
                         <tr>
-                            <td><p>name</p></td>
-                            <td><p>The name of this configuration.</p></td>
+                            <td>name</td>
+                            <td>The name of this configuration.</td>
                             <td><p>No; defaults to '<code>tcp-config</code>'</p></td>
                         </tr>
                         <tr>
-                            <td><p>port</p></td>
-                            <td><p>The port the test JVM should listen on.</p></td>
+                            <td>port</td>
+                            <td>The port the test JVM should listen on.</td>
                             <td><p>No; defaults to '<code>1198</code>'</p></td>
                         </tr>
                         <tr>
-                            <td><p>host</p></td>
-                            <td><p>The hostname the test JVM should bind to.</p></td>
+                            <td>host</td>
+                            <td>The hostname the test JVM should bind to.</td>
                             <td><p>No; defaults to '<code>localhost</code>'</p></td>
                         </tr>
                         <tr>
-                            <td><p>timeout</p></td>
-                            <td><p>(a number) The amount of time (in milliseconds) to wait before a
-                                connection attempt will fail.</p></td>
+                            <td>timeout</td>
+                            <td>(a number) The amount of time (in milliseconds) to wait before a
+                                connection attempt will fail.</td>
                             <td><p>No; defaults to '<code>5000</code>'</p></td>
                         </tr>
                         <tr>
-                            <td><p>numClients</p></td>
-                            <td><p>(a number) The number of clients that need to connect to the
-                                test server before the tests will continue.</p></td>
+                            <td>numClients</td>
+                            <td>(a number) The number of clients that need to connect to the
+                                test server before the tests will continue.</td>
                             <td><p>No; defaults to '<code>0</code>'</p></td>
                         </tr>
                         <tr>
-                            <td><p>retryPeriod</p></td>
-                            <td><p>(a number) The amount of time (in milliseconds) to wait before
-                                attempting to reconnect in the event of a network failure.</p></td>
+                            <td>retryPeriod</td>
+                            <td>(a number) The amount of time (in milliseconds) to wait before
+                                attempting to reconnect in the event of a network failure.</td>
                             <td><p>No; defaults to '<code>1000</code>'</p></td>
                         </tr>
                         </tbody>
@@ -266,24 +266,24 @@
                         <table class="table table-striped">
                             <tbody>
                             <tr>
-                                <th><p><strong>Attribute</strong></p></th>
-                                <th><p><strong>Description</strong></p></th>
-                                <th><p><strong>Required</strong></p></th>
+                                <th>Attribute</th>
+                                <th>Description</th>
+                                <th>Required</th>
                             </tr>
                             <tr>
-                                <td><p>name</p></td>
+                                <td>name</td>
                                 <td><p>The name for this context. Must be unique, and not be one of
                                     the reserved context names (see <a href="ant--using-coverage-contexts.html">Using
                                         Coverage Contexts</a>).</p></td>
-                                <td><p>Yes.</p></td>
+                                <td>Yes.</td>
                             </tr>
                             <tr>
-                                <td><p>regexp</p></td>
-                                <td><p>A Perl 5 Regexp that defines the context. This regexp should
+                                <td>regexp</td>
+                                <td>A Perl 5 Regexp that defines the context. This regexp should
                                     match the method signatures of methods you wish to include in this context. Note
                                     that when method signatures are tested against this regexp, whitespace is normalized
-                                    and comments are ignored.</p></td>
-                                <td><p>Yes.</p></td>
+                                    and comments are ignored.</td>
+                                <td>Yes.</td>
                             </tr>
                             <tr>
                                 <td colspan="1">maxComplexity</td>
@@ -399,23 +399,23 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>name</p></td>
+                            <td>name</td>
                             <td><p>The name for this context. Must be unique, and not be one of the
                                 reserved context names (see <a href="ant--using-coverage-contexts.html">Using
                                     Coverage Contexts</a>).</p></td>
-                            <td><p>Yes.</p></td>
+                            <td>Yes.</td>
                         </tr>
                         <tr>
-                            <td><p>regexp</p></td>
-                            <td><p>A Perl 5 Regexp that defines the context. This regexp should
+                            <td>regexp</td>
+                            <td>A Perl 5 Regexp that defines the context. This regexp should
                                 match statements you wish to include in this context. Note that when statements are
-                                tested against this regexp, whitespace is normalized and comments are ignored.</p></td>
-                            <td><p>Yes.</p></td>
+                                tested against this regexp, whitespace is normalized and comments are ignored.</td>
+                            <td>Yes.</td>
                         </tr>
                         </tbody>
                     </table>
@@ -446,18 +446,18 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>name</p></td>
-                            <td><p>The name for this profile; name must be unique among profiles.
-                                There must be one profile named &quot;default&quot;.</p></td>
-                            <td><p>No. Defaults to &quot;default&quot;.</p></td>
+                            <td>name</td>
+                            <td>The name for this profile; name must be unique among profiles.
+                                There must be one profile named &quot;default&quot;.</td>
+                            <td>No. Defaults to &quot;default&quot;.</td>
                         </tr>
                         <tr>
-                            <td><p>coverageRecorder</p></td>
+                            <td>coverageRecorder</td>
                             <td><p>Type of coverage recorder which will be used for gathering
                                 coverage data at runtime. Possible values: FIXED, GROWABLE, SHARED (case
                                 insensitive).</p>
@@ -465,7 +465,7 @@
                                     <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> Warning: we strongly recommend
                                     using the default setting. Do not change until you deeply understand <a href="ant--coverage-recorders.html">how
                                     it works</a>.</p></td>
-                            <td><p>No. Defaults to &quot;FIXED&quot;.</p></td>
+                            <td>No. Defaults to &quot;FIXED&quot;.</td>
                         </tr>
                         </tbody>
                     </table>
@@ -529,35 +529,34 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>name</p></td>
-                            <td><p>A regex on which to match the test class's name.</p></td>
-                            <td><p>No.</p></td>
+                            <td>name</td>
+                            <td>A regex on which to match the test class's name.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>super</p></td>
-                            <td><p>A regex on which to match the test class's superclass.</p></td>
-                            <td><p>No.</p></td>
+                            <td>super</td>
+                            <td>A regex on which to match the test class's superclass.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>annotation</p></td>
-                            <td><p>A regex on which to match the test class's annotation.</p></td>
-                            <td><p>No.</p></td>
+                            <td>annotation</td>
+                            <td>A regex on which to match the test class's annotation.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>package</p></td>
-                            <td><p>A regex on which to match the test class's package.</p></td>
-                            <td><p>No.</p></td>
+                            <td>package</td>
+                            <td>A regex on which to match the test class's package.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>tag</p></td>
-                            <td><p>A regex on which to match the test class's javadoc tags.</p>
-                            </td>
-                            <td><p>No.</p></td>
+                            <td>tag</td>
+                            <td>A regex on which to match the test class's javadoc tags.</td>
+                            <td>No.</td>
                         </tr>
                         </tbody>
                     </table>
@@ -608,28 +607,27 @@
                     <table class="table table-striped">
                         <tbody>
                         <tr>
-                            <th><p><strong>Attribute</strong></p></th>
-                            <th><p><strong>Description</strong></p></th>
-                            <th><p><strong>Required</strong></p></th>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
                         </tr>
                         <tr>
-                            <td><p>name</p></td>
-                            <td><p>A regex on which to match the test method's name.</p></td>
-                            <td><p>No.</p></td>
+                            <td>name</td>
+                            <td>A regex on which to match the test method's name.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>annotation</p></td>
-                            <td><p>A regex on which to match the test method's annotation.</p></td>
-                            <td><p>No.</p></td>
+                            <td>annotation</td>
+                            <td>A regex on which to match the test method's annotation.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>tag</p></td>
-                            <td><p>A regex on which to match the test method's javadoc tags.</p>
-                            </td>
-                            <td><p>No.</p></td>
+                            <td>tag</td>
+                            <td>A regex on which to match the test method's javadoc tags.</td>
+                            <td>No.</td>
                         </tr>
                         <tr>
-                            <td><p>returntype</p></td>
+                            <td>returntype</td>
                             <td><p>A regex on which to match the return type of the method,
                                 e.g.:</p>
                                 <ul>
@@ -637,7 +635,7 @@
                                     <li>&quot;<code>void</code>&quot; will match methods with no return type.</li>
                                 </ul>
                             </td>
-                            <td><p>No.</p></td>
+                            <td>No.</td>
                         </tr>
                         </tbody>
                     </table>
