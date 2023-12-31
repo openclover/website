@@ -8,6 +8,10 @@ th {
     color: #654982;
 }
 
+h1,h2,h3,h4,h5,h6 {
+    color: #654982;
+}
+
 footer {
     border-top: 1px #dcd3e6 solid;
     margin-top: 20px;
