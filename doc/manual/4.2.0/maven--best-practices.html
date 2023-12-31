@@ -132,7 +132,7 @@
                     default build section of the pom with an execution binding the 'instrument' goal.</p>
                 <h2>Setting up a CI profile</h2>
                 <ol>
-                    <li>Add a <span class="confluence-link">'clover.optimize'</span> profile to the project's <code>pom.xml</code>.
+                    <li>Add a <span>'clover.optimize'</span> profile to the project's <code>pom.xml</code>.
                     </li>
                     <li>Create a new '<strong>Gateway</strong>' build plan in your CI server. A 'Gateway' build plan is
                         one that gets run before any others and if successful, triggers any subsequent builds.
@@ -182,7 +182,7 @@
                 </div>
                 <h1 id="BestPracticesforMaven-Testoptimizationonthedesktop">Test optimization on the desktop</h1>
                 <p>Running Clover's test optimization locally is very advantageous. This is achieved using the
-                    <span class="confluence-link">'clover.optimize'</span> profile that can be activated like so:</p>
+                    <span>'clover.optimize'</span> profile that can be activated like so:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
 <pre>mvn verify -Pclover.optimize
@@ -197,7 +197,7 @@
                     goal forks the build lifecycle ensuring that Clover instrumented sources are kept completely
                     separate from production sources. This also means that your tests get run twice — which is obviously
                     not desirable in an optimized build.</p>
-                <p>The <span class="confluence-link">'<a href="#BestPracticesforMaven-clover.report">clover.report</a>'</span>
+                <p>The <span>'<a href="#BestPracticesforMaven-clover.report">clover.report</a>'</span>
                     profile is an example of a build profile to activate when running this command:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeContent panelContent pdl">
