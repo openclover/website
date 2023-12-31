@@ -141,17 +141,11 @@
                 <p>Aggregated metrics calculate method statements/complexity including the code of all anonymous inline
                     classes declared inside the method. Thanks to this, it is possible to distinguish between a trivial
                     single-statement method like:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>int getNumber() {
+                <pre>int getNumber() {
    return number;
 }</pre>
-                    </div>
-                </div>
                 <p>and a single-statement method which actually returns more complex data, like:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>ActionListener getListener() {
+                <pre>ActionListener getListener() {
    return new ActionListener() {
        public void actionPerformed(ActionEvent e) {
            System.out.println(&quot;statement #1&quot;);
@@ -160,24 +154,14 @@
        }
    };
 }</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p>If you would use a method context filter with <em>maxStatements</em> attribute, like the following: </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxStatements=&quot;1&quot;&gt;</pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxStatements=&quot;1&quot;&gt;</pre>
                 <p>then both <em>getNumber()</em> and <em>getListener()</em> methods would be filtered-out, because each
                     of them contains only one statement: &quot;return &lt;xxx&gt;&quot;.</p>
                 <p> </p>
                 <p>If you would use new <em>maxAggregatedStatements</em>, for instance:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxAggregatedStatements=&quot;1&quot;&gt;</pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxAggregatedStatements=&quot;1&quot;&gt;</pre>
                 <p>then the <em>getNumber()</em> would be filtered-out and the <em>getListener()</em> method would
                     <strong>not</strong> be filtered out (because it contains 4 statements in total - 1 &quot;return&quot; statement from the method itself and 3 &quot;System.out.println()&quot; statements from anonymous
                     class).</p>
@@ -187,11 +171,7 @@
                     <img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)"/> If you would like to filter-out all methods,
                     except those having a specific name, you could write a negative-look-ahead regular expression. For
                     example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;^(?!.*(getRunnable|getListener)).*$&quot; maxStatements=&quot;1&quot;/&gt;</pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;^(?!.*(getRunnable|getListener)).*$&quot; maxStatements=&quot;1&quot;/&gt;</pre>
                 <p>will filter-out all methods having not more than one statement, except those which are named <em>getRunnable</em>
                     or <em>getListener. </em></p>
                 <p> </p>

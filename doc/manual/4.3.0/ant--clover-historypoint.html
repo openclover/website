@@ -186,42 +186,26 @@
                     results will provide all required information in the majority of cases. For more details please see
                     '<a href="ant--test-results-and-per-test-coverage.html">Advanced Usage</a>'.</p>
                 <h3>Examples</h3>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-historypoint historyDir=&quot;clover-historical&quot;/&gt;
+                <pre>&lt;clover-historypoint historyDir=&quot;clover-historical&quot;/&gt;
 </pre>
-                    </div>
-                </div>
                 <p>Records a history point into the directory <code>PROJECT_DIR/clover-historical</code>.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-historypoint historyDir=&quot;clover-historical&quot;
+                <pre>&lt;clover-historypoint historyDir=&quot;clover-historical&quot;
                       date=&quot;010724120856&quot;
 		    dateFormat=&quot;yyMMddHHmmss&quot;/&gt;
 </pre>
-                    </div>
-                </div>
                 <p>Records a history point, with the effective date of 24/07/01 12:08:56.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-historypoint historydir=&quot;history&quot;
+                <pre>&lt;clover-historypoint historydir=&quot;history&quot;
                      filter=&quot;toString&quot;
                      includeFailedTestCoverage=&quot;false&quot;
                      property=&quot;clover.historypoint.path&quot;&gt;
 &lt;/clover-historypoint&gt;
 </pre>
-                    </div>
-                </div>
                 <p>Records a history point that excludes all test coverage that is attributed to a failed test; <code>clover.historypoint.path</code>
                     will contain the absolute file path of the history point that was created.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-historypoint historyDir=&quot;clover-historical&quot;&gt;
+                <pre>&lt;clover-historypoint historyDir=&quot;clover-historical&quot;&gt;
 	&lt;testsources dir=&quot;src&quot; include name=&quot;**/*Test.java&quot;/&gt;
 &lt;/clover-historypoint&gt;
 </pre>
-                    </div>
-                </div>
                 <p>Records a history point that recognizes classes in the &quot;src&quot; directory as tests.</p>
             </div>
 

@@ -181,42 +181,30 @@
                     <li>name - name of the Clover server service (URL is <em>host:port/name</em>)</li>
                 </ul>
                 <p>Example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >-Dclover.distributed.coverage=host=myhost;port=7777;numclients=2</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p>For the following examples, we are using the
                     <a href="http://blogs.webtide.com/janb/entry/jetty_runner" rel="nofollow">Jetty Runner</a> to start the Jetty
                     Webserver, and the Ant JUnit Task to run the tests.</p>
                 <h4 id="UsingDistributedPer-testCoveragewithClover-for-Ant-SettingtheSystemPropertiesintheAntJUnitTask">
                     Setting the System Properties in the Ant JUnit Task</h4>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot; showoutput=&quot;true&quot; printsummary=&quot;true&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot; showoutput=&quot;true&quot; printsummary=&quot;true&quot;&gt;
         &lt;sysproperty key=&quot;clover.server&quot; value=&quot;true&quot;/&gt;
         &lt;sysproperty key=&quot;clover.distributed.coverage&quot; value=&quot;ON&quot;/&gt;
         ...
 &lt;/junit&gt;
 </pre>
-                    </div>
-                </div>
                 <h4>
                     Setting a System Property in the Java task that starts the WebServer</h4>
                 <p>The JVM running your webserver also requires the <code>clover.distributed.coverage</code> property
                     set to <code>ON</code>.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"> &lt;java jar=&quot;${jetty.jar}&quot; fork=&quot;true&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"> &lt;java jar=&quot;${jetty.jar}&quot; fork=&quot;true&quot;&gt;
 	...
         &lt;jvmarg value=&quot;-Dclover.distributed.coverage=ON&quot;/&gt;
 &lt;/java&gt;
 </pre>
-                    </div>
-                </div>
                 <p>If you are unable to set a System Property on the JVM running your webserver, use the second approach
                     described below.</p>
                 <h3>
@@ -229,25 +217,17 @@
                 <p>Both the <a href="ant--clover-setup.html">&lt;clover-setup&gt;</a> and
                     <a href="ant--clover-instr.html">&lt;clover-instr&gt;</a> tasks can be configured with this
                     nested element:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;distributedCoverage/&gt;
+                <pre>&lt;distributedCoverage/&gt;
 </pre>
-                    </div>
-                </div>
                 <p>If this element is present, then Clover will run in 'distributed mode' at test time. If you wish to
                     modify any configuration options such as the port to listen on, or the number of clients expected to
                     attach to the testing session, you can specify these as attributes on the
                     <a href="ant--clover-setup.html"><code>&lt;distributedCoverage&gt;</code></a>
                     element like so:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;clover-setup&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;clover-setup&gt;
   &lt;distributedCoverage port=&quot;1234&quot; numClients=&quot;1&quot;/&gt;
 &lt;/clover-setup&gt;
 </pre>
-                    </div>
-                </div>
                 <p>This will enable distributed per-test coverage to be collected. Please see the
                     <a href="ant--clover-setup.html">documentation</a> for the &lt;distributedCoverage/&gt; element for more options. </p>
                 <h4 id="UsingDistributedPer-testCoveragewithClover-for-Ant-Step2:Specifythe&#39;clover.server&#39;propertyonJVMrunningtheTests">
@@ -255,15 +235,11 @@
                 <p>Add the <code>clover.server</code> system property to the JUnit or TestNG Ant task configuration, and
                     ensure the forkMode parameter is set to 'once':</p>
                 <p>e.g.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot; showoutput=&quot;true&quot; printsummary=&quot;true&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot; showoutput=&quot;true&quot; printsummary=&quot;true&quot;&gt;
         &lt;sysproperty key=&quot;clover.server&quot; value=&quot;true&quot;/&gt;
         ...
 &lt;/junit&gt;
 </pre>
-                    </div>
-                </div>
                 <p>If you have specified the <code>numClients</code> option to something greater than 0, your tests can
                     be started prior to starting the webserver. Clover will wait until <code>numClients</code> have
                     connected to the testing session before allowing the tests to start running.</p>

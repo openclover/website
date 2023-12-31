@@ -67,51 +67,35 @@
             <div id="main-content">
                 <h4>Symptoms</h4>
                 <p>Clover-instrumented code fails to compile with a following error:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>src/LambdaAndStreams.java:75: error: incompatible types: bad return type in lambda expression
+                <pre>src/LambdaAndStreams.java:75: error: incompatible types: bad return type in lambda expression
 				mapClass.map((internalMap) -&gt; {__CLR4_0_500ibutb8q0.R.inc(50);return internalMap.put(&quot;some&quot;, &quot;some&quot;);});
                                                                                                                    ^
     unexpected return value
 1 error</pre>
-                    </div>
-                </div>
                 <p> </p><h4>Cause</h4>
                 <p>Since version 4.0.5, Clover tries to resolve some compilation errors listed <a href="kb--java-8-code-instrumented-by-clover-fails-to-compile.html">here</a> by rewriting some of lambda expressions to lambda blocks. Clover looks
                     for JDK <code>java.util.stream.Stream's</code> and some of <code>Guava</code> classes' with lambda
                     expression as an argument and rewrites them into a lambda block. However, if the lambda passed as
                     argument returns void, it will cause a compilation error:</p>
                 <p>For example, a lambda expression:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >myList.map((a) -&gt; System.out.println(&quot;Hello: &quot; + a))</pre>
-                    </div>
-                </div>
                 <p>will be rewritten as follows:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >myList.map((a) -&gt; { return System.out.println(&quot;Hello: &quot; + a);}) </pre>
-                    </div>
-                </div>
                 <p>The full list of methods which are affected can be found <a href="ant--lambda-rewriting-heuristics.html">here</a></p>
                 <h4><span style="color: rgb(0,0,0);">Solution </span></h4>
                 <p><span style="color: rgb(0,0,0);">1) Please use
                     <code>CLOVER:VOID</code> directive to instruct Clover that this specific lambda does not return a value, as follows:</span>
                 </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>(a) -&gt; /*CLOVER:VOID*/ System.out.println(&quot;Hello: &quot; + a)
+                <pre>(a) -&gt; /*CLOVER:VOID*/ System.out.println(&quot;Hello: &quot; + a)
 
 or
 
 (a) -&gt; //CLOVER:VOID
 		System.out.println(&quot;Hello: &quot; + a)</pre>
-                    </div>
-                </div>
                 <p>2) Alternatively, you can disable instrumentation of lambda functions (use instrumentLambda = block
                     or none).</p>
                 <p> <!--$body--></p>

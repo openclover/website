@@ -66,29 +66,21 @@
                 <div class="wiki-content"><h1 id="Clover-for-Maven2and3UpgradeGuide-Generalinstructions">General
                     instructions</h1>
                     <p><strong>1. Update version number of clover-maven-plugin in your pom.xml<br/></strong></p>
-                    <div class="code panel pdl" style="border-width: 1px;">
-                        <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;plugin&gt;
+                    <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;version&gt;&lt;!-- PUT CLOVER VERSION --&gt;&lt;/version&gt;
 &lt;/plugin&gt; </pre>
-                        </div>
-                    </div>
                     <p> </p>
                     <p><strong>2. Update version number of clover dependency in your
                         pom.xml </strong><strong>(optional)</strong></p>
                     <p>Your pom.xml may contain a dependency to Clover Core (org.openclover:clover). Update it's
                         version number the same version as the clover-maven-plugin:</p>
-                    <div class="code panel pdl" style="border-width: 1px;">
-                        <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;dependency&gt;
+                    <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;dependency&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover&lt;/artifactId&gt;
     &lt;version&gt;&lt;!-- PUT CLOVER VERSION --&gt;&lt;/version&gt;
 &lt;/dependency&gt; </pre>
-                        </div>
-                    </div>
                     <p><strong>3. Delete existing coverage databases</strong> <strong>(optional)</strong></p>
                     <p>Clover's database format may change in newer versions. In such case you may get a build error
                         with a message informing about database incompatibility. In such case you have to delete old

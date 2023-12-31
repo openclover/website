@@ -86,16 +86,12 @@
                     information. Clover also uses a shutdown hook to ensure that it flushes any as yet unflushed
                     coverage information to disk when Java exits. To support these requirements, the following security
                     permissions are recommended:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>grant codeBase &quot;file:/path/to/clover.jar&quot; {
+                <pre>grant codeBase &quot;file:/path/to/clover.jar&quot; {
     permission java.util.PropertyPermission &quot;*&quot;, &quot;read&quot;;
     permission java.io.FilePermission &quot;&lt;&lt;ALL FILES&gt;&gt;&quot;, &quot;read, write&quot;;
     permission java.lang.RuntimePermission &quot;shutdownHooks&quot;;
 }
 </pre>
-                    </div>
-                </div>
                 <p></p>
             </div>
 

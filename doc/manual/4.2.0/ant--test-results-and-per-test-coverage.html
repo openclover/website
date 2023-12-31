@@ -92,9 +92,7 @@
                     will allow you to specify the convention used by your framework.</p>
                 <p>The <a href="http://code.google.com/p/instinct/" rel="nofollow">Instinct</a>
                     framework for example uses the following:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-setup&gt;
+                <pre>&lt;clover-setup&gt;
   &lt;testsources dir=&quot;tests&quot;&gt;
     &lt;testclass&gt;
       &lt;testmethod annotation=&quot;Specification&quot;/&gt;
@@ -104,14 +102,10 @@
   &lt;/testsources&gt;
 &lt;/clover-setup&gt;
 </pre>
-                    </div>
-                </div>
                 <p>You can optionally group <code>&lt;testclass/&gt;</code> definitions in <code>&lt;or/&gt;</code> or
                     <code>&lt;and/&gt;</code> elements. Each <code>&lt;testmethod/&gt;</code> element is automatically
                     grouped by an OR.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-setup&gt;
+                <pre>&lt;clover-setup&gt;
   &lt;testsources dir=&quot;tests&quot;&gt;
     &lt;or&gt;
       &lt;testclass name=&quot;.*Context&quot;&gt;
@@ -124,8 +118,6 @@
   &lt;/testsources&gt;
 &lt;/clover-setup&gt;
 </pre>
-                    </div>
-                </div>
                 <div class="alert alert-success" role="alert">
     <div><p><strong>Differences between Groovy and Java with
                         respect to <a href="ant--clover-setup.html" class="alert-link">&lt;clover-setup&gt;</a> tasks.</strong></p>
@@ -152,9 +144,7 @@
                 <ul>
                     <li><p><strong>Enable XML reports from your Unit Test execution.</strong><br/> In an Ant build, if
                         using the <code>&lt;junit&gt;</code>task, you need to add an XML result formatter:</p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-<pre>&lt;property name=&quot;testreport.dir&quot; value=&quot;build/test-reports&quot;&gt;
+                        <pre>&lt;property name=&quot;testreport.dir&quot; value=&quot;build/test-reports&quot;&gt;
 
  &lt;junit ...&gt;
      ...
@@ -164,8 +154,6 @@
     &lt;/batchtest&gt;
  &lt;/junit&gt;
 </pre>
-                            </div>
-                        </div>
                         <p>Such results can be similarly produced by the Ant TestNG tasks.</p></li>
                 </ul>
                 <ul>
@@ -179,12 +167,8 @@
                     </li>
                 </ul>
                 <p>e.g.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>      &lt;testresults dir=&quot;test-results&quot; include=&quot;TEST-*.xml&quot;/&gt;
+                <pre>      &lt;testresults dir=&quot;test-results&quot; include=&quot;TEST-*.xml&quot;/&gt;
 </pre>
-                    </div>
-                </div>
                 <p> </p>
                 <h3>Limitations</h3>
                 <p>Clover's per-test coverage collection does not support parallel test execution.</p>

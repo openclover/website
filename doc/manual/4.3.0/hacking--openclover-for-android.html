@@ -120,14 +120,10 @@
                 <h2>Unit testing</h2>
                 <p>You may need to add &quot;CLOVER:FLUSH&quot; directive in tear-down methods like below (in order to
                     force writing coverage data to disk):</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>public void tearDown() throws Exception {
+                <pre>public void tearDown() throws Exception {
     super.tearDown();
     ///CLOVER:FLUSH
 }</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <h1>Troubleshooting</h1>
                 <p>The following features may not work on Android:</p>

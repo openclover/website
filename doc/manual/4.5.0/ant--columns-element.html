@@ -179,12 +179,8 @@
                             <td>SUM</td>
                             <td><p>Scientifically Untested Metric. This is very similar to crap4j
                                 and is defined by this expression:</p>
-                                <div class="code panel pdl" style="border-width: 1px;">
-                                    <div class="codeContent panelContent pdl">
-<pre>complexity^2 * ((1 - %coveredElements/100)^3) + complexity
+                                <pre>complexity^2 * ((1 - %coveredElements/100)^3) + complexity
 </pre>
-                                    </div>
-                                </div>
                             </td>
                             <td>raw</td>
                         </tr>
@@ -319,14 +315,10 @@
                     column identifier will evaluate to the percentage of that columns data, rather than its raw value.
                     e.g. %CoveredElements == (CoveredElements/TotalElements) * 100</p>
                 <p><em>Example</em>:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;columns&gt;
+                <pre>&lt;columns&gt;
   &lt;expression title=&quot;SUM&quot;&gt;complexity^2 * ((1 - %coveredElements/100)^3) + complexity&lt;/expression&gt;
 &lt;/columns&gt;
 </pre>
-                    </div>
-                </div>
             </div>
 
 

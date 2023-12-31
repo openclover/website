@@ -76,9 +76,7 @@
                     </li>
                 </ul>
                 <p> </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;plugin&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;version&gt;${clover.version}&lt;/version&gt;
@@ -106,24 +104,18 @@
         &lt;/execution&gt;
     &lt;/executions&gt;
 &lt;/plugin&gt;</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <h3>Add jaxb-api plugin to &lt;dependencies&gt; section</h3>
                 <ul>
                     <li>this is required to run unit tests</li>
                 </ul>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;dependencies&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;dependencies&gt;
     &lt;dependency&gt;
         &lt;groupId&gt;javax.xml.bind&lt;/groupId&gt;
         &lt;artifactId&gt;jaxb-api&lt;/artifactId&gt;
         &lt;version&gt;${jaxb.version}&lt;/version&gt;
     &lt;/dependency&gt;
 &lt;/dependencies&gt;</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <h3>Add maven-jaxb2-plugin to &lt;build&gt; section</h3>
                 <ul>
@@ -132,9 +124,7 @@
                     </li>
                     <li>you can use extensions like <em>property-listener-injector</em><br/><br/></li>
                 </ul>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;plugin&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;plugin&gt;
     &lt;groupId&gt;org.jvnet.jaxb2.maven2&lt;/groupId&gt;
     &lt;artifactId&gt;maven-jaxb2-plugin&lt;/artifactId&gt;
     &lt;version&gt;0.8.1&lt;/version&gt;
@@ -176,8 +166,6 @@
         &lt;/dependency&gt;
     &lt;/dependencies&gt;
 &lt;/plugin&gt;</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <h2>Sample project</h2>
                 <p> </p>
@@ -237,15 +225,11 @@ which has not yet been resolved
                 </div>
                 <p><strong>Solution:</strong> Define a dependency to <em>org.openclover:clover</em> in your POM,
                     for example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;dependency&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;dependency&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover&lt;/artifactId&gt;
     &lt;version&gt;4.5.0&lt;/version&gt;
 &lt;/dependency&gt;</pre>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

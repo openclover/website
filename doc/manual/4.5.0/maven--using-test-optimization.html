@@ -74,12 +74,8 @@
                 <h2>Command-line Quick Start</h2>
                 <p>The quickest possible way to start using Test Optimization in Clover-for-Maven is to run the
                     following command:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>mvn clover:setup clover:optimize test clover:snapshot
+                <pre>mvn clover:setup clover:optimize test clover:snapshot
 </pre>
-                    </div>
-                </div>
                 <p>By default, the snapshot file gets saved to ${basedir}/.<code>clover/clover.snapshot</code>. It can
                     be deleted by running the <a href="../../maven/4.5.0/clean-mojo.html" rel="nofollow">clover:clean</a> goal. You can also specify an
                     alternative location using <code>-Dmaven.clover.snaphost=/path/to/clover.snapshot.</code> This file
@@ -99,9 +95,7 @@
                     Optimization</h2>
                 <p>To enable Clover's test optimization functionality, add the following profile to the profiles element
                     in your <strong>pom.xml</strong>:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;profiles&gt;
+                <pre>&lt;profiles&gt;
     &lt;profile&gt;
         &lt;id&gt;clover.optimize&lt;/id&gt;
         &lt;build&gt;
@@ -125,15 +119,9 @@
     &lt;/profile&gt;
 &lt;/profiles&gt;
 </pre>
-                    </div>
-                </div>
                 <p>This will then make it possible to run the following command:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>mvn integration-test -Pclover.optimize
+                <pre>mvn integration-test -Pclover.optimize
 </pre>
-                    </div>
-                </div>
                 <h2>Test Optimization In-Action</h2>
                 <p>The first time Clover Test Optimization is used a full test run will be done. You should see the
                     following log message appear in the maven stdout:</p>

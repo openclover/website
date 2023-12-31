@@ -78,16 +78,12 @@
                 <h4>Example</h4>
                 <p>Here, we are configuring <code>pom.xml</code> for the maven-bundle-plugin:</p>
 
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>
+                <pre>
 &lt;Import-Package&gt; &lt;!-- Make the bundle plugin process instrumented class files correctly --&gt;
   com_*;resolution:=optional
 &lt;/Import-Package&gt;
 &lt;Embed-Dependency&gt;artifactId=!clover&lt;/Embed-Dependency&gt; &lt;!-- Ensure the clover artifact is not embedded in the bundle --&gt;
 </pre>
-                    </div>
-                </div>
             </div>
 
 

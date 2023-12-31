@@ -68,9 +68,7 @@
                 <h4>
                     Symptoms</h4>
                 <p>Generation of Clover report ends with a following error:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence">clover.report:
+                <pre data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence">clover.report:
 [clover-report] Clover Version 3.1.6, built on June 19 2012 (build-867)
 [clover-report] Loaded from: /home/alice/clover.jar
 [clover-report] Clover: Developer License registered to Atlassian.
@@ -87,16 +85,10 @@ at clover.org.jfree.chart.JFreeChart.&lt;clinit&gt;(JFreeChart.java:254)
 ...
 at com.atlassian.clover.reporters.CloverReporter.execute(CloverReporter.java:41)
 </pre>
-                    </div>
-                </div>
                 <p>Typical messages:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>java.lang.InternalError: Can&#39;t connect to window server - not enough permissions
+                <pre>java.lang.InternalError: Can&#39;t connect to window server - not enough permissions
 java.lang.InternalError: Can&#39;t connect to X11 window server using &#39;SOME_HOST_NAME&#39; as the value of the DISPLAY variable
 java.lang.InternalError: Can&#39;t connect to X11 window server using &#39;&#39; as the value of the DISPLAY variable </pre>
-                    </div>
-                </div>
                 <p> </p><h4 id="Can&#39;tconnecttowindowserver-notenoughpermissionsthrownwhenbuildingcloverreport.-Cause">
                 Cause</h4>
                 <p>This error can occur if you are running the command remotely (via putty).</p>
@@ -108,12 +100,8 @@ java.lang.InternalError: Can&#39;t connect to X11 window server using &#39;&#39;
                 <p>1) Set correct value of DISPLAY variable or</p>
                 <p>2) If you-re running Clover on a machine with no X11 server, then add <strong>-Djava.awt.headless=true</strong>
                     to VM launch parameters, this tells AWT to use headless mode:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>export ANT_OPTS=-Djava.awt.headless=true
+                <pre>export ANT_OPTS=-Djava.awt.headless=true
 </pre>
-                    </div>
-                </div>
                 <p>
                     <img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)"/> Use &quot;export ANT_OPTS=-D...&quot; instead
                     of &quot;ant -D...&quot;</p>

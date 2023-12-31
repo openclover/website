@@ -87,62 +87,38 @@
                 <p>The <code>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;</code> task takes an optional
                     nested fileset element that tells Clover which files should be included/excluded in coverage
                     analysis:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-setup&gt;
+                <pre>&lt;clover-setup&gt;
      &lt;files includes=&quot;**/plugins/cruncher/**, **/plugins/muncher/**&quot;/&gt;
 &lt;/clover-setup&gt;
 </pre>
-                    </div>
-                </div>
                 <p>The includes could be set using an Ant property so that individual developers can specify includes on
                     the command line:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;property name=&quot;coverage.includes&quot; value=&quot;**&quot;/&gt;
+                <pre>&lt;property name=&quot;coverage.includes&quot; value=&quot;**&quot;/&gt;
   &lt;clover-setup&gt;
      &lt;files includes=&quot;${coverage.includes}&quot;/&gt;
   &lt;/clover-setup&gt;
 </pre>
-                    </div>
-                </div>
                 <p>Developers can then use a command line like the following for Java code:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>ant build -Dcoverage.includes=java/**/foo/*.java
+                <pre>ant build -Dcoverage.includes=java/**/foo/*.java
 </pre>
-                    </div>
-                </div>
                 <p>And for Groovy code:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>ant build -Dcoverage.includes=groovy/**/foo/*.groovy
+                <pre>ant build -Dcoverage.includes=groovy/**/foo/*.groovy
 </pre>
-                    </div>
-                </div>
                 <h3>Viewing source-level code
                     coverage quickly</h3>
                 <p>Clover provides two ways of quickly viewing coverage results. The
                     <code>&lt;<a href="ant--clover-log.html">clover-log</a>&gt;</code> task provides quick reporting to the
                     console:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-log/&gt;
+                <pre>&lt;clover-log/&gt;
 </pre>
-                    </div>
-                </div>
                 <p>The output format from the <code>&lt;<a href="ant--clover-log.html">clover-log</a>&gt;</code>
                     task uses the [file:line:column] format that many IDEs can parse.</p>
                 <h3>Viewing summary coverage
                     results quickly</h3>
                 <p>The <code>&lt;<a href="ant--clover-log.html">clover-log</a>&gt;</code> task provides an option
                     that will print a summary of coverage results to the console:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-log level=&quot;summary&quot;/&gt;
+                <pre>&lt;clover-log level=&quot;summary&quot;/&gt;
 </pre>
-                    </div>
-                </div>
                 <h3>Incrementally building
                     coverage results</h3>
                 <p>When iteratively improving coverage on a subset of your project, you may want to include coverage
@@ -150,12 +126,8 @@
                     works on current reports — see <a href="ant--using-spans.html">Using Spans</a>. This attribute
                     can be used to tell Clover how far back in time to include coverage results (measured from the time
                     of the last Clover build). To include results gathered over the last hour use:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-log span=&quot;1h&quot;/&gt;
+                <pre>&lt;clover-log span=&quot;1h&quot;/&gt;
 </pre>
-                    </div>
-                </div>
             </div>
 
 

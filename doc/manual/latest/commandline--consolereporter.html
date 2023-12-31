@@ -61,12 +61,8 @@
             <div id="main-content">
                 <p>Reports Code Coverage for the given coverage database to the console.</p>
                 <h2>Usage</h2>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>java com.atlassian.clover.reporters.console.ConsoleReporter [OPTIONS] PARAMS
+                <pre>java com.atlassian.clover.reporters.console.ConsoleReporter [OPTIONS] PARAMS
 </pre>
-                    </div>
-                </div>
                 <h3>Params</h3>
                 <div>
                     <table class="table table-striped">
@@ -133,9 +129,7 @@
                 <h2>API Usage</h2>
                 <p>ConsoleReporter provides a simple API that accepts an array of strings representing the command line
                     arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>import com.atlassian.clover.reporters.console.ConsoleReporter;
+                <pre>import com.atlassian.clover.reporters.console.ConsoleReporter;
 
     ...
 
@@ -145,24 +139,14 @@
            // problem during report generation
     }
 </pre>
-                    </div>
-                </div>
                 <h3>Examples</h3>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>java com.atlassian.clover.reporters.console.ConsoleReporter -i clover.db
+                <pre>java com.atlassian.clover.reporters.console.ConsoleReporter -i clover.db
 </pre>
-                    </div>
-                </div>
                 <p>Reads coverage for the Clover database &quot;clover.db&quot;, and produces a summary report to the
                     console.</p>
                 <p> </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>java com.atlassian.clover.reporters.console.ConsoleReporter -l &quot;method&quot; -t &quot;Method Coverage&quot; -i clover.db
+                <pre>java com.atlassian.clover.reporters.console.ConsoleReporter -l &quot;method&quot; -t &quot;Method Coverage&quot; -i clover.db
 </pre>
-                    </div>
-                </div>
                 <p>Produces the same report as above, but includes method-level coverage information, and a report
                     title.</p>
                 <p> </p>

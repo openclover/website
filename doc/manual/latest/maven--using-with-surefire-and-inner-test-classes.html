@@ -63,13 +63,9 @@
             <div id="main-content">
                 <p>If you use Maven with the surefire-test plugin, its default filter setting for searching test classes
                     is to skip inner classes:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;excludes&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;excludes&gt;
    &lt;exclude&gt;**/*$*&lt;/exclude&gt;
 &lt;/excludes&gt;</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p>In case when you have inner classes defined in your JUnit TestCases and you have configured a
                     Surefire plugin to run your inner classes as well, you might get an error like this:</p>
@@ -85,9 +81,7 @@
                     fix a problem, you have to change your <strong>pom.xml</strong> and filter out from your test scope
                     any inner classes beginning with <strong>__CLR</strong>.</p>
                 <p>For example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;build&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;build&gt;
   &lt;plugins&gt;
     &lt;plugin&gt;
       &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
@@ -100,8 +94,6 @@
     &lt;/plugin&gt;
   &lt;/plugins&gt;
 &lt;/build&gt;</pre>
-                    </div>
-                </div>
             </div>
 
 

@@ -67,42 +67,26 @@
                 <ol>
                     <li><a href="ant--installation-guide.html">Install Clover-for-Ant</a> in Ant classpath.</li>
                     <li><p>Import Clover targets in your build.xml file:</p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-<pre>&lt;taskdef resource=&quot;cloverlib.xml&quot;/&gt;
+                        <pre>&lt;taskdef resource=&quot;cloverlib.xml&quot;/&gt;
 &lt;clover-env/&gt;
 </pre>
-                            </div>
-                        </div>
                         <p>
                             <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> Note that this will not work within an
                             Ant target. It must be at the top level of the build file. <br class="atl-forced-newline"/></p></li>
                     <li><p>Add the clover.jar to your test classpath:</p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-<pre>&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot;&gt;
+                        <pre>&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot;&gt;
   &lt;classpath&gt;
     &lt;pathelement location=&quot;${user.home}/.ant/lib/clover.jar&quot;/&gt;
   &lt;/classpath&gt;
 &lt;/junit&gt;
 </pre>
-                            </div>
-                        </div>
                     </li>
                     <li><p>If you have a target already called &quot;test&quot; you can simply run</p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-<pre>ant clover.all
+                        <pre>ant clover.all
 </pre>
-                            </div>
-                        </div>
                         <p> Otherwise, run the following:</p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-<pre>ant with.clover your.test.target clover.report
+                        <pre>ant with.clover your.test.target clover.report
 </pre>
-                            </div>
-                        </div>
                         <p>Alternatively, define a property called &quot;test.target&quot; whose value is the name of
                             your test target.<br/><br/></p></li>
                     <li><p>Complete! That concludes the Ant two-line integration. You should now be set up to run Clover
@@ -128,58 +112,38 @@
                         <tr>
                             <td>clover.clean</td>
                             <td><p>Deletes the clover database and the</p>
-                                <div class="code panel pdl" style="border-width: 1px;">
-                                    <div class="codeContent panelContent pdl">
-                                        <pre
+                                <pre
 
                                         >${clover.dest}</pre>
-                                    </div>
-                                </div>
                                 <p>directory.</p></td>
                         </tr>
                         <tr>
                             <td>clover.current</td>
                             <td><p>Generates an HTML and XML report to</p>
-                                <div class="code panel pdl" style="border-width: 1px;">
-                                    <div class="codeContent panelContent pdl">
-                                        <pre
+                                <pre
 
                                         >${clover.dest}</pre>
-                                    </div>
-                                </div>
                                 <p>using</p>
-                                <div class="code panel pdl" style="border-width: 1px;">
-                                    <div class="codeContent panelContent pdl">
-                                        <pre
+                                <pre
 
                                         >${project.title}</pre>
-                                    </div>
-                                </div>
                                 <p>.</p></td>
                         </tr>
                         <tr>
                             <td>clover.report</td>
                             <td><p>Same as clover.current, however a history report will also be
                                 created, using the historypoints in</p>
-                                <div class="code panel pdl" style="border-width: 1px;">
-                                    <div class="codeContent panelContent pdl">
-                                        <pre
+                                <pre
 
                                         >${clover.project.historydir}</pre>
-                                    </div>
-                                </div>
                                 <p>.</p></td>
                         </tr>
                         <tr>
                             <td>clover.save-history</td>
                             <td><p>Saves a history point to</p>
-                                <div class="code panel pdl" style="border-width: 1px;">
-                                    <div class="codeContent panelContent pdl">
-                                        <pre
+                                <pre
 
                                         >${clover.project.historydir}</pre>
-                                    </div>
-                                </div>
                             </td>
                         </tr>
                         <tr>

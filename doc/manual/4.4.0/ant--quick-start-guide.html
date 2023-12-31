@@ -85,48 +85,30 @@
                 <h3>2. Add Clover targets</h3>
                 <p>Edit build.xml for your project:</p>
                 <p><strong>2.1</strong> Add the Clover Ant tasks to your project:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">
 &lt;taskdef resource=&quot;cloverlib.xml&quot;/&gt;
 </pre>
-                    </div>
-                </div>
                 <p><strong>2.2</strong> Add a target to switch on Clover:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;target name=&quot;with.clover&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;target name=&quot;with.clover&quot;&gt;
     &lt;clover-setup/&gt;
 &lt;/target&gt;
 </pre>
-                    </div>
-                </div>
                 <p><strong>2.3</strong> Add one or more targets to run Clover reports:</p>
                 <p><em>For HTML reporting, use the following (but change the</em> <code><em>outdir</em></code> <em>to a
                     directory path where Clover should put the generated HTML</em><em>):</em></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;target name=&quot;clover.html&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;target name=&quot;clover.html&quot;&gt;
     &lt;clover-html-report outdir=&quot;coverage&quot;/&gt;
 &lt;/target&gt;
 </pre>
-                    </div>
-                </div>
                 <p><em>OR, for PDF reporting, use the following (but change the</em> <code><em>outfile</em></code> <em>to
                     a file where Clover should write the PDF file):</em></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;target name=&quot;clover.pdf&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;target name=&quot;clover.pdf&quot;&gt;
   &lt;clover-pdf-report outfile=&quot;coverage.pdf&quot;/&gt;
 &lt;/target&gt;
 </pre>
-                    </div>
-                </div>
                 <p><em>OR, for XML reporting, use the following (but change the</em> <code><em>outfile</em></code> <em>to
                     a file where Clover should write the XML file):</em></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;target name=&quot;clover.xml&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;target name=&quot;clover.xml&quot;&gt;
     &lt;clover-report&gt;
        &lt;current outfile=&quot;coverage.xml&quot;&gt;
           &lt;format type=&quot;xml&quot;/&gt;
@@ -134,23 +116,15 @@
     &lt;/clover-report&gt;
 &lt;/target&gt;
 </pre>
-                    </div>
-                </div>
                 <p><em>OR, for simple emacs-style reporting to the console, try:</em></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;target name=&quot;clover.log&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;target name=&quot;clover.log&quot;&gt;
     &lt;clover-log/&gt;
 &lt;/target&gt;
 </pre>
-                    </div>
-                </div>
                 <p><strong>2.4</strong> Add <code>clover.jar</code> to the runtime classpath for your tests. How you do
                     this depends on how you run your tests. For tests executed via the <code>&lt;junit&gt;</code> task,
                     add a <code>&lt;classpath&gt;</code> element:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/.ant/lib/clover.jar&quot;/&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/.ant/lib/clover.jar&quot;/&gt;
 
     &lt;junit ...&gt;
      ...
@@ -160,25 +134,15 @@
     &lt;formatter type=&quot;xml&quot;/&gt;
 &lt;/junit&gt;
 </pre>
-                    </div>
-                </div>
                 <h3>Compile and run with Clover</h3>
                 <p>Now you can build your project with Clover turned on by adding the &quot;<code>with.clover</code>&quot; target to the list of targets to execute. For example (if your compile target is named
                     '<code>build</code>' and your unit test target is named '<code>test</code>'):</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>ant clean with.clover test
+                <pre>ant clean with.clover test
 </pre>
-                    </div>
-                </div>
                 <h3>Generate a Coverage Report</h3>
                 <p>To generate a Clover coverage report:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>ant clover.html (or clover.xml, clover.pdf etc)
+                <pre>ant clover.html (or clover.xml, clover.pdf etc)
 </pre>
-                    </div>
-                </div>
                 <div class="alert alert-success" role="alert">
     <p>For a sample report, see <a href="general--understanding-reports-current.html" class="alert-link">'Current'
                         Report</a>.</p>

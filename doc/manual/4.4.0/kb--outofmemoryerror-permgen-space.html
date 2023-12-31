@@ -66,12 +66,8 @@
             <div id="main-content">
                 <h4>Symptoms</h4>
                 <p>Running a build with Clover results in OutOfMemory error (usually during test execution):</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>java.lang.OutOfMemoryError: PermGen space
+                <pre>java.lang.OutOfMemoryError: PermGen space
 </pre>
-                    </div>
-                </div>
                 <h4>Cause</h4>
                 <p>Possible causes are:</p>
                 <p><strong>1) Insufficient memory allocation for PermGen</strong></p>
@@ -106,9 +102,7 @@
                 </div>
                 <p> </p>
                 <p><strong>Example for maven-surefire-plugin</strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;plugin&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;plugin&gt;
   &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
   &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
   &lt;configuration&gt;
@@ -116,19 +110,13 @@
   &lt;/configuration&gt;
 &lt;/plugin&gt;
 </pre>
-                    </div>
-                </div>
                 <p> </p><h4>Example for
                 maven-cargo-plugin</h4>
                 <p>If you are using the <a href="http://cargo.codehaus.org/Maven2+plugin" rel="nofollow">Maven Cargo plugin</a>, add the following in the
                     <code>&lt;systemProperties/&gt;</code>
                     element of the Maven Cargo plugin:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;cargo.jvmargs&gt;-Xmx512m -XX:MaxPermSize=256m&lt;/cargo.jvmargs&gt;
+                <pre>&lt;cargo.jvmargs&gt;-Xmx512m -XX:MaxPermSize=256m&lt;/cargo.jvmargs&gt;
 </pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p> </p><!--$body-->
             </div>

@@ -436,17 +436,11 @@
                 <p>Aggregated metrics calculate method statements/complexity including the code of all anonymous inline
                     classes declared inside the method. Thanks to this, it is possible to distinguish between a trivial
                     single-statement method like:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>int getNumber() {
+                <pre>int getNumber() {
    return number;
 }</pre>
-                    </div>
-                </div>
                 <p>and a single-statement method which actually returns more complex data, like:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>ActionListener getListener() {
+                <pre>ActionListener getListener() {
    return new ActionListener() {
        public void actionPerformed(ActionEvent e) {
            System.out.println(&quot;statement #1&quot;);
@@ -455,24 +449,14 @@
        }
    };
 }</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p>If you would use a method context filter with <em>maxStatements</em> attribute, like the following: </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxStatements=&quot;1&quot;&gt;</pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxStatements=&quot;1&quot;&gt;</pre>
                 <p>then both <em>getNumber()</em> and <em>getListener()</em> methods would be filtered-out, because each
                     of them contains only one statement: &quot;return &lt;xxx&gt;&quot;.</p>
                 <p> </p>
                 <p>If you would use new <em>maxAggregatedStatements</em>, for instance:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxAggregatedStatements=&quot;1&quot;&gt;</pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxAggregatedStatements=&quot;1&quot;&gt;</pre>
                 <p>then the <em>getNumber()</em> would be filtered-out and the <em>getListener()</em> method would
                     <strong>not</strong> be filtered out (because it contains 4 statements in total - 1 &quot;return&quot; statement from the method itself and 3 &quot;System.out.println()&quot; statements from anonymous
                     class).</p>
@@ -482,11 +466,7 @@
                     <img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)"/> If you would like to filter-out all methods,
                     except those having a specific name, you could write a negative-look-ahead regular expression. For
                     example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;^(?!.*(getRunnable|getListener)).*$&quot; maxStatements=&quot;1&quot;/&gt;</pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;^(?!.*(getRunnable|getListener)).*$&quot; maxStatements=&quot;1&quot;/&gt;</pre>
                 <p>will filter-out all methods having not more than one statement, except those which are named <em>getRunnable</em>
                     or <em>getListener. </em></p>
                 <p> </p></p><p> </p>
@@ -531,9 +511,7 @@
                 <p><strong>Since 3.1.11.</strong> Optional element. Defines a list of Clover profiles, which can be
                     selected at runtime by providing a <strong>clover.profile=&lt;name&gt;</strong> system property.
                     Thanks to this you can change some of Clover's behavior without code recompilation.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;profiles&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;profiles&gt;
   &lt;profile name=&quot;default&quot; coverageRecorder=&quot;FIXED|GROWABLE|SHARED&quot;&gt;
     &lt;distributedCoverage/&gt; &lt;!-- optional --&gt;
   &lt;/profile&gt;
@@ -542,8 +520,6 @@
 &lt;/profile&gt;
 
 </pre>
-                    </div>
-                </div>
                 <p> </p><h4>&lt;profile&gt;</h4>
                 <p><strong>Since 3.1.11.</strong> Contains a definition of a single runtime profile.</p><h5 id="clover-setup-Parameters.3">Parameters</h5>
                 <div>
@@ -671,33 +647,25 @@
                 </p><h6>&lt;and&gt;</h6>
                 <p>&lt;and&gt; can be used to specify multiple instances of &lt;testclass&gt;, all of which must be
                     matched for a class to be detected as a test, e.g.:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;testsources dir=&quot;tests&quot;&gt;
+                <pre>&lt;testsources dir=&quot;tests&quot;&gt;
 &lt;and&gt;
   &lt;testclass annotation=&quot;Specification&quot;/&gt;
   &lt;testclass annotation=&quot;Test&quot;/&gt;
 &lt;/and&gt;
 &lt;testsources&gt;
 </pre>
-                    </div>
-                </div>
                 <p>In this example, a class will only be recognized as a test if it has &quot;<code>Specification</code>&quot;
                     <strong>and</strong> &quot;<code>Test</code>&quot; annotations.</p><h6>
                 &lt;or&gt;</h6>
                 <p>&lt;or&gt; can be used to specify multiple instances of &lt;testclass&gt;, any of which must be
                     matched for a class to be detected as a test, e.g.:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;testsources dir=&quot;tests&quot;&gt;
+                <pre>&lt;testsources dir=&quot;tests&quot;&gt;
 &lt;or&gt;
   &lt;testclass name=&quot;.*Spec&quot;/&gt;
   &lt;testclass name=&quot;.*Test&quot;/&gt;
 &lt;/or&gt;
 &lt;testsources&gt;
 </pre>
-                    </div>
-                </div>
                 <p>In this example, a class will be recognized as a test if its name matches &quot;<code>.*Spec</code>&quot;,
                     <strong>or</strong> its name matches &quot;<code>.*Test</code>&quot;.</p>
                 <p><span id="clover-setup-Testmethod"></span></p>
@@ -747,9 +715,7 @@
                 </div>
                 <p>Note that you can include multiple instances of &lt;testmethod&gt;, in which case they will be
                     treated as 'or' clauses, e.g.:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;testsources dir=&quot;tests&quot;&gt;
+                <pre>&lt;testsources dir=&quot;tests&quot;&gt;
   &lt;testclass&gt;
     &lt;testmethod annotation=&quot;Specification&quot;/&gt;
     &lt;testmethod name=&quot;^should.*&quot;/&gt;
@@ -757,31 +723,21 @@
   &lt;/testclass&gt;
 &lt;testsources&gt;
 </pre>
-                    </div>
-                </div>
                 <p>In this example, a method will be recognized as a test if its annotation is &quot;<code>Specification</code>&quot;,
                     <strong>or</strong> its name matches &quot;<code>^should*</code>&quot;, <strong>or</strong> its name matches &quot;<code>^must*</code>&quot;.
                 </p>
                 <h1 id="clover-setup-Examples">Examples</h1>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-setup/&gt;
+                <pre>&lt;clover-setup/&gt;
 </pre>
-                    </div>
-                </div>
                 <p>This example is the minimal setup to use Clover. In this case, the
                     <a href="ant--managing-the-coverage-database.html">Clover coverage database</a> is located in
                     the .clover relative directory.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-setup enabled=&quot;${enable}&quot;&gt;
+                <pre>&lt;clover-setup enabled=&quot;${enable}&quot;&gt;
      &lt;files&gt;
        &lt;exclude name=&quot;**/atlassian/clover/**/*.java&quot;/&gt;
      &lt;/files&gt;
 &lt;/clover-setup&gt;
 </pre>
-                    </div>
-                </div>
                 <p>This example shows the use of a property, &quot;enable&quot;, to control whether Clover
                     instrumentation is enabled. Additionally, the instrumentation will exclude all Java source files in
                     trees belonging to the *.atlassian.clover.* packages (please note, that even if the files belong
@@ -789,61 +745,43 @@
                     and do not belong to the package structure. When using files, you need to filter by files or the
                     packages as in the example above). Note that the fileset can also be referenced using a refid
                     attribute.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-setup enabled=&quot;${coverage.enable}&quot;&gt;
+                <pre>&lt;clover-setup enabled=&quot;${coverage.enable}&quot;&gt;
      &lt;fileset dir=&quot;src/main&quot;&gt;
        &lt;contains text=&quot;Joe Bloggs&quot;/&gt;
      &lt;/fileset&gt;
 &lt;/clover-setup&gt;
 </pre>
-                    </div>
-                </div>
                 <p>This example instruments all source files in the src/main directory tree that contain the string &quot;Joe Bloggs&quot;. Ant's filesets supports a number of these selectors. Please refer to the Ant
                     manual for information on these selectors.</p><h4>Interval
                 Flushing</h4>
                 <p>By default Clover will write coverage data to disk when the hosting JVM exits, via a shutdown hook.
                     This is not always practical, particularly when the application you are testing runs in an
                     Application Server. In this situation, you can configure Clover to use &quot;interval&quot; flushing, where coverage data is written out periodically during execution:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-setup flushpolicy=&quot;interval&quot;
+                <pre>&lt;clover-setup flushpolicy=&quot;interval&quot;
                 flushinterval=&quot;5000&quot;/&gt;
 </pre>
-                    </div>
-                </div>
                 <p>The &quot;flushinterval&quot; defines in milliseconds the minimum interval between coverage data
                     writes.</p><h4>Specifying a delegate compiler</h4>
                 <p>Clover provides the optional &quot;clovercompiler&quot; attribute to allow specification of the java
                     compiler to delegate to once instrumentation is completed. The attribute accepts the same values &quot;compiler&quot; attribute of the
                     <a href="https://ant.apache.org/manual/Tasks/javac.html" rel="nofollow">Ant Javac Task</a>.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-setup clovercompiler=&quot;jikes&quot;/&gt;
+                <pre>&lt;clover-setup clovercompiler=&quot;jikes&quot;/&gt;
 </pre>
-                    </div>
-                </div>
                 <p>This example will pass compilation to the &quot;jikes&quot; compiler once instrumentation is
                     complete.</p><h4>Specifying the
                 location of the Clover Coverage database</h4>
                 <p>By default, Clover writes its <a href="ant--managing-the-coverage-database.html">internal
                     database</a> to the <code>.clover/clover.db</code> file relative to the project's base directory. To
                     override this location, use the <code>initstring</code> attribute, e.g.:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-setup initstring=&quot;clover-db/coverage.db&quot; /&gt;
+                <pre>&lt;clover-setup initstring=&quot;clover-db/coverage.db&quot; /&gt;
 </pre>
-                    </div>
-                </div>
                 <p>This example will use <code>clover-db/coverage.db</code> as the location for the
                     <a href="ant--managing-the-coverage-database.html">Clover database</a>. Note that the directory
                     <code>clover-db</code> should exist before running this task.</p>
                 <h4 id="clover-setup-Specifyingacustomtestmatcher">Specifying a custom test matcher</h4>
                 <p>By default, Clover attempts to detect your test classes and methods. Clover's default behavior may be
                     overridden via the following:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-setup&gt;
+                <pre>&lt;clover-setup&gt;
      &lt;testsources dir=&quot;src&quot;&gt;
          &lt;include name=&quot;**/*Test.java&quot;/&gt;
          &lt;testclass name=&quot;.*Test&quot;&gt;
@@ -852,8 +790,6 @@
      &lt;/testsources&gt;
 &lt;/clover-setup&gt;
 </pre>
-                    </div>
-                </div>
                 <p>This example tells Clover to recognize all of the following as tests: classes in the directory &quot;src&quot;;
                     classes in files whose names end with &quot;Test&quot;; methods whose names contain with &quot;Bag&quot;.</p>
                 <p> </p>
@@ -861,10 +797,8 @@
                 <h4 id="clover-setup-Cloverdoesnotsupportparallelcompilation">Clover does not support parallel
                     compilation</h4>
                 <p>You cannot use &lt;parallel/&gt; task for code compilation, for instance:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;target name=&quot;init&quot;&gt;
-  &lt;clover-setup/&gt; 
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;target name=&quot;init&quot;&gt;
+  &lt;clover-setup/&gt;
 &lt;/target&gt;
 
 &lt;target name=&quot;compile&quot; depends=&quot;init&quot;&gt;
@@ -873,8 +807,6 @@
     &lt;javac srcdir=&quot;module2&quot; .../&gt;
   &lt;/parallel&gt;
 &lt;/target&gt;</pre>
-                    </div>
-                </div>
                 <p>will produce error message like:</p>
                 <div style="border-width: 1px;">
                     <div>

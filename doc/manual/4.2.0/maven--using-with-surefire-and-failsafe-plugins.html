@@ -158,9 +158,7 @@
                     </li>
                 </ol>
                 <p> </p><h4>Content of pom.xml</h4>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;dependencies&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;dependencies&gt;
     &lt;!-- Test framework which will be used by Failsafe plugin. Version number is mandatory --&gt;
     &lt;dependency&gt;
         &lt;groupId&gt;junit&lt;/groupId&gt;
@@ -201,13 +199,9 @@
         &lt;/plugin&gt;
     &lt;/plugins&gt;
 &lt;/build&gt;</pre>
-                    </div>
-                </div>
                 <p> </p><h4>Content of
                 clover-report.xml</h4>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
     &lt;!-- Initialize Clover --&gt;
     &lt;clover-setup initString=&quot;${cloverdb}&quot;/&gt;
     &lt;target name=&quot;historical&quot;&gt;
@@ -223,7 +217,7 @@
                     &lt;include name=&quot;**/IT*.java&quot;/&gt;
                     &lt;include name=&quot;**/*IT.java&quot;/&gt;
                     &lt;include name=&quot;**/*ITCase.java&quot;/&gt;
-                    &lt;!-- Use Maven-Surefire-Pugin naming convention. 
+                    &lt;!-- Use Maven-Surefire-Pugin naming convention.
                     NOTE: Although we don&#39;t run unit tests, we still want to have them on &quot;Tests&quot; tab instead of &quot;Classes&quot; --&gt;
                     &lt;include name=&quot;**/Test*.java&quot;/&gt;
                     &lt;include name=&quot;**/*Test.java&quot;/&gt;
@@ -235,14 +229,8 @@
         &lt;/clover-report&gt;
     &lt;/target&gt;
 &lt;/project&gt;</pre>
-                    </div>
-                </div>
                 <p> </p><h4>Maven command</h4>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clean clover:setup verify clover:aggregate clover:clover</pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clean clover:setup verify clover:aggregate clover:clover</pre>
                 <p> </p>
                 <p> </p>
                 <h2>
@@ -275,9 +263,7 @@
                     </li>
                 </ol>
                 <p> </p><h4>Content of pom.xml</h4>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;properties&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;properties&gt;
     &lt;!-- A common location in which a surefire report from &#39;test&#39; and failsafe report from
     &#39;integration-test&#39; phase will be stored. See also the clover-report.xml file which refers
     to this location --&gt;
@@ -326,13 +312,9 @@
         &lt;/plugin&gt;
     &lt;/plugins&gt;
 &lt;/build&gt;</pre>
-                    </div>
-                </div>
                 <p> </p><h4>Content of
                 clover-report.xml</h4>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
     &lt;!-- Initialize Clover --&gt;
     &lt;clover-setup initString=&quot;${cloverdb}&quot;/&gt;
     &lt;target name=&quot;historical&quot;&gt;
@@ -359,14 +341,8 @@
         &lt;/clover-report&gt;
     &lt;/target&gt;
 &lt;/project&gt;</pre>
-                    </div>
-                </div>
                 <p> </p><h4>Maven command</h4>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clean clover:setup verify clover:aggregate clover:clover</pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clean clover:setup verify clover:aggregate clover:clover</pre>
                 <p> </p>
                 <h2>Test optimization</h2>
                 <p>Test Optimization feature is available for Surefire plugin. You you have to use:</p>

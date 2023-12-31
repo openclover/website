@@ -494,30 +494,18 @@
                 <p><strong>1) Build application with Clover</strong></p>
                 <p><strong>a) using Ant</strong></p>
                 <p>Define <em>initstring</em> attribute for &lt;clover-setup&gt; or &lt;clover-instr&gt; tag, e.g.:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-setup initstring=&quot;/path/to/network/drive/clover.db&quot; /&gt;</pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-setup initstring=&quot;/path/to/network/drive/clover.db&quot; /&gt;</pre>
                 <p><strong>b) using Maven</strong></p>
                 <p>Define <em>&lt;cloverDatabase&gt;</em> and &lt;singleCloverDatabase&gt; property in pom.xml, e.g.: </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;plugin&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;configuration&gt;
-        &lt;singleCloverDatabase&gt;true&lt;/singleCloverDatabase&gt; 
+        &lt;singleCloverDatabase&gt;true&lt;/singleCloverDatabase&gt;
         &lt;cloverDatabase&gt;/path/to/network/drive/clover.db&lt;/cloverDatabase&gt;
     &lt;/configuration&gt;
 &lt;/plugin&gt;</pre>
-                    </div>
-                </div>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clean clover:setup install</pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clean clover:setup install</pre>
                 <p><strong><br/></strong></p>
                 <p><strong>2) Deploy instrumented application<br/></strong></p>
                 <p>Copy clover.jar and your application EAR/WAR. There's no need to copy <em>clover.db</em> as it's on a
@@ -531,18 +519,12 @@
                 <p><strong>a) using Ant</strong></p>
                 <p>Execute <em>&lt;clover-report&gt;</em> task; use <em>initstring</em> pointing to <em>clover.db</em>
                     on a network drive, e.g.:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-report initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;</pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-report initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;</pre>
                 <p><strong>b) using Maven</strong></p>
                 <p>Execute <em>clover:clover</em> goal. Note that you don't need to call <em>clover:aggregate</em> or
                     <em>clover:merge</em> as there is only one database. The <em>&lt;cloverDatabase&gt;</em> defined in
                     pom.xml will be used for reporting.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;plugin&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;configuration&gt;
@@ -550,13 +532,7 @@
         &lt;cloverDatabase&gt;/path/to/network/drive/clover.db&lt;/cloverDatabase&gt;
     &lt;/configuration&gt;
 &lt;/plugin&gt;</pre>
-                    </div>
-                </div>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clover:clover</pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clover:clover</pre>
                 <p> </p>
                 <h1 id="UsingCloverinvariousenvironmentconfigurations-Example#2-oneapplicationwithmanyCloverdatabasesexecutedonseveralservers">
                     Example #2 - one application with many Clover databases executed on several servers</h1>
@@ -581,14 +557,10 @@
                 <h2>Steps</h2>
                 <p><strong>1) Build application with Clover</strong></p>
                 <p><strong>a) using Ant</strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;target name=&quot;all&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;target name=&quot;all&quot;&gt;
    &lt;!-- Enable Clover for every module, each with own database --&gt;
    &lt;clover-setup initstring=&quot;/path/to/network/drive/moduleX/clover.db&quot;&gt;
 &lt;/target&gt;</pre>
-                    </div>
-                </div>
                 <p><strong><br/></strong></p>
                 <p><strong>b) using Maven</strong></p>
                 <ul>
@@ -597,9 +569,7 @@
                     </li>
                     <li>keep databases on a shared drive (or copy them to test machines)</li>
                 </ul>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;!-- top level pom.xml --&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;!-- top level pom.xml --&gt;
 &lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
@@ -608,8 +578,6 @@
     &lt;/configuration&gt;
 &lt;/plugin&gt;
 </pre>
-                    </div>
-                </div>
                 <p><strong><br/></strong></p>
                 <p><strong>2) Deploy instrumented application</strong></p>
                 <p>Copy clover.jar and your application EAR/WAR. There's no need to copy <em>clover.db</em> files as
@@ -623,19 +591,13 @@
                 <p><strong>4) Generate coverage report</strong></p>
                 <p>Before generating report you have to merge all databases. For example:</p>
                 <p><strong>a) using Ant</strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-merge initstring=&quot;/path/to/mergedClover.db&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-merge initstring=&quot;/path/to/mergedClover.db&quot;&gt;
    &lt;cloverDb initstring=&quot;/path/to/network/drive/moduleA/clover.db&quot;/&gt;
    &lt;cloverDb initstring=&quot;/path/to/network/drive/moduleB/clover.db&quot;/&gt;
 &lt;/clover-merge&gt;
 &lt;clover-report initstring=&quot;/path/to/mergedClover.db&quot;/&gt; </pre>
-                    </div>
-                </div>
                 <p><strong>b) using Maven</strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;!-- Top-level pom.xml --&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;!-- Top-level pom.xml --&gt;
 &lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
@@ -643,13 +605,7 @@
         &lt;cloverMergeDatabase&gt;/path/to/network/drive/cloverMerged.db&lt;/cloverMergeDatabase&gt;
     &lt;/configuration&gt;
 &lt;/plugin&gt;</pre>
-                    </div>
-                </div>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clover:aggregate clover:clover</pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clover:aggregate clover:clover</pre>
                 <p> </p>
                 <h1 id="UsingCloverinvariousenvironmentconfigurations-Example#3-multipleapplicationsexecutedonseveralserversinisolation">
                     Example #3 - multiple applications executed on several servers in isolation</h1>
@@ -687,23 +643,17 @@
                 <p><strong>a) using Ant</strong></p>
                 <p>Define <em>initstring</em> attribute for &lt;clover-setup&gt; or &lt;clover-instr&gt; tag, which will
                     point to different directory for every application ,e.g.:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;!-- App1 build.xml --&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;!-- App1 build.xml --&gt;
 &lt;clover-setup initstring=&quot;/path/to/network/drive/app1/clover.db&quot;&gt;
 
 &lt;!-- App2 build.xml --&gt;
 &lt;clover-setup initstring=&quot;/path/to/network/drive/app2/clover.db&quot;&gt;</pre>
-                    </div>
-                </div>
                 <p><strong>b) using Maven</strong></p>
                 <p>Define <em>&lt;cloverDatabase&gt;</em> property for Clover plugin in pom.xml. You can use
                     singleCloverDatabase in case your application is multi-module. Databases for all applications
                     <strong>must</strong> be stored under common root (it's a limitation of clover:merge goal; Ant
                     clover-merge task is more flexible regarding paths). Example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;!-- App1 pom.xml --&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;!-- App1 pom.xml --&gt;
 &lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
@@ -721,13 +671,7 @@
         &lt;singleCloverDatabase&gt;true&lt;/singleCloverDatabase&gt; &lt;!-- assuming that app2 is multi-module --&gt;
     &lt;/configuration&gt;
 &lt;/plugin&gt;</pre>
-                    </div>
-                </div>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clean clover:setup install</pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clean clover:setup install</pre>
                 <p> </p>
                 <p><strong>2) Deploy instrumented application to Application Servers</strong></p>
                 <p>Copy clover.jar and your application jar/war to proper machines. There's no need to copy <em>clover.db</em>
@@ -742,19 +686,13 @@
                 <p><strong>4) Generate coverage report</strong></p>
                 <p>Before generating report you have to merge all databases. for example:</p>
                 <p><strong>a) using Ant</strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-merge initstring=&quot;/path/to/network/drive/cloverMerged.db&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-merge initstring=&quot;/path/to/network/drive/cloverMerged.db&quot;&gt;
    &lt;cloverDb initstring=&quot;/path/to/network/drive/app1/clover.db&quot;/&gt;
    &lt;cloverDb initstring=&quot;/path/to/network/drive/app2/clover.db&quot;/&gt;
 &lt;/clover-merge&gt;
 &lt;clover-report initstring=&quot;/path/to/cloverMerged.db&quot;/&gt; </pre>
-                    </div>
-                </div>
                 <p><strong>b) using Maven</strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;!-- Top-level pom.xml --&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;!-- Top-level pom.xml --&gt;
 &lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
@@ -764,14 +702,8 @@
         &lt;includes&gt;*.db&lt;/includes&gt; &lt;!-- filename pattern, separated by comma or space --&gt;
     &lt;/configuration&gt;
 &lt;/plugin&gt;</pre>
-                    </div>
-                </div>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clover:aggregate             # run it for multi-module applications
+                <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clover:aggregate             # run it for multi-module applications
 mvn clover:merge clover:clover  # run it for final report</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p> </p>
                 <h1 id="UsingCloverinvariousenvironmentconfigurations-Example#3b-multipleapplicationsexecutedonseveralserversinpartialisolation">
@@ -792,28 +724,20 @@ mvn clover:merge clover:clover  # run it for final report</pre>
                         or &lt;clover-setup initstring=&quot;&quot;&gt; (Ant), like below:
                     </li>
                 </ul>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">app1/clover.db
+                <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">app1/clover.db
 app2/clover.db
 app2/moduleA/clover.db
 app2/moduleB/clover.db</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <ul>
                     <li>copy generated clover.db(s) to test server, keeping their relative paths (under a common root),
                         for instance:
                     </li>
                 </ul>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">/path/to/common-root/app1/clover.db
+                <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">/path/to/common-root/app1/clover.db
 /path/to/common-root/app2/clover.db
 /path/to/common-root/app2/moduleA/clover.db
 /path/to/common-root/app2/moduleB/clover.db</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <ul>
                     <li>provide <em>clover.iniststring.basedir=/path/to/common-root</em> at runtime</li>
@@ -862,17 +786,11 @@ app2/moduleB/clover.db</pre>
                 </ul>
                 <p> </p>
                 <p><strong>a) using Ant</strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-setup initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-setup initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
     &lt;distributedCoverage host=&quot;my.server.com&quot; port=&quot;1234&quot; numClients=&quot;2&quot; timeout=&quot;10000&quot;/&gt;
 &lt;/clover-setup&gt;</pre>
-                    </div>
-                </div>
                 <p><strong>b) using Maven</strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;plugin&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;configuration&gt;
@@ -887,8 +805,6 @@ app2/moduleB/clover.db</pre>
    &lt;/configuration&gt;
 &lt;/plugin&gt;
 </pre>
-                    </div>
-                </div>
                 <p><strong><br/></strong></p>
                 <p><strong>2) Deploy instrumented application to Application Servers</strong></p>
                 <p>Copy clover.jar and your application jar/war to proper machines. There's no need to copy <em>clover.db</em>
@@ -937,16 +853,12 @@ app2/moduleB/clover.db</pre>
                 <p> </p>
                 <p><strong>4) Generate coverage report</strong></p>
                 <p><strong>a) using Ant</strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-report initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-report initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
     &lt;current showUniqueCoverage=&quot;true&quot; outfile=&quot;/path/to/clover/report&quot;&gt;
         &lt;format type=&quot;html&quot;/&gt;
         &lt;fileset dir=&quot;src&quot;/&gt;
     &lt;/current&gt;
 &lt;/clover-report&gt;</pre>
-                    </div>
-                </div>
                 <p><strong>b) using Maven</strong></p>
                 <p>In order to show per-test coverage in the HTML report (<em>showUniqueCoverage</em>), you have to use
                     the custom <em>&lt;reportDescriptor&gt;</em> in pom.xml and in the report descriptor set the <em>showUniqueCoverage=true</em>.
@@ -954,8 +866,7 @@ app2/moduleB/clover.db</pre>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
                         <b>report-descriptor.xml</b></div>
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
+                    <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
     &lt;clover-setup initString=&quot;${cloverdb}&quot;/&gt;
     &lt;target name=&quot;historical&quot;/&gt;
     &lt;target name=&quot;current&quot;&gt;
@@ -966,12 +877,10 @@ app2/moduleB/clover.db</pre>
         &lt;/clover-report&gt;
     &lt;/target&gt;
 &lt;/project&gt;</pre>
-                    </div>
                 </div>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>pom.xml</b></div>
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;plugin&gt;
+                    <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;configuration&gt;
@@ -980,14 +889,9 @@ app2/moduleB/clover.db</pre>
         &lt;reportDescriptor&gt;report-descriptor.xml&lt;/reportDescriptor&gt;    &lt;!-- Use custom report --&gt;
     &lt;/configuration&gt;
 &lt;/plugin&gt;</pre>
-                    </div>
                 </div>
                 <p><strong><br/></strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clover:clover</pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clover:clover</pre>
                 <p><span style="color: rgb(255,0,0);"> </span></p>
                 <div class="alert alert-success" role="alert">
     <div><p>More information about format of report descriptor
@@ -1023,21 +927,15 @@ app2/moduleB/clover.db</pre>
                 <h2>Steps</h2>
                 <p><span style="color: rgb(255,0,0);"> </span><strong>1) Build application with Clover</strong></p>
                 <p><strong>a) using Ant</strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;target name=&quot;all&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;target name=&quot;all&quot;&gt;
    &lt;!-- Enable clover for top level module --&gt;
    &lt;clover-setup initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
    &lt;!-- Build sub-modules ensuring that properties are passed --&gt;
    &lt;ant inheritrefs=&quot;true&quot; inheritprops=&quot;true&quot; file=&quot;sub-module-a/build.xml&quot; target=&quot;all&quot;/&gt;
    &lt;ant inheritrefs=&quot;true&quot; inheritprops=&quot;true&quot; file=&quot;sub-module-b/build.xml&quot; target=&quot;all&quot;/&gt;
 &lt;/target&gt;</pre>
-                    </div>
-                </div>
                 <p><strong>b) using Maven</strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;!-- TOP LEVEL POM.XML --&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;!-- TOP LEVEL POM.XML --&gt;
 &lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
@@ -1047,13 +945,7 @@ app2/moduleB/clover.db</pre>
     &lt;/configuration&gt;
 &lt;/plugin&gt;
 </pre>
-                    </div>
-                </div>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clover:setup test </pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clover:setup test </pre>
                 <p><strong><br/></strong></p>
                 <p><strong>2) Deploy instrumented application to Application Servers</strong></p>
                 <p>Remove previous version of application and copy clover.jar and your application jar/war. There's no
@@ -1066,9 +958,7 @@ app2/moduleB/clover.db</pre>
                 <p><strong><br/></strong></p>
                 <p><strong>4) Generate coverage report</strong></p>
                 <p><strong>a) using Ant</strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-report initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-report initstring=&quot;/path/to/network/drive/clover.db&quot;&gt;
     &lt;current outfile=&quot;/path/to/clover/report/current&quot; title=&quot;Coverage Report&quot;&gt;
         &lt;format type=&quot;html&quot;/&gt;
         &lt;fileset dir=&quot;src&quot;/&gt;
@@ -1081,12 +971,8 @@ app2/moduleB/clover.db</pre>
 &lt;clover-historypoint historyDir=&quot;/path/to/clover/historypoints&quot;&gt;
        &lt;fileset dir=&quot;src&quot;/&gt;
 &lt;/clover-historypoint&gt;</pre>
-                    </div>
-                </div>
                 <p><strong>b) using Maven</strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;!-- Top-level pom.xml --&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;!-- Top-level pom.xml --&gt;
 &lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
@@ -1099,14 +985,8 @@ app2/moduleB/clover.db</pre>
         &lt;outputDirectory&gt;/path/to/clover/report&lt;/outputDirectory&gt;
     &lt;/configuration&gt;
 &lt;/plugin&gt;</pre>
-                    </div>
-                </div>
                 <p><span style="color: rgb(255,0,0);"><br/></span></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clover:clover clover:save-history</pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence">mvn clover:clover clover:save-history</pre>
                 <p> </p>
                 <h1 id="UsingCloverinvariousenvironmentconfigurations-References">References</h1>
                 <ul>

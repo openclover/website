@@ -155,23 +155,15 @@
                     running tests, the following options may assist:</p>
                 <ul>
                     <li><p>Supply this option to the JVM running your tests:</p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-<pre>-Dclover.pertest.coverage=diff
+                        <pre>-Dclover.pertest.coverage=diff
 </pre>
-                            </div>
-                        </div>
                         <p>This changes the way per-test coverage is recorded at runtime to work faster for CPU
                             intensive applications.</p></li>
                 </ul>
                 <ul>
                     <li><p>Supply this option to the JVM running your tests:</p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-<pre>-Dclover.pertest.coverage=off
+                        <pre>-Dclover.pertest.coverage=off
 </pre>
-                            </div>
-                        </div>
                         <p>This tells Clover to not record any per-test coverage data at runtime. With this you gain a
                             faster running time for CPU intensive applications, although you lose per-test coverage
                             information.</p></li>
@@ -268,29 +260,25 @@
                 </div>
                 <p> </p><h4>Sample code</h4>
                 <p>The following class:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>import junit.framework.TestCase;
+                <pre>import junit.framework.TestCase;
 public class PerformanceTest extends TestCase {
     static int hitsPerTest;
     static int numberOfTests;
-    
+
     public void testPerformance() {
         for (int i = 0; i &lt; hitsPerTest; i++); // empty loop, one R.inc(...) call per loop
     }
-    
-    public static void main(String[] args) { 
+
+    public static void main(String[] args) {
         numberOfTests = Integer.valueOf(args[0]);
         hitsPerTest = Integer.valueOf(args[1]);
-        
+
         PerformanceTest pt = new PerformanceTest();
         for (int i = 0; i &lt; numberOfTests; i++) {
             pt.testPerformance();
         }
     }
 }</pre>
-                    </div>
-                </div>
                 <p>was instrumented using Fixed Coverage Recorder and executed with different per-test recording
                     strategies. In order to have roughly 10'000'000 hits recorded by Clover, application was executed
                     with following arguments:</p>

@@ -62,9 +62,7 @@
             <div id="main-content">
                 <h4>Symptoms</h4>
                 <p>Clover instrumented code fails to compile with following error:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>src/LambdaAndStreams.java:35: error: cannot find symbol
+                <pre>src/LambdaAndStreams.java:35: error: cannot find symbol
                 .filter(e -&gt; {__CLR4_0_500ibutyhjw.R.inc(17);return !e.isEmpty();});
                                                                       ^
   symbol:   method isEmpty()
@@ -73,18 +71,12 @@ src/LambdaAndStreams.java:35: error: incompatible types: Stream&lt;Object&gt; ca
                 .filter(e -&gt; {__CLR4_0_500ibutyhjw.R.inc(17);return !e.isEmpty();});
                        ^
 2 errors</pre>
-                    </div>
-                </div>
                 <p>Where original code looks like:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>public static Stream&lt;String&gt; test(List&lt;String&gt; input) {
+                <pre>public static Stream&lt;String&gt; test(List&lt;String&gt; input) {
     return input.stream()
             .map(String::toUpperCase)
             .filter(e -&gt; !e.isEmpty());
 }</pre>
-                    </div>
-                </div>
                 <p> </p><h4>Cause</h4>
                 <p>Clover proxies lambda expression with method wrapper defined with generic signatures. Type inferring
                     algorithm JDK 8 the compiler uses has its own limitations and the compiler may not be able to infer
@@ -96,15 +88,11 @@ src/LambdaAndStreams.java:35: error: incompatible types: Stream&lt;Object&gt; ca
                     <li><p>
                         <span>Rewrite method references into lambda expressions, ideally into lambda block, i.e</span>
                     </p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-<pre>public static Stream&lt;String&gt; test(List&lt;String&gt; input) {
+                        <pre>public static Stream&lt;String&gt; test(List&lt;String&gt; input) {
 	return input.stream()
             .map(e -&gt; e.toUpperCase)  // was String::toUpperCase
             .filter(e -&gt; !e.isEmpty());
 }</pre>
-                            </div>
-                        </div>
                         <p><span><br/></span></p></li>
                     <li><p><span>Disable instrumentation of method references (since 4.0.5) </span></p>
                         <div><span></span>
@@ -114,31 +102,19 @@ src/LambdaAndStreams.java:35: error: incompatible types: Stream&lt;Object&gt; ca
                         <p><span><br/></span></p>
                         <ol>
                             <li><p><span>Ant - build.xml<br/></span></p>
-                                <div class="code panel pdl" style="border-width: 1px;">
-                                    <div class="codeContent panelContent pdl">
-                                        <pre
+                                <pre
 
                                         >&lt;clover-setup instrumentLambda=&quot;all_but_reference&quot;/&gt;</pre>
-                                    </div>
-                                </div>
                                 <p><span> </span></p></li>
                             <li><p><span>Maven - pom.xml</span></p>
-                                <div class="code panel pdl" style="border-width: 1px;">
-                                    <div class="codeContent panelContent pdl">
-<pre>&lt;configuration&gt;
+                                <pre>&lt;configuration&gt;
    &lt;instrumentLambda&gt;all_but_reference&lt;/instrumentLambda&gt;
 &lt;/configuration&gt;</pre>
-                                    </div>
-                                </div>
                             </li>
                             <li><p>Grails - BuildConfig.groovy<br/><br/></p>
-                                <div class="code panel pdl" style="border-width: 1px;">
-                                    <div class="codeContent panelContent pdl">
-<pre>clover {
+                                <pre>clover {
    instrumentLambda = &quot;all_but_reference&quot;
 }</pre>
-                                    </div>
-                                </div>
                             </li>
                             <li><p>Eclipse</p>
                                 <p>Open <code>Project Properties</code> &gt; <code>Clover</code> page &gt; <code>Instrumentation</code>

@@ -66,13 +66,9 @@
             <div id="main-content">
                 <h4>Symptoms</h4>
                 <p>Running a build with Clover-for-Ant 4.0.3 or 4.0.4 fails with an error like this:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>Error reading project file jar:file:/c:/clover-ant-4.0.3/lib/clover.jar!/cloverlib.xml: central directory
+                <pre>Error reading project file jar:file:/c:/clover-ant-4.0.3/lib/clover.jar!/cloverlib.xml: central directory
  zip64 extended information extra field&#39;s length doesn&#39;t match central directory data.  Expected length 0 but is 16
 </pre>
-                    </div>
-                </div>
                 <p>This error does not happen for Clover-for-Ant versions prior to 4.0.3.</p><h4 id="ErrorreadingClover4.0.3JARfile-Cause">Cause</h4>
                 <p>This is a bug in Ant related with ZIP64 implementation. It occurs in Ant 1.9.0 and 1.9.1.</p>
                 <h4 id="ErrorreadingClover4.0.3JARfile-Resolution">Resolution</h4>

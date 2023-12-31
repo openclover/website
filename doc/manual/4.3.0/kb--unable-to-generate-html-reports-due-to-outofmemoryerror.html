@@ -69,14 +69,10 @@
                 <p>Able to instrument code correctly, run tests, and generate clover DB files and clover XML. When
                     running HTML report generation, however, you get the following error:</p>
 
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>
+                <pre>
 BUILD FAILED
 java.lang.OutOfMemoryError: Java heap space
 </pre>
-                    </div>
-                </div>
 
                 <h4>Cause</h4>
 
@@ -88,23 +84,15 @@ java.lang.OutOfMemoryError: Java heap space
 
                 <p>To increase for Ant, you need to set it in your ANT_OPTS environment variable. E.g.</p>
 
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>
+                <pre>
 export ANT_OPTS=&quot;-Xmx1024m -Xms256m&quot;
 </pre>
-                    </div>
-                </div>
 
                 <p>Similarly for Maven, you need to set it in your MAVEN_OPTS environment variable. E.g.</p>
 
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>
+                <pre>
 export MAVEN_OPTS=&quot;-Xmx1024m -Xms256m&quot;
 </pre>
-                    </div>
-                </div>
 
                 <p>If that still gives you out of memory, increase to -Xmx2048m and set your Clover report to
                     single-threaded mode please (set numThreads=&quot;0&quot;). See

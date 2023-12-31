@@ -232,13 +232,9 @@
                     <p> </p>
                     <p>Since Clover 3.2 it's possible to nest classes inside classes. This can be used to model an inner
                         class such as:</p>
-                    <div class="code panel pdl" style="border-width: 1px;">
-                        <div class="codeContent panelContent pdl">
-<pre>class A {
+                    <pre>class A {
   class B { }
 }</pre>
-                        </div>
-                    </div>
                     <p>Clover does not keep inner classes this way, however. All inner classes are kept directly under a
                         file. One of the reasons for such approach is a separation of code metrics, i.e. a complexity of
                         an inner class B does not count to the complexity of a parent class A.</p>
@@ -273,9 +269,7 @@
                     <p>An example how to read a content of a database.</p>
                     <p>If you'd like to read a database without coverage, then replace &quot;CloverDatabase.loadWithCoverage(..)&quot; 
                         by &quot;new CloverDatabase(initstring)&quot;</p>
-                    <div class="code panel pdl" style="border-width: 1px;">
-                        <div class="codeContent panelContent pdl">
-<pre>import com.atlassian.clover.CloverDatabase;
+                    <pre>import com.atlassian.clover.CloverDatabase;
 import com.atlassian.clover.CoverageDataSpec;
 import com.atlassian.clover.api.registry.ClassInfo;
 import com.atlassian.clover.api.registry.FileInfo;
@@ -315,12 +309,8 @@ public class SimpleRegistryDumper {
        }
     }
 }</pre>
-                        </div>
-                    </div>
                     <h2>Writing to a Clover database</h2>
-                    <div class="code panel pdl" style="border-width: 1px;">
-                        <div class="codeContent panelContent pdl">
-<pre>import com.atlassian.clover.api.CloverException;
+                    <pre>import com.atlassian.clover.api.CloverException;
 import com.atlassian.clover.api.instrumentation.InstrumentationSession;
 import com.atlassian.clover.api.registry.FileInfo;
 import com.atlassian.clover.api.registry.MethodInfo;
@@ -434,8 +424,6 @@ public class SimpleCodeInstrumenter {
         }
     }
 }</pre>
-                        </div>
-                    </div>
                     <p> </p>
                     <h2>Creating a global coverage recording
                         file</h2>
@@ -443,9 +431,7 @@ public class SimpleCodeInstrumenter {
                         to generate a global coverage recording file. It keeps information about hit counts for every
                         code element registered in a database (i.e. how many times given method/statement/branch was
                         executed).</p>
-                    <div class="code panel pdl" style="border-width: 1px;">
-                        <div class="codeContent panelContent pdl">
-<pre>import com.atlassian.clover.api.CloverException;
+                    <pre>import com.atlassian.clover.api.CloverException;
 import com.atlassian.clover.recorder.FileBasedGlobalCoverageRecording;
 import com.atlassian.clover.registry.Clover2Registry;
 import com_atlassian_clover.Clover;
@@ -482,8 +468,6 @@ public class GlobalCoverageFileGenerator {
         convertCoverage(registry);
     }
 }</pre>
-                        </div>
-                    </div>
                     <div class="alert alert-success" role="alert">
     <p>You can find these code samples on
                             <a href="https://github.com/openclover/clover-examples" rel="nofollow" class="alert-link">https://github.com/openclover/clover-examples</a>.</p>

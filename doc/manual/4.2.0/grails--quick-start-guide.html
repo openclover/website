@@ -73,12 +73,8 @@
                 <p>In case you use Grails
                     <b>older than 2.3.5</b> then you can install the Clover-for-Grails plugin by running the following Grails command in the root of your
                     Grails project directory.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>grails install-plugin clover
+                <pre>grails install-plugin clover
 </pre>
-                    </div>
-                </div>
                 <div class="alert alert-success" role="alert">
     <p>The 'grails install-plugin' command has been
                         removed in Grails 2.3.5 upwards. So in case you use <b>Grails 2.3.5 or higher</b>, we recommend adding the Clover plugin to your
@@ -90,12 +86,8 @@
                 <p>To generate a basic Clover code coverage report, you need to add the Clover option
                     <code>-clover.on</code> to the <code>grails test-app</code> command line target for running unit
                     tests against your Grails project.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>grails test-app -clover.on -clover.view
+                <pre>grails test-app -clover.on -clover.view
 </pre>
-                    </div>
-                </div>
                 <div class="alert alert-success" role="alert">
     <p>Adding the Clover option <code>-clover.view</code>
                         to this Grails command makes the report open in a browser window immediately after generation.
@@ -109,17 +101,13 @@
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Linux/UNIX/Mac OS
                         X:</b></div>
-                    <div class="codeContent panelContent pdl">
-<pre>export JAVA_OPTS=&quot;-XX:MaxPermSize=192m&quot;
+                    <pre>export JAVA_OPTS=&quot;-XX:MaxPermSize=192m&quot;
 </pre>
-                    </div>
                 </div>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Windows:</b></div>
-                    <div class="codeContent panelContent pdl">
-<pre>set JAVA_OPTS=&quot;-XX:MaxPermSize=192m&quot;
+                    <pre>set JAVA_OPTS=&quot;-XX:MaxPermSize=192m&quot;
 </pre>
-                    </div>
                 </div>
                 <p>Alternatively, you can define this variable in the <code>startGrails</code> (Linux/UNIX/Mac OS X) or
                     <code>startGrails.bat</code> (Windows) script in the <code>&lt;Grails Home Directory&gt;/bin</code>

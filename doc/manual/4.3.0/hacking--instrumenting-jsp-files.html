@@ -86,16 +86,14 @@
                         <a href="http://tomcat.apache.org/tomcat-6.0-doc/jasper-howto.html" rel="nofollow">http://tomcat.apache.org/tomcat-6.0-doc/jasper-howto.html</a>
                     </p>
                     <p>3) Add Clover-related tasks and properties, for instance:</p>
-                    <div class="code panel pdl" style="border-width: 1px;">
-                        <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/clover.jar&quot;/&gt;
+                    <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/clover.jar&quot;/&gt;
 &lt;property name=&quot;clover.db&quot; location=&quot;${java.io.tmpdir}/clover/clover.db&quot;/&gt;
-&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt; 
-   
+&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
+
 &lt;target name=&quot;init&quot;&gt;
     &lt;clover-setup initstring=&quot;${clover.db}&quot; flushpolicy=&quot;interval&quot; flushinterval=&quot;500&quot;/&gt;
 &lt;/target&gt;
-    
+
 &lt;target name=&quot;report&quot;&gt;
     &lt;clover-html-report initstring=&quot;${clover.db}&quot; outdir=&quot;report&quot;/&gt;
 &lt;/target&gt;
@@ -103,8 +101,6 @@
 ...
 
 &lt;target name=&quot;all&quot; depends=&quot;init, jspc, compile&quot;&gt; &lt;!-- add &quot;init&quot; --&gt; </pre>
-                        </div>
-                    </div>
                     <p>Comments:</p>
                     <ul>
                         <li>the &quot;init&quot; target has &lt;clover-setup&gt; task with flushpolicy=&quot;interval&quot; set (so that coverage recording files will be written at specified time interval, instead of

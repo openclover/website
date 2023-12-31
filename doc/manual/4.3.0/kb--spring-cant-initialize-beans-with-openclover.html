@@ -78,9 +78,7 @@ nested exception is org.springframework.beans.factory.BeanCreationException: Uns
                 <p>Application runs correctly if Clover is disabled.</p><h4 id="Springcan&#39;tinitializebeanswithClover-Cause">Cause</h4>
                 <p>This might be caused by a fact that implementation for <em>com.some.SomeBean</em> is being generated
                     in your build process. For example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"> &lt;plugin&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"> &lt;plugin&gt;
    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
    &lt;artifactId&gt;maven-antrun-plugin&lt;/artifactId&gt;
    &lt;executions&gt;
@@ -91,24 +89,18 @@ nested exception is org.springframework.beans.factory.BeanCreationException: Uns
        &lt;/goals&gt;
        &lt;configuration&gt;
          &lt;target&gt;
-          &lt;copy file=&quot;${project.build.sourceDirectory}/com/some/SomeBeanImpl.java.gen.&quot; 
+          &lt;copy file=&quot;${project.build.sourceDirectory}/com/some/SomeBeanImpl.java.gen.&quot;
                 tofile=&quot;${project.build.sourceDirectory}/com/some/SomeBeanImpl.java&quot; overwrite=&quot;true&quot; /&gt;
          &lt;/target&gt;
        &lt;/configuration&gt;
      &lt;/execution&gt;
    &lt;/executions&gt;
  &lt;/plugin&gt;</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p>In such case, when you run standard Clover instrumentation, such as:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >mvn clean clover:setup test clover:clover clover:aggregate</pre>
-                    </div>
-                </div>
                 <p>Clover's code instrumentation (clover:setup) will occur before bean's code generation (as the
                     'generate-sources' phase will be triggered by the 'test' phase). Clover will also change source
                     roots (e.g. from 'src/main/java' to 'target/clover/src-instrumented'). As a consequence, the
@@ -117,19 +109,13 @@ nested exception is org.springframework.beans.factory.BeanCreationException: Uns
                 <p>Please verify if your build process contains any code/resource generation. If it does, make sure that
                     Clover is initialized and sources are instrumented <strong>after</strong> all files are have already
                     been generated. You can either do it in a command line:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >mvn clean generate-sources clover:setup test</pre>
-                    </div>
-                </div>
                 <p>or you can bind the 'clover:setup' to a build phase which happens
                     <a href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Lifecycle_Reference" rel="nofollow">after the
                         'generate-sources' one</a>, for example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"> &lt;plugin&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"> &lt;plugin&gt;
    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
    &lt;executions&gt;
@@ -141,8 +127,6 @@ nested exception is org.springframework.beans.factory.BeanCreationException: Uns
      &lt;/execution&gt;
    &lt;/executions&gt;
  &lt;/plugin&gt;</pre>
-                    </div>
-                </div>
             </div>
 
 

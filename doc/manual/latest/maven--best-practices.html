@@ -137,55 +137,35 @@
                     <li><p>The gateway plan should execute the <strong>verify</strong> phase, with the
                         <a href="maven--best-practices.html">'clover.optimize'</a> profile activated.
                         Example:</p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-<pre>mvn verify -Pclover.optimize
+                        <pre>mvn verify -Pclover.optimize
 </pre>
-                            </div>
-                        </div>
                     </li>
                     <li><p>If your build plan is configured to do a full clean checkout before each build — you will
                         need to ensure the Clover snapshot file is stored in a location that will not be removed between
                         builds. The following configuration added to the <code>pom.xml</code> is one option:</p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-<pre>&lt;configuration&gt;
+                        <pre>&lt;configuration&gt;
   &lt;snapshot&gt;${user.home}/.clover/${groupId}-${artifactId}/clover.snapshot&lt;/snapshot&gt;
 &lt;/configuration&gt;
 </pre>
-                            </div>
-                        </div>
                     </li>
                     <li><p>Beware however, that this set up will instrument your source and test files and compile them
                         to the usual Maven output location. If you run this command:</p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-<pre>mvn deploy -Pclover.optimize
+                        <pre>mvn deploy -Pclover.optimize
 </pre>
-                            </div>
-                        </div>
                         <p>then you will be deploying class files that have been instrumented by Clover
                             <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/>.</p>
                     </li>
                 </ol>
                 <h2>Running the Clover goals directly</h2>
                 <p>Add a new build plan with the following command line:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >mvn clover:setup verify clover:snapshot</pre>
-                    </div>
-                </div>
                 <h1 id="BestPracticesforMaven-Testoptimizationonthedesktop">Test optimization on the desktop</h1>
                 <p>Running Clover's test optimization locally is very advantageous. This is achieved using the
                     <span>'clover.optimize'</span> profile that can be activated like so:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>mvn verify -Pclover.optimize
+                <pre>mvn verify -Pclover.optimize
 </pre>
-                    </div>
-                </div>
                 <h1 id="BestPracticesforMaven-Combiningbuildoptimizationwithsitecoveragereporting">Combining build
                     optimization with site coverage reporting</h1>
                 <p>Maven2 will merge any executions defined in the default build section of the pom, with those defined
@@ -196,12 +176,8 @@
                     not desirable in an optimized build.</p>
                 <p>The <span>'<a href="#BestPracticesforMaven-clover.report">clover.report</a>'</span>
                     profile is an example of a build profile to activate when running this command:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>mvn site -Pclover.report
+                <pre>mvn site -Pclover.report
 </pre>
-                    </div>
-                </div>
                 <p>Using separate profiles for site generation and Test Optimization is currently the recommended way to
                     have both a site and a Test Optimization Clover build configured in the same <code>pom.xml</code>. </p>
                 <h1 id="BestPracticesforMaven-Testoptimizationacrossamulti-moduleproject">Test optimization across a
@@ -211,15 +187,11 @@
                     modify code in module B, the tests in module A will not be run. You can achieve the desired behavior
                     however, by configuring Clover to use a single <code>clover.db</code> and
                     <code>clover.snapshot</code> for the entire project:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;configuration&gt;
+                <pre>&lt;configuration&gt;
     &lt;snapshot&gt;${user.home}/.clover/atlassian-plugins-clover.snapshot&lt;/snapshot&gt;
     &lt;singleCloverDatabase&gt;true&lt;/singleCloverDatabase&gt;
 &lt;/configuration&gt;
 </pre>
-                    </div>
-                </div>
                 <p>If you have many modules, you may need to set
                     <a href="../../maven/4.5.0/optimize-mojo.html#fullRunEvery" rel="nofollow">fullBuildEvery</a> to a value higher
                     than the default of 10. See also <a href="../../maven/4.5.0/snapshot-mojo.html#singleCloverDatabase" rel="nofollow">singleCloverDatabase</a>.
@@ -245,12 +217,8 @@
                 <p>Therefore, executing the following line will instrument all source and test files, compile the
                     instrumented source files, run all tests and then install the compiled and
                     <strong>instrumented</strong> classes.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>mvn clover:setup install clover:clover
+                <pre>mvn clover:setup install clover:clover
 </pre>
-                    </div>
-                </div>
                 <p>WARNING: It is not recommended to deploy your Clover instrumented classes to an external Maven
                     repository.</p>
                 <p>Note: clover:setup will automatically bind itself to the 'process-sources' phase if defined in the
@@ -279,9 +247,7 @@
                     ~/.m2/settings.xml file.</p>
                 <h2>clover.report Profile</h2>
                 <p><span id="BestPracticesforMaven-clover.report"></span></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;profile&gt;
+                <pre>&lt;profile&gt;
             &lt;id&gt;clover.report&lt;/id&gt;
             &lt;build&gt;
                 &lt;plugins&gt;
@@ -314,14 +280,10 @@
              &lt;/reporting&gt;
         &lt;/profile&gt;
 </pre>
-                    </div>
-                </div>
                 <p> </p>
                 <h2>Clover Optimize Profile</h2>
                 <p><span id="BestPracticesforMaven-clover.optimize"></span></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;profile&gt;
+                <pre>&lt;profile&gt;
             &lt;id&gt;clover.optimize&lt;/id&gt;
             &lt;build&gt;
                 &lt;plugins&gt;
@@ -348,15 +310,11 @@
         &lt;/profile&gt;
     &lt;/profiles&gt;
 </pre>
-                    </div>
-                </div>
                 <p> </p>
                 <h2>Clover Optimize, Report, Log and
                     Check Profile</h2>
                 <p><span id="BestPracticesforMaven-clover.all"></span></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;profile&gt;
+                <pre>&lt;profile&gt;
             &lt;id&gt;clover.all&lt;/id&gt;
             &lt;build&gt;
                 &lt;plugins&gt;
@@ -390,8 +348,6 @@
             &lt;/build&gt;
         &lt;/profile&gt;
 </pre>
-                    </div>
-                </div>
                 <h5>Related Links</h5>
                 <ul>
                     <li><a href="general--what-is-test-optimization.html">Test Optimization Technical Details</a></li>

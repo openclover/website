@@ -139,9 +139,7 @@
                 <p>Sample Ant script which instruments all *.java files from <em>project.original.dir</em> and puts them
                     into <em>project.instrumented.dir</em>, preserving original directory structure. It copies all
                     non-java files as well.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;project default=&quot;instrument&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;project default=&quot;instrument&quot;&gt;
     &lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/clover.jar&quot;/&gt;
     &lt;property name=&quot;ant-contrib.jar&quot; location=&quot;${user.home}/ant-contrib-1.0b3.jar&quot;/&gt;
     &lt;property name=&quot;project.original.dir&quot; location=&quot;original_project&quot;/&gt;
@@ -205,17 +203,13 @@
         &lt;/clover-report&gt;
     &lt;/target&gt;
 &lt;/project&gt;</pre>
-                    </div>
-                </div>
                 <p> </p><h4>Modified top-level
                 pom.xml</h4>
                 <p>You must have the Clover artefact available during compilation by Tycho. Modify the <em>tycho-compiler-plugin</em>
                     configuration and add <em>org.openclover:clover</em> to
                     <em>&lt;extraClasspathElements&gt;</em> option.</p>
                 <p>If necessary, add also Clover dependency to <em>tycho-surefire-plugin</em> as JVM argument.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;build&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;build&gt;
   &lt;plugins&gt;
     &lt;plugin&gt;
       &lt;groupId&gt;org.eclipse.tycho&lt;/groupId&gt;
@@ -230,7 +224,7 @@
             &lt;version&gt;4.5.0&lt;/version&gt;
           &lt;/dependency&gt;
         &lt;/extraClasspathElements&gt;
-      &lt;/configuration&gt;          
+      &lt;/configuration&gt;
     &lt;/plugin&gt;
     &lt;plugin&gt;
       &lt;groupId&gt;org.eclipse.tycho&lt;/groupId&gt;
@@ -239,14 +233,12 @@
       &lt;configuration&gt;
         &lt;!-- Use the same Clover version as for source instrumentation --&gt;
         &lt;argLine&gt;-Xbootclasspath/a:${user.home}/.m2/repository/com/atlassian/clover/clover/4.0.0/clover-4.0.0.jar&lt;/argLine&gt;
-      &lt;/configuration&gt;          
+      &lt;/configuration&gt;
     &lt;/plugin&gt;
     ...
   &lt;/plugins&gt;
 &lt;/build&gt;
 </pre>
-                    </div>
-                </div>
                 <p> </p><h4>Usage</h4>
                 <p>Directory layout:</p>
                 <div style="border-width: 1px;">

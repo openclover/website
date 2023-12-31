@@ -145,14 +145,10 @@
                     Property in the Maven Cargo plugin</h3>
                 <p>The &quot;<code>clover.distributed.coverage</code>&quot; System Property must be set to &quot;ON&quot; in the Maven Cargo Plugin configuration.
                 </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;systemProperties&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;systemProperties&gt;
     &lt;clover.distributed.coverage&gt;ON&lt;/clover.distributed.coverage&gt;
 &lt;/systemProperties&gt;
 </pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p>
                     <img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)"/> TIP: the
@@ -171,13 +167,9 @@
                     <li>name - name of the configuration (URL is <em>host:port/name</em>)</li>
                 </ul>
                 <p>Example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;systemProperties&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;systemProperties&gt;
     &lt;clover.distributed.coverage&gt;host=myhost;port=7777;numclients=2&lt;/clover.distributed.coverage&gt;
 &lt;/systemProperties&gt;</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <h3>Setting a
                     System Property in the Maven Surefire plugin</h3>
@@ -187,9 +179,7 @@
                     </li>
                     <li>&quot;<code>clover.server</code>&quot; System Property must be set to &quot;true&quot;.</li>
                 </ul>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;configuration&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;configuration&gt;
    &lt;forkMode&gt;once&lt;/forkMode&gt;
    &lt;systemProperties&gt;
        &lt;property&gt;
@@ -203,8 +193,6 @@
    &lt;/systemProperties&gt;
 &lt;/configuration&gt;
 </pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p> </p>
                 <h2>
@@ -214,14 +202,10 @@
                 <p>To add the <code>&lt;distributedCoverage/&gt;</code> element to the
                     <span style="font-family: monospace;">clover-maven-plugin</span> configuration section, apply the
                     following code:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;configuration&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;configuration&gt;
    &lt;distributedCoverage/&gt;
 &lt;/configuration&gt;
 </pre>
-                    </div>
-                </div>
                 <p>This will enable distributed per-test coverage to be collected. Clover running in the JVM that hosts
                     the tests will start a TCP server to do so. By default, it listens on <code>localhost:1198</code> . </p>
                 <p>The <code>&lt;distributedCoverage&gt;</code> element takes the following nested elements:</p>
@@ -274,9 +258,7 @@
                     the JVM running the Tests as the Server</h3>
                 <p>Add the <code>clover.server</code> system property to the <code>maven-surefire-plugin</code>
                     configuration section, and ensure the forkMode parameter is set to 'once':</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;plugin&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;plugin&gt;
     &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
     &lt;configuration&gt;
         &lt;forkMode&gt;once&lt;/forkMode&gt;
@@ -289,8 +271,6 @@
     &lt;/configuration&gt;
 &lt;/plugin&gt;
 </pre>
-                    </div>
-                </div>
                 <h2>Execution</h2>
                 <p>
                     <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> In order to run your tests and generate reports,

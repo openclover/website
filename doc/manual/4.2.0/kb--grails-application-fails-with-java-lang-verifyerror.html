@@ -68,17 +68,13 @@
                 <p>Your application is using the Clover-for-Grails plugin. Compilation fails with the
                     java.lang.VerifyError exception.</p>
                 <p>For example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence">$ grails test-app -clover.on
+                <pre data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence">$ grails test-app -clover.on
 
 ...
 build	Clover: Clover is enabled. Configuration: [on:true, debug:[:], verbose:[:]]
 ...
 build	| Error Exception occurred trigger event [SetClasspath]: java.lang.VerifyError: (class: com/atlassian/clover/ant/tasks/AbstractCloverTask, method: init signature: ()V) Incompatible argument to function (NOTE: Stack trace has been filtered. Use --verbose to see entire trace.)
 </pre>
-                    </div>
-                </div>
                 <p> </p><h4>Cause</h4>
                 <p>Your application is using some Grails plugin, which has a dependency on the Clover plugin and this
                     dependency is being exported outside the plugin. As a consequence this Clover plugin becomes
@@ -102,9 +98,8 @@ build	| Error Exception occurred trigger event [SetClasspath]: java.lang.VerifyE
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>myApplication/grails-app/conf/BuildConfig.groovy</b>
                     </div>
-                    <div class="codeContent panelContent pdl">
-<pre>grails.project.dependency.resolution = {
-  plugins { 
+                    <pre>grails.project.dependency.resolution = {
+  plugins {
     compile(&quot;:somePluginWithInvalidDependency:1.0.0&quot;) {
       excludes &quot;clover&quot;  // exclude clover in wrong version
     }
@@ -113,7 +108,6 @@ build	| Error Exception occurred trigger event [SetClasspath]: java.lang.VerifyE
 }
 
  </pre>
-                    </div>
                 </div>
                 <p> </p>
                 <p> </p>

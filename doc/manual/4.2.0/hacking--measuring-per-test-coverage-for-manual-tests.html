@@ -85,12 +85,10 @@
                 <p>Example:</p>
                 <div>
                     <div class="syntaxhighlighter wrap java"><p> </p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-<pre>import junit.framework.TestCase;
- 
+                        <pre>import junit.framework.TestCase;
+
 public class MyManualTest extends TestCase {
- 
+
     public static void main(String args[]) {
         MyManualTest myTest = new MyManualTest();
         myTest.waitUntilYourApplicationStarts();
@@ -104,35 +102,33 @@ public class MyManualTest extends TestCase {
                 break;
         }
     }
- 
+
     private int getTestNumber() {
         // e.g. entered by user / read from commandline arg ...
         return 1;
     }
- 
+
     private void waitUntilYourApplicationStarts() {
         // e.g. &quot;Press any key when ready&quot; / check for existence of some marker file
     }
- 
+
     private void waitUntilTestEnds() {
         // e.g. &quot;Press any key when test is finished&quot; / check for some marker file
     }
- 
+
     public void testManualTest1() {
         // Clover will add &quot;test start&quot; here
         waitUntilTestEnds();
         // Clover will add &quot;test end&quot; here
     }
- 
+
     public void testManualTest2() {
         // Clover will add &quot;test start&quot; here
         waitUntilTestEnds();
         // Clover will add &quot;test end&quot; here
     }
- 
+
 }</pre>
-                            </div>
-                        </div>
                         <p> </p></div>
                 </div>
                 <p>2) Compile JUnit test case together with the application under test (produce two jars, for instance)
@@ -143,13 +139,9 @@ public class MyManualTest extends TestCase {
                 <p>Example:</p>
                 <div>
                     <div class="syntaxhighlighter wrap xml"><p> </p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;clover-setup initstring=&quot;/path/to/my/clover.db&quot; flushpolicy=&quot;interval&quot; flushinterval=&quot;1000&quot;&gt;
+                        <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;clover-setup initstring=&quot;/path/to/my/clover.db&quot; flushpolicy=&quot;interval&quot; flushinterval=&quot;1000&quot;&gt;
     &lt;distributedCoverage/&gt;
 &lt;/clover-setup&gt;</pre>
-                            </div>
-                        </div>
                         <p> </p></div>
                 </div>
                 <p>3) Run unit test and application:</p>

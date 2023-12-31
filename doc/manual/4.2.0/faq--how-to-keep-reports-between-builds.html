@@ -69,9 +69,7 @@
             <div id="main-content">
                 <p>If you want to keep Clover reports between builds, outside of source directory you can use &lt;outputDirectory/&gt; element in Clover configuration.</p>
                 <p>In your configuration put something like this:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;build&gt;
+                <pre>&lt;build&gt;
  &lt;plugins&gt;
   &lt;plugin&gt;
    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
@@ -87,8 +85,6 @@
  &lt;/plugins&gt;
 &lt;/build&gt;
 </pre>
-                    </div>
-                </div>
                 <p>Use ${pom.artifactId} if you have multi module project - reports for each module will be placed in
                     a separate directory.</p>
             </div>

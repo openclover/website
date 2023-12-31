@@ -66,9 +66,7 @@
             <div id="main-content">
                 <h3>Symptoms</h3>
                 <p>When integrating clover into your build, the build fails with duplicate class errors:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>[INFO] ------------------------------------------------------------------------
+                <pre>[INFO] ------------------------------------------------------------------------
 [ERROR] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
 [INFO] Compilation failure
@@ -83,8 +81,6 @@
 
 /Users/amyers/Applications/clover/mavenbook-examples-1-SNAPSHOT/ch05-simple-web/simple-webapp/target/jaxws/wsimport/java/com/atlassian/jira/soap/client/package-info.java:[1,0] package com.atlassian.jira.soap.client has already been annotated
 </pre>
-                    </div>
-                </div>
                 <h3>Cause</h3>
                 <p>The <code>jaxws-maven-plugin</code> adds the output directory for the generated sources to the
                     compile source roots. Clover changes the <code>${project.build.sourceDirectory</code>} to <code>target/clover/src-instrumented</code>
@@ -93,9 +89,7 @@
                 <h3>Resolution</h3>
                 <p>Configure the <code>jaxws-maven-plugin</code> to use <code>${project.build.sourceDirectory</code>} as
                     the <code>&lt;sourceDestDirectory&gt;</code>.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;plugin&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;plugin&gt;
 	&lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
 	&lt;artifactId&gt;jaxws-maven-plugin&lt;/artifactId&gt;
 	&lt;executions&gt;
@@ -110,9 +104,7 @@
 		&lt;packageName&gt;com.atlassian.example.wsdl.client&lt;/packageName&gt;
 		&lt;sourceDestDir&gt;${project.build.sourceDirectory}&lt;/sourceDestDir&gt;
 	&lt;/configuration&gt;
-&lt;/plugin&gt;</pre>
-                    </div>
-                </div><!--$body-->
+&lt;/plugin&gt;</pre><!--$body-->
             </div>
 
 

@@ -242,41 +242,25 @@
                     results will provide all required information in the majority of cases. For more details please see
                     '<a href="ant--test-results-and-per-test-coverage.html">Advanced Usage</a>'.</p>
                 <h3>Examples</h3>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-check target=&quot;80%&quot;/&gt;
+                <pre>&lt;clover-check target=&quot;80%&quot;/&gt;
 </pre>
-                    </div>
-                </div>
                 <p>Tests if total percentage coverage is at least 80%. If not, a message is logged and the build
                     continues.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-check target=&quot;80%&quot;
+                <pre>&lt;clover-check target=&quot;80%&quot;
               haltOnFailure=&quot;true&quot;/&gt;
 </pre>
-                    </div>
-                </div>
                 <p>Tests if total percentage coverage is at least 80%. If not, a message is logged and the build
                     fails.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-check target=&quot;80%&quot;
+                <pre>&lt;clover-check target=&quot;80%&quot;
               failureProperty=&quot;coverageFailed&quot;/&gt;
 </pre>
-                    </div>
-                </div>
                 <p>Tests if total percentage coverage is at least 80%. If not, a message is logged and the project
                     property <code>coverageFailed</code> is set.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-check target=&quot;80%&quot;
+                <pre>&lt;clover-check target=&quot;80%&quot;
    &lt;package name=&quot;com.acme.killerapp.core&quot; target=&quot;70%&quot;/&gt;
    &lt;package name=&quot;com.acme.killerapp.ai&quot; target=&quot;40%&quot;/&gt;
 &lt;/clover-check&gt;
 </pre>
-                    </div>
-                </div>
                 <p>Tests if:</p>
                 <ul>
                     <li>total percentage coverage for project is at least 80%.</li>
@@ -284,36 +268,24 @@
                     <li>total percentage coverage for package <code>com.acme.killerapp.ai</code> is at least 40%.</li>
                 </ul>
                 <p>If any of these criteria are not met, a message is logged and the build continues.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-check target=&quot;80%&quot;
+                <pre>&lt;clover-check target=&quot;80%&quot;
              filter=&quot;catch&quot;&gt;
    &lt;package name=&quot;com.acme.killerapp.core&quot; target=&quot;70%&quot;/&gt;
    &lt;package name=&quot;com.acme.killerapp.ai&quot; target=&quot;40%&quot;/&gt;
 &lt;/clover-check&gt;
 </pre>
-                    </div>
-                </div>
                 <p>As above, but doesn't include coverage of catch blocks when measuring criteria.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-check target=&quot;80%&quot; conditionalTarget=&quot;90%&quot;
+                <pre>&lt;clover-check target=&quot;80%&quot; conditionalTarget=&quot;90%&quot;
              filter=&quot;catch&quot;&gt;
    &lt;package name=&quot;com.acme.killerapp.core&quot; target=&quot;70%&quot;/&gt;
    &lt;package name=&quot;com.acme.killerapp.ai&quot; target=&quot;40%&quot;/&gt;
 &lt;/clover-check&gt;
 </pre>
-                    </div>
-                </div>
                 <p>As previous example, but also ensures that the project conditional coverage is at least 90%.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-check&gt;
+                <pre>&lt;clover-check&gt;
    &lt;package regex=&quot;com.acme.killerapp.core.*&quot; target=&quot;70%&quot;/&gt;
 &lt;/clover-check&gt;
 </pre>
-                    </div>
-                </div>
                 <p>Tests if coverage for <code>com.acme.killerapp.core</code> and all subpackages is at least 70%.</p>
             </div>
 

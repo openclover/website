@@ -137,19 +137,17 @@
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>grails-app/conf/BuildConfig.groovy</b>
                     </div>
-                    <div class="codeContent panelContent pdl">
-<pre>grails.project.dependency.resolution = {
+                    <pre>grails.project.dependency.resolution = {
     plugins {
         compile &quot;org.grails.plugins:clover:4.0.0&quot;
     }
     // For Grails 2.2 and later you have to add a dependency to a Clover core:
-    dependencies { 
+    dependencies {
         compile &quot;org.openclover:clover:4.0.0&quot;
     }
     // or use a legacy dependency resolution mechanism:
     // legacyResolve true
 }</pre>
-                    </div>
                 </div>
                 <h2 class="paragraph" id="Clover-for-GrailsInstallationGuide-Usingthepom.xml">Using the pom.xml</h2>
                 <p><strong>Grails 2.1</strong> has introduced new dependency management based on Maven's pom.xml instead
@@ -158,18 +156,15 @@
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>grails-app/conf/BuildConfig.groovy</b>
                     </div>
-                    <div class="codeContent panelContent pdl">
-<pre>grails.project.dependency.resolution = {
+                    <pre>grails.project.dependency.resolution = {
     pom true
 }</pre>
-                    </div>
                 </div>
                 <p>and add dependencies to <em>org.grails.plugins:clover</em> (and <em>org.openclover:clover</em>)
                     in pom.xml:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>pom.xml</b></div>
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;dependency&gt;
+                    <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;dependency&gt;
     &lt;groupId&gt;org.grails.plugins&lt;/groupId&gt;
     &lt;artifactId&gt;clover&lt;/artifactId&gt;
     &lt;version&gt;4.2.0&lt;/version&gt;
@@ -184,7 +179,6 @@
     &lt;scope&gt;compile&lt;/scope&gt;
     &lt;type&gt;jar&lt;/type&gt;
 &lt;/dependency&gt;</pre>
-                    </div>
                 </div>
                 <p> </p>
                 <h2 class="paragraph" id="Clover-for-GrailsInstallationGuide-Usingthe&#39;install-plugin&#39;command">
@@ -201,22 +195,14 @@
                 <p>
                     <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> If you experience problems using this method, try
                     installing the plugin directly from its <span>web address</span>:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>grails install-plugin http://plugins.grails.org/grails-clover/tags/RELEASE_x_y_z/grails-clover-x.y.z.zip
+                <pre>grails install-plugin http://plugins.grails.org/grails-clover/tags/RELEASE_x_y_z/grails-clover-x.y.z.zip
 </pre>
-                    </div>
-                </div>
                 <p>Where <code>x</code>, <code>y</code> and <code>z</code> (optional) refer to the latest version of the
                     Clover-for-Grails plugin to be installed.</p>
                 <p> </p>
                 <p>It's also possible to install it from a downloaded file:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>grails install-plugin /path/to/grails-clover-x.y.zip
+                <pre>grails install-plugin /path/to/grails-clover-x.y.zip
 </pre>
-                    </div>
-                </div>
                 <div class="alert alert-success" role="alert">
     <p>Due to the nature of Grails' plugin installation
                         architecture, you will need to install the Clover-for-Grails plugin into each Grails project

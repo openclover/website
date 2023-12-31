@@ -167,62 +167,40 @@
                     (codeType=APPLICATION).</p>
                 <p> </p>
                 <h3>Examples</h3>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-log/&gt;
+                <pre>&lt;clover-log/&gt;
 </pre>
-                    </div>
-                </div>
                 <p>Prints a summary of code coverage to the console.</p>
                 <p> </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-log&gt;
+                <pre>&lt;clover-log&gt;
          &lt;package name=&quot;com.acme.killerapp.core&quot;/&gt;
  &lt;/clover-log&gt;
 </pre>
-                    </div>
-                </div>
                 <p>Prints a summary of code coverage for the package com.acme.killerapp.core to the console.</p>
                 <p> </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-log level=&quot;statement&quot;&gt;
+                <pre>&lt;clover-log level=&quot;statement&quot;&gt;
          &lt;package name=&quot;com.acme.killerapp.core&quot;/&gt;
  &lt;/clover-log&gt;
 </pre>
-                    </div>
-                </div>
                 <p>Prints detailed (source-level) code coverage information for the package <code>com.acme.killerapp.core</code>
                     to the console.</p>
                 <p> </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-log level=&quot;statement&quot;
+                <pre>&lt;clover-log level=&quot;statement&quot;
 	     filter=&quot;catch&quot;&gt;
          &lt;package name=&quot;com.acme.killerapp.core&quot;/&gt;
  &lt;/clover-log&gt;
 </pre>
-                    </div>
-                </div>
                 <p>As above, but catch blocks will not be considered in coverage reporting.</p>
                 <p> </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-log level=&quot;statement&quot;&gt;
+                <pre>&lt;clover-log level=&quot;statement&quot;&gt;
     &lt;sourcepath&gt;
        &lt;pathelement path=&quot;/some/other/location&quot;/&gt;
     &lt;/sourcepath&gt;
  &lt;/clover-log&gt;
 </pre>
-                    </div>
-                </div>
                 <p>Prints source-level coverage report to the console. Clover will look for source files in the
                     directory <code>/some/other/location</code>.</p>
                 <p> </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-log codeType=&quot;APPLICATION&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-log codeType=&quot;APPLICATION&quot;&gt;
     &lt;fileset dir=&quot;src/main/java&quot;/&gt;
     &lt;fileset dir=&quot;src/main/groovy&quot;/&gt;
     &lt;fileset dir=&quot;src/test/java&quot;/&gt;
@@ -230,8 +208,6 @@
 &lt;/clover-log&gt;
 
 </pre>
-                    </div>
-                </div>
                 <p>Collect coverage data from three directories: src/main/java, src/main/groovy and src/test/java. Test
                     sources are located in: src/test/java. Report coverage for business code only (codeType =
                     APPLICATION), i.e. skip files from src/test/java.</p>

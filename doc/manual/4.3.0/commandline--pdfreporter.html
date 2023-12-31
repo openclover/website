@@ -64,12 +64,8 @@
             <div id="main-content">
                 <p>Produces a PDF summary report of Code Coverage for the given coverage database.</p>
                 <h2>Usage</h2>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>java com.atlassian.clover.reporters.pdf.PDFReporter [OPTIONS] PARAMS
+                <pre>java com.atlassian.clover.reporters.pdf.PDFReporter [OPTIONS] PARAMS
 </pre>
-                    </div>
-                </div>
                 <h3>Params</h3>
                 <div>
                     <table class="table table-striped">
@@ -172,9 +168,7 @@
                 <h2>API Usage</h2>
                 <p>PDFReporter provides a simple API that accepts an array of strings representing the command line
                     arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>import com.atlassian.clover.CloverStartup;
+                <pre>import com.atlassian.clover.CloverStartup;
 import com.atlassian.clover.Logger;
 import com.atlassian.clover.reporters.pdf.PDFReporter;
 
@@ -189,24 +183,14 @@ public class PdfReportRunner {
     }
 }
 </pre>
-                    </div>
-                </div>
                 <h3>Examples</h3>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>java com.atlassian.clover.reporters.pdf.PDFReporter -i clover.db -o coverage.pdf
+                <pre>java com.atlassian.clover.reporters.pdf.PDFReporter -i clover.db -o coverage.pdf
 </pre>
-                    </div>
-                </div>
                 <p>Reads coverage for the Clover database &quot;clover.db&quot;, and produces a pdf report in the file &quot;coverage.pdf&quot;.</p>
                 <p> </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>java com.atlassian.clover.reporters.pdf.PDFReporter -c ElementsCoveredAsc
+                <pre>java com.atlassian.clover.reporters.pdf.PDFReporter -c ElementsCoveredAsc
       -t &quot;My Coverage&quot; -i clover.db -o coverage.pdf
 </pre>
-                    </div>
-                </div>
                 <p>Produces the same report as above, but includes a report title, and orders lists by total elements
                     covered rather than percentage covered.</p>
             </div>

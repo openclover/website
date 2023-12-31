@@ -61,26 +61,18 @@
             <div id="main-content">
                 <h3>Symptoms</h3>
                 <p>During execution of tests or application a following message appears:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>FATAL ERROR: Clover could not be initialised. Are you sure you have Clover in the runtime classpath?
+                <pre>FATAL ERROR: Clover could not be initialised. Are you sure you have Clover in the runtime classpath?
 ...
  (class java.lang.NoClassDefFoundError:com_atlassian_clover/CoverageRecorder)
 or
  (class java.lang.NoClassDefFoundError:com_atlassian_clover/CloverVersionInfo)
 or
  (class java.lang.NoClassDefFoundError:com_atlassian_clover/CloverProfile) </pre>
-                    </div>
-                </div>
                 <p>or there is a stack trace related with class initialization (Spring, Tomcat container, class loaders
                     ...)</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;stack trace describing that initialization of some class has failed or that some field is null followed by&gt;
+                <pre>&lt;stack trace describing that initialization of some class has failed or that some field is null followed by&gt;
   ...
 Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer     &lt;or other clover class&gt;</pre>
-                    </div>
-                </div>
                 <h3>Cause</h3>
                 <p>In 99% of cases this is caused by a fact that <strong>Clover's JAR </strong>(clover.jar in case of
                     Ant, org.openclover:clover artifact in case of Maven) is missing in runtime. Please keep in
@@ -132,16 +124,12 @@ Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer
                 <h3>Resolution</h3>
                 <p><strong>Ant JUnit tests</strong></p>
                 <p>Add clover.jar to runtime classpath for forked junit tests, for instance:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;junit fork=&quot;yes&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;junit fork=&quot;yes&quot;&gt;
   &lt;classpath&gt;
     &lt;pathelement location=&quot;/path/to/clover.jar&quot;/&gt;
     &lt;pathelement path=&quot;/path/to/other/application.jars&quot;/&gt;
   &lt;classpath&gt;
 &lt;/junit&gt; </pre>
-                    </div>
-                </div>
                 <p><strong><br/></strong></p>
                 <p><strong>Tests executed in container / on a remote machine<br/></strong></p>
                 <p>1) In case you use standalone server, the easiest way is to copy the clover.jar into the server's
@@ -153,9 +141,7 @@ Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer
                     runtime. Example for maven-cargo-plugin can be found here:</p>
                 <p><a href="https://github.com/openclover/clover-maven-plugin" rel="nofollow">https://github.com/openclover/clover-maven-plugin</a>
                     <span class="nolink">folder /src/it/webapp</span></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">...
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">...
 &lt;plugin&gt;
     &lt;groupId&gt;org.codehaus.cargo&lt;/groupId&gt;
     &lt;artifactId&gt;cargo-maven2-plugin&lt;/artifactId&gt;
@@ -172,8 +158,6 @@ Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer
          ...
     &lt;/configuration&gt;
 &lt;/plugin&gt;</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p><strong>Bamboo</strong></p>
                 <p>1) If you use Automatic Clover integration <strong>and</strong> have code running in separate JVM
@@ -217,15 +201,11 @@ Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer
                     starting a container ...).</p>
                 <p>Usually, adding a following dependency to a configuration section of the specific plug-in solves the
                     problem - exact syntax depends on the plug-in:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;!-- usually under the &lt;configuration&gt; / &lt;dependencies&gt; section - depends on a plug-in --&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;!-- usually under the &lt;configuration&gt; / &lt;dependencies&gt; section - depends on a plug-in --&gt;
 &lt;dependency&gt;
 	&lt;groupId&gt;org.openclover&lt;/groupId&gt;
 	&lt;artifactId&gt;clover&lt;/artifactId&gt;
 &lt;/dependency&gt;</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p>See:</p>
                 <ul>

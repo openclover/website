@@ -66,9 +66,7 @@
                 <h4>Symptoms</h4>
                 <p>Generation of HTML Clover report throws IOException like follows:</p>
                 <p> </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence">Writing HTML report to ...
+                <pre data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence">Writing HTML report to ...
 
 javax.imageio.IIOException: Can&#39;t create output stream!
         at javax.imageio.ImageIO.write(ImageIO.java:1560)
@@ -96,8 +94,6 @@ Caused by: java.io.IOException: The filename, directory name, or volume label sy
         at com.sun.imageio.spi.OutputStreamImageOutputStreamSpi.createOutputStreamInstance(OutputStreamImageOutputStreamSpi.java:50)
         at javax.imageio.ImageIO.createImageOutputStream(ImageIO.java:393)
         ... 11 more</pre>
-                    </div>
-                </div>
                 <p> </p><h4>Cause</h4>
                 <p>Clover was unable to create a temporary file in <strong>java.io.tmpdir</strong> for chart images.</p>
                 <p> </p><h4>Resolution</h4>

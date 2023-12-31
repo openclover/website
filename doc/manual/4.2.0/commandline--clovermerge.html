@@ -65,12 +65,8 @@
             <div id="main-content">
                 <p>This tool merges existing Clover databases to allow for combined reports to be generated.</p>
                 <h3>Usage</h3>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>java com.atlassian.clover.CloverMerge [OPTIONS] PARAMS [DBFILES...]
+                <pre>java com.atlassian.clover.CloverMerge [OPTIONS] PARAMS [DBFILES...]
 </pre>
-                    </div>
-                </div>
                 <h3>Parameters</h3>
                 <div>
                     <table class="table table-striped">
@@ -126,9 +122,7 @@
                 <p><code>CloverMerge</code> provides a simple API that accepts an array of strings representing the
                     command line arguments and returns an integer result code. The following fragment illustrates use of
                     the API:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>import com.atlassian.clover.CloverMerge;
+                <pre>import com.atlassian.clover.CloverMerge;
 
 ...
 
@@ -138,22 +132,12 @@ if (result != 0) {
     // problem during instrumentation
 }
 </pre>
-                    </div>
-                </div>
                 <h3>Examples</h3>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>java com.atlassian.clover.CloverMerge -i new.db proj1.db proj2.db
+                <pre>java com.atlassian.clover.CloverMerge -i new.db proj1.db proj2.db
 </pre>
-                    </div>
-                </div>
                 <p>Merges proj1.db and proj2.db into the new database new.db. A span of zero seconds is used.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>java com.atlassian.clover.CloverMerge -i new.db proj1.db -s 30s proj2.db proj3.db
+                <pre>java com.atlassian.clover.CloverMerge -i new.db proj1.db -s 30s proj2.db proj3.db
 </pre>
-                    </div>
-                </div>
                 <p>Merges proj1.db, proj2.db and proj3.db into the new database new.db. A span of zero seconds is used
                     for proj1.db, and a span of 30 seconds is used for proj2.db and proj3.db.</p>
                 <div><span></span>

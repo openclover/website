@@ -147,9 +147,7 @@
                 <h2>Compiling</h2>
                 <p>To compile the java files, use the command <code>ant compile</code></p>
                 <p>Output should be similar to the following:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>$ ant compile
+                <pre>$ ant compile
 Buildfile: .../tutorial/build.xml
 
 
@@ -166,16 +164,12 @@ compile:
 
 
 BUILD SUCCESSFUL </pre>
-                    </div>
-                </div>
                 <p>This shows that the java source files have been compiled and class files have been placed in the
                     <code>tutorial\build</code> directory.</p>
                 <h2>Running the tests</h2>
                 <p>To run the JUnit tests, use the command <code>ant test</code></p>
                 <p>Output should be similar to the following:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>$ ant test
+                <pre>$ ant test
 Buildfile: .../tutorial/build.xml
 
 
@@ -194,8 +188,6 @@ test:
 
 
 BUILD SUCCESSFUL</pre>
-                    </div>
-                </div>
                 <p>This shows that all the tests have been run and have passed. We have now compiled the Money library,
                     and ran tests against it. In the next step, we will add Clover targets and properties to the build
                     file to enable measurement of code coverage.</p>
@@ -213,13 +205,9 @@ BUILD SUCCESSFUL</pre>
                 </div>
                 <p>Load the <code>build.xml</code> file into your favorite text editor and add the Clover Ant task and
                     type definitions:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;property name=&quot;clover.jar&quot; location=&quot;../lib/clover.jar&quot;/&gt;
+                <pre>&lt;property name=&quot;clover.jar&quot; location=&quot;../lib/clover.jar&quot;/&gt;
 &lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
 </pre>
-                    </div>
-                </div>
                 <div><p class="title">Note</p>
                     <span></span>
                     <div><p>This assumes that the <code>clover.jar</code> is
@@ -229,40 +217,28 @@ BUILD SUCCESSFUL</pre>
                 <p>These lines define the Clover Ant tasks which can then be used within the build file.</p>
                 <h2>Adding a target to enable Clover</h2>
                 <p>Add a target called <code>with.clover</code> which will enable and configure Clover for a build:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;target name=&quot;with.clover&quot;&gt;
+                <pre>&lt;target name=&quot;with.clover&quot;&gt;
    &lt;clover-setup/&gt;
 &lt;/target&gt;
 </pre>
-                    </div>
-                </div>
                 <h2>Adding Clover to the classpath</h2>
                 <p>The <code>clover.jar</code> needs to be in both compilation and runtime classpath. To achieve this,
                     add the line in marked below to the <code>build.classpath</code> Ant path:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;path id=&quot;build.classpath&quot;&gt;
+                <pre>&lt;path id=&quot;build.classpath&quot;&gt;
     &lt;pathelement path=&quot;${clover.jar}&quot;/&gt; &lt;!-- add this --&gt;
     &lt;pathelement path=&quot;${build.classes}&quot;/&gt;
 &lt;/path&gt;
 </pre>
-                    </div>
-                </div>
                 <h2>Adding &lt;clover-clean&gt; to
                     the clean target</h2>
                 <p>It is advisable to add the <code>&lt;</code><code><a href="ant--clover-clean.html">clover-clean</a></code><code>/&gt;</code> task to the
                     <code>clean</code>
                     target. This will delete the Clover database when the <code>clean</code> target is executed.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;target name=&quot;clean&quot; &gt;
+                <pre>&lt;target name=&quot;clean&quot; &gt;
      &lt;clover-clean/&gt; &lt;!-- add this --&gt;
      &lt;delete dir=&quot;build&quot;/&gt;
 &lt;/target&gt;
 </pre>
-                    </div>
-                </div>
                 <p>Once you have made these changes, save the <code>build.xml</code> file. We will add some more Clover
                     targets later to perform coverage reporting, but first we will re-compile the Money library with
                     Clover and re-run the tests to obtain coverage data.</p>
@@ -273,9 +249,7 @@ BUILD SUCCESSFUL</pre>
                     files from previous compilations.</p>
                 <p>Compile your code with Clover using the command <code>ant with.clover compile</code>.</p>
                 <p>You will get output similar to the following:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>$ ant with.clover compile
+                <pre>$ ant with.clover compile
 Buildfile: .../tutorial/build.xml
 
 
@@ -301,17 +275,13 @@ compile:
 ...
 
 BUILD SUCCESSFUL</pre>
-                    </div>
-                </div>
                 <p>The result of this process is that your source files have been instrumented by Clover and then
                     compiled as usual. As part of the instrumentation process, Clover creates a database that will be
                     used during the coverage recording and report process.</p>
                 <h2>Running the tests</h2>
                 <p>We now need to run the tests again, using the command <code>ant test</code>. This command will run
                     the tests, this time measuring coverage. Output from Ant will be the same as a normal test run:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>$ ant test
+                <pre>$ ant test
 Buildfile: .../tutorial/build.xml
 
 
@@ -333,8 +303,6 @@ test:
 
 BUILD SUCCESSFUL
 </pre>
-                    </div>
-                </div>
                 <p>During this test run, Clover measured the code coverage of the tests and wrote the coverage data to
                     disk.</p>
                 <p>In the next step we'll generate a coverage report from this data to see how well the tests actually
@@ -348,14 +316,10 @@ BUILD SUCCESSFUL
                 <h2>Adding a Clover report target</h2>
                 <p>Open the <code>build.xml</code> file in a text editor and add the following <code>target</code> to
                     create a HTML report:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;target name=&quot;clover.report&quot;&gt;
+                <pre>&lt;target name=&quot;clover.report&quot;&gt;
    &lt;clover-html-report outdir=&quot;build/clover_html&quot; title=&quot;Clover Demo&quot;/&gt;
 &lt;/target&gt;
 </pre>
-                    </div>
-                </div>
                 <p>The <code>&lt;</code><code><a href="ant--clover-html-report.html">clover-html-report</a></code><code>&gt;</code> task is a
                     simplified version of the <code>&lt;</code><code><a href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> task. As no
                     <code>historydir</code> attribute has been specified, it uses the current coverage data. Historical
@@ -369,9 +333,7 @@ BUILD SUCCESSFUL
                 <h2>Generating the report</h2>
                 <p>Create a HTML report with the command <code>ant clover.report</code>. You will get output similar to
                     the following:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>$ ant clover.report
+                <pre>$ ant clover.report
 Buildfile: /Users/mparfianowicz/Work/clover-hg/tutorial/build.xml
 
 
@@ -385,8 +347,6 @@ clover.report:
 
 
 BUILD SUCCESSFUL</pre>
-                    </div>
-                </div>
                 <p>You can now view the report by opening the file <code>tutorial/build/clover_html/index.html</code> in
                     a web browser. See <a href="general--understanding-reports-current.html">'Current' Report</a> for details about interpreting this
                     coverage report.</p>

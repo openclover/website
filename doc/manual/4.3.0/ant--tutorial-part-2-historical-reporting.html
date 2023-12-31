@@ -137,14 +137,10 @@
                     can be created. The generation of historical reports is discussed in later steps.</p>
                 <h2>Adding a history point target</h2>
                 <p>Add the following target to your <code>build.xml</code> file:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;target name=&quot;record.point&quot;&gt;
+                <pre>&lt;target name=&quot;record.point&quot;&gt;
     &lt;clover-historypoint historyDir=&quot;clover_history&quot;/&gt;
 &lt;/target&gt;
 </pre>
-                    </div>
-                </div>
                 <p>When this target is run, a history point will be created with the timestamp value of the coverage
                     run.</p>
                 <p>The value of the <code>historyDir</code> parameter is the directory where the history points will be
@@ -160,9 +156,7 @@
                 <p>Ensure that the source code has been instrumented, and the tests run, by using the command <code>ant
                     clean with.clover test</code>.</p>
                 <p>Run the command <code>ant record.point</code>. Output should be similar to the following:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>$ ant record.point
+                <pre>$ ant record.point
 Buildfile: .../tutorial/build.xml
 
 
@@ -174,8 +168,6 @@ record.point:
 
 
 BUILD SUCCESSFUL</pre>
-                    </div>
-                </div>
                 <p>In the next step we will add more tests to improve coverage of the Money library, recording Clover
                     history points along the way.</p>
                 <h1>Step 2 - Generating historical
@@ -244,9 +236,7 @@ BUILD SUCCESSFUL</pre>
                     which will call the historical reporter and generate a historical report.</p>
                 <h2>Add a historical report target</h2>
                 <p>Add the following target to <code>build.xml</code>:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;target name=&quot;hist.report&quot;&gt;
+                <pre>&lt;target name=&quot;hist.report&quot;&gt;
      &lt;clover-report&gt;
            &lt;historical outfile=&quot;historical.pdf&quot;
                   historyDir=&quot;clover_history&quot;&gt;
@@ -255,8 +245,6 @@ BUILD SUCCESSFUL</pre>
      &lt;/clover-report&gt;
 &lt;/target&gt;
 </pre>
-                    </div>
-                </div>
                 <p>The <code>hist.report</code> target is similar to the <code>report.html</code> target defined in Part
                     1. The main differences are that the nested element specifies <code>&lt;historical&gt;</code> rather
                     than <code>&lt;current&gt;</code> and there is no specification of the output format as
@@ -272,9 +260,7 @@ BUILD SUCCESSFUL</pre>
                 <h2>Generating a historical report</h2>
                 <p>Create a historical report by using the command <code>ant hist.report</code>. Output should be
                     similar to the following:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>$ ant hist.report
+                <pre>$ ant hist.report
 Buildfile: /Users/mparfianowicz/Work/clover-hg/tutorial/build.xml
 
 
@@ -289,8 +275,6 @@ hist.report:
 
 
 BUILD SUCCESSFUL </pre>
-                    </div>
-                </div>
                 <p>The report can now be viewed by opening the file <code>tutorial/historical.pdf</code> in a PDF viewer
                     such as <a href="http://www.adobe.com/" rel="nofollow">Adobe Acrobat
                         Reader</a>.</p>
@@ -358,12 +342,8 @@ BUILD SUCCESSFUL </pre>
                 <p>This will produce a PDF file with the filename '<code>histSelect.pdf</code>' with two sections: the a
                     custom chart with total coverage information; and the 'Metrics over time' chart. You can also
                     specify whether or not a chart uses a log scale by adding the <code>logscale</code> attribute:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;metrics logscale=&quot;false&quot;/&gt;
+                <pre>&lt;metrics logscale=&quot;false&quot;/&gt;
 </pre>
-                    </div>
-                </div>
                 <h2>'Movers' configuration</h2>
                 <p>The 'Movers' section of the historical report shows you the classes whose coverage has changed the
                     most recently. This is useful for spotting classes that have had sudden changes in coverage, perhaps

@@ -202,19 +202,11 @@
                 <p>For example, in Groovy code, a method defined via the 'def' keyword is always 'public'. This means
                     that your <code>regexp</code> must actually match &quot;<code>public def</code>&quot;. Hence, if you
                     wanted to create a <code>regexp</code> that matched the following Groovy method:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>def void foo()
+                <pre>def void foo()
 </pre>
-                    </div>
-                </div>
                 <p>Your <code>regexp</code> must assume a match against:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>public def void foo()
+                <pre>public def void foo()
 </pre>
-                    </div>
-                </div>
                 <p><strong>Normalized method signature rules for defining <code>regexp</code> parameters:</strong></p>
                 <p>The following list illustrates the normalized form of the method signature (and hence, order) in
                     which your <code>regexp</code> must be defined to match specific methods in your Groovy source code: </p>
@@ -248,39 +240,35 @@
                 </ol>
                 <p> </p>
                 <p><strong>Examples of normalized signatures for Groovy</strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>// normalized signature is: &quot;private void &lt;init&gt;()&quot;
+                <pre>// normalized signature is: &quot;private void &lt;init&gt;()&quot;
 private PrivateConstructor() {
-        
+
 }
 
 // normalized signature is: &quot;public void &lt;init&gt;(int i)&quot;
 public PublicConstructor(int i) {
 
 }
-    
+
 // normalized signature is: &quot;private def implicitVoidMethod()&quot;
 private implicitVoidMethod() {
 
 }
-    
+
 // normalized signature is: &quot;private void explicitVoidMethod()&quot;
-private void explicitVoidMethod() { 
+private void explicitVoidMethod() {
 
 }
-    
+
 // normalized signature is: &quot;private int someNonVoidMethod()&quot;
 private int someNonVoidMethod() {
     return 0
-} 
+}
 
 // normalized signature is: &quot;public static synchronized Object[] complexSignature(String i, List&lt;Integer&gt; j)&quot;
 synchronized static public Object [ ]    complexSignature(   String i, List &lt; Integer &gt; j) {
-    return new Object[0]    
+    return new Object[0]
 }</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <h2>Statement Contexts</h2>
                 <div class="alert alert-success" role="alert">
@@ -299,50 +287,30 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                 </ul>
                 <p>When writing a regular expression you should take into account that in case of nested statements, the
                     outer statement will contain inner statements as well. Consider the following example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>void testStatementContext() {
+                <pre>void testStatementContext() {
     while (true) {
         if (logger.isDebugEnabled()) {
-            logger.debug(&quot;abc&quot;);			
+            logger.debug(&quot;abc&quot;);
         }
-    }		
+    }
 }</pre>
-                    </div>
-                </div>
                 <p>in this case, method body has three statements:</p>
                 <p>a) the while loop</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >while (true) {{ if (logger.isDebugEnabled()) {{ logger.debug(&quot;abc&quot;); } }}</pre>
-                    </div>
-                </div>
                 <p>b) the if condition</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >if (logger.isDebugEnabled()) {{ logger.debug(&quot;abc&quot;); }</pre>
-                    </div>
-                </div>
                 <p>c) the logger.debug() method call</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >logger.debug(&quot;abc&quot;);</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p>Assuming that you'd like to filter-out &quot;logger.debug&quot; calls, the regular expression should
                     look like this:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;statementcontext name=&quot;logger&quot; regexp=&quot;^logger\.debug.*&quot;/&gt;</pre>
-                    </div>
-                </div>
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;statementcontext name=&quot;logger&quot; regexp=&quot;^logger\.debug.*&quot;/&gt;</pre>
                 <p>Note that if the expression would be written as &quot;^<strong><span style="color: rgb(0,0,255);">.*</span></strong>logger\.debug.*&quot;, then it would match also
                     outer statements.</p>
                 <h2>Using Context Filters</h2>
@@ -356,74 +324,50 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                 <p>In some cases you may not be interested in the coverage of statements inside catch blocks. To filter
                     them, you can use Clover's predefined <code>catch</code> context to exclude statements inside catch
                     blocks from a coverage report:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-report&gt;
+                <pre>&lt;clover-report&gt;
        &lt;current outfile=&quot;clover_html&quot;&gt;
          &lt;format type=&quot;html&quot; filter=&quot;catch&quot;/&gt;
        &lt;/current&gt;
    &lt;/clover-report&gt;
 </pre>
-                    </div>
-                </div>
                 <p>This generates a source-level HTML report that excludes coverage from statements inside catch
                     blocks.</p><h4>Filtering simple methods</h4>
                 <p>In order to filter-out simple getters and setters you can use built-in &quot;property&quot; method
                     context. </p>
                 <p>You can define also own filter, based on cyclomatic complexity and/or number of statements. For
                     example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-setup ...&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-setup ...&gt;
     &lt;!-- Don&#39;t instrument methods which have cyclomatic complexity &lt;= 1 or &lt;= 3 statements --&gt;
     &lt;methodContext name=&quot;simple_method&quot; regexp=&quot;.*&quot; maxComplexity=&quot;1&quot; maxStatements=&quot;3&quot;/&gt;
 &lt;/clover-setup&gt;</pre>
-                    </div>
-                </div>
                 <p> </p><h4>Filtering logging statements</h4>
                 <p>To remove logging statements for coverage reports, you will need to define one or more statement
                     contexts that match logging statements in your source:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-setup ...&gt;
+                <pre>&lt;clover-setup ...&gt;
     &lt;statementContext name=&quot;log&quot; regexp=&quot;^LOG\..*&quot;/&gt;
     &lt;statementContext name=&quot;iflog&quot; regexp=&quot;^if \(LOG\.is.*&quot;/&gt;
     &lt;methodContext name=&quot;main&quot; regexp=&quot;public static void main\(String args\[\]\).*&quot;/&gt;
     ...
 &lt;/clover-setup&gt;
 </pre>
-                    </div>
-                </div>
                 <p>This defines two statement contexts and one method context. The first matches statements that start
                     with '<code>LOG.</code>' while the second matches statements that start with  '<code>if (LOG.</code>',
                     which is designed to match conditional logging statements such as:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>if (LOG.isDebugEnabled()) {
+                <pre>if (LOG.isDebugEnabled()) {
     // do some expensive debug logging
 }
 </pre>
-                    </div>
-                </div>
                 <p>The third matches all 'main' methods that have a String Array named 'args' in the constructor:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>public static void main(String args[]) throws Exception
+                <pre>public static void main(String args[]) throws Exception
 </pre>
-                    </div>
-                </div>
                 <p>After defining these contexts, you now need to re-compile with Clover and then re-run your tests. You
                     can then generate a report that excludes logging statements:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;clover-report&gt;
+                <pre>&lt;clover-report&gt;
     &lt;current outfile=&quot;clover_html&quot; title=&quot;My Coverage&quot;&gt;
         &lt;format type=&quot;html&quot; filter=&quot;log,iflog&quot;/&gt;
     &lt;/current&gt;
 &lt;/clover-report&gt;
 </pre>
-                    </div>
-                </div>
                 <p>This generates a source-level HTML report that excludes coverage from logging statements.</p>
             </div>
 

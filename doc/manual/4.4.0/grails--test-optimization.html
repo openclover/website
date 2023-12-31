@@ -75,13 +75,9 @@
                 <h2>Command line quick start</h2>
                 <p>The quickest possible way to start using Test Optimization in Clover-for-Grails is to run tests with
                     the <strong>-clover.optimize</strong> option, for instance:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >grails test-app -clover.optimize</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p>The <strong>-clover.optimize</strong> does the following:</p>
                 <ul>
@@ -107,13 +103,9 @@
                 <p>This file is needed to optimize subsequent builds. You can also specify an alternative location in
                     <strong>clover.snapshotLocation</strong>, which can be defined in BuildConfig.groovy or passed from
                     command line, for instance:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>clover {
+                <pre>clover {
    snapshotLocation = &quot;/path/to/clover.snapshot&quot;
 } </pre>
-                    </div>
-                </div>
                 <p> </p>
                 <h2>Test Optimization in action</h2>
                 <p>For the first time you should run a full build in order to make sure that the whole code is

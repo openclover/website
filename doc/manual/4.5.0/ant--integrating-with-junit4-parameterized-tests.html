@@ -78,9 +78,7 @@
                 <p>Furthermore, the JUnit version 4.11 has added a 'name' attribute to the @Parameters annotation -
                     thanks to this, you can define a custom name for a test. You can use variables such as &quot;{index}&quot; for an iteration number and &quot;{0}, {1}, ... &quot; for N-th input argument in a test name.</p>
                 <p>For example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>@RunWith(Parameterized.class)
+                <pre>@RunWith(Parameterized.class)
 public class PersonTest {
     @Parameterized.Parameters(name = &quot;{0} is a {1} [{index}]&quot;)
     public static Collection&lt;Object[]&gt; data() {
@@ -99,8 +97,6 @@ public class PersonTest {
         assertEquals(expected, new Person(input).getSex());
     }
 }</pre>
-                    </div>
-                </div>
                 <p>See more details on <a href="https://github.com/junit-team/junit/wiki/Parameterized-tests" rel="nofollow">JUnit wiki page</a>.</p>
                 <h1 id="IntegratingCloverwithJUnit4ParameterizedTests-IntegratingClover">Integrating Clover</h1>
                 <p>As such parametrized tests are being executed by JUnit's test runner, Clover has no problem with
@@ -137,9 +133,7 @@ public class PersonTest {
                     add Clover's JUnitTestRunnerInterceptor to it and call core.run() method passing test class(es) as
                     an argument.</p>
                 <p>Example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>import org.junit.runner.JUnitCore;
+                <pre>import org.junit.runner.JUnitCore;
 import com.atlassian.clover.recorder.junit.JUnitTestRunnerInterceptor;
 
 public class RunJUnit4WithClover {
@@ -149,8 +143,6 @@ public class RunJUnit4WithClover {
         core.run(SquareTest.class);
     }
 }</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p>As soon as test execution is finished you can generate a Clover report.</p>
                 <p> </p>

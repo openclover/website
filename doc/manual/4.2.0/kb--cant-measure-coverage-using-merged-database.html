@@ -68,17 +68,13 @@
                 <p>Several Clover databases created during instrumentation are merged into one. Next such merged
                     database is used to run instrumented application. During application startup a following message
                     appears:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence">ERROR: CLOVER: Unable to load coverage database.
+                <pre data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence">ERROR: CLOVER: Unable to load coverage database.
 ERROR: CLOVER: No coverage data will be gathered.
 ERROR: CLOVER: com.atlassian.clover.registry.ReadOnlyRegistryException
-ERROR: CLOVER: This database can only be used for reporting because it 
-is the result of a merge. It does not support further coverage 
+ERROR: CLOVER: This database can only be used for reporting because it
+is the result of a merge. It does not support further coverage
 gathering.
 </pre>
-                    </div>
-                </div>
                 <p> </p><h4>Cause</h4>
                 <p>It is possible to merge several Clover databases into one in order to have a single coverage report.
                     However, such merged database becomes 'read-only' and cannot be used for further code coverage

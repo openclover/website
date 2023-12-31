@@ -114,9 +114,7 @@
                         <code>inheritrefs</code> to &quot;true&quot; if you are calling
                         <code>&lt;clover-setup&gt;</code> in an upper-level project.
                         Below, we demonstrate an alternative. Instead of this:</p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-<pre>&lt;!-- BAD. References wont be passed (References from &lt;clover-setup/&gt; would be lost). --&gt;
+                        <pre>&lt;!-- BAD. References wont be passed (References from &lt;clover-setup/&gt; would be lost). --&gt;
 &lt;target name=&quot;all&quot;&gt;
 &lt;antcall target=&quot;clean&quot;&gt;
 &lt;antcall target=&quot;compile&quot;&gt;
@@ -124,16 +122,10 @@
 &lt;antcall target=&quot;test&quot;&gt;
 &lt;/target&gt;
 </pre>
-                            </div>
-                        </div>
                         <p>it is much better to use something like this:</p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-<pre>&lt;!-- GOOD --&gt;
+                        <pre>&lt;!-- GOOD --&gt;
 &lt;target name=&quot;all&quot; depends=&quot;clean, compile, dist, test&quot;/&gt;
 </pre>
-                            </div>
-                        </div>
                     </li>
                     <li><strong>If using the</strong> <code><strong>&lt;junit&gt;</strong></code> <strong>task, consider
                         using</strong> <code><strong>fork=&quot;true&quot;

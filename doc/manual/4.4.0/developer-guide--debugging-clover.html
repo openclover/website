@@ -123,9 +123,7 @@
                     <li><p>Optional: setup alternative JRE.</p></li>
                     <li><p>Click &quot;Debug&quot;.<br/><br/>In case you encounter this error while building a project
                         in IDEA instance being debugged:</p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-<pre>Error:Internal error: (java.lang.ClassNotFoundException) clover.com.google.common.collect.Lists
+                        <pre>Error:Internal error: (java.lang.ClassNotFoundException) clover.com.google.common.collect.Lists
 java.lang.ClassNotFoundException: clover.com.google.common.collect.Lists
 	at java.net.URLClassLoader$1.run(URLClassLoader.java:202)
 	at java.security.AccessController.doPrivileged(Native Method)
@@ -134,8 +132,6 @@ java.lang.ClassNotFoundException: clover.com.google.common.collect.Lists
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:247)
 	at com.atlassian.clover.idea.build.jps.CloverSerializerExtension.getGlobalExtensionSerializers(CloverSerializerExtension.java:50)
 ...</pre>
-                            </div>
-                        </div>
                         <p>then extract all &quot;clover/**&quot; classes from clover-idea.jar
                             into <em>$IDEA_CACHES_DIR</em>/<em>plugins-sandbox/plugin/clover-idea/classes. </em>A
                             problem is caused by a fact that a build server process does not see third party JARs from

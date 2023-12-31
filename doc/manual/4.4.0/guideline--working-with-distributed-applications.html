@@ -259,12 +259,8 @@
                         </div>
                         <p>To set one of these properties, you need to pass it on the command line when Java is
                             launched, using the <code>-D</code>parameter:</p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-<pre>java -Dclover.initstring=... myapplication.Server
+                        <pre>java -Dclover.initstring=... myapplication.Server
 </pre>
-                            </div>
-                        </div>
                         <p>For application servers, this may involve adding the property to a startup script or batch
                             file.</p>
                         <div><span></span>
@@ -298,13 +294,9 @@
                 <p>This can be done without the need for re-instrumentation or compilation of source files.</p>
                 <p><strong>Enabling distributed coverage</strong><br/> Distributed coverage can be enabled via setting
                     this System property:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         > -Dclover.distributed.coverage=on</pre>
-                    </div>
-                </div>
                 <p>This will enable distributed coverage with default settings (host=localhost, port=1198,
                     timeout=5000ms, numClients=0, retryPeriod=1000ms, name=clover.tcp.server).</p>
                 <p> </p>
@@ -321,33 +313,21 @@
                     <li>name - name of the Clover server service (URL is host:port/name)</li>
                 </ul>
                 <p>Example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         > -Dclover.distributed.coverage=host=myhost;port=7777;numClients=2</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p><br/> Clover also needs to know which JVM is hosting your unit tests (&quot;Clover Server&quot;), by
                     providing the following system property:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         > -Dclover.server=true </pre>
-                    </div>
-                </div>
                 <p><strong><br/></strong></p>
                 <p><strong>Disabling distributed coverage</strong><br/> Distributed coverage can be disabled by setting
                     this system property on either the Test or the Application JVM:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >-Dclover.distributed.coverage=off </pre>
-                    </div>
-                </div>
                 <p>This will turn off distributed coverage for the JVM in which this is set, regardless of what was
                     instrumented.</p>
                 <p>For more configuration options and how to do this in Ant and Maven, see the
@@ -414,9 +394,7 @@
                 </div>
                 <p><strong><br/></strong></p>
                 <p><strong>Sample code</strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>package com.my.webapp;
+                <pre>package com.my.webapp;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
@@ -430,19 +408,13 @@ public class MyServletContextListener implements ServletContextListener {
         System.out.println(&quot;Web App Destroyed&quot;);
     }
 }</pre>
-                    </div>
-                </div>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;web-app&gt;
-    &lt;!-- ... --&gt; 
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;web-app&gt;
+    &lt;!-- ... --&gt;
     &lt;listener&gt;
         &lt;listener-class&gt;com.my.webapp.MyServletContextListener&lt;/listener-class&gt;
     &lt;/listener&gt;
     &lt;!-- ... --&gt;
 &lt;/web-app&gt;</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p>Full code example is available here: <a href="https://github.com/openclover/clover-maven-plugin" rel="nofollow">https://github.com/openclover/clover-maven-plugin</a>
                     (src/it/webapp).</p>

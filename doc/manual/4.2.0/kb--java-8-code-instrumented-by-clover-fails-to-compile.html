@@ -71,9 +71,7 @@
                 <p> </p><h4>Example
                 #1 - overloaded generic methods</h4>
                 <p>For the following code</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>public class LambdaAndGenerics {
+                <pre>public class LambdaAndGenerics {
     static interface Predicate&lt;T&gt; {
         boolean test(T t);
     }
@@ -93,8 +91,6 @@
         new Fails().start();
     }
 }</pre>
-                    </div>
-                </div>
                 <p>compiler fails with:</p>
                 <div style="border-width: 1px;">
                     <div>
@@ -108,15 +104,11 @@ java: incompatible types: cannot infer type-variable(s) I,T
                 <h4>Example #2 - Java 8
                     streams</h4>
                 <p>The following code:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>public static List&lt;String&gt; testMapAndCollectBounds(List&lt;String&gt; input) {
+                <pre>public static List&lt;String&gt; testMapAndCollectBounds(List&lt;String&gt; input) {
     return input.stream()
             .map(e -&gt; e.toUpperCase())
             .collect(Collectors.toList());
 }</pre>
-                    </div>
-                </div>
                 <p>fails with a compilation error:</p>
                 <div style="border-width: 1px;">
                     <div>
@@ -127,15 +119,11 @@ lower bounds: java.lang.Object</pre>
                 </div>
                 <p> </p>
                 <p>The following code:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>public static Stream&lt;String&gt; testMapAndFilterBounds(List&lt;String&gt; input) {
+                <pre>public static Stream&lt;String&gt; testMapAndFilterBounds(List&lt;String&gt; input) {
     return input.stream()
             .map(e -&gt; e.toUpperCase())
             .filter(e -&gt; !e.isEmpty());
 }</pre>
-                    </div>
-                </div>
                 <p>fails with a compilation error:</p>
                 <div style="border-width: 1px;">
                     <div>
@@ -162,30 +150,18 @@ lower bounds: java.lang.Object</pre>
                     chapters <em>&quot;15.13 Method Reference Expressions&quot;</em> and <em>&quot;15.27 Lambda
                         Expressions&quot;</em> for more details. Due to a fact that an original lambda is being wrapped
                     into Clover's helper method having a signature like this:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;I, T extends I&gt; I lambdaInc(int index, T lambda, int stmtIndex)
+                <pre>&lt;I, T extends I&gt; I lambdaInc(int index, T lambda, int stmtIndex)
 </pre>
-                    </div>
-                </div>
                 <p>this may cause problems when used with generic method having wildcards, such as:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>stream()
+                <pre>stream()
     .map(...)       // &lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper)
     .collect(...)   // &lt;R&gt; R collect(Supplier&lt;R&gt; supplier, BiConsumer&lt;R, ? super T&gt; accumulator, BiConsumer&lt;R, R&gt; combiner)</pre>
-                    </div>
-                </div>
                 <p> </p><h4>Resolution</h4>
                 <p>1) Change a lambda function from an expression to a code block, e.g.:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>// expression lambda
+                <pre>// expression lambda
 System.out.println(goo(e -&gt; false));
 // block lambda
 System.out.println(goo(e -&gt; { return false; }));</pre>
-                    </div>
-                </div>
                 <p><em>Clover uses different instrumentation for these two lambda forms, so a type inference error will
                     not occur for a lambda block.</em></p>
                 <p> </p>
@@ -195,27 +171,21 @@ System.out.println(goo(e -&gt; { return false; }));</pre>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Ant - build.xml</b>
                     </div>
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"> &lt;clover-setup instrumentLambda=&quot;block&quot;/&gt;</pre>
-                    </div>
+                    <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"> &lt;clover-setup instrumentLambda=&quot;block&quot;/&gt;</pre>
                 </div>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Maven - pom.xml</b>
                     </div>
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
+                    <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
    &lt;instrumentLambda&gt;block&lt;/instrumentLambda&gt;
 &lt;/configuration&gt;</pre>
-                    </div>
                 </div>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Grails -
                         BuildConfig.groovy</b></div>
-                    <div class="codeContent panelContent pdl">
-<pre>clover {
+                    <pre>clover {
    instrumentLambda = &quot;block&quot;
 } </pre>
-                    </div>
                 </div>
                 <p> </p>
                 <p>Eclipse:</p>
@@ -225,21 +195,15 @@ System.out.println(goo(e -&gt; { return false; }));</pre>
                 <p>Open &quot;File&quot; &gt; &quot;Settings&quot; &gt; &quot;Project Settings&quot; &gt; &quot;Clover&quot; page &gt; &quot;Compilation&quot; tab. In the &quot;Miscellaneous&quot; box select proper value in &quot;Instrument lambda functions&quot; drop-down. </p>
                 <p> </p>
                 <p>3) Or surround a lambda by ///CLOVER:OFF and ///CLOVER:ON comments, e.g.:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>... some code ...
+                <pre>... some code ...
 ///CLOVER:OFF
 System.out.println(goo(e -&gt; false));
-///CLOVER:ON 
+///CLOVER:ON
 ... some code ...</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p>4) Or rename a method which does not have an argument of functional interface type (example #1),
                     e.g.:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>static class Works {
+                <pre>static class Works {
     void start() {
         System.out.println(goo(e -&gt; false));
     }
@@ -253,8 +217,6 @@ System.out.println(goo(e -&gt; false));
        return &quot;Class: &quot; + arg;
     }
 }</pre>
-                    </div>
-                </div>
                 <p>5) Since Clover 4.0.5 heuristics are applied to rewrite lambda expressions in <em>JDK Stream's</em> and <em>Guava
                     classes'</em> methods into a block form. More details here: <a href="ant--lambda-rewriting-heuristics.html">Lambda
                     rewriting heuristics</a>. Try upgrading to Clover 4.0.5 and/or use <code>instrumentLambda=&quot;expression&quot;</code> or <code>instrumentLambda=&quot;all_but_references&quot;</code>.

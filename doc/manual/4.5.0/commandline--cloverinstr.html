@@ -63,12 +63,8 @@
                     of the instrumentation process is <strong>instrumented java source</strong>; you will then need to
                     compile the instrumented source using a standard Java compiler.</p>
                 <h3>Usage</h3>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>java com.atlassian.clover.CloverInstr [OPTIONS] PARAMS [FILES...]
+                <pre>java com.atlassian.clover.CloverInstr [OPTIONS] PARAMS [FILES...]
 </pre>
-                    </div>
-                </div>
                 <h3>Params</h3>
                 <div>
                     <table class="table table-striped">
@@ -207,9 +203,7 @@
                 <h3>API Usage</h3>
                 <p>CloverInstr provides a simple API that accepts an array of strings representing the command line
                     arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>import com.atlassian.clover.CloverInstr;
+                <pre>import com.atlassian.clover.CloverInstr;
 
 ...
 
@@ -221,25 +215,15 @@ String [] cliArgs =
             // problem during instrumentation
      }
 </pre>
-                    </div>
-                </div>
                 <h3>Examples</h3>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>java com.atlassian.clover.CloverInstr -i clover.db -s src -d build/instr
+                <pre>java com.atlassian.clover.CloverInstr -i clover.db -s src -d build/instr
 </pre>
-                    </div>
-                </div>
                 <p>Find all java source files in the directory &quot;src&quot;, copy and instrument them into the
                     directory &quot;build/instr&quot;, which will be constructed if it does not exist. Coverage database &quot;clover.db&quot; is initialized.</p>
                 <p> </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>java com.atlassian.clover.CloverInstr --source 1.8 -i clover.db -d ../../build/instr \
+                <pre>java com.atlassian.clover.CloverInstr --source 1.8 -i clover.db -d ../../build/instr \
     Money.java IMoney.java
 </pre>
-                    </div>
-                </div>
                 <p>Copy and instrument the source files &quot;Money.java&quot; and &quot;IMoney.java&quot; into the
                     directory <code>&quot;../../build/instr&quot;</code>. Use the Java 8 grammar.</p>
             </div>

@@ -75,30 +75,18 @@
                     atlassian/maven-clover-plugin repository which is an archaic Clover for Maven1.</p>
                 <h2>Build and test</h2>
                 <p>To run unit tests:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >mvn clean test</pre>
-                    </div>
-                </div>
                 <p>To run integration tests:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >mvn clean integration-test -Pintegration-tests</pre>
-                    </div>
-                </div>
                 <h2>Release and publish</h2>
                 <p>To create a snapshot version:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >mvn clean install</pre>
-                    </div>
-                </div>
                 <p>To release a stable version:</p>
                 <p>Because of the fact that only selected contributors have write access to oss.sonatype.org (binaries
                     repository) and openclover.org (site documentation) running the <em>'mvn release:prepare

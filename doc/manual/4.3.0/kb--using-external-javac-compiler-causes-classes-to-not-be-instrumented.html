@@ -66,13 +66,9 @@
             <div id="main-content">
                 <h4>Symptoms</h4>
                 <p>Running the following ANT command, example only:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>
+                <pre>
 ant clean with.clover compile
 </pre>
-                    </div>
-                </div>
 
                 <p>Builds the project successfully where classes are compiled as expected. However, the classes are not
                     instrumented. </p>
@@ -80,15 +76,11 @@ ant clean with.clover compile
                 <h4>Cause</h4>
                 <p>This is due to a compiler attribute is defined within the <code>&lt;javac/&gt;</code> task. For
                     example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">
 &lt;javac .......
 compiler=&quot;&lt;the_compiler&gt;&quot; .....
 &lt;/javac&gt;
 </pre>
-                    </div>
-                </div>
 
                 <p>However a compiler should not be specified here as outlined in the following documentation:</p>
 

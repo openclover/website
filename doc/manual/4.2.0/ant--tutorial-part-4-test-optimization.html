@@ -136,20 +136,12 @@
                     tasks to build.xml</h1>
                 <h2>1. Adding paths to resources</h2>
                 <p>Open your <code>build.xml</code> file. You should already have this line included:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
+                <pre>&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
 </pre>
-                    </div>
-                </div>
                 <p>from the earlier Clover-for-Ant tutorial steps. Edit around this line to add in one additional line
                     of code, as shown below:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
+                <pre>&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
 &lt;clover-env/&gt;</pre>
-                    </div>
-                </div>
                 <h2>2. Choosing a location for
                     the snapshot file</h2>
                 <p>Test Optimization uses the concept of a '<strong>snapshot</strong>' file. This is a file that records
@@ -158,31 +150,21 @@
                     intending to launch.</p>
                 <p>For the purposes of this tutorial, leave the snapshot file in its default location, (next to the
                     clover database <code>clover.db</code> ) here:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >&lt;PROJECT_DIR&gt;/.clover/coverage.db.snapshot</pre>
-                    </div>
-                </div>
                 <h2>
                     3. Adding a new Ant target to generate the optimized test 'snapshot'</h2>
                 <p>Now' we'll and a new Ant target to generate the test <a href="ant--clover-snapshot.html">snapshot</a>: </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;target name=&quot;clover.snapshot&quot; depends=&quot;with.clover&quot;&gt;
+                <pre>&lt;target name=&quot;clover.snapshot&quot; depends=&quot;with.clover&quot;&gt;
     &lt;clover-snapshot file=&quot;${clover.snapshot.file}&quot;/&gt;
 &lt;/target&gt;</pre>
-                    </div>
-                </div>
                 <h2>
                     4. Editing the JUnit task to add the 'clover-optimized-testset' element</h2>
                 <p>In your <code>build.xml</code> file, edit the <code>test</code> target ,specifically the
                     <code>junit</code> portion and its sub-element, <code>batchtest</code>. Your code inside
                     <code style="background-color: transparent;">batchtest</code> will look like so:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;junit fork=&quot;yes&quot; printsummary=&quot;true&quot;&gt;
+                <pre>&lt;junit fork=&quot;yes&quot; printsummary=&quot;true&quot;&gt;
     &lt;classpath refid=&quot;testbuild.classpath&quot;/&gt;
     &lt;formatter type=&quot;xml&quot;/&gt;
     &lt;batchtest fork=&quot;yes&quot; todir=&quot;${build.testresults}&quot;&gt;
@@ -190,31 +172,25 @@
     &lt;/batchtest&gt;
 &lt;/junit&gt;
 </pre>
-                    </div>
-                </div>
                 <p>To add Test Optimization to the build: add a new element,
                     <code><a href="ant--clover-optimized-testset.html">clover-optimized-testset</a></code>, move the
                     <code>fileset</code> element inside the new <code>clover-optimized-testset</code> element. Edit your
                     new <code style="background-color: transparent;">batchtest</code> code block until it is the same as
                     the following:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;junit fork=&quot;yes&quot; printsummary=&quot;true&quot;&gt;
+                <pre>&lt;junit fork=&quot;yes&quot; printsummary=&quot;true&quot;&gt;
     &lt;classpath refid=&quot;testbuild.classpath&quot;/&gt;
     &lt;formatter type=&quot;xml&quot;/&gt;
     &lt;batchtest fork=&quot;yes&quot; todir=&quot;${build.testresults}&quot;&gt;
         &lt;clover-optimized-testset fullrunevery=&quot;10&quot;
                                   enabled=&quot;true&quot;
                                   ordering=&quot;failfast&quot;
-                                  minimize=&quot;true&quot;										
+                                  minimize=&quot;true&quot;
 		                          snapshotfile=&quot;${clover.snapshot.file}&quot;&gt;
             &lt;fileset dir=&quot;${build.testclasses}&quot; includes=&quot;**/*Test.*&quot;/&gt;
         &lt;/clover-optimized-testset&gt;
     &lt;/batchtest&gt;
 &lt;/junit&gt;
 </pre>
-                    </div>
-                </div>
                 <p>Your Test Optimization configuration is now complete.</p>
                 <h1 id="Part4-TestOptimizationTutorial-Demonstratingthattestoptimizationisworking">Demonstrating that
                     test optimization is working</h1>
@@ -227,20 +203,14 @@
                 <h2>5. Running the test optimized
                     build</h2>
                 <p>Run your build with the following command:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>ant with.clover clean test clover.snapshot
+                <pre>ant with.clover clean test clover.snapshot
 </pre>
-                    </div>
-                </div>
                 <p>Adding the <code>clover.snapshot</code> target here will create the additional snapshot database,
                     which is used as a point of comparison for the Test Optimization.  <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> This is essential for enabling Test
                     Optimization of future builds.</p>
                 <p>Clover will output this text to the console, showing that it has created the all-important snapshot
                     file:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>test:
+                <pre>test:
     [mkdir] Created dir: /tutorial/build/testresult
     [junit] Running com.atlassian.samples.money.MoneyBagTest
     [junit] Tests run: 26, Failures: 0, Errors: 0, Time elapsed: 0.141 sec
@@ -253,10 +223,8 @@ clover.snapshot:
 [clover-snapshot] Clover Version ..., built on ...
 [clover-snapshot] Loaded from: /tutorial/lib/clover.jar
 [clover-snapshot] Clover: Commercial License registered to Atlassian.
-[clover-snapshot] Snapshot file not found, creating new file at 
+[clover-snapshot] Snapshot file not found, creating new file at
 /tutorial/.clover/clover.db.snapshot</pre>
-                    </div>
-                </div>
                 <h2>6. Running an 'empty'
                     optimized build</h2>
                 <p>If we re-run the same Ant build, Clover will detect that none of the source files have changed.
@@ -264,14 +232,10 @@ clover.snapshot:
                     zero tests.</p>
                 <p>With a Test-Optimized build, Clover will output the following if no files have changed since the last
                     build:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>test:
+                <pre>test:
     [junit] Clover estimates saving around 3 seconds on this optimized test run.
     [junit] Clover is including 0 test classes in this run (total test classes: 2)
 </pre>
-                    </div>
-                </div>
                 <p>This is desired behavior, especially in a continuous integration environment where builds are
                     automated and run regularly.</p>
                 <h2>7. Editing a file in the project</h2>
@@ -280,37 +244,25 @@ clover.snapshot:
                     than rebuilding everything).</p>
                 <p>Edit the file <code>MoneyBag.java</code> from the tutorial project. For the purposes of this
                     demonstration, add a <code>System.out.println()</code> in the <code>add</code> method on line #27: </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>public IMoney add(IMoney m) {
+                <pre>public IMoney add(IMoney m) {
     System.out.println(&quot;Adding: &quot; + m);
     return m.addMoneyBag(this);
 }
 </pre>
-                    </div>
-                </div>
                 <p>Now save the file.</p>
                 <h2>8. Rebuilding the
                     project with test optimization</h2>
                 <p>Now having changed a file in the project, we will run the same Ant tasks again.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>ant with.clover test clover.snapshot
+                <pre>ant with.clover test clover.snapshot
 </pre>
-                    </div>
-                </div>
                 <p>Clover will detect that the source file has changed, rebuilding and only running the tests for that
                     file specifically. We can see this illustrated in the console output:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>test:
+                <pre>test:
     [junit] Clover estimates saving around 3 seconds on this optimized test run.
     [junit] Clover is including 1 test class in this run (total test classes: 2)
     [junit] Running com.atlassian.samples.money.MoneyBagTest
     [junit] Tests run: 26, Failures: 0, Errors: 0, Time elapsed: 0.146 sec
 </pre>
-                    </div>
-                </div>
                 <p>This Clover output shows that only one of two test classes was included. Note that all the test
                     methods in this one test class were run, since Clover currently optimizes to the class level only.
                     Clover also estimates the time saved in this particular build and test run. In this case the saving

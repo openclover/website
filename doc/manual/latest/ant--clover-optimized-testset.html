@@ -121,9 +121,7 @@
                     <a href="http://ant.apache.org/manual/Types/resources.html" rel="nofollow">Ant resource collection</a>:
                     anything that implements <code>org.apache.tools.ant.types.ResourceCollection</code>.</p>
                 <h3>Example</h3>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;junit ...&gt;
+                <pre>&lt;junit ...&gt;
     &lt;batchtest todir=&quot;${outdir}/${testresultsprefix}&quot; fork=&quot;true&quot;&gt;
         &lt;clover-optimized-testset fullrunevery=&quot;${max.optimized.builds}&quot;&gt;
             &lt;fileset dir=&quot;${test.location}&quot; includes=&quot;**/*Test.java&quot;/&gt;
@@ -133,8 +131,6 @@
     &lt;/batchtest&gt;
 &lt;/junit&gt;
 </pre>
-                    </div>
-                </div>
             </div>
 
 

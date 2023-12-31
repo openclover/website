@@ -72,69 +72,45 @@
                         Groovy.</p>
 </div>
                 <h3>Switching Clover on and off</h3>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>// CLOVER:ON
+                <pre>// CLOVER:ON
 // CLOVER:OFF
 </pre>
-                    </div>
-                </div>
                 <p>This directive will switch Clover instrumentation on/off. This might be useful if you don't want
                     Clover to instrument a section of code for some reason. For example, some bytecode-manipulating
                     frameworks require certain sections to be excluded
                     (<a href="https://community.atlassian.com/t5/Clover-questions/Clover-JMockit-invalid-try-finally-in-expectations-block/qaq-p/45870" rel="nofollow">JMockit for instance</a>).
                     Note that the scope of this directive is the current file only.</p>
                 <h3>Force Clover to flush</h3>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>// CLOVER:FLUSH
+                <pre>// CLOVER:FLUSH
 </pre>
-                    </div>
-                </div>
                 <p>Clover will insert code to flush coverage data to disk. The flush code will be inserted as soon as
                     possible after the directive. See <a href="ant--flush-policy.html">Using a Flush
                         Policy</a>.</p>
                 <h3>Mark lambda
                     expression returning void (since Clover 4.0.5)</h3>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>// CLOVER:VOID
+                <pre>// CLOVER:VOID
 /* CLOVER:VOID */</pre>
-                    </div>
-                </div>
                 <p>This directive will mark lambda expression as returning void. Clover applies heuristic for some of
                     lambda expressions and rewrites them to lambda blocks. In case of <code>unexpected return
                         value </code>compilation errors, it may be necessary to mark some lambda expressions as void to
                     let Clover know it shouldn't instrument it with the <code>return</code> keyword. </p>
                 <p> </p>
                 <p>For example, the following code:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >mapClass.map(internalMap -&gt; internalMap.put(&quot;some&quot;, &quot;some&quot;));</pre>
-                    </div>
-                </div>
                 <p>may fail to compile if <em>put()</em> method returns <em>void</em> with the following error:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>src/LambdaAndStreams.java:75: error: incompatible types: bad return type in lambda expression
+                <pre>src/LambdaAndStreams.java:75: error: incompatible types: bad return type in lambda expression
  mapClass.map(internalMap -&gt; {
 			__CLR4_0_500ibutb8q0.R.inc(50);
 			return internalMap.put(&quot;some&quot;, &quot;some&quot;);});           
-                                                  ^                                                     				
+                                                  ^
     unexpected return value
 1 error</pre>
-                    </div>
-                </div>
                 <p>It may be required to mark such lambda expression as void with <code>CLOVER:VOID</code> directive</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >mapClass.map(internalMap -&gt; /* CLOVER:VOID */ internalMap.put(&quot;some&quot;, &quot;some&quot;));</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p>More information about this compilation error may be found in one of the
                     <a href="kb--compilation-error-unexpected-return-value.html" rel="nofollow">Clover KB articles</a></p>

@@ -65,22 +65,14 @@
                     build without Clover. For example: several minutes instead of several seconds.</p>
                 <p>Build is made using Clover-for-Maven plugin. Flush interval is set to a very high value (e.g. 1
                     minute):</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >mvn clover:setup install clover:clover</pre>
-                    </div>
-                </div>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;configuration&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;configuration&gt;
     &lt;singleCloverDatabase&gt;true&lt;/singleCloverDatabase&gt;
     &lt;flushPolicy&gt;threaded&lt;/flushPolicy&gt;
     &lt;flushInterval&gt;50000&lt;/flushInterval&gt;
 &lt;/configuration&gt;</pre>
-                    </div>
-                </div>
                 <p> </p><h4>Cause</h4>
                 <p>The maven-clover-plugin is waiting for a flush to occur before each report (or log) is generated. As
                     a consequence, if very high flushInterval value is used, it must wait this time for every module

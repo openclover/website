@@ -69,23 +69,15 @@
                     in .m2/settings.xml</h2>
                 <p>Before you get started, add this to your <code>.m2/settings.xml</code> file so you can reference
                     Clover by its short name <code>clover</code>.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;pluginGroups&gt;
+                <pre>&lt;pluginGroups&gt;
     &lt;pluginGroup&gt;org.openclover&lt;/pluginGroup&gt;
 &lt;/pluginGroups&gt;</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <h2>Running Clover goals from the command line</h2>
                 <p>The quickest and easiest way to try Clover is from the command line, for example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >mvn clean clover:setup test clover:aggregate clover:clover</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <h2>Installing Clover in pom.xml</h2>
                 <p>Install Clover-for-Maven by adding it to your Maven build file (<strong>pom.xml</strong>): </p>
@@ -94,30 +86,24 @@
                         <div class="code panel pdl" style="border-width: 1px;">
                             <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>pom.xml</b>
                             </div>
-                            <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;build&gt;
+                            <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;build&gt;
     &lt;plugins&gt;
         &lt;plugin&gt;
             &lt;groupId&gt;org.openclover&lt;/groupId&gt;
             &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
-            &lt;version&gt;${clover.version}&lt;/version&gt;     
+            &lt;version&gt;${clover.version}&lt;/version&gt;
         &lt;/plugin&gt;
     &lt;/plugins&gt;
 &lt;/build&gt;
 </pre>
-                            </div>
                         </div>
                         <p><img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> Either change
                             <code>${clover.version}</code> to the current Clover version, or define a property in your
                             pom.xml that sets this value. <br class="atl-forced-newline"/></p></li>
                     <li><p>Now, simply <strong>invoke Clover with Maven</strong> on the command line.</p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeContent panelContent pdl">
-                                <pre
+                        <pre
 
                                 >mvn clean clover:setup test clover:aggregate clover:clover</pre>
-                            </div>
-                        </div>
                         <p>This will instrument your sources, build your project, run your tests and create a Clover
                             coverage report in the <strong>target/site/clover</strong> directory.<br/><br/>You can also
                             have Clover run as part of your build by <a href="#Basicusage-run_via_pom">adding Clover's
@@ -139,9 +125,7 @@
                 <h2>Running Goals via pom.xml</h2>
                 <p>The goals described above can be executed by specifying them in your <code>pom.xml</code>.</p>
                 <p>To generate a Clover report when you run the <code>site</code> goal:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;project&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;project&gt;
   &lt;reporting&gt;
     &lt;plugins&gt;
       &lt;plugin&gt;
@@ -152,12 +136,8 @@
   &lt;/reporting&gt;
 &lt;/project&gt;
 </pre>
-                    </div>
-                </div>
                 <p>To instrument your sources whenever you build:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;project&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;project&gt;
   &lt;build&gt;
     &lt;plugins&gt;
       &lt;plugin&gt;
@@ -176,12 +156,8 @@
   &lt;/build&gt;
 &lt;/project&gt;
 </pre>
-                    </div>
-                </div>
                 <p>To include aggregation of child modules:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;project&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;project&gt;
 ...
   &lt;build&gt;
         &lt;plugins&gt;
@@ -210,8 +186,6 @@
     &lt;/build&gt;
 ...
 </pre>
-                    </div>
-                </div>
                 <p> </p>
                 <h2>Using clover:setup vs
                     clover:instrument vs clover:instrument-test</h2>

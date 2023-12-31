@@ -67,12 +67,8 @@
                 <p>This is the recommended method of installing Clover.</p>
                 <p> </p>
                 <p>Adding Clover to your build is done by adding the following to your buildfile (e.g. build.xml):</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;/path/to/clover.jar&quot;/&gt;
+                <pre>&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;/path/to/clover.jar&quot;/&gt;
 </pre>
-                    </div>
-                </div>
                 <p>
                     <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> '/path/to' is the path to the 'clover.jar' file.
                     Hence, a typical example of the 'classpath' parameter might be <code>classpath=&quot;../lib/clover.jar&quot;</code>. </p>
@@ -82,9 +78,7 @@
                     For example, you may need to ship the build file to others who may not have Clover installed. To
                     check Clover's availability you can make use of the standard Ant <code>&lt;available&gt;</code>
                     task:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;target name=&quot;-check.clover&quot;&gt;
+                <pre>&lt;target name=&quot;-check.clover&quot;&gt;
 &lt;available property=&quot;clover.installed&quot;
 classname=&quot;com.atlassian.clover.CloverInstr&quot; /&gt;
 &lt;/target&gt;
@@ -96,8 +90,6 @@ classname=&quot;com.atlassian.clover.CloverInstr&quot; /&gt;
 &lt;target name=&quot;with.clover&quot; depends=&quot;guard.noclover&quot;&gt;
 ...
 </pre>
-                    </div>
-                </div>
                 <p>
                 <h3>Troubleshooting</h3>
 

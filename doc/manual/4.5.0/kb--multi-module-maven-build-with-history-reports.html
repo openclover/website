@@ -69,12 +69,8 @@
                 <p>Multi-module Maven build on Bamboo with automatic Clover integration. Generation of history reports
                     enabled.</p>
                 <p>Build failing on a sub-module with an error like below:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence">/tmp/MY-JOB1/mvn6923231521105500978resource:21: java.lang.IllegalStateException:
+                <pre data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence">/tmp/MY-JOB1/mvn6923231521105500978resource:21: java.lang.IllegalStateException:
 basedir /home/bamboo/xml-data/build-dir/MY-JOB1/my-module/.cloverhistory is not a directory</pre>
-                    </div>
-                </div>
                 <p> </p><h4>Cause</h4>
                 <p>When automatic Clover integration with historical reports is enabled in Bamboo, the Bamboo adds a
                     following parameter to a Maven build task:</p>

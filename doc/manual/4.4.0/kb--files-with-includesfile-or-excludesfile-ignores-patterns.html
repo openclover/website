@@ -68,16 +68,12 @@
                     Symptoms</h4>
                 <p>A &lt;fileset&gt; tag in Clover's task, such as &lt;clover-setup&gt; or &lt;clover-report&gt;,
                     contains definitions of inclusion/exclusion patterns using the &lt;includesfile&gt; / &lt;excludesfile&gt; tags. For example:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;clover-setup&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;clover-setup&gt;
    &lt;files&gt;
       &lt;includesfile name=&quot;setup.includes&quot;/&gt;
       &lt;excludesfile name=&quot;setup.excludes&quot;/&gt;
    &lt;/files&gt;
 &lt;/clover-setup&gt;</pre>
-                    </div>
-                </div>
                 <p>When running Clover's task, it looks as if these patterns are being ignored - either all of them or
                     only some of them.</p>
                 <p> </p><h4>

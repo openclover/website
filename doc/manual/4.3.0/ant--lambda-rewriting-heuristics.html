@@ -80,25 +80,17 @@
                     and <code>Guava</code> classes' methods which are called with a lambda expression as an argument.
                     With such conditions Clover rewrites lambda expressions into a block form.</p>
                 <p>With implemented heuristic, such code:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>public static Stream&lt;String&gt; test(List&lt;String&gt; input) {
+                <pre>public static Stream&lt;String&gt; test(List&lt;String&gt; input) {
     return input.stream()
             .map(e -&gt; e.toUpperCase())
             .filter(e -&gt; !e.isEmpty());
 }</pre>
-                    </div>
-                </div>
                 <p>will be instrumented with the following manner:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>public static Stream&lt;String&gt; test(List&lt;String&gt; input) {
+                <pre>public static Stream&lt;String&gt; test(List&lt;String&gt; input) {
     return input.stream()
             .map(e -&gt;  {return e.toUpperCase();})
             .filter(e -&gt; {return !e.isEmpty();});
 }</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p>This method has its own limitations, however. It does not apply to method references (refer to
                     <a href="kb--compilation-error-variable-of-type-object.html">this

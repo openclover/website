@@ -75,13 +75,11 @@
                         located in the <code>grails-app/conf</code> subdirectory of your Grails project's root
                         directory.</p>
 </div>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>clover {
+                <pre>clover {
 
  on = true|false // a boolean value indicating whether or not clover is enabled
 
- optimize = true|false // whether test optimization is enabled 
+ optimize = true|false // whether test optimization is enabled
                        // (by setting optimize=true there&#39;s not need to set on=true)
 
  license.path = &quot;/path/to/clover.license&quot; // the location of the clover license file,
@@ -93,7 +91,7 @@
 
  initstring = &quot;&quot; // the location to use for Clover to write out its database
 
- instrumentLambda = &quot;none|expression|block|all_but_reference|all&quot; // whether to instrument Java 8 lambda functions, 
+ instrumentLambda = &quot;none|expression|block|all_but_reference|all&quot; // whether to instrument Java 8 lambda functions,
                          // see the &lt;clover-setup&gt; Ant task for more details
 
  forceClean = true|false  // whether to clean build directory (to force compilation of classes with Clover),
@@ -121,8 +119,6 @@
 
 }
 </pre>
-                    </div>
-                </div>
                 <div><span></span>
                     <div><p>Hint: you can also pass these values from a
                         command line, e.g. &quot;grails test-app -clover.on&quot;. However, on Windows platform, all

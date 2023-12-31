@@ -68,9 +68,7 @@
                 <h2>Controlling which source
                     files are instrumented</h2>
                 <p>Use configuration elements to exclude and include source files from being instrumented:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
   ...
   &lt;includes&gt;
     &lt;include&gt;...ant style glob...&lt;/include&gt;
@@ -81,22 +79,16 @@
   &lt;/excludes&gt;
 &lt;/configuration&gt;
 </pre>
-                    </div>
-                </div>
                 <h2>Excluding tests from
                     instrumentation</h2>
                 <p>If you don't want to instrument your test classes, add the following to your pom.xml (note that this
                     disables the reporting of per-test coverage as well as reporting of test results in Clover's HTML
                     report):</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
   ...
   &lt;includesTestSourceRoots&gt;false&lt;/includesTestSourceRoots&gt;
 &lt;/configuration&gt;
 </pre>
-                    </div>
-                </div>
                 <h2>Controlling the level of
                     instrumentation</h2>
                 <p>You can define the level that Clover will instrument to (and the respective performance overhead).
@@ -110,40 +102,26 @@
                     <li>for projects with a large code base (as a rough estimate of coverage).</li>
                 </ul>
                 <p><strong>To set this value in your pom.xml:</strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
     &lt;instrumentation&gt;method&lt;/instrumentation&gt;
 &lt;/configuration&gt;
 </pre>
-                    </div>
-                </div>
                 <p><strong>To set this value on the Maven command line:</strong></p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-                        <pre
+                <pre
 
                         >-Dmaven.clover.instrumentation=method</pre>
-                    </div>
-                </div>
                 <p>The setting above will result in method level only instrumentation; no statement level coverage will
                     be available.</p>
                 <h2>Configuring code contexts</h2>
                 <p>Clover allows you to exclude <a href="ant--using-coverage-contexts.html" rel="nofollow">coverage contexts</a> from the coverage report.</p>
                 <p>To exclude <code>try</code> bodies and static initializer blocks:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
   ...
   &lt;contextFilters&gt;try,static&lt;/contextFilters&gt;
 &lt;/configuration&gt;
 </pre>
-                    </div>
-                </div>
                 <p>To exclude arbitrary statements or methods you can specify one or more custom contexts like so:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
   &lt;methodContexts&gt;
     &lt;main&gt;(.* )?public static void main\(String\[\] argv\).*&lt;/main&gt;
   &lt;/methodContexts&gt;
@@ -153,20 +131,14 @@
   &lt;/statementContexts&gt;
 &lt;/configuration&gt;
 </pre>
-                    </div>
-                </div>
                 <p>*NB: A method context regexp must match the entire method signature. A statement context regexp must
                     match the full statement, including the ';'.</p>
                 <p>Each one still needs to be 'enabled' via the <code>&lt;contextFilters/&gt;</code> element:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
   ...
   &lt;contextFilters&gt;main,log,iflog&lt;/contextFilters&gt;
 &lt;/configuration&gt;
 </pre>
-                    </div>
-                </div>
                 <p>If you are filtering code from your coverage reports, you can keep track of what is filtered using
                     the custom <code>filteredElements</code> column. See
                     <a href="maven--creating-custom-reports.html" rel="nofollow">Creating custom reports</a>
@@ -178,46 +150,30 @@
 
                             href="http://maven.apache.org/plugins/maven-compiler-plugin/compile-mojo.html#target" rel="nofollow">target</a> parameters to use a JDK version of 1.4 you will need to set the
                     Clover JDK level to 1.4:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
   ...
   &lt;jdk&gt;1.4&lt;/jdk&gt;
 &lt;/configuration&gt;
 </pre>
-                    </div>
-                </div>
                 <h2>Setting a Clover flush policy</h2>
                 <p>You can set the Clover <a href="ant--flush-policy.html" rel="nofollow">Flush Policy</a> and interval:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
   ...
   &lt;flushPolicy&gt;threaded&lt;/flushPolicy&gt;
   &lt;flushInterval&gt;5000&lt;/flushInterval&gt;
 &lt;/configuration&gt;
 </pre>
-                    </div>
-                </div>
                 <h2>Setting the Clover DB location</h2>
                 <p>To specify a particular location for your Clover database:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
   &lt;cloverDatabase&gt;foo/clover.db&lt;/cloverDatabase&gt;
 &lt;/configuration&gt;
 </pre>
-                    </div>
-                </div>
                 <p>and to set a location for the merged database:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;configuration&gt;
   &lt;cloverMergeDatabase&gt;foo/cloverMerge.db&lt;/cloverMergeDatabase&gt;
 &lt;/configuration&gt;
 </pre>
-                    </div>
-                </div>
                 <p>We recommend to not use absolute paths if you have large multi-module projects. The point is that
                     instead of having small databases for each module you will have one large database, being updated
                     multiple times.</p>

@@ -128,9 +128,7 @@ M - total number of methods</pre>
                     <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> Clover currently does not calculate NCLOC for
                     Groovy code (<a href="https://jira.atlassian.com/browse/CLOV-1805" rel="nofollow">CLOV-1805</a>). </p>
                 <h1 id="AboutClovercodemetrics-Examples">Examples</h1>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>// # of statements, # of branches, Method Cyclomatic Complexity
+                <pre>// # of statements, # of branches, Method Cyclomatic Complexity
 
 // 0, 0, 1
 void A() {}
@@ -176,7 +174,7 @@ void A() { switch (a()) { case 1: b();} }
 
 // 5, 0, 3
 void A() { switch (a()) { case 1: b(); case 2: c();} }
-        
+
 // 1, 2, 2
 void A() { a() ? 1 : 2; }
 
@@ -185,8 +183,6 @@ void A() { a() || b()? 1 : 2; }
 
 // 1, 6, 4
 void A() { a() ? b() ? c()? 1 : 2 : 3 : 4; }</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <h1 id="AboutClovercodemetrics-References">References</h1>
                 <ul>

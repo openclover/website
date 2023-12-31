@@ -112,20 +112,14 @@
                     <a href="ant--tutorial-part-1-measuring-coverage.html">Part 1</a> of the Tutorial.</p>
                 <p>Add the <code>&lt;<a href="ant--clover-check.html">clover-check</a>&gt;</code> task to your build
                     by specifying a target similar to the following:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;target name=&quot;clover.check&quot; depends=&quot;with.clover&quot;&gt;
+                <pre>&lt;target name=&quot;clover.check&quot; depends=&quot;with.clover&quot;&gt;
     &lt;clover-check target=&quot;80%&quot;/&gt;
 &lt;/target&gt;
 </pre>
-                    </div>
-                </div>
                 <p>This configuration sets an overall project target of 80% coverage.</p>
                 <p>Use the command <code>ant clover.check</code> to run the check. If your test coverage satisfies the
                     target coverage percentage, output will be similar to the following:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>$ ant clover.check
+                <pre>$ ant clover.check
 Buildfile: build.xml
 
 with.clover:
@@ -136,13 +130,9 @@ clover.check:
 
 BUILD SUCCESSFUL
 </pre>
-                    </div>
-                </div>
                 <p>If your coverage percentage does not reach the coverage target, you'll get something like this
                     instead:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>$ ant clover.check
+                <pre>$ ant clover.check
 Buildfile: build.xml
 
 with.clover:
@@ -154,8 +144,6 @@ clover.check:
 
 BUILD SUCCESSFUL
 </pre>
-                    </div>
-                </div>
                 <p>In order to try this out on the Money library used in this tutorial, try commenting out some of the
                     tests in the <code>MoneyTest.java</code> file to create a situation where the code coverage does not
                     reach 80%.</p>
@@ -166,24 +154,16 @@ BUILD SUCCESSFUL
                 <p>Adding the <code>haltOnFailure</code> attribute allows you to specify whether or not you want the
                     build to fail automatically if the coverage target is not met. The default for
                     <code>haltOnFailure</code> is <code>false</code>.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;target name=&quot;clover.check.haltonfail&quot; depends=&quot;with.clover&quot;&gt;
+                <pre>&lt;target name=&quot;clover.check.haltonfail&quot; depends=&quot;with.clover&quot;&gt;
     &lt;clover-check target=&quot;80%&quot; haltOnFailure=&quot;true&quot;/&gt;
  &lt;/target&gt;
 </pre>
-                    </div>
-                </div>
                 <p>The <code>failureProperty</code> attribute of the <code>&lt;<a href="ant--clover-check.html">clover-check</a>&gt;</code>
                     task allows you to set a specified property if the target of the project is not met:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;target name=&quot;clover.check.setproperty&quot; depends=&quot;with.clover&quot;&gt;
+                <pre>&lt;target name=&quot;clover.check.setproperty&quot; depends=&quot;with.clover&quot;&gt;
     &lt;clover-check target=&quot;80%&quot; failureProperty=&quot;coverageFailed&quot;/&gt;
  &lt;/target&gt;
 </pre>
-                    </div>
-                </div>
                 <p>In this case, if the coverage does not reach 80%, the property <code>coverageFailed</code> will have
                     its value set to the coverage summary message &quot;Overall coverage of *% did not meet target of
                     80%&quot;. This allows you to check the value of this property in other Ant targets and manage the
@@ -196,31 +176,23 @@ BUILD SUCCESSFUL
                     to specify the desired percentage covered for different packages, which is useful if you have
                     certain packages that have more or less stringent coverage requirements than the rest of the
                     project. This is done by adding nested '<code>package</code>' elements like the following:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;target name=&quot;clover.check.packages&quot; depends=&quot;with.clover&quot;&gt;
+                <pre>&lt;target name=&quot;clover.check.packages&quot; depends=&quot;with.clover&quot;&gt;
     &lt;clover-check target=&quot;80%&quot;&gt;
         &lt;package name=&quot;com.clover.example.one&quot; target=&quot;70%&quot;/&gt;
         &lt;package name=&quot;com.clover.example.two&quot; target=&quot;40%&quot;/&gt;
     &lt;/clover-check&gt;
 &lt;/target&gt;
 </pre>
-                    </div>
-                </div>
                 <h2>Context filtering</h2>
                 <p>The <code>&lt;<a href="ant--clover-check.html">clover-check</a>&gt;</code> task allows you to
                     prescribe a filter that excludes coverage of certain block-types from overall coverage calculations.
                     See <a href="ant--using-coverage-contexts.html">Coverage Contexts</a> for more information. The
                     <code>filter</code> attribute accepts a comma separated list of the contexts to exclude from
                     coverage calculations.</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>&lt;target name=&quot;clover.check.nocatch&quot; depends &quot;with.clover&quot;&gt;
+                <pre>&lt;target name=&quot;clover.check.nocatch&quot; depends &quot;with.clover&quot;&gt;
     &lt;clover-check target=&quot;80%&quot; filter=&quot;catch&quot;/&gt;
 &lt;/target&gt;
 </pre>
-                    </div>
-                </div>
                 <p>This will run the Clover coverage percentage check as normal, but will calculate coverage with
                     omission of all '<code>catch</code>' blocks.</p>
                 <h1 id="Part3-AutomatingCoverageChecks-Nextsteps">Next steps</h1>

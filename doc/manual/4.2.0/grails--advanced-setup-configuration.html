@@ -87,9 +87,7 @@
                 </div>
                 <p> </p><h4 id="Advancedsetupconfiguration-Example:usingcustomclover.dblocationandsetoffilestobeinstrumented">
                 Example: using custom clover.db location and set of files to be instrumented</h4>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>clover {
+                <pre>clover {
     // Example setuptask closure that will be invoked to configure clover.
     // Any Clover initialisation tasks should be defined here.
     // All attributes on the ant clover-setup task, which are
@@ -101,38 +99,30 @@
         }
     }
 } </pre>
-                    </div>
-                </div>
                 <p> </p><h4>Example: enabling
                 distributed coverage</h4>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>clover {
-    setuptask = { ant, binding, plugin -&gt; 
-        ant.&#39;clover-setup&#39;(initstring: &quot;${binding.projectWorkDir}/clover/db/clover.db&quot;, 
+                <pre>clover {
+    setuptask = { ant, binding, plugin -&gt;
+        ant.&#39;clover-setup&#39;(initstring: &quot;${binding.projectWorkDir}/clover/db/clover.db&quot;,
                        tmpDir: &quot;${binding.projectWorkDir}/clover/tmp&quot;) {
             distributedCoverage(port: 7777, host: &quot;localhost&quot;, timeout: 5000, numClients: 0)
         }
     }
 }</pre>
-                    </div>
-                </div>
                 <p> </p><h4>Example: using shared
                 coverage recorder</h4>
                 <p>Use the Shared Coverage Recorder only in case when you have performance problem related with creation
                     of thousands of coverage recording files in clover.db directory. See <span><a href="ant--coverage-recorders.html">Coverage Recorders</a></span> for more details.
                 </p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>clover {
-    setuptask = { ant, binding, plugin -&gt; 
+                <pre>clover {
+    setuptask = { ant, binding, plugin -&gt;
         ant.delete(dir: &quot;target/clover/db&quot;)
         ant.delete(dir: &quot;target/clover/tmp&quot;)
-        ant.&#39;clover-setup&#39;(initstring: &quot;target/clover/db/clover.db&quot;, 
+        ant.&#39;clover-setup&#39;(initstring: &quot;target/clover/db/clover.db&quot;,
                            tmpDir: &quot;target/clover/tmp&quot;) {
             ant.profiles {
                 ant.profile(name: &quot;default&quot;, coverageRecorder: &quot;SHARED&quot;)
-            } 
+            }
         }
     }
     reporttask =  { ant, binding, plugin -&gt;
@@ -147,8 +137,6 @@
         }
     }
  }</pre>
-                    </div>
-                </div>
                 <p> </p>
                 <p> </p>
             </div>

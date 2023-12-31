@@ -62,12 +62,8 @@
                 <h4>Symptoms</h4>
                 <p>In your build.xml file you use antcall to run some tasks. You have defined some excludes, but when
                     looking at the logs, you see:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeContent panelContent pdl">
-<pre>file: Setup scanner in dir C:\path\to\example\dir with patternSet{ includes: [] excludes: [] }
+                <pre>file: Setup scanner in dir C:\path\to\example\dir with patternSet{ includes: [] excludes: [] }
 </pre>
-                    </div>
-                </div>
                 <p>i.e. the excludes is not being picked up.</p><h4 id="PropertiessuchasExcludesisnotbeingpassedontoantcalltasks-Cause">Cause</h4>
                 <ul>
                     <li>By default, the <a href="http://ant.apache.org/manual/CoreTasks/antcall.html" rel="nofollow">inheritRefs

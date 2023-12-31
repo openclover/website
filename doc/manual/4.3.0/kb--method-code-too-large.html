@@ -107,45 +107,39 @@ java.lang.RuntimeException: Method code too large!
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Ant</b></div>
-                    <div class="codeContent panelContent pdl">
-                        <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;clover-setup instrumentationLevel=&quot;method&quot;/&gt; </pre>
-                    </div>
+                    <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;clover-setup instrumentationLevel=&quot;method&quot;/&gt; </pre>
                 </div>
                 <p>See: <a href="ant--clover-setup.html">Clover-for-Ant /
                     clover-setup</a></p>
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Maven</b></div>
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;plugin&gt;
+                    <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;plugin&gt;
   &lt;groupId&gt;org.openclover&lt;/groupId&gt;
   &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
   &lt;configuration&gt;
     &lt;instrumentation&gt;method&lt;/instrumentation&gt;
   &lt;/configuration&gt;
-&lt;/plugin&gt; 
+&lt;/plugin&gt;
 
 </pre>
-                    </div>
                 </div>
                 <p>See: <a href="../../maven/4.3.0/setup-mojo.html#instrumentation" rel="nofollow">Clover-for-Maven / setup mojo</a></p>
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Grails</b></div>
-                    <div class="codeContent panelContent pdl">
-<pre>// grails-app/conf/BuildConfig.groovy:
+                    <pre>// grails-app/conf/BuildConfig.groovy:
 
-clover { 
+clover {
     setuptask = { ant, binding, plugin -&gt;
-        ant.&#39;clover-setup&#39;(instrumentationLevel: &quot;method&quot;, 
+        ant.&#39;clover-setup&#39;(instrumentationLevel: &quot;method&quot;,
                            initstring: &quot;${binding.projectWorkDir}/target/clover/clover.db&quot;) {
-            
+
         }
     }
 }
 
 </pre>
-                    </div>
                 </div>
                 <p>See: <a href="grails--advanced-setup-configuration.html">Clover-for-Grails
                     / Advanced setup configuration</a></p>

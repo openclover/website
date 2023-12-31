@@ -98,8 +98,7 @@
                 <p>Example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>build.xml</b></div>
-                    <div class="codeContent panelContent pdl">
-<pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;project name=&quot;DynaTable&quot; default=&quot;build&quot; basedir=&quot;.&quot;&gt;
+                    <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;project name=&quot;DynaTable&quot; default=&quot;build&quot; basedir=&quot;.&quot;&gt;
     &lt;!-- Add following properties and targets --&gt;
 
     &lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/clover.jar&quot;/&gt;
@@ -122,7 +121,7 @@
     &lt;!-- Add the &quot;init&quot; target to depends=&quot;...&quot; --&gt;
     &lt;target name=&quot;javac&quot; depends=&quot;libs, init&quot; description=&quot;Compile java source to bytecode&quot;&gt;
        &lt;!-- ... --&gt;
-    &lt;/target&gt; 
+    &lt;/target&gt;
 
     &lt;!-- Add the clover.jar to classpath --&gt;
 
@@ -142,7 +141,6 @@
     &lt;!-- ... --&gt;
 
 &lt;/project&gt;</pre>
-                    </div>
                 </div>
                 <p> </p>
                 <p>3) Build application, run tests and generate Clover report.</p>
