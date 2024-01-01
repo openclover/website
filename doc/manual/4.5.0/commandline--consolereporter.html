@@ -61,8 +61,7 @@
             <div id="main-content">
                 <p>Reports Code Coverage for the given coverage database to the console.</p>
                 <h2>Usage</h2>
-                <pre>java com.atlassian.clover.reporters.console.ConsoleReporter [OPTIONS] PARAMS
-</pre>
+                <pre><code class="language-bash">java com.atlassian.clover.reporters.console.ConsoleReporter [OPTIONS] PARAMS</code></pre>
                 <h3>Params</h3>
                 <div>
                     <table class="table table-striped">
@@ -129,30 +128,25 @@
                 <h2>API Usage</h2>
                 <p>ConsoleReporter provides a simple API that accepts an array of strings representing the command line
                     arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
-                <pre>import com.atlassian.clover.reporters.console.ConsoleReporter;
+                <pre><code class="language-java">import com.atlassian.clover.reporters.console.ConsoleReporter;
 
-    ...
 
-    String [] cliArgs = { &quot;-l&quot;, &quot;method&quot;, &quot;-t&quot;, &quot;Method Coverage&quot;, &quot;-i&quot;, &quot;clover.db&quot; };
-    int result = ConsoleReporter.mainImpl(cliArgs);
-    if (result != 0) {
-           // problem during report generation
-    }
-</pre>
+String [] cliArgs = { &quot;-l&quot;, &quot;method&quot;, &quot;-t&quot;, &quot;Method Coverage&quot;, &quot;-i&quot;, &quot;clover.db&quot; };
+int result = ConsoleReporter.mainImpl(cliArgs);
+if (result != 0) {
+   // problem during report generation
+}</code></pre>
+
                 <h3>Examples</h3>
-                <pre>java com.atlassian.clover.reporters.console.ConsoleReporter -i clover.db
-</pre>
+                <pre><code class="language-bash">java com.atlassian.clover.reporters.console.ConsoleReporter -i clover.db</code></pre>
                 <p>Reads coverage for the Clover database &quot;clover.db&quot;, and produces a summary report to the
                     console.</p>
                 <p> </p>
-                <pre>java com.atlassian.clover.reporters.console.ConsoleReporter -l &quot;method&quot; -t &quot;Method Coverage&quot; -i clover.db
-</pre>
+                <pre><code class="language-bash">java com.atlassian.clover.reporters.console.ConsoleReporter -l &quot;method&quot; -t &quot;Method Coverage&quot; -i clover.db</code></pre>
                 <p>Produces the same report as above, but includes method-level coverage information, and a report
                     title.</p>
                 <p> </p>
             </div>
-
-
         </div>
     </div>
 </div>

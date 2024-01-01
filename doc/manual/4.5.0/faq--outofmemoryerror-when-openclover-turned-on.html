@@ -74,13 +74,7 @@
                     </li>
                 </ul>
 
-
-                <div style="border-width: 1px;">
-                    <div>
-<pre>export ANT_OPTS=-Xmx256m
-</pre>
-                    </div>
-                </div>
+                <pre><code class="language-bash">export ANT_OPTS=-Xmx256m</code></pre>
 
                 <ul>
                     <li>If you are using an external compiler (the &lt;javac&gt; task with the &quot;fork&quot; attribute set to true), you can set the
@@ -89,14 +83,10 @@
                     </li>
                 </ul>
 
-
                 <div style="border-width: 1px;">
                     <div>
-<pre><code class="language-xml">&lt;javac srcdir=&quot;${src}&quot;
-destdir=&quot;${build}&quot;
-fork=&quot;true&quot;
-memoryInitialSize=&quot;128m&quot;
-memoryMaximumSize=&quot;256m&quot;/&gt;</code></pre>
+<pre><code class="language-xml">&lt;javac srcdir=&quot;${src}&quot; destdir=&quot;${build}&quot;
+        fork=&quot;true&quot; memoryInitialSize=&quot;128m&quot; memoryMaximumSize=&quot;256m&quot;/&gt;</code></pre>
                     </div>
                 </div>
 

@@ -61,8 +61,7 @@
             <div id="main-content">
                 <p>This tool merges existing Clover databases to allow for combined reports to be generated.</p>
                 <h3>Usage</h3>
-                <pre>java com.atlassian.clover.CloverMerge [OPTIONS] PARAMS [DBFILES...]
-</pre>
+                <pre><code class="language-bash">java com.atlassian.clover.CloverMerge [OPTIONS] PARAMS [DBFILES...]</code></pre>
                 <h3>Parameters</h3>
                 <div>
                     <table class="table table-striped">
@@ -118,22 +117,17 @@
                 <p><code>CloverMerge</code> provides a simple API that accepts an array of strings representing the
                     command line arguments and returns an integer result code. The following fragment illustrates use of
                     the API:</p>
-                <pre>import com.atlassian.clover.CloverMerge;
-
-...
+                <pre><code class="language-java">import com.atlassian.clover.CloverMerge;
 
 String [] cliArgs = { &quot;-i&quot;, &quot;new.db&quot;,  &quot;proj1.db&quot;, &quot;proj2.db&quot;, &quot;-s&quot;, &quot;10s&quot;, &quot;proj3.db&quot; };
 int result = CloverMerge.mainImpl(cliArgs);
 if (result != 0) {
     // problem during instrumentation
-}
-</pre>
+}</code></pre>
                 <h3>Examples</h3>
-                <pre>java com.atlassian.clover.CloverMerge -i new.db proj1.db proj2.db
-</pre>
+                <pre><code class="language-bash">java com.atlassian.clover.CloverMerge -i new.db proj1.db proj2.db</code></pre>
                 <p>Merges proj1.db and proj2.db into the new database new.db. A span of zero seconds is used.</p>
-                <pre>java com.atlassian.clover.CloverMerge -i new.db proj1.db -s 30s proj2.db proj3.db
-</pre>
+                <pre><code class="language-bash">java com.atlassian.clover.CloverMerge -i new.db proj1.db -s 30s proj2.db proj3.db</code></pre>
                 <p>Merges proj1.db, proj2.db and proj3.db into the new database new.db. A span of zero seconds is used
                     for proj1.db, and a span of 30 seconds is used for proj2.db and proj3.db.</p>
                 <div><span></span>
