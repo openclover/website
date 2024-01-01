@@ -70,55 +70,56 @@
 
                 <h3>JUnit3</h3>
                 <p>Methods with a following signature:</p>
-                <pre>public void test***()</pre>
+                <pre><code class="language-java">public void test***()</code></pre>
                 <h3><span class="hl_comment">JUnit4</span></h3>
                 <p><span class="hl_comment">Methods annotated with one of the following:<br/></span></p>
-                <pre>@junit.org.Test</pre>
-                <pre>@Test</pre>
+                <pre><code class="language-java">@junit.org.Test
+@Test</code></pre>
                 Also expected exceptions are understood, e.g.:
-                <pre>@Test(expected={Foo.class})</pre>
-                <pre>@Test(expected=Foo.class)</pre>
+                <pre><code class="language-java">@Test(expected={Foo.class})
+@Test(expected=Foo.class)</code></pre>
                 <h3>
                     <span class="hl_comment"><span class="hl_comment"><span class="hl_comment">JUnit4+Spring</span></span></span><strong><span class="hl_comment"> </span></strong>
                 </h3>
                 <p>Methods annotated with:</p>
-                <pre>@Test<br/>@org.springframework.test.annotation.ExpectedException({Bar.class})</pre>
-                <p><span class="hl_comment"><span class="hl_comment"><span class="hl_comment">or<br/></span></span></span></p>
-                <pre>@Test <br/>@ExpectedException(value={Bar.class})</pre>
+                <pre><code class="language-java">@Test
+@org.springframework.test.annotation.ExpectedException({Bar.class})</code></pre>
+                <p>or</p>
+                <pre><code class="language-java">@Test
+@ExpectedException(value={Bar.class})</code></pre>
                 <h3>
                     <span class="hl_comment"><span class="hl_comment"><span class="hl_comment"><span class="hl_comment"><span class="hl_comment">TestNG</span></span></span></span></span>
                 </h3>
                 <p>
                     <span class="hl_comment"><span class="hl_comment"><span class="hl_comment"><span class="hl_comment"><span class="hl_comment">Methods annotated with one of the following:<br/></span></span></span></span></span>
                 </p>
-                <pre>@org.testng.annotations.ExpectedExceptions(Foo.class)</pre>
-                <pre>@ExpectedExceptions(org.bar.Foo.class)</pre>
-                <pre>@org.testng.annotations.Test(expectedExceptions={Foo.class})</pre>
-                <pre>@Test(expectedExceptions={Foo.class})</pre>
-                <pre>@org.testng.annotations.Test(expectedExceptions=Foo.class)</pre>
-                <pre>@Test(expectedExceptions=Foo.class)</pre>
+                <pre><code class="language-java">@org.testng.annotations.ExpectedExceptions(Foo.class)
+@ExpectedExceptions(org.bar.Foo.class)
+@org.testng.annotations.Test(expectedExceptions={Foo.class})
+@Test(expectedExceptions={Foo.class})
+@org.testng.annotations.Test(expectedExceptions=Foo.class)
+@Test(expectedExceptions=Foo.class)</code></pre>
 
                 <h3>JavaDoc tags</h3>
 
                 <p><strong>TestNG style</strong></p>
-                <pre>/** @testng.test */</pre>
-                <pre>class MyTest {</pre>
-                <pre>    /** @testng.test */</pre>
-                <pre>    void myTestMethod() <span> </span>{ }</pre>
-                <pre>} </pre>
+                <pre><code class="language-java">/** @testng.test */
+class MyTest {
+    /** @testng.test */
+    void myTestMethod() { }
+} </code></pre>
                 <p><strong>JUnit style</strong></p>
-                <pre>/** @test */</pre>
-                <pre>void myTestMethod() { }</pre>
+                <pre><code class="language-java">/** @test */
+void myTestMethod() { }</code></pre>
 
                 <h3>Instinct</h3>
                 <p>
                     <span class="hl_comment"><span class="hl_comment"><span class="hl_comment"><span class="hl_comment"><span class="hl_comment">Methods annotated with one of the following:</span></span></span></span></span>
                 </p>
-                <pre>@com.googlecode.instinct.marker.annotate.Specification(expectedException=Foo.class)</pre>
-                <pre>@Specification(expectedException=Foo.class)</pre>
+                <pre><code class="language-java">@com.googlecode.instinct.marker.annotate.Specification(expectedException=Foo.class)
+@Specification(expectedException=Foo.class)</code></pre>
                 <h2>Usage context</h2>
                 <p>These patterns are being used by Clover for per-test coverage, test optimization and reporting.</p>
-                <p> </p>
             </div>
 
 

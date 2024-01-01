@@ -63,9 +63,8 @@
                 <h4>Symptoms</h4>
                 <p>Running Clover with mixed Java-Scala project having cross-dependencies between Java and Scala
                     classes, results in compiler complaining about missing Scala classes:</p>
-                <div style="border-width: 1px;">
-                    <div>
-<pre>[ERROR] /project/target/clover/src-instrumented/test/java/HelloJavaWorld.java:3: error: package test.scala does not exist
+
+                <pre>[ERROR] /project/target/clover/src-instrumented/test/java/HelloJavaWorld.java:3: error: package test.scala does not exist
 [ERROR] import test.scala.HelloScalaProvider;
 [ERROR]                  ^
 [ERROR] /project/target/clover/src-instrumented/test/java/HelloJavaWorld.java:8: error: cannot find symbol
@@ -74,8 +73,7 @@
 [ERROR]   symbol:   variable HelloScalaProvider
 [ERROR]   location: class HelloJavaWorld
 [ERROR] 2 errors</pre>
-                    </div>
-                </div>
+
                 <h4>Cause</h4>
                 <p>Typically, project structure looks like this:</p>
                 <div style="border-width: 1px;">

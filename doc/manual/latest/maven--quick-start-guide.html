@@ -63,17 +63,17 @@
                 org.openclover in .m2/settings.xml</h4>
                 <p>Before you get started, add this to your <code>.m2/settings.xml</code> file so you can reference
                     Clover by its short name <code>clover</code>.</p>
-                <div class="container" title="Hint: double-click to select code"><p> </p>
-                    <pre>&lt;pluginGroups&gt;
+                <div class="container" title="Hint: double-click to select code">
+                    <pre><code class="language-xml">&lt;pluginGroups&gt;
     &lt;pluginGroup&gt;org.openclover&lt;/pluginGroup&gt;
-&lt;/pluginGroups&gt;</pre>
+&lt;/pluginGroups&gt;</code></pre>
                     <h4>Run Clover goals from a
                         command line</h4>
                     <p class="line number1 index0 alt2">The quickest and easiest way to try Clover is from the command
                         line:</p>
                     <div style="border-width: 1px;">
                         <div>
-                            <pre>mvn clean clover:setup test clover:aggregate clover:clover</pre>
+                            <pre><code class="language-bash">mvn clean clover:setup test clover:aggregate clover:clover</code></pre>
                         </div>
                     </div>
                     <p class="line number1 index0 alt2">Goals:</p>

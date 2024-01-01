@@ -63,13 +63,13 @@
                 <p>Your application is using the Clover-for-Grails plugin. Compilation fails with the
                     java.lang.VerifyError exception.</p>
                 <p>For example:</p>
-                <pre data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence">$ grails test-app -clover.on
+                <pre data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence"><code class="language-bash">grails test-app -clover.on
 
 ...
 build	Clover: Clover is enabled. Configuration: [on:true, debug:[:], verbose:[:]]
 ...
 build	| Error Exception occurred trigger event [SetClasspath]: java.lang.VerifyError: (class: com/atlassian/clover/ant/tasks/AbstractCloverTask, method: init signature: ()V) Incompatible argument to function (NOTE: Stack trace has been filtered. Use --verbose to see entire trace.)
-</pre>
+</code></pre>
                 <p> </p><h4>Cause</h4>
                 <p>Your application is using some Grails plugin, which has a dependency on the Clover plugin and this
                     dependency is being exported outside the plugin. As a consequence this Clover plugin becomes
@@ -91,29 +91,21 @@ build	| Error Exception occurred trigger event [SetClasspath]: java.lang.VerifyE
                     application's BuildConfig.groovy. For example:</p>
                 <p> </p>
                 <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>myApplication/grails-app/conf/BuildConfig.groovy</b>
-                    </div>
-                    <pre>grails.project.dependency.resolution = {
+                    <div><b>myApplication/grails-app/conf/BuildConfig.groovy</b></div>
+                    <pre><code class="language-groovy">grails.project.dependency.resolution = {
   plugins {
     compile(&quot;:somePluginWithInvalidDependency:1.0.0&quot;) {
       excludes &quot;clover&quot;  // exclude clover in wrong version
     }
     compile(&quot;:clover:3.2.0&quot;)    // use the desired version
   }
-}
-
- </pre>
+}</code></pre>
                 </div>
-                <p> </p>
-                <p> </p>
-                <p> </p>
-                <p> </p><!--$body-->
             </div>
-
-
         </div>
     </div>
 </div>
+
 <div class="container">
     <footer>
         <p class="small text-muted">

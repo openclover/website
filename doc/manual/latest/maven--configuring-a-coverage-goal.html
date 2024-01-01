@@ -66,12 +66,9 @@
                 <p>You can check that your test coverage has reached a certain threshold, and fail the build if it has
                     not by adding a <code>targetPercentage</code> tag to your plugin configuration in
                     <code>pom.xml</code>:</p>
-                <pre>&lt;configuration&gt;
-  ...
+                <pre><code class="language-xml">&lt;configuration&gt;
   &lt;targetPercentage&gt;75%&lt;/targetPercentage&gt;
-  ...
-&lt;/configuration&gt;
-</pre>
+&lt;/configuration&gt;</code></pre>
                 <p>You can then use the <a href="../../maven/4.5.0/check-mojo.html" rel="nofollow">clover:check</a> target to examine the Clover database and
                     check that you have reached the coverage threshold.</p>
                 <p>If you want the build to succeed anyway (printing a warning to your log), use the command line option
