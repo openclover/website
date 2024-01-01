@@ -310,7 +310,7 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                 <p> </p>
                 <p>Assuming that you'd like to filter-out &quot;logger.debug&quot; calls, the regular expression should
                     look like this:</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;statementcontext name=&quot;logger&quot; regexp=&quot;^logger\.debug.*&quot;/&gt;</pre>
+                <pre>&lt;statementcontext name=&quot;logger&quot; regexp=&quot;^logger\.debug.*&quot;/&gt;</pre>
                 <p>Note that if the expression would be written as &quot;^<strong><span style="color: rgb(0,0,255);">.*</span></strong>logger\.debug.*&quot;, then it would match also
                     outer statements.</p>
                 <h2>Using Context Filters</h2>

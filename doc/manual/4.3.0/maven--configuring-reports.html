@@ -72,7 +72,7 @@
                             href="../../maven/4.3.0/latest/clover-mojo.html#generateXml" rel="nofollow">generateXml</a> and
                     <a href="../../maven/4.3.0/clover-mojo.html#generateJson" rel="nofollow">generateJson</a> configuration elements
                     to choose which report formats should be produced:</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;configuration&gt;
+                <pre><code class="language-xml">&lt;configuration&gt;
   ...
   &lt;generatePdf&gt;true&lt;/generatePdf&gt;
   &lt;generateXml&gt;true&lt;/generateXml&gt;
@@ -90,7 +90,7 @@
                 <p>To include the generation of
                     <a href="general--understanding-reports-historical.html" rel="nofollow">historical reports</a> in your Clover reports, add the
                     <code>generateHistorical</code> element to your Clover plugin configuration:</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;configuration&gt;
+                <pre><code class="language-xml">&lt;configuration&gt;
   ...
   &lt;generateHistorical&gt;true&lt;/generateHistorical&gt;
 &lt;/configuration&gt;</code></pre>
@@ -99,7 +99,7 @@
                 <p>To avoid having <code>mvn clean</code> remove your savepoints you may want to set the location of the
                     history directory (default location is <code>$project.build.directory/clover/history)</code>, for
                     example:</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;configuration&gt;
+                <pre><code class="language-xml">&lt;configuration&gt;
   &lt;historyDir&gt;${user.home}/.clover/${project.groupId}-${project.artifactId}&lt;/historyDir&gt;
 &lt;/configuration&gt;</code></pre>
                 <p> </p>
@@ -118,7 +118,7 @@
                     site.xml descriptor file. The descriptor file is basically a stripped down Ant file which will be
                     run to produce the reports. All options available in <a href="ant--clover-report.html">clover-report</a> can
                     be specified. The default report descriptor used by the <code>clover-maven-plugin</code> is:
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
+                <pre><code class="language-xml">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
 
     &lt;clover-format id=&quot;clover.format&quot; type=&quot;${type}&quot; orderBy=&quot;${orderBy}&quot; filter=&quot;${filter}&quot;/&gt;
     &lt;clover-setup initString=&quot;${cloverdb}&quot;/&gt;

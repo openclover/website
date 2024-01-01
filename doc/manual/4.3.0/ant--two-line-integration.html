@@ -83,11 +83,9 @@
 &lt;/junit&gt;</code></pre>
                     </li>
                     <li><p>If you have a target already called &quot;test&quot; you can simply run</p>
-                        <pre>ant clover.all
-</pre>
+                        <pre><code class="language-bash">ant clover.all</code></pre>
                         <p> Otherwise, run the following:</p>
-                        <pre>ant with.clover your.test.target clover.report
-</pre>
+                        <pre><code class="language-bash">ant with.clover your.test.target clover.report</code></pre>
                         <p>Alternatively, define a property called &quot;test.target&quot; whose value is the name of
                             your test target.<br/><br/></p></li>
                     <li><p>Complete! That concludes the Ant two-line integration. You should now be set up to run Clover
@@ -163,8 +161,8 @@
                 <p> </p>
                 <p>For more instructions about using targets, see the <a href="9.-Clover-Target-Reference_179445247.html">Clover Target Reference</a>. Any
                     <em>${}</em>
-                    properties may be defined on the command line, for example:<em>
-                        -Dclover.project.historydir=/home/clover/historydir</em></p>
+                    properties may be defined on the command line, for example:
+                <pre><code class="language-bash">-Dclover.project.historydir=/home/clover/historydir</code></pre></p>
                 <p> </p>
                 <p> </p>
                 <div class="alert alert-success" role="alert">

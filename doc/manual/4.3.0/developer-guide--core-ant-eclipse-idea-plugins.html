@@ -90,7 +90,7 @@
                 <p>3. <span>Check out main Clover repository:</span></p>
                 <div style="border-width: 1px;">
                     <div>
-                        <pre>git clone ssh://git@github.com/openclover/clover.git</pre>
+                        <pre><code class="language-bash">git clone ssh://git@github.com/openclover/clover.git</code></pre>
                     </div>
                 </div>
                 <p><span><br/></span></p>
@@ -100,19 +100,19 @@
                 <p><span>5. Download, repack and install third party libraries:</span></p>
                 <div style="border-width: 1px;">
                     <div>
-<pre># cd clover
+<pre><code class="language-bash"># cd clover
 mvn install -f clover-core-libs/jarjar/pom.xml
 mvn install -Prepack -f clover-core-libs/pom.xml
-mvn install -Prepack -f clover-idea/clover-jtreemap/pom.xml</pre>
+mvn install -Prepack -f clover-idea/clover-jtreemap/pom.xml</code></pre>
                     </div>
                 </div>
                 <p> </p>
                 <p><span>6. Install Atlassian fork of KTreeMap library:</span></p>
                 <div style="border-width: 1px;">
                     <div>
-<pre>git clone https://bitbucket.org/atlassian/ktreemap
+<pre><code class="language-bash">git clone https://bitbucket.org/atlassian/ktreemap
 git checkout ktreemap-1.1.0-atlassian-01
-mvn install</pre>
+mvn install</code></pre>
                     </div>
                 </div>
                 <h2>Build and test</h2>
@@ -121,25 +121,25 @@ mvn install</pre>
                 <p>To compile application code:</p>
                 <div style="border-width: 1px;">
                     <div>
-                        <pre>ant global.build</pre>
+                        <pre><code class="language-bash">ant global.build</code></pre>
                     </div>
                 </div>
                 <p>To run tests:</p>
                 <div style="border-width: 1px;">
                     <div>
-                        <pre>ant global.test</pre>
+                        <pre><code class="language-bash">ant global.test</code></pre>
                     </div>
                 </div>
                 <p>To create Clover-for-Ant, Clover-for-IDEA and Clover-for-Eclipse packages:</p>
                 <div style="border-width: 1px;">
                     <div>
-                        <pre>ant clover-ant.pkg clover-idea.pkg clover-eclipse.pkg</pre>
+                        <pre><code class="language-bash">ant clover-ant.pkg clover-idea.pkg clover-eclipse.pkg</code></pre>
                     </div>
                 </div>
                 <p>To install Clover Core in .m2/repository:</p>
                 <div style="border-width: 1px;">
                     <div>
-                        <pre>ant clover-ant.mvn.install</pre>
+                        <pre><code class="language-bash">ant clover-ant.mvn.install</code></pre>
                     </div>
                 </div>
                 <p>To learn about other targets available see <a href="developer-guide--build-system.html">Build system</a>. </p>
@@ -171,7 +171,7 @@ mvn install</pre>
                 <p>To create a snapshot version of Clover Core as well as plugins for Ant, Eclipse and IDEA:</p>
                 <div style="border-width: 1px;">
                     <div>
-                        <pre>ant global.clean clover-ant.pkg clover-idea.pkg clover-eclipse.pkg</pre>
+                        <pre><code class="language-bash">ant global.clean clover-ant.pkg clover-idea.pkg clover-eclipse.pkg</code></pre>
                     </div>
                 </div>
                 <p> </p>
@@ -185,7 +185,7 @@ mvn install</pre>
                 </ol>
                 <div style="border-width: 1px;">
                     <div>
-                        <pre>ant global.clean mvn.versioncheck prod.mvn.setup clover-ant.prod clover-idea.prod clover-eclipse.prod -Dclover.prod.build=true -Dpath.to.mvn=/path/to/apache-maven-3.2.5/bin/mvn</pre>
+                        <pre><code class="language-bash">ant global.clean mvn.versioncheck prod.mvn.setup clover-ant.prod clover-idea.prod clover-eclipse.prod -Dclover.prod.build=true -Dpath.to.mvn=/path/to/apache-maven-3.2.5/bin/mvn</code></pre>
                     </div>
                 </div>
                 <p>Artefacts will be created in:</p>
