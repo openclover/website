@@ -74,7 +74,7 @@ nested exception is org.springframework.beans.factory.BeanCreationException: Uns
                 <p>Application runs correctly if Clover is disabled.</p><h4 id="Springcan&#39;tinitializebeanswithClover-Cause">Cause</h4>
                 <p>This might be caused by a fact that implementation for <em>com.some.SomeBean</em> is being generated
                     in your build process. For example:</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"> &lt;plugin&gt;
+                <pre> &lt;plugin&gt;
    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
    &lt;artifactId&gt;maven-antrun-plugin&lt;/artifactId&gt;
    &lt;executions&gt;
@@ -111,7 +111,7 @@ nested exception is org.springframework.beans.factory.BeanCreationException: Uns
                 <p>or you can bind the 'clover:setup' to a build phase which happens
                     <a href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Lifecycle_Reference" rel="nofollow">after the
                         'generate-sources' one</a>, for example:</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"> &lt;plugin&gt;
+                <pre> &lt;plugin&gt;
    &lt;groupId&gt;org.openclover&lt;/groupId&gt;
    &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
    &lt;executions&gt;
