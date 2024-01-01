@@ -161,19 +161,17 @@
                 <h3>Examples</h3>
                 <p>This example produces a merged database containing the measured coverage of project A and project
                     B:</p>
-                <pre>&lt;clover-merge initString=&quot;mergedcoverage.db&quot;&gt;
+                <pre><code class="language-xml">&lt;clover-merge initString=&quot;mergedcoverage.db&quot;&gt;
     &lt;cloverDb initString=&quot;projectAcoverage.db&quot;/&gt;
     &lt;cloverDb initString=&quot;projectBcoverage.db&quot; span=&quot;30 mins&quot;/&gt;
- &lt;/clover-merge&gt;
-</pre>
+&lt;/clover-merge&gt;</code></pre>
                 <p>This example produces a merged database containing the measured coverage of all databases found under
                     <code>/home/projects</code>:</p>
-                <pre>&lt;clover-merge initString=&quot;mergedcoverage.db&quot;&gt;
+                <pre><code class="language-xml">&lt;clover-merge initString=&quot;mergedcoverage.db&quot;&gt;
     &lt;cloverDbSet dir=&quot;/home/projects&quot; span=&quot;30 mins&quot;&gt;
           &lt;include name=&quot;**/coverage.db&quot;/&gt;
     &lt;/cloverDbSet&gt;
- &lt;/clover-merge&gt;
-</pre>
+&lt;/clover-merge&gt;</code></pre>
             </div>
 
 

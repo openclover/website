@@ -210,9 +210,8 @@ BUILD SUCCESSFUL</pre>
                 </div>
                 <p>Load the <code>build.xml</code> file into your favorite text editor and add the Clover Ant task and
                     type definitions:</p>
-                <pre>&lt;property name=&quot;clover.jar&quot; location=&quot;../lib/clover.jar&quot;/&gt;
-&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;
-</pre>
+                <pre><code class="language-xml">&lt;property name=&quot;clover.jar&quot; location=&quot;../lib/clover.jar&quot;/&gt;
+&lt;taskdef resource=&quot;cloverlib.xml&quot; classpath=&quot;${clover.jar}&quot;/&gt;</code></pre>
                 <div><p class="title">Note</p>
                     <span></span>
                     <div><p>This assumes that the <code>clover.jar</code> is
@@ -222,28 +221,25 @@ BUILD SUCCESSFUL</pre>
                 <p>These lines define the Clover Ant tasks which can then be used within the build file.</p>
                 <h2>Adding a target to enable Clover</h2>
                 <p>Add a target called <code>with.clover</code> which will enable and configure Clover for a build:</p>
-                <pre>&lt;target name=&quot;with.clover&quot;&gt;
+                <pre><code class="language-xml">&lt;target name=&quot;with.clover&quot;&gt;
    &lt;clover-setup/&gt;
-&lt;/target&gt;
-</pre>
+&lt;/target&gt;</code></pre>
                 <h2>Adding Clover to the classpath</h2>
                 <p>The <code>clover.jar</code> needs to be in both compilation and runtime classpath. To achieve this,
                     add the line in marked below to the <code>build.classpath</code> Ant path:</p>
-                <pre>&lt;path id=&quot;build.classpath&quot;&gt;
+                <pre><code class="language-xml">&lt;path id=&quot;build.classpath&quot;&gt;
     &lt;pathelement path=&quot;${clover.jar}&quot;/&gt; &lt;!-- add this --&gt;
     &lt;pathelement path=&quot;${build.classes}&quot;/&gt;
-&lt;/path&gt;
-</pre>
+&lt;/path&gt;</code></pre>
                 <h2>Adding &lt;clover-clean&gt; to
                     the clean target</h2>
                 <p>It is advisable to add the <code>&lt;</code><code><a href="ant--clover-clean.html">clover-clean</a></code><code>/&gt;</code> task to the
                     <code>clean</code>
                     target. This will delete the Clover database when the <code>clean</code> target is executed.</p>
-                <pre>&lt;target name=&quot;clean&quot; &gt;
+                <pre><code class="language-xml">&lt;target name=&quot;clean&quot; &gt;
      &lt;clover-clean/&gt; &lt;!-- add this --&gt;
      &lt;delete dir=&quot;build&quot;/&gt;
-&lt;/target&gt;
-</pre>
+&lt;/target&gt;</code></pre>
                 <p>Once you have made these changes, save the <code>build.xml</code> file. We will add some more Clover
                     targets later to perform coverage reporting, but first we will re-compile the Money library with
                     Clover and re-run the tests to obtain coverage data.</p>
@@ -321,10 +317,9 @@ BUILD SUCCESSFUL
                 <h2>Adding a Clover report target</h2>
                 <p>Open the <code>build.xml</code> file in a text editor and add the following <code>target</code> to
                     create a HTML report:</p>
-                <pre>&lt;target name=&quot;clover.report&quot;&gt;
+                <pre><code class="language-xml">&lt;target name=&quot;clover.report&quot;&gt;
    &lt;clover-html-report outdir=&quot;build/clover_html&quot; title=&quot;Clover Demo&quot;/&gt;
-&lt;/target&gt;
-</pre>
+&lt;/target&gt;</code></pre>
                 <p>The <code>&lt;</code><code><a href="ant--clover-html-report.html">clover-html-report</a></code><code>&gt;</code> task is a
                     simplified version of the <code>&lt;</code><code><a href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> task. As no
                     <code>historydir</code> attribute has been specified, it uses the current coverage data. Historical

@@ -119,19 +119,17 @@
                 <p>In this example, the <code>&lt;</code><code><a href="ant--clover-html-report.html">clover-html-report</a></code><code>&gt;</code>
                     task is used to generate source-level coverage reports in HTML format that can be published for
                     viewing by the whole team:</p>
-                <pre>&lt;target name=&quot;clover.report&quot; depends=&quot;with.clover&quot;&gt;
+                <pre><code class="language-xml">&lt;target name=&quot;clover.report&quot; depends=&quot;with.clover&quot;&gt;
    &lt;clover-html-report outdir=&quot;clover_html&quot;/&gt;
-&lt;/target&gt;
-</pre>
+&lt;/target&gt;</code></pre>
                 <p></p>
                 <h3>Executive summary coverage
                     reports</h3>
                 <p>In this example, the <code>&lt;</code><code><a href="ant--clover-pdf-report.html">clover-pdf-report</a></code><code>&gt;</code>
                     task is used to generate summary reports in PDF format, suitable for email or audit purposes.</p>
-                <pre>&lt;target name=&quot;clover.summary&quot; depends=&quot;with.clover&quot;&gt;
+                <pre><code class="language-xml">&lt;target name=&quot;clover.summary&quot; depends=&quot;with.clover&quot;&gt;
    &lt;clover-pdf-report outfile=&quot;coverage.pdf&quot;/&gt;
-&lt;/target&gt;
-</pre>
+&lt;/target&gt;</code></pre>
                 <p> </p>
                 <h3>Historical
                     coverage and project metrics reporting</h3>
@@ -139,7 +137,7 @@
                     <code>&lt;</code><code><a href="ant--clover-historypoint.html">clover-historypoint</a></code><code>&gt;</code>
                     task. Historical data can then be collated into a historical report using the
                     <code>&lt;</code><code><a href="ant--clover-report.html">clover-report</a></code><code>&gt;</code> task:</p>
-                <pre>&lt;target name=&quot;clover.report&quot; depends=&quot;with.clover&quot;&gt;
+                <pre><code class="language-xml">&lt;target name=&quot;clover.report&quot; depends=&quot;with.clover&quot;&gt;
 
    &lt;!-- generate a historypoint for the current coverage --&gt;
    &lt;clover-historypoint historyDir=&quot;clover_hist&quot;/&gt;
@@ -148,8 +146,7 @@
 
    &lt;clover-html-report outdir=&quot;clover_html&quot;
                        historyDir=&quot;clover_hist&quot;/&gt;
-&lt;/target&gt;
-</pre>
+&lt;/target&gt;</code></pre>
                 <p> </p>
                 <h3>Coverage criteria
                     checking and triggers</h3>
@@ -157,7 +154,7 @@
                     monitor coverage criteria. If coverage does not meet the criteria, the build can be made to fail or
                     an arbitary activity can be triggered. In the example below, if project coverage is not 80%, an
                     executive summary coverage report is generated and mailed to the team:</p>
-                <pre>&lt;target name=&quot;coverageAlert&quot; depends=&quot;coverage.check&quot;
+                <pre><code class="language-xml">&lt;target name=&quot;coverageAlert&quot; depends=&quot;coverage.check&quot;
          if=&quot;coverage_check_failure&quot;&gt;
 
    &lt;clover-pdf-report outfile=&quot;coverage.pdf&quot;/&gt;
@@ -172,8 +169,7 @@
 &lt;target name=&quot;coverage.check&quot; depends=&quot;with.clover&quot;&gt;
    &lt;clover-check target=&quot;80%&quot;
                  failureProperty=&quot;coverage_check_failure&quot;/&gt;
-&lt;/target&gt;
-</pre>
+&lt;/target&gt;</code></pre>
                 <p></p>
             </div>
 

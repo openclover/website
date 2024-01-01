@@ -325,32 +325,30 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
                 <p>In some cases you may not be interested in the coverage of statements inside catch blocks. To filter
                     them, you can use Clover's predefined <code>catch</code> context to exclude statements inside catch
                     blocks from a coverage report:</p>
-                <pre>&lt;clover-report&gt;
+                <pre><code class="language-xml">&lt;clover-report&gt;
        &lt;current outfile=&quot;clover_html&quot;&gt;
          &lt;format type=&quot;html&quot; filter=&quot;catch&quot;/&gt;
        &lt;/current&gt;
-   &lt;/clover-report&gt;
-</pre>
+&lt;/clover-report&gt;</code></pre>
                 <p>This generates a source-level HTML report that excludes coverage from statements inside catch
                     blocks.</p><h4>Filtering simple methods</h4>
                 <p>In order to filter-out simple getters and setters you can use built-in &quot;property&quot; method
                     context. </p>
                 <p>You can define also own filter, based on cyclomatic complexity and/or number of statements. For
                     example:</p>
-                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-setup ...&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;clover-setup ...&gt;
     &lt;!-- Don&#39;t instrument methods which have cyclomatic complexity &lt;= 1 or &lt;= 3 statements --&gt;
     &lt;methodContext name=&quot;simple_method&quot; regexp=&quot;.*&quot; maxComplexity=&quot;1&quot; maxStatements=&quot;3&quot;/&gt;
-&lt;/clover-setup&gt;</pre>
+&lt;/clover-setup&gt;</code></pre>
                 <p> </p><h4>Filtering logging statements</h4>
                 <p>To remove logging statements for coverage reports, you will need to define one or more statement
                     contexts that match logging statements in your source:</p>
-                <pre>&lt;clover-setup ...&gt;
+                <pre><code class="language-xml">&lt;clover-setup ...&gt;
     &lt;statementContext name=&quot;log&quot; regexp=&quot;^LOG\..*&quot;/&gt;
     &lt;statementContext name=&quot;iflog&quot; regexp=&quot;^if \(LOG\.is.*&quot;/&gt;
     &lt;methodContext name=&quot;main&quot; regexp=&quot;public static void main\(String args\[\]\).*&quot;/&gt;
     ...
-&lt;/clover-setup&gt;
-</pre>
+&lt;/clover-setup&gt;</code></pre>
                 <p>This defines two statement contexts and one method context. The first matches statements that start
                     with '<code>LOG.</code>' while the second matches statements that start with  '<code>if (LOG.</code>',
                     which is designed to match conditional logging statements such as:</p>
@@ -363,12 +361,11 @@ synchronized static public Object [ ]    complexSignature(   String i, List &lt;
 </pre>
                 <p>After defining these contexts, you now need to re-compile with Clover and then re-run your tests. You
                     can then generate a report that excludes logging statements:</p>
-                <pre>&lt;clover-report&gt;
+                <pre><code class="language-xml">&lt;clover-report&gt;
     &lt;current outfile=&quot;clover_html&quot; title=&quot;My Coverage&quot;&gt;
         &lt;format type=&quot;html&quot; filter=&quot;log,iflog&quot;/&gt;
     &lt;/current&gt;
-&lt;/clover-report&gt;
-</pre>
+&lt;/clover-report&gt;</code></pre>
                 <p>This generates a source-level HTML report that excludes coverage from logging statements.</p>
             </div>
 

@@ -72,7 +72,7 @@
                     site.xml descriptor file. The descriptor file is basically a stripped down Ant file which will be
                     run to produce the reports. All options available in <a href="ant--clover-report.html">clover-report</a>
                     can be specified. The default report descriptor used by the <code>clover-maven-plugin</code> is:</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
 
     &lt;clover-format id=&quot;clover.format&quot; type=&quot;${type}&quot; orderBy=&quot;${orderBy}&quot; filter=&quot;${filter}&quot;/&gt;
     &lt;clover-setup initString=&quot;${cloverdb}&quot;/&gt;
@@ -109,8 +109,7 @@
         &lt;/clover-report&gt;
     &lt;/target&gt;
 
-&lt;/project&gt;
-</pre>
+&lt;/project&gt;</code></pre>
                 <p>This is a very simple Ant file, which defines two known targets: &quot;historical&quot; and &quot;current&quot; .<br/> If there are no history points saved (via:
                     <code><a href="../../maven/4.2.0/save-history-mojo.html" rel="nofollow">clover:save-history</a></code>) then only the &quot;current&quot; target will
                     be called. Otherwise, the &quot;historical&quot; target gets called which generates both a
@@ -124,8 +123,7 @@
                 <pre>-Dmaven.clover.reportDescriptor=/path/to/clover-report.xml
 </pre>
                 <p>or specify this element:</p>
-                <pre>&lt;reportDescriptor&gt;/path/to/clover-report.xml&lt;/reportDescriptor&gt;
-</pre>
+                <pre><code class="language-xml">&lt;reportDescriptor&gt;/path/to/clover-report.xml&lt;/reportDescriptor&gt;</code></pre>
                 <p>in the <code>&lt;configuration&gt;</code> element for the <code>clover-maven-plugin</code> in your
                     <strong>pom.xml</strong>.</p>
                 <p>If you wish to keep this descriptor in your maven repository you must specify this system
@@ -133,8 +131,7 @@
                 <pre>-Dmaven.clover.resolveReportDescriptor=true
 </pre>
                 <p>or set this element:</p>
-                <pre>&lt;resolveReportDescriptor&gt;true&lt;/resolveReportDescriptor&gt;
-</pre>
+                <pre><code class="language-xml">&lt;resolveReportDescriptor&gt;true&lt;/resolveReportDescriptor&gt;</code></pre>
                 <p>in the <code>&lt;configuration&gt;</code> element for the <code>clover-maven-plugin</code> in your
                     <strong>pom.xml</strong>.<br/> The descriptor should be deployed using the &quot;clover-report&quot; classifier. For example:</p>
                 <pre>mvn deploy:deploy-file -DgroupId=my.group.id -DartifactId=my-artifact-id -Dversion=X.X -Dclassifier=clover-report \

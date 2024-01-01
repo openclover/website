@@ -319,13 +319,10 @@
                     column identifier will evaluate to the percentage of that columns data, rather than its raw value.
                     e.g. %CoveredElements == (CoveredElements/TotalElements) * 100</p>
                 <p><em>Example</em>:</p>
-                <pre>&lt;columns&gt;
-  &lt;expression title=&quot;SUM&quot;&gt;complexity^2 * ((1 - %coveredElements/100)^3) + complexity&lt;/expression&gt;
-&lt;/columns&gt;
-</pre>
+                <pre><code class="language-xml">&lt;columns&gt;
+    &lt;expression title=&quot;SUM&quot;&gt;complexity^2 * ((1 - %coveredElements/100)^3) + complexity&lt;/expression&gt;
+&lt;/columns&gt;</code></pre>
             </div>
-
-
         </div>
     </div>
 </div>
