@@ -148,10 +148,9 @@
                     <li><p>If your build plan is configured to do a full clean checkout before each build — you will
                         need to ensure the Clover snapshot file is stored in a location that will not be removed between
                         builds. The following configuration added to the <code>pom.xml</code> is one option:</p>
-                        <pre>&lt;configuration&gt;
+                        <pre><code class="language-xml">&lt;configuration&gt;
   &lt;snapshot&gt;${user.home}/.clover/${groupId}-${artifactId}/clover.snapshot&lt;/snapshot&gt;
-&lt;/configuration&gt;
-</pre>
+&lt;/configuration&gt;</code></pre>
                     </li>
                     <li><p>Beware however, that this set up will instrument your source and test files and compile them
                         to the usual Maven output location. If you run this command:</p>
@@ -192,11 +191,10 @@
                     modify code in module B, the tests in module A will not be run. You can achieve the desired behavior
                     however, by configuring Clover to use a single <code>clover.db</code> and
                     <code>clover.snapshot</code> for the entire project:</p>
-                <pre>&lt;configuration&gt;
+                <pre><code class="language-xml">&lt;configuration&gt;
     &lt;snapshot&gt;${user.home}/.clover/atlassian-plugins-clover.snapshot&lt;/snapshot&gt;
     &lt;singleCloverDatabase&gt;true&lt;/singleCloverDatabase&gt;
-&lt;/configuration&gt;
-</pre>
+&lt;/configuration&gt;</code></pre>
                 <p>If you have many modules, you may need to set
                     <a href="../../maven/4.4.0/optimize-mojo.html#fullRunEvery" rel="nofollow">fullBuildEvery</a> to a value higher
                     than the default of 10. See also <a href="../../maven/4.4.0/snapshot-mojo.html#singleCloverDatabase" rel="nofollow">singleCloverDatabase</a>.
@@ -252,7 +250,7 @@
                     ~/.m2/settings.xml file.</p>
                 <h2>clover.report Profile</h2>
                 <p><span id="BestPracticesforMaven-clover.report"></span></p>
-                <pre>&lt;profile&gt;
+                <pre><code class="language-xml">&lt;profile&gt;
             &lt;id&gt;clover.report&lt;/id&gt;
             &lt;build&gt;
                 &lt;plugins&gt;
@@ -283,12 +281,11 @@
                      &lt;/plugin&gt;
                  &lt;/plugins&gt;
              &lt;/reporting&gt;
-        &lt;/profile&gt;
-</pre>
+        &lt;/profile&gt;</code></pre>
                 <p> </p>
                 <h2>Clover Optimize Profile</h2>
                 <p><span id="BestPracticesforMaven-clover.optimize"></span></p>
-                <pre>&lt;profile&gt;
+                <pre><code class="language-xml">&lt;profile&gt;
             &lt;id&gt;clover.optimize&lt;/id&gt;
             &lt;build&gt;
                 &lt;plugins&gt;
@@ -313,13 +310,12 @@
                 &lt;/plugins&gt;
             &lt;/build&gt;
         &lt;/profile&gt;
-    &lt;/profiles&gt;
-</pre>
+    &lt;/profiles&gt;</code></pre>
                 <p> </p>
                 <h2>Clover Optimize, Report, Log and
                     Check Profile</h2>
                 <p><span id="BestPracticesforMaven-clover.all"></span></p>
-                <pre>&lt;profile&gt;
+                <pre><code class="language-xml">&lt;profile&gt;
             &lt;id&gt;clover.all&lt;/id&gt;
             &lt;build&gt;
                 &lt;plugins&gt;
@@ -351,8 +347,7 @@
                     &lt;/plugin&gt;
                 &lt;/plugins&gt;
             &lt;/build&gt;
-        &lt;/profile&gt;
-</pre>
+        &lt;/profile&gt;</code></pre>
                 <h5>Related Links</h5>
                 <ul>
                     <li><a href="general--what-is-test-optimization.html">Test Optimization Technical Details</a></li>

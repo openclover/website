@@ -757,24 +757,21 @@
                 <p>By default Clover will write coverage data to disk when the hosting JVM exits, via a shutdown hook.
                     This is not always practical, particularly when the application you are testing runs in an
                     Application Server. In this situation, you can configure Clover to use &quot;interval&quot; flushing, where coverage data is written out periodically during execution:</p>
-                <pre>&lt;clover-setup flushpolicy=&quot;interval&quot;
-                flushinterval=&quot;5000&quot;/&gt;
-</pre>
+                <pre><code class="language-xml">&lt;clover-setup flushpolicy=&quot;interval&quot;
+    flushinterval=&quot;5000&quot;/&gt;</code></pre>
                 <p>The &quot;flushinterval&quot; defines in milliseconds the minimum interval between coverage data
                     writes.</p><h4>Specifying a delegate compiler</h4>
                 <p>Clover provides the optional &quot;clovercompiler&quot; attribute to allow specification of the java
                     compiler to delegate to once instrumentation is completed. The attribute accepts the same values &quot;compiler&quot; attribute of the
                     <a href="https://ant.apache.org/manual/Tasks/javac.html" rel="nofollow">Ant Javac Task</a>.</p>
-                <pre>&lt;clover-setup clovercompiler=&quot;jikes&quot;/&gt;
-</pre>
+                <pre><code class="language-xml">&lt;clover-setup clovercompiler=&quot;jikes&quot;/&gt;</code></pre>
                 <p>This example will pass compilation to the &quot;jikes&quot; compiler once instrumentation is
                     complete.</p><h4>Specifying the
                 location of the Clover Coverage database</h4>
                 <p>By default, Clover writes its <a href="ant--managing-the-coverage-database.html">internal
                     database</a> to the <code>.clover/clover.db</code> file relative to the project's base directory. To
                     override this location, use the <code>initstring</code> attribute, e.g.:</p>
-                <pre>&lt;clover-setup initstring=&quot;clover-db/coverage.db&quot; /&gt;
-</pre>
+                <pre><code class="language-xml">&lt;clover-setup initstring=&quot;clover-db/coverage.db&quot; /&gt;</code></pre>
                 <p>This example will use <code>clover-db/coverage.db</code> as the location for the
                     <a href="ant--managing-the-coverage-database.html">Clover database</a>. Note that the directory
                     <code>clover-db</code> should exist before running this task.</p>

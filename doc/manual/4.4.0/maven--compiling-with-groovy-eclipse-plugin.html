@@ -77,8 +77,8 @@
                     <li>keep Java in src/main/java and src/test/java</li>
                     <li>keep Groovy in src/main/groovy and src/test/groovy</li>
                     <li>do <strong>not</strong> define Groovy source locations for maven-compiler-plugin directly, e.g.:<br/>
-                        <pre>&lt;sourceDirectory&gt;src/main/groovy&lt;/sourceDirectory&gt;
-&lt;testSourceDirectory&gt;src/test/groovy&lt;/testSourceDirectory&gt;</pre>
+                        <pre><code class="language-xml">&lt;sourceDirectory&gt;src/main/groovy&lt;/sourceDirectory&gt;
+&lt;testSourceDirectory&gt;src/test/groovy&lt;/testSourceDirectory&gt;</code></pre>
                     </li>
                     <li><p>instead of this use:</p>
                         <ul>
@@ -90,7 +90,7 @@
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Maven 3 pom.xml</b>
                     </div>
-                    <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+                    <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
          xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
     &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
     &lt;groupId&gt;com.atlassian.samples&lt;/groupId&gt;
@@ -159,8 +159,7 @@
             &lt;/plugin&gt;
         &lt;/plugins&gt;
     &lt;/build&gt;
-
-&lt;/project&gt;</pre>
+&lt;/project&gt;</code></pre>
                 </div>
                 <p> </p>
                 <p>In the build log you'll find messages like:</p>

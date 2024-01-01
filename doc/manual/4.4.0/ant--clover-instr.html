@@ -411,15 +411,13 @@
                 <p><strong>Since 3.1.11.</strong> Optional element. Defines a list of Clover profiles, which can be
                     selected at runtime by providing a <strong>clover.profile=&lt;name&gt;</strong> system property.
                     Thanks to this you can change some of Clover's behavior without code recompilation.</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;profiles&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;profiles&gt;
   &lt;profile name=&quot;default&quot; coverageRecorder=&quot;FIXED|GROWABLE|SHARED&quot;&gt;
     &lt;distributedCoverage/&gt; &lt;!-- optional --&gt;
   &lt;/profile&gt;
   &lt;profile .../&gt;
   &lt;!-- more profiles --&gt;
-&lt;/profile&gt;
-
-</pre>
+&lt;/profile&gt;</code></pre>
                 <p> </p><h4>&lt;profile&gt;</h4>
                 <p><strong>Since 3.1.11.</strong> Contains a definition of a single runtime profile.</p><h5 id="clover-instr-Parameters.4">Parameters</h5>
                 <div>
@@ -548,25 +546,23 @@
                 </p><h6>&lt;and&gt;</h6>
                 <p>&lt;and&gt; can be used to specify multiple instances of &lt;testclass&gt;, all of which must be
                     matched for a class to be detected as a test, e.g.:</p>
-                <pre>&lt;testsources dir=&quot;tests&quot;&gt;
+                <pre><code class="language-xml">&lt;testsources dir=&quot;tests&quot;&gt;
 &lt;and&gt;
   &lt;testclass annotation=&quot;Specification&quot;/&gt;
   &lt;testclass annotation=&quot;Test&quot;/&gt;
 &lt;/and&gt;
-&lt;testsources&gt;
-</pre>
+&lt;testsources&gt;</code></pre>
                 <p>In this example, a class will only be recognized as a test if it has &quot;<code>Specification</code>&quot;
                     <strong>and</strong> &quot;<code>Test</code>&quot; annotations.</p><h6>
                 &lt;or&gt;</h6>
                 <p>&lt;or&gt; can be used to specify multiple instances of &lt;testclass&gt;, any of which must be
                     matched for a class to be detected as a test, e.g.:</p>
-                <pre>&lt;testsources dir=&quot;tests&quot;&gt;
+                <pre><code class="language-xml">&lt;testsources dir=&quot;tests&quot;&gt;
 &lt;or&gt;
   &lt;testclass name=&quot;.*Spec&quot;/&gt;
   &lt;testclass name=&quot;.*Test&quot;/&gt;
 &lt;/or&gt;
-&lt;testsources&gt;
-</pre>
+&lt;testsources&gt;</code></pre>
                 <p>In this example, a class will be recognized as a test if its name matches &quot;<code>.*Spec</code>&quot;,
                     <strong>or</strong> its name matches &quot;<code>.*Test</code>&quot;.</p>
                 <p><span id="clover-instr-Testmethod"></span></p>
@@ -616,14 +612,13 @@
                 </div>
                 <p>Note that you can include multiple instances of &lt;testmethod&gt;, in which case they will be
                     treated as 'or' clauses, e.g.:</p>
-                <pre>&lt;testsources dir=&quot;tests&quot;&gt;
+                <pre><code class="language-xml">&lt;testsources dir=&quot;tests&quot;&gt;
   &lt;testclass&gt;
     &lt;testmethod annotation=&quot;Specification&quot;/&gt;
     &lt;testmethod name=&quot;^should.*&quot;/&gt;
     &lt;testmethod name=&quot;^must.*&quot;/&gt;
   &lt;/testclass&gt;
-&lt;testsources&gt;
-</pre>
+&lt;testsources&gt;</code></pre>
                 <p>In this example, a method will be recognized as a test if its annotation is &quot;<code>Specification</code>&quot;,
                     <strong>or</strong> its name matches &quot;<code>^should*</code>&quot;, <strong>or</strong> its name matches &quot;<code>^must*</code>&quot;.
                 </p></p><h1 id="clover-instr-Examples">Examples</h1>
@@ -632,23 +627,21 @@
                 <p>Produce an instrumented copy of all source files in the <code>srcdir</code> into the
                     <code>destdir</code>. The Clover registry is at the default location.</p>
                 <p> </p>
-                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-instr destdir=&quot;instr&quot;/&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;clover-instr destdir=&quot;instr&quot;/&gt;
      &lt;fileset dir=&quot;src&quot;&gt;
        &lt;include name=&quot;**/*.java&quot;/&gt;
      &lt;/fileset&gt;
-&lt;/clover-instr&gt;
-</pre>
+&lt;/clover-instr&gt;</code></pre>
                 <p>This example achieves the same as the first example, but using an embedded fileset.</p>
                 <p> </p>
-                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;clover-instr destdir=&quot;instr&quot;/&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;clover-instr destdir=&quot;instr&quot;/&gt;
      &lt;testSources dir=&quot;src&quot;&gt;
          &lt;include name=&quot;**/*Test.java&quot;/&gt;
          &lt;testclass name=&quot;.*Test&quot;&gt;
              &lt;testmethod name=&quot;.*Bag.*&quot;/&gt; &lt;!-- only the Bag related tests --&gt;
          &lt;/testclass&gt;
      &lt;/testSources&gt;
-&lt;/clover-instr&gt;
-</pre>
+&lt;/clover-instr&gt;</code></pre>
                 <p>This example produces an instrumented copy which recognizes all of the following as tests: classes in
                     the directory &quot;src&quot;; classes in files whose names end with &quot;Test&quot;; methods whose
                     names contain with &quot;Bag&quot;.</p>
@@ -657,8 +650,7 @@
                     This is not always practical, particularly when the application you are testing runs in an
                     Application Server. In this situation, you can configure Clover to use 'interval' flushing, where
                     coverage data is written out periodically during execution:</p>
-                <pre>&lt;clover-instr flushpolicy=&quot;interval&quot; flushinterval=&quot;5000&quot; srcdir=&quot;src&quot; destdir=&quot;instr&quot; /&gt;
-</pre>
+                <pre><code class="language-xml">&lt;clover-instr flushpolicy=&quot;interval&quot; flushinterval=&quot;5000&quot; srcdir=&quot;src&quot; destdir=&quot;instr&quot; /&gt;</code></pre>
                 <p>The &quot;flushinterval&quot; defines in milliseconds the minimum interval between coverage
                     writes.</p>
                 <p> </p><h4>Specifying the location of the
@@ -666,8 +658,7 @@
                 <p>By default, Clover writes its <a href="ant--managing-the-coverage-database.html">internal
                     database</a> to the <code>.clover</code> directory relative to the project's <code>basedir</code>.
                     To override this location, use the <code>initstring</code> attribute.</p>
-                <pre>&lt;clover-instr initstring=&quot;clover-db/coverage.db&quot; srcdir=&quot;src&quot; destdir=&quot;instr&quot;/&gt;
-</pre>
+                <pre><code class="language-xml">&lt;clover-instr initstring=&quot;clover-db/coverage.db&quot; srcdir=&quot;src&quot; destdir=&quot;instr&quot;/&gt;</code></pre>
                 <p>This example will use <code>clover-db/coverage.db</code> as the location for the Clover database.
                     Note that the directory <code>clover-db</code> should exist before running this task.</p>
                 <p> </p>
@@ -675,12 +666,12 @@
                 <h4 id="clover-instr-Cloverdoesnotsupportparallelinstrumentation">Clover does not support parallel
                     instrumentation</h4>
                 <p>You cannot use &lt;parallel/&gt; task for code instrumentation, for instance:</p>
-                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;target name=&quot;instrument&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;target name=&quot;instrument&quot;&gt;
   &lt;parallel&gt;
     &lt;clover-instr srcdir=&quot;module1&quot; destdir=&quot;module1-instr&quot; .../&gt;
     &lt;clover-instr srcdir=&quot;module2&quot; destdir=&quot;module1-instr&quot; .../&gt;
   &lt;/parallel&gt;
-&lt;/target&gt;</pre>
+&lt;/target&gt;</code></pre>
                 <p>will produce error message like:</p>
                 <div style="border-width: 1px;">
                     <div>
