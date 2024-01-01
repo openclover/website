@@ -93,11 +93,9 @@
      &lt;files includes=&quot;${coverage.includes}&quot;/&gt;
 &lt;/clover-setup&gt;</code></pre>
                 <p>Developers can then use a command line like the following for Java code:</p>
-                <pre>ant build -Dcoverage.includes=java/**/foo/*.java
-</pre>
+                <pre><code class="language-bash">ant build -Dcoverage.includes=java/**/foo/*.java</code></pre>
                 <p>And for Groovy code:</p>
-                <pre>ant build -Dcoverage.includes=groovy/**/foo/*.groovy
-</pre>
+                <pre><code class="language-bash">ant build -Dcoverage.includes=groovy/**/foo/*.groovy</code></pre>
                 <h3>Viewing source-level code
                     coverage quickly</h3>
                 <p>Clover provides two ways of quickly viewing coverage results. The

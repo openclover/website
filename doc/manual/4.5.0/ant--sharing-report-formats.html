@@ -78,8 +78,7 @@
                     used by reference with a &quot;<code>refid</code>&quot; attribute. This is shown in the following
                     report example:</p>
                 <pre><code class="language-xml">&lt;clover-report&gt;
-   &lt;current summary=&quot;yes&quot;  outfile=&quot;report-current.pdf&quot;
-                  title=&quot;Ant Coverage&quot;&gt;
+   &lt;current summary=&quot;yes&quot; outfile=&quot;report-current.pdf&quot; title=&quot;Ant Coverage&quot;&gt;
       &lt;format refid=&quot;std.format&quot;/&gt;
    &lt;/current&gt;
 &lt;/clover-report&gt;</code></pre>
@@ -91,12 +90,10 @@
    &lt;clover-format id=&quot;bw.format&quot; bw=&quot;true&quot; srclevel=&quot;true&quot; type=&quot;pdf&quot;/&gt;
    &lt;property name=&quot;format&quot; value=&quot;std.format&quot;/&gt;
    &lt;clover-report&gt;
-      &lt;current summary=&quot;yes&quot;  outfile=&quot;report-current.pdf&quot;
-                    title=&quot;Ant Coverage&quot;&gt;
+      &lt;current summary=&quot;yes&quot; outfile=&quot;report-current.pdf&quot; title=&quot;Ant Coverage&quot;&gt;
          &lt;format refid=&quot;${format}&quot;/&gt;
       &lt;/current&gt;
-      &lt;historical historydir=&quot;clover-hist&quot; outfile=&quot;report-history.pdf&quot;
-                    title=&quot;Ant Historical Coverage&quot;&gt;
+      &lt;historical historydir=&quot;clover-hist&quot; outfile=&quot;report-history.pdf&quot; title=&quot;Ant Historical Coverage&quot;&gt;
          &lt;format refid=&quot;${format}&quot;/&gt;
       &lt;/historical&gt;
 &lt;/clover-report&gt;
@@ -104,14 +101,8 @@
                 <p>This example generated two reports, which share a format. The format defaults to the standard format,
                     a color report. This default can be overriden from the command line. To generate black-and-white
                     reports, use:</p>
-                <pre>ant report \-Dformat=bw.format
-</pre>
-                <p>
-
-                </p>
+                <pre><code class="language-bash">ant report -Dformat=bw.format</code></pre>
             </div>
-
-
         </div>
     </div>
 </div>

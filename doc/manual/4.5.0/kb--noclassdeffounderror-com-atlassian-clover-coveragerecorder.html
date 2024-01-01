@@ -124,7 +124,7 @@ Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer
                 <h3>Resolution</h3>
                 <p><strong>Ant JUnit tests</strong></p>
                 <p>Add clover.jar to runtime classpath for forked junit tests, for instance:</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;junit fork=&quot;yes&quot;&gt;
+                <pre>&lt;junit fork=&quot;yes&quot;&gt;
   &lt;classpath&gt;
     &lt;pathelement location=&quot;/path/to/clover.jar&quot;/&gt;
     &lt;pathelement path=&quot;/path/to/other/application.jars&quot;/&gt;
@@ -141,7 +141,7 @@ Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer
                     runtime. Example for maven-cargo-plugin can be found here:</p>
                 <p><a href="https://github.com/openclover/clover-maven-plugin" rel="nofollow">https://github.com/openclover/clover-maven-plugin</a>
                     <span class="nolink">folder /src/it/webapp</span></p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">...
+                <pre>...
 &lt;plugin&gt;
     &lt;groupId&gt;org.codehaus.cargo&lt;/groupId&gt;
     &lt;artifactId&gt;cargo-maven2-plugin&lt;/artifactId&gt;
@@ -201,7 +201,7 @@ Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer
                     starting a container ...).</p>
                 <p>Usually, adding a following dependency to a configuration section of the specific plug-in solves the
                     problem - exact syntax depends on the plug-in:</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;!-- usually under the &lt;configuration&gt; / &lt;dependencies&gt; section - depends on a plug-in --&gt;
+                <pre>&lt;!-- usually under the &lt;configuration&gt; / &lt;dependencies&gt; section - depends on a plug-in --&gt;
 &lt;dependency&gt;
 	&lt;groupId&gt;org.openclover&lt;/groupId&gt;
 	&lt;artifactId&gt;clover&lt;/artifactId&gt;

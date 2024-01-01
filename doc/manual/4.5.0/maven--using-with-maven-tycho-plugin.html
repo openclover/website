@@ -139,7 +139,7 @@
                 <p>Sample Ant script which instruments all *.java files from <em>project.original.dir</em> and puts them
                     into <em>project.instrumented.dir</em>, preserving original directory structure. It copies all
                     non-java files as well.</p>
-                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;project default=&quot;instrument&quot;&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;project default=&quot;instrument&quot;&gt;
     &lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/clover.jar&quot;/&gt;
     &lt;property name=&quot;ant-contrib.jar&quot; location=&quot;${user.home}/ant-contrib-1.0b3.jar&quot;/&gt;
     &lt;property name=&quot;project.original.dir&quot; location=&quot;original_project&quot;/&gt;
@@ -202,14 +202,14 @@
            &lt;/current&gt;
         &lt;/clover-report&gt;
     &lt;/target&gt;
-&lt;/project&gt;</pre>
+&lt;/project&gt;</code></pre>
                 <p> </p><h4>Modified top-level
                 pom.xml</h4>
                 <p>You must have the Clover artefact available during compilation by Tycho. Modify the <em>tycho-compiler-plugin</em>
                     configuration and add <em>org.openclover:clover</em> to
                     <em>&lt;extraClasspathElements&gt;</em> option.</p>
                 <p>If necessary, add also Clover dependency to <em>tycho-surefire-plugin</em> as JVM argument.</p>
-                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;build&gt;
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;build&gt;
   &lt;plugins&gt;
     &lt;plugin&gt;
       &lt;groupId&gt;org.eclipse.tycho&lt;/groupId&gt;
@@ -237,8 +237,7 @@
     &lt;/plugin&gt;
     ...
   &lt;/plugins&gt;
-&lt;/build&gt;
-</pre>
+&lt;/build&gt;</code></pre>
                 <p> </p><h4>Usage</h4>
                 <p>Directory layout:</p>
                 <div style="border-width: 1px;">
@@ -261,11 +260,11 @@
                 <p>Commands:</p>
                 <div style="border-width: 1px;">
                     <div>
-<pre>ant instrument
+<pre><code class="language-bash">ant instrument
 cd instr_project
 mvn install
 cd ..
-ant report</pre>
+ant report</code></pre>
                     </div>
                 </div>
                 <p><span><br/></span></p>

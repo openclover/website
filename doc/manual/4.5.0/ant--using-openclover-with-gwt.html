@@ -93,7 +93,7 @@
                 <p>Example:</p>
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>build.xml</b></div>
-                    <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;project name=&quot;DynaTable&quot; default=&quot;build&quot; basedir=&quot;.&quot;&gt;
+                    <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;project name=&quot;DynaTable&quot; default=&quot;build&quot; basedir=&quot;.&quot;&gt;
     &lt;!-- Add following properties and targets --&gt;
 
     &lt;property name=&quot;clover.jar&quot; location=&quot;${user.home}/clover.jar&quot;/&gt;
@@ -135,7 +135,7 @@
 
     &lt;!-- ... --&gt;
 
-&lt;/project&gt;</pre>
+&lt;/project&gt;</code></pre>
                 </div>
                 <p> </p>
                 <p>3) Build application, run tests and generate Clover report.</p>
@@ -145,9 +145,9 @@
                 <p> </p>
                 <div style="border-width: 1px;">
                     <div>
-<pre>ant devmode -Dwith.clover=true
-... open web browser, close GWT console ...
-ant report</pre>
+<pre><code class="language-bash">ant devmode -Dwith.clover=true
+# open web browser, close GWT console ...
+ant report</code></pre>
                     </div>
                 </div>
                 <p>Open <em>&lt;project_dir&gt;/clover/report/index.html</em> file. You shall see a report like this: </p>

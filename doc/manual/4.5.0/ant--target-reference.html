@@ -122,8 +122,7 @@
                 </p><h2>Using a Target</h2>
                 <p>Each Clover target typically has a name (and optional Ant properties) that can be used on the command
                     line, as follows:</p>
-                <pre>ant clover.all
-</pre>
+                <pre><code class="language-bash">ant clover.all</code></pre>
                 <p>In the above example, we are running the <code>clover.all</code> target. This runs a
                     '<strong>clean</strong>' process, creates a build with Clover applied and then generates a Clover
                     report.</p>
@@ -131,8 +130,7 @@
                 <h3>with.clover (target)</h3>
                 <p>Enables Clover on the current build. There are no properties for this target.</p>
                 <p><strong>Example:</strong></p>
-                <pre>ant with.clover
-</pre>
+                <pre><code class="language-bash">ant with.clover</code></pre>
                 <p><span id="id-9.CloverTargetReference-clover.all"></span></p>
                 <h3>clover.all (target)</h3>
                 <p>Runs <em>clover.clean, with.clover, &lt;test.target&gt;, clover.report, clover.log</em> (in that
@@ -157,8 +155,7 @@
                     </table>
                 </div>
                 <p><strong>Example:</strong></p>
-                <pre>ant clover.all -Dtest.target=run.tests
-</pre>
+                <pre><code class="language-bash">ant clover.all -Dtest.target=run.tests</code></pre>
                 <p>In the example above, we are specifying the <code>test.target</code> property. This is fed another
                     value, ( shown as <code>run.tests</code>). Note that <code>run.tests</code> in this example could be
                     replaced by the name of any custom target you may have created yourself in build.xml.</p>
@@ -167,8 +164,7 @@
                 <p>Deletes the clover database and the <code>clover.dest</code> directory.<br/> There are no properties
                     for this target.</p>
                 <p><strong>Example:</strong></p>
-                <pre>ant clover.clean
-</pre>
+                <pre><code class="language-bash">ant clover.clean</code></pre>
                 <p><span id="id-9.CloverTargetReference-clover.current"></span></p>
                 <h3>clover.current (target)</h3>
                 <p>Generates HTML and XML reports to <code>clover.dest</code> using <code>project.title</code>.</p>
@@ -207,8 +203,7 @@
                     </table>
                 </div>
                 <p><strong>Example:</strong></p>
-                <pre>ant clover.current -Dproject.title=&quot;MyProject&quot;
-</pre>
+                <pre><code class="language-bash">ant clover.current -Dproject.title=&quot;MyProject&quot;</code></pre>
                 <p><span id="id-9.CloverTargetReference-clover.report"></span></p>
                 <h3>clover.report (target)</h3>
                 <p>This is the same as clover.current, i.e. it generates HTML and XML reports to
@@ -249,8 +244,7 @@
                     </table>
                 </div>
                 <p><strong>Example:</strong></p>
-                <pre>ant clover.report -Dclover.historypoint.projectdir=&quot;\myprojects\project3\history\&quot;
-</pre>
+                <pre><code class="language-bash">ant clover.report -Dclover.historypoint.projectdir=&quot;\myprojects\project3\history\&quot;</code></pre>
                 <p><span id="id-9.CloverTargetReference-clover.save-history"></span></p>
                 <h3>clover.save-history (target)</h3>
                 <p>Saves a history point to <code>clover.project.historydir</code>.</p>
@@ -288,15 +282,13 @@
                     </table>
                 </div>
                 <p><strong>Example:</strong></p>
-                <pre>ant clover.save-history
-</pre>
+                <pre><code class="language-bash">ant clover.save-history</code></pre>
                 <p><span id="id-9.CloverTargetReference-clover.snapshot"></span></p>
                 <h3>clover.snapshot (target)</h3>
                 <p>Saves a snapshot file to assist with Clover's <a href="general--what-is-test-optimization.html">Test
                     Optimization</a> feature. There are no properties for this target.</p>
                 <p><strong>Example:</strong></p>
-                <pre>ant clover.snapshot
-</pre>
+                <pre><code class="language-bash">ant clover.snapshot</code></pre>
                 <p><strong>clover.snapshot Properties</strong>:</p>
                 <div>
                     <table class="table table-striped">
@@ -323,8 +315,7 @@
                 <p>Defines the location of the snapshot file to use when saving optimized data. For use with Clover's
                     <a href="general--what-is-test-optimization.html">Test Optimization</a> feature. <br/> <strong>Example:</strong>
                 </p>
-                <pre>ant clover.snapshot.file
-</pre>
+                <pre><code class="language-bash">ant clover.snapshot.file</code></pre>
                 <h2>Custom Targets</h2>
                 <p>Clover targets can be modified or overwritten. You can also create your own targets by specifying
                     targets with the same names in <code>build.xml</code>.</p>

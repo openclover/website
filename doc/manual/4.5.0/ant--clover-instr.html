@@ -347,12 +347,12 @@
                     <p> </p>
                     <p>If you would use a method context filter with <em>maxStatements</em> attribute, like the
                         following:</p>
-                    <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxStatements=&quot;1&quot;&gt;</pre>
+                    <pre>&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxStatements=&quot;1&quot;&gt;</pre>
                     <p>then both <em>getNumber()</em> and <em>getListener()</em> methods would be filtered-out, because
                         each of them contains only one statement: &quot;return &lt;xxx&gt;&quot;.</p>
                     <p> </p>
                     <p>If you would use new <em>maxAggregatedStatements</em>, for instance:</p>
-                    <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxAggregatedStatements=&quot;1&quot;&gt;</pre>
+                    <pre>&lt;methodContext name=&quot;trivial&quot; regexp=&quot;.*&quot; maxAggregatedStatements=&quot;1&quot;&gt;</pre>
                     <p>then the <em>getNumber()</em> would be filtered-out and the <em>getListener()</em> method would
                         <strong>not</strong> be filtered out (because it contains 4 statements in total - 1 &quot;return&quot; statement from the method itself and 3 &quot;System.out.println()&quot; statements from
                         anonymous class).</p>
@@ -408,7 +408,7 @@
                 <p><strong>Since 3.1.11.</strong> Optional element. Defines a list of Clover profiles, which can be
                     selected at runtime by providing a <strong>clover.profile=&lt;name&gt;</strong> system property.
                     Thanks to this you can change some of Clover's behavior without code recompilation.</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;profiles&gt;
+                <pre><code class="language-xml">&lt;profiles&gt;
   &lt;profile name=&quot;default&quot; coverageRecorder=&quot;FIXED|GROWABLE|SHARED&quot;&gt;
     &lt;distributedCoverage/&gt; &lt;!-- optional --&gt;
   &lt;/profile&gt;

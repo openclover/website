@@ -144,9 +144,7 @@
                     intending to launch.</p>
                 <p>For the purposes of this tutorial, leave the snapshot file in its default location, (next to the
                     clover database <code>clover.db</code> ) here:</p>
-                <pre
-
-                        >&lt;PROJECT_DIR&gt;/.clover/coverage.db.snapshot</pre>
+                <pre><code class="language-bash">&lt;PROJECT_DIR&gt;/.clover/coverage.db.snapshot</code></pre>
                 <h2>
                     3. Adding a new Ant target to generate the optimized test 'snapshot'</h2>
                 <p>Now' we'll and a new Ant target to generate the test <a href="ant--clover-snapshot.html">snapshot</a>: </p>
@@ -195,8 +193,7 @@
                 <h2>5. Running the test optimized
                     build</h2>
                 <p>Run your build with the following command:</p>
-                <pre>ant with.clover clean test clover.snapshot
-</pre>
+                <pre><code class="language-bash">ant with.clover clean test clover.snapshot</code></pre>
                 <p>Adding the <code>clover.snapshot</code> target here will create the additional snapshot database,
                     which is used as a point of comparison for the Test Optimization.  <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> This is essential for enabling Test
                     Optimization of future builds.</p>
@@ -236,17 +233,15 @@ clover.snapshot:
                     than rebuilding everything).</p>
                 <p>Edit the file <code>MoneyBag.java</code> from the tutorial project. For the purposes of this
                     demonstration, add a <code>System.out.println()</code> in the <code>add</code> method on line #27: </p>
-                <pre>public IMoney add(IMoney m) {
+                <pre><code class="language-java">public IMoney add(IMoney m) {
     System.out.println(&quot;Adding: &quot; + m);
     return m.addMoneyBag(this);
-}
-</pre>
+}</code></pre>
                 <p>Now save the file.</p>
                 <h2>8. Rebuilding the
                     project with test optimization</h2>
                 <p>Now having changed a file in the project, we will run the same Ant tasks again.</p>
-                <pre>ant with.clover test clover.snapshot
-</pre>
+                <pre><code class="language-bash">ant with.clover test clover.snapshot</code></pre>
                 <p>Clover will detect that the source file has changed, rebuilding and only running the tests for that
                     file specifically. We can see this illustrated in the console output:</p>
                 <pre>test:

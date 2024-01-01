@@ -185,7 +185,7 @@
                     Webserver, and the Ant JUnit Task to run the tests.</p>
                 <h4 id="UsingDistributedPer-testCoveragewithClover-for-Ant-SettingtheSystemPropertiesintheAntJUnitTask">
                     Setting the System Properties in the Ant JUnit Task</h4>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot; showoutput=&quot;true&quot; printsummary=&quot;true&quot;&gt;
+                <pre>&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot; showoutput=&quot;true&quot; printsummary=&quot;true&quot;&gt;
         &lt;sysproperty key=&quot;clover.server&quot; value=&quot;true&quot;/&gt;
         &lt;sysproperty key=&quot;clover.distributed.coverage&quot; value=&quot;ON&quot;/&gt;
         ...
@@ -195,7 +195,7 @@
                     Setting a System Property in the Java task that starts the WebServer</h4>
                 <p>The JVM running your webserver also requires the <code>clover.distributed.coverage</code> property
                     set to <code>ON</code>.</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"> &lt;java jar=&quot;${jetty.jar}&quot; fork=&quot;true&quot;&gt;
+                <pre> &lt;java jar=&quot;${jetty.jar}&quot; fork=&quot;true&quot;&gt;
 	...
         &lt;jvmarg value=&quot;-Dclover.distributed.coverage=ON&quot;/&gt;
 &lt;/java&gt;
@@ -218,7 +218,7 @@
                     attach to the testing session, you can specify these as attributes on the
                     <a href="ant--clover-setup.html"><code>&lt;distributedCoverage&gt;</code></a>
                     element like so:</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;clover-setup&gt;
+                <pre>&lt;clover-setup&gt;
   &lt;distributedCoverage port=&quot;1234&quot; numClients=&quot;1&quot;/&gt;
 &lt;/clover-setup&gt;
 </pre>
@@ -229,7 +229,7 @@
                 <p>Add the <code>clover.server</code> system property to the JUnit or TestNG Ant task configuration, and
                     ensure the forkMode parameter is set to 'once':</p>
                 <p>e.g.</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot; showoutput=&quot;true&quot; printsummary=&quot;true&quot;&gt;
+                <pre>&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot; showoutput=&quot;true&quot; printsummary=&quot;true&quot;&gt;
         &lt;sysproperty key=&quot;clover.server&quot; value=&quot;true&quot;/&gt;
         ...
 &lt;/junit&gt;
