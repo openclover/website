@@ -70,32 +70,22 @@
                     <li>You have Maven <strong>3.0+</strong> installed (recommended version is 3.2.5).</li>
                     <li>Clone the repository:</li>
                 </ul>
-                <div style="border-width: 1px;">
-                    <div>
-                        <pre>git clone ssh://git@github.com/openclover/clover-maven-plugin.git</pre>
-                    </div>
-                </div>
+                <pre><code class="language-bash">git clone ssh://git@github.com/openclover/clover-maven-plugin.git</code></pre>
                 <p>
                     <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> Do not mislead with the
                     atlassian/maven-clover-plugin repository which is an archaic Clover for Maven1.</p>
                 <h2>Build and test</h2>
                 <p>To run unit tests:</p>
-                <pre
-
-                        >mvn clean test</pre>
+                <pre><code class="language-bash">mvn clean test</code></pre>
                 <p>To run integration tests:</p>
-                <pre
-
-                        >mvn clean integration-test -Pintegration-tests</pre>
+                <pre><code class="language-bash">mvn clean integration-test -Pintegration-tests</code></pre>
                 <p>To run integration tests against Maven 2:</p>
                 <pre
 
                         >mvn clean integration-test -Pintegration-tests-maven-20</pre>
                 <h2>Release and publish</h2>
                 <p>To create a snapshot version:</p>
-                <pre
-
-                        >mvn clean install</pre>
+                <pre><code class="language-bash">mvn clean install</code></pre>
                 <p>To release a stable version:</p>
                 <p>Because of the fact that only Atlassian employees have write access to maven.atlassian.com (binaries
                     repository) and docs.atlassian.com (site documentation) running the <em>'mvn release:prepare

@@ -120,23 +120,20 @@
                 <p>This file can be stored either on your local file system, or in your maven repository as a classified
                     artifact.</p>
                 <p>If stored on the file system, set this system property:</p>
-                <pre>-Dmaven.clover.reportDescriptor=/path/to/clover-report.xml
-</pre>
+                <pre><code class="language-bash">mvn -Dmaven.clover.reportDescriptor=/path/to/clover-report.xml</code></pre>
                 <p>or specify this element:</p>
                 <pre><code class="language-xml">&lt;reportDescriptor&gt;/path/to/clover-report.xml&lt;/reportDescriptor&gt;</code></pre>
                 <p>in the <code>&lt;configuration&gt;</code> element for the <code>clover-maven-plugin</code> in your
                     <strong>pom.xml</strong>.</p>
                 <p>If you wish to keep this descriptor in your maven repository you must specify this system
                     property:</p>
-                <pre>-Dmaven.clover.resolveReportDescriptor=true
-</pre>
+                <pre><code class="language-bash">mvn -Dmaven.clover.resolveReportDescriptor=true</code></pre>
                 <p>or set this element:</p>
                 <pre><code class="language-xml">&lt;resolveReportDescriptor&gt;true&lt;/resolveReportDescriptor&gt;</code></pre>
                 <p>in the <code>&lt;configuration&gt;</code> element for the <code>clover-maven-plugin</code> in your
                     <strong>pom.xml</strong>.<br/> The descriptor should be deployed using the &quot;clover-report&quot; classifier. For example:</p>
-                <pre>mvn deploy:deploy-file -DgroupId=my.group.id -DartifactId=my-artifact-id -Dversion=X.X -Dclassifier=clover-report \
- -Dpackaging=xml -Dfile=/path/to/file -Durl=[url] -DrepositoryId=[id]
-</pre>
+                <pre><code class="language-bash">mvn deploy:deploy-file -DgroupId=my.group.id -DartifactId=my-artifact-id -Dversion=X.X -Dclassifier=clover-report \
+    -Dpackaging=xml -Dfile=/path/to/file -Durl=[url] -DrepositoryId=[id]</code></pre>
                 <h3>Properties for Custom Reports</h3><h4 id="Creatingcustomreports-StandardMavenproperties">Standard Maven properties</h4>
                 <p>A custom clover report descriptor can access the standard Maven properties. The following
                     properties are available:</p>

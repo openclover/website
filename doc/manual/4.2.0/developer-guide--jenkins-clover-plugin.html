@@ -70,23 +70,16 @@
                         key is not protected by password (otherwise release:prepare will hang)
                     </li>
                     <li style="margin-left: 0.0px;"><p>Configure maven.jenkins-ci.org in settings.xml:</p>
-                        <div class="code panel pdl" style="border-width: 1px;">
-                            <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;">
-                                <b>settings.xml</b></div>
-                            <pre>&lt;!-- user/password of your Jenkins account http://jenkins-ci.org/account --&gt;
+                    <div><b>settings.xml</b></div>
+                    <pre><code class="language-xml">&lt;!-- user/password of your Jenkins account http://jenkins-ci.org/account --&gt;
 &lt;server&gt;
     &lt;id&gt;maven.jenkins-ci.org&lt;/id&gt;
     &lt;username&gt;xxxxxx&lt;/username&gt;
     &lt;password&gt;yyyyyy&lt;/password&gt;
-&lt;/server&gt;</pre>
-                        </div>
+&lt;/server&gt;</code></pre>
                     </li>
                     <li><p>Clone the repository from GitHub using SSH:</p>
-                        <div style="border-width: 1px;">
-                            <div>
-                                <pre>git clone git@github.com:jenkinsci/clover-plugin.git jenkins-clover-plugin</pre>
-                            </div>
-                        </div>
+                        <pre><code class="language-bash">git clone git@github.com:jenkinsci/clover-plugin.git jenkins-clover-plugin</code></pre>
                     </li>
                     <li>You have<strong> JDK1.6+ </strong>installed</li>
                     <li>You have<strong> Maven 3.0.5+ </strong>installed</li>
@@ -118,11 +111,7 @@
                 <p>
                     <span>Run release:prepare and release:perform in </span><a href="https://wiki.jenkins-ci.org/display/JENKINS/Hosting+Plugins#HostingPlugins-Releasingtojenkinsci.org" rel="nofollow">one
                     command</a><span>:</span></p>
-                <div style="border-width: 1px;">
-                    <div>
-                        <pre>mvn release:prepare release:perform</pre>
-                    </div>
-                </div>
+                <pre><code class="language-bash">mvn release:prepare release:perform</code></pre>
                 <p>Verify that the plugin has been deployed:</p>
                 <ul>
                     <li>visit
