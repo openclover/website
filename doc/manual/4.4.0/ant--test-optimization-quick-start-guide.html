@@ -112,7 +112,7 @@
                     </li>
                     <li><p>Choose a location for the test snapshot file that can survive clean builds. This
                         location:</p>
-                        <pre><code class="language-xml">&lt;PROJECT_DIR&gt;/.clover/coverage.db.snapshot</code></pre>
+                        <pre><code class="language-bash">&lt;PROJECT_DIR&gt;/.clover/coverage.db.snapshot</code></pre>
                         <p>The default is not as good as manually deleting this directory each build, but it is workable
                             if you only use <code>&lt;clover-clean/&gt;</code>as, by default, it won't delete snapshots.
                             Add a property for this, as in the following example:</p>
@@ -143,8 +143,7 @@
                     </li>
                     <li>
                         <p>Run the optimized build (this will typically be run by their CI plan). Assuming a &quot;test&quot; target (with appropriate dependencies so that the code is instrumented/compiled):</p>
-                        <pre>ant with.clover clean test clover.snapshot
-</pre>
+                        <pre><code class="language-bash">ant with.clover clean test clover.snapshot</code></pre>
                     </li>
                 </ol>
                 <h4>Running Java and Groovy

@@ -78,7 +78,7 @@ symbol: class SomeClass
                     it fails with the above error. The project is set up a little bit different, as the source is in two
                     folders, for example: src/main/java/core, and src/main/java/gen. The maven-compiler-plugin is
                     configured to handle this as below:</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;plugin&gt;
+                <pre>&lt;plugin&gt;
   &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
   &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
   &lt;configuration&gt;
@@ -101,7 +101,7 @@ symbol: class SomeClass
                     source directories, instead of using <em>&lt;includes&gt;</em> in the maven-compiler-plugin.</p>
                 <p>Please remove the &lt;includes&gt; from the maven-compiler-plugin and add the following definition to
                     your pom.xml:</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;plugin&gt;
+                <pre>&lt;plugin&gt;
   &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
   &lt;artifactId&gt;build-helper-maven-plugin&lt;/artifactId&gt;
   &lt;version&gt;1.1&lt;/version&gt;

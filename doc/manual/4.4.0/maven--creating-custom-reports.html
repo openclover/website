@@ -71,7 +71,7 @@
                     site.xml descriptor file. The descriptor file is basically a stripped down Ant file which will be
                     run to produce the reports. All options available in <a href="ant--clover-report.html">clover-report</a>
                     can be specified. The default report descriptor used by the <code>clover-maven-plugin</code> is:</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
+                <pre><code class="language-xml">&lt;project name=&quot;Clover Report&quot; default=&quot;current&quot;&gt;
 
     &lt;clover-format id=&quot;clover.format&quot; type=&quot;${type}&quot; orderBy=&quot;${orderBy}&quot; filter=&quot;${filter}&quot;/&gt;
     &lt;clover-setup initString=&quot;${cloverdb}&quot;/&gt;
