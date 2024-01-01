@@ -73,17 +73,14 @@
                     version.</p>
                 <p> </p>
                 <p>Example how to define a Clover dependency in a Grails plugin:</p>
-                <div class="code panel pdl" style="border-width: 1px;">
-                    <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>BuildConfig.groovy</b>
-                    </div>
-                    <pre>grails.project.dependency.resolution = {
-  plugins { 
+                    <div><b>BuildConfig.groovy</b></div>
+                    <pre><code class="language-groovy">grails.project.dependency.resolution = {
+  plugins {
     compile(&quot;:clover:3.2.0&quot;) {
       export = false
     }
   }
-}</pre>
-                </div>
+}</code></pre>
             </div>
 
 

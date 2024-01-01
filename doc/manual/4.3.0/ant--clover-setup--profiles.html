@@ -73,15 +73,13 @@
                 <p><strong>Since 3.1.11.</strong> Optional element. Defines a list of Clover profiles, which can be
                     selected at runtime by providing a <strong>clover.profile=&lt;name&gt;</strong> system property.
                     Thanks to this you can change some of Clover's behavior without code recompilation.</p>
-                <pre>&lt;profiles&gt;
+                <pre><code class="language-xml">&lt;profiles&gt;
   &lt;profile name=&quot;default&quot; coverageRecorder=&quot;FIXED|GROWABLE|SHARED&quot;&gt;
     &lt;distributedCoverage/&gt; &lt;!-- optional --&gt;
   &lt;/profile&gt;
   &lt;profile .../&gt;
   &lt;!-- more profiles --&gt;
-&lt;/profile&gt;
-
-</pre>
+&lt;/profile&gt;</code></pre>
                 <p> </p><h4>&lt;profile&gt;</h4>
                 <p><strong>Since 3.1.11.</strong> Contains a definition of a single runtime profile.</p><h5 id="profiles-Parameters">Parameters</h5>
                 <div>

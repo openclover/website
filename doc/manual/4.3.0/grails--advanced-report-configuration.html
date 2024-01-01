@@ -91,7 +91,7 @@
                         directory.
                     </li>
                 </ul>
-                <pre>clover {
+                <pre><code class="language-groovy">clover {
 
   // reports.dir defines the location of your Clover report output
   // within your Grails project.
@@ -134,16 +134,15 @@
 
    plugin.launchReport(clover.reports.dir)
 
-}
-</pre>
+}</code></pre>
                 <p> </p>
                 <p>The <em>reporttask</em> closure could be also used to run other post-build activities, like
                     clover-check or clover-log, for example.</p>
                 <h4 id="Advancedreportconfiguration-Example:failingbuildifcodecoverageistoolow">Example: failing build
                     if code coverage is too low</h4>
-                <pre>reporttask = { ant, binding, self -&gt;
+                <pre><code class="language-groovy">reporttask = { ant, binding, self -&gt;
       ant.&#39;clover-check&#39;(target: &quot;80%&quot;, haltOnFailure: true) { }
-}</pre>
+}</code></pre>
             </div>
 
 
