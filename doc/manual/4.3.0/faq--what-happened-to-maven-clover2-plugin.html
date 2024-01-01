@@ -71,11 +71,11 @@
                     stay compliant with Apache Maven naming conventions.</p>
                 <p>The new plugin is backward-compatible and it's enough to change <code>artifactId</code> in the <code>pom.xml</code> and
                     call it by new name, e.g.</p>
-                <pre>&lt;plugin&gt;
+                <pre><code class="language-xml">&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;version&gt;4.3.0&lt;/version&gt;
-&lt;/plugin&gt;</pre>
+&lt;/plugin&gt;</code></pre>
                 <p> </p>
                 <p>Similarly, when ran from a command line, goals have &quot;clover:&quot; prefix, instead of &quot;clover2:&quot;:</p>
                 <pre>mvn clean clover:setup verify clover:clover

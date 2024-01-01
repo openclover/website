@@ -87,17 +87,15 @@
                 <p>The <code>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;</code> task takes an optional
                     nested fileset element that tells Clover which files should be included/excluded in coverage
                     analysis:</p>
-                <pre>&lt;clover-setup&gt;
+                <pre><code class="language-xml">&lt;clover-setup&gt;
      &lt;files includes=&quot;**/plugins/cruncher/**, **/plugins/muncher/**&quot;/&gt;
-&lt;/clover-setup&gt;
-</pre>
+&lt;/clover-setup&gt;</code></pre>
                 <p>The includes could be set using an Ant property so that individual developers can specify includes on
                     the command line:</p>
-                <pre>&lt;property name=&quot;coverage.includes&quot; value=&quot;**&quot;/&gt;
-  &lt;clover-setup&gt;
+                <pre><code class="language-xml">&lt;property name=&quot;coverage.includes&quot; value=&quot;**&quot;/&gt;
+&lt;clover-setup&gt;
      &lt;files includes=&quot;${coverage.includes}&quot;/&gt;
-  &lt;/clover-setup&gt;
-</pre>
+&lt;/clover-setup&gt;</code></pre>
                 <p>Developers can then use a command line like the following for Java code:</p>
                 <pre>ant build -Dcoverage.includes=java/**/foo/*.java
 </pre>
@@ -116,8 +114,7 @@
                     results quickly</h3>
                 <p>The <code>&lt;<a href="ant--clover-log.html">clover-log</a>&gt;</code> task provides an option
                     that will print a summary of coverage results to the console:</p>
-                <pre>&lt;clover-log level=&quot;summary&quot;/&gt;
-</pre>
+                <pre><code class="language-xml">&lt;clover-log level=&quot;summary&quot;/&gt;</code></pre>
                 <h3>Incrementally building
                     coverage results</h3>
                 <p>When iteratively improving coverage on a subset of your project, you may want to include coverage
@@ -125,8 +122,7 @@
                     works on current reports — see <a href="ant--using-spans.html">Using Spans</a>. This attribute
                     can be used to tell Clover how far back in time to include coverage results (measured from the time
                     of the last Clover build). To include results gathered over the last hour use:</p>
-                <pre>&lt;clover-log span=&quot;1h&quot;/&gt;
-</pre>
+                <pre><code class="language-xml">&lt;clover-log span=&quot;1h&quot;/&gt;</code></pre>
             </div>
 
 

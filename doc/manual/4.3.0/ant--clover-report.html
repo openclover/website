@@ -574,10 +574,9 @@
                     column identifier will evaluate to the percentage of that columns data, rather than its raw value.
                     e.g. %CoveredElements == (CoveredElements/TotalElements) * 100</p>
                 <p><em>Example</em>:</p>
-                <pre>&lt;columns&gt;
+                <pre><code class="language-xml">&lt;columns&gt;
   &lt;expression title=&quot;SUM&quot;&gt;complexity^2 * ((1 - %coveredElements/100)^3) + complexity&lt;/expression&gt;
-&lt;/columns&gt;
-</pre>
+&lt;/columns&gt;</code></pre>
                 </p><h3><span id="clover-report-Fileset"></span> &lt;fileset&gt;</h3>
                 <p>&lt;current&gt; supports nested filesets which control which source files are to be included in a
                     report. Only classes which are from the source files in the fileset are included in the report. This
@@ -691,20 +690,20 @@
                 <p>Specifies an Ant path that Clover should use when looking for source files. This option is useful
                     when sources are located in a different directory than during compilation.</p>
                 <p>Note that you have to list <strong>all</strong> source roots (and not just a workspace root), e.g.: </p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;sourcepath&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;sourcepath&gt;
     &lt;pathelement location=&quot;moduleA/src&quot;/&gt;
     &lt;pathelement location=&quot;moduleA/test&quot;/&gt;
-&lt;/sourcepath&gt;</pre>
+&lt;/sourcepath&gt;</code></pre>
                 <p>In case your source roots have a common naming pattern, you can use a &lt;dirset&gt; with wildcards,
                     e.g.:</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;sourcepath&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;sourcepath&gt;
     &lt;dirset dir=&quot;.&quot;&gt;
         &lt;include name=&quot;**/src/main/java&quot;/&gt;
         &lt;include name=&quot;**/src/main/groovy&quot;/&gt;
         &lt;include name=&quot;**/src/test/java&quot;/&gt;
         &lt;include name=&quot;**/src/test/groovy&quot;/&gt;
     &lt;/dirset&gt;
-&lt;/sourcepath&gt;</pre>
+&lt;/sourcepath&gt;</code></pre>
                 <h3><span id="clover-report-Testsources"></span> &lt;testsources&gt;</h3>
                 <p><code>&lt;testsources&gt;</code> is an
                     <a href="https://ant.apache.org/manual/Types/fileset.html" rel="nofollow">Ant fileset</a> that can be used to
@@ -866,12 +865,11 @@
                     one additional metric to the data shown in &lt;added&gt;.</p>
                 <p><strong> Example: &lt;totalStatements&gt;</strong></p>
                 <p>You could add totalStatements to &lt;added&gt; with the following code.</p>
-                <pre>&lt;added&gt;
+                <pre><code class="language-xml">&lt;added&gt;
          &lt;columns&gt;
                    &lt;totalStatements/&gt;
          &lt;/columns&gt;
-&lt;/added&gt;
-</pre>
+&lt;/added&gt;</code></pre>
                 <p><img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> No more than one additional column can be
                     attached to &lt;added&gt;. The 'added' classes table will always appear above the Movers section in
                     the report - regardless of its order in the XML.</p>
@@ -1112,12 +1110,11 @@
                     add one additional metric to the data shown in &lt;movers&gt;.</p>
                 <p><span id="clover-report-movers-totalStatements"></span><br/> <strong>Example: &lt;totalStatements&gt;</strong></p>
                 <p>You could add totalStatements to &lt;movers&gt; with the following code.</p>
-                <pre>&lt;movers&gt;
+                <pre><code class="language-xml">&lt;movers&gt;
          &lt;columns&gt;
                    &lt;totalStatements/&gt;
          &lt;/columns&gt;
-&lt;/movers&gt;
-</pre>
+&lt;/movers&gt;</code></pre>
                 <p>
                     <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> No more than one additional column can be added
                     to &lt;movers&gt;.</p></p><h3><span id="clover-report-historical-overview"></span> &lt;overview&gt;</h3>
@@ -1126,21 +1123,19 @@
                 <h1>Examples</h1>
                 <h2>Examples of Current Report
                     configurations</h2>
-                <pre>&lt;clover-report&gt;
+                <pre><code class="language-xml">&lt;clover-report&gt;
    &lt;current outfile=&quot;current.xml&quot;/&gt;
-&lt;/clover-report&gt;
-</pre>
+&lt;/clover-report&gt;</code></pre>
                 <p>Generates an XML report of the current coverage.</p>
                 <p> </p>
-                <pre>&lt;clover-report&gt;
+                <pre><code class="language-xml">&lt;clover-report&gt;
    &lt;current outfile=&quot;current.pdf&quot; summary=&quot;true&quot;&gt;
       &lt;format type=&quot;pdf&quot;/&gt;
    &lt;/current&gt;
-&lt;/clover-report&gt;
-</pre>
+&lt;/clover-report&gt;</code></pre>
                 <p>Generates a PDF report of the current coverage.</p>
                 <p> </p>
-                <pre>&lt;target name=&quot;report.json&quot; depends=&quot;with.clover&quot;&gt;
+                <pre><code class="language-xml">&lt;target name=&quot;report.json&quot; depends=&quot;with.clover&quot;&gt;
 &lt;clover-report&gt;
    &lt;current outfile=&quot;clover_json&quot;&gt;
     &lt;format type=&quot;json&quot;/&gt;
@@ -1150,17 +1145,15 @@
       &lt;/columns&gt;
    &lt;/current&gt;
 &lt;/clover-report&gt;
-&lt;/target&gt;
-</pre>
+&lt;/target&gt;</code></pre>
                 <p>Generates a JSON report, where the chart elements are customized by specifying them with <code>&lt;columns&gt;</code>.
                     See the <a href="ant--json-reference.html">JSON reference</a> page.</p>
                 <p> </p>
-                <pre>&lt;clover-report&gt;
+                <pre><code class="language-xml">&lt;clover-report&gt;
    &lt;current outfile=&quot;clover_html&quot; title=&quot;My Project&quot; summary=&quot;true&quot;&gt;
       &lt;format type=&quot;html&quot;/&gt;
    &lt;/current&gt;
-&lt;/clover-report&gt;
-</pre>
+&lt;/clover-report&gt;</code></pre>
                 <p>Generates a summary report, in HTML with a custom title. Note that the &quot;outfile&quot; argument
                     requires a directory instead of a filename.</p>
                 <p> </p>
@@ -1175,29 +1168,27 @@
 </pre>
                 <p>Generates a HTML clover report and excludes all *Blah.java classes from the report.</p>
                 <p> </p>
-                <pre>&lt;clover-report&gt;
+                <pre><code class="language-xml">&lt;clover-report&gt;
    &lt;current outfile=&quot;clover_html&quot; title=&quot;Util Coverage&quot;&gt;
       &lt;format type=&quot;html&quot; orderBy=&quot;ElementsCoveredAsc&quot;/&gt;
       &lt;testsources dir=&quot;src/test&quot; includes=&quot;\**/*.java&quot;/&gt;
    &lt;/current&gt;
-&lt;/clover-report&gt;
-</pre>
+&lt;/clover-report&gt;</code></pre>
                 <p>Generates a detailed coverage report in HTML with output ordered by total number of covered elements,
                     rather than percentage coverage. All source files under <code>src/test</code> will be in the
                     separate 'Test' coverage node in the report.</p>
                 <p> </p>
-                <pre>&lt;clover-report&gt;
+                <pre><code class="language-xml">&lt;clover-report&gt;
    &lt;current outfile=&quot;clover_html&quot; title=&quot;My Project&quot;&gt;
       &lt;format type=&quot;html&quot;/&gt;
       &lt;sourcepath&gt;
          &lt;pathelement path=&quot;/some/other/location&quot;/&gt;
       &lt;/sourcepath&gt;
    &lt;/current&gt;
-&lt;/clover-report&gt;
-</pre>
+&lt;/clover-report&gt;</code></pre>
                 <p>Generates a source-level report in HTML. Clover will search for source files in the directory <code>/some/other/location</code>. </p>
                 <p> </p>
-                <pre>&lt;tstamp&gt;
+                <pre><code class="language-xml">&lt;tstamp&gt;
    &lt;format property=&quot;report.limit&quot; pattern=&quot;MM/dd/yyyy hh:mm aa&quot;
        offset=&quot;-1&quot; unit=&quot;month&quot;/&gt;
 &lt;/tstamp&gt;
@@ -1209,22 +1200,20 @@
       &lt;/fileset&gt;
       &lt;format srclevel=&quot;true&quot; type=&quot;html&quot;/&gt;
    &lt;/current&gt;
-&lt;/clover-report&gt;
-</pre>
+&lt;/clover-report&gt;</code></pre>
                 <p>This example generates a current coverage report for all files in the project that have changed in
                     the last month. Replacing the &lt;date&gt; selector with <code>&lt;contains text=&quot;@author John
                         Doe&quot;/&gt;</code> would generate a coverage report for all code where John Doe is the
                     author.</p>
                 <p> </p>
-                <pre>&lt;clover-report&gt;
+                <pre><code class="language-xml">&lt;clover-report&gt;
   &lt;current outfile=&quot;report-current&quot; title=&quot;Coverage&quot;&gt;
     &lt;fileset dir=&quot;src&quot;&gt;
       &lt;patternset refid=&quot;clover.files&quot;/&gt;
     &lt;/fileset&gt;
     &lt;format srclevel=&quot;true&quot; type=&quot;html&quot;/&gt;
 &lt;/current&gt;
-&lt;/clover-report&gt;
-</pre>
+&lt;/clover-report&gt;</code></pre>
                 <p>In this example the standard Clover patternset is used to restrict the report to the currently
                     included source files. You could use this if you have changed the <code>exclude</code> or <code>include</code>
                     definitions in the &lt;<a href="ant--clover-setup.html">clover-setup</a>&gt; task and you have
@@ -1233,7 +1222,7 @@
                     database, coverage information and recompile when you change these settings.</p>
                 <p><span id="clover-report-customisedColumnsExample"></span></p>
                 <h2>Example of customizing columns</h2>
-                <pre>&lt;clover-report&gt;
+                <pre><code class="language-xml">&lt;clover-report&gt;
    &lt;current outfile=&quot;report-current&quot; title=&quot;Coverage&quot;&gt;
       &lt;format type=&quot;html&quot;/&gt;
       &lt;columns&gt;
@@ -1242,14 +1231,13 @@
          &lt;coveredBranches format=&quot;raw&quot;/&gt;
       &lt;/columns&gt;
    &lt;/current&gt;
-&lt;/clover-report&gt;
-</pre>
+&lt;/clover-report&gt;</code></pre>
                 <p>Generates a HTML report that will only include a bar chart showing the percentage of methods covered,
                     the actual percentage of statements covered and the actual number of branches covered. If less than
                     75% of methods are covered, those values will be highlighted. <br class="atl-forced-newline"/>
                     <span id="clover-report-linkedReportExample"></span></p>
                 <h2>Example of linked reports</h2>
-                <pre>&lt;clover-report&gt;
+                <pre><code class="language-xml">&lt;clover-report&gt;
       &lt;current outfile=&quot;report1&quot; title=&quot;Coverage Report 1&quot;&gt;
         &lt;format type=&quot;html&quot;/&gt;
         &lt;fileset dir=&quot;src&quot;&gt;
@@ -1263,44 +1251,40 @@
           &lt;patternset refid=&quot;other.clover.files&quot;/&gt;
         &lt;/fileset&gt;
      &lt;/current&gt;
-    &lt;/clover-report&gt;
-</pre>
+&lt;/clover-report&gt;</code></pre>
                 <p>Generates two HTML reports. Each of these reports will contain a link to the other. <br class="atl-forced-newline"/>
                     <span id="clover-report-historyReportExamples"></span></p>
                 <h2>Examples of Historical Report
                     Configurations</h2>
-                <pre>&lt;clover-report&gt;
+                <pre><code class="language-xml">&lt;clover-report&gt;
    &lt;historical outfile=&quot;historical.pdf&quot;
                historyDir=&quot;clover_history&quot;&gt;
        &lt;format type=&quot;pdf&quot;/&gt;
    &lt;/historical&gt;
-&lt;/clover-report&gt;
-</pre>
+&lt;/clover-report&gt;</code></pre>
                 <p>Generates a historical report in PDF. Assumes that &lt;<a href="ant--clover-historypoint.html">clover-historypoint</a>&gt; has generated more than one history file in the directory &quot;<code>clover_history</code>&quot;.
                     Writes the output to the file specified in the <code>outfile</code> parameter.</p>
                 <p> </p>
-                <pre>&lt;clover-report&gt;
+                <pre><code class="language-xml">&lt;clover-report&gt;
    &lt;historical outfile=&quot;two_months&quot; title=&quot;My Project&quot;
                from=&quot;020101&quot; to=&quot;020301&quot; dateFormat=&quot;yyMMdd&quot;
                historyDir=&quot;clover_history&quot;&gt;
       &lt;format type=&quot;html&quot;/&gt;
    &lt;/historical&gt;
-&lt;/clover-report&gt;
-</pre>
+&lt;/clover-report&gt;</code></pre>
                 <p>Generates a basic historical report in HTML for a certain time period. Clover will scan the <code>historyDir</code>
                     and use any history points that fall within the requested time period. The <code>outfile</code>
                     attribute will be treated as a <strong>directory</strong>; a file <code>historical.html</code> will
                     be written into this directory. If the directory doesn't exist, it will be created.</p>
                 <p> </p>
-                <pre>&lt;clover-report&gt;
+                <pre><code class="language-xml">&lt;clover-report&gt;
    &lt;historical outfile=&quot;report.pdf&quot; title=&quot;My Project&quot;
                historyDir=&quot;clover_history&quot;&gt;
       &lt;overview/&gt;
       &lt;movers threshold=&quot;5%&quot; range=&quot;20&quot; interval=&quot;2w&quot;/&gt;
       &lt;format type=&quot;pdf&quot;/&gt;
    &lt;/historical&gt;
-&lt;/clover-report&gt;
-</pre>
+&lt;/clover-report&gt;</code></pre>
                 <p>Generates a PDF historical report that only includes an overview section (showing summary coverage at
                     the last history point) and a movers table showing classes that have a code coverage delta of
                     greater than +- 5% over the two weeks prior to the last history point. Will include at most 20

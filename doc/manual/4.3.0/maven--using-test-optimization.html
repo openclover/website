@@ -99,7 +99,7 @@
                     Optimization</h2>
                 <p>To enable Clover's test optimization functionality, add the following profile to the profiles element
                     in your <strong>pom.xml</strong>:</p>
-                <pre>&lt;profiles&gt;
+                <pre><code class="language-xml">&lt;profiles&gt;
     &lt;profile&gt;
         &lt;id&gt;clover.optimize&lt;/id&gt;
         &lt;build&gt;
@@ -121,8 +121,7 @@
             &lt;/plugins&gt;
         &lt;/build&gt;
     &lt;/profile&gt;
-&lt;/profiles&gt;
-</pre>
+&lt;/profiles&gt;</code></pre>
                 <p>This will then make it possible to run the following command:</p>
                 <pre>mvn integration-test -Pclover.optimize
 </pre>
