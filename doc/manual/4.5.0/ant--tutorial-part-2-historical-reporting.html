@@ -133,10 +133,9 @@
                     can be created. The generation of historical reports is discussed in later steps.</p>
                 <h2>Adding a history point target</h2>
                 <p>Add the following target to your <code>build.xml</code> file:</p>
-                <pre>&lt;target name=&quot;record.point&quot;&gt;
+                <pre><code class="language-xml">&lt;target name=&quot;record.point&quot;&gt;
     &lt;clover-historypoint historyDir=&quot;clover_history&quot;/&gt;
-&lt;/target&gt;
-</pre>
+&lt;/target&gt;</code></pre>
                 <p>When this target is run, a history point will be created with the timestamp value of the coverage
                     run.</p>
                 <p>The value of the <code>historyDir</code> parameter is the directory where the history points will be
@@ -232,15 +231,14 @@ BUILD SUCCESSFUL</pre>
                     which will call the historical reporter and generate a historical report.</p>
                 <h2>Add a historical report target</h2>
                 <p>Add the following target to <code>build.xml</code>:</p>
-                <pre>&lt;target name=&quot;hist.report&quot;&gt;
+                <pre><code class="language-xml">&lt;target name=&quot;hist.report&quot;&gt;
      &lt;clover-report&gt;
            &lt;historical outfile=&quot;historical.pdf&quot;
                   historyDir=&quot;clover_history&quot;&gt;
                 &lt;format type=&quot;pdf&quot;/&gt;
            &lt;/historical&gt;
      &lt;/clover-report&gt;
-&lt;/target&gt;
-</pre>
+&lt;/target&gt;</code></pre>
                 <p>The <code>hist.report</code> target is similar to the <code>report.html</code> target defined in Part
                     1. The main differences are that the nested element specifies <code>&lt;historical&gt;</code> rather
                     than <code>&lt;current&gt;</code> and there is no specification of the output format as
@@ -290,15 +288,13 @@ BUILD SUCCESSFUL </pre>
                     <code>html</code> to your <code>&lt;<a href="ant--clover-report.html">clover-report</a>&gt;</code> element. Try adding the
                     following target to your <code>build.xml</code> file and executing the command <code>ant
                         hist.report.html</code>:</p>
-                <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
-                    <div class="panelContent" style="background-color: white;">
-                        <p>&lt;target name=&quot;hist.report.html&quot;&gt;<br/>     &lt;clover-report&gt;<br/>        
-                                &lt;historical outfile=&quot;build/clover_html/historical&quot;<br/>                
-                            title=&quot;My Project&quot;<br/>                
-                            historyDir=&quot;clover_history&quot;&gt;<br/>             <strong>&lt;format type=&quot;html&quot;/&gt;</strong><br/>
-                                    &lt;/historical&gt;<br/>     &lt;/clover-report&gt;<br/> &lt;/target&gt;</p>
-                    </div>
-                </div>
+                <pre><code class="language-xml">&lt;target name=&quot;hist.report.html&quot;&gt;
+    &lt;clover-report&gt;
+        &lt;historical outfile=&quot;build/clover_html/historical&quot; title=&quot;My Project&quot; historyDir=&quot;clover_history&quot;&gt;
+            &lt;format type=&quot;html&quot;/&gt;
+        &lt;/historical&gt;
+    &lt;/clover-report&gt;
+&lt;/target&gt;</code></pre>
                 <p>A custom title can also be displayed for your report by using the <code>title</code> attribute in the
                     <code>&lt;historical&gt;</code> element as above. You can find report in <code>tutorial/build/clover_html/historical/historical.html</code>.
                 </p>
@@ -309,37 +305,34 @@ BUILD SUCCESSFUL </pre>
                     <code>&lt;coverage&gt;</code>, <code>&lt;metrics&gt;</code> and <code>&lt;movers&gt;</code>. But to
                     include some and not the others is a simple matter of nesting the desired elements within the <code>&lt;historical&gt;</code>
                     element. Try adding the following target to your <code>build.xml</code> file as an example:</p>
-                <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
-                    <div class="panelContent" style="background-color: white;">
-                        <p>&lt;target name=&quot;hist.report.coverage&quot;&gt;<br/>     &lt;clover-report&gt;<br/>    
-                                &lt;historical outfile=&quot;histCoverage.pdf&quot;<br/>                 title=&quot;My
-                            Project&quot;<br/>                 historyDir=&quot;clover_history&quot;&gt;<br/>        
-                                <strong>&lt;overview/&gt;</strong><br/>            
-                            <strong>&lt;coverage/&gt;</strong><br/>             &lt;format
-                            type=&quot;pdf&quot;/&gt;<br/>         &lt;/historical&gt;<br/>     &lt;/clover-report&gt;<br/> &lt;/target&gt;</p>
-                    </div>
-                </div>
+                <pre><code class="language-xml">&lt;target name=&quot;hist.report.coverage&quot;&gt;
+    &lt;clover-report&gt
+        &lt;historical outfile=&quot;histCoverage.pdf&quot; title=&quot;My Project&quot; historyDir=&quot;clover_history&quot;&gt;
+            &lt;overview/&gt;
+            &lt;coverage/&gt;
+            &lt;format type=&quot;pdf&quot;/&gt;
+        &lt;/historical&gt;
+    &lt;/clover-report&gt;
+&lt;/target&gt;</code></pre>
                 <p>The above code will produce a historical PDF report with the title '<code>My Project</code>' which
                     includes only two sections: the 'Overview' and the 'Coverage over time' charts.</p>
                 <h2>Chart configuration</h2>
                 <p>Clover presents flexible charting configuration, allowing you to present information exactly as you
                     like it. The <code>&lt;chart&gt;</code> element allows you to define a custom chart and fill it with
                     specific data with the <code>&lt;columns&gt;</code> element.</p>
-                <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
-                    <div class="panelContent" style="background-color: white;">
-                        <p>&lt;target name=&quot;hist.report.select&quot;&gt;<br/>     &lt;clover-report&gt;<br/>    
-                                &lt;historical outfile=&quot;histSelect.pdf&quot;<br/>                 title=&quot;My
-                            Project&quot;<br/>                 historyDir=&quot;clover_history&quot;&gt;<br/>        
-                                <strong>&lt;chart/&gt;</strong><br/>             <strong>&lt;metrics/&gt;</strong><br/>
-                                        &lt;format type=&quot;pdf&quot;/&gt;<br/>         &lt;/historical&gt;<br/>     &lt;/clover-report&gt;<br/> &lt;/target&gt;
-                        </p>
-                    </div>
-                </div>
+                <pre><code class="language-xml">&lt;target name=&quot;hist.report.select&quot;&gt;
+    &lt;clover-report&gt;
+        &lt;historical outfile=&quot;histSelect.pdf&quot; title=&quot;My Project&quot; historyDir=&quot;clover_history&quot;&gt;
+            &lt;chart/&gt;
+            &lt;metrics/&gt;
+            &lt;format type=&quot;pdf&quot;/&gt;
+        &lt;/historical&gt;
+    &lt;/clover-report&gt;
+&lt;/target&gt;</code></pre>
                 <p>This will produce a PDF file with the filename '<code>histSelect.pdf</code>' with two sections: the a
                     custom chart with total coverage information; and the 'Metrics over time' chart. You can also
                     specify whether or not a chart uses a log scale by adding the <code>logscale</code> attribute:</p>
-                <pre>&lt;metrics logscale=&quot;false&quot;/&gt;
-</pre>
+                <pre><code class="language-xml">&lt;metrics logscale=&quot;false&quot;/&gt;</code></pre>
                 <h2>'Movers' configuration</h2>
                 <p>The 'Movers' section of the historical report shows you the classes whose coverage has changed the
                     most recently. This is useful for spotting classes that have had sudden changes in coverage, perhaps
@@ -348,16 +341,14 @@ BUILD SUCCESSFUL </pre>
                     maximum number of gainers and losers to display and the period across which the gains and losses are
                     calculated. Add the following target to your <code>build.xml</code> file as an example of this
                     feature in use:</p>
-                <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
-                    <div class="panelContent" style="background-color: white;">
-                        <p>&lt;target name=&quot;hist.report.movers&quot;&gt;<br/>     &lt;clover-report&gt;<br/>    
-                                &lt;historical outfile=&quot;histMovers.pdf&quot;<br/>                 title=&quot;My
-                            Project&quot;<br/>                 historyDir=&quot;clover_history&quot;&gt;<br/>        
-                                <strong>&lt;movers threshold=&quot;5%&quot; range=&quot;20&quot; interval=&quot;2w&quot;/&gt;</strong><br/>
-                                        &lt;format type=&quot;pdf&quot;/&gt;<br/>         &lt;/historical&gt;<br/>     &lt;/clover-report&gt;<br/> &lt;/target&gt;
-                        </p>
-                    </div>
-                </div>
+                <pre><code class="language-xml">&lt;target name=&quot;hist.report.movers&quot;&gt;
+    &lt;clover-report&gt;
+        &lt;historical outfile=&quot;histMovers.pdf&quot; title=&quot;My Project&quot; historyDir=&quot;clover_history&quot;&gt;
+            &lt;movers threshold=&quot;5%&quot; range=&quot;20&quot; interval=&quot;2w&quot;/&gt;
+            &lt;format type=&quot;pdf&quot;/&gt;
+        &lt;/historical&gt;
+    &lt;/clover-report&gt;
+&lt;/target&gt;</code></pre>
                 <p>In this case, the configuration values selected state that classes must have a change in coverage of
                     at least 5 percentage points to be included in the chart, a maximum of 20 gainers and 20 losers can
                     be displayed, and the initial valuation point for class coverage is 2 weeks prior to the most recent

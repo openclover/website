@@ -103,7 +103,7 @@ org.apache.maven.plugin.MojoNotFoundException: Could not find goal &#39;setup&#3
                 <div class="code panel pdl" style="border-width: 1px;">
                     <div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>.m2/settings.xml</b>
                     </div>
-                    <pre>&lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;
+                    <pre><code class="language-xml">&lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;
           xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
           xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0
           http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;
@@ -111,24 +111,24 @@ org.apache.maven.plugin.MojoNotFoundException: Could not find goal &#39;setup&#3
         &lt;pluginGroup&gt;org.openclover&lt;/pluginGroup&gt;
     &lt;/pluginGroups&gt;
     ...
-&lt;/settings&gt;</pre>
+&lt;/settings&gt;</code></pre>
                 </div>
                 <p> </p>
                 <p>2) Upgrade to OpenClover 4.5.0 or newer and use goals with the 'clover' prefix (e.g. 'mvn clean
                     clover:setup test clover:clover').</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;plugin&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;plugin&gt;
     &lt;groupId&gt;org.openclover&lt;/groupId&gt;
     &lt;artifactId&gt;clover-maven-plugin&lt;/artifactId&gt;
     &lt;version&gt;4.2.0&lt;/version&gt;
-&lt;/plugin&gt;</pre>
+&lt;/plugin&gt;</code></pre>
                 <p> </p>
                 <p>3) In case you must stay with Clover older than 4.1.1, use goals with the 'clover2' prefix (e.g. 'mvn
                     clean clover2:setup test clover2:clover').</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence">&lt;plugin&gt;
+                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;plugin&gt;
     &lt;groupId&gt;com.atlassian.maven.plugins&lt;/groupId&gt;
     &lt;artifactId&gt;maven-clover2-plugin&lt;/artifactId&gt;
     &lt;version&gt;4.0.6&lt;/version&gt;
-&lt;/plugin&gt;</pre>
+&lt;/plugin&gt;</code></pre>
             </div>
         </div>
     </div>

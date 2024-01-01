@@ -70,25 +70,23 @@
                     the <code>&lt;<a href="ant--clover-report.html">clover-report</a>&gt;</code> task. To name the
                     format, use the standard Ant &quot;id&quot; attribute.</p>
                 <p>The following code declares two report formats:</p>
-                <pre>&lt;clover-format id=&quot;std.format&quot; srclevel=&quot;true&quot; type=&quot;pdf&quot;/&gt;
-&lt;clover-format id=&quot;bw.format&quot; bw=&quot;true&quot; srclevel=&quot;true&quot; type=&quot;pdf&quot;/&gt;
-</pre>
+                <pre><code class="language-xml">&lt;clover-format id=&quot;std.format&quot; srclevel=&quot;true&quot; type=&quot;pdf&quot;/&gt;
+&lt;clover-format id=&quot;bw.format&quot; bw=&quot;true&quot; srclevel=&quot;true&quot; type=&quot;pdf&quot;/&gt;</code></pre>
                 <p>In this example, the first format is for source level, PDF reports. It is named &quot;<code>std.format</code>&quot;.
                     The second format, &quot;<code>bw.format</code>&quot;, is essentially the same except that it
                     specifies black-and-white output.<br/> Once the format is declared with an identifier, it can be
                     used by reference with a &quot;<code>refid</code>&quot; attribute. This is shown in the following
                     report example:</p>
-                <pre>&lt;clover-report&gt;
+                <pre><code class="language-xml">&lt;clover-report&gt;
    &lt;current summary=&quot;yes&quot;  outfile=&quot;report-current.pdf&quot;
                   title=&quot;Ant Coverage&quot;&gt;
       &lt;format refid=&quot;std.format&quot;/&gt;
    &lt;/current&gt;
-&lt;/clover-report&gt;
-</pre>
+&lt;/clover-report&gt;</code></pre>
                 <p>This report, a summary report, uses the &quot;<code>std.format</code>&quot; format defined above. The
                     <code>refid</code> values in the <code>&lt;format&gt;</code> elements can be an Ant property
                     allowing selection of the report format at build time. The following is a complete example:</p>
-                <pre>&lt;target name=&quot;report&quot;&gt;
+                <pre><code class="language-xml">&lt;target name=&quot;report&quot;&gt;
    &lt;clover-format id=&quot;std.format&quot; srclevel=&quot;true&quot; type=&quot;pdf&quot;/&gt;
    &lt;clover-format id=&quot;bw.format&quot; bw=&quot;true&quot; srclevel=&quot;true&quot; type=&quot;pdf&quot;/&gt;
    &lt;property name=&quot;format&quot; value=&quot;std.format&quot;/&gt;
@@ -102,8 +100,7 @@
          &lt;format refid=&quot;${format}&quot;/&gt;
       &lt;/historical&gt;
 &lt;/clover-report&gt;
-&lt;/target&gt;
-</pre>
+&lt;/target&gt;</code></pre>
                 <p>This example generated two reports, which share a format. The format defaults to the standard format,
                     a color report. This default can be overriden from the command line. To generate black-and-white
                     reports, use:</p>

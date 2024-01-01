@@ -67,19 +67,17 @@
                 <ol>
                     <li><a href="ant--installation-guide.html">Install Clover-for-Ant</a> in Ant classpath.</li>
                     <li><p>Import Clover targets in your build.xml file:</p>
-                        <pre>&lt;taskdef resource=&quot;cloverlib.xml&quot;/&gt;
-&lt;clover-env/&gt;
-</pre>
+                        <pre><code class="language-xml">&lt;taskdef resource=&quot;cloverlib.xml&quot;/&gt;
+&lt;clover-env/&gt;</code></pre>
                         <p>
                             <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> Note that this will not work within an
                             Ant target. It must be at the top level of the build file. <br class="atl-forced-newline"/></p></li>
                     <li><p>Add the clover.jar to your test classpath:</p>
-                        <pre>&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot;&gt;
+                        <pre><code class="language-xml">&lt;junit fork=&quot;true&quot; forkmode=&quot;once&quot;&gt;
   &lt;classpath&gt;
     &lt;pathelement location=&quot;${user.home}/.ant/lib/clover.jar&quot;/&gt;
   &lt;/classpath&gt;
-&lt;/junit&gt;
-</pre>
+&lt;/junit&gt;</code></pre>
                     </li>
                     <li><p>If you have a target already called &quot;test&quot; you can simply run</p>
                         <pre>ant clover.all
