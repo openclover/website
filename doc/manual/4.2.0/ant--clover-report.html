@@ -691,13 +691,13 @@
                 <p>Specifies an Ant path that Clover should use when looking for source files. This option is useful
                     when sources are located in a different directory than during compilation.</p>
                 <p>Note that you have to list <strong>all</strong> source roots (and not just a workspace root), e.g.: </p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;sourcepath&gt;
+                <pre><code class="language-xml">&lt;sourcepath&gt;
     &lt;pathelement location=&quot;moduleA/src&quot;/&gt;
     &lt;pathelement location=&quot;moduleA/test&quot;/&gt;
 &lt;/sourcepath&gt;</code></pre>
                 <p>In case your source roots have a common naming pattern, you can use a &lt;dirset&gt; with wildcards,
                     e.g.:</p>
-                <pre data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;sourcepath&gt;
+                <pre><code class="language-xml">&lt;sourcepath&gt;
     &lt;dirset dir=&quot;.&quot;&gt;
         &lt;include name=&quot;**/src/main/java&quot;/&gt;
         &lt;include name=&quot;**/src/main/groovy&quot;/&gt;
