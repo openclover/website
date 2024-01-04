@@ -123,7 +123,7 @@ franz.see@gmail.com" />
 <li><a href="#usage.htmlSpecifying_a_custom_license_file">Specifying a custom license file</a></li></ul></div>
 <div class="section">
 <h3><a name="Getting_Started">Getting Started</a></h3>
-<p>The first thing to do is to create a <a class="externalLink" href="http://confluence.atlassian.com/x/EIBOB">Clover database</a>. To do this, you must either do:</p>
+<p>The first thing to do is to create a <a class="externalLink" href="https://confluence.atlassian.com/x/EIBOB">Clover database</a>. To do this, you must either do:</p>
 <div class="source">
 <pre>  mvn clover:instrument
 </pre></div>
@@ -150,7 +150,7 @@ franz.see@gmail.com" />
     &lt;/plugins&gt;
   &lt;/build&gt;
 </pre></div>
-<p>This instruments all sources using Clover so that a <a class="externalLink" href="http://confluence.atlassian.com/x/EIBOB">Clover database</a> is created (or if it already exists, the plugin will simply use it and add data on top of the existing one). When you execute your tests the instrumented code will start generating logs into the Clover database. These logs can then be used for Test Coverage Percentage checks, for report generation or for logging.</p>
+<p>This instruments all sources using Clover so that a <a class="externalLink" href="https://confluence.atlassian.com/x/EIBOB">Clover database</a> is created (or if it already exists, the plugin will simply use it and add data on top of the existing one). When you execute your tests the instrumented code will start generating logs into the Clover database. These logs can then be used for Test Coverage Percentage checks, for report generation or for logging.</p>
 <p>Note that the Clover plugin takes great care not to mix the instrumented code nor any artifact generated from it with main production sources and artifacts. This is the reason why you may see your tests executed twice: once for the production sources and once for the Clover-instrumented sources.</p>
 <p><i>Back to <a href="#usage.html">top</a>.</i></p>
 <div class="section">
@@ -203,7 +203,7 @@ franz.see@gmail.com" />
 </pre></div>
 <p>In this example you've told Maven to run <tt>clover:check</tt> whenever the <tt>verify</tt> phase is reached (this will be the case if you run <tt>mvn install</tt> for example).</p>
 <p>Furthermore, you specified that the <tt>targetPercentage</tt> is <tt>50%</tt>, meaning the test must result to at least <tt>50%</tt> test coverage percentage to pass. If the <tt>targetPercentage</tt> was not specified, the default value of <tt>70%</tt> will be used.</p>
-<p>However, as previously mentioned, Clover needs an existing <a class="externalLink" href="http://confluence.atlassian.com/x/EIBOB">Clover database</a>. Thus, a call to <tt>clover:instrument</tt> may be neccessary:</p>
+<p>However, as previously mentioned, Clover needs an existing <a class="externalLink" href="https://confluence.atlassian.com/x/EIBOB">Clover database</a>. Thus, a call to <tt>clover:instrument</tt> may be neccessary:</p>
 <div class="source">
 <pre>  mvn clover:instrument clover:check -DtargetPercentage=50%
 </pre></div>
@@ -238,7 +238,7 @@ franz.see@gmail.com" />
 <p><i>Back to <a href="#usage.html">top</a>.</i></p>
 <div class="section">
 <h4><a name="Using_block_contexts">Using block contexts</a></h4>
-<p>Clover allows specifying <a class="externalLink" href="http://confluence.atlassian.com/x/AwBTB">block contexts</a> (i.e. elements to be excluded from the Test Percentage Coverage). To configure a block context use the <tt>contextFilters</tt> element in the <tt>reporting</tt> section. For example to exclude <tt>try</tt> and <tt>static</tt> block contexts, you would write:</p>
+<p>Clover allows specifying <a class="externalLink" href="https://confluence.atlassian.com/x/AwBTB">block contexts</a> (i.e. elements to be excluded from the Test Percentage Coverage). To configure a block context use the <tt>contextFilters</tt> element in the <tt>reporting</tt> section. For example to exclude <tt>try</tt> and <tt>static</tt> block contexts, you would write:</p>
 <div class="source">
 <pre>[...]
   &lt;reporting&gt;
@@ -269,7 +269,7 @@ franz.see@gmail.com" />
 <p><i>Back to <a href="#usage.html">top</a>.</i></p></div>
 <div class="section">
 <h4><a name="Specifying_a_Clover_flush_policy">Specifying a Clover flush policy</a></h4>
-<p>If you want to specify the Clover <a class="externalLink" href="http://confluence.atlassian.com/x/O4BOB">flush policy</a> that the plugin should use, then specify it in the plugin's configuration. Valid policies are <tt>threaded</tt>, <tt>directed</tt> and <tt>interval</tt>.</p>
+<p>If you want to specify the Clover <a class="externalLink" href="https://confluence.atlassian.com/x/O4BOB">flush policy</a> that the plugin should use, then specify it in the plugin's configuration. Valid policies are <tt>threaded</tt>, <tt>directed</tt> and <tt>interval</tt>.</p>
 <p>For example to use a <tt>threaded</tt> policy with a flush interval of <tt>5000</tt> ms you would write:</p>
 <div class="source">
 <pre>  &lt;build&gt;
@@ -307,7 +307,7 @@ franz.see@gmail.com" />
   &lt;/reporting&gt;
 [...]
 </pre></div>
-<p>But just like the <tt>clover:check</tt> goal, the <tt>clover:clover</tt> goal also needs an existing <a class="externalLink" href="http://confluence.atlassian.com/x/EIBOB">Clover database</a>. Thus, if if it still does not exist, a call to <tt>clover:instrument</tt> must first be made:</p>
+<p>But just like the <tt>clover:check</tt> goal, the <tt>clover:clover</tt> goal also needs an existing <a class="externalLink" href="https://confluence.atlassian.com/x/EIBOB">Clover database</a>. Thus, if if it still does not exist, a call to <tt>clover:instrument</tt> must first be made:</p>
 <div class="source">
 <pre>mvn clover:instrument clover:clover
 </pre></div>
@@ -349,7 +349,7 @@ franz.see@gmail.com" />
   &lt;/reporting&gt;
 [...]
 </pre></div>
-<p>Note that in the above example that <tt>clover:instrument</tt> was bound to the <tt>pre-site</tt> phase. This is done to ensure that a <a class="externalLink" href="http://confluence.atlassian.com/x/EIBOB">Clover database</a> is generated before the report executes.</p>
+<p>Note that in the above example that <tt>clover:instrument</tt> was bound to the <tt>pre-site</tt> phase. This is done to ensure that a <a class="externalLink" href="https://confluence.atlassian.com/x/EIBOB">Clover database</a> is generated before the report executes.</p>
 <p><i>Back to <a href="#usage.html">top</a>.</i></p>
 <div class="section">
 <h4><a name="Specifying_report_formats">Specifying report formats</a></h4>
@@ -426,7 +426,7 @@ franz.see@gmail.com" />
   &lt;/build&gt;
 [...]
 </pre></div>
-<p>Now this will generate a <a class="externalLink" href="http://confluence.atlassian.com/x/rYhEB">Clover historical report</a> only if you have saved Clover historical savepoints. In order to save a Clover savepoint, run the <tt>clover:save-history</tt> goal. It's up to you to decide when you want to call this goal.</p>
+<p>Now this will generate a <a class="externalLink" href="https://confluence.atlassian.com/x/rYhEB">Clover historical report</a> only if you have saved Clover historical savepoints. In order to save a Clover savepoint, run the <tt>clover:save-history</tt> goal. It's up to you to decide when you want to call this goal.</p>
 <p>For example you could call it every time a build is executing on your CI server, or you could call it at every project release, etc. The location of the history directory for saving the savepoints is controlled by the <tt>historyDir</tt> configuration property, which points to <tt>$<a name="project.build.directory">project.build.directory</a>/clover/history</tt> by default.</p>
 <p>It is recommended to use another location that will not get erased by a <tt>mvn clean</tt>. For example:</p>
 <div class="source">
@@ -503,16 +503,16 @@ franz.see@gmail.com" />
   &lt;/build&gt;
 [...]
 </pre></div>
-<p>When you run <tt>mvn site</tt> in <tt>myproject/</tt>, the plugin will instrument your sources, run your tests, aggregate the different <a class="externalLink" href="http://confluence.atlassian.com/x/EIBOB">Clover database</a> generated for each build module (i.e. <tt>project1</tt> and <tt>project2</tt>) and generate an aggregated Clover report in the site for the <tt>myproject</tt> project.</p>
+<p>When you run <tt>mvn site</tt> in <tt>myproject/</tt>, the plugin will instrument your sources, run your tests, aggregate the different <a class="externalLink" href="https://confluence.atlassian.com/x/EIBOB">Clover database</a> generated for each build module (i.e. <tt>project1</tt> and <tt>project2</tt>) and generate an aggregated Clover report in the site for the <tt>myproject</tt> project.</p>
 <p>Alternatively, you can execute</p>
 <div class="source">
 <pre>mvn clover:aggregate clover:clover
 </pre></div>
-<p>or if there is no existing <a class="externalLink" href="http://confluence.atlassian.com/x/EIBOB">Clover database</a>:</p>
+<p>or if there is no existing <a class="externalLink" href="https://confluence.atlassian.com/x/EIBOB">Clover database</a>:</p>
 <div class="source">
 <pre>mvn clover:instrument clover:aggregate clover:clover
 </pre></div>
-<p>Note that you can control the location of the merged <a class="externalLink" href="http://confluence.atlassian.com/x/EIBOB">Clover database</a> by using the <tt>cloverMergeDatabase</tt> configuration property.</p>
+<p>Note that you can control the location of the merged <a class="externalLink" href="https://confluence.atlassian.com/x/EIBOB">Clover database</a> by using the <tt>cloverMergeDatabase</tt> configuration property.</p>
 <p><i>Back to <a href="#usage.html">top</a>.</i></p></div></div>
 <div class="section">
 <h3><a name="Getting_information_on_an_existing_Clover_database">Getting information on an existing Clover database</a></h3>
