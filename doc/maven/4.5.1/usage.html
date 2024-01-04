@@ -387,7 +387,7 @@ franz.see@gmail.com" />
 [...]</pre></div>
 <p><i>Back to <a href="#usage.html">top</a>.</i></p></section><section>
 <h4><a name="Aggregating_Clover_Reports">Aggregating Clover Reports</a></h4>
-<p><i>Note: There's currently a <a class="externalLink" href="http://jira.codehaus.org/browse/MCLOVER-34">bug in Maven2</a> which results in the clover aggregation not working properly. More specifically the </i> <code>aggregate</code> <i>goal requires an existing Clover database and the first time your run</i> <code>mvn site</code> <i>it won't find the generated children databases as they'll be produced after it executes. It'll work the second time though. Just ensure that you run the aggregate goal after you've generated the children Clover databases.</i></p>
+<p><i>Note: There's currently a <a class="externalLink" href="https://jira.codehaus.org/browse/MCLOVER-34">bug in Maven2</a> which results in the clover aggregation not working properly. More specifically the </i> <code>aggregate</code> <i>goal requires an existing Clover database and the first time your run</i> <code>mvn site</code> <i>it won't find the generated children databases as they'll be produced after it executes. It'll work the second time though. Just ensure that you run the aggregate goal after you've generated the children Clover databases.</i></p>
 <p>You can aggregate children modules Clover databases into a single merged database by running the <code>clover:aggregate</code> goal. This For example if you have the following project layout:</p>
 <div class="source">
 <pre>myproject

@@ -87,7 +87,7 @@
                 <p>This can happen when you have a long running process (such us an application server) and you deploy
                     multiple times a new version of an application into it (without restarting the process). It can
                     happen that classes from old application will not be deallocated. See this article for more details:
-                    <a href="http://plumbr.eu/blog/what-is-a-permgen-leak" rel="nofollow">http://plumbr.eu/blog/what-is-a-permgen-leak</a>. </p>
+                    <a href="https://plumbr.eu/blog/what-is-a-permgen-leak" rel="nofollow">https://plumbr.eu/blog/what-is-a-permgen-leak</a>. </p>
                 <h4>Resolution</h4>
                 <p>The required memory can be increased by setting the <code>-XX:MaxPermSize</code> setting on the JVM.
                     Add proper toggle for 'java' command call or set JAVA_OPTS, ANT_OPTS, MAVEN_OPTS depending on the
