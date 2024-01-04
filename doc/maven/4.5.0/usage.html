@@ -92,7 +92,7 @@ franz.see@gmail.com" />
 <li><a href="#usage.htmlGetting_information_on_an_existing_Clover_database">Getting information on an existing Clover database</a></li>
 <li><a href="#usage.htmlSpecifying_a_custom_license_file">Specifying a custom license file</a></li></ul></section><section>
 <h3><a name="Getting_Started">Getting Started</a></h3>
-<p>The first thing to do is to create a <a class="externalLink" href="http://openclover.org/doc/manual/latest/ant--managing-the-coverage-database.html">Clover database</a>. To do this, you must either do:</p>
+<p>The first thing to do is to create a <a class="externalLink" href="https://openclover.org/doc/manual/latest/ant--managing-the-coverage-database.html">Clover database</a>. To do this, you must either do:</p>
 <div class="source">
 <pre>  mvn clover:instrument</pre></div>
 <p>or</p>
@@ -196,7 +196,7 @@ franz.see@gmail.com" />
 <pre>  mvn clover:instrument clover:check -Dmaven.clover.targetPercentage=50% -Dmaven.clover.failOnViolation=false</pre></div>
 <p><i>Back to <a href="#usage.html">top</a>.</i></p><section>
 <h4><a name="Using_block_contexts">Using block contexts</a></h4>
-<p>Clover allows specifying <a class="externalLink" href="http://openclover.org/doc/manual/latest/ant--using-coverage-contexts.html">block contexts</a> (i.e. elements to be excluded from the Test Percentage Coverage). To configure a block context use the <code>contextFilters</code> element in the <code>reporting</code> section. For example to exclude <code>try</code> and <code>static</code> block contexts, you would write:</p>
+<p>Clover allows specifying <a class="externalLink" href="https://openclover.org/doc/manual/latest/ant--using-coverage-contexts.html">block contexts</a> (i.e. elements to be excluded from the Test Percentage Coverage). To configure a block context use the <code>contextFilters</code> element in the <code>reporting</code> section. For example to exclude <code>try</code> and <code>static</code> block contexts, you would write:</p>
 <div class="source">
 <pre>[...]
   &lt;reporting&gt;
@@ -211,7 +211,7 @@ franz.see@gmail.com" />
 <p>Note that the <code>contextFilters</code> element has to be specified within the <code>reporting</code> section and will not work if you specify it in the <code>build</code> section.</p>
 <p><i>Back to <a href="#usage.html">top</a>.</i></p></section><section>
 <h4><a name="Specifying_a_Clover_flush_policy">Specifying a Clover flush policy</a></h4>
-<p>If you want to specify the Clover <a class="externalLink" href="http://openclover.org/doc/manual/latest/ant--flush-policy.html">flush policy</a> that the plugin should use, then specify it in the plugin's configuration. Valid policies are <code>threaded</code>, <code>directed</code> and <code>interval</code>.</p>
+<p>If you want to specify the Clover <a class="externalLink" href="https://openclover.org/doc/manual/latest/ant--flush-policy.html">flush policy</a> that the plugin should use, then specify it in the plugin's configuration. Valid policies are <code>threaded</code>, <code>directed</code> and <code>interval</code>.</p>
 <p>For example to use a <code>threaded</code> policy with a flush interval of <code>5000</code> ms you would write:</p>
 <div class="source">
 <pre>  &lt;build&gt;
@@ -356,7 +356,7 @@ franz.see@gmail.com" />
     &lt;/plugins&gt;
   &lt;/build&gt;
 [...]</pre></div>
-<p>Now this will generate a <a class="externalLink" href="http://openclover.org/doc/manual/latest/ant--tutorial-part-2-historical-reporting.html">Clover historical report</a> only if you have saved Clover historical savepoints. In order to save a Clover savepoint, run the <code>clover:save-history</code> goal. It's up to you to decide when you want to call this goal.</p>
+<p>Now this will generate a <a class="externalLink" href="https://openclover.org/doc/manual/latest/ant--tutorial-part-2-historical-reporting.html">Clover historical report</a> only if you have saved Clover historical savepoints. In order to save a Clover savepoint, run the <code>clover:save-history</code> goal. It's up to you to decide when you want to call this goal.</p>
 <p>For example you could call it every time a build is executing on your CI server, or you could call it at every project release, etc. The location of the history directory for saving the savepoints is controlled by the <code>historyDir</code> configuration property, which points to <code>$<a name="project.build.directory">project.build.directory</a>/clover/history</code> by default.</p>
 <p>It is recommended to use another location that will not get erased by a <code>mvn clean</code>. For example:</p>
 <div class="source">
@@ -459,7 +459,7 @@ Coverage Overview -
     </div>
     <div id="footer">
       <div class="xright">
-        Copyright &#169;      2023<a href="http://openclover.org">OpenClover.org</a>.
+        Copyright &#169;      2023<a href="https://openclover.org">OpenClover.org</a>.
 .      </div>
       <div class="clear">
         <hr/>

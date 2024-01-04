@@ -71,7 +71,7 @@
 </node>
 <node CREATED="1334909987553" ID="ID_342197877" MODIFIED="1427203381922" POSITION="right" TEXT="com.atlassian.clover.eclipse.updatesite">
 <node CREATED="1334910504811" ID="ID_1937490106" MODIFIED="1334910512186" TEXT="for clover and clover.ant"/>
-<node CREATED="1334910802101" ID="ID_1001007800" MODIFIED="1334910803458" TEXT="http://openclover.org/update"/>
+<node CREATED="1334910802101" ID="ID_1001007800" MODIFIED="1334910803458" TEXT="https://openclover.org/update"/>
 </node>
 <node CREATED="1334909990030" HGAP="35" ID="ID_26683725" MODIFIED="1427203126268" POSITION="left" TEXT="extlib/eclipse" VSHIFT="40">
 <node CREATED="1427203127768" HGAP="25" ID="ID_872779447" MODIFIED="1427203150679" TEXT="minimal set of eclipse jars required to build clover-for-eclipse" VSHIFT="-19"/>

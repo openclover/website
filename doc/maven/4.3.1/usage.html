@@ -123,7 +123,7 @@ franz.see@gmail.com" />
 <li><a href="#usage.htmlSpecifying_a_custom_license_file">Specifying a custom license file</a></li></ul></div>
 <div class="section">
 <h3><a name="Getting_Started">Getting Started</a></h3>
-<p>The first thing to do is to create a <a class="externalLink" href="http://openclover.org/doc/manual/4.2.0/ant--managing-the-coverage-database.html">Clover database</a>. To do this, you must either do:</p>
+<p>The first thing to do is to create a <a class="externalLink" href="https://openclover.org/doc/manual/4.2.0/ant--managing-the-coverage-database.html">Clover database</a>. To do this, you must either do:</p>
 <div class="source">
 <pre>  mvn clover:instrument
 </pre></div>
@@ -238,7 +238,7 @@ franz.see@gmail.com" />
 <p><i>Back to <a href="#usage.html">top</a>.</i></p>
 <div class="section">
 <h4><a name="Using_block_contexts">Using block contexts</a></h4>
-<p>Clover allows specifying <a class="externalLink" href="http://openclover.org/doc/manual/4.2.0/ant--using-coverage-contexts.html">block contexts</a> (i.e. elements to be excluded from the Test Percentage Coverage). To configure a block context use the <tt>contextFilters</tt> element in the <tt>reporting</tt> section. For example to exclude <tt>try</tt> and <tt>static</tt> block contexts, you would write:</p>
+<p>Clover allows specifying <a class="externalLink" href="https://openclover.org/doc/manual/4.2.0/ant--using-coverage-contexts.html">block contexts</a> (i.e. elements to be excluded from the Test Percentage Coverage). To configure a block context use the <tt>contextFilters</tt> element in the <tt>reporting</tt> section. For example to exclude <tt>try</tt> and <tt>static</tt> block contexts, you would write:</p>
 <div class="source">
 <pre>[...]
   &lt;reporting&gt;
@@ -269,7 +269,7 @@ franz.see@gmail.com" />
 <p><i>Back to <a href="#usage.html">top</a>.</i></p></div>
 <div class="section">
 <h4><a name="Specifying_a_Clover_flush_policy">Specifying a Clover flush policy</a></h4>
-<p>If you want to specify the Clover <a class="externalLink" href="http://openclover.org/doc/manual/4.2.0/ant--flush-policy.html">flush policy</a> that the plugin should use, then specify it in the plugin's configuration. Valid policies are <tt>threaded</tt>, <tt>directed</tt> and <tt>interval</tt>.</p>
+<p>If you want to specify the Clover <a class="externalLink" href="https://openclover.org/doc/manual/4.2.0/ant--flush-policy.html">flush policy</a> that the plugin should use, then specify it in the plugin's configuration. Valid policies are <tt>threaded</tt>, <tt>directed</tt> and <tt>interval</tt>.</p>
 <p>For example to use a <tt>threaded</tt> policy with a flush interval of <tt>5000</tt> ms you would write:</p>
 <div class="source">
 <pre>  &lt;build&gt;
@@ -426,7 +426,7 @@ franz.see@gmail.com" />
   &lt;/build&gt;
 [...]
 </pre></div>
-<p>Now this will generate a <a class="externalLink" href="http://openclover.org/doc/manual/4.2.0/ant--tutorial-part-2-historical-reporting.html">Clover historical report</a> only if you have saved Clover historical savepoints. In order to save a Clover savepoint, run the <tt>clover:save-history</tt> goal. It's up to you to decide when you want to call this goal.</p>
+<p>Now this will generate a <a class="externalLink" href="https://openclover.org/doc/manual/4.2.0/ant--tutorial-part-2-historical-reporting.html">Clover historical report</a> only if you have saved Clover historical savepoints. In order to save a Clover savepoint, run the <tt>clover:save-history</tt> goal. It's up to you to decide when you want to call this goal.</p>
 <p>For example you could call it every time a build is executing on your CI server, or you could call it at every project release, etc. The location of the history directory for saving the savepoints is controlled by the <tt>historyDir</tt> configuration property, which points to <tt>$<a name="project.build.directory">project.build.directory</a>/clover/history</tt> by default.</p>
 <p>It is recommended to use another location that will not get erased by a <tt>mvn clean</tt>. For example:</p>
 <div class="source">
@@ -539,7 +539,7 @@ Coverage Overview -
     <div id="footer">
       <div class="xright">
               Copyright &#169;                    2018
-                        <a href="http://openclover.org">OpenClover.org</a>.
+                        <a href="https://openclover.org">OpenClover.org</a>.
             All rights reserved.    
                   </div>
       <div class="clear">
