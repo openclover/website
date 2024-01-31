@@ -5,6 +5,12 @@
         <link>https://openclover.org</link>
         <description>OpenClover code coverage tool for Java, Groovy and AspectJ</description>
         <item>
+            <title>OpenClover 4.5.2 is available!</title>
+            <link>https://openclover.org/blog#2024-01-open-clover-4-5-2</link>
+            <description>Switch expressions, sealed types, instanceof pattern matching and more!</description>
+            <pubDate>Wed, 31 Jan 2023 23:50:00 GMT</pubDate>
+        </item>
+        <item>
             <title>OpenClover 4.5.1 is available!</title>
             <link>https://openclover.org/blog#2023-10-open-clover-4-5-1</link>
             <description>Bug fix for instrumentation error when "record" keyword was used as variable/method name.</description>
