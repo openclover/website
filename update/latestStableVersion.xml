@@ -1,14 +1,14 @@
 <response>
     <version>
-        <number>4.5.0</number>
-        <downloadUrl>https://openclover.org/download/openclover/clover-idea-4.5.0.jar
+        <number>4.5.2</number>
+        <downloadUrl>https://openclover.org/download/openclover/clover-idea-4.5.2.jar
         </downloadUrl>
         <releaseNotes><![CDATA[<html><body>
-        <h1>OpenClover.org team proudly presents OpenClover 4.5.0</h1>
+        <h1>OpenClover.org team proudly presents OpenClover 4.5.2</h1>
         </body></html>
         ]]></releaseNotes>
         <releaseNotesUrl>
-            https://openclover.org/doc/openclover-4.5.0-release-notes.html
+            https://openclover.org/doc/openclover-4.5.2-release-notes.html
         </releaseNotesUrl>
     </version>
 </response>
