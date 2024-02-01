@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>OpenClover 4.5 : Configuring reports</title>
+    <title>OpenClover 4.6 : Configuring reports</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
@@ -43,7 +43,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.html">OpenClover 4.5</a>
+                        <a href="index.html">OpenClover 4.6</a>
                     </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
@@ -62,12 +62,12 @@
 
             <div id="main-content">
                 <h1 id="Configuringreports-ChoosingReportFormats">Choosing Report Formats</h1>
-                <p>The <code><a href="../../maven/4.5.0/clover-mojo.html" rel="nofollow">clover:clover</a></code> goal generates an HTML and an XML report by
-                    default. You can use the <a href="../../maven/4.5.0/clover-mojo.html#generateHtml" rel="nofollow">generateHtml</a>,
-                    <a href="../../maven/4.5.0/clover-mojo.html#generatePdf" rel="nofollow">generatePdf</a>, <a
+                <p>The <code><a href="../../maven/4.6.0/clover-mojo.html" rel="nofollow">clover:clover</a></code> goal generates an HTML and an XML report by
+                    default. You can use the <a href="../../maven/4.6.0/clover-mojo.html#generateHtml" rel="nofollow">generateHtml</a>,
+                    <a href="../../maven/4.6.0/clover-mojo.html#generatePdf" rel="nofollow">generatePdf</a>, <a
 
-                            href="../../maven/4.5.0/clover-mojo.html#generateXml" rel="nofollow">generateXml</a> and
-                    <a href="../../maven/4.5.0/clover-mojo.html#generateJson" rel="nofollow">generateJson</a> configuration elements
+                            href="../../maven/4.6.0/clover-mojo.html#generateXml" rel="nofollow">generateXml</a> and
+                    <a href="../../maven/4.6.0/clover-mojo.html#generateJson" rel="nofollow">generateJson</a> configuration elements
                     to choose which report formats should be produced:</p>
                 <pre><code class="language-xml">&lt;configuration&gt;
   ...
@@ -81,7 +81,7 @@
                     clover:merge goals before running clover:clover.</p>
                 <h1 id="Configuringreports-GettingInformationaboutyourCloverDatabase">Getting Information about your
                     Clover Database</h1>
-                <p>The <a href="../../maven/4.5.0/log-mojo.html" rel="nofollow">clover:log</a>
+                <p>The <a href="../../maven/4.6.0/log-mojo.html" rel="nofollow">clover:log</a>
                     goal will summarize your Clover database.</p>
                 <h1 id="Configuringreports-GeneratingHistoricalReports">Generating Historical Reports</h1>
                 <p>To include the generation of
@@ -92,7 +92,7 @@
   &lt;generateHistorical&gt;true&lt;/generateHistorical&gt;
 &lt;/configuration&gt;</code></pre>
                 <p>That will include your historical savepoints, if any, in the generated report.</p>
-                <p>To generate a savepoint, run the <a href="../../maven/4.5.0/save-history-mojo.html" rel="nofollow">clover:save-history</a> goal.</p>
+                <p>To generate a savepoint, run the <a href="../../maven/4.6.0/save-history-mojo.html" rel="nofollow">clover:save-history</a> goal.</p>
                 <p>To avoid having <code>mvn clean</code> remove your savepoints you may want to set the location of the
                     history directory (default location is <code>$project.build.directory/clover/history)</code>, for
                     example:</p>
@@ -102,8 +102,8 @@
                 <p> </p>
                 <h1 id="Configuringreports-Creatingconsolidatedreports">Creating consolidated reports</h1>
                 <p>In order to create a consolidated report for multiple modules or projects, you have to merge
-                    databases first. You can use <a href="../../maven/4.5.0/aggregate-mojo.html" rel="nofollow">clover:aggregate</a> or <a href="../../maven/4.5.0/merge-mojo.html" rel="nofollow">clover:merge</a> goal,
-                    followed by the <a href="../../maven/4.5.0/clover-mojo.html" rel="nofollow">clover:clover</a> one. Example:</p>
+                    databases first. You can use <a href="../../maven/4.6.0/aggregate-mojo.html" rel="nofollow">clover:aggregate</a> or <a href="../../maven/4.6.0/merge-mojo.html" rel="nofollow">clover:merge</a> goal,
+                    followed by the <a href="../../maven/4.6.0/clover-mojo.html" rel="nofollow">clover:clover</a> one. Example:</p>
                 <div style="border-width: 1px;">
                     <div>
                         <pre>mvn clean clover:setup test clover:aggregate clover:clover</pre>
@@ -154,7 +154,7 @@
 
 &lt;/project&gt;</code></pre>
                 <p>This is a very simple Ant file, which defines two known targets: &quot;historical&quot; and &quot;current&quot; .<br/> If there are no history points saved (via:
-                    <code><a href="../../maven/4.5.0/save-history-mojo.html" rel="nofollow">clover:save-history</a></code>) then only the &quot;current&quot; target will
+                    <code><a href="../../maven/4.6.0/save-history-mojo.html" rel="nofollow">clover:save-history</a></code>) then only the &quot;current&quot; target will
                     be called. Otherwise, the &quot;historical&quot; target gets called which generates both a
                     historical and current report which are linked together.</p>
                 <p>To change Clover's default reporting behavior, it is easiest to copy this file and add the changes
