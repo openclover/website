@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.6 : Clover-for-Ant tutorial</title>
+    <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../downloads">Downloads</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="../../../documentation">Documentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../support">Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About ...</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
+                        <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
+                        <li><a class="dropdown-item" href="../../../license">License information</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main">
+        <div id="main-header">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">OpenClover 4.6</a>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="tutorials--index.html">Clover Tutorials</a></span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <h1 id="title-heading" class="pagetitle">
+            Clover-for-Ant tutorial </h1>
+
+        <div id="content" class="view">
+
+            <div id="main-content">
+                <p>This tutorial demonstrates how you can use Clover with JUnit to measure the code coverage of a
+                    project. It takes you through the process of compiling a sample project and running the unit tests
+                    from Ant, then modifying the build file to add Clover targets and properties. </p>
+                <p>
+                    <img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)"/> If you want to quickly see exemplary Clover
+                    report and not be bothered by manual configuration, please have a look at:</p>
+                <ul>
+                    <li><a href="ant--tutorial-part-0-clover-in-10-minutes.html">Part 0 - Clover in 10 minutes</a></li>
+                </ul>
+                <h3>Tutorial Parts</h3>
+                <ol>
+                    <li><a href="ant--tutorial-part-1-measuring-coverage.html">Part 1 - Measuring Coverage</a></li>
+                    <li><a href="ant--tutorial-part-2-historical-reporting.html">Part 2 - Historical Reporting</a></li>
+                    <li><a href="ant--tutorial-part-3-automating-coverage-checks.html">Part 3 - Automating Coverage
+                        Checks</a></li>
+                    <li><a href="ant--tutorial-part-4-test-optimization.html">Part 4 - Test Optimization</a></li>
+                </ol>
+                <p>The Clover Tutorial describes different features of Clover in a step-by-step approach. Once you've
+                    completed the Tutorial, have a look at <a href="ant--using-openclover-interactively.html">Using
+                        Clover Interactively</a> and <a href="ant--using-in-automated-builds.html">Using
+                        Clover in Automated Builds</a> for examples of how to pull the different aspects of Clover
+                    together for your project.</p>
+                <h3>Before You Start</h3>
+                <p>You will need to <a href="https://openclover.org/downloads">download Clover-for-Ant</a> and
+                    <a href="https://ant.apache.org/bindownload.cgi" rel="nofollow">Apache Ant</a>,
+                    preferably the latest versions, then install them on your system. The tutorial source files and
+                    JUnit are bundled with the Clover distribution in the /tutorial directory.</p>
+                <p>Instructions for installing Ant can be found in the
+                    <a href="https://ant.apache.org/manual/index.html" rel="nofollow">Apache Ant User Manual</a>.</p>
+                <p>Instructions for installing Clover can be found in the <a href="ant--installation-guide.html">Clover-for-Ant Installation Guide</a>. </p>
+                <p>The Clover tutorial assumes that you have basic knowledge of creating and modifying Ant build files.
+                    The <a href="https://ant.apache.org/manual/index.html" rel="nofollow">Apache
+                        Ant User Manual</a> provides any additional support you may require in this area. It is also
+                    assumed that you have a basic understanding of JUnit. A good introduction to JUnit can be found in
+                    the
+                    <a href="http://junit.sourceforge.net/doc/cookbook/cookbook.htm" rel="nofollow">JUnit Cookbook</a>. This Clover tutorial is crafted around the example code
+                    described in the <a href="http://junit.sourceforge.net/doc/cookbook/cookbook.htm" rel="nofollow">Cookbook</a>. </p>
+                <h3>The Tutorial Work Area</h3>
+                <p>The tutorial source files are located within the 'tutorial' directory (that is, <code>CLOVER_HOME/tutorial</code>).
+                    In the 'tutorial' directory you will find the initial build file and the directory 'src' which
+                    contains the java files that you will be testing. These sample files are shipped with JUnit test
+                    files, as described in the
+                    <a href="http://junit.sourceforge.net/doc/cookbook/cookbook.htm" rel="nofollow">JUnit Cookbook</a>. They represent a simple library for
+                    dealing with money and provide methods to add, subtract, and collect money etc. The <code>MoneyTest.java</code>
+                    file contains all the unit tests for the library and utilizes the JUnit framework.</p>
+                <p><img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> The <code>build.xml</code> file is located
+                    directly under the 'tutorial' directory.</p><h5>NEXT:</h5>
+                <p>Once you have Ant installed and the Clover for Ant package have been downloaded, you are ready to
+                    progress to <a href="ant--tutorial-part-1-measuring-coverage.html">Part 1 - Measuring Coverage</a> in
+                    the tutorial.</p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
+    </footer>
+</div>
+<script src="../../../resources/js/bootstrap.bundle-5.3.2.min.js"></script>
+<script src="../../../resources/js/prism.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.6 : How are the Clover coverage percentages calculated?</title>
+    <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../downloads">Downloads</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="../../../documentation">Documentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../support">Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About ...</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
+                        <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
+                        <li><a class="dropdown-item" href="../../../license">License information</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main">
+        <div id="main-header">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">OpenClover 4.6</a>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="faq--openclover.html">Clover FAQ</a></span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <h1 id="title-heading" class="pagetitle">
+            How are the Clover coverage percentages calculated? </h1>
+
+        <div id="content" class="view">
+
+            <div id="main-content">
+                <p><strong>Q: How are the Clover coverage percentages calculated?</strong>The &quot;total&quot; coverage
+                    percentage of a class (or file, package, project) is provided as a quick guide to how well the class
+                    is covered — and to allow ranking of classes.</p>
+                <p>The Total Percentage Coverage (TPC) is calculated using the formula:</p>
+                <div style="border-width: 1px;">
+                    <div>
+<pre>TPC = (CT + CF + SC + MC)/(2*C + S + M){excerpt}
+</pre>
+                    </div>
+                </div>
+                <p>where</p>
+                <div style="border-width: 1px;">
+                    <div>
+<pre>CT - conditionals that evaluated to &quot;true&quot; at least once
+CF - conditionals that evaluated to &quot;false&quot; at least once
+SC - statements covered
+MC - methods entered
+
+C - total number of conditionals
+S - total number of statements
+M - total number of methods
+</pre>
+                    </div>
+                </div>
+                <p> </p><h4>Coverage
+                metrics in XML report file</h4>
+                <p>The XML report file produced by Clover contains the &lt;metrics&gt; tag with a number of attributes.
+                    For instance:</p>
+                <pre>&lt;metrics
+    coveredelements=&quot;221&quot; complexity=&quot;123&quot; loc=&quot;707&quot; methods=&quot;100&quot; classes=&quot;37&quot;
+    statements=&quot;209&quot; packages=&quot;1&quot;
+    coveredconditionals=&quot;12&quot; coveredmethods=&quot;42&quot;
+    elements=&quot;337&quot; ncloc=&quot;379&quot; files=&quot;11&quot;
+    conditionals=&quot;28&quot; coveredstatements=&quot;167&quot;/&gt;</pre>
+                <p> </p>
+                <p>A mapping between the equation and these attributes is as follows:</p>
+                <ul>
+                    <li>CT + CF = coveredconditionals</li>
+                    <li>SC = coveredstatements</li>
+                    <li>MC = coveredmethods</li>
+                    <li>2 * C = conditionals</li>
+                    <li>S = statements</li>
+                    <li>M = methods</li>
+                </ul>
+                <p>In other words, the 'conditionals' attribute is already a doubled number of branches, while the
+                    'coveredconditionals' attribute is a sum of branches evaluated to true and branches evaluated to
+                    false.</p>
+                <p>So in order to calculate the Total Percentage Coverage metric using data from an XML report you have
+                    to use the following equation:</p>
+                <div style="border-width: 1px;">
+                    <div>
+                        <pre>TPC = (coveredconditionals + coveredstatements + coveredmethods) / (conditionals + statements + methods)</pre>
+                    </div>
+                </div>
+                <p> </p>
+                <p>Note:</p>
+                <p>The &lt;metrics&gt; tag in XML report contains one extra attribute pair, which is calculated as
+                    follows:</p>
+                <ul>
+                    <li>coveredelements = coveredconditionals + coveredstatements</li>
+                    <li>elements = conditionals + statements</li>
+                </ul>
+                <p> </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
+    </footer>
+</div>
+<script src="../../../resources/js/bootstrap.bundle-5.3.2.min.js"></script>
+<script src="../../../resources/js/prism.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.6 : Using Coverage Contexts</title>
+    <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../downloads">Downloads</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="../../../documentation">Documentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../support">Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About ...</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
+                        <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
+                        <li><a class="dropdown-item" href="../../../license">License information</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main">
+        <div id="main-header">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">OpenClover 4.6</a>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="ant--configuring-reports.html">5. Configuring Reports</a></span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <h1 id="title-heading" class="pagetitle">
+            Using Coverage Contexts </h1>
+
+        <div id="content" class="view">
+
+            <div id="main-content">
+                <p>Clover defines a <em>Context</em> as a part of source code that matches a specified structure or
+                    pattern. Contexts are either pre-defined or user-defined at instrumentation time. Each context must
+                    have a unique name. At report time, you can specify which contexts you would like to exclude in the
+                    coverage report.</p>
+                <p> </p>
+                <h2>Block Contexts</h2>
+                <p>Block Contexts are pre-defined by Clover. They represent 'block' syntactic constructs in the Java
+                    language. A full list of supported Block Contexts is shown below.</p>
+                <div class="alert alert-success" role="alert">
+    <p>Clover's block context feature currently does not
+                        support Groovy.</p>
+</div>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th><p>Name</p></th>
+                            <th><p>Description</p></th>
+                        </tr>
+                        <tr>
+                            <td><code>static</code></td>
+                            <td>Static initializer block</td>
+                        </tr>
+                        <tr>
+                            <td><code>instance</code></td>
+                            <td>Instance initializer block</td>
+                        </tr>
+                        <tr>
+                            <td><code>constructor</code></td>
+                            <td>Constructor body</td>
+                        </tr>
+                        <tr>
+                            <td><code>method</code></td>
+                            <td>Method body</td>
+                        </tr>
+                        <tr>
+                            <td><code>switch</code></td>
+                            <td>Switch statement body</td>
+                        </tr>
+                        <tr>
+                            <td><code>while</code></td>
+                            <td>While loop body</td>
+                        </tr>
+                        <tr>
+                            <td><code>do</code></td>
+                            <td>do-while loop body</td>
+                        </tr>
+                        <tr>
+                            <td><code>for</code></td>
+                            <td>For loop body</td>
+                        </tr>
+                        <tr>
+                            <td><code>if</code></td>
+                            <td>if body</td>
+                        </tr>
+                        <tr>
+                            <td><code>else</code></td>
+                            <td>else body</td>
+                        </tr>
+                        <tr>
+                            <td><code>try</code></td>
+                            <td>try body</td>
+                        </tr>
+                        <tr>
+                            <td><code>catch</code></td>
+                            <td>catch body</td>
+                        </tr>
+                        <tr>
+                            <td><code>finally</code></td>
+                            <td>finally body</td>
+                        </tr>
+                        <tr>
+                            <td><code>sync</code></td>
+                            <td>synchronized block</td>
+                        </tr>
+                        <tr>
+                            <td><code>assert</code></td>
+                            <td>assert statement</td>
+                        </tr>
+                        <tr>
+                            <td><code>@deprecated</code></td>
+                            <td>a deprecated block</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h2>Method Contexts</h2>
+                <p>A Method Context represents the set of methods whose signature matches a given pattern. Clover
+                    provides several pre-defined method contexts:</p>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th><p>Name</p></th>
+                            <th><p>Regexp</p></th>
+                            <th><p>Description</p></th>
+                        </tr>
+                        <tr>
+                            <td><code>private</code></td>
+                            <td><code>(.* )?private .*</code></td>
+                            <td>matches all private methods</td>
+                        </tr>
+                        <tr>
+                            <td><code>property</code></td>
+                            <td><code>(.* )?public .*(get|set|is)[A-Z0-9].*</code></td>
+                            <td>matches all property getters/setters</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>A method signature includes all annotations, modifiers (public, static, final etc), the return type,
+                    the method name, parameter types and names, the throws clause and exceptions.</p>
+                <div><p class="title">Note</p>
+                    <span></span>
+                    <div><p>When matching method signatures against context
+                        regexps, whitespace is normalized and comments are ignored.</p></div>
+                </div>
+                <p>You can define your own method contexts via the <code>&lt;methodContext&gt;</code> sub-element of
+                    <code>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;</code>, or via the configuration
+                    panel of your Clover IDE Plugin.</p>
+                <div><p class="title">Note</p>
+                    <span></span>
+                    <div><p>Contexts are matched against your source at
+                        <strong>instrumentation-time</strong>. This means you need to <strong>re-instrument your
+                            code</strong> after defining a new context.</p></div>
+                </div>
+                <h4>Method Contexts with Groovy code</h4>
+                <p>While <a href="http://groovy-lang.org/" rel="nofollow">Groovy syntax</a> is
+                    flexible in nature, the regular expressions defined in the <code>regexp</code> parameters of <code>&lt;methodContext&gt;</code>
+                    elements must match a 'normalized' method signature.</p>
+                <p>Bear in mind that this is not necessarily how you would define the method in your Groovy source
+                    code.</p>
+                <p>For example, in Groovy code, a method defined via the 'def' keyword is always 'public'. This means
+                    that your <code>regexp</code> must actually match &quot;<code>public def</code>&quot;. Hence, if you
+                    wanted to create a <code>regexp</code> that matched the following Groovy method:</p>
+                <pre>def void foo()
+</pre>
+                <p>Your <code>regexp</code> must assume a match against:</p>
+                <pre>public def void foo()
+</pre>
+                <p><strong>Normalized method signature rules for defining <code>regexp</code> parameters:</strong></p>
+                <p>The following list illustrates the normalized form of the method signature (and hence, order) in
+                    which your <code>regexp</code> must be defined to match specific methods in your Groovy source code: </p>
+                <ol>
+                    <li><strong>Modifiers</strong>– in the following order:
+                        <ol>
+                            <li><code>public</code></li>
+                            <li><code>protected</code></li>
+                            <li><code>private</code></li>
+                            <li><code>abstract</code></li>
+                            <li><code>static</code></li>
+                            <li><code>final</code></li>
+                            <li><code>transient</code></li>
+                            <li><code>volatile</code></li>
+                            <li><code>synchronized</code></li>
+                            <li><code>native</code></li>
+                            <li><code>strictfp</code></li>
+                            <li><code>interface</code><br/> (Refer to java.lang.reflect.Modifier#toString for
+                                more information.)
+                            </li>
+                        </ol>
+                    </li>
+                    <li><strong>Type Parameters</strong> (optional) – for example, <code>&lt;T&gt;</code>, <code>&lt;E
+                        extends Object&gt;</code></li>
+                    <li><strong>Return Type</strong> – for example, <code>void</code>, <code>int</code>,
+                        <code>String</code>, <code>Object[]</code></li>
+                    <li><strong>Name</strong> – for example, <code>myMethod</code></li>
+                    <li><strong>Parameter List</strong> – for example, <code>(String arg1, int arg2)</code></li>
+                    <li><strong>Throws</strong> – for example, <code>throws Exception1, Exception2</code></li>
+                </ol>
+                <p> </p>
+                <p><strong>Examples of normalized signatures for Groovy</strong></p>
+                <pre>// normalized signature is: &quot;private void &lt;init&gt;()&quot;
+private PrivateConstructor() {
+
+}
+
+// normalized signature is: &quot;public void &lt;init&gt;(int i)&quot;
+public PublicConstructor(int i) {
+
+}
+
+// normalized signature is: &quot;private def implicitVoidMethod()&quot;
+private implicitVoidMethod() {
+
+}
+
+// normalized signature is: &quot;private void explicitVoidMethod()&quot;
+private void explicitVoidMethod() {
+
+}
+
+// normalized signature is: &quot;private int someNonVoidMethod()&quot;
+private int someNonVoidMethod() {
+    return 0
+}
+
+// normalized signature is: &quot;public static synchronized Object[] complexSignature(String i, List&lt;Integer&gt; j)&quot;
+synchronized static public Object [ ]    complexSignature(   String i, List &lt; Integer &gt; j) {
+    return new Object[0]
+}</pre>
+                <p> </p>
+                <h2>Statement Contexts</h2>
+                <div class="alert alert-success" role="alert">
+    <p>Clover's statement context feature currently does
+                        not support Groovy.</p>
+</div>
+                <p>A Statement Context represents the set of statements that match a given pattern. For example, you
+                    might want to set up a statement context to allow you to filter out 'noisy' statements (such as
+                    logging calls) by defining a statement context regexp <code>LOG\.debug.*</code>.</p>
+                <p>A regular expression defined in a statement context will be matched against a <em>normalized</em>
+                    <em>form</em> of the statement:</p>
+                <ul>
+                    <li>any white space characters before and after the statement are removed</li>
+                    <li>any newline characters are removed</li>
+                    <li>single space character is used to separate code tokens</li>
+                </ul>
+                <p>When writing a regular expression you should take into account that in case of nested statements, the
+                    outer statement will contain inner statements as well. Consider the following example:</p>
+                <pre>void testStatementContext() {
+    while (true) {
+        if (logger.isDebugEnabled()) {
+            logger.debug(&quot;abc&quot;);
+        }
+    }
+}</pre>
+                <p>in this case, method body has three statements:</p>
+                <p>a) the while loop</p>
+                <pre
+
+                        >while (true) {{ if (logger.isDebugEnabled()) {{ logger.debug(&quot;abc&quot;); } }}</pre>
+                <p>b) the if condition</p>
+                <pre
+
+                        >if (logger.isDebugEnabled()) {{ logger.debug(&quot;abc&quot;); }</pre>
+                <p>c) the logger.debug() method call</p>
+                <pre
+
+                        >logger.debug(&quot;abc&quot;);</pre>
+                <p> </p>
+                <p>Assuming that you'd like to filter-out &quot;logger.debug&quot; calls, the regular expression should
+                    look like this:</p>
+                <pre>&lt;statementcontext name=&quot;logger&quot; regexp=&quot;^logger\.debug.*&quot;/&gt;</pre>
+                <p>Note that if the expression would be written as &quot;^<strong><span style="color: rgb(0,0,255);">.*</span></strong>logger\.debug.*&quot;, then it would match also
+                    outer statements.</p>
+                <h2>Using Context Filters</h2>
+                <div><p class="title">Note</p>
+                    <span></span>
+                    <div><p>This section describes using context filters with
+                        Ant. For details of using filters with the IDE plugins, see the individual documentation for the
+                        plugin.</p></div>
+                </div>
+                <h4>Filtering catch blocks</h4>
+                <p>In some cases you may not be interested in the coverage of statements inside catch blocks. To filter
+                    them, you can use Clover's predefined <code>catch</code> context to exclude statements inside catch
+                    blocks from a coverage report:</p>
+                <pre><code class="language-xml">&lt;clover-report&gt;
+       &lt;current outfile=&quot;clover_html&quot;&gt;
+         &lt;format type=&quot;html&quot; filter=&quot;catch&quot;/&gt;
+       &lt;/current&gt;
+&lt;/clover-report&gt;</code></pre>
+                <p>This generates a source-level HTML report that excludes coverage from statements inside catch
+                    blocks.</p><h4>Filtering simple methods</h4>
+                <p>In order to filter-out simple getters and setters you can use built-in &quot;property&quot; method
+                    context. </p>
+                <p>You can define also own filter, based on cyclomatic complexity and/or number of statements. For
+                    example:</p>
+                <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence"><code class="language-xml">&lt;clover-setup ...&gt;
+    &lt;!-- Don&#39;t instrument methods which have cyclomatic complexity &lt;= 1 or &lt;= 3 statements --&gt;
+    &lt;methodContext name=&quot;simple_method&quot; regexp=&quot;.*&quot; maxComplexity=&quot;1&quot; maxStatements=&quot;3&quot;/&gt;
+&lt;/clover-setup&gt;</code></pre>
+                <p> </p><h4>Filtering logging statements</h4>
+                <p>To remove logging statements for coverage reports, you will need to define one or more statement
+                    contexts that match logging statements in your source:</p>
+                <pre><code class="language-xml">&lt;clover-setup ...&gt;
+    &lt;statementContext name=&quot;log&quot; regexp=&quot;^LOG\..*&quot;/&gt;
+    &lt;statementContext name=&quot;iflog&quot; regexp=&quot;^if \(LOG\.is.*&quot;/&gt;
+    &lt;methodContext name=&quot;main&quot; regexp=&quot;public static void main\(String args\[\]\).*&quot;/&gt;
+    ...
+&lt;/clover-setup&gt;</code></pre>
+                <p>This defines two statement contexts and one method context. The first matches statements that start
+                    with '<code>LOG.</code>' while the second matches statements that start with  '<code>if (LOG.</code>',
+                    which is designed to match conditional logging statements such as:</p>
+                <pre>if (LOG.isDebugEnabled()) {
+    // do some expensive debug logging
+}
+</pre>
+                <p>The third matches all 'main' methods that have a String Array named 'args' in the constructor:</p>
+                <pre>public static void main(String args[]) throws Exception
+</pre>
+                <p>After defining these contexts, you now need to re-compile with Clover and then re-run your tests. You
+                    can then generate a report that excludes logging statements:</p>
+                <pre><code class="language-xml">&lt;clover-report&gt;
+    &lt;current outfile=&quot;clover_html&quot; title=&quot;My Coverage&quot;&gt;
+        &lt;format type=&quot;html&quot; filter=&quot;log,iflog&quot;/&gt;
+    &lt;/current&gt;
+&lt;/clover-report&gt;</code></pre>
+                <p>This generates a source-level HTML report that excludes coverage from logging statements.</p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
+    </footer>
+</div>
+<script src="../../../resources/js/bootstrap.bundle-5.3.2.min.js"></script>
+<script src="../../../resources/js/prism.min.js"></script>
+</body>
+</html>

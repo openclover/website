@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.6 : 3. Exploration of test results in IDEA</title>
+    <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../downloads">Downloads</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="../../../documentation">Documentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../support">Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About ...</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
+                        <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
+                        <li><a class="dropdown-item" href="../../../license">License information</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main">
+        <div id="main-header">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">OpenClover 4.6</a>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="idea--overview.html">Clover-for-IDEA</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="idea--user-guide.html">Clover-for-IDEA User&#39;s Guide</a></span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <h1 id="title-heading" class="pagetitle">
+            3. Exploration of test results in IDEA </h1>
+
+        <div id="content" class="view">
+
+            <div id="main-content">
+                <h4>Test Runs Explorer</h4>
+                <p>The Test Runs Explorer displays recently run tests in your Clover-instrumented project.</p>
+                <p>The upper panel displays test cases as a flat list ( <span><img src="attachments/300814878/301008071.gif"
+
+
+                        data-linked-resource-content-type="image/gif"
+
+                ></span>),
+                    grouped by package ( <span><img src="attachments/300814878/301008072.gif"
+
+
+                            data-linked-resource-content-type="image/gif"></span>) or by source root folder (
+                    <span><img src="attachments/300814878/301008073.png"
+
+
+                    ></span>). </p>
+                <p>The lower panel displays classes and methods covered by the test case selected in the upper panel.
+                    Two metrics are displayed for each class and method:</p>
+                <ul>
+                    <li><strong>Contributed Coverage</strong> indicates the percentage of statements that have been
+                        covered by selected test case,
+                    </li>
+                    <li><strong>Unique Coverage</strong> indicates the percentage of statements that have been covered
+                        by selected test case <strong>only</strong>.
+                    </li>
+                </ul>
+                <p><em><br/></em></p>
+                <p><span><img src="attachments/300814878/648609834.png"
+
+
+                ></span>
+                </p><h5>Unique Actions in Test
+                Run Explorer</h5>
+                <ul>
+                    <li><span><img src="attachments/300814878/301008071.gif"
+
+
+                            data-linked-resource-content-type="image/gif"
+
+                    ></span> / <span><img src="attachments/300814878/301008072.gif"
+
+
+                            data-linked-resource-content-type="image/gif"
+
+                    ></span>
+                        / <span><img src="attachments/300814878/301008073.png"
+
+
+                        ></span>
+                        : Click to choose test cases layout.
+                    </li>
+                    <li><span><img src="attachments/300814878/301008075.png"
+
+
+                    ></span> :
+                        Toggle calculating test coverage to display in the upper panel. If enabled, the plugin will
+                        provide information about given test contribution to the selected target scope (see below). Note
+                        that enabling this option seriously slows down the Clover database refresh.
+                    </li>
+                    <li><strong>Target scope</strong>: Only tests touching selected scope would be shown.<br/>
+                        <ul>
+                            <li><em>All tests</em>: All recorded tests in the project,</li>
+                            <li><em>File tests</em>: All tests touching the currently displayed file,</li>
+                            <li><em>Class / Method / Statement at cursor</em>: All tests involving the class, method or
+                                statement under the cursor, respectively.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p> </p><h4>Select In -&gt; Clover (Alt-F1 menu)</h4>
+                <p>It is possible to view currently selected element in Clover using the Alt-F1 menu.</p>
+                <p>If the cursor is inside a recognized test case, it would be displayed in Test Runs Explorer, listing
+                    methods touched by the test in the lower panel.<br/> Otherwise the element under cursor is displayed
+                    in the Coverage view.</p>
+                <p> </p>
+                <hr/>
+                <p>You have already learned how to navigate through code coverage and test results. But don't you have a
+                    feeling that your coverage reports could be more accurate when focused on <em>really important</em>
+                    areas of your application? If you do so, don't hesitate to read <a href="idea--scope-of-instrumentation.html">4. Scope of instrumentation in
+                        IDEA</a> to learn how to configure instrumentation scope from whole project down to a single
+                    line of code.</p>
+                <p> </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
+    </footer>
+</div>
+<script src="../../../resources/js/bootstrap.bundle-5.3.2.min.js"></script>
+<script src="../../../resources/js/prism.min.js"></script>
+</body>
+</html>

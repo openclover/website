@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.6 : &lt;format&gt; element</title>
+    <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../downloads">Downloads</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="../../../documentation">Documentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../support">Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About ...</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
+                        <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
+                        <li><a class="dropdown-item" href="../../../license">License information</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main">
+        <div id="main-header">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">OpenClover 4.6</a>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="ant--clover-report.html">clover-report</a></span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <h1 id="title-heading" class="pagetitle">
+            &lt;format&gt; element </h1>
+
+        <div id="content" class="view">
+
+            <div id="main-content">
+                <p>Specifies the output format and various options controlling the rendering of a report.</p>
+                <p><strong>Parameters for &lt;format&gt;</strong></p>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
+                        </tr>
+                        <tr>
+                            <td>type</td>
+                            <td><p>The output format in which to render the report. Valid values
+                                are <code>pdf</code>, <code>xml</code>, <code>html</code> and <code>json</code>. Note
+                                that not all report formats support all other attributes.</p></td>
+                            <td><p>Yes, unless <code>refid</code> is set.</p></td>
+                        </tr>
+                        <tr>
+                            <td>refid</td>
+                            <td><p>The id of another format element that will be used for this
+                                report. See <a href="ant--sharing-report-formats.html">Sharing Report Formats</a>. </p></td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>The id of this format element.</td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>bw</td>
+                            <td>Specify that the report should be black-and-white. Supported by
+                                PDF reports only.</td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>orderBy</td>
+                            <td><p>Specify how to order coverage tables. This attribute has no
+                                effect on XML format. Valid values are: <br class="atl-forced-newline"/> <code>Alpha</code> — Alpabetical.
+                                <br class="atl-forced-newline"/> <code>PcCoveredAsc</code> — Percent total coverage,
+                                ascending. <code>PcCoveredDesc</code> — Percent total
+                                coverage, descending. <code>ElementsCoveredAsc</code> —
+                                Total elements covered, ascending. <code>ElementsCoveredDesc</code>
+                                — Total elements covered, descending. <code>ElementsUncoveredAsc</code>
+                                — Total elements uncovered, ascending. <code>ElementsUncoveredDesc</code>
+                                — Total elements uncovered, descending.</p></td>
+                            <td><p>No; defaults to <code>PcCoveredAsc.</code></p></td>
+                        </tr>
+                        <tr>
+                            <td>noCache</td>
+                            <td><p><em>(HTML only)</em> If true, insert nocache directives in HTML
+                                output.</p></td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>srcLevel</td>
+                            <td>If true, include source-level coverage information in the
+                                report.</td>
+                            <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>filter</td>
+                            <td><p>comma or space separated list of contexts to exclude when
+                                generating coverage reports. See <a href="ant--using-coverage-contexts.html">Using
+                                    Coverage Contexts</a>.</p></td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>pageSize</td>
+                            <td><p><em>(PDF only)</em> Specify the page size to use. Valid values
+                                are <code>A4</code>, <code>LETTER.</code></p></td>
+                            <td><p>No; defaults to &quot;<code>A4</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>showEmpty</td>
+                            <td>If true, classes, files and packages that do not contain any
+                                executable code (i.e. methods, statements, or branches) are included in reports. These
+                                are normally not shown.</td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>tabWidth</td>
+                            <td><p><em>(Source level reports only)</em> The number of space chars
+                                to replace TAB characters with.</p></td>
+                            <td><p>No; defaults to <code>4.</code></p></td>
+                        </tr>
+                        <tr>
+                            <td>maxNameLength</td>
+                            <td>The maximum length in chars of package or classnames in the
+                                report. Longer names will be truncated. A value &lt; 0 indicates no limit.</td>
+                            <td>No; defaults to no limit.</td>
+                        </tr>
+                        <tr>
+                            <td>callback</td>
+                            <td>The name of the callback function to wrap the JSON. If set to an
+                                empty string, &quot; &quot;, then the JSON will not be wrapped.</td>
+                            <td>No; default is 'processClover'.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong><br/></strong></p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
+    </footer>
+</div>
+<script src="../../../resources/js/bootstrap.bundle-5.3.2.min.js"></script>
+<script src="../../../resources/js/prism.min.js"></script>
+</body>
+</html>

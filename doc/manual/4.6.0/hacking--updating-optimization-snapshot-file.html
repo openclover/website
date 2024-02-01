@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenClover 4.6 : Updating optimization snapshot file</title>
+    <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../downloads">Downloads</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="../../../documentation">Documentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../support">Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About ...</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
+                        <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
+                        <li><a class="dropdown-item" href="../../../license">License information</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main">
+        <div id="main-header">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">OpenClover 4.6</a>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="hacking--hacking-openclover.html">Hacking Clover</a></span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <h1 id="title-heading" class="pagetitle">
+            Updating optimization snapshot file </h1>
+
+        <div id="content" class="view">
+
+            <div id="main-content">
+                <h4>Introduction</h4>
+                <p>Imagine a following scenario:</p>
+                <ul>
+                    <li>your project has a set of integration tests which follow a classic maven-failsafe-plugin
+                        approach:<br/>
+                        <ul>
+                            <li>tests are being executed in the 'integration-test' phase</li>
+                            <li>but results are checked in the 'verify' phase</li>
+                        </ul>
+                    </li>
+                    <li>test cases are being recognized by Clover <br/>
+                        <ul>
+                            <li>... just because they are JUnit / TestNG test cases or you have defined custom test
+                                patterns for clover:setup MOJO
+                            </li>
+                            <li>... you can see them on the &quot;Tests&quot;</li>
+                        </ul>
+                    </li>
+                    <li>you would like to use test optimization for them
+                        <ul>
+                            <li>i.e. re-run only those which were failed or related sources were modified</li>
+                        </ul>
+                    </li>
+                    <li>but Clover does not see test failures for them
+                        <img class="emoticon emoticon-warning" src="images/icons/emoticons/warning.png" data-emoticon-name="warning" alt="(warning)"/> (in the clover.snapshot)
+                        and thus you cannot optimize your tests correctly<br/>
+                        <ul>
+                            <li>this is because test case is executed in 'integration-test' phase but it does not throw
+                                any exception (like <code>AssertionError</code> for JUnit) because verification is
+                                performed in later phase
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>How to solve this?</p>
+                <p> </p><h4>Solution</h4>
+                <p>You can update Clover's Optimization Snapshot file &quot;manually&quot;. Exact integration would
+                    depend on the framework you are using and you need to write such integration, but in general it
+                    works this way:</p>
+                <p>1) Instrument code and run integration-tests <em>(mvn clean clover:setup integration-test)</em></p>
+                <p>2) Save optimization snapshot file <em>(clover:snapshot)</em></p>
+                <p>3) Run test result verification <em>(mvn verify)</em> and store failed test results (somewhere)</p>
+                <p>4) Update optimization snapshot file and set status for failed tests (see code example below)</p>
+                <p> </p><h4>Example</h4>
+                <p>A simple application which sets test duration and test failure for certain test case:</p>
+                <p><a href="https://github.com/openclover/clover-maven-plugin" rel="nofollow">https://github.com/openclover/clover-maven-plugin</a>
+                    (src/it/optmized/snapshot-hacking)</p>
+                <p> </p>
+                <div><span></span>
+                    <div><p>You must use Clover 3.1.11 or later.</p></div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
+    </footer>
+</div>
+<script src="../../../resources/js/bootstrap.bundle-5.3.2.min.js"></script>
+<script src="../../../resources/js/prism.min.js"></script>
+</body>
+</html>
