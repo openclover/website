@@ -46,12 +46,12 @@
 </nav>
 
 <div class="container">
-    <h1>OpenClover 4.6.0 Release Notes</h1>
+    <h1>OpenClover 5.0.0 Release Notes</h1>
 
-    <div><i>2024-03-31</i></div>
+    <div><i>2024-09-15</i></div>
 
     <div>
-        We're excited to share with you <b>OpenClover 4.6</b>!
+        We're excited to share with you <b>OpenClover 5.0</b>!
     </div>
 
     <h2>Changes</h2>
@@ -71,27 +71,26 @@
         While you can still use the "1.7" language level in OpenClover's configuration, it will be treated as
         Java 8, and a warning will be printed. All OpenClover classes have been compiled with Java 8 target,
         thus JDK/JRE 8+ is required to run the code anyway. While this is a breaking change, current Java 1.7
-        popularity in the world is marginal, thus we decided to ship it in the minor release.
+        popularity in the world is marginal, thus we believe it will not be a huge trouble for you.
     </div>
 
-    <h4>Full support for module-info.java</h4>
+    <h4>Package renaming</h4>
     <div>
-        The project Jigsaw introduced modules in Java 9. OpenClover ignored this fact for a pretty long time.
-        In this release OpenClover contains module-info information for all its components
-        (OpenClover Runtime, OpenClover Core, OpenClover for Ant, OpenClover for Maven) in their JAR files.
-        What's more, OpenClover will now automatically instrument module-info.java files, adding package imports
-        for OpenClover Runtime classes.
+        The major release was a great opportunity to make some cleanup in the code base. We standardized package names,
+        removing old references to com.atlassian.* and giving each module a unique package prefix. As this is
+        a technical change, you shall not even notice it, unless you have own plugins interacting with OpenClover's
+        java classes.
     </div>
 
 
-    <h4>Support for Groovy 3.x and 4.x</h4>
+    <h4>Support for Groovy 3.x-5.x</h4>
     <div>
         A smaller brother of Java, Groovy language, finally got some love. We've rewritten Groovy's
         abstract syntax tree transformations as well as updated libraries, to ensure compatibility
-        with Groovy 3 and 4.
+        with Groovy 3.x to 5.x.
     </div>
 
-    <h4>Groovy 2.x is no longer unsupported</h4>
+    <h4>Groovy 2.x is no longer supported</h4>
 
     <div>
         As Groovy 2.x is end of life, OpenClover is no longer compatible with Groovy 2.
@@ -113,30 +112,44 @@
 
     <h4>Clover Maven Plugin</h4>
 
-    <div>Bump version number to 4.6.0 for 'org.openclover:clover-maven-plugin' and 'org.openclover:clover' in
+    <div>Bump version number to 5.0.0 for 'org.openclover:clover-maven-plugin' and 'org.openclover:clover' in
         your pom.xml files.
     </div>
 
     <h4>Jenkins Clover Plugin</h4>
 
-    <p>Upgrade to the latest 4.15.x plugin version.</p>
+    <p>Upgrade to the latest 4.16.x plugin version.</p>
 
 
     <h2>Changelog</h2>
 
-    <h4>2023.03.31 OpenClover 4.5.0</h4>
+    <h4>2024.09.15 OpenClover 5.0.0</h4>
 
     <ul>
-        <li><a href="https://github.com/openclover/clover/issues/">OC-: </a></li>
-        <li><a href="https://github.com/openclover/clover/issues/">OC-: </a></li>
-        <li><a href="https://github.com/openclover/clover/issues/">OC-: </a></li>
-        <li><a href="https://github.com/openclover/clover/issues/">OC-: </a></li>
-        <li><a href="https://github.com/openclover/clover/issues/">OC-: </a></li>
-        <li><a href="https://github.com/openclover/clover/issues/">OC-: </a></li>
-        <li><a href="https://github.com/openclover/clover/issues/">OC-: </a></li>
-        <li><a href="https://github.com/openclover/clover/issues/">OC-: </a></li>
-        <li><a href="https://github.com/openclover/clover/issues/">OC-: </a></li>
-        <li><a href="https://github.com/openclover/clover/issues/">OC-: </a></li>
+        <li><a href="https://github.com/openclover/clover/issues/63">OC-63: Support Java 10</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/64">OC-64: Support Java 11</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/74">OC-74: Clover fails to parse try-with-resources when closeable resource has no type specified</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/102">OC-102: Use maven-shade-plugin to shrink size of the clover.jar</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/119">OC-119: Duplicate entries in clover jar files</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/183">OC-183: Support Java 17</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/234">OC-234: Drop support for Java 1.7</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/236">OC-236: Update minimum Maven version to 3.3.1</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/237">OC-237: Instrumentation of the instanceof pattern matching with the 'final' keyword fails</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/242">OC-242: Refactor and generify registry classes</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/246">OC-246: Instrumentation fails on switch cases with multiple entries</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/247">OC-247: Instrumentation of case expressions referencing non-final variables produces invalid Java code</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/251">OC-251: Instrumentation of generic records fails</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/253">OC-253: Instrumentation of generic instanceof pattern matching produces invalid Java code</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/257">OC-257: The instanceof pattern matching is not working for 4.5.2</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/258">OC-258: Remove Gson library</a></li>
+
+<!-- not implemented yet: -->
+<!--        <li><a href="https://github.com/openclover/clover/issues/31">OC-31: Support @CompileStatic annotation for Groovy</a></li>-->
+<!--        <li><a href="https://github.com/openclover/clover/issues/194">OC-194: Remove Atlassian branding from OpenClover</a></li>-->
+<!--        <li><a href="https://github.com/openclover/clover/issues/121">OC-121: Support Groovy 3.0.x</a></li>-->
+<!--        <li><a href="https://github.com/openclover/clover/issues/192">OC-192: Support Groovy 4.0.x</a></li>-->
+<!--        <li><a href="https://github.com/openclover/clover/issues/190">OC-190: Variable declaration in groovy 3</a></li>-->
+
     </ul>
 </div>
 
