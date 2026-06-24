@@ -84,20 +84,16 @@
 
     <h1>OpenClover is free, open-source, and always will be</h1>
 
-    <h2>Your donation keeps it that way</h2>
-
     <div class="row mb-4">
         <div class="col-md-8">
+            <h2>Your donation keeps it that way</h2>
+
             <p>OpenClover is maintained by volunteers in their spare time. Every feature added, every bug fixed, and every
             compatibility update for a new Java or build tool release is unpaid work driven by passion for code quality.
             If OpenClover saves you time or improves the quality of your software, please consider giving something back.</p>
-        </div>
-    </div>
 
-    <div class="row mb-4">
-        <div class="col-md-8">
             <p>I have been maintaining OpenClover as a volunteer for over ten years. I genuinely love this project, but
-                love alone does not pay the bills. Running OpenClover costs real money every year:</p>
+            love alone does not pay the bills. Running OpenClover costs real money every year:</p>
 
             <ul>
                 <li><strong>My time</strong> &mdash; design, coding, code reviews, issue triage, user support, documentation</li>
@@ -108,130 +104,140 @@
             </ul>
 
             <p>None of this has ever been sponsored or reimbursed. Every cent has come from my own pocket because I
-                believe OpenClover is worth it. If you do too, a small donation helps me keep the lights on and
-                spend more of my spare time writing code rather than worrying about costs.</p>
+            believe OpenClover is worth it. If you do too, a small donation helps me keep the lights on and
+            spend more of my spare time writing code rather than worrying about costs.</p>
+        </div>
+        <div class="col-md-4">
+            <h2>&nbsp;</h2>
+            <p>
+                <a class="btn btn-warning btn-lg" href="https://buymeacoffee.com/openclover" target="_blank" rel="noopener noreferrer"
+                        role="button">&#9749; Buy OpenClover a Coffee</a>
+            </p>
         </div>
     </div>
-
 
     <!-- Value proposition -->
-    <h2>What is OpenClover worth to you?</h2>
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h2>What is OpenClover worth to you?</h2>
+
+            <p>OpenClover is a fork of Atlassian Clover&reg;, which was one of the most advanced commercial code coverage
+            tools on the market before Atlassian open-sourced it. When it was still sold commercially, Atlassian
+            Clover&reg; licences started at:</p>
+
+            <div class="row mb-3">
+                <div class="col-sm-4 mb-3">
+                    <div class="donation-tier">
+                        <div class="amount">$300</div>
+                        <div class="label">Desktop / personal licence</div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-3">
+                    <div class="donation-tier">
+                        <div class="amount">$1,200</div>
+                        <div class="label">Server licence (entry level)</div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-3">
+                    <div class="donation-tier">
+                        <div class="amount">$0</div>
+                        <div class="label">OpenClover &mdash; forever free</div>
+                    </div>
+                </div>
+            </div>
+
+            <p>You are getting a professional-grade tool at no cost. A one-time $5 coffee is a token of appreciation
+            many of us can afford.</p>
+        </div>
+    </div>
 
     <div class="row mb-4">
         <div class="col-md-8">
-            OpenClover is a fork of Atlassian Clover&reg;, which was one of the most advanced commercial code coverage tools on
-                the market before Atlassian open-sourced it. When it was still sold commercially, Atlassian Clover&reg; licences started at:
-        </div>
-    </div>
+            <h2>Time saved: a napkin calculation</h2>
 
-    <div class="row mb-4">
-        <div class="col-sm-6 col-md-3 mb-3">
-            <div class="donation-tier">
-                <div class="amount">$300</div>
-                <div class="label">Desktop / personal licence</div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-3 mb-3">
-            <div class="donation-tier">
-                <div class="amount">$1,200</div>
-                <div class="label">Server licence (entry level)</div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-3 mb-3">
-            <div class="donation-tier">
-                <div class="amount">$0</div>
-                <div class="label">OpenClover &mdash; forever free</div>
+            <p>Test optimisation features in OpenClover &mdash; such as per-test coverage and test optimisation &mdash;
+            can cut the time spent waiting for tests to complete dramatically. Here is a conservative estimate for a
+            single developer:</p>
+
+            <div class="napkin-math mb-3">
+                <table>
+                    <tr><td>Annual developer salary</td><td>$100,000</td></tr>
+                    <tr><td>Working days per year</td><td>220</td></tr>
+                    <tr><td>Cost per minute of developer time</td><td>≈ $0.76</td></tr>
+                    <tr><td>Test suite runs per day</td><td>5</td></tr>
+                    <tr><td>Average test suite duration</td><td>5 minutes</td></tr>
+                    <tr><td>Time in tests per year</td><td>90 hours</td></tr>
+                    <tr><td>Time saved with 70% optimisation</td><td><strong>63 hours &asymp; $2,900/year</strong></td></tr>
+                </table>
             </div>
         </div>
     </div>
 
     <div class="row mb-4">
         <div class="col-md-8">
-            You are getting a professional-grade tool at no cost. A one-time $5 coffee is a token of appreciation many of us
-            can afford.
+            <h2>More value from better coverage data</h2>
+
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card value-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Smarter test suites</h5>
+                            <p class="card-text">Accurate, per-test coverage reports reveal redundant tests and coverage
+                            gaps. Teams that act on this data routinely reduce test count by 10&ndash;30% while
+                            improving overall coverage &mdash; cutting both CI time and maintenance burden.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card value-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Bugs caught earlier</h5>
+                            <p class="card-text">Uncovered code is where bugs hide. Research consistently shows that a bug
+                            found during coding costs 5&ndash;10&times; less to fix than the same bug discovered in
+                            production. OpenClover makes uncovered code impossible to ignore.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card value-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Confidence to refactor</h5>
+                            <p class="card-text">A live coverage map gives teams the confidence to refactor aggressively,
+                            knowing exactly which paths are exercised and which are not. Better code structure means
+                            lower long-term maintenance cost.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-
-    <h2>Time saved: a napkin calculation</h2>
 
     <div class="row mb-4">
         <div class="col-md-8">
-            Test optimisation features in OpenClover &mdash; such as per-test coverage and test optimisation &mdash; can cut
-            the time spent waiting for tests to complete dramatically. Here is a conservative estimate for a single developer:
+            <h2>The community maths</h2>
 
-            <div  class="card value-card">
-            <table>
-                <tr><td>Annual developer salary</td><td>$100,000</td></tr>
-                <tr><td>Working days per year</td><td>220</td></tr>
-                <tr><td>Cost per minute of developer time</td><td>≈ $0.76</td></tr>
-                <tr><td>Test suite runs per day</td><td>5</td></tr>
-                <tr><td>Average test suite duration</td><td>5 minutes</td></tr>
-                <tr><td>Time in tests per year</td><td>90 hours</td></tr>
-                <tr><td>Time saved with 70% optimization</td><td><strong>90 hours &asymp; $4,100/year</strong></td></tr>
-            </table></div>
-
+            <p>OpenClover has thousands of active users. If just <strong>1 in 10 bought a single cup of coffee
+            once a year</strong>, that would be enough to sponsor <strong>one full-time engineer</strong> dedicated to
+            OpenClover development. Imagine what that engineer could build for the whole community.</p>
         </div>
     </div>
-
-    <h2>More value from better coverage data</h2>
-
-    <div class="row mb-4">
-        <div class="col-md-4 mb-3">
-            <div class="card value-card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Smarter test suites</h5>
-                    <p class="card-text">Accurate, per-test coverage reports reveal redundant tests and coverage
-                    gaps. Teams that act on this data routinely reduce test count by 10&ndash;30% while
-                    improving overall coverage &mdash; cutting both CI time and maintenance burden.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-3">
-            <div class="card value-card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Bugs caught earlier</h5>
-                    <p class="card-text">Uncovered code is where bugs hide. Research consistently shows that a bug
-                    found during coding costs 5&ndash;10&times; less to fix than the same bug discovered in
-                    production. OpenClover makes uncovered code impossible to ignore.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-3">
-            <div class="card value-card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Confidence to refactor</h5>
-                    <p class="card-text">A live coverage map gives teams the confidence to refactor aggressively,
-                    knowing exactly which paths are exercised and which are not. Better code structure means
-                    lower long-term maintenance cost.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <h3 class="mt-4">The community maths</h3>
-    <p>OpenClover has thousands of active users. If just <strong>1 in 10</strong> bought a single cup of coffee
-    once a year, that would be enough to sponsor <strong>one full-time engineer</strong> dedicated to
-    OpenClover development. Imagine what that engineer could build for the whole community.</p>
-
-
 
     <!-- Donation call to action -->
-    <h2 class="mt-5">How to donate</h2>
-    <p>Donations are handled through <strong>Buy Me a Coffee</strong> &mdash; a simple, trusted platform. You choose
-    the amount; every contribution goes directly to supporting OpenClover development.</p>
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h2>How to donate</h2>
 
-    <p>
-        <a class="btn btn-warning btn-lg" href="https://buymeacoffee.com/openclover" target="_blank" rel="noopener noreferrer"
-           role="button">&#9749; Buy OpenClover a Coffee</a>
-    </p>
+            <p>Donations are handled through <strong>Buy Me a Coffee</strong> &mdash; a simple, trusted platform. You
+            choose the amount; every contribution goes directly to supporting OpenClover development.</p>
 
-    <p class="text-muted mt-2 small">No account required. One-time or recurring &mdash; your choice. Every dollar
-    is appreciated.</p>
+            <p style="text-align: center">
+                <a class="btn btn-warning btn-lg" href="https://buymeacoffee.com/openclover" target="_blank" rel="noopener noreferrer"
+                   role="button">&#9749; Buy OpenClover a Coffee</a>
+            </p>
 
-    <div class="mt-5 mb-3">
-        <p>Thank you for using OpenClover and for considering a donation. Your support makes a real difference.</p>
-        <p class="text-muted">&mdash; The OpenClover team</p>
+            <p class="mt-4">Thank you for using OpenClover and for considering a donation. Your support makes a real difference.</p>
+            <p class="text-muted">&mdash; The OpenClover team</p>
+        </div>
     </div>
 
     <footer>
