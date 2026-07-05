@@ -10,7 +10,6 @@
     <link href="resources/css/bootstrap-5.3.2.min.css" rel="stylesheet">
     <link href="resources/css/style.css" rel="stylesheet">
     <title>OpenClover - Support the project</title>
-    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
@@ -72,13 +71,7 @@
         </div>
         <div class="col-md-4">
             <h2>&nbsp;</h2>
-            <p class="small">Donate via Stripe</p>
-
-            <stripe-buy-button
-                    buy-button-id="buy_btn_1ToUiZGiTf13lGFCqgwAT7cq"
-                    publishable-key="pk_live_51ToKUtGiTf13lGFCOYnFGonvlbUYp3aVWS05JMwiyoSTNoxWYdrSCDGUPfae78aOKT0wtKB2zpDVKA88noXRABBi00JAeL40Mf"
-            >
-            </stripe-buy-button>
+            <div id="donate-box-top" class="donate-box"></div>
         </div>
     </div>
 
@@ -199,13 +192,11 @@
             payments. You choose the amount; every contribution goes directly to supporting OpenClover
             development.</p>
 
-            <p style="text-align: center">
-                <stripe-buy-button
-                        buy-button-id="buy_btn_1ToUiZGiTf13lGFCqgwAT7cq"
-                        publishable-key="pk_live_51ToKUtGiTf13lGFCOYnFGonvlbUYp3aVWS05JMwiyoSTNoxWYdrSCDGUPfae78aOKT0wtKB2zpDVKA88noXRABBi00JAeL40Mf"
-                >
-                </stripe-buy-button>
-            </p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div id="donate-box-bottom" class="donate-box"></div>
+                </div>
+            </div>
 
             <p class="mt-4">Thank you for using OpenClover and for considering a donation. Your support makes a real difference.</p>
             <p class="text-muted">&mdash; The OpenClover team</p>
@@ -223,5 +214,6 @@
 <script src="resources/js/bootstrap.bundle-5.3.2.min.js"></script>
 <script src="resources/js/js.cookie.js"></script>
 <script src="resources/js/cookie.js"></script>
+<script src="resources/js/donate.js"></script>
 </body>
 </html>
