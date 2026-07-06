@@ -2,7 +2,7 @@
 <html>
 <head>
     <link rel="canonical" href="https://openclover.org/doc/manual/latest/kb--noclassdeffounderror-com-atlassian-clover-coveragerecorder.html" />
-    <title>NoClassDefFoundError com_atlassian_clover/CoverageRecorder</title>
+    <title>NoClassDefFoundError org_openclover_runtime/CoverageRecorder</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
@@ -56,7 +56,7 @@
         </div>
 
         <h1 id="title-heading" class="pagetitle">
-            NoClassDefFoundError com_atlassian_clover/CoverageRecorder </h1>
+            NoClassDefFoundError org_openclover_runtime/CoverageRecorder </h1>
 
         <div id="content" class="view">
 
@@ -65,16 +65,16 @@
                 <p>During execution of tests or application a following message appears:</p>
                 <pre>FATAL ERROR: Clover could not be initialised. Are you sure you have Clover in the runtime classpath?
 ...
- (class java.lang.NoClassDefFoundError:com_atlassian_clover/CoverageRecorder)
+ (class java.lang.NoClassDefFoundError:org_openclover_runtime/CoverageRecorder)
 or
- (class java.lang.NoClassDefFoundError:com_atlassian_clover/CloverVersionInfo)
+ (class java.lang.NoClassDefFoundError:org_openclover_runtime/CloverVersionInfo)
 or
- (class java.lang.NoClassDefFoundError:com_atlassian_clover/CloverProfile) </pre>
+ (class java.lang.NoClassDefFoundError:org_openclover_runtime/CloverProfile) </pre>
                 <p>or there is a stack trace related with class initialization (Spring, Tomcat container, class loaders
                     ...)</p>
                 <pre>&lt;stack trace describing that initialization of some class has failed or that some field is null followed by&gt;
   ...
-Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer     &lt;or other clover class&gt;</pre>
+Caused by: java.lang.NoClassDefFoundError: Lorg_openclover_runtime/TestNameSniffer     &lt;or other clover class&gt;</pre>
                 <h3>Cause</h3>
                 <p>In 99% of cases this is caused by a fact that <strong>Clover's JAR </strong>(clover.jar in case of
                     Ant, org.openclover:clover artifact in case of Maven) is missing in runtime. Please keep in
@@ -219,7 +219,7 @@ Caused by: java.lang.NoClassDefFoundError: Lcom_atlassian_clover/TestNameSniffer
                 <p> </p>
                 <p><strong>Eclipse</strong></p>
                 <p>When you use &quot;Run with Clover as...&quot; from main menu, Clover-for-Eclipse enhances the
-                    <strong>-Xbootclasspath</strong> by adding a path to <strong>com.atlassian.clover.eclipse.runtime-&lt;version&gt;.jar</strong>
+                    <strong>-Xbootclasspath</strong> by adding a path to <strong>org.openclover.eclipse.runtime-&lt;version&gt;.jar</strong>
                     from Eclipse installation directory. However, because of the fact that it's not always possible to
                     use &quot;Run with Clover as...&quot; option (for instance when you'd like to debug or profile
                     application), you have to modify your runtime configuration and add -Xbootclasspath manually.

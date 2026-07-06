@@ -65,7 +65,7 @@
                     of the instrumentation process is <strong>instrumented java source</strong>; you will then need to
                     compile the instrumented source using a standard Java compiler.</p>
                 <h3>Usage</h3>
-                <pre>java com.atlassian.clover.CloverInstr [OPTIONS] PARAMS [FILES...]
+                <pre>java org.openclover.core.CloverInstr [OPTIONS] PARAMS [FILES...]
 </pre>
                 <h3>Params</h3>
                 <div>
@@ -205,7 +205,7 @@
                 <h3>API Usage</h3>
                 <p>CloverInstr provides a simple API that accepts an array of strings representing the command line
                     arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
-                <pre>import com.atlassian.clover.CloverInstr;
+                <pre>import org.openclover.core.CloverInstr;
 
 ...
 
@@ -218,12 +218,12 @@ String [] cliArgs =
      }
 </pre>
                 <h3>Examples</h3>
-                <pre>java com.atlassian.clover.CloverInstr -i clover.db -s src -d build/instr
+                <pre>java org.openclover.core.CloverInstr -i clover.db -s src -d build/instr
 </pre>
                 <p>Find all java source files in the directory &quot;src&quot;, copy and instrument them into the
                     directory &quot;build/instr&quot;, which will be constructed if it does not exist. Coverage database &quot;clover.db&quot; is initialized.</p>
                 <p> </p>
-                <pre>java com.atlassian.clover.CloverInstr --source 1.8 -i clover.db -d ../../build/instr \
+                <pre>java org.openclover.core.CloverInstr --source 1.8 -i clover.db -d ../../build/instr \
     Money.java IMoney.java
 </pre>
                 <p>Copy and instrument the source files &quot;Money.java&quot; and &quot;IMoney.java&quot; into the

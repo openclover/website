@@ -73,8 +73,8 @@
                         <tr>
                             <td><p>JRE / JDK <sup>(</sup><sup><a href="#SupportedPlatforms-1">1</a></sup><sup>)</sup>
                             </p></td>
-                            <td><p><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/> 1.7 - 1.9
-                            </p><p><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/>10-17 (experimental)</p></td>
+                            <td><p><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/> 8 - 17
+                            </p><p><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/> 21, 25 (runtime only, no instrumentation of newer language features)</p></td>
                         </tr>
                         <tr>
                             <th colspan="2"><h5>Groovy
@@ -83,7 +83,7 @@
                         <tr>
                             <td>Groovy</td>
                             <td><p>
-                                <img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/> 2.0.1 or later
+                                <img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/> 3.x, 4.x, 5.x
                                 <br class="atl-forced-newline"/><img class="emoticon emoticon-cross" src="images/icons/emoticons/error.png" data-emoticon-name="cross" alt="(error)"/>
                                 Eclipse and IDEA (No Groovy support in IDE)</p></td>
                         </tr>
@@ -91,7 +91,7 @@
                             <td><p>JRE / JDK <sup>(</sup><sup><a href="#SupportedPlatforms-1">1</a></sup><sup>)</sup>
                             </p></td>
                             <td><p>
-                                <img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/> 1.7 or later
+                                <img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/> 8 or later
                             </p>
                             </td>
                         </tr>
@@ -126,7 +126,7 @@
                         <tr>
                             <td>Apache Maven 3</td>
                             <td><p>
-                                <img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/> 3.0.4 or later
+                                <img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/> 3.3.1 or later
                             </p>
                             </td>
                         </tr>
@@ -137,28 +137,20 @@
                         <tr>
                             <td>JetBrains IntelliJ IDEA</td>
                             <td><p>
-                                <img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/> 11.0 - 2016.3
+                                <img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/> 2024.3 - 2026.1
                             </p></td>
                         </tr>
                         <tr>
                             <td><p>Eclipse <sup>(</sup><sup><a href="#SupportedPlatforms-3">3</a></sup><sup>)</sup></p></td>
                             <td><p>
-                                <img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/> 4.2 (Juno) - 4.6
-                                (Neon), RAD 9</p></td>
+                                <img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/> 2024-06 - 2026-03</p></td>
                         </tr>
                         <tr>
                             <th colspan="2">Web Browsers (for viewing Clover's HTML report)</th>
                         </tr>
                         <tr>
-                            <td colspan="1">Edge</td>
+                            <td colspan="1">Chrome</td>
                             <td colspan="1"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="1">Internet Explorer</td>
-                            <td colspan="1">
-                                <img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/> 9.0 or
-                                later
                             </td>
                         </tr>
                         <tr>
@@ -167,7 +159,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="1">Chrome</td>
+                            <td colspan="1">Edge</td>
                             <td colspan="1"><img class="emoticon emoticon-tick" src="images/icons/emoticons/check.png" data-emoticon-name="tick" alt="(tick)"/>
                             </td>
                         </tr>
@@ -177,10 +169,8 @@
                 <h3>Supported Platform Notes</h3>
                 <p><span id="SupportedPlatforms-1"></span></p>
                 <ol>
-                    <li>Since OpenClover 5.0.0 you must use at least Java 1.7 for compilation and runtime.
-                        You can <a href="http://www.java.com/en/download/manual.jsp" rel="nofollow">download</a> a JRE or JDK for Windows/Linux. On
-                        Mac OS X, a JDK is bundled with the operating system. Once a JRE or JDK has been installed, you
-                        need to set the JAVA_HOME environment variable.<br class="emoticon emoticon-warning" title="(warning)"/><br class="atl-forced-newline"/><span id="SupportedPlatforms-2"></span>
+                    <li>Since OpenClover 5.0.0 you must use at least Java 8 for compilation and runtime. Once a JRE or JDK has
+                        been installed, you need to set the JAVA_HOME environment variable.
                     </li>
                     <li>Clover is a pure Java application and should run on any operating system platform provided the
                         requirements for the JRE or JDK are satisfied.<br/><span id="SupportedPlatforms-3"></span></li>

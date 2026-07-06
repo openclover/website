@@ -248,7 +248,7 @@
                         and make it consistent in a future Clover release. Therefore, anonymous inline classes will have
                         their own entity in a database model and will be kept under an enclosing method.</p>
                     <h2>Java API</h2>
-                    <p>Interfaces describing the database structure are located in the <strong>com.atlassian.clover.api.registry</strong>
+                    <p>Interfaces describing the database structure are located in the <strong>org.openclover.core.api.registry</strong>
                         package (<a href="../../javadoc/5.0.0/index.html" rel="nofollow">JavaDoc</a>).</p>
                     <p>They can be grouped into few categories:</p>
                     <ul>
@@ -271,13 +271,13 @@
                     <p>An example how to read a content of a database.</p>
                     <p>If you'd like to read a database without coverage, then replace &quot;CloverDatabase.loadWithCoverage(..)&quot; 
                         by &quot;new CloverDatabase(initstring)&quot;</p>
-                    <pre>import com.atlassian.clover.CloverDatabase;
-import com.atlassian.clover.CoverageDataSpec;
-import com.atlassian.clover.api.registry.ClassInfo;
-import com.atlassian.clover.api.registry.FileInfo;
-import com.atlassian.clover.api.registry.MethodInfo;
-import com.atlassian.clover.api.registry.PackageInfo;
-import com.atlassian.clover.api.registry.ProjectInfo;
+                    <pre>import org.openclover.core.CloverDatabase;
+import org.openclover.core.CoverageDataSpec;
+import org.openclover.core.api.registry.ClassInfo;
+import org.openclover.core.api.registry.FileInfo;
+import org.openclover.core.api.registry.MethodInfo;
+import org.openclover.core.api.registry.PackageInfo;
+import org.openclover.core.api.registry.ProjectInfo;
 
 import java.io.PrintStream;
 
@@ -312,19 +312,19 @@ public class SimpleRegistryDumper {
     }
 }</pre>
                     <h2>Writing to a Clover database</h2>
-                    <pre>import com.atlassian.clover.api.CloverException;
-import com.atlassian.clover.api.instrumentation.InstrumentationSession;
-import com.atlassian.clover.api.registry.FileInfo;
-import com.atlassian.clover.api.registry.MethodInfo;
-import com.atlassian.clover.api.registry.StatementInfo;
-import com.atlassian.clover.context.ContextSet;
-import com.atlassian.clover.registry.Clover2Registry;
-import com.atlassian.clover.registry.FixedSourceRegion;
-import com.atlassian.clover.registry.entities.MethodSignature;
-import com.atlassian.clover.registry.entities.Modifier;
-import com.atlassian.clover.registry.entities.Modifiers;
-import com.atlassian.clover.registry.entities.Parameter;
-import com.atlassian.clover.spi.lang.LanguageConstruct;
+                    <pre>import org.openclover.runtime.api.CloverException;
+import org.openclover.core.api.instrumentation.InstrumentationSession;
+import org.openclover.core.api.registry.FileInfo;
+import org.openclover.core.api.registry.MethodInfo;
+import org.openclover.core.api.registry.StatementInfo;
+import org.openclover.core.api.registry.ContextSet;
+import org.openclover.core.registry.Clover2Registry;
+import org.openclover.core.registry.FixedSourceRegion;
+import org.openclover.core.registry.entities.MethodSignature;
+import org.openclover.core.registry.entities.ModifierExt;
+import org.openclover.core.registry.entities.Modifiers;
+import org.openclover.core.registry.entities.Parameter;
+import org.openclover.core.spi.lang.LanguageConstruct;
 
 import java.io.File;
 import java.io.IOException;
@@ -382,7 +382,7 @@ public class SimpleCodeInstrumenter {
         // example: register a class (in current file)
         session.enterClass(&quot;Foo&quot;,                            // class name
                 new FixedSourceRegion(10, 1),                // start row:column
-                Modifiers.createFrom(Modifier.PUBLIC, null), // modifiers and annotations
+                Modifiers.createFrom(ModifierExt.PUBLIC, null), // modifiers and annotations
                 false, false, false);                        // is interface, is enum, is annotation
 
         // example: add a method to the Foo class
@@ -390,7 +390,7 @@ public class SimpleCodeInstrumenter {
                 &quot;void&quot;,                                                            // return type
                 new Parameter[] { new Parameter(&quot;String&quot;, &quot;name&quot;) },               // formal parameters
                 null,                                                              // throws
-                Modifiers.createFrom(Modifier.PROTECTED | Modifier.STATIC, null)); // modifiers
+                Modifiers.createFrom(ModifierExt.PROTECTED | ModifierExt.STATIC, null)); // modifiers
         MethodInfo methodInfo = session.enterMethod(new ContextSet(),
                 new FixedSourceRegion(12, 1),  // start row:column
                 methodSignature,  // signature
@@ -433,9 +433,9 @@ public class SimpleCodeInstrumenter {
                         to generate a global coverage recording file. It keeps information about hit counts for every
                         code element registered in a database (i.e. how many times given method/statement/branch was
                         executed).</p>
-                    <pre>import com.atlassian.clover.api.CloverException;
-import com.atlassian.clover.recorder.FileBasedGlobalCoverageRecording;
-import com.atlassian.clover.registry.Clover2Registry;
+                    <pre>import org.openclover.runtime.api.CloverException;
+import org.openclover.runtime.recorder.FileBasedGlobalCoverageRecording;
+import org.openclover.core.registry.Clover2Registry;
 import com_atlassian_clover.Clover;
 
 import java.io.File;

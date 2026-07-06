@@ -63,7 +63,7 @@
             <div id="main-content">
                 <p>Produces an XML report of Code Coverage for the given coverage database.</p>
                 <h2>Usage</h2>
-                <pre> java com.atlassian.clover.reporters.xml.XMLReporter [OPTIONS] PARAMS
+                <pre> java org.openclover.core.reporters.xml.XMLReporter [OPTIONS] PARAMS
 </pre>
                 <h3>Parameters</h3>
                 <div>
@@ -153,9 +153,9 @@
                 <h2>API Usage</h2>
                 <p>XMLReporter provides a simple API that accepts an array of strings representing the command line
                     arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
-                <pre>import com.atlassian.clover.CloverStartup;
-import com.atlassian.clover.Logger;
-import com.atlassian.clover.reporters.xml.XMLReporter;
+                <pre>import org.openclover.core.CloverStartup;
+import org.openclover.runtime.Logger;
+import org.openclover.core.reporters.xml.XMLReporter;
 
 public class XmlReportRunner {
     public void runReport() {
@@ -169,12 +169,12 @@ public class XmlReportRunner {
                 <h3>Examples</h3>
                 <pre
 
-                        > java com.atlassian.clover.reporters.xml.XMLReporter -i clover.db -o coverage.xml</pre>
+                        > java org.openclover.core.reporters.xml.XMLReporter -i clover.db -o coverage.xml</pre>
                 <p>Read coverage for the Clover database &quot;clover.db&quot;, and produce a report in the file &quot;coverage.xml&quot;</p>
                 <p> </p>
                 <pre
 
-                        >java com.atlassian.clover.reporters.xml.XMLReporter -l -t &quot;My Coverage&quot; -i clover.db -o coverage.xml</pre>
+                        >java org.openclover.core.reporters.xml.XMLReporter -l -t &quot;My Coverage&quot; -i clover.db -o coverage.xml</pre>
                 <p>Produce the same report as above, but include source-level coverage information, and a report
                     title.</p>
             </div>

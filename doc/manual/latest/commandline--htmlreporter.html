@@ -63,7 +63,7 @@
             <div id="main-content">
                 <p>Produces an HTML report of Code Coverage for the given coverage database.</p>
                 <h2>Usage</h2>
-                <pre>java -cp clover.jar com.atlassian.clover.reporters.html.HtmlReporter [OPTIONS] PARAMS
+                <pre>java -cp clover.jar org.openclover.core.reporters.html.HtmlReporter [OPTIONS] PARAMS
 </pre>
                 <h3>Params</h3>
                 <div>
@@ -216,9 +216,9 @@
                 <h2>API Usage</h2>
                 <p>HtmlReporter provides a simple API that accepts an array of strings representing the command line
                     arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
-                <pre>import com.atlassian.clover.reporters.html.HtmlReporter;
-import com.atlassian.clover.CloverStartup;
-import com.atlassian.clover.Logger;
+                <pre>import org.openclover.core.reporters.html.HtmlReporter;
+import org.openclover.core.CloverStartup;
+import org.openclover.runtime.Logger;
 
 public class HtmlReportRunner {
     public void runReport() {
@@ -231,11 +231,11 @@ public class HtmlReportRunner {
     }
 } </pre>
                 <h3>Examples</h3>
-                <pre>java com.atlassian.clover.reporters.html.HtmlReporter -i clover.db -o clover_html
+                <pre>java org.openclover.core.reporters.html.HtmlReporter -i clover.db -o clover_html
 </pre>
                 <p>Reads coverage for the Clover database &quot;clover.db&quot;, and produces a report in the directory &quot;clover_html&quot;.</p>
                 <p> </p>
-                <pre>java com.atlassian.clover.reporters.html.HtmlReporter -c ElementsCoveredAsc
+                <pre>java org.openclover.core.reporters.html.HtmlReporter -c ElementsCoveredAsc
       -t &quot;My Coverage&quot; -i clover.db -o clover_html
 </pre>
                 <p>Produces the same report as above, but includes a report title, and orders lists by total elements

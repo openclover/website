@@ -70,7 +70,7 @@
 ...
 build	Clover: Clover is enabled. Configuration: [on:true, debug:[:], verbose:[:]]
 ...
-build	| Error Exception occurred trigger event [SetClasspath]: java.lang.VerifyError: (class: com/atlassian/clover/ant/tasks/AbstractCloverTask, method: init signature: ()V) Incompatible argument to function (NOTE: Stack trace has been filtered. Use --verbose to see entire trace.)
+build	| Error Exception occurred trigger event [SetClasspath]: java.lang.VerifyError: (class: org/openclover/ant/tasks/AbstractCloverTask, method: init signature: ()V) Incompatible argument to function (NOTE: Stack trace has been filtered. Use --verbose to see entire trace.)
 </code></pre>
                 <p> </p><h4>Cause</h4>
                 <p>Your application is using some Grails plugin, which has a dependency on the Clover plugin and this

@@ -68,7 +68,7 @@
                 <p>WARNING: the &lt;clover-setup&gt; task requires clover.jar to be placed directly on Ant's classpath,
                     otherwise the compilation via &lt;javac&gt; task will fail with an error: </p>
 
-                <p><i>Class not found: com.atlassian.clover.ant.taskdefs.CloverCompilerAdapter</i></p>
+                <p><i>Class not found: org.openclover.ant.taskdefs.CloverCompilerAdapter</i></p>
 
                 <p>For this reason we recommend <a href="ant--adding-to-ants-classpath.html">installing clover.jar in Ant classpath</a>.</p>
 
@@ -79,7 +79,7 @@
                     task:</p>
                 <pre><code class="language-xml">&lt;target name=&quot;-check.clover&quot;&gt;
 &lt;available property=&quot;clover.installed&quot;
-classname=&quot;com.atlassian.clover.CloverInstr&quot; /&gt;
+classname=&quot;org.openclover.core.CloverInstr&quot; /&gt;
 &lt;/target&gt;
 
 &lt;target name=&quot;guard.noclover&quot; depends=&quot;-check.clover&quot; unless=&quot;clover.installed&quot;&gt;
