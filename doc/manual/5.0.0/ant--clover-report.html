@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="canonical" href="https://openclover.org/doc/manual/latest/ant--clover-report.html" />
+    <title>OpenClover 5.0 : clover-report</title>
+    <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../downloads">Downloads</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="../../../documentation">Documentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../support">Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About ...</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
+                        <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
+                        <li><a class="dropdown-item" href="../../../license">License information</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main">
+        <div id="main-header">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">OpenClover 5.0</a>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="ant--overview.html">Clover-for-Ant</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="ant--user-guide.html">Clover-for-Ant User&#39;s Guide</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="ant--task-reference.html">6. Ant Task Reference</a></span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <h1 id="title-heading" class="pagetitle">
+            clover-report </h1>
+
+        <div id="content" class="view">
+
+            <div id="main-content">
+                <h1 id="clover-report-Introduction">Introduction</h1>
+                <p>The <code>&lt;clover-report&gt;</code> task generates <a href="general--understanding-reports-current.html">current</a> and
+                    <a href="general--understanding-reports-historical.html">historical</a> reports in multiple formats.</p>
+                <p>
+                    <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> If you do not require fine-grained control over
+                    your Clover reports, use the <code>&lt;<a href="ant--clover-html-report.html">clover-html-report</a>&gt;</code> or
+                    <code>&lt;<a href="ant--clover-pdf-report.html">clover-pdf-report</a>&gt;</code> tasks.</p>
+                <p> </p>
+                <p>On this page:</p>
+                <p>
+                    <style type="text/css">/*<![CDATA[*/
+                    div.rbtoc1491813709018 {
+                        padding: 0px;
+                    }
+
+                    div.rbtoc1491813709018 ul {
+                        list-style: disc;
+                        margin-left: 0px;
+                    }
+
+                    div.rbtoc1491813709018 li {
+                        margin-left: 0px;
+                        padding-left: 0px;
+                    }
+
+                    /*]]>*/
+
+
+                    </style>
+                <div class="toc-macro rbtoc1491813709018">
+                    <ul class="toc-indentation">
+                        <li><a href="#clover-report-Introduction">Introduction</a></li>
+                        <li><a href="#clover-report-Overview">Overview</a></li>
+                        <li><a href="#clover-report-Parameters">Parameters</a></li>
+                        <li><a href="#clover-report-Nestedelements">Nested elements</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#clover-report-&lt;current&gt;">&lt;current&gt;</a></li>
+                                <li><a href="#clover-report-&lt;historical&gt;">&lt;historical&gt;</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#clover-report-Examples">Examples</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#clover-report-ExamplesofCurrentReportconfigurations">Examples of Current
+                                    Report configurations</a></li>
+                                <li><a href="#clover-report-Exampleofcustomizingcolumns">Example of customizing
+                                    columns</a></li>
+                                <li><a href="#clover-report-Exampleoflinkedreports">Example of linked reports</a></li>
+                                <li><a href="#clover-report-ExamplesofHistoricalReportConfigurations">Examples of
+                                    Historical Report Configurations</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#clover-report-References">References</a>
+                            <ul class="toc-indentation">
+                                <li><a href="#clover-report-ColumnNameReferenceTable">Column Name Reference Table</a>
+                                </li>
+                                <li><a href="#clover-report-CloverExpressionLanguage">Clover Expression Language</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                </p><h1 id="clover-report-Overview">Overview</h1>
+                <p>The basic nesting of elements within the <code>&lt;clover-report&gt;</code> task is as follows:
+                    (click any item for detailed user documentation).</p>
+                <div class="panel" style="background-color: white;border-style: dashed;border-width: 1px;">
+                    <div class="panelContent" style="background-color: white;">
+                        <p>&lt;<a href="#clover-report-clover-report">clover-report</a>&gt;<br/>     &lt;<a href="#clover-report-Current">current</a>&gt;<br/>         &lt;<a href="#clover-report-Columns">columns</a>&gt;<br/>              (one or more
+                            <a href="#clover-report-Columns">columns</a>)<br/>         &lt;/<a href="#clover-report-Columns">columns</a>/&gt;<br/>         &lt;<a href="#clover-report-Fileset">fileset</a>/&gt;<br/>         &lt;<a href="#clover-report-Format">format</a>/&gt;<br/>         &lt;<a href="#clover-report-Sourcepath">sourcepath</a>/&gt;<br/>         &lt;<a href="#clover-report-Testsources">testsources</a>/&gt;<br/>         &lt;<a href="#clover-report-Testresults">testresults</a>/&gt;<br/>     &lt;/<a href="#clover-report-Current">current</a>&gt;<br/>     &lt;<a href="#clover-report-Historical">historical</a>&gt;<br/>        &lt;<a href="#clover-report-added">added</a>&gt;<br/>           &lt;<a href="#clover-report-Columns">columns</a>&gt;<br/>                 (a single
+                            <a href="#clover-report-Columns">column</a>)<br/>           &lt;/<a href="#clover-report-Columns">columns</a>/&gt;<br/>        &lt;/<a href="#clover-report-added">added</a>&gt;<br/>         &lt;<a href="#clover-report-Chart">chart</a>&gt;<br/>               (one or more
+                            <a href="#clover-report-Columns">columns</a>)<br/>         &lt;/<a href="#clover-report-Chart">chart</a>/&gt;<br/>         &lt;<a href="#clover-report-Coverage">coverage</a>/&gt;<br/>         &lt;<a href="#clover-report-Format">format</a>/&gt;<br/>         &lt;<a href="#clover-report-Metrics">metrics</a>/&gt;<br/>         &lt;<a href="#clover-report-Movers">movers</a>&gt;<br/>           &lt;<a href="#clover-report-Columns">columns</a>&gt;<br/>                 (a single
+                            <a href="#clover-report-Columns">column</a>)<br/>           &lt;/<a href="#clover-report-Columns">columns</a>/&gt;<br/>         &lt;/<a href="#clover-report-Movers">movers</a>&gt;<br/>         &lt;<a href="#clover-report-historical-overview">overview</a>/&gt;<br/>     &lt;/<a href="#clover-report-Historical">historical</a>&gt;<br/> &lt;/<a href="#clover-report-clover-report">clover-report</a>&gt;
+                        </p>
+                    </div>
+                </div>
+                <p><span id="clover-report-clover-report"></span></p>
+                <h1 id="clover-report-Parameters">Parameters</h1>
+                <p>The <code>&lt;clover-report&gt;</code> task generates <a href="general--understanding-reports-current.html">current</a> and
+                    <a href="general--understanding-reports-historical.html">historical</a> reports in multiple formats. Parameters for &lt;clover-report&gt;:
+                </p>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
+                        </tr>
+                        <tr>
+                            <td>coverageCacheSize</td>
+                            <td>This is a performance tuning option, which is used to specify
+                                the maximum size of coverage data kept in memory when generating a report. Accepts
+                                storage values such as 256m (256 megabytes) or 1g (1 gigabyte). Also accepts the value &quot;nocache&quot; to force all coverage data to be loaded into memory.</td>
+                            <td>No. Default is 256m.</td>
+                        </tr>
+                        <tr>
+                            <td>initstring</td>
+                            <td>The initstring of the coverage database.</td>
+                            <td><p>No; if not specified here, Clover will look in the default
+                                location (<code>${basedir}.clover</code>). If you have specified an
+                                <code>initstring</code> on the <code>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;</code>
+                                task, you must ensure <code>&lt;<a href="ant--clover-setup.html">clover-setup</a>&gt;</code>
+                                is called prior the execution of this task.</p></td>
+                        </tr>
+                        <tr>
+                            <td>failOnError</td>
+                            <td>If true, failure to generate a report causes a build
+                                failure.</td>
+                            <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>projectName</td>
+                            <td>Overrides the project name set in the Ant build file. This is
+                                used for display purposes only.</td>
+                            <td>No; defaults to the project name of the Ant build file.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h1 id="clover-report-Nestedelements">Nested elements</h1>
+                <p>These elements represent the actual reports to be generated. You can generate multiple reports by
+                    specifying more than one of these inside a <code>&lt;clover-report&gt;</code> element. Each report
+                    will contain links to the other reports. See <a href="ant--clover-report.html">clover-report</a>.
+                    <span id="clover-report-Current"></span></p>
+                <h2>&lt;current&gt;</h2>
+                <p>Generates a current coverage report. Specify the report format using a nested
+                    <a href="#clover-report-Format">Format</a> element. Valid formats are XML, HTML, PDF and JSON,
+                    although not all configurations support all formats. The default format is PDF if summary=&quot;true&quot;,
+                    or XML if not. See <a href="ant--clover-report.html">clover-report</a>.</p>
+                <p><strong>Parameters for &lt;current&gt;</strong></p>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
+                        </tr>
+                        <tr>
+                            <td>alwaysReport</td>
+                            <td>If set to true, a report will be generated even in the absence
+                                of coverage data.</td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>charset</td>
+                            <td>The character set to use in the HTML reports.</td>
+                            <td>No. Default is UTF-8</td>
+                        </tr>
+                        <tr>
+                            <td>homepage</td>
+                            <td><p>Specifies the start page to use. This can be one of the
+                                predefined pages: <code>dashboard</code>, <code>overview</code>, <code>aggregate</code>,
+                                <code>testresults</code>, <code>quickwins</code>, <code>projectrisks</code> or an
+                                arbitrary URL.</p></td>
+                            <td><p>No; defaults to &quot;<code>dashboard</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>includeFailedTestCoverage</td>
+                            <td>Specifies whether or not to include coverage attributed to a
+                                test that has failed.</td>
+                            <td><p>No; default is &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>maxTestsPerFile</td>
+                            <td>Specifies the maximum number of tests (ranked by coverage
+                                contribution) to display on a source file report page. This parameter can be used to
+                                reduce the size of reports for projects with very large numbers of tests.</td>
+                            <td><p>No; unlimited if not specified or <code>-1.</code></p></td>
+                        </tr>
+                        <tr>
+                            <td>numThreads</td>
+                            <td>The number of threads to start when generating an HTML report. A
+                                value of 0 will disable multi-threading for report generation.</td>
+                            <td>No. Default is 2.</td>
+                        </tr>
+                        <tr>
+                            <td>outfile</td>
+                            <td>The outfile to write output to. If it does not exist, it is
+                                created. Depending on the specified format, this either represents a regular file (PDF,
+                                XML) or a directory (HTML, JSON).</td>
+                            <td>Yes.</td>
+                        </tr>
+                        <tr>
+                            <td>span</td>
+                            <td><p>Specifies how far back in time to include coverage recordings
+                                from since the last Clover build. See <a href="ant--using-spans.html">Using
+                                    Spans</a>.</p></td>
+                            <td>No; default includes &quot;all coverage data found&quot;.</td>
+                        </tr>
+                        <tr>
+                            <td>summary</td>
+                            <td>Specifies whether to generate a summary report or detailed
+                                report. Currently this applies for XML and PDF reports. See srcLevel on the format
+                                element for HTML.</td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">showLambdaFunctions</td>
+                            <td colspan="1"><p>Whether to present lambda functions in the report.
+                                If set to <em>false</em>, they are hidden on the methods' list, but code metrics still
+                                include them.</p></td>
+                            <td colspan="1">No; defaults to &quot;<code>false</code>&quot;.</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">showInnerFunctions</td>
+                            <td colspan="1"><p>Whether to show inner functions, i.e. functions
+                                declared inside methods in the report. This applies to Java8 lambda functions for
+                                instance. If set to <em>false</em>, then they are hidden on the methods' list, but code
+                                metrics still include them.</p></td>
+                            <td colspan="1">No; defaults to &quot;<code>false</code>&quot;.</td>
+                        </tr>
+                        <tr>
+                            <td>showUniqueCoverage</td>
+                            <td><p>Calculate and show unique per-test coverage (for large projects,
+                                this can take a significant amount of time). Defaults ton<code>false</code>.</p></td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>timeout</td>
+                            <td><p>The amount of time to wait for report generation to finish
+                                before failing the build. This value must be an <a href="ant--using-spans-specifying-an-interval.html">Interval</a>.</p></td>
+                            <td>No. Default is no timeout.</td>
+                        </tr>
+                        <tr>
+                            <td>title</td>
+                            <td>Specifies a title for the report.</td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>titleAnchor</td>
+                            <td>If specified, the report title will be rendered as a hyperlink
+                                to this href.</td>
+                            <td>No; default is to not render the report title as a
+                                hyperlink.</td>
+                        </tr>
+                        <tr>
+                            <td>titleTarget</td>
+                            <td><p>Specifies the href target if the title is to be rendered as a
+                                hyperlink (see <code>titleAnchor</code> above). <em>HTML format only.</em></p></td>
+                            <td><p>No; default is &quot;<code>_top</code>&quot;.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p> </p>
+                <p><strong>Nested elements of &lt;current&gt;</strong></p>
+                <p>These elements represent individual sections of the 'current' report. If you do not specify any of
+                    these elements, all the sections will be included in the report. If you specify more one or more of
+                    these elements, only the specified sections will be included.</p>
+                <div><span></span>
+                    <div>
+                        <p>You may specify multiple &lt;overview&gt; and &lt;coverage&gt; elements in the 'current' report. These may have different properties and include different
+                            elements. The charts will appear in the report in the same order they appear in the &lt;current&gt; element. The &lt;movers&gt; element always appears at the end of the report following these
+                            charts regardless of its location in the &lt;current&gt; element.</p></div>
+                </div>
+                <p> </p>
+                <h3><span id="clover-report-Columns"></span> &lt;columns&gt; </h3>
+                <p>Specifies the data columns to be included on summary pages. If not specified, default columns will be
+                    output.
+                <p>Specific columns are defined as sub-elements to this one. See the
+                    <a href="ant--clover-report.html"><span>clover-report</span></a>.</p>
+                <p>Columns can be defined in a &lt;<a href="ant--clover-columns.html">clover-columns</a>/&gt; Ant type for
+                    <a href="https://ant.apache.org/manual/using.html#references" rel="nofollow">referencing</a>
+                    elsewhere in the build file.</p>
+                <p>Each column element takes an optional <code>format</code> attribute which determines how the column's
+                    value is rendered. The <code>format</code> attribute may be one of the following:</p>
+                <ul>
+                    <li><code>raw</code> — the actual value. Always used for total columns</li>
+                    <li><code>bar</code> — render a bar chart (40px wide) showing the coverage percentage</li>
+                    <li><code>longbar</code> — same as <code>bar</code> above, except 200px wide</li>
+                    <li><code>%</code> — The coverage percentage value</li>
+                </ul>
+                <p>Note that <code>bar</code> and <code>%</code> are not valid formats for total columns.</p>
+                <p>All column elements also take <code>max</code> and/or <code>min</code> threshold attributes. If the
+                    value for the column is outside the threshold, the value will be highlighted.</p>
+                <p><span id="clover-report-columnNames"></span></p>
+                <p><strong>Table of Column Names</strong></p>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>Column</th>
+                            <th>Description</th>
+                            <th>Valid Format Attributes</th>
+                        </tr>
+                        <tr>
+                            <td>avgClassesPerFile</td>
+                            <td>The average number of classes per file.</td>
+                            <td><code>raw</code></td>
+                        </tr>
+                        <tr>
+                            <td>avgMethodComplexity</td>
+                            <td>The average number of paths per method.</td>
+                            <td><code>raw</code></td>
+                        </tr>
+                        <tr>
+                            <td>avgMethodsPerClass</td>
+                            <td>The average number of methods per class.</td>
+                            <td><code>raw</code></td>
+                        </tr>
+                        <tr>
+                            <td>avgStatementsPerMethod</td>
+                            <td>The average number of statements per method.</td>
+                            <td><code>raw</code></td>
+                        </tr>
+                        <tr>
+                            <td>complexity</td>
+                            <td>Cyclomatic Complexity is a measure of the number of paths in
+                                your code.</td>
+                            <td><code>raw</code></td>
+                        </tr>
+                        <tr>
+                            <td>complexityDensity</td>
+                            <td>The average complexity per statement.</td>
+                            <td><code>raw</code></td>
+                        </tr>
+                        <tr>
+                            <td>coveredBranches</td>
+                            <td>The amount of covered branches.</td>
+                            <td><p>
+                                <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
+                        </tr>
+                        <tr>
+                            <td>coveredElements</td>
+                            <td>The total number of covered elements (branches + statements) in
+                                the project.</td>
+                            <td><p>
+                                <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
+                        </tr>
+                        <tr>
+                            <td>coveredMethods</td>
+                            <td>The amount of covered methods.</td>
+                            <td><p>
+                                <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
+                        </tr>
+                        <tr>
+                            <td>coveredStatements</td>
+                            <td>The amount of covered statements.</td>
+                            <td><p>
+                                <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
+                        </tr>
+                        <tr>
+                            <td>expression</td>
+                            <td>The body of this element will be evaluated as an arithmetic
+                                expression. All other column names can be referenced. See Clover EL. This column takes
+                                an optional title attribute.</td>
+                            <td>raw</td>
+                        </tr>
+                        <tr>
+                            <td>filteredElements</td>
+                            <td>The amount of elements that have been filtered out of the
+                                report.</td>
+                            <td><p>
+                                <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
+                        </tr>
+                        <tr>
+                            <td>ncLineCount</td>
+                            <td><p>The total number of non-comment lines. <br/>
+                                <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> When using Clover on Groovy source
+                                code, this column consistently reports '0' at the moment.</p></td>
+                            <td><code>raw</code></td>
+                        </tr>
+                        <tr>
+                            <td>lineCount</td>
+                            <td>The total number of lines.</td>
+                            <td><code>raw</code></td>
+                        </tr>
+                        <tr>
+                            <td>SUM</td>
+                            <td><p>Scientifically Untested Metric. This is very similar to crap4j
+                                and is defined by this expression:</p>
+                                <pre>complexity^2 * ((1 - %coveredElements/100)^3) + complexity</pre>
+                            </td>
+                            <td>raw</td>
+                        </tr>
+                        <tr>
+                            <td>percentageCoveredContribution</td>
+                            <td>Helps you to work out how much an individual package, file or
+                                class contributes (percentage-wise) to the overall number of covered elements in the
+                                project. Useful for spotting quick wins.</td>
+                            <td>raw;bar;%;longbar</td>
+                        </tr>
+                        <tr>
+                            <td>percentageUncoveredContribution</td>
+                            <td>Helps you to work out how much an individual package, file or
+                                class contributes (percentage-wise) to the overall number of uncovered elements in the
+                                project. Useful for spotting quick wins.</td>
+                            <td>raw;bar;%;longbar</td>
+                        </tr>
+                        <tr>
+                            <td>totalBranches</td>
+                            <td>The total number of branches in the project.</td>
+                            <td><code>raw</code></td>
+                        </tr>
+                        <tr>
+                            <td>totalChildren</td>
+                            <td>The number of lower order elements. The order of elements is:
+                                Project, Package, File, Class, Method, Statement</td>
+                            <td><code>raw</code></td>
+                        </tr>
+                        <tr>
+                            <td>totalClasses</td>
+                            <td>The total number of classes below the package, project or
+                                file.</td>
+                            <td><code>raw</code></td>
+                        </tr>
+                        <tr>
+                            <td>totalElements</td>
+                            <td>The total number of elements (branches + statements) in the
+                                project.</td>
+                            <td><code>raw</code></td>
+                        </tr>
+                        <tr>
+                            <td>totalFiles</td>
+                            <td>The total number of files below the package or project.</td>
+                            <td><code>raw</code></td>
+                        </tr>
+                        <tr>
+                            <td>totalMethods</td>
+                            <td>The total number of methods in the project.</td>
+                            <td><code>raw</code></td>
+                        </tr>
+                        <tr>
+                            <td>totalPercentageCovered</td>
+                            <td>The total coverage.</td>
+                            <td><p>
+                                <code>raw</code>;<code>bar</code>;<code>%</code>;<code>longbar</code></p></td>
+                        </tr>
+                        <tr>
+                            <td>totalStatements</td>
+                            <td>The total number of statements in the project.</td>
+                            <td><code>raw</code></td>
+                        </tr>
+                        <tr>
+                            <td>uncoveredBranches</td>
+                            <td>Branches that were not executed.</td>
+                            <td>raw;bar;%;longbar</td>
+                        </tr>
+                        <tr>
+                            <td>uncoveredElements</td>
+                            <td>Elements that were not executed.</td>
+                            <td>raw;bar;%;longbar</td>
+                        </tr>
+                        <tr>
+                            <td>uncoveredMethods</td>
+                            <td>Methods that were not executed.</td>
+                            <td>raw;bar;%;longbar</td>
+                        </tr>
+                        <tr>
+                            <td>uncoveredStatements</td>
+                            <td>Statements that were not executed.</td>
+                            <td>raw;bar;%;longbar</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p> </p>
+                <p><strong>Column Attributes</strong></p>
+                <p>Each of the above column elements can take the following attributes:</p>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
+                        </tr>
+                        <tr>
+                            <td>format</td>
+                            <td><p>Determines how the value is rendered. Depending on the column,
+                                this may be one of <code>raw</code>, <code>bar</code>, <code>%</code> or
+                                <code>longbar</code>.</p></td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>min</td>
+                            <td>Sets a minimum threshold on the value of the column. If the
+                                value is less than this it will be highlighted.</td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>max</td>
+                            <td>Sets a maximum threshold on the value of the column. If the
+                                value is greater than this it will be highlighted.</td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>scope</td>
+                            <td><p>Controls at which level in the report the column will appear.
+                                The scope attribute can be one of: &quot;package&quot;, &quot;class&quot; or &quot;method&quot;.
+                                If omitted, the column will be used at every level in the report. Note that only the
+                                following columns support the scope attribute: <strong>expression</strong>, <strong>complexity</strong>,
+                                <strong>complexityDensity</strong>, <strong>coveredXXX</strong>,
+                                <strong>uncoveredXXX</strong> and <strong>totalXXX</strong>.</p></td>
+                            <td>No.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><span id="clover-report-CloverEL"></span><br/> <strong>Clover
+                    Expression Language</strong><br/> Clover Expression Language enables you to combine any of Clover's
+                    built-in column types to produce a custom column. The following arithmetic operators are available:
+                    +, - , *, /, ^, (). Any of Clover's columns may be referenced.<br/> A percentage sign, '%', before a
+                    column identifier will evaluate to the percentage of that columns data, rather than its raw value.
+                    e.g. %CoveredElements == (CoveredElements/TotalElements) * 100</p>
+                <p><em>Example</em>:</p>
+                <pre><code class="language-xml">&lt;columns&gt;
+  &lt;expression title=&quot;SUM&quot;&gt;complexity^2 * ((1 - %coveredElements/100)^3) + complexity&lt;/expression&gt;
+&lt;/columns&gt;</code></pre>
+                </p><h3><span id="clover-report-Fileset"></span> &lt;fileset&gt;</h3>
+                <p>&lt;current&gt; supports nested filesets which control which source files are to be included in a
+                    report. Only classes which are from the source files in the fileset are included in the report. This
+                    allows reports to focus on certain packages or particular classes. By using
+                    <a href="https://ant.apache.org/manual/Types/fileset.html" rel="nofollow">Ant
+                        fileset</a> selectors, more complicated selections are possible, such as the files which have
+                    recently changed, or files written by a particular author.</p>
+                <h3><span id="clover-report-current-format"></span> &lt;format&gt; </h3>
+                <p>Specifies the output format and various options controlling the rendering of a report.
+                <p><strong>Parameters for &lt;format&gt;</strong></p>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
+                        </tr>
+                        <tr>
+                            <td>type</td>
+                            <td><p>The output format in which to render the report. Valid values
+                                are <code>pdf</code>, <code>xml</code>, <code>html</code> and <code>json</code>. Note
+                                that not all report formats support all other attributes.</p></td>
+                            <td><p>Yes, unless <code>refid</code> is set.</p></td>
+                        </tr>
+                        <tr>
+                            <td>refid</td>
+                            <td><p>The id of another format element that will be used for this
+                                report. See <a href="ant--sharing-report-formats.html">Sharing
+                                    Report Formats</a>.</p></td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>The id of this format element.</td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>bw</td>
+                            <td>Specify that the report should be black-and-white. Supported by
+                                PDF reports only.</td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>orderBy</td>
+                            <td><p>Specify how to order coverage tables. This attribute has no
+                                effect on XML format. Valid values are: <br class="atl-forced-newline"/> <code>Alpha</code> — Alpabetical.
+                                <br class="atl-forced-newline"/> <code>PcCoveredAsc</code> — Percent total coverage,
+                                ascending. <code>PcCoveredDesc</code> — Percent total
+                                coverage, descending. <code>ElementsCoveredAsc</code> —
+                                Total elements covered, ascending. <code>ElementsCoveredDesc</code>
+                                — Total elements covered, descending. <code>ElementsUncoveredAsc</code>
+                                — Total elements uncovered, ascending. <code>ElementsUncoveredDesc</code>
+                                — Total elements uncovered, descending.</p></td>
+                            <td><p>No; defaults to <code>PcCoveredAsc.</code></p></td>
+                        </tr>
+                        <tr>
+                            <td>noCache</td>
+                            <td><p><em>(HTML only)</em> If true, insert nocache directives in HTML
+                                output.</p></td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>srcLevel</td>
+                            <td>If true, include source-level coverage information in the
+                                report.</td>
+                            <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>filter</td>
+                            <td><p>comma or space separated list of contexts to exclude when
+                                generating coverage reports. See <a href="ant--using-coverage-contexts.html">Using
+                                    Coverage Contexts</a>.</p></td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>pageSize</td>
+                            <td><p><em>(PDF only)</em> Specify the page size to use. Valid values
+                                are <code>A4</code>, <code>LETTER.</code></p></td>
+                            <td><p>No; defaults to &quot;<code>A4</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>showEmpty</td>
+                            <td>If true, classes, files and packages that do not contain any
+                                executable code (i.e. methods, statements, or branches) are included in reports. These
+                                are normally not shown.</td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>tabWidth</td>
+                            <td><p><em>(Source level reports only)</em> The number of space chars
+                                to replace TAB characters with.</p></td>
+                            <td><p>No; defaults to <code>4.</code></p></td>
+                        </tr>
+                        <tr>
+                            <td>maxNameLength</td>
+                            <td>The maximum length in chars of package or classnames in the
+                                report. Longer names will be truncated. A value &lt; 0 indicates no limit.</td>
+                            <td>No; defaults to no limit.</td>
+                        </tr>
+                        <tr>
+                            <td>callback</td>
+                            <td>The name of the callback function to wrap the JSON. If set to an
+                                empty string, &quot; &quot;, then the JSON will not be wrapped.</td>
+                            <td>No; default is 'processClover'.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong><br/></strong></p></p><h3><br class="atl-forced-newline"/> <span id="clover-report-Sourcepath"></span> &lt;sourcepath&gt;</h3>
+                <p>Specifies an Ant path that Clover should use when looking for source files. This option is useful
+                    when sources are located in a different directory than during compilation.</p>
+                <p>Note that you have to list <strong>all</strong> source roots (and not just a workspace root), e.g.: </p>
+                <pre><code class="language-xml">&lt;sourcepath&gt;
+    &lt;pathelement location=&quot;moduleA/src&quot;/&gt;
+    &lt;pathelement location=&quot;moduleA/test&quot;/&gt;
+&lt;/sourcepath&gt;</code></pre>
+                <p>In case your source roots have a common naming pattern, you can use a &lt;dirset&gt; with wildcards,
+                    e.g.:</p>
+                <pre><code class="language-xml">&lt;sourcepath&gt;
+    &lt;dirset dir=&quot;.&quot;&gt;
+        &lt;include name=&quot;**/src/main/java&quot;/&gt;
+        &lt;include name=&quot;**/src/main/groovy&quot;/&gt;
+        &lt;include name=&quot;**/src/test/java&quot;/&gt;
+        &lt;include name=&quot;**/src/test/groovy&quot;/&gt;
+    &lt;/dirset&gt;
+&lt;/sourcepath&gt;</code></pre>
+                <h3><span id="clover-report-Testsources"></span> &lt;testsources&gt;</h3>
+                <p><code>&lt;testsources&gt;</code> is an
+                    <a href="https://ant.apache.org/manual/Types/fileset.html" rel="nofollow">Ant fileset</a> that can be used to
+                    distinguish test source code from application source code. All files included in the fileset will be
+                    displayed in the separate 'Test' node of the coverage tree. If omitted, Clover's
+                    <a href="ant--clover-test-detection.html">default test detection algorithm</a> will be
+                    used to distinguish test sources.</p>
+                <h3><span id="clover-report-Testresults"></span> &lt;testresults&gt;</h3>
+                <p><code>&lt;testresults&gt;</code> is an optional
+                    <a href="https://ant.apache.org/manual/Types/fileset.html" rel="nofollow">Ant fileset</a> that Clover uses to
+                    integrate the results of your unit tests into the report. The results should be generated using the
+                    <a href="https://ant.apache.org/manual/Tasks/junit.html" rel="nofollow">Ant
+                        junit</a> task with an XML formatter.</p>
+                <p><code>&lt;testresults&gt;</code> is generally not required by most users, as the built-in test
+                    results will provide all required information in the majority of cases. For more details please see
+                    '<a href="ant--test-results-and-per-test-coverage.html">Advanced Usage</a>'. <br class="atl-forced-newline"/>
+                    <span id="clover-report-Historical"></span></p>
+                <h2>&lt;historical&gt;</h2>
+                <p>Generates a historical coverage report. Specify the report format using a nested Format element (see
+                    below). Valid formats are HTML or PDF. The default format is HTML. Contents of the historical report
+                    are optionally controlled by nested elements. See <a href="ant--clover-report.html">clover-report</a>. </p>
+                <h5>Parameters for &lt;historical&gt;</h5>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
+                        </tr>
+                        <tr>
+                            <td>title</td>
+                            <td>Specifies a title for the report.</td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>titleAnchor</td>
+                            <td>if specified, the report title will be rendered as a hyperlink
+                                to this href.</td>
+                            <td>No; default is to not render the report title as a
+                                hyperlink.</td>
+                        </tr>
+                        <tr>
+                            <td>titleTarget</td>
+                            <td><p>Specifies the href target if the title is to be rendered as a
+                                hyperlink (see <code>titleAnchor</code> above). <em>HTML format only</em></p></td>
+                            <td><p>No; default is &quot;<code>_top</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>charset</td>
+                            <td>The character set to use in the HTML reports.</td>
+                            <td>No. Default is UTF-8</td>
+                        </tr>
+                        <tr>
+                            <td>dateFormat</td>
+                            <td>Specifies a date format string for parsing the &quot;from&quot; and &quot;to&quot; fields. The string must contain a valid java.text.SimpleDateFormat
+                                    pattern.</td>
+                            <td>No; default is set to java.text.SimpleDateFormat
+                                using the default pattern and date format symbols for the default locale.</td>
+                        </tr>
+                        <tr>
+                            <td>from</td>
+                            <td>Specifies the date before which data points will be ignored. The
+                                date must be specified either using the default java.text.SimpleDateFormat
+                                for your locale or using the pattern defined in the &quot;dateFormat&quot; attribute. </td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>historyDir</td>
+                            <td><p>The directory containing Clover historical data as produced by
+                                the &lt;<a href="ant--clover-historypoint.html">clover-historypoint</a>&gt; task. </p></td>
+                            <td>Yes.</td>
+                        </tr>
+                        <tr>
+                            <td>historyIncludes</td>
+                            <td><p>An <a href="https://ant.apache.org/manual/dirtasks.html#patterns" rel="nofollow">Ant GLOB</a> to select specific history
+                                point files within the <code>historyDir</code> directory</p></td>
+                            <td><p>No; default is <code>clover-*.xml.gz</code></p></td>
+                        </tr>
+                        <tr>
+                            <td>json</td>
+                            <td><p>A true or false value. If set to true, then a file called <code>historical-json.js</code>
+                                will be created in the top level directory containing some
+                                <a href="https://en.wikipedia.org/wiki/Json#JSONP" rel="nofollow">JSONP</a>.
+                                The callback method will be: <code>processHistoricalCloverData</code> and takes a single
+                                <a href="https://en.wikipedia.org/wiki/Json" rel="nofollow">JSON</a> object parameter. The structure of the JSON is the same as
+                                used by the
+                                <a href="https://code.google.com/apis/visualization/documentation/reference.html#DataTable" rel="nofollow">Google Visualization API</a>.
+                                <a href="ant--json-reference.html">More information.</a></p></td>
+                            <td>No. Default is &quot;false&quot;.</td>
+                        </tr>
+                        <tr>
+                            <td>outfile</td>
+                            <td>The outfile to write output to. If it does not exist, it is
+                                created. Depending on the specified format, this either represents a regular file (PDF)
+                                or a directory (HTML).</td>
+                            <td>Yes; default format is HTML.</td>
+                        </tr>
+                        <tr>
+                            <td>package</td>
+                            <td>Restricts the report to a particular package.</td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>to</td>
+                            <td>Specifies the date after which data points will be ignored. The
+                                date must be specified either using the default java.text.SimpleDateFormat
+                                for your locale or using the pattern defined in the &quot;dateFormat&quot; attribute. </td>
+                            <td>No.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p> </p><h5>Nested elements of &lt;historical&gt;</h5>
+                <p>These elements represent individual sections of the historical report. If you do not specify any of
+                    these elements, all the sections will be included in the report. If you specify more one or more of
+                    these elements, only the specified sections will be included. You may specify multiple <code>&lt;overview&gt;</code>
+                    and <code>&lt;coverage&gt;</code> elements in the historical report. These may have different
+                    properties and include different elements. The charts will appear in the report in the same order
+                    they appear in the <code>&lt;historical&gt;</code> element. The <code>&lt;movers&gt;</code> element
+                    always appears at the end of the report following these charts regardless of its location in the
+                    <code>&lt;historical&gt;</code> element.</p>
+                <p> </p>
+                <h3><span id="clover-report-added"></span> &lt;added&gt;</h3>
+                <p><code>&lt;added&gt;</code> displays new classes for the given column.
+                <p> </p>
+                <p><strong>Parameters for &lt;added&gt;</strong></p>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
+                        </tr>
+                        <tr>
+                            <td>range</td>
+                            <td>The maximum number of classes to show. If the value is 5, then a
+                                maximum of 5 &quot;gainers&quot; and 5 &quot;losers&quot; will be shown.</td>
+                            <td><p>No; defaults to <code>5.</code></p></td>
+                        </tr>
+                        <tr>
+                            <td>interval</td>
+                            <td><p>The time interval over which the delta should be calculated
+                                (from the last history point). Uses the <a href="ant--using-spans-specifying-an-interval.html">Interval</a>
+                                format. The range is automatically adjusted to the closest smaller interval available. </p></td>
+                            <td>No; the default is to take the delta of the last two history
+                                points.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Nested elements of &lt;added&gt;</strong></p>
+                <p>The &lt;added&gt; element can take a single <a href="ant--clover-report.html">column</a> element, allowing you to add
+                    one additional metric to the data shown in &lt;added&gt;.</p>
+                <p><strong> Example: &lt;totalStatements&gt;</strong></p>
+                <p>You could add totalStatements to &lt;added&gt; with the following code.</p>
+                <pre><code class="language-xml">&lt;added&gt;
+         &lt;columns&gt;
+                   &lt;totalStatements/&gt;
+         &lt;/columns&gt;
+&lt;/added&gt;</code></pre>
+                <p><img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> No more than one additional column can be
+                    attached to &lt;added&gt;. The 'added' classes table will always appear above the Movers section in
+                    the report - regardless of its order in the XML.</p>
+                <p> </p></p><h3><span id="clover-report-Chart"></span> &lt;chart&gt; </h3>
+                <p>A custom chart.
+                <p><strong>Parameters for &lt;chart&gt;</strong></p>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
+                        </tr>
+                        <tr>
+                            <td>title</td>
+                            <td>The title to use for the chart.</td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>logscale</td>
+                            <td>Use a log scale for the y axis.</td>
+                            <td>No; default is set to 'true'.</td>
+                        </tr>
+                        <tr>
+                            <td>xLabel</td>
+                            <td>The x label to use.</td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>yLabel</td>
+                            <td>The x label to use.</td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>width</td>
+                            <td>The width of the chart image.</td>
+                            <td>No; default is set to 640 pixels (640px).</td>
+                        </tr>
+                        <tr>
+                            <td>height</td>
+                            <td>The height of the chart image.</td>
+                            <td>No; default is set to 480 pixels (480px).</td>
+                        </tr>
+                        <tr>
+                            <td>upperBound</td>
+                            <td>The maximum y value to display.</td>
+                            <td>No; default is set to -1 (unbounded).</td>
+                        </tr>
+                        <tr>
+                            <td>autoRange</td>
+                            <td>If set to 'true', the y-axis will be chosen automatically to fit
+                                the data best.</td>
+                            <td>No; default is 'false'.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p> </p>
+                <p><strong>Nested elements of &lt;chart&gt;</strong></p>
+                <p>The &lt;chart&gt; element can take arbitrary columns, but the format of each column can be only
+                    'raw', or '%'. The supported columns are identical to <a href="ant--clover-report.html">columns in the &lt;current&gt;element</a>.
+                    If no columns nested element is supplied, then the default columns from the &lt;coverage&gt; element
+                    are used.</p></p><h3><span id="clover-report-Coverage"></span> &lt;coverage&gt;</h3>
+                <ul>
+                    <li>Note that the 'include' attribute from Clover 2.0 has been replaced by the &lt;columns&gt; element.
+                    </li>
+                </ul>
+                <p>Specifies a chart showing percentage coverage over time.</p>
+                <p>This element does not support any attributes. The default behavior is that everything is
+                    included.</p>
+                <h3><span id="clover-report-Format"></span> &lt;format&gt;</h3>
+                <p>Specifies the output format and various options controlling the rendering of a report.
+                <p><strong>Parameters for &lt;format&gt;</strong></p>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
+                        </tr>
+                        <tr>
+                            <td>type</td>
+                            <td><p>The output format in which to render the report. Valid values
+                                are <code>pdf</code>, <code>xml</code>, <code>html</code> and <code>json</code>. Note
+                                that not all report formats support all other attributes.</p></td>
+                            <td><p>Yes, unless <code>refid</code> is set.</p></td>
+                        </tr>
+                        <tr>
+                            <td>refid</td>
+                            <td><p>The id of another format element that will be used for this
+                                report. See <a href="ant--sharing-report-formats.html">Sharing
+                                    Report Formats</a>.</p></td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>id</td>
+                            <td>The id of this format element.</td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>bw</td>
+                            <td>Specify that the report should be black-and-white. Supported by
+                                PDF reports only.</td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>orderBy</td>
+                            <td><p>Specify how to order coverage tables. This attribute has no
+                                effect on XML format. Valid values are: <br class="atl-forced-newline"/> <code>Alpha</code> — Alpabetical.
+                                <br class="atl-forced-newline"/> <code>PcCoveredAsc</code> — Percent total coverage,
+                                ascending. <code>PcCoveredDesc</code> — Percent total
+                                coverage, descending. <code>ElementsCoveredAsc</code> —
+                                Total elements covered, ascending. <code>ElementsCoveredDesc</code>
+                                — Total elements covered, descending. <code>ElementsUncoveredAsc</code>
+                                — Total elements uncovered, ascending. <code>ElementsUncoveredDesc</code>
+                                — Total elements uncovered, descending.</p></td>
+                            <td><p>No; defaults to <code>PcCoveredAsc.</code></p></td>
+                        </tr>
+                        <tr>
+                            <td>noCache</td>
+                            <td><p><em>(HTML only)</em> If true, insert nocache directives in HTML
+                                output.</p></td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>srcLevel</td>
+                            <td>If true, include source-level coverage information in the
+                                report.</td>
+                            <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>filter</td>
+                            <td><p>comma or space separated list of contexts to exclude when
+                                generating coverage reports. See <a href="ant--using-coverage-contexts.html">Using
+                                    Coverage Contexts</a>.</p></td>
+                            <td>No.</td>
+                        </tr>
+                        <tr>
+                            <td>pageSize</td>
+                            <td><p><em>(PDF only)</em> Specify the page size to use. Valid values
+                                are <code>A4</code>, <code>LETTER.</code></p></td>
+                            <td><p>No; defaults to &quot;<code>A4</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>showEmpty</td>
+                            <td>If true, classes, files and packages that do not contain any
+                                executable code (i.e. methods, statements, or branches) are included in reports. These
+                                are normally not shown.</td>
+                            <td><p>No; defaults to &quot;<code>false</code>&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td>tabWidth</td>
+                            <td><p><em>(Source level reports only)</em> The number of space chars
+                                to replace TAB characters with.</p></td>
+                            <td><p>No; defaults to <code>4.</code></p></td>
+                        </tr>
+                        <tr>
+                            <td>maxNameLength</td>
+                            <td>The maximum length in chars of package or classnames in the
+                                report. Longer names will be truncated. A value &lt; 0 indicates no limit.</td>
+                            <td>No; defaults to no limit.</td>
+                        </tr>
+                        <tr>
+                            <td>callback</td>
+                            <td>The name of the callback function to wrap the JSON. If set to an
+                                empty string, &quot; &quot;, then the JSON will not be wrapped.</td>
+                            <td>No; default is 'processClover'.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong><br/></strong></p></p><h3><span id="clover-report-Metrics"></span> &lt;metrics&gt;</h3>
+                <ul>
+                    <li>Note that the 'include' attribute from Clover 2.0 has been replaced by the &lt;columns&gt; element.
+                    </li>
+                </ul>
+                <p>Specifies a chart showing other metrics over time.</p>
+                <p>Parameters for &lt;metrics&gt;:</p>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
+                        </tr>
+                        <tr>
+                            <td>logscale</td>
+                            <td>Specifies that a log scale be used on the Range Axis. This can
+                                be useful if you are including, for example, LOC and packages in the same chart.</td>
+                            <td><p>No; defaults to &quot;<code>true</code>&quot;.</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>The default metrics included in the chart are <code>loc, ncloc, methods and classes.</code></p>
+                <h3><span id="clover-report-Movers"></span> &lt;movers&gt;</h3>
+                <p>Specifies a table that shows those classes that have a coverage delta higher than a specified
+                    threshold over a specified time period. This can be specified multiple times, to track project
+                    movers over a given time frame, for example, weeks and months.
+                <p>Parameters for &lt;movers&gt;:</p>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                            <th>Required</th>
+                        </tr>
+                        <tr>
+                            <td>threshold</td>
+                            <td><p>The absolute point change in percent coverage that class must
+                                have changed by for inclusion. e.g &quot;<code>10%</code>&quot;.</p></td>
+                            <td><p>No; defaults to <code>1%.</code></p></td>
+                        </tr>
+                        <tr>
+                            <td>range</td>
+                            <td>The maximum number of classes to show. If the value is 5, then a
+                                maximum of 5 &quot;gainers&quot; and 5 &quot;losers&quot; will be shown.</td>
+                            <td><p>No; defaults to <code>5.</code></p></td>
+                        </tr>
+                        <tr>
+                            <td>interval</td>
+                            <td><p>The time interval over which the delta should be calculated
+                                (from the last history point). Uses the <a href="ant--using-spans-specifying-an-interval.html">Interval</a>
+                                format. The range is automatically adjusted to the closest smaller interval available. </p></td>
+                            <td>No; the default is to take the delta of the last two history
+                                points.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><span></span><br/> <strong>Nested elements
+                    of &lt;movers&gt;</strong></p>
+                <p>The &lt;movers&gt; element can take a single <a href="ant--clover-report.html">column</a> element, allowing you to
+                    add one additional metric to the data shown in &lt;movers&gt;.</p>
+                <p><span id="clover-report-movers-totalStatements"></span><br/> <strong>Example: &lt;totalStatements&gt;</strong></p>
+                <p>You could add totalStatements to &lt;movers&gt; with the following code.</p>
+                <pre><code class="language-xml">&lt;movers&gt;
+         &lt;columns&gt;
+                   &lt;totalStatements/&gt;
+         &lt;/columns&gt;
+&lt;/movers&gt;</code></pre>
+                <p>
+                    <img src="images/icons/emoticons/information.png" data-emoticon-name="information" alt="(info)"/> No more than one additional column can be added
+                    to &lt;movers&gt;.</p></p><h3><span id="clover-report-historical-overview"></span> &lt;overview&gt;</h3>
+                <p>Specifies a section that provides summary of the total percentage coverage at the last history point.
+                    This element does not support any attributes.</p>
+                <h1 id="clover-report-Examples">Examples</h1>
+                <h2>Examples of Current Report
+                    configurations</h2>
+                <pre><code class="language-xml">&lt;clover-report&gt;
+   &lt;current outfile=&quot;current.xml&quot;/&gt;
+&lt;/clover-report&gt;</code></pre>
+                <p>Generates an XML report of the current coverage.</p>
+                <p> </p>
+                <pre><code class="language-xml">&lt;clover-report&gt;
+   &lt;current outfile=&quot;current.pdf&quot; summary=&quot;true&quot;&gt;
+      &lt;format type=&quot;pdf&quot;/&gt;
+   &lt;/current&gt;
+&lt;/clover-report&gt;</code></pre>
+                <p>Generates a PDF report of the current coverage.</p>
+                <p> </p>
+                <pre><code class="language-xml">&lt;target name=&quot;report.json&quot; depends=&quot;with.clover&quot;&gt;
+&lt;clover-report&gt;
+   &lt;current outfile=&quot;clover_json&quot;&gt;
+    &lt;format type=&quot;json&quot;/&gt;
+      &lt;columns&gt;
+        &lt;lineCount/&gt;
+        &lt;ncLineCount/&gt;
+      &lt;/columns&gt;
+   &lt;/current&gt;
+&lt;/clover-report&gt;
+&lt;/target&gt;</code></pre>
+                <p>Generates a JSON report, where the chart elements are customized by specifying them with <code>&lt;columns&gt;</code>.
+                    See the <a href="ant--json-reference.html">JSON reference</a> page.</p>
+                <p> </p>
+                <pre><code class="language-xml">&lt;clover-report&gt;
+   &lt;current outfile=&quot;clover_html&quot; title=&quot;My Project&quot; summary=&quot;true&quot;&gt;
+      &lt;format type=&quot;html&quot;/&gt;
+   &lt;/current&gt;
+&lt;/clover-report&gt;</code></pre>
+                <p>Generates a summary report, in HTML with a custom title. Note that the &quot;outfile&quot; argument
+                    requires a directory instead of a filename.</p>
+                <p> </p>
+                <pre>		&lt;clover-report&gt;
+		  &lt;current outfile=&quot;report-current&quot; title=&quot;Coverage&quot;&gt;
+			&lt;fileset dir=&quot;src/main/java&quot;&gt;
+			  &lt;exclude name=&quot;**/*Blah.java&quot;/&gt;
+			&lt;/fileset&gt;
+			&lt;format srclevel=&quot;true&quot; type=&quot;html&quot;/&gt;
+		&lt;/current&gt;
+		&lt;/clover-report&gt;
+</pre>
+                <p>Generates a HTML clover report and excludes all *Blah.java classes from the report.</p>
+                <p> </p>
+                <pre><code class="language-xml">&lt;clover-report&gt;
+   &lt;current outfile=&quot;clover_html&quot; title=&quot;Util Coverage&quot;&gt;
+      &lt;format type=&quot;html&quot; orderBy=&quot;ElementsCoveredAsc&quot;/&gt;
+      &lt;testsources dir=&quot;src/test&quot; includes=&quot;\**/*.java&quot;/&gt;
+   &lt;/current&gt;
+&lt;/clover-report&gt;</code></pre>
+                <p>Generates a detailed coverage report in HTML with output ordered by total number of covered elements,
+                    rather than percentage coverage. All source files under <code>src/test</code> will be in the
+                    separate 'Test' coverage node in the report.</p>
+                <p> </p>
+                <pre><code class="language-xml">&lt;clover-report&gt;
+   &lt;current outfile=&quot;clover_html&quot; title=&quot;My Project&quot;&gt;
+      &lt;format type=&quot;html&quot;/&gt;
+      &lt;sourcepath&gt;
+         &lt;pathelement path=&quot;/some/other/location&quot;/&gt;
+      &lt;/sourcepath&gt;
+   &lt;/current&gt;
+&lt;/clover-report&gt;</code></pre>
+                <p>Generates a source-level report in HTML. Clover will search for source files in the directory <code>/some/other/location</code>. </p>
+                <p> </p>
+                <pre><code class="language-xml">&lt;tstamp&gt;
+   &lt;format property=&quot;report.limit&quot; pattern=&quot;MM/dd/yyyy hh:mm aa&quot;
+       offset=&quot;-1&quot; unit=&quot;month&quot;/&gt;
+&lt;/tstamp&gt;
+&lt;clover-report&gt;
+   &lt;current outfile=&quot;report-current&quot;
+          title=&quot;Coverage since ${report.limit}&quot;&gt;
+      &lt;fileset dir=&quot;src/main&quot;&gt;
+         &lt;date datetime=&quot;${report.limit}&quot; when=&quot;after&quot;/&gt;
+      &lt;/fileset&gt;
+      &lt;format srclevel=&quot;true&quot; type=&quot;html&quot;/&gt;
+   &lt;/current&gt;
+&lt;/clover-report&gt;</code></pre>
+                <p>This example generates a current coverage report for all files in the project that have changed in
+                    the last month. Replacing the &lt;date&gt; selector with <code>&lt;contains text=&quot;@author John
+                        Doe&quot;/&gt;</code> would generate a coverage report for all code where John Doe is the
+                    author.</p>
+                <p> </p>
+                <pre><code class="language-xml">&lt;clover-report&gt;
+  &lt;current outfile=&quot;report-current&quot; title=&quot;Coverage&quot;&gt;
+    &lt;fileset dir=&quot;src&quot;&gt;
+      &lt;patternset refid=&quot;clover.files&quot;/&gt;
+    &lt;/fileset&gt;
+    &lt;format srclevel=&quot;true&quot; type=&quot;html&quot;/&gt;
+&lt;/current&gt;
+&lt;/clover-report&gt;</code></pre>
+                <p>In this example the standard Clover patternset is used to restrict the report to the currently
+                    included source files. You could use this if you have changed the <code>exclude</code> or <code>include</code>
+                    definitions in the &lt;<a href="ant--clover-setup.html">clover-setup</a>&gt; task and you have
+                    not removed the coverage database. It will prevent classes, currently in the database but now
+                    excluded, from being included in the report. It is prudent, however, to delete the coverage
+                    database, coverage information and recompile when you change these settings.</p>
+                <p><span id="clover-report-customisedColumnsExample"></span></p>
+                <h2>Example of customizing columns</h2>
+                <pre><code class="language-xml">&lt;clover-report&gt;
+   &lt;current outfile=&quot;report-current&quot; title=&quot;Coverage&quot;&gt;
+      &lt;format type=&quot;html&quot;/&gt;
+      &lt;columns&gt;
+         &lt;coveredMethods format=&quot;bar&quot; min=&quot;75&quot;/&gt;
+         &lt;coveredStatements format=&quot;%&quot;/&gt;
+         &lt;coveredBranches format=&quot;raw&quot;/&gt;
+      &lt;/columns&gt;
+   &lt;/current&gt;
+&lt;/clover-report&gt;</code></pre>
+                <p>Generates a HTML report that will only include a bar chart showing the percentage of methods covered,
+                    the actual percentage of statements covered and the actual number of branches covered. If less than
+                    75% of methods are covered, those values will be highlighted. <br class="atl-forced-newline"/>
+                    <span id="clover-report-linkedReportExample"></span></p>
+                <h2>Example of linked reports</h2>
+                <pre><code class="language-xml">&lt;clover-report&gt;
+      &lt;current outfile=&quot;report1&quot; title=&quot;Coverage Report 1&quot;&gt;
+        &lt;format type=&quot;html&quot;/&gt;
+        &lt;fileset dir=&quot;src&quot;&gt;
+          &lt;patternset refid=&quot;clover.files&quot;/&gt;
+        &lt;/fileset&gt;
+      &lt;/current&gt;
+
+     &lt;current outfile=&quot;report2&quot; title=&quot;Coverage Report 2&quot;&gt;
+        &lt;format type=&quot;html&quot;/&gt;
+        &lt;fileset dir=&quot;othersrc&quot;&gt;
+          &lt;patternset refid=&quot;other.clover.files&quot;/&gt;
+        &lt;/fileset&gt;
+     &lt;/current&gt;
+&lt;/clover-report&gt;</code></pre>
+                <p>Generates two HTML reports. Each of these reports will contain a link to the other. <br class="atl-forced-newline"/>
+                    <span id="clover-report-historyReportExamples"></span></p>
+                <h2>Examples of Historical Report
+                    Configurations</h2>
+                <pre><code class="language-xml">&lt;clover-report&gt;
+   &lt;historical outfile=&quot;historical.pdf&quot;
+               historyDir=&quot;clover_history&quot;&gt;
+       &lt;format type=&quot;pdf&quot;/&gt;
+   &lt;/historical&gt;
+&lt;/clover-report&gt;</code></pre>
+                <p>Generates a historical report in PDF. Assumes that &lt;<a href="ant--clover-historypoint.html">clover-historypoint</a>&gt; has generated more than one history file in the directory &quot;<code>clover_history</code>&quot;.
+                    Writes the output to the file specified in the <code>outfile</code> parameter.</p>
+                <p> </p>
+                <pre><code class="language-xml">&lt;clover-report&gt;
+   &lt;historical outfile=&quot;two_months&quot; title=&quot;My Project&quot;
+               from=&quot;020101&quot; to=&quot;020301&quot; dateFormat=&quot;yyMMdd&quot;
+               historyDir=&quot;clover_history&quot;&gt;
+      &lt;format type=&quot;html&quot;/&gt;
+   &lt;/historical&gt;
+&lt;/clover-report&gt;</code></pre>
+                <p>Generates a basic historical report in HTML for a certain time period. Clover will scan the <code>historyDir</code>
+                    and use any history points that fall within the requested time period. The <code>outfile</code>
+                    attribute will be treated as a <strong>directory</strong>; a file <code>historical.html</code> will
+                    be written into this directory. If the directory doesn't exist, it will be created.</p>
+                <p> </p>
+                <pre><code class="language-xml">&lt;clover-report&gt;
+   &lt;historical outfile=&quot;report.pdf&quot; title=&quot;My Project&quot;
+               historyDir=&quot;clover_history&quot;&gt;
+      &lt;overview/&gt;
+      &lt;movers threshold=&quot;5%&quot; range=&quot;20&quot; interval=&quot;2w&quot;/&gt;
+      &lt;format type=&quot;pdf&quot;/&gt;
+   &lt;/historical&gt;
+&lt;/clover-report&gt;</code></pre>
+                <p>Generates a PDF historical report that only includes an overview section (showing summary coverage at
+                    the last history point) and a movers table showing classes that have a code coverage delta of
+                    greater than +- 5% over the two weeks prior to the last history point. Will include at most 20
+                    gainers and 20 losers.</p>
+                <p> </p>
+                <h1 id="clover-report-References">References</h1>
+                <h2 style="margin-left: 30.0px;" id="clover-report-ColumnNameReferenceTable">
+                    <a href="#clover-report-columnNames">Column Name Reference Table</a></h2>
+                <h2 style="margin-left: 30.0px;" id="clover-report-CloverExpressionLanguage"><a href="#clover-report-CloverEL">Clover Expression Language</a>
+                </h2>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
+    </footer>
+</div>
+<script src="../../../resources/js/bootstrap.bundle-5.3.2.min.js"></script>
+<script src="../../../resources/js/prism.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="canonical" href="https://openclover.org/doc/manual/latest/kb--clover-registry-file-does-not-exist.html" />
+    <title>Clover registry file &lt;path/to/clover.db&gt; does not exist</title>
+    <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../downloads">Downloads</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="../../../documentation">Documentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../support">Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About ...</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
+                        <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
+                        <li><a class="dropdown-item" href="../../../license">License information</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main">
+        <div id="main-header">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="kb--index.html">Clover Knowledge Base</a>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="kb--openclover-knowledge-base-home.html">Clover Knowledge Base Home</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="kb--troubleshooting-reports.html">Troubleshooting Reports</a></span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <h1 id="title-heading" class="pagetitle">
+            Clover registry file &lt;path/to/clover.db&gt; does not exist </h1>
+
+        <div id="content" class="view">
+
+            <div id="main-content">
+                <h4>Symptoms</h4>
+                <p>Trying to generate a Clover report, but a following message is thrown:</p>
+                <div style="border-width: 1px;">
+                    <div>
+<pre>Clover registry file &lt;path/to/clover.db&gt; does not exist, cannot be read or is a directory. 
+Please ensure Clover has instrumented your source files. 
+You may need to remove existing .class files for this to occur.</pre>
+                    </div>
+                </div>
+                <p>or</p>
+                <div style="border-width: 1px;">
+                    <div>
+                        <pre>Clover registry file: &lt;path/to/clover.db&gt; does not exist.</pre>
+                    </div>
+                </div>
+                <p> </p><h4>Cause</h4>
+                <p>Clover was not able find a Clover database at specified location. It means that:</p>
+                <p>1) either location is invalid</p>
+                <ul>
+                    <li>usually happens if you use relative path for initstring and compilation (and thus Clover
+                        instrumentation) is executed from one working directory, while report generation from another
+                        directory
+                    </li>
+                </ul>
+                <p> </p>
+                <p>2) or database is missing</p>
+                <ul>
+                    <li>it can happen when report is being generated on a different machine and the Clover database was
+                        not copied to this machine<br/>
+                        <ul>
+                            <li>for instance: Clover with Bamboo + multiple remote agents + build and reporting made in
+                                separate Jobs + clover.db is not defined as a shared artefact
+                            </li>
+                        </ul>
+                    </li>
+                    <li>it can happen when your build did not perform Clover instrumentation before running report
+                        generation
+                        <ul>
+                            <li>for instance: when your build have compiled sources without Clover first, next it called &lt;clover-setup&gt; but did not call &quot;clean&quot; target and next tried to compile
+                                sources again; as no sources were recompiled (no &quot;clean&quot;), no database was
+                                generated
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p> </p><h4>Resolution</h4>
+                <p>Check if initstring path does not need to be corrected. Check if builds are running from a correct
+                    working directory.</p>
+                <p>In case when reporting is done on a different machine, check if clover.db (and coverage files!) was
+                    copied to the desired location.</p>
+                <p>In case when Bamboo with multiple remote agents is used and reporting is made in a separate job,
+                    share the clover.db (with coverage files) as a Shared Artefact.</p>
+                <p>Check if build executes &quot;clean&quot; before calling &quot;clover-setup&quot;.</p><!--$body-->
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
+    </footer>
+</div>
+<script src="../../../resources/js/bootstrap.bundle-5.3.2.min.js"></script>
+<script src="../../../resources/js/prism.min.js"></script>
+</body>
+</html>

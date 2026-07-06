@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>OpenClover 4.5 : Clover Core, Ant, Eclipse and IDEA Plugins Developer Guide</title>
+    <link rel="canonical" href="https://openclover.org/doc/manual/latest/developer-guide--core-ant-eclipse-idea-plugins.html" />
+    <title>OpenClover 5.0 : Clover Core, Ant, Eclipse and IDEA Plugins Developer Guide</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
@@ -44,7 +45,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.html">OpenClover 4.5</a>
+                        <a href="index.html">OpenClover 5.0</a>
                     </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
@@ -67,13 +68,14 @@
                     <li>Maven 3.6.3 (or higher)</li>
                     <li>Git</li>
                     <li>JDK 17</li>
-                    <li>IntelliJ IDEA 14</li>
-                    <li>Eclipse 4.2.2</li>
+                    <li>IntelliJ IDEA 2026</li>
+                    <li>Eclipse 2026</li>
                 </ul>
                 <p>Optional tools are:</p>
                 <ul>
-                    <li>IDEA 15.x, 2016.x - to run tests against newer IDEA versions</li>
-                    <li>Eclipse 4.3.1, 4.4.0, 4.5.1, 4.6.0 - to run tests against newer Eclipse versions</li>
+                    <li>JDK 8, 11, 17, 21, 25 - to run tests against these JDKs</li>
+                    <li>IDEA 2024, 2025, 2026 - to work with recent IDEA versions</li>
+                    <li>Eclipse 2024, 2025, 2026 - to work with recent Eclipse versions</li>
                 </ul>
                 <p> </p>
                 <p>2. Set environment variables:</p>
@@ -99,9 +101,7 @@
 <pre><code class="language-bash"># cd clover
 mvn install -f clover-core-libs/jarjar/pom.xml
 mvn install -Pworkspace-setup -f clover-core-libs/pom.xml
-mvn install -Pworkspace-setup -f clover-eclipse-libs/pom.xml
-mvn install -Pworkspace-setup -f clover-jtreemap/pom.xml
-mvn install -Pworkspace-setup -f clover-idea-libs/pom.xml</code></pre>
+mvn install -Pworkspace-setup -f clover-eclipse-libs/pom.xml</code></pre>
                     </div>
                 </div>
                 <p> </p>

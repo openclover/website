@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="OpenClover is a free and open-source code coverage tool for Java, Groovy and AspectJ.
+            It's based on the open-sourced version of Atlassian Clover&reg;, the world's most sophisticated code coverage tool.">
+    <meta name="author" content="">
+    <link rel="icon" href="../resources/img/clover.ico">
+
+    <title>OpenClover - Java, Groovy and AspectJ code coverage tool</title>
+
+    <link href="../resources/css/bootstrap-5.3.2.min.css" rel="stylesheet">
+    <link href="../resources/css/prism.min.css" rel="stylesheet">
+    <link href="../resources/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="../index"><img src="../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../index">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="../features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="../downloads">Downloads</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="../documentation">Documentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="../support">Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="../blog">Blog</a></li>
+                <!--<li><a href="../faq">FAQ</a></li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About ...</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../about-us">Development team</a></li>
+                        <li><a class="dropdown-item" href="../privacy-policy">Privacy policy</a></li>
+                        <li><a class="dropdown-item" href="../license">License information</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>OpenClover 5.0.0 Release Notes</h1>
+
+    <div><i>2026-06-24</i></div>
+
+    <p>
+        We are thrilled to announce <b>OpenClover 5.0</b> — the first major release since the 4.x series
+        began, and the result of years of careful work by the community! This release delivers on promises
+        made throughout the 4.5.x cycle and sets the foundation for even bigger things ahead.
+    </p>
+
+    <h2>What's New</h2>
+
+    <h3>Java</h3>
+
+    <h4>Official Java 17 support — it's here!</h4>
+    <p>
+        Throughout the 4.5.x releases we methodically chased down every missing language construct, edge case,
+        and instrumentation bug for JDK 17. That work is done. We are proud to announce <b>official,
+        production-ready support for Java 17</b>! You can now instrument and compile code at any language
+        level from 8 to 17, and run it under any JDK/JRE from 8 to 17 with full confidence.
+    </p>
+
+    <h4>Java 21 runtime verified</h4>
+    <p>
+        Planning your JDK upgrade? Good news: OpenClover runs cleanly on Java 21. Note that instrumentation
+        of language features introduced in Java 18–21 is not yet supported — that's what the next cycle is for.
+        But if your build toolchain already runs on JDK 21, you won't be blocked.
+    </p>
+
+    <h4>Java 1.7 support dropped</h4>
+    <p>
+        To clear the path for Java 21 instrumentation support, we are officially dropping Java 1.7.
+        If your OpenClover configuration specifies <code>1.7</code> as the language level, it will be
+        silently treated as <code>8</code> and a warning will be printed. Since all OpenClover classes
+        have always required JRE 8+ at runtime, this change affects only a very small number of projects
+        still targeting a JVM that reached end-of-life years ago.
+    </p>
+
+    <h3>Groovy — finally some love!</h3>
+
+    <h4>Full support for Groovy 3.x through 5.x</h4>
+    <p>
+        Groovy has been waiting for this for a while. We've rewritten OpenClover's Groovy AST
+        transformations from scratch and updated all related libraries to bring solid, tested compatibility
+        with <b>Groovy 3.x, 4.x, and 5.x</b>.
+    </p>
+    <p>
+        Two exciting new instrumentation capabilities come with this:
+    </p>
+    <ul>
+        <li>
+            <b>Lambda functions and method references are now instrumented.</b> You will finally see
+            coverage inside chained calls like <code>stream().map().filter()</code> — no more blind
+            spots in functional-style code.
+        </li>
+        <li>
+            <b>Synthetic <code>default</code> branch instrumentation for switch statements.</b>
+            When a switch has no explicit <code>default</code> case, OpenClover now instruments the
+            implicit one. This lets you catch places where not all cases are handled — a common source
+            of silent <code>NullPointerException</code>s.
+        </li>
+    </ul>
+
+    <div class="alert alert-warning">
+        <b>Heads-up — visibility change:</b> OpenClover has always injected a helper method
+        <code>$CLV_R$()</code> into instrumented classes. Its visibility has changed from
+        <code>private</code> to package-private. If you use a library that scans non-private
+        members via reflection (e.g. a serialization framework), you may need to add an exclusion
+        for this method in that library's configuration.
+    </div>
+
+    <h4>Groovy 2.x support removed</h4>
+    <p>
+        Groovy 2.x reached end of life years ago, and maintaining compatibility was holding back
+        Groovy 3–5 work. OpenClover 5.0.0 may still work with Groovy 2.x in practice, but we make
+        no guarantees — future bug-fix releases will remove deprecated code without hesitation.
+        Time to upgrade!
+    </p>
+
+    <h3>Codebase cleanup</h3>
+
+    <h4>Package renaming — goodbye <code>com.atlassian.*</code></h4>
+    <p>
+        A major version bump was the perfect moment to finish the renaming that started when
+        Atlassian open-sourced Clover. All remaining <code>com.atlassian.*</code> package references
+        have been replaced with proper <code>org.openclover.*</code> prefixes, and each module now
+        has a unique package namespace. For the vast majority of users this is invisible. If you
+        maintain a custom plugin that imports OpenClover's internal Java classes directly, you will
+        need to update those import statements.
+    </p>
+
+    <h2>Upgrading from OpenClover 4.5.x</h2>
+
+    <h4>Clover for Ant</h4>
+    <p>Download the new Clover-for-Ant ZIP and drop the new <code>clover.jar</code> into your build.</p>
+
+    <h4>Clover for Eclipse</h4>
+    <p>Download the new update site ZIP and install it in your Eclipse via <em>Help → Install New Software</em>.</p>
+
+    <h4>Clover for IDEA</h4>
+    <p>Download the new plugin JAR and install it via <em>Settings → Plugins → Install Plugin from Disk</em>.</p>
+
+    <h4>Clover Maven Plugin</h4>
+    <p>
+        Bump the version to <code>5.0.0</code> for both <code>org.openclover:clover-maven-plugin</code>
+        and <code>org.openclover:clover</code> in your <code>pom.xml</code> files.
+        Also ensure your Maven version is at least 3.3.1 (see OC-236).
+    </p>
+
+    <h4>Jenkins Clover Plugin</h4>
+    <p>Upgrade to the latest 4.16.x plugin release from the Jenkins update centre.</p>
+
+    <h2>Changelog</h2>
+
+    <h4>2026-06-24 OpenClover 5.0.0</h4>
+
+    <ul>
+        <li><a href="https://github.com/openclover/clover/issues/31">OC-31: Support @CompileStatic annotation for Groovy</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/63">OC-63: Support Java 10</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/64">OC-64: Support Java 11</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/74">OC-74: Clover fails to parse try-with-resources when closeable resource has no type specified</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/102">OC-102: Use maven-shade-plugin to shrink size of the clover.jar</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/119">OC-119: Duplicate entries in clover jar files</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/121">OC-121: Support Groovy 3.0.x</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/183">OC-183: Support Java 17</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/190">OC-190: Variable declaration in groovy 3</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/192">OC-192: Support Groovy 4.0.x</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/194">OC-194: Remove Atlassian branding from OpenClover</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/229">OC-229: Support Java 21 runtime</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/234">OC-234: Drop support for Java 1.7</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/236">OC-236: Update minimum Maven version to 3.3.1</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/237">OC-237: Instrumentation of the instanceof pattern matching with the 'final' keyword fails</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/242">OC-242: Refactor and generify registry classes</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/246">OC-246: Instrumentation fails on switch cases with multiple entries</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/247">OC-247: Instrumentation of case expressions referencing non-final variables produces invalid Java code</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/251">OC-251: Instrumentation of generic records fails</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/253">OC-253: Instrumentation of generic instanceof pattern matching produces invalid Java code</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/257">OC-257: The instanceof pattern matching is not working for 4.5.2</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/258">OC-258: Remove Gson library</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/282">OC-282: Support Groovy 5.0.x</a></li>
+
+    </ul>
+</div>
+
+
+<script src="../resources/js/jquery-3.7.1.min.js"></script>
+<script src="../resources/js/bootstrap.bundle-5.3.2.min.js"></script>
+<script src="../resources/js/prism.min.js"></script>
+</body>
+</html>

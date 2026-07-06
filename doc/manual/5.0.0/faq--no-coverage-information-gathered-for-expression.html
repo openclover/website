@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--no-coverage-information-gathered-for-expression.html" />
+    <title>OpenClover 5.0 : For some statements in my code Clover reports &quot;No Coverage information gathered for this
+        expression&quot;. What does that mean?</title>
+    <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../downloads">Downloads</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="../../../documentation">Documentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../support">Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About ...</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
+                        <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
+                        <li><a class="dropdown-item" href="../../../license">License information</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main">
+        <div id="main-header">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">OpenClover 5.0</a>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="faq--openclover.html">Clover FAQ</a></span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <h1 id="title-heading" class="pagetitle">
+            For some statements in my code Clover reports &quot;No Coverage information gathered for this expression&quot;. What does that mean? </h1>
+
+        <div id="content" class="view">
+
+            <div id="main-content">
+                <p><strong>Q: For some statements in my code Clover reports &quot;No Coverage information gathered for
+                    this expression&quot;. What does that mean?</strong><br/>
+                    Clover will not measure coverage of a conditional expression if it contains an assignment operator.
+                    In practice we have found this only a minor limitation. To understand why Clover has this
+                    limitation, consider the following (very contrived) code fragment:
+
+                </p>
+                <div style="border-width: 1px;">
+                    <div>
+<pre>1  public int foo(int i) {
+2    int j;
+3    if ((j = i) == 1) {
+4      return j;
+5    }
+6    return 0;
+7  }
+\\
+at (2) the variable &quot;j&quot; is declared but not initialised.
+at (3) &quot;j&quot; is assigned to inside the expression
+at (4) &quot;j&quot; is referenced.
+</pre>
+                    </div>
+                </div>
+                <p>During compilation, most compilers can inspect the logic of the conditional at <code>(3)</code> to
+                    determine that <code>&quot;j&quot;</code> will be initialized by the time it is referenced
+                    <code>(4)</code>, since evaluating the expression <code>(3)</code> will always result in <code>&quot;j&quot;</code>
+                    being given a value. So the code will compile. But Clover has to rewrite the conditional at <code>(3)</code>
+                    so that it can measure coverage, and the rewritten version makes it harder for compilers to infer
+                    the state of <code>&quot;j&quot;</code> when it is referenced at <code>(4)</code>. This means that
+                    the instrumented version may not compile. For this reason, Clover scans conditionals for assignment.
+                    If one is detected, the conditional is not instrumented.</p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
+    </footer>
+</div>
+<script src="../../../resources/js/bootstrap.bundle-5.3.2.min.js"></script>
+<script src="../../../resources/js/prism.min.js"></script>
+</body>
+</html>

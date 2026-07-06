@@ -52,7 +52,7 @@
         <a href="blog-rss.xml"><b>Click here</b></a>
     </div>
 
-    <a name="2026-06-donate"></a>
+    <a name="2026-07-donate"></a>
     <h2 class="blog-post-title">Support OpenClover &mdash; buy me a coffee</h2>
     <div class="row">
         <div class="col-md-8">
@@ -75,6 +75,41 @@
             </p>
             <p class="blog-post-meta">June 24, 2026</p>
             <p><a class="btn btn-warning" href="https://donate.stripe.com/3cI3cv71H1Zd6994E56EU01" target="_blank" rel="noopener noreferrer">&#9749; Buy me a Coffee</a></p>
+        </div>
+    </div>
+
+    <a name="2026-07-open-clover-5-0-0"></a>
+    <h2 class="blog-post-title">OpenClover 5.0.0 — major feature release</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <p>We are thrilled to announce <b>OpenClover 5.0</b>, the first major release since 2014!
+            The headline feature is <b>official Java 17 support</b> — after ironing out all language
+            constructs in the 4.5.x cycle, you can now instrument and run code with any language level
+            from 8 to 17 with full confidence.
+            </p>
+            <p>
+            Groovy fans rejoice: we've rewritten Groovy's AST transformations and updated libraries to
+            bring full support for <b>Groovy 3.x through 5.x</b>. Lambda functions and method references
+            are now instrumented, so you'll finally see coverage inside
+            <code>stream().map().filter()</code> chains. We've also added synthetic
+            <code>default</code> branch instrumentation for switch statements, helping you catch
+            unhandled cases that silently return null.
+            </p>
+            <p>
+            On the compatibility side: <b>Java 21 runtime</b> is verified, Java 1.7 is officially
+            dropped (treated as 8 going forward), and Groovy 2.x is no longer supported.
+            We also took the opportunity to standardize package names, removing old
+            <code>com.atlassian.*</code> references.
+            </p>
+            <p>See <a href="doc/openclover-5.0.0-release-notes.html">the release notes</a> for the full
+            changelog and upgrade instructions.</p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="blog-post-meta">
+                <a href="about-us"><img src="resources/img/about/marek_parfianowicz.jpg" class="photo-round-mini"></a>
+            </p>
+            <p class="blog-post-meta">June 24, 2026</p>
         </div>
     </div>
 

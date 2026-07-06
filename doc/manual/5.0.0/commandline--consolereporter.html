@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="canonical" href="https://openclover.org/doc/manual/latest/commandline--consolereporter.html" />
+    <title>OpenClover 5.0 : ConsoleReporter</title>
+    <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../downloads">Downloads</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="../../../documentation">Documentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../support">Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About ...</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
+                        <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
+                        <li><a class="dropdown-item" href="../../../license">License information</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main">
+        <div id="main-header">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">OpenClover 5.0</a>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="commandline--command-line-tools.html">Clover Command Line Tools</a></span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <h1 id="title-heading" class="pagetitle">
+            ConsoleReporter </h1>
+
+        <div id="content" class="view">
+
+            <div id="main-content">
+                <p>Reports Code Coverage for the given coverage database to the console.</p>
+                <h2>Usage</h2>
+                <pre><code class="language-bash">java com.atlassian.clover.reporters.console.ConsoleReporter [OPTIONS] PARAMS</code></pre>
+                <h3>Params</h3>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <td>-i, --initstring &lt;file&gt;</td>
+                            <td>The initstring of the coverage database.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3>Options</h3>
+                <div>
+                    <table class="table table-striped">
+                        <tbody>
+                        <tr>
+                            <td>-t, --title &lt;string&gt;</td>
+                            <td>Report title</td>
+                        </tr>
+                        <tr>
+                            <td>-l, --level &lt;string&gt;</td>
+                            <td>The level of detail to report. Valid values are &quot;summary&quot;, &quot;class&quot;, &quot;method&quot;, &quot;statement&quot;. Default value is &quot;summary&quot;.</td>
+                        </tr>
+                        <tr>
+                            <td>-p, --sourcepath &lt;path&gt;</td>
+                            <td>The source path to search when looking for source files.</td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">-si, --showinner</td>
+                            <td colspan="1"><em><strong>Since 3.2.0: </strong></em>Show inner
+                                functions in the report (like a lambda function inside a method).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">-sl, --showlambda</td>
+                            <td colspan="1"><em><strong>Since 3.2.0: </strong></em>Show lambda
+                                functions in the report.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>-s, --span &lt;interval&gt;</td>
+                            <td><p>Specifies how far back in time to include coverage recordings
+                                from since the last Clover build. See <a href="ant--using-spans.html">Using
+                                    Spans</a>. Default includes &quot;all coverage data found&quot;.</p></td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">-u, --unittests</td>
+                            <td colspan="1"><em><strong>Since 3.1.6:</strong> </em>Show unit tests
+                                results summary. By default summary is not listed.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">-c, --codetype</td>
+                            <td colspan="1"><em><strong>Since 3.1.6:</strong> </em>The type of code
+                                to report on. Valid values are: APPLICATION, TEST, ALL. Default value: APPLICATION
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3>Return code</h3>
+                <p>The ConsoleReporter.main() calls System.exit() and returns a non-zero value in case of error during
+                    report generation.</p>
+                <h2>API Usage</h2>
+                <p>ConsoleReporter provides a simple API that accepts an array of strings representing the command line
+                    arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
+                <pre><code class="language-java">import com.atlassian.clover.reporters.console.ConsoleReporter;
+
+
+String [] cliArgs = { &quot;-l&quot;, &quot;method&quot;, &quot;-t&quot;, &quot;Method Coverage&quot;, &quot;-i&quot;, &quot;clover.db&quot; };
+int result = ConsoleReporter.mainImpl(cliArgs);
+if (result != 0) {
+   // problem during report generation
+}</code></pre>
+
+                <h3>Examples</h3>
+                <pre><code class="language-bash">java com.atlassian.clover.reporters.console.ConsoleReporter -i clover.db</code></pre>
+                <p>Reads coverage for the Clover database &quot;clover.db&quot;, and produces a summary report to the
+                    console.</p>
+                <p> </p>
+                <pre><code class="language-bash">java com.atlassian.clover.reporters.console.ConsoleReporter -l &quot;method&quot; -t &quot;Method Coverage&quot; -i clover.db</code></pre>
+                <p>Produces the same report as above, but includes method-level coverage information, and a report
+                    title.</p>
+                <p> </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
+    </footer>
+</div>
+<script src="../../../resources/js/bootstrap.bundle-5.3.2.min.js"></script>
+<script src="../../../resources/js/prism.min.js"></script>
+</body>
+</html>
