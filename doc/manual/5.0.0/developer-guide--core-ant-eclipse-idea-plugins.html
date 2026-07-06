@@ -63,142 +63,111 @@
                 <h2>Prerequisites</h2>
                 <p>1. Install tools. Mandatory tools are:</p>
                 <ul>
-                    <li>Ant 1.9.4 (or higher)<em><br/></em></li>
-                    <li>Maven 3.6.3 (or higher)</li>
+                    <li>JDK 17<em><br/></em></li>
+                    <li>Ant 1.10 (or higher)</li>
+                    <li>Maven 3.8 (or higher)</li>
                     <li>Git</li>
-                    <li>JDK 1.8</li>
-                    <li>IntelliJ IDEA 13</li>
-                    <li>Eclipse 4.2.2</li>
                 </ul>
-                <p>Optional tools are:</p>
-                <ul>
-                    <li>JDK 1.7, JDK 1.9 - to run tests against these JDKs</li>
-                    <li>IDEA 14.x, 15.x, 2016.x - to run tests against newer IDEA versions</li>
-                    <li>Eclipse 4.3.1, 4.4.0, 4.5.1, 5.0.0 - to run tests against newer Eclipse versions</li>
-                </ul>
-                <p> </p>
-                <p>2. Set environment variables:</p>
-                <ul>
-                    <li>ANT_HOME=/path/to/apache-ant</li>
-                    <li>M2_HOME=/path/to/maven3</li>
-                    <li>JAVA_HOME=/path/to/jdk1.8</li>
-                </ul>
-                <p> </p>
-                <p>3. <span>Check out main Clover repository:</span></p>
+                <p>
+                    IntelliJ IDEA and Eclipse itself do <strong>not</strong> need to be installed manually: the
+                    <code>clover-idea</code> module is built with the IntelliJ Platform Gradle plugin, which
+                    downloads the IDEA platform versions it needs automatically, and <code>clover-eclipse-libs</code>
+                    downloads the required Eclipse binaries from the Eclipse archive during the build.
+                </p>
+                <p> </p>
+                <p>2. <span>Check out main Clover repository:</span></p>
                 <div style="border-width: 1px;">
                     <div>
                         <pre><code class="language-bash">git clone ssh://git@github.com/openclover/clover.git</code></pre>
                     </div>
                 </div>
                 <p><span><br/></span></p>
-                <p><span>4. Set up paths to JDK, IDEA and Eclipse:</span></p>
-                <p><span>Open &lt;clover&gt;/build.properties and put proper paths.</span></p>
-                <p><span><br/></span></p>
-                <p><span>5. Download, repack and install third party libraries:</span></p>
+                <p><span>3. Prepare repacked third party libraries:</span></p>
                 <div style="border-width: 1px;">
                     <div>
 <pre><code class="language-bash"># cd clover
-mvn install -f clover-core-libs/jarjar/pom.xml
-mvn install -Prepack -f clover-core-libs/pom.xml
-mvn install -Prepack -f clover-idea/clover-jtreemap/pom.xml</code></pre>
+mvn install -Pworkspace-setup -f clover-core-libs/pom.xml
+mvn install -Pworkspace-setup -f clover-eclipse-libs/pom.xml</code></pre>
                     </div>
                 </div>
-                <p> </p>
-                <p><span>6. Install Atlassian fork of KTreeMap library:</span></p>
+                <p> </p>
+                <p><span>4. Download and install the KTreeMap fork:</span></p>
                 <div style="border-width: 1px;">
                     <div>
-<pre><code class="language-bash">git clone https://bitbucket.org/atlassian/ktreemap
-git checkout ktreemap-1.1.0-atlassian-01
-mvn install</code></pre>
+<pre><code class="language-bash">PACKAGES_ATLASSIAN_COM=https://packages.atlassian.com/mvn/maven-atlassian-external/
+KTREEMAP_PATH=net/sf/jtreemap/ktreemap/1.1.0-atlassian-01
+
+wget $PACKAGES_ATLASSIAN_COM/$KTREEMAP_PATH/ktreemap-1.1.0-atlassian-01.jar
+wget $PACKAGES_ATLASSIAN_COM/$KTREEMAP_PATH/ktreemap-1.1.0-atlassian-01.pom
+mvn install:install-file -Dfile=ktreemap-1.1.0-atlassian-01.jar -DpomFile=ktreemap-1.1.0-atlassian-01.pom</code></pre>
                     </div>
                 </div>
+                <p>
+                    Alternatively, add <code>https://packages.atlassian.com/mvn/maven-atlassian-external</code>
+                    as a repository in your Maven <code>settings.xml</code> instead of downloading the JAR manually.
+                </p>
                 <h2>Build and test</h2>
                 <h3>Building from a
                     command line</h3>
-                <p>To compile application code:</p>
+                <p>To compile everything and run all tests:</p>
                 <div style="border-width: 1px;">
                     <div>
-                        <pre><code class="language-bash">ant global.build</code></pre>
+                        <pre><code class="language-bash">mvn test</code></pre>
                     </div>
                 </div>
-                <p>To run tests:</p>
+                <p>To install all modules locally, without running tests:</p>
                 <div style="border-width: 1px;">
                     <div>
-                        <pre><code class="language-bash">ant global.test</code></pre>
+                        <pre><code class="language-bash">mvn install -DskipTests=true</code></pre>
                     </div>
                 </div>
-                <p>To create Clover-for-Ant, Clover-for-IDEA and Clover-for-Eclipse packages:</p>
+                <p>To run tests for the three main modules only:</p>
                 <div style="border-width: 1px;">
                     <div>
-                        <pre><code class="language-bash">ant clover-ant.pkg clover-idea.pkg clover-eclipse.pkg</code></pre>
+                        <pre><code class="language-bash">mvn test -pl clover-ant,clover-core,clover-groovy</code></pre>
                     </div>
                 </div>
-                <p>To install Clover Core in .m2/repository:</p>
-                <div style="border-width: 1px;">
-                    <div>
-                        <pre><code class="language-bash">ant clover-ant.mvn.install</code></pre>
-                    </div>
-                </div>
-                <p>To learn about other targets available see <a href="developer-guide--build-system.html">Build system</a>. </p>
+                <p>To learn about other targets available see <a href="developer-guide--build-system.html">Build system</a>. </p>
                 <h3>Building
                     Clover from IntelliJ IDEA</h3>
                 <ol>
-                    <li>Compile sources using Ant first using 'ant global.build'. This is because the script downloads
-                        third party JARs as well as generates some Java sources.
+                    <li>Complete the prerequisite steps above first (repacked libraries, KTreeMap), then open the
+                        root <code>pom.xml</code> in IDEA as a Maven project. There is no separate SDK or library
+                        wiring to configure.
                     </li>
-                    <li>Open Clover project in IDEA - just select the directory containing Clover code (.idea folder and
-                        *.iml files are versioned in SCM).
-                    </li>
-                    <li>Open project settings and
-                        <ol>
-                            <li>define JDKs named '1.7', '1.8'. While Clover is compiled using 1.7 language level, there are
-                                two test projects using JDK 1.7 and 1.8.
-                            </li>
-                            <li>define IntelliJ Platform Plugin SDK named 'IDEA 13.0.0' (you can actually use the newest
-                                13.1.7 bug-fix version). 
-                            </li>
-                            <li>configure path to 'eclipse-4.2.2' library</li>
-                        </ol>
-                    </li>
-                    <li>Whole project should be compile-able now. There shall be no need to define other libraries or to
-                        change paths etc.
+                    <li>The <code>clover-idea</code> module is a separate Gradle project (see
+                        <code>clover-idea/build.gradle.kts</code>); open it independently if you need to work on
+                        the IDEA plugin itself &mdash; the IntelliJ Platform Gradle plugin fetches the IDEA
+                        platform versions declared there automatically.
                     </li>
                 </ol>
                 <h2>Release and publish</h2>
-                <p>To create a snapshot version of Clover Core as well as plugins for Ant, Eclipse and IDEA:</p>
-                <div style="border-width: 1px;">
-                    <div>
-                        <pre><code class="language-bash">ant global.clean clover-ant.pkg clover-idea.pkg clover-eclipse.pkg</code></pre>
-                    </div>
-                </div>
-                <p> </p>
-                <p>To create a stable version of Clover Core as well as plugins for Ant, Eclipse and IDEA:</p>
-                <ol>
-                    <li><p>update &quot;core.release.base&quot; and &quot;core.release.num.sanitised&quot; in
-                        /common.xml</p></li>
-                    <li><p>update org.openclover.runtime.registry.format.RegHeader#REG_FORMAT_VERSION (only if format of
-                        the database has changed)</p></li>
-                    <li>run a command </li>
-                </ol>
-                <div style="border-width: 1px;">
-                    <div>
-                        <pre><code class="language-bash">ant global.clean mvn.versioncheck prod.mvn.setup clover-ant.prod clover-idea.prod clover-eclipse.prod -Dclover.prod.build=true -Dpath.to.mvn=/path/to/apache-maven-3.6.3/bin/mvn</code></pre>
-                    </div>
-                </div>
-                <p>Artefacts will be created in:</p>
+                <p>
+                    Releases are driven by two GitHub Actions workflows, not by manual Ant/Maven commands:
+                </p>
                 <ul>
-                    <li><span>Clover API JavaDoc - <span>clover-ant/target/javadoc</span></span></li>
-                    <li><span><span><span class="artifactName">Clover Core - <span>clover-ant/target/clover-*.jar, pom.xml</span></span></span></span>
+                    <li><strong>C Prepare release</strong> &mdash; bumps <code>pom.xml</code>/Gradle versions
+                        (including <code>clover-idea/gradle.properties</code> and the Eclipse feature version),
+                        commits, and creates the <code>openclover-&lt;version&gt;</code> tag.
                     </li>
-                    <li>Clover-for-Ant - clover-ant/target/clover-ant-*.zip</li>
-                    <li><span>Clover-for-Eclipse - <span>clover-eclipse/target/main/<span>org.openclover.eclipse.updatesite_*.zip</span></span></span>
-                    </li>
-                    <li>
-                        <span><span><span><span class="artifactName">Clover-for-IDEA - <span>clover-idea/target/clover-idea.jar</span></span></span></span></span>
+                    <li><strong>D Release OpenClover</strong> &mdash; checks out that tag, prepares third party
+                        libraries, builds and signs artifacts, runs <code>mvn deploy</code> to publish Clover Core
+                        to Maven Central (OSSRH), and uploads the non-Maven artifacts (Clover-for-Ant ZIP,
+                        Clover-for-IDEA JAR, Clover-for-Eclipse update site ZIP) to openclover.org.
                     </li>
                 </ul>
-                <p> </p>
-                <p> </p>
+                <p>Both are triggered manually via <em>workflow_dispatch</em> from the GitHub Actions tab.</p>
+                <p>Artefacts end up in:</p>
+                <ul>
+                    <li><span>Clover-for-Ant - <span>clover-ant-zip/target/clover-ant-*.zip</span></span></li>
+                    <li><span>Clover-for-Eclipse - <span>clover-eclipse/org.openclover.eclipse.updatesite/target/clover-eclipse-site-*.zip</span></span>
+                    </li>
+                    <li>
+                        <span>Clover-for-IDEA - <span>clover-idea/build/dist/clover-idea-*.jar</span></span>
+                    </li>
+                </ul>
+                <p> </p>
+                <p> </p>
             </div>
 
 

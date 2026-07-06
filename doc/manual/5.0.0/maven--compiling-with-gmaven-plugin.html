@@ -62,6 +62,15 @@
         <div id="content" class="view">
 
             <div id="main-content">
+                <div class="alert alert-warning">
+                    The GMaven plugin (<code>org.codehaus.gmaven</code>) has been unmaintained for years and does
+                    not support Groovy 3.x+. Since OpenClover 5.0 dropped support for Groovy 2.x, the version
+                    numbers below (Groovy 1.8.x) are no longer usable with current OpenClover. Prefer the
+                    <a href="maven--compiling-with-groovy-eclipse-plugin.html">Groovy Eclipse Compiler plugin</a>
+                    or <a href="https://github.com/groovy/GMavenPlus" rel="nofollow">GMavenPlus</a> with
+                    <a href="general--supported-platforms.html">a supported Groovy version (3.x, 4.x, 5.x)</a>
+                    instead. This page is kept for historical reference.
+                </div>
                 <h1 id="CompilingGroovywithGMavenplugin-ConfiguringtheGMavenPluginforGroovySupportinMaven2and3">
                     Configuring the GMaven Plugin for Groovy Support in Maven</h1>
                 <p>If you are using Clover-for-Maven on Groovy code, you would typically need to define a <code>plugin</code>
