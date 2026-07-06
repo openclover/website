@@ -68,18 +68,20 @@
         level from 8 to 17, and run it under any JDK/JRE from 8 to 17 with full confidence.
     </p>
 
-    <h4>Java 21 runtime verified</h4>
+    <h4>Java 21 and Java 25 runtime verified</h4>
     <p>
-        Planning your JDK upgrade? Good news: OpenClover runs cleanly on Java 21. Note that instrumentation
-        of language features introduced in Java 18–21 is not yet supported — that's what the next cycle is for.
-        But if your build toolchain already runs on JDK 21, you won't be blocked.
+        Planning your JDK upgrade? Good news: OpenClover now runs cleanly on <b>Java 21 and Java 25</b>,
+        with both versions continuously built and tested. Note that this is <em>runtime</em> support —
+        instrumentation of language features introduced in Java 18+ is not yet supported, that's what
+        the next cycle is for. But if your build toolchain already runs on JDK 21 or the brand-new JDK 25,
+        you won't be blocked.
     </p>
 
     <h4>Java 1.7 support dropped</h4>
     <p>
         To clear the path for Java 21 instrumentation support, we are officially dropping Java 1.7.
-        If your OpenClover configuration specifies <code>1.7</code> as the language level, it will be
-        silently treated as <code>8</code> and a warning will be printed. Since all OpenClover classes
+        If your OpenClover configuration specifies <b>1.7</b> as the language level, it will be
+        silently treated as <b>8</b> and a warning will be printed. Since all OpenClover classes
         have always required JRE 8+ at runtime, this change affects only a very small number of projects
         still targeting a JVM that reached end-of-life years ago.
     </p>
@@ -125,6 +127,33 @@
         Time to upgrade!
     </p>
 
+    <h3>IDE integrations — waking up from a decade-long nap!</h3>
+
+    <p>
+        Let's be honest: Clover for Eclipse and Clover for IDEA hadn't been touched in <em>years</em>.
+        The last officially supported versions were <b>IntelliJ IDEA 2016.3</b> and <b>Eclipse 4.6 (Neon)</b>
+        — released back in 2016. If you tried installing the old plugin into a modern IDE, it simply
+        wouldn't load. Not anymore!
+    </p>
+    <p>
+        We tore into both plugins, rebuilt <code>clover-idea</code> on top of the modern IntelliJ Platform
+        Gradle plugin, chased down every API change across a decade of IDE releases, and got everything
+        green again. The result:
+    </p>
+    <ul>
+        <li><b>IntelliJ IDEA 2024.3 through 2026.1</b> are now fully supported.</li>
+        <li><b>Eclipse 2024-06 through 2026-03</b> are now fully supported.</li>
+    </ul>
+    <p>
+        Install the plugin in your current IDE and get <b>instantaneous code coverage feedback right
+        where you write code</b> — no more waiting for an external build and report to finish before
+        you find out what you missed. Spot risky areas at a glance with heat maps, and jump straight
+        to top risks and quick wins from the built-in mini dashboard. Per-test coverage lets you
+        navigate straight from any line of code to the tests that exercise it, and back again.
+        Combine that with OpenClover's test optimization feature and you can save dozens of hours a
+        year by running only the tests that actually matter for your change.
+    </p>
+
     <h3>Codebase cleanup</h3>
 
     <h4>Package renaming — goodbye <code>com.atlassian.*</code></h4>
@@ -164,10 +193,15 @@
 
     <ul>
         <li><a href="https://github.com/openclover/clover/issues/31">OC-31: Support @CompileStatic annotation for Groovy</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/61">OC-61: Support Java 9</a></li>
         <li><a href="https://github.com/openclover/clover/issues/63">OC-63: Support Java 10</a></li>
         <li><a href="https://github.com/openclover/clover/issues/64">OC-64: Support Java 11</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/68">OC-68: Support IDEA 2017 and 2018</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/69">OC-69: Support the latest Eclipse versions, up to 2026</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/70">OC-70: Fix SockedBasedJUnitClassListProcessor for IntelliJ IDEA 2016</a></li>
         <li><a href="https://github.com/openclover/clover/issues/74">OC-74: Clover fails to parse try-with-resources when closeable resource has no type specified</a></li>
         <li><a href="https://github.com/openclover/clover/issues/102">OC-102: Use maven-shade-plugin to shrink size of the clover.jar</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/109">OC-109: Support IntelliJ IDEA 2019, 2020, 2021, 2022, 2023</a></li>
         <li><a href="https://github.com/openclover/clover/issues/119">OC-119: Duplicate entries in clover jar files</a></li>
         <li><a href="https://github.com/openclover/clover/issues/121">OC-121: Support Groovy 3.0.x</a></li>
         <li><a href="https://github.com/openclover/clover/issues/183">OC-183: Support Java 17</a></li>
@@ -185,7 +219,17 @@
         <li><a href="https://github.com/openclover/clover/issues/253">OC-253: Instrumentation of generic instanceof pattern matching produces invalid Java code</a></li>
         <li><a href="https://github.com/openclover/clover/issues/257">OC-257: The instanceof pattern matching is not working for 4.5.2</a></li>
         <li><a href="https://github.com/openclover/clover/issues/258">OC-258: Remove Gson library</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/261">OC-261: Rename 4.6.0 to 5.0.0</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/266">OC-266: Release 5.0.0</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/270">OC-270: Instrumentation fails with parameterized generic record</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/271">OC-271: Support for IntelliJ IDEA 2024, 2025, 2026</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/273">OC-273: Clover fails compiling switch statements consisting of old and new constructs</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/275">OC-275: Compiling text blocks</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/276">OC-276: Clover fails to instrument pattern matching for the instanceof operator</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/277">OC-277: Instrumentation error: CloverException: unexpected token: selectedItem</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/278">OC-278: Support Java 25</a></li>
         <li><a href="https://github.com/openclover/clover/issues/282">OC-282: Support Groovy 5.0.x</a></li>
+        <li><a href="https://github.com/openclover/clover/issues/285">OC-285: Functional tests for Eclipse</a></li>
 
     </ul>
 </div>
