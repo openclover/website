@@ -72,11 +72,11 @@ javax.imageio.IIOException: Can&#39;t create output stream!
         at clover.org.jfree.chart.ChartUtilities.writeBufferedImageAsPNG(ChartUtilities.java:615)
         at clover.org.jfree.chart.ChartUtilities.writeChartAsPNG(ChartUtilities.java:204)
         at clover.org.jfree.chart.ChartUtilities.saveChartAsPNG(ChartUtilities.java:343)
-        at com.atlassian.clover.reporters.util.CloverChartFactory.generateSrcFileCharts(CloverChartFactory.java:199)
-        at com.atlassian.clover.reporters.html.FullHtmlReporter.createCurrentReportImpl(FullHtmlReporter.java:317)
-        at com.atlassian.clover.reporters.html.HtmlReporter.createCurrentReport(HtmlReporter.java:107)
-        at com.atlassian.clover.reporters.html.HtmlReporter.mainImpl(HtmlReporter.java:293)
-        at com.atlassian.clover.reporters.html.HtmlReporter.main(HtmlReporter.java:283)
+        at org.openclover.core.reporters.util.CloverChartFactory.generateSrcFileCharts(CloverChartFactory.java:199)
+        at org.openclover.core.reporters.html.HtmlReporter.createCurrentReportImpl(HtmlReporter.java:317)
+        at org.openclover.core.reporters.html.HtmlReporter.createCurrentReport(HtmlReporter.java:107)
+        at org.openclover.core.reporters.html.HtmlReporter.mainImpl(HtmlReporter.java:293)
+        at org.openclover.core.reporters.html.HtmlReporter.main(HtmlReporter.java:283)
 
 Caused by: javax.imageio.IIOException: Can&#39;t create cache file!
         at javax.imageio.ImageIO.createImageOutputStream(ImageIO.java:397)
@@ -101,11 +101,11 @@ Caused by: java.io.IOException: The filename, directory name, or volume label sy
                 <div style="border-width: 1px;">
                     <div>
 <pre>set TMP=c:\TEMP
-java -cp clover.jar com.atlassian.clover.reporters.html.HtmlReporter ...
+java -cp clover.jar org.openclover.core.reporters.html.HtmlReporter ...
 
 or
 
-java -cp clover.jar -Djava.io.tmpdir=C:\TEMP com.atlassian.clover.reporters.html.HtmlReporter ...
+java -cp clover.jar -Djava.io.tmpdir=C:\TEMP org.openclover.core.reporters.html.HtmlReporter ...
 </pre>
                     </div>
                 </div>

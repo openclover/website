@@ -62,7 +62,7 @@
             <div id="main-content">
                 <p>Produces a PDF summary report of Code Coverage for the given coverage database.</p>
                 <h2>Usage</h2>
-                <pre>java com.atlassian.clover.reporters.pdf.PDFReporter [OPTIONS] PARAMS
+                <pre>java org.openclover.core.reporters.pdf.PDFReporter [OPTIONS] PARAMS
 </pre>
                 <h3>Params</h3>
                 <div>
@@ -166,9 +166,9 @@
                 <h2>API Usage</h2>
                 <p>PDFReporter provides a simple API that accepts an array of strings representing the command line
                     arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
-                <pre>import com.atlassian.clover.CloverStartup;
-import com.atlassian.clover.Logger;
-import com.atlassian.clover.reporters.pdf.PDFReporter;
+                <pre>import org.openclover.core.CloverStartup;
+import org.openclover.runtime.Logger;
+import org.openclover.core.reporters.pdf.PDFReporter;
 
 public class PdfReportRunner {
     public void runReport() {
@@ -182,11 +182,11 @@ public class PdfReportRunner {
 }
 </pre>
                 <h3>Examples</h3>
-                <pre>java com.atlassian.clover.reporters.pdf.PDFReporter -i clover.db -o coverage.pdf
+                <pre>java org.openclover.core.reporters.pdf.PDFReporter -i clover.db -o coverage.pdf
 </pre>
                 <p>Reads coverage for the Clover database &quot;clover.db&quot;, and produces a pdf report in the file &quot;coverage.pdf&quot;.</p>
                 <p> </p>
-                <pre>java com.atlassian.clover.reporters.pdf.PDFReporter -c ElementsCoveredAsc
+                <pre>java org.openclover.core.reporters.pdf.PDFReporter -c ElementsCoveredAsc
       -t &quot;My Coverage&quot; -i clover.db -o coverage.pdf
 </pre>
                 <p>Produces the same report as above, but includes a report title, and orders lists by total elements

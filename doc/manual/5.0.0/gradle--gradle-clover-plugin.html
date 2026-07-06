@@ -147,7 +147,7 @@ task cloverInstr() {
         }))
         String[] args = argsList.toArray()
 
-        com.atlassian.clover.CloverInstr.mainImpl(args)
+        org.openclover.core.CloverInstr.mainImpl(args)
     }
 }
 
@@ -168,7 +168,7 @@ task cloverReport {
         def argsList = [&quot;--initstring&quot;, &quot;${buildDir}/clover/clover.db&quot;,
                         &quot;-o&quot;, &quot;${reportsDir}/clover&quot;]
         String[] args = argsList.toArray()
-        com.atlassian.clover.reporters.html.HtmlReporter.runReport(args)
+        org.openclover.core.reporters.html.HtmlReporter.runReport(args)
     }
 }</pre>
                 </div>

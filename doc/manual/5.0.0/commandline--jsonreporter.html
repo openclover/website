@@ -62,7 +62,7 @@
             <div id="main-content">
                 <p>Produces a JSON report of Code Coverage for the given coverage database.</p>
                 <h2>Usage</h2>
-                <pre> java com.atlassian.clover.reporters.json.JSONReporter [OPTIONS] PARAMS
+                <pre> java org.openclover.core.reporters.json.JSONReporter [OPTIONS] PARAMS
 </pre>
                 <h3>Parameters</h3>
                 <div>
@@ -130,9 +130,9 @@
                 <h2>API Usage</h2>
                 <p>JSONReporter provides a simple API that accepts an array of strings representing the command line
                     arguments and returns an integer result code. The following fragment illustrates use of the API:</p>
-                <pre>import com.atlassian.clover.CloverStartup;
-import com.atlassian.clover.Logger;
-import com.atlassian.clover.reporters.json.JSONReporter;
+                <pre>import org.openclover.core.CloverStartup;
+import org.openclover.runtime.Logger;
+import org.openclover.core.reporters.json.JSONReporter;
 
 public class JsonReportRunner {
     public void runReport() {
@@ -147,7 +147,7 @@ public class JsonReportRunner {
                 <h3>Examples</h3>
                 <pre
 
-                        > java com.atlassian.clover.reporters.json.JSONReporter -i clover.db -o clover_json</pre>
+                        > java org.openclover.core.reporters.json.JSONReporter -i clover.db -o clover_json</pre>
                 <p>Read coverage for the Clover database &quot;clover.db&quot; and produce a report in the directory &quot;clover_json&quot;.</p>
                 <p> </p>
             </div>
