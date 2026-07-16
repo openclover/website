@@ -61,7 +61,7 @@
         <div id="content" class="view">
 
             <div id="main-content">
-                <p><strong>Q: How are the Clover coverage percentages calculated?</strong>The &quot;total&quot; coverage
+                <p>The &quot;total&quot; coverage
                     percentage of a class (or file, package, project) is provided as a quick guide to how well the class
                     is covered — and to allow ranking of classes.</p>
                 <p>The Total Percentage Coverage (TPC) is calculated using the formula:</p>
@@ -108,24 +108,34 @@ M - total number of methods
                 <p>In other words, the 'conditionals' attribute is already a doubled number of branches, while the
                     'coveredconditionals' attribute is a sum of branches evaluated to true and branches evaluated to
                     false.</p>
-                <p>So in order to calculate the Total Percentage Coverage metric using data from an XML report you have
-                    to use the following equation:</p>
-                <div style="border-width: 1px;">
-                    <div>
-                        <pre>TPC = (coveredconditionals + coveredstatements + coveredmethods) / (conditionals + statements + methods)</pre>
-                    </div>
-                </div>
-                <p> </p>
-                <p>Note:</p>
-                <p>The &lt;metrics&gt; tag in XML report contains one extra attribute pair, which is calculated as
+
+                <p>Note: the &lt;metrics&gt; tag in XML report contains one extra attribute pair, which is calculated as
                     follows:</p>
                 <ul>
                     <li>coveredelements = coveredconditionals + coveredstatements</li>
                     <li>elements = conditionals + statements</li>
                 </ul>
-                <p> </p>
-            </div>
 
+                <h2 id="precision">Precision of coverage percentages</h2>
+
+                <p>Coverage percentages in Clover's reports are always rounded to <strong>one decimal place</strong>
+                    (for example <code>35.2%</code>). This is not configurable.</p>
+
+                <p>If you need a higher precision, you have two options:</p>
+
+                <ul>
+                    <li><strong>Compute it yourself from the XML report.</strong> The <code>&lt;metrics&gt;</code> tag
+                        shown above contains the raw counts, so you can calculate the percentage at any precision. See
+                        <a href="faq--how-to-extract-coverage-metrics-from-report.html">How can I download the report or
+                            extract coverage metrics?</a></li>
+                    <li><strong>Use a precise coverage target.</strong> The
+                        <a href="ant--clover-check.html">&lt;clover-check&gt;</a> task and the
+                        <code>clover:check</code> goal compare the actual value against the target with as many
+                        fractional digits as the <em>target</em> declares, using <code>BigDecimal.ROUND_HALF_EVEN</code>
+                        rounding. For example, if the actual coverage is 99.9% then a build passes for
+                        <code>target="100%"</code>, but fails for <code>target="100.000000%"</code>.</li>
+                </ul>
+            </div>
 
         </div>
     </div>

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--create-report-with-clover-db-from-another-machine.html" />
-    <title>OpenClover 5.0 : Can I create a Clover Report on Server A if I have the clover.db which I generated on Server
-        B?</title>
+    <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--no-clover-instrumentation-done-on-source-files.html" />
+    <title>OpenClover 5.0 : Why do I get "No Clover instrumentation done on source files"?</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
@@ -57,56 +56,56 @@
         </div>
 
         <h1 id="title-heading" class="pagetitle">
-            Can I create a Clover Report on Server A if I have the clover.db which I generated on Server B? </h1>
+            Why do I get "No Clover instrumentation done on source files"? </h1>
 
         <div id="content" class="view">
 
             <div id="main-content">
-                <p>Yes you can if you use the command line options. You need to copy over your coverage.db and all the
-                    coverage.db* files that were generated. </p>
 
-                <p>However if you do not have the source files on your Server A, that you did have on your Server B you
-                    are going to get a number of the following errors</p>
-                <div style="border-width: 1px;">
-                    <div>
-<pre>ERROR: C:/Applications/Confluence_STD/Source Code/confluence-2.9-source/confluence-project/confluence/src/test/java/com/atlassian/integrationtest/confluence/core/TestConfluenceClasspath.java (No such file or directory)
-</pre>
-                    </div>
-                </div>
+                <p><strong>Q: My build prints "No Clover instrumentation done on source files" and/or "No Clover
+                    database found, skipping report generation". Why?</strong></p>
 
-                <p>The report you generate will have all the coverage statistics but when you try and drill down to the
-                    class, you will get a error stating it cannot find the source file. </p>
+                <p>These messages - together with
+                    <a href="kb--clover-registry-file-does-not-exist.html">Clover registry file &lt;path/to/clover.db&gt;
+                        does not exist</a> - are different symptoms of the same root cause: <strong>Clover did not
+                        instrument any source file</strong>, so no Clover database was created and there is nothing
+                    to report on.</p>
 
-                <p>If you do have the source on Server A you can specify it using the -p option from
-                    <a href="commandline--consolereporter.html">Console reporter</a>. </p>
-            
-                <h2 id="runtime">How does Clover find the database at runtime?</h2>
+                <p>See <a href="kb--clover-registry-file-does-not-exist.html">Clover registry file does not
+                    exist</a> in the Knowledge Base for the full list of causes and resolutions (invalid initstring
+                    location, database missing on a remote machine, no <code>clean</code> before
+                    <code>clover-setup</code>). Two causes are worth calling out here:</p>
 
-                <p>Clover stores the path to the database file in <strong>every instrumented top-level class</strong>
-                    (inner and anonymous classes use the path from their enclosing class). This is why the database must
-                    be reachable, at that path, on the machine where the instrumented code is executed.</p>
+                <h2 id="bad-include">An invalid &lt;include&gt; path in Maven</h2>
 
-                <p>You can run <strong>multiple applications or application modules</strong>, using different paths to
-                    clover.db, in a single JVM.</p>
+                <p>This is the most common cause in Maven builds. Clover silently matches no files if the include
+                    pattern points to a directory which does not exist. A frequent mistake is using a Maven property
+                    which does not exist, for example <code>${project.source.directory}</code>. Use the correct
+                    properties:</p>
 
-                <p>In order to manage paths across machines, choose one of:</p>
+                <pre><code class="language-xml">&lt;configuration&gt;
+  &lt;includes&gt;
+    &lt;include&gt;${project.build.sourceDirectory}&lt;/include&gt;
+    &lt;include&gt;${project.build.testSourceDirectory}&lt;/include&gt;
+  &lt;/includes&gt;
+&lt;/configuration&gt;</code></pre>
 
-                <ul>
-                    <li>copy <code>clover.db</code> to the same absolute location on each machine,</li>
-                    <li>keep the database on a shared network drive,</li>
-                    <li>or instrument using <em>relative</em> paths and set the
-                        <code>clover.initstring.basedir</code> (or <code>clover.initstring.prefix</code>) property at
-                        runtime, pointing to a common root folder. This is the most flexible option, and the right one
-                        when a shared drive is mounted under different absolute paths on different machines.</li>
-                </ul>
+                <p>or specify the paths explicitly:</p>
 
-                <p>Once the tests have finished, the coverage recording files are written next to the database and must
-                    be copied back to the reporting machine, <strong>preserving the directory structure</strong>. See
-                    <a href="ant--openclover-jvm-properties.html">Clover JVM properties</a>,
-                    <a href="guideline--using-openclover-in-various-environment-configurations.html">Using Clover in
-                        various environment configurations</a> and
-                    <a href="guideline--working-with-distributed-applications.html">Working with Distributed
-                        Applications</a>.</p>
+                <pre><code class="language-xml">&lt;configuration&gt;
+  &lt;includes&gt;
+    &lt;include&gt;src/main/java&lt;/include&gt;
+    &lt;include&gt;src/test/java&lt;/include&gt;
+  &lt;/includes&gt;
+&lt;/configuration&gt;</code></pre>
+
+                <h2 id="unsupported-jdk">An unsupported JDK</h2>
+
+                <p>Instrumentation may fail if you run OpenClover on a JDK newer than it supports. See
+                    <a href="faq--which-java-and-groovy-versions-are-supported.html">Which Java and Groovy versions
+                        are supported?</a> - note that the frequently quoted "JDK 17 is not supported" applies to
+                    OpenClover 4.4.1 and not to current releases.</p>
+
             </div>
 
 

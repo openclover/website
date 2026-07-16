@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--create-report-with-clover-db-from-another-machine.html" />
-    <title>OpenClover 5.0 : Can I create a Clover Report on Server A if I have the clover.db which I generated on Server
-        B?</title>
+    <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--how-to-fail-build-when-coverage-is-too-low.html" />
+    <title>OpenClover 5.0 : How can I fail the build when code coverage is too low?</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
@@ -57,58 +56,39 @@
         </div>
 
         <h1 id="title-heading" class="pagetitle">
-            Can I create a Clover Report on Server A if I have the clover.db which I generated on Server B? </h1>
+            How can I fail the build when code coverage is too low? </h1>
 
         <div id="content" class="view">
 
             <div id="main-content">
-                <p>Yes you can if you use the command line options. You need to copy over your coverage.db and all the
-                    coverage.db* files that were generated. </p>
 
-                <p>However if you do not have the source files on your Server A, that you did have on your Server B you
-                    are going to get a number of the following errors</p>
-                <div style="border-width: 1px;">
-                    <div>
-<pre>ERROR: C:/Applications/Confluence_STD/Source Code/confluence-2.9-source/confluence-project/confluence/src/test/java/com/atlassian/integrationtest/confluence/core/TestConfluenceClasspath.java (No such file or directory)
-</pre>
-                    </div>
-                </div>
+                <p><strong>Q: Can I fail the build - or block a deployment - when code coverage drops below a given
+                    percentage?</strong></p>
 
-                <p>The report you generate will have all the coverage statistics but when you try and drill down to the
-                    class, you will get a error stating it cannot find the source file. </p>
+                <p>Yes. Set the <code>targetPercentage</code> parameter and call the
+                    <code>clover:check</code> goal (Maven) or the
+                    <a href="ant--clover-check.html">&lt;clover-check&gt;</a> task (Ant).</p>
 
-                <p>If you do have the source on Server A you can specify it using the -p option from
-                    <a href="commandline--consolereporter.html">Console reporter</a>. </p>
-            
-                <h2 id="runtime">How does Clover find the database at runtime?</h2>
+                <pre><code class="language-xml">&lt;configuration&gt;
+  &lt;targetPercentage&gt;75%&lt;/targetPercentage&gt;
+&lt;/configuration&gt;</code></pre>
 
-                <p>Clover stores the path to the database file in <strong>every instrumented top-level class</strong>
-                    (inner and anonymous classes use the path from their enclosing class). This is why the database must
-                    be reachable, at that path, on the machine where the instrumented code is executed.</p>
+                <pre><code class="language-bash">mvn clean clover:setup test clover:aggregate clover:clover clover:check</code></pre>
 
-                <p>You can run <strong>multiple applications or application modules</strong>, using different paths to
-                    clover.db, in a single JVM.</p>
+                <p>If you want the build to succeed anyway and only print a warning, use
+                    <code>-DfailOnViolation=false</code>.</p>
 
-                <p>In order to manage paths across machines, choose one of:</p>
+                <p>See <a href="maven--configuring-a-coverage-goal.html">Configuring a coverage goal</a> for
+                    Maven and <a href="ant--clover-check.html">&lt;clover-check&gt;</a> for Ant, including how to
+                    <em>ratchet</em> coverage up by failing the build when coverage drops relative to a previous
+                    history point.</p>
 
-                <ul>
-                    <li>copy <code>clover.db</code> to the same absolute location on each machine,</li>
-                    <li>keep the database on a shared network drive,</li>
-                    <li>or instrument using <em>relative</em> paths and set the
-                        <code>clover.initstring.basedir</code> (or <code>clover.initstring.prefix</code>) property at
-                        runtime, pointing to a common root folder. This is the most flexible option, and the right one
-                        when a shared drive is mounted under different absolute paths on different machines.</li>
-                </ul>
+                <h2 id="ci">Blocking a deployment on a CI server</h2>
 
-                <p>Once the tests have finished, the coverage recording files are written next to the database and must
-                    be copied back to the reporting machine, <strong>preserving the directory structure</strong>. See
-                    <a href="ant--openclover-jvm-properties.html">Clover JVM properties</a>,
-                    <a href="guideline--using-openclover-in-various-environment-configurations.html">Using Clover in
-                        various environment configurations</a> and
-                    <a href="guideline--working-with-distributed-applications.html">Working with Distributed
-                        Applications</a>.</p>
+                <p>There is usually no separate "coverage gate" setting on a CI server - this is Clover's
+                    configuration, not the CI server's. Because <code>clover:check</code> fails the build when the
+                    threshold is not met, simply make your deployment depend on a successful build.</p>
             </div>
-
 
         </div>
     </div>

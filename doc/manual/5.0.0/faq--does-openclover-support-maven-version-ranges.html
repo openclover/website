@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--create-report-with-clover-db-from-another-machine.html" />
-    <title>OpenClover 5.0 : Can I create a Clover Report on Server A if I have the clover.db which I generated on Server
-        B?</title>
+    <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--does-openclover-support-maven-version-ranges.html" />
+    <title>OpenClover 5.0 : Does Clover support Maven version ranges?</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
@@ -57,56 +56,34 @@
         </div>
 
         <h1 id="title-heading" class="pagetitle">
-            Can I create a Clover Report on Server A if I have the clover.db which I generated on Server B? </h1>
+            Does Clover support Maven version ranges? </h1>
 
         <div id="content" class="view">
 
             <div id="main-content">
-                <p>Yes you can if you use the command line options. You need to copy over your coverage.db and all the
-                    coverage.db* files that were generated. </p>
 
-                <p>However if you do not have the source files on your Server A, that you did have on your Server B you
-                    are going to get a number of the following errors</p>
-                <div style="border-width: 1px;">
-                    <div>
-<pre>ERROR: C:/Applications/Confluence_STD/Source Code/confluence-2.9-source/confluence-project/confluence/src/test/java/com/atlassian/integrationtest/confluence/core/TestConfluenceClasspath.java (No such file or directory)
-</pre>
-                    </div>
-                </div>
+                <p><strong>Q: My project uses Maven version ranges, e.g.
+                    <code>[1.0.0,2.0.0)</code>. <code>mvn clean install</code> works, but the Clover build fails
+                    with:</strong></p>
 
-                <p>The report you generate will have all the coverage statistics but when you try and drill down to the
-                    class, you will get a error stating it cannot find the source file. </p>
+                <pre><code class="language-bash">setup failed for artifact com.abc:arti:null:jar.... The version can not be empty.</code></pre>
 
-                <p>If you do have the source on Server A you can specify it using the -p option from
-                    <a href="commandline--consolereporter.html">Console reporter</a>. </p>
-            
-                <h2 id="runtime">How does Clover find the database at runtime?</h2>
+                <p>Version ranges are <strong>most likely not supported</strong>.</p>
 
-                <p>Clover stores the path to the database file in <strong>every instrumented top-level class</strong>
-                    (inner and anonymous classes use the path from their enclosing class). This is why the database must
-                    be reachable, at that path, on the machine where the instrumented code is executed.</p>
+                <p>The reason is that Clover sometimes has to <strong>replace the original artifact with an
+                    instrumented one</strong> - the artifact having the <code>clover</code> classifier. Such a
+                    substitution requires a <em>concrete</em> version and cannot be expressed against a version
+                    <em>range</em>. This is why the version is reported as <code>null</code> in the error message
+                    above.</p>
 
-                <p>You can run <strong>multiple applications or application modules</strong>, using different paths to
-                    clover.db, in a single JVM.</p>
+                <p><strong>Workaround:</strong> declare explicit versions for dependencies of the modules being
+                    instrumented by Clover.</p>
 
-                <p>In order to manage paths across machines, choose one of:</p>
+                <p>See also <a href="kb--warning-about-older-clovered-artifact-version.html">Warning about older
+                    clovered artifact version</a>, which originates from the same artifact substitution mechanism, and
+                    <a href="faq--how-to-remove-clover-suffix-from-artifact-name.html">How to remove -clover suffix from
+                        artifact name?</a>.</p>
 
-                <ul>
-                    <li>copy <code>clover.db</code> to the same absolute location on each machine,</li>
-                    <li>keep the database on a shared network drive,</li>
-                    <li>or instrument using <em>relative</em> paths and set the
-                        <code>clover.initstring.basedir</code> (or <code>clover.initstring.prefix</code>) property at
-                        runtime, pointing to a common root folder. This is the most flexible option, and the right one
-                        when a shared drive is mounted under different absolute paths on different machines.</li>
-                </ul>
-
-                <p>Once the tests have finished, the coverage recording files are written next to the database and must
-                    be copied back to the reporting machine, <strong>preserving the directory structure</strong>. See
-                    <a href="ant--openclover-jvm-properties.html">Clover JVM properties</a>,
-                    <a href="guideline--using-openclover-in-various-environment-configurations.html">Using Clover in
-                        various environment configurations</a> and
-                    <a href="guideline--working-with-distributed-applications.html">Working with Distributed
-                        Applications</a>.</p>
             </div>
 
 

@@ -62,10 +62,39 @@
 
             <div id="main-content">
                 <p><strong>Q: When using Clover, why do I get a java.lang.NoClassDefFoundError when I run my
-                    code?</strong>This probably indicates that you do not have <code>clover.jar</code> in your runtime
-                    classpath. See <strong><em>'Classpath Issues'</em></strong> in
+                    code?</strong> This probably indicates that you do not have Clover's runtime classes in your
+                    runtime classpath. See <strong><em>'Classpath Issues'</em></strong> in
                     <a href="guideline--working-with-distributed-applications.html">Working with Distributed
                         Applications</a>.</p>
+
+                <p>Having Clover on the <em>compile</em> classpath is not enough. Classes instrumented by Clover call
+                    into Clover's coverage recorder, so these classes must be available while your application or your
+                    tests are <strong>executed</strong>.</p>
+
+                <p>You may see the same problem reported as a <code>NoClassDefFoundError</code> on
+                    <code>org_openclover_runtime/CoverageRecorder</code>, or as a <em>"Could not initialize class"</em>
+                    error naming a class with the <code>$__CLR...</code> suffix, for example:</p>
+
+                <pre><code class="language-bash">Could not initialize class com.acme.MyClass$__CLR3_2_02t2thng9gff</code></pre>
+
+                <h2 id="which-jar">Which JAR do I need at runtime?</h2>
+
+                <p>You can use either of the following:</p>
+
+                <ul>
+                    <li><strong><code>clover-runtime.jar</code></strong> (the <code>org.openclover:clover-runtime</code>
+                        artifact) - <strong>recommended</strong>. It contains Clover's runtime classes only, so it
+                        cannot be used for compilation or reporting, but thanks to its reduced size you can bundle it
+                        into your own application's JAR. Available since Clover 4.0.6. See
+                        <a href="ant--openclover-runtime-jar.html">Clover Runtime JAR</a>.</li>
+                    <li><strong><code>clover.jar</code></strong> (the <code>org.openclover:clover</code> artifact) - the
+                        full JAR. This also works, but it is considerably larger.</li>
+                </ul>
+
+                <p>See <a href="kb--could-not-initialize-class-error-at-runtime.html">"Could not initialize class" error
+                    at runtime</a> and
+                    <a href="kb--noclassdeffounderror-com-atlassian-clover-coveragerecorder.html">NoClassDefFoundError
+                        org_openclover_runtime/CoverageRecorder</a> in the Knowledge Base for more solutions.</p>
             </div>
 
 

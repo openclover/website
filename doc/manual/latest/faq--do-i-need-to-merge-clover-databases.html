@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--create-report-with-clover-db-from-another-machine.html" />
-    <title>OpenClover 5.0 : Can I create a Clover Report on Server A if I have the clover.db which I generated on Server
-        B?</title>
+    <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--do-i-need-to-merge-clover-databases.html" />
+    <title>OpenClover 5.0 : Do I need to merge Clover databases from multiple machines?</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
@@ -57,56 +56,49 @@
         </div>
 
         <h1 id="title-heading" class="pagetitle">
-            Can I create a Clover Report on Server A if I have the clover.db which I generated on Server B? </h1>
+            Do I need to merge Clover databases from multiple machines? </h1>
 
         <div id="content" class="view">
 
             <div id="main-content">
-                <p>Yes you can if you use the command line options. You need to copy over your coverage.db and all the
-                    coverage.db* files that were generated. </p>
 
-                <p>However if you do not have the source files on your Server A, that you did have on your Server B you
-                    are going to get a number of the following errors</p>
-                <div style="border-width: 1px;">
-                    <div>
-<pre>ERROR: C:/Applications/Confluence_STD/Source Code/confluence-2.9-source/confluence-project/confluence/src/test/java/com/atlassian/integrationtest/confluence/core/TestConfluenceClasspath.java (No such file or directory)
-</pre>
-                    </div>
-                </div>
+                <p><strong>Q: I run tests on many machines and merging the clover.db files is very slow. Do I have to
+                    merge them?</strong></p>
 
-                <p>The report you generate will have all the coverage statistics but when you try and drill down to the
-                    class, you will get a error stating it cannot find the source file. </p>
+                <p><strong>Usually not.</strong> If the <em>same</em> application binaries are executed independently
+                    on many machines, there is no need to merge databases at all. The Clover database
+                    (<code>clover.db</code>) holds only the <strong>structure</strong> of your source code, while the
+                    coverage itself lives in separate <strong>coverage recording files</strong>
+                    (<code>clover.dbxxxxxxxx_xxxxx_xxxx</code>). Because the binaries are identical, the databases are
+                    identical too, and merging them is wasted work.</p>
 
-                <p>If you do have the source on Server A you can specify it using the -p option from
-                    <a href="commandline--consolereporter.html">Console reporter</a>. </p>
-            
-                <h2 id="runtime">How does Clover find the database at runtime?</h2>
-
-                <p>Clover stores the path to the database file in <strong>every instrumented top-level class</strong>
-                    (inner and anonymous classes use the path from their enclosing class). This is why the database must
-                    be reachable, at that path, on the machine where the instrumented code is executed.</p>
-
-                <p>You can run <strong>multiple applications or application modules</strong>, using different paths to
-                    clover.db, in a single JVM.</p>
-
-                <p>In order to manage paths across machines, choose one of:</p>
-
-                <ul>
-                    <li>copy <code>clover.db</code> to the same absolute location on each machine,</li>
-                    <li>keep the database on a shared network drive,</li>
-                    <li>or instrument using <em>relative</em> paths and set the
-                        <code>clover.initstring.basedir</code> (or <code>clover.initstring.prefix</code>) property at
-                        runtime, pointing to a common root folder. This is the most flexible option, and the right one
-                        when a shared drive is mounted under different absolute paths on different machines.</li>
-                </ul>
-
-                <p>Once the tests have finished, the coverage recording files are written next to the database and must
-                    be copied back to the reporting machine, <strong>preserving the directory structure</strong>. See
-                    <a href="ant--openclover-jvm-properties.html">Clover JVM properties</a>,
-                    <a href="guideline--using-openclover-in-various-environment-configurations.html">Using Clover in
-                        various environment configurations</a> and
+                <p>Instead, copy all coverage recording files produced on all machines into one directory, together
+                    with a single <code>clover.db</code>, and generate the report from there. See
+                    <a href="faq--what-is-coverage-db-file.html">What is the coverage.db file?</a> and
                     <a href="guideline--working-with-distributed-applications.html">Working with Distributed
                         Applications</a>.</p>
+
+                <h2 id="when-to-merge">When you do need to merge</h2>
+
+                <p>Merging with <a href="commandline--clovermerge.html">CloverMerge</a> or
+                    <a href="ant--clover-merge.html">&lt;clover-merge&gt;</a> is required when you want to combine
+                    coverage for <strong>different applications or modules</strong> - i.e. genuinely different
+                    databases - into a single report.</p>
+
+                <div class="alert alert-warning" role="alert">
+                    <p>A merged database is <strong>read-only</strong>. It can be used for reporting, but not for
+                        gathering further coverage. Attempting to run an instrumented application against it fails
+                        with <em>"This database can only be used for reporting because it is the result of a
+                            merge"</em>. See
+                        <a href="kb--cant-measure-coverage-using-merged-database.html">Can't measure coverage using
+                            merged database</a>.</p>
+                </div>
+
+                <p>If you need one database at runtime across several modules, create it during
+                    <em>instrumentation</em> instead of merging afterwards: use the
+                    <code>&lt;singleCloverDatabase&gt;</code> parameter in Maven, or set up Clover in the master
+                    build file with <code>inheritrefs="true"</code> in Ant.</p>
+
             </div>
 
 

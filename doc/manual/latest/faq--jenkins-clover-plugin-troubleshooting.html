@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--create-report-with-clover-db-from-another-machine.html" />
-    <title>OpenClover 5.0 : Can I create a Clover Report on Server A if I have the clover.db which I generated on Server
-        B?</title>
+    <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--jenkins-clover-plugin-troubleshooting.html" />
+    <title>OpenClover 5.0 : Jenkins Clover plugin: coverage report returns 404 or throws NullPointerException</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
@@ -57,58 +56,41 @@
         </div>
 
         <h1 id="title-heading" class="pagetitle">
-            Can I create a Clover Report on Server A if I have the clover.db which I generated on Server B? </h1>
+            Jenkins Clover plugin: coverage report returns 404 or throws NullPointerException </h1>
 
         <div id="content" class="view">
 
             <div id="main-content">
-                <p>Yes you can if you use the command line options. You need to copy over your coverage.db and all the
-                    coverage.db* files that were generated. </p>
 
-                <p>However if you do not have the source files on your Server A, that you did have on your Server B you
-                    are going to get a number of the following errors</p>
-                <div style="border-width: 1px;">
-                    <div>
-<pre>ERROR: C:/Applications/Confluence_STD/Source Code/confluence-2.9-source/confluence-project/confluence/src/test/java/com/atlassian/integrationtest/confluence/core/TestConfluenceClasspath.java (No such file or directory)
-</pre>
-                    </div>
-                </div>
+                <p><strong>Q: The "Coverage report" link in the Jenkins Clover plugin returns HTTP 404, or the Clover
+                    summary shows "null%" and throws a NullPointerException. How do I fix this?</strong></p>
 
-                <p>The report you generate will have all the coverage statistics but when you try and drill down to the
-                    class, you will get a error stating it cannot find the source file. </p>
+                <h2 id="404">HTTP 404 on the coverage report link</h2>
 
-                <p>If you do have the source on Server A you can specify it using the -p option from
-                    <a href="commandline--consolereporter.html">Console reporter</a>. </p>
-            
-                <h2 id="runtime">How does Clover find the database at runtime?</h2>
-
-                <p>Clover stores the path to the database file in <strong>every instrumented top-level class</strong>
-                    (inner and anonymous classes use the path from their enclosing class). This is why the database must
-                    be reachable, at that path, on the machine where the instrumented code is executed.</p>
-
-                <p>You can run <strong>multiple applications or application modules</strong>, using different paths to
-                    clover.db, in a single JVM.</p>
-
-                <p>In order to manage paths across machines, choose one of:</p>
+                <p>The Jenkins Clover plugin uses <strong>two</strong> reports, and needs both:</p>
 
                 <ul>
-                    <li>copy <code>clover.db</code> to the same absolute location on each machine,</li>
-                    <li>keep the database on a shared network drive,</li>
-                    <li>or instrument using <em>relative</em> paths and set the
-                        <code>clover.initstring.basedir</code> (or <code>clover.initstring.prefix</code>) property at
-                        runtime, pointing to a common root folder. This is the most flexible option, and the right one
-                        when a shared drive is mounted under different absolute paths on different machines.</li>
+                    <li>the <strong>XML report</strong> is parsed to get coverage statistics and to show the coverage
+                        bar for a build,</li>
+                    <li>the <strong>HTML report</strong> is what you actually browse when drilling down into source
+                        files.</li>
                 </ul>
 
-                <p>Once the tests have finished, the coverage recording files are written next to the database and must
-                    be copied back to the reporting machine, <strong>preserving the directory structure</strong>. See
-                    <a href="ant--openclover-jvm-properties.html">Clover JVM properties</a>,
-                    <a href="guideline--using-openclover-in-various-environment-configurations.html">Using Clover in
-                        various environment configurations</a> and
-                    <a href="guideline--working-with-distributed-applications.html">Working with Distributed
-                        Applications</a>.</p>
-            </div>
+                <p>If only the XML report is generated, the coverage bar appears but the report link returns 404.
+                    Generate the HTML report into the <strong>same directory as the XML report</strong>.</p>
 
+                <p>Note also that Jenkins 1.641 and later apply a Content Security Policy which may block active
+                    content in published artifacts, which can affect how the HTML report renders.</p>
+
+                <h2 id="npe">NullPointerException / "null% method null, conditional null, statement null"</h2>
+
+                <p>This indicates the plugin could not locate or parse <code>clover.xml</code>. Ensure the XML report
+                    is published where the job configuration expects it. Some versions of the plugin have known
+                    defects in locating the file; check for a newer release of the plugin.</p>
+
+                <p>See the <a href="jenkins--jenkins-clover-plugin.html">Jenkins Clover Plugin</a> page.</p>
+
+            </div>
 
         </div>
     </div>

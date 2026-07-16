@@ -69,6 +69,30 @@
 
                 <p>You will generally only have one instrumentation database per directory and you should expect to have
                     many (sometimes 100s or even 1000s) of coverage recording files per directory.</p>
+
+                <h2 id="dbversion">How coverage recording files are matched with the database</h2>
+
+                <p>Every time Clover instruments your source files it records the timestamp of that
+                    <strong>instrumentation session</strong> in the database. Instrumented classes connect to the
+                    coverage recorder of the session they were built in, and each recording file therefore carries the
+                    <code>dbVersion</code> of that session.</p>
+
+                <p>When a report is generated, Clover <strong>discards recording files whose
+                    <code>dbVersion</code> does not match any instrumentation session registered in the
+                    database</strong>. With debug logging enabled you will see messages such as:</p>
+
+                <pre><code class="language-bash">Ignoring coverage recording ... because no FileInfo supports its coverage range</code></pre>
+
+                <p>This is normal behaviour, but it causes missing coverage if the database and the recording files are
+                    not managed consistently - most commonly when the build <strong>deletes clover.db in the middle of
+                        a build</strong>, or when an outdated database is reused for reporting. See
+                    <a href="kb--ignoring-coverage-recording-files.html">Ignoring coverage recording files</a> for the
+                    full explanation and resolution.</p>
+
+                <p>Because the database holds only the structure of your code, while coverage lives in these recording
+                    files, you often do not need to merge databases at all - see
+                    <a href="faq--do-i-need-to-merge-clover-databases.html">Do I need to merge Clover databases from
+                        multiple machines?</a></p>
             </div>
 
 

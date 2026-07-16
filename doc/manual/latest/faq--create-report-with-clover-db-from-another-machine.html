@@ -79,6 +79,34 @@
 
                 <p>If you do have the source on Server A you can specify it using the -p option from
                     <a href="commandline--consolereporter.html">Console reporter</a>. </p>
+            
+                <h2 id="runtime">How does Clover find the database at runtime?</h2>
+
+                <p>Clover stores the path to the database file in <strong>every instrumented top-level class</strong>
+                    (inner and anonymous classes use the path from their enclosing class). This is why the database must
+                    be reachable, at that path, on the machine where the instrumented code is executed.</p>
+
+                <p>You can run <strong>multiple applications or application modules</strong>, using different paths to
+                    clover.db, in a single JVM.</p>
+
+                <p>In order to manage paths across machines, choose one of:</p>
+
+                <ul>
+                    <li>copy <code>clover.db</code> to the same absolute location on each machine,</li>
+                    <li>keep the database on a shared network drive,</li>
+                    <li>or instrument using <em>relative</em> paths and set the
+                        <code>clover.initstring.basedir</code> (or <code>clover.initstring.prefix</code>) property at
+                        runtime, pointing to a common root folder. This is the most flexible option, and the right one
+                        when a shared drive is mounted under different absolute paths on different machines.</li>
+                </ul>
+
+                <p>Once the tests have finished, the coverage recording files are written next to the database and must
+                    be copied back to the reporting machine, <strong>preserving the directory structure</strong>. See
+                    <a href="ant--openclover-jvm-properties.html">Clover JVM properties</a>,
+                    <a href="guideline--using-openclover-in-various-environment-configurations.html">Using Clover in
+                        various environment configurations</a> and
+                    <a href="guideline--working-with-distributed-applications.html">Working with Distributed
+                        Applications</a>.</p>
             </div>
 
 

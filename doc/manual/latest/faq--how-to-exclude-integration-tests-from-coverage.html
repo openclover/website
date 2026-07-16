@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--create-report-with-clover-db-from-another-machine.html" />
-    <title>OpenClover 5.0 : Can I create a Clover Report on Server A if I have the clover.db which I generated on Server
-        B?</title>
+    <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--how-to-exclude-integration-tests-from-coverage.html" />
+    <title>OpenClover 5.0 : How can I exclude integration tests from a Clover build?</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
@@ -57,58 +56,56 @@
         </div>
 
         <h1 id="title-heading" class="pagetitle">
-            Can I create a Clover Report on Server A if I have the clover.db which I generated on Server B? </h1>
+            How can I exclude integration tests from a Clover build? </h1>
 
         <div id="content" class="view">
 
             <div id="main-content">
-                <p>Yes you can if you use the command line options. You need to copy over your coverage.db and all the
-                    coverage.db* files that were generated. </p>
 
-                <p>However if you do not have the source files on your Server A, that you did have on your Server B you
-                    are going to get a number of the following errors</p>
-                <div style="border-width: 1px;">
-                    <div>
-<pre>ERROR: C:/Applications/Confluence_STD/Source Code/confluence-2.9-source/confluence-project/confluence/src/test/java/com/atlassian/integrationtest/confluence/core/TestConfluenceClasspath.java (No such file or directory)
-</pre>
-                    </div>
-                </div>
+                <p><strong>Q: I use Maven and Clover, but I do not want my integration tests to be executed. How can I
+                    disable them?</strong></p>
 
-                <p>The report you generate will have all the coverage statistics but when you try and drill down to the
-                    class, you will get a error stating it cannot find the source file. </p>
+                <p>There are several options:</p>
 
-                <p>If you do have the source on Server A you can specify it using the -p option from
-                    <a href="commandline--consolereporter.html">Console reporter</a>. </p>
-            
-                <h2 id="runtime">How does Clover find the database at runtime?</h2>
+                <h2 id="skipits">Skip integration tests with maven-failsafe-plugin</h2>
 
-                <p>Clover stores the path to the database file in <strong>every instrumented top-level class</strong>
-                    (inner and anonymous classes use the path from their enclosing class). This is why the database must
-                    be reachable, at that path, on the machine where the instrumented code is executed.</p>
+                <p>If your integration tests are run by the <code>maven-failsafe-plugin</code>, pass:</p>
 
-                <p>You can run <strong>multiple applications or application modules</strong>, using different paths to
-                    clover.db, in a single JVM.</p>
+                <pre><code class="language-bash">mvn ... -DskipITs=true</code></pre>
 
-                <p>In order to manage paths across machines, choose one of:</p>
+                <h2 id="manual">Do not run the integration-test phase at all</h2>
 
-                <ul>
-                    <li>copy <code>clover.db</code> to the same absolute location on each machine,</li>
-                    <li>keep the database on a shared network drive,</li>
-                    <li>or instrument using <em>relative</em> paths and set the
-                        <code>clover.initstring.basedir</code> (or <code>clover.initstring.prefix</code>) property at
-                        runtime, pointing to a common root folder. This is the most flexible option, and the right one
-                        when a shared drive is mounted under different absolute paths on different machines.</li>
-                </ul>
+                <p>Automatic Clover integration on a CI server typically runs the <code>verify</code> phase, which
+                    executes integration tests. If you drive Clover yourself and stop at <code>test</code>, the
+                    <code>integration-test</code> phase is never reached:</p>
 
-                <p>Once the tests have finished, the coverage recording files are written next to the database and must
-                    be copied back to the reporting machine, <strong>preserving the directory structure</strong>. See
-                    <a href="ant--openclover-jvm-properties.html">Clover JVM properties</a>,
-                    <a href="guideline--using-openclover-in-various-environment-configurations.html">Using Clover in
-                        various environment configurations</a> and
-                    <a href="guideline--working-with-distributed-applications.html">Working with Distributed
-                        Applications</a>.</p>
+                <pre><code class="language-bash">mvn clean clover:setup test clover:aggregate clover:clover</code></pre>
+
+                <h2 id="excludes">Use exclusion patterns</h2>
+
+                <p>Alternatively, define exclusion patterns for the <code>maven-surefire-plugin</code> or
+                    <code>maven-failsafe-plugin</code> so that integration tests are not selected. See
+                    <a href="maven--using-with-surefire-and-failsafe-plugins.html">Using with Surefire and Failsafe
+                        plugins</a>.</p>
+
+                <h2 id="report">Excluding sources from the report only</h2>
+
+                <p>If you want to keep running the tests, but exclude some source files from the <em>report</em>,
+                    define the exclusions in the report configuration. The
+                    <a href="ant--clover-report.html">&lt;clover-report&gt;</a> task accepts a nested
+                    <code>&lt;fileset&gt;</code> inside its <code>&lt;current&gt;</code> element, which controls which
+                    source files are included - only classes coming from the source files in the fileset end up in the
+                    report:</p>
+
+                <pre><code class="language-xml">&lt;clover-report&gt;
+  &lt;current outfile="clover_html"&gt;
+    &lt;fileset dir="src/main/java"&gt;
+      &lt;exclude name="**/*IT.java"/&gt;
+    &lt;/fileset&gt;
+    &lt;format type="html"/&gt;
+  &lt;/current&gt;
+&lt;/clover-report&gt;</code></pre>
             </div>
-
 
         </div>
     </div>

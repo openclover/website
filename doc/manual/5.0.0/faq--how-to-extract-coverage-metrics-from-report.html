@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--create-report-with-clover-db-from-another-machine.html" />
-    <title>OpenClover 5.0 : Can I create a Clover Report on Server A if I have the clover.db which I generated on Server
-        B?</title>
+    <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--how-to-extract-coverage-metrics-from-report.html" />
+    <title>OpenClover 5.0 : How can I download the report or extract coverage metrics?</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
@@ -57,56 +56,41 @@
         </div>
 
         <h1 id="title-heading" class="pagetitle">
-            Can I create a Clover Report on Server A if I have the clover.db which I generated on Server B? </h1>
+            How can I download the report or extract coverage metrics? </h1>
 
         <div id="content" class="view">
 
             <div id="main-content">
-                <p>Yes you can if you use the command line options. You need to copy over your coverage.db and all the
-                    coverage.db* files that were generated. </p>
 
-                <p>However if you do not have the source files on your Server A, that you did have on your Server B you
-                    are going to get a number of the following errors</p>
-                <div style="border-width: 1px;">
-                    <div>
-<pre>ERROR: C:/Applications/Confluence_STD/Source Code/confluence-2.9-source/confluence-project/confluence/src/test/java/com/atlassian/integrationtest/confluence/core/TestConfluenceClasspath.java (No such file or directory)
-</pre>
-                    </div>
-                </div>
+                <p><strong>Q: Can I save the Clover report locally, or extract the coverage metrics from it
+                    programmatically?</strong></p>
 
-                <p>The report you generate will have all the coverage statistics but when you try and drill down to the
-                    class, you will get a error stating it cannot find the source file. </p>
+                <p>Generate the <strong>XML report</strong> and read it with XPath. The XML report is designed for
+                    programmatic consumption and contains the raw counts, so you can compute any metric - at any
+                    precision - yourself.</p>
 
-                <p>If you do have the source on Server A you can specify it using the -p option from
-                    <a href="commandline--consolereporter.html">Console reporter</a>. </p>
-            
-                <h2 id="runtime">How does Clover find the database at runtime?</h2>
+                <pre><code class="language-xml">/coverage/project/metrics[@statements]
+/coverage/project/metrics[@coveredstatements]
+/coverage/project/package[name='com.foo.bar']/metrics[@statements]</code></pre>
 
-                <p>Clover stores the path to the database file in <strong>every instrumented top-level class</strong>
-                    (inner and anonymous classes use the path from their enclosing class). This is why the database must
-                    be reachable, at that path, on the machine where the instrumented code is executed.</p>
+                <p>See <a href="developer-guide--extracting-coverage-data-from-xml-report.html">Extracting Coverage
+                    Data programmatically</a> for a worked Java example, and
+                    <a href="faq--how-are-coverage-percentages-calculated.html">How are the Clover coverage
+                        percentages calculated?</a> for the meaning of the <code>&lt;metrics&gt;</code>
+                    attributes.</p>
 
-                <p>You can run <strong>multiple applications or application modules</strong>, using different paths to
-                    clover.db, in a single JVM.</p>
+                <p>XML reports can be produced by the <a href="ant--clover-report.html">&lt;clover-report&gt;</a> or
+                    <a href="ant--clover-historypoint.html">&lt;clover-historypoint&gt;</a> Ant tasks, the
+                    <code>clover:clover</code> Maven goal, or the
+                    <a href="commandline--xmlreporter.html">XmlReporter</a> command line tool.</p>
 
-                <p>In order to manage paths across machines, choose one of:</p>
+                <h2 id="ci">Keeping reports from a CI server</h2>
 
-                <ul>
-                    <li>copy <code>clover.db</code> to the same absolute location on each machine,</li>
-                    <li>keep the database on a shared network drive,</li>
-                    <li>or instrument using <em>relative</em> paths and set the
-                        <code>clover.initstring.basedir</code> (or <code>clover.initstring.prefix</code>) property at
-                        runtime, pointing to a common root folder. This is the most flexible option, and the right one
-                        when a shared drive is mounted under different absolute paths on different machines.</li>
-                </ul>
+                <p>If you view Clover reports through a CI server and want to keep a copy, publish the generated
+                    HTML report directory and <code>clover.xml</code> as build artifacts. See also
+                    <a href="faq--how-to-keep-reports-between-builds.html">How to keep Clover reports between
+                        builds?</a>.</p>
 
-                <p>Once the tests have finished, the coverage recording files are written next to the database and must
-                    be copied back to the reporting machine, <strong>preserving the directory structure</strong>. See
-                    <a href="ant--openclover-jvm-properties.html">Clover JVM properties</a>,
-                    <a href="guideline--using-openclover-in-various-environment-configurations.html">Using Clover in
-                        various environment configurations</a> and
-                    <a href="guideline--working-with-distributed-applications.html">Working with Distributed
-                        Applications</a>.</p>
             </div>
 
 
