@@ -150,7 +150,7 @@
                 <p>
                     <img class="emoticon emoticon-light-on" src="images/icons/emoticons/lightbulb_on.png" data-emoticon-name="light-on" alt="(lightbulb)"/> TIP: the
                     <em>clover.distributed.coverage=ON</em> takes default settings (host=localhost, port=1198,
-                    timeout=5000ms, numClients=0, retryPeriod=1000ms, name=clover.tcp.server). In case when you cannot
+                    timeout=5000ms, numClients=0, retryPeriod=1000ms). In case when you cannot
                     use default settings, you can pass specific value for any of attributes using the &quot;key=value&quot; syntax passed as
                     <em>clover.distributed.coverage</em> value:</p>
                 <ul>
@@ -161,7 +161,8 @@
                     </li>
                     <li>timeout - connection timeout in milliseconds</li>
                     <li>retryPeriod - interval between connection retries, in milliseconds</li>
-                    <li>name - name of the configuration (URL is <em>host:port/name</em>)</li>
+                    <li>name - name of the configuration (URL is <em>host:port/name</em>).
+                        <strong>Removed in OpenClover 5.0.1</strong> - present in 5.0.0 and earlier only.</li>
                 </ul>
                 <p>Example:</p>
                 <pre data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence">&lt;systemProperties&gt;
@@ -221,7 +222,8 @@
                         </tr>
                         <tr>
                             <td>name</td>
-                            <td>The name of this configuration.</td>
+                            <td>The name of this configuration.
+                                <strong>Removed in OpenClover 5.0.1</strong> - present in 5.0.0 and earlier only.</td>
                             <td><p>No; defaults to '<code>tcp-config</code>'</p></td>
                         </tr>
                         <tr>

@@ -294,7 +294,7 @@
 
                         > -Dclover.distributed.coverage=on</pre>
                 <p>This will enable distributed coverage with default settings (host=localhost, port=1198,
-                    timeout=5000ms, numClients=0, retryPeriod=1000ms, name=clover.tcp.server).</p>
+                    timeout=5000ms, numClients=0, retryPeriod=1000ms).</p>
                 <p> </p>
                 <p>In case when you cannot use default settings, you can pass specific value for any of attributes using
                     the &quot;key=value&quot; syntax passed as <em>clover.distributed.coverage</em> value:</p>
@@ -306,7 +306,8 @@
                     </li>
                     <li>timeout - connection timeout in milliseconds</li>
                     <li>retryPeriod - inverval between connection retries in milliseconds</li>
-                    <li>name - name of the Clover server service (URL is host:port/name)</li>
+                    <li>name - name of the Clover server service (URL is host:port/name).
+                        <strong>Removed in OpenClover 5.0.1</strong> - present in 5.0.0 and earlier only.</li>
                 </ul>
                 <p>Example:</p>
                 <pre
