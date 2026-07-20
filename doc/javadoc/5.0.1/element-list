@@ -1,0 +1,7 @@
+org.openclover.ant
+org.openclover.ant.groovy
+org.openclover.ant.taskdefs
+org.openclover.ant.tasks
+org.openclover.ant.tasks.testng
+org.openclover.ant.types
+org.openclover.ci
