@@ -137,3 +137,8 @@
     border-radius: 0.15rem;
     flex-shrink: 0;
 }
+
+.donate-small {
+    font-size : 8pt;
+    font-style: italic;
+}

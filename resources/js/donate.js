@@ -36,6 +36,7 @@ function renderDonateBox(container) {
     }
 
     container.innerHTML = `
+        <div class="donate-small">Help us out, and we'll thank you with a digital OpenClover wallpaper.</div>
         <div class="donate-amounts">
             ${oneTime.map(buttonHtml).join("")}
         </div>
