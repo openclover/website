@@ -1,11 +1,10 @@
-// Donation amounts, each backed by its own Stripe Payment Link.
-// Every link points to a Price under a single "OpenClover Donation" Product in Stripe.
-// Replace the placeholder URLs below with the real Payment Link URLs from the Stripe Dashboard.
+// Price options for the OpenClover digital wallpaper, each backed by its own Stripe Payment Link.
+// Every link points to a Price under a single "OpenClover Wallpaper" Product in Stripe.
+// One-time purchases only — no recurring subscriptions for a one-off digital download.
 const DONATE_OPTIONS = [
     {amount: "€5", interval: null, link: "https://donate.stripe.com/4gM7sL99P8nB411b2t6EU02"},
     {amount: "€10", interval: null, link: "https://donate.stripe.com/28E14n5XDbzN7ddb2t6EU03", defaultSelected: true},
-    {amount: "€40", interval: null, link: "https://donate.stripe.com/dRm4gz2Lr6ftbtt3A16EU04"},
-    {amount: "€10", interval: "/ quarter", link: "https://donate.stripe.com/aFa3cv5XD6fteFF3A16EU05"}
+    {amount: "€40", interval: null, link: "https://donate.stripe.com/dRm4gz2Lr6ftbtt3A16EU04"}
 ];
 
 const PAYMENT_ICONS = [
@@ -27,7 +26,6 @@ const PAYMENT_ICONS = [
 
 function renderDonateBox(container) {
     const oneTime = DONATE_OPTIONS.filter(o => !o.interval);
-    const recurring = DONATE_OPTIONS.filter(o => o.interval);
 
     function buttonHtml(option, index) {
         const active = option.defaultSelected ? " active" : "";
@@ -36,14 +34,10 @@ function renderDonateBox(container) {
     }
 
     container.innerHTML = `
-        <div class="donate-small">Help us out, and we'll thank you with a digital OpenClover wallpaper.</div>
-        <div class="donate-amounts">
+            <div class="donate-amounts">
             ${oneTime.map(buttonHtml).join("")}
         </div>
-        <div class="donate-amounts donate-amounts-recurring">
-            ${recurring.map(buttonHtml).join("")}
-        </div>
-        <a href="#" target="_blank" rel="noopener" id="donate-submit-${container.id}" class="btn btn-lg w-100 donate-submit-btn">Donate</a>
+        <a href="#" target="_blank" rel="noopener" id="donate-submit-${container.id}" class="btn btn-lg w-100 donate-submit-btn">Get the wallpaper</a>
         <p class="donate-processed-by">Processed by <strong>Stripe</strong></p>
         <div class="donate-payment-icons">
             ${PAYMENT_ICONS.map(icon => `<img class="payment-icon" src="resources/img/payment-icons/${icon.file}" alt="${icon.alt}" title="${icon.alt}">`).join("")}
