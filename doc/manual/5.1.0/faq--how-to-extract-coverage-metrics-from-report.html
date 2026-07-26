@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--how-to-extract-coverage-metrics-from-report.html" />
+    <title>OpenClover 5.0 : How can I download the report or extract coverage metrics?</title>
+    <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../downloads">Downloads</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="../../../documentation">Documentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../support">Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../donate">Donate</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About ...</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
+                        <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
+                        <li><a class="dropdown-item" href="../../../license">License information</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main">
+        <div id="main-header">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">OpenClover 5.0</a>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="faq--openclover.html">Clover FAQ</a></span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <h1 id="title-heading" class="pagetitle">
+            How can I download the report or extract coverage metrics? </h1>
+
+        <div id="content" class="view">
+
+            <div id="main-content">
+
+                <p><strong>Q: Can I save the Clover report locally, or extract the coverage metrics from it
+                    programmatically?</strong></p>
+
+                <p>Generate the <strong>XML report</strong> and read it with XPath. The XML report is designed for
+                    programmatic consumption and contains the raw counts, so you can compute any metric - at any
+                    precision - yourself.</p>
+
+                <pre><code class="language-xml">/coverage/project/metrics[@statements]
+/coverage/project/metrics[@coveredstatements]
+/coverage/project/package[name='com.foo.bar']/metrics[@statements]</code></pre>
+
+                <p>See <a href="developer-guide--extracting-coverage-data-from-xml-report.html">Extracting Coverage
+                    Data programmatically</a> for a worked Java example, and
+                    <a href="faq--how-are-coverage-percentages-calculated.html">How are the Clover coverage
+                        percentages calculated?</a> for the meaning of the <code>&lt;metrics&gt;</code>
+                    attributes.</p>
+
+                <p>XML reports can be produced by the <a href="ant--clover-report.html">&lt;clover-report&gt;</a> or
+                    <a href="ant--clover-historypoint.html">&lt;clover-historypoint&gt;</a> Ant tasks, the
+                    <code>clover:clover</code> Maven goal, or the
+                    <a href="commandline--xmlreporter.html">XmlReporter</a> command line tool.</p>
+
+                <h2 id="ci">Keeping reports from a CI server</h2>
+
+                <p>If you view Clover reports through a CI server and want to keep a copy, publish the generated
+                    HTML report directory and <code>clover.xml</code> as build artifacts. See also
+                    <a href="faq--how-to-keep-reports-between-builds.html">How to keep Clover reports between
+                        builds?</a>.</p>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
+    </footer>
+</div>
+<script src="../../../resources/js/bootstrap.bundle-5.3.2.min.js"></script>
+<script src="../../../resources/js/prism.min.js"></script>
+</body>
+</html>

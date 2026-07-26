@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--no-clover-instrumentation-done-on-source-files.html" />
+    <title>OpenClover 5.0 : Why do I get "No Clover instrumentation done on source files"?</title>
+    <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../downloads">Downloads</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="../../../documentation">Documentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../support">Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../donate">Donate</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About ...</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
+                        <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
+                        <li><a class="dropdown-item" href="../../../license">License information</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main">
+        <div id="main-header">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">OpenClover 5.0</a>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="faq--openclover.html">Clover FAQ</a></span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <h1 id="title-heading" class="pagetitle">
+            Why do I get "No Clover instrumentation done on source files"? </h1>
+
+        <div id="content" class="view">
+
+            <div id="main-content">
+
+                <p><strong>Q: My build prints "No Clover instrumentation done on source files" and/or "No Clover
+                    database found, skipping report generation". Why?</strong></p>
+
+                <p>These messages - together with
+                    <a href="kb--clover-registry-file-does-not-exist.html">Clover registry file &lt;path/to/clover.db&gt;
+                        does not exist</a> - are different symptoms of the same root cause: <strong>Clover did not
+                        instrument any source file</strong>, so no Clover database was created and there is nothing
+                    to report on.</p>
+
+                <p>See <a href="kb--clover-registry-file-does-not-exist.html">Clover registry file does not
+                    exist</a> in the Knowledge Base for the full list of causes and resolutions (invalid initstring
+                    location, database missing on a remote machine, no <code>clean</code> before
+                    <code>clover-setup</code>). Two causes are worth calling out here:</p>
+
+                <h2 id="bad-include">An invalid &lt;include&gt; path in Maven</h2>
+
+                <p>This is the most common cause in Maven builds. Clover silently matches no files if the include
+                    pattern points to a directory which does not exist. A frequent mistake is using a Maven property
+                    which does not exist, for example <code>${project.source.directory}</code>. Use the correct
+                    properties:</p>
+
+                <pre><code class="language-xml">&lt;configuration&gt;
+  &lt;includes&gt;
+    &lt;include&gt;${project.build.sourceDirectory}&lt;/include&gt;
+    &lt;include&gt;${project.build.testSourceDirectory}&lt;/include&gt;
+  &lt;/includes&gt;
+&lt;/configuration&gt;</code></pre>
+
+                <p>or specify the paths explicitly:</p>
+
+                <pre><code class="language-xml">&lt;configuration&gt;
+  &lt;includes&gt;
+    &lt;include&gt;src/main/java&lt;/include&gt;
+    &lt;include&gt;src/test/java&lt;/include&gt;
+  &lt;/includes&gt;
+&lt;/configuration&gt;</code></pre>
+
+                <h2 id="unsupported-jdk">An unsupported JDK</h2>
+
+                <p>Instrumentation may fail if you run OpenClover on a JDK newer than it supports. See
+                    <a href="faq--which-java-and-groovy-versions-are-supported.html">Which Java and Groovy versions
+                        are supported?</a> - note that the frequently quoted "JDK 17 is not supported" applies to
+                    OpenClover 4.4.1 and not to current releases.</p>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
+    </footer>
+</div>
+<script src="../../../resources/js/bootstrap.bundle-5.3.2.min.js"></script>
+<script src="../../../resources/js/prism.min.js"></script>
+</body>
+</html>

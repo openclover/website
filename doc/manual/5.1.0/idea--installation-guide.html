@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="canonical" href="https://openclover.org/doc/manual/latest/idea--installation-guide.html" />
+    <title>OpenClover 5.0 : Clover-for-IDEA Installation Guide</title>
+    <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="../../../index"><img src="../../../resources/img/openclover_logo_white_40pt_alpha_with_icon.png" alt="OpenClover"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainMenu" aria-controls="navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="../../../index">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../downloads">Downloads</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="../../../documentation">Documentation</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../support">Support</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../blog">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../donate">Donate</a></li>
+                <!--<li><a href="../../../faq">FAQ</a></li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="../../../about-us" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">About ...</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../../../about-us">Development team</a></li>
+                        <li><a class="dropdown-item" href="../../../privacy-policy">Privacy policy</a></li>
+                        <li><a class="dropdown-item" href="../../../license">License information</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="page" class="container">
+    <div id="main">
+        <div id="main-header">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">OpenClover 5.0</a>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
+                    </li>
+                    <li class="breadcrumb-item"><span><a href="idea--overview.html">Clover-for-IDEA</a></span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+        <h1 id="title-heading" class="pagetitle">
+            Clover-for-IDEA Installation Guide </h1>
+
+        <div id="content" class="view">
+
+            <div id="main-content">
+                <h2>Installing the plug-in</h2>
+                <p>OpenClover currently supports <strong>IntelliJ IDEA 2024.3 through 2026.1</strong>; see
+                    <a href="general--supported-platforms.html">Supported Platforms</a> for the current range.</p>
+                <ol>
+                    <li>Download the <a href="https://openclover.org/downloads">Clover-for-IDEA plug-in</a> JAR.</li>
+                    <li>Launch IntelliJ IDEA.</li>
+                    <li>Go to <strong>'File &gt; Settings &gt; Plugins'</strong> (Linux, Windows) or
+                        <strong>'IDEA &gt; Preferences &gt; Plugins'</strong> (macOS).
+                    </li>
+                    <li>Click the gear icon and select <strong>'Install Plugin from Disk...'</strong>, then point to
+                        the downloaded JAR.
+                    </li>
+                    <li>Close and re-start IDEA.</li>
+                </ol>
+                <p>You can now begin <a href="idea--user-guide.html">using Clover for IDEA</a>.</p>
+                <h2>Showing Clover tool bar</h2>
+                <p>IDEA hides the tool bar by default. Click &quot;View -&gt; Toolbar&quot; from the main menu
+                    to show Clover's buttons.</p>
+                <p><span><img src="attachments/154633621/857058968.png"
+
+
+                ></span>
+                </p>
+                <h2>Known Issues</h2>
+                <ul>
+                    <li>If you are using the Maven build tool, you should avoid using the same IntelliJ output directory
+                        as Maven does. As Maven uses the <code>target/classes</code> and
+                        <code>target/test-classes</code> directories, avoid specifying these ones. The
+                        <code>clover.db</code> location for IntelliJ should also be distinct from that used by Maven.
+                    </li>
+                </ul>
+                <h2>Uninstalling the Plugin</h2>
+                <p>Uninstall it via '<strong>File &gt; Settings &gt; Plugins'</strong> (Linux,
+                    Windows) or <strong>'IDEA &gt; Preferences &gt; Plugins'</strong> (macOS). Just select the Clover
+                    IDEA Plugin from the list and click the gear icon, then <strong>'Uninstall'</strong>. The removal
+                    will take place after you restart IDEA.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <footer>
+        <p class="small text-muted">
+            &copy; This document is a derivative work of
+            <a href="https://confluence.atlassian.com/clover">Clover documentation</a>
+            created by <a href="https://www.atlassian.com">Atlassian</a> and licensed under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>.
+            Modifications by Marek Parfianowicz, under
+            <a href="https://creativecommons.org/licenses/by/2.5/au/legalcode">CC 2.5 Australia</a>. </p>
+    </footer>
+</div>
+<script src="../../../resources/js/bootstrap.bundle-5.3.2.min.js"></script>
+<script src="../../../resources/js/prism.min.js"></script>
+</body>
+</html>
