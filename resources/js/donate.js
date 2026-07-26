@@ -1,27 +1,7 @@
-// Price options for the OpenClover digital wallpaper, each backed by its own Stripe Payment Link.
-// Every link points to a Price under a single "OpenClover Wallpaper" Product in Stripe.
-// One-time purchases only — no recurring subscriptions for a one-off digital download.
 const DONATE_OPTIONS = [
-    {amount: "€5", interval: null, link: "https://donate.stripe.com/4gM7sL99P8nB411b2t6EU02"},
-    {amount: "€10", interval: null, link: "https://donate.stripe.com/28E14n5XDbzN7ddb2t6EU03", defaultSelected: true},
-    {amount: "€40", interval: null, link: "https://donate.stripe.com/dRm4gz2Lr6ftbtt3A16EU04"}
-];
-
-const PAYMENT_ICONS = [
-    {file: "visa-pay.png", alt: "Visa"},
-    {file: "mastercard-pay.png", alt: "Mastercard"},
-    {file: "american-express-pay.png", alt: "American Express"},
-    {file: "apple-pay.png", alt: "Apple Pay"},
-    {file: "google-pay.png", alt: "Google Pay"},
-    {file: "link-pay.png", alt: "Link"},
-    {file: "revolut-pay.png", alt: "Revolut Pay"},
-    {file: "bancontact-pay.png", alt: "Bancontact"},
-    {file: "blik-pay.png", alt: "BLIK"},
-    {file: "mb-way-pay.png", alt: "MB WAY"},
-    {file: "satis-pay.png", alt: "Satispay"},
-    {file: "eps-pay.png", alt: "EPS"},
-    {file: "klarna-pay.png", alt: "Klarna"},
-    {file: "pix-pay.png", alt: "Pix"}
+    {amount: "€5", interval: null, link: ""},
+    {amount: "€10", interval: null, link: "", defaultSelected: true},
+    {amount: "€40", interval: null, link: ""}
 ];
 
 function renderDonateBox(container) {
@@ -36,11 +16,13 @@ function renderDonateBox(container) {
     container.innerHTML = `
             <div class="donate-amounts">
             ${oneTime.map(buttonHtml).join("")}
-        </div>
-        <a href="#" target="_blank" rel="noopener" id="donate-submit-${container.id}" class="btn btn-lg w-100 donate-submit-btn">Get the wallpaper</a>
-        <p class="donate-processed-by">Processed by <strong>Stripe</strong></p>
-        <div class="donate-payment-icons">
-            ${PAYMENT_ICONS.map(icon => `<img class="payment-icon" src="resources/img/payment-icons/${icon.file}" alt="${icon.alt}" title="${icon.alt}">`).join("")}
+        </div>        
+        <div class="donate-amounts" style="text-align: left">
+            Bank code (BIC): BREXPLPWMBK<br/>
+            Account no (IBAN): <br/>
+            PL68 1140 2004 0000 3912 0550 6938<br/>
+            Currency: EUR (preferred)<br/>   
+            Title: Donation for OpenClover         
         </div>
     `;
 
