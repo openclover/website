@@ -71,7 +71,7 @@
                 <pre><code class="language-xml">&lt;configuration&gt;
   &lt;targetPercentage&gt;75%&lt;/targetPercentage&gt;
 &lt;/configuration&gt;</code></pre>
-                <p>You can then use the <a href="../../maven/5.0.0/check-mojo.html" rel="nofollow">clover:check</a> target to examine the Clover database and
+                <p>You can then use the <a href="../../maven/5.1.0/check-mojo.html" rel="nofollow">clover:check</a> target to examine the Clover database and
                     check that you have reached the coverage threshold.</p>
                 <p>If you want the build to succeed anyway (printing a warning to your log), use the command line option
                     <code>-DfailOnViolation=false</code>.</p>
@@ -80,16 +80,16 @@
                     relative to the previous build.</p>
                 <p>The steps to configure the <code>clover-maven-plugin</code> to do this are as follows:</p>
                 <ul>
-                    <li>specify the <a href="../../maven/5.0.0/check-mojo.html#historyDir" rel="nofollow">clover:historyDir</a> configuration for
-                        <a href="../../maven/5.0.0/check-mojo.html" rel="nofollow">clover:check</a>
+                    <li>specify the <a href="../../maven/5.1.0/check-mojo.html#historyDir" rel="nofollow">clover:historyDir</a> configuration for
+                        <a href="../../maven/5.1.0/check-mojo.html" rel="nofollow">clover:check</a>
                     </li>
                     <li>save a history point using the
-                        <a href="../../maven/5.0.0/save-history-mojo.html" rel="nofollow">clover:save-history</a> goal at report time.
+                        <a href="../../maven/5.1.0/save-history-mojo.html" rel="nofollow">clover:save-history</a> goal at report time.
                         This will be used by the subsequent build.
                     </li>
                 </ul>
-                <p>You can also optionally specify a <a href="../../maven/5.0.0/check-mojo.html#historyThreshold" rel="nofollow">historyThreshold</a> parameter which is the
-                    leeway used by <a href="../../maven/5.0.0/check-mojo.html" rel="nofollow">clover:check</a> when comparing the coverage with the previous
+                <p>You can also optionally specify a <a href="../../maven/5.1.0/check-mojo.html#historyThreshold" rel="nofollow">historyThreshold</a> parameter which is the
+                    leeway used by <a href="../../maven/5.1.0/check-mojo.html" rel="nofollow">clover:check</a> when comparing the coverage with the previous
                     build. </p>
             </div>
 
