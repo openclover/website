@@ -2,7 +2,7 @@
 <html>
 <head>
     <link rel="canonical" href="https://openclover.org/doc/manual/latest/faq--which-java-and-groovy-versions-are-supported.html" />
-    <title>OpenClover 5.0 : Which Java and Groovy versions are supported?</title>
+    <title>OpenClover 5.1 : Which Java and Groovy versions are supported?</title>
     <link rel="stylesheet" href="../../../resources/css/bootstrap-5.3.2.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/prism.min.css" type="text/css"/>
     <link rel="stylesheet" href="../../../resources/css/style.css" type="text/css"/>
@@ -45,7 +45,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="index.html">OpenClover 5.0</a>
+                        <a href="index.html">OpenClover 5.1</a>
                     </li>
                     <li class="breadcrumb-item"><span><a href="index--clover-documentation-home.html">Clover Documentation Home</a></span>
                     </li>
@@ -64,9 +64,11 @@
 
                 <p><strong>Q: Which Java and Groovy versions does OpenClover support?</strong></p>
 
-                <p>OpenClover 5.0 supports <strong>JDK 8 - 17</strong> for instrumentation, compilation and
-                    reporting. It also runs on <strong>JDK 21 and 25</strong>, but in runtime only - it will not
-                    instrument language features newer than Java 17.</p>
+                <p>OpenClover 5.1 supports language levels <strong>8 - 25</strong> for instrumentation,
+                    compilation and reporting, and runs on <strong>JDK 8 - 25</strong>. Language features
+                    introduced up to and including Java 25 (pattern matching for <code>switch</code>, record
+                    patterns, module imports, compact source files and flexible constructor bodies) are
+                    instrumented.</p>
 
                 <p>Groovy <strong>3.x, 4.x and 5.x</strong> are supported by Clover-for-Ant, Clover-for-Maven and
                     Clover-for-Grails. Please note that the Eclipse and IDEA plugins do not support Groovy.</p>
