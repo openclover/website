@@ -5,6 +5,14 @@
         <link>https://openclover.org</link>
         <description>OpenClover code coverage tool for Java, Groovy and AspectJ</description>
         <item>
+            <title>OpenClover 5.1.0 is available!</title>
+            <link>https://openclover.org/blog#2026-07-open-clover-5-1-0</link>
+            <description>Instrumentation of Java 18-25 (pattern matching for switch, record patterns,
+                module imports, compact source files), Maven 4 support, a fix for stale code in
+                multi-module builds and a faster Java lexer.</description>
+            <pubDate>Sun, 26 Jul 2026 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title>Support OpenClover &#8212; buy me a coffee</title>
             <link>https://openclover.org/blog#2026-07-donate</link>
             <description>OpenClover stays free and open-source, but after nearly a decade of volunteering

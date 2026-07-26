@@ -52,6 +52,58 @@
         <a href="blog-rss.xml"><b>Click here</b></a>
     </div>
 
+    <a name="2026-07-open-clover-5-1-0"></a>
+    <h2 class="blog-post-title">OpenClover 5.1.0 — modern Java, Maven 4 and a faster lexer</h2>
+    <div class="row">
+        <div class="col-md-8">
+            <p>Ten days after the landmark 5.0 release we are back with <b>OpenClover 5.1.0</b>, and it
+            closes the biggest gap that was left: <b>instrumentation of Java 18 through 25</b>. Runtime
+            support was not enough — now OpenClover actually parses and measures modern Java syntax.
+            </p>
+            <p>
+            <b>Pattern matching for <code>switch</code> and record patterns</b> (Java 21) are fully
+            instrumented, and <code>when</code> guards are treated as real branches: you get true/false
+            coverage and complexity for them, so a guard that is only ever hit one way can no longer
+            hide. From Java 25 we support <b>module import declarations</b> and <b>compact source
+            files</b> (JEP 511 and 512), so even a single-file Java program can be measured. Flexible
+            constructor bodies (JEP 513) let us put the coverage recorder call <em>before</em>
+            <code>super()</code>/<code>this()</code> &mdash; so a constructor whose superclass call throws
+            is no longer reported as uncovered when it did in fact run.
+            </p>
+            <p>
+            Builds get faster too: the Java lexer has been rewritten around a faster
+            identifier-recognition path and is now <b>50% faster</b>, which makes the whole parsing cycle
+            (lexer + parser) about <b>15% faster</b> &mdash; on every single build, with no configuration
+            needed.
+            </p>
+            <p>
+            On the Maven side, the plugin has been migrated to the Maven 4 API and is now built and tested
+            against both <b>Maven 3.3&ndash;3.9 and Maven 4</b>. We also finally fixed a years-old bug where
+            multi-module reactor builds could pick up a stale <code>-clover.jar</code> from the local
+            <code>.m2</code> cache instead of the classes just instrumented, causing baffling cross-module
+            compile errors.
+            </p>
+            <p>
+            Rounding it off: the Jenkins plugin publishes the HTML coverage report as a
+            <b>downloadable ZIP</b>, so Jenkins' Content Security Policy can no longer break its styling
+            &mdash; you no longer have to loosen your Jenkins Content Security Policy just to get a
+            readable coverage report. The Eclipse plugin is now published as a proper <b>p2 update
+            site</b>, so it can be mirrored by corporate Eclipse installations and automated provisioning
+            setups. And we fixed a race condition in the coverage recorder's TCP listener that could
+            occasionally hang or throw when shutting down per-test coverage collection.
+            </p>
+            <p>See <a href="doc/openclover-5.1.0-release-notes.html">the release notes</a> for the full
+            changelog and upgrade instructions.</p>
+        </div>
+
+        <div class="col-md-4">
+            <p class="blog-post-meta">
+                <a href="about-us"><img src="resources/img/about/marek_parfianowicz.jpg" class="photo-round-mini"></a>
+            </p>
+            <p class="blog-post-meta">July 26, 2026</p>
+        </div>
+    </div>
+
     <a name="2026-07-donate"></a>
     <h2 class="blog-post-title">Support OpenClover &mdash; buy me a coffee</h2>
     <div class="row">
@@ -458,7 +510,7 @@
             <p>As Grails uses Groovy, the oldest Grails version supported will be 2.2.x (<a
                     href="https://objectpartners.com/2015/05/14/list-of-groovy-versions-for-each-version-of-grails/">which
                 is based on Groovy 2.0.x</a>). So, you will be able to continue using OpenClover with Grails 2.2-2.5.
-                Note that we don't have dedicated support for Grails 3.x yet - it depends on the Gradle plugin.
+                Note that we don't have dedicated support for Grails 3.x yet - it depends on the Gradle plugin.</p>
 
             <p><b>Maven 2</b></p>
 
